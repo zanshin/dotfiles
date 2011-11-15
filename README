@@ -1,3 +1,6 @@
+This repository holds my Vim configuration so that I can clone it to other machines
+easily. Eventually it will also house things like my zsh rc file.
+
 Installation:
 
     git clone git://github.com/zan5hin/dotfiles.git ~/.dotfiles
