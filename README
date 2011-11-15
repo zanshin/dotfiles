@@ -3,13 +3,13 @@ easily. Eventually it will also house things like my zsh rc file.
 
 Installation:
 
-    git clone git://github.com/zan5hin/dotfiles.git ~/.dotfiles
+```git clone git://github.com/zan5hin/dotfiles.git ~/.dotfiles```
 
 Create the following symlinks:
 
-    ln -s ~/.dotfiles/vimrc ~/.vimrc
-    ln -s ~/.dotfiles/vim ~/.vim
+```ln -s ~/.dotfiles/vimrc ~/.vimrc```
+```ln -s ~/.dotfiles/vim ~/.vim```
 
 Vim's backup and swap files are stored in ~/.tmp, so that directory must exist. To be sure run:
 
-    mkdir ~/.tmp
+```mkdir ~/.tmp```
