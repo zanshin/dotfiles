@@ -13,3 +13,26 @@ Create the following symlinks:
 Vim's backup and swap files are stored in `~/.tmp`, so that directory must exist. To be sure run:
 
     mkdir ~/.tmp
+
+Recipe for cloning to a machine, including git submodule init and update:
+
+    cd ~
+    git clone http://github.com/zan5hin/dotfiles.git ~/.dotfiles
+    ln -s ~/.dotfiles/vimrc ~/.vimrc
+    ln -s ~/.dotfiles/vim ~/.vim
+    mkdir ~/.tmp
+    cd ~/.dotfiles
+    git submodule init
+    git submodule update
+
+Upgrade a single bundle:
+
+    cd ~/.dotfiles/vim/bundle/fugitive
+    git pull origin master
+
+Upgrade all bundles:
+
+    cd ~/.dotfiles
+    git submodule foreach git pull origin master
+
+
