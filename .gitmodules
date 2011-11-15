@@ -14,3 +14,7 @@
 	path = vim/bundle/nerdtree
     url = https://github.com/scrooloose/nerdtree.git
     ignore = dirty
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter.git
+    ignore = dirty
