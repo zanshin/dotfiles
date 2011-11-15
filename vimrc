@@ -3,6 +3,7 @@
 " largely copied from Steve Losh (stevelosh.com)
 " addition bits borrowed from https://github.com/nvie/vimrc/blob/master/vimrc
 " further bits from http://vimcasts.org
+" also, https://github.com/lukaszkorecki/DOtFiles 
 "
 " ---------------------------------------------------------------------------------
 " use Vim settings rather than vi settings (must be first) 
@@ -52,7 +53,7 @@ set ffs=unix,mac,dos            " default file types
 set spell                       " turn spell check on
 
 " use relatice (offset) line number only in active window split
-set relative number
+set relativenumber
 :au WinEnter * :setlocal relativenumber
 :au WinLeave * :setlocal nonumber
 
@@ -218,6 +219,9 @@ endif
 " NERDTree
 " toggle NERDTRee on or off via F2
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+" let NERDTreeWinSize=40
 
 " NERDCommenter
 " <leader>c 
