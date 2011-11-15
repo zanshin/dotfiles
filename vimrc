@@ -43,7 +43,6 @@ set cursorline
 set ttyfast
 set ruler                       " show row,col in status area
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
-set relativenumber              " use relative (offset) line numbering
 set history=1000
 set undodir=~/.tmp/undodir      " set unfo file location
 set undofile
@@ -51,6 +50,15 @@ set backupdir=~/.tmp            " set backup directory to ~/.tmp
 set directory=~/.tmp
 set ffs=unix,mac,dos            " default file types
 set spell                       " turn spell check on
+
+" use relatice (offset) line number only in active window split
+set relative number
+:au WinEnter * :setlocal relativenumber
+:au WinLeave * :setlocal nonumber
+
+" automatically resize vertical splits to maximize current split
+:au WinEnter * :set winfixheight
+:au WinEnter * :wincmd =
 
 " ---------------------------------------------------------------------------------
 " Editor layout
@@ -182,10 +190,26 @@ if has("autocmd")
     " syntax of these languages is fussy over tabs Vs spaces
     autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
     autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType py   setlocal ts=2 sts=2 sw=2 expandtab
 
     " treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
+
+    " markdown filetype
+    autocmd BufNewFile,BufRead *.md, *.mkd, *.markdown setfiletype markdown
+    autocmd BufNewFile,BufRead *.md, *.mkd, *.markdown set spell
+
+    " non ruby files related to Ruby
+    autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
+
+    autocmd BufNewFile,BufRead Rakefile setfiletype rake
+    autocmd BufNewFile,BufRead Rakefile set syntax=ruby
+
+    autocmd BufNewFile,BufRead *.rake setfiletype rake
+    autocmd BufNewFile,BufRead *.rake set syntax=ruby
+
+    " Python specific settings
+    let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
+    autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtav
 endif
 
 " ---------------------------------------------------------------------------------
