@@ -9,6 +9,7 @@ Create the following symlinks:
 
     ln -s ~/.dotfiles/vimrc ~/.vimrc
     ln -s ~/.dotfiles/vim ~/.vim
+    ln -s ~/.dotfiles/zshrc ~/.zshrc
 
 Vim's backup and swap files are stored in `~/.tmp`, so that directory must exist. To be sure run:
 
