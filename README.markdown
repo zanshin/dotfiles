@@ -5,6 +5,12 @@ easily.
 
     git clone git://github.com/zan5hin/dotfiles.git ~/.dotfiles
 
+## Updating
+
+    cd ~/.dotfiles
+    git pull
+    git submodule foreach git pull origin master
+
 ## Vim
 For Vim configuration and use, create the following symlinks:
 
