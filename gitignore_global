@@ -1,0 +1,13 @@
+*~
+*.DS_Store
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.settings
+*.project
+*.idea
+*.swp
+target
+out
+deploy.log

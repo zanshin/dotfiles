@@ -53,4 +53,10 @@ following symlinks:
     ln -s ~/.dotfiles/bash_aliases ~/.bash_aliases
     ln -s ~/.dotfiles/bash_history ~/.bash_history
 
+## Git
+For Git configuration and global ignore files, create these symlinks:
+
+    ln -s ~/.dotfiles/gitconfig ~/.gitconfig
+    ln -s ~/.dotfiles/gitignore_global ~/.gitignore_global
+
 
