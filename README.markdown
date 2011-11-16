@@ -1,11 +1,12 @@
 This repository holds my configuration files so that I can clone them to other machines
 easily.
 
-Installation:
+##Installation:
 
     git clone git://github.com/zan5hin/dotfiles.git ~/.dotfiles
 
-Create the following symlinks:
+## Vim
+For Vim configuration and use, create the following symlinks:
 
     ln -s ~/.dotfiles/vimrc ~/.vimrc
     ln -s ~/.dotfiles/vim ~/.vim
@@ -37,5 +38,19 @@ Upgrade all Vim bundles:
 
     cd ~/.dotfiles
     git submodule foreach git pull origin master
+
+## zsh
+For zsh configuration create the following symlink:
+
+    ln -s ~/.dotfiles/zshrc ~/.zshrc
+
+## bash
+For those machines where zsh isn't installed or won't easily work, create the
+following symlinks:
+
+    ln -s ~/.dotfiles/bash_profile ~/.bash_profile
+    ln -s ~/.dotfiles/bashrc ~/.bashrc
+    ln -s ~/.dotfiles/bash_aliases ~/.bash_aliases
+    ln -s ~/.dotfiles/bash_history ~/.bash_history
 
 
