@@ -1,5 +1,5 @@
-This repository holds my Vim configuration so that I can clone it to other machines
-easily. Eventually it will also house things like my zsh rc file.
+This repository holds my configuration files so that I can clone them to other machines
+easily.
 
 Installation:
 
@@ -15,23 +15,25 @@ Vim's backup and swap files are stored in `~/.tmp`, so that directory must exist
 
     mkdir ~/.tmp
 
-Recipe for cloning to a machine, including git submodule init and update:
+Recipe for cloning to a machine, including git submodule init and update for
+Vim bundles:
 
     cd ~
     git clone http://github.com/zan5hin/dotfiles.git ~/.dotfiles
     ln -s ~/.dotfiles/vimrc ~/.vimrc
     ln -s ~/.dotfiles/vim ~/.vim
+    ln -s ~/.dotfiles/zshrc ~/.zshrc
     mkdir ~/.tmp
     cd ~/.dotfiles
     git submodule init
     git submodule update
 
-Upgrade a single bundle:
+Upgrade a single Vim bundle:
 
     cd ~/.dotfiles/vim/bundle/fugitive
     git pull origin master
 
-Upgrade all bundles:
+Upgrade all Vim bundles:
 
     cd ~/.dotfiles
     git submodule foreach git pull origin master
