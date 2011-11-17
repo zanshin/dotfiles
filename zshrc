@@ -119,6 +119,8 @@ alias 'generate=date ; rake generate ; date;'
 alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net/images ;'
 alias 'deploy=rake deploy > deploy.log ; tail -n 3 deploy.log ;'
 
+# fakecall.net 
+alias fakecall='curl --request POST --user "7852368181:ghoti" http://api.fakecall.net/v1/account/7852368181/call'
 # -------------------------------------------------------------------
 # Functions ported directly from .bashrc
 # -------------------------------------------------------------------
