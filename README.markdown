@@ -65,4 +65,10 @@ For Git configuration and global ignore files, create these symlinks:
     ln -s ~/.dotfiles/gitconfig ~/.gitconfig
     ln -s ~/.dotfiles/gitignore_global ~/.gitignore_global
 
+## Mercurial (hg)
+FOr Mercurial configuration and global ignore files, create these symlinks:
+
+    ln -s ~/.dotfiles/hgrc ~/.hgrc
+    ln -s ~/.dotfiles/hgignore_global ~/.hgignore_global
+
 
