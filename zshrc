@@ -107,6 +107,9 @@ alias gt='git today'
 # -------------------------------------------------------------------
 alias 'sloc=/usr/local/sloccount/bin/sloccount'
 
+# fakecall.net 
+alias fakecall='curl --request POST --user "7852368181:ghoti" http://api.fakecall.net/v1/account/7852368181/call'
+
 # necessary to make rake work inside of zsh
 alias rake="noglob rake"
 
@@ -114,13 +117,39 @@ alias rake="noglob rake"
 alias 'wordy=wc -w * | sort | tail -n10'
 alias 'filecount=find . -type f | wc -l'
 
+# -------------------------------------------------------------------
 # some Octopress helpers
+# -------------------------------------------------------------------
 alias 'generate=date ; rake generate ; date;'
-alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net/images ;'
 alias 'deploy=rake deploy > deploy.log ; tail -n 3 deploy.log ;'
+alias 'np=newpost.rb'
 
-# fakecall.net 
-alias fakecall='curl --request POST --user "7852368181:ghoti" http://api.fakecall.net/v1/account/7852368181/call'
+# copy .htaccess files for zanshin.net and its image sub-directory
+alias 'zhtaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net/images ;'
+
+# copy .htaccess files for cello.zanshin.net and its images and videos sub-directories
+alias 'chtaccess=scp /Users/mark/Projects/octopress/solfege/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/cello ; scp /Users/mark/Projects/octopress/solfege/source/images/.htaccess markhnic@markhnichols.com:~/public_html/cello/images ; scp /Users/mark/Projects/octopress/solfege/source/videos/.htaccess markhnic@markhnichols.com:~/public_html/cello/videos ;'
+
+# deploy zanshin.net and move its .htaccess files
+alias 'dz=deploy ; zhtaccess ;'
+
+# deploy cello.zanshin.net and move its .htaccess files
+alias 'ds=deploy ; chtaccess ;'
+
+# -------------------------------------------------------------------
+# Functions
+# -------------------------------------------------------------------
+# any function from http://onethingwell.org/post/14669173541/any
+any() {
+    emulate -L zsh
+    unsetopt KSH_ARRAYS
+    if [[ -z "$1" ]] ; then
+        echo "any - grep for process(es) by keyword" >&2
+        echo "Usage: any " >&2 ; return 1
+    else
+        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
+    fi
+}
 # -------------------------------------------------------------------
 # Functions ported directly from .bashrc
 # -------------------------------------------------------------------
@@ -182,6 +211,16 @@ function myip() {
 #
 s() { pwd > ~/.save_dir ; }
 i() { cd "$(cat ~/.save_dir)" ; }
+
+# console function
+function console () {
+  if [[ $# > 0 ]]; then
+    query=$(echo "$*"|tr -s ' ' '|')
+    tail -f /var/log/system.log|grep -i --color=auto -E "$query"
+  else
+    tail -f /var/log/system.log
+  fi
+}
 
 # finis
 # mhn 2011.7.19

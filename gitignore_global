@@ -1,5 +1,7 @@
-*~
+# Mac OS
 *.DS_Store
+
+# Java / IntelliJ IDEA
 *.iml
 *.ipr
 *.iws
@@ -11,3 +13,15 @@
 target
 out
 deploy.log
+
+# Xcode
+xcuserstate
+xcuserdata
+
+*~.nib
+build/
+
+# There is no harm in versioning these artifacts, but some purists say not to. Here for future reference only
+# *.pbxuser - stores user's preferences for the project, e.g. window sizes, active build style, etc.
+# *.perspective - more user specific project settings
+*.perspectivev3 - v3 of more user specific project settings
