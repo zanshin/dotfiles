@@ -113,6 +113,9 @@ set textwidth=79
 set formatoptions=qrn1
 set colorcolumn=85
 
+" command to Wrap long lines. Sets wrap, linebreak, and nolist
+command! -nargs=* Wrap set wrap linebreak nolist
+
 " show invisible characters ala TextMate
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
