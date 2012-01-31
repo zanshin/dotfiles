@@ -66,9 +66,13 @@ For Git configuration and global ignore files, create these symlinks:
     ln -s ~/.dotfiles/gitignore_global ~/.gitignore_global
 
 ## Mercurial (hg)
-FOr Mercurial configuration and global ignore files, create these symlinks:
+For Mercurial configuration and global ignore files, create these symlinks:
 
     ln -s ~/.dotfiles/hgrc ~/.hgrc
     ln -s ~/.dotfiles/hgignore_global ~/.hgignore_global
 
+## TextMate (mate)
+For TextMate 2 settings create the following symlink:
+
+    ln -s ~/.dotflles/tm_properties ~/.tm_properties
 
