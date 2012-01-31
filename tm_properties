@@ -19,7 +19,10 @@ exclude        = "{$exclude,*.tmproj}"
 # ---------------------------------------------------------
 # Variables
 # ---------------------------------------------------------
+TM_FULLNAME   = "Mark H. Nichols"
+TM_ORGANIZATION = "zanshin.net"
 TM_GIT        = "/usr/local/bin/git"
+TM_HG         = "/usr/local/bin/hg"
 
 # ---------------------------------------------------------
 # General Settings
