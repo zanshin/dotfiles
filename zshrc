@@ -121,20 +121,14 @@ alias 'filecount=find . -type f | wc -l'
 # some Octopress helpers
 # -------------------------------------------------------------------
 alias 'generate=date ; rake generate ; date;'
-alias 'deploy=rake deploy > deploy.log ; tail -n 3 deploy.log ;'
+alias 'deploy=rm deploy.log ; rake deploy > deploy.log ; tail -n 3 deploy.log ;'
 alias 'np=newpost.rb'
 
 # copy .htaccess files for zanshin.net and its image sub-directory
-alias 'zhtaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net/images ;'
-
-# copy .htaccess files for cello.zanshin.net and its images and videos sub-directories
-alias 'chtaccess=scp /Users/mark/Projects/octopress/solfege/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/cello ; scp /Users/mark/Projects/octopress/solfege/source/images/.htaccess markhnic@markhnichols.com:~/public_html/cello/images ; scp /Users/mark/Projects/octopress/solfege/source/videos/.htaccess markhnic@markhnichols.com:~/public_html/cello/videos ;'
+alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net/images ;'
 
 # deploy zanshin.net and move its .htaccess files
-alias 'dz=deploy ; zhtaccess ;'
-
-# deploy cello.zanshin.net and move its .htaccess files
-alias 'ds=deploy ; chtaccess ;'
+alias 'dz=deploy ; htaccess ;'
 
 # -------------------------------------------------------------------
 # Functions
