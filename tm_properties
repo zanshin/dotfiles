@@ -1,0 +1,60 @@
+# .tm_properties file from http://gist.github.com/1478685
+# ---------------------------------------------------------
+
+# ---------------------------------------------------------
+# Display the name of the home directory
+# ---------------------------------------------------------
+windowTitle    = "$TM_DISPLAYNAME - ${CWD/^.*\///}"
+
+# ---------------------------------------------------------
+# Omit .tm_properties so it doesn't show in the browser
+# ---------------------------------------------------------
+include        = ".htaccess"
+
+# ---------------------------------------------------------
+# Exclude old *.tmproj files
+# ---------------------------------------------------------
+exclude        = "{$exclude,*.tmproj}"
+
+# ---------------------------------------------------------
+# Variables
+# ---------------------------------------------------------
+TM_GIT        = "/usr/local/bin/git"
+
+# ---------------------------------------------------------
+# General Settings
+# ---------------------------------------------------------
+showInvisibles = true
+spellChecking  = true
+
+[ text ]
+softWrap       = false
+wrapColumn     = 80
+softTabs       = true
+tabSize        = 2
+
+[ text.html.markdown ]
+softWrap       = true
+wrapColumn     = "Use Window Frame"
+softTabs       = false
+tabSize        = 4
+
+[ text.plain ]
+softWrap       = true
+wrapColumn     = "Use Window Frame"
+softTabs       = false
+tabSize        = 4
+
+[ source ]
+softWrap       = false
+wrapColumn     = 80
+softTabs       = true
+tabSize        = 2
+
+[ source.plist ]
+softTabs       = false
+tabSize        = 4
+
+[ source.tm-properties ]
+spellChecking  = false
+
