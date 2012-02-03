@@ -70,12 +70,17 @@ softTabs       = false
 tabSize        = 4
 
 [ source.python ]
-softTabs         = true
-tabSize          = 4
+softTabs       = true
+tabSize        = 4
 
 [ source.tm-properties ]
 spellChecking  = false
 
 [ "{README,INSTALL,LICENSE,TODO}" ]
-fileType         = "text.plain"
+fileType       = "text.plain"
 
+
+# not entirely sure this bit works...
+[ ".{zshrc}"]
+fileType       = "shell"
+spellChecking  = false
