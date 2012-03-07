@@ -21,6 +21,10 @@ exclude        = "{$exclude,*.tmproj}"
 # ---------------------------------------------------------
 TM_FULLNAME   = "Mark H. Nichols"
 TM_ORGANIZATION = "zanshin.net"
+
+# ---------------------------------------------------------
+# Configure Git and Mercurial (hg)
+# ---------------------------------------------------------
 TM_GIT        = "/usr/local/bin/git"
 TM_HG         = "/usr/local/bin/hg"
 
@@ -29,6 +33,13 @@ TM_HG         = "/usr/local/bin/hg"
 # ---------------------------------------------------------
 showInvisibles = true
 spellChecking  = true
+
+[ .git/COMMIT_EDITMSG ]
+spellChecking    = true
+spellingLanguage = 'en'
+
+[ *.{icns,ico,jpg,jpeg,m4v,nib,pdf,png,psd,pyc,rtf,tif,tiff,xib} ]
+binary           = true
 
 [ text ]
 softWrap       = false
@@ -58,6 +69,18 @@ tabSize        = 2
 softTabs       = false
 tabSize        = 4
 
+[ source.python ]
+softTabs       = true
+tabSize        = 4
+
 [ source.tm-properties ]
 spellChecking  = false
 
+[ "{README,INSTALL,LICENSE,TODO}" ]
+fileType       = "text.plain"
+
+
+# not entirely sure this bit works...
+[ ".{zshrc}"]
+fileType       = "shell"
+spellChecking  = false

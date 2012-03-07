@@ -1,0 +1,123 @@
+# -------------------------------------------------------------------
+# some alias settings, just for fun
+# -------------------------------------------------------------------
+#alias 'today=calendar -A 0 -f ~/calendar/calendar.mark | sort'
+alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
+alias 'dus=du -sckx * | sort -nr'
+alias 'adventure=emacs -batch -l dunnet'
+alias 'mailsize=du -hs ~/Library/mail'
+alias 'bk=cd $OLDPWD'
+alias 'ttop=top -ocpu -R -F -s 2 -n30'
+alias lh='ls -a | egrep "^\."'
+alias lsd='ls -aFhlG'
+
+# -------------------------------------------------------------------
+# make rm command (potentially) less destructive
+# -------------------------------------------------------------------
+alias 'rm=rm -i'
+
+# -------------------------------------------------------------------
+# remote machines
+# -------------------------------------------------------------------
+alias 'palantir=ssh mhn@palantir.ome.ksu.edu'
+alias 'pvnc=open vnc://palantir.ome.ksu.edu'
+alias 'ksunix=ssh mhn@unix.ksu.edu'
+alias 'veld=ssh mhn@veld.ome.ksu.edu'
+alias 'dev=ssh mhn@ome-dev-as1.ome.campus'
+alias 'bh=ssh markhnic@markhnichols.com'
+
+# -------------------------------------------------------------------
+# postgres start and stop
+# -------------------------------------------------------------------
+alias 'psqlstart=/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start'
+alias 'psqlstop=/usr/local/pgsql/bin/pg_ctl stop'
+
+# -------------------------------------------------------------------
+# devvm start, stop, ssh, and mount
+# -------------------------------------------------------------------
+alias 'startvm=VBoxHeadless --startvm devvm'
+alias 'stopvm=VBoxManage controlvm devvm poweroff'
+alias 'devvm=ssh -p 10022 ome@localhost'
+alias 'devmount=mount_smbfs //ome:ch1cag0@localhost:10139/ome /Users/$USERNAME/Projects/devvm/'
+
+# -------------------------------------------------------------------
+# Mercurial (hg)
+# -------------------------------------------------------------------
+alias 'h=hg status'
+alias 'hc=hg commit'
+alias 'push=hg push'
+alias 'pull=hg pull'
+alias 'clone=hg clone'
+
+# -------------------------------------------------------------------
+# Git
+# -------------------------------------------------------------------
+alias ga='git add'
+alias gp='git push'
+alias gl='git log'
+alias gs='git status'
+alias gd='git diff'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gb='git branch'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+alias gta='git tag -a -m'
+alias gf='git reflog'
+
+# leverage an alias from the ~/.gitconfig
+alias gh='git hist'
+alias gt='git today'
+
+# -------------------------------------------------------------------
+# Oddball stuff
+# -------------------------------------------------------------------
+alias 'sloc=/usr/local/sloccount/bin/sloccount'
+
+# fakecall.net 
+alias fakecall='curl --request POST --user "7852368181:ghoti" http://api.fakecall.net/v1/account/7852368181/call'
+
+# necessary to make rake work inside of zsh
+alias rake="noglob rake"
+
+# sort files in current directory by the number of words they contain
+alias 'wordy=wc -w * | sort | tail -n10'
+alias 'filecount=find . -type f | wc -l'
+
+# -------------------------------------------------------------------
+# some Octopress helpers
+# -------------------------------------------------------------------
+alias 'generate=date ; rake generate ; date;'
+alias 'deploy=rm deploy.log ; rake deploy > deploy.log ; tail -n 3 deploy.log ;'
+alias 'np=newpost.rb'
+
+# copy .htaccess files for zanshin.net and its image sub-directory
+alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net/images ;'
+
+# deploy zanshin.net and move its .htaccess files
+alias 'dz=deploy ; htaccess ;'
+
+# -------------------------------------------------------------------
+# Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh
+# -------------------------------------------------------------------
+alias wtf='dmesg'
+alias onoz='cat /var/log/errors.log'
+alias rtfm='man'
+alias visible='echo'
+alias invisible='cat'
+alias moar='more'
+alias icanhas='mkdir'
+alias donotwant='rm'
+alias dowant='cp'
+alias gtfo='mv'
+alias hai='cd'
+alias plz='pwd'
+alias inur='locate'
+alias nomz='ps aux | less'
+alias nomnom='killall'
+alias cya='reboot'
+alias kthxbai='halt'
