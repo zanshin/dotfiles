@@ -13,7 +13,8 @@ PROMPT='
 ${vcs_info_msg_0_}$(prompt_char) '
 
 # rubies are red, and my rprompt isn't - too hard to read, switched to tan
-RPROMPT='%{$fg[tan]%}$(rvm_ruby_prompt)%{$reset_color%}%'
+#RPROMPT='%{$fg[tan]%}$(rvm_ruby_prompt)%{$reset_color%}%'
+RPROMPT='%{$fg[red]%}$(rbenv version-name)%{$reset_color%}%'
 
 # git prompt information
 setopt prompt_subst
@@ -54,12 +55,12 @@ function __git_prompt {
 }
 
 # display Ruby information, only when RVM is installed and only when you are using a RVM installed ruby.
-function rvm_ruby_prompt {
-    ruby_version=$(~/.rvm/bin/rvm-prompt)
-    if [ -n "$ruby_version" ]; then
-		echo "[$ruby_version]"
-	fi
-}
+#function rvm_ruby_prompt {
+#    ruby_version=$(~/.rvm/bin/rvm-prompt)
+#    if [ -n "$ruby_version" ]; then
+#		echo "[$ruby_version]"
+#	fi
+#}
 
 ###############################################################
 # commenting out all below mhn 2011-08-29
