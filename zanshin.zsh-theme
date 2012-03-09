@@ -6,11 +6,13 @@
 # ----------------------------------------------------------------------------
 # Shows little symbol '±' if you're currently at a git repo,
 #                     '☿' if you're currently at a hg repo,
+#                     '⚡' if you're currently at a svn repo,
 #                 and '○' all other times
 # ----------------------------------------------------------------------------
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
+	svn info >/dev/null 2>/dev/null && echo '⚡' && return
     echo '○'
 }
 
@@ -54,16 +56,7 @@ function svn_prompt_info {
 		fi
 		
 		# show the results
-		echo -n %{$fg[blue]%}
-		echo -n $svn_repository
-		echo -n "/"
-		echo -n $svn_branch
-		echo -n " @ "
-		echo -n $svn_version
-		echo -n %{$reset_color%}
-		echo -n %{$fg[yellow]%}
-		echo -n $svn_change
-		echo -n %{$reset_color%}
+		echo "%{$fg[blue]%}$svn_repository/$svn_branch @ $svn_version%{$reset_color%}%{$fg[yellow]%}$svn_change%{$reset_color%}"
 		
 	fi
 }
