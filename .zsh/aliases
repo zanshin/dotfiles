@@ -11,6 +11,8 @@ alias 'ttop=top -ocpu -R -F -s 2 -n30'
 alias lh='ls -a | egrep "^\."'
 alias lsd='ls -aFhlG'
 
+alias l='ls -al'
+
 # -------------------------------------------------------------------
 # make rm command (potentially) less destructive
 # -------------------------------------------------------------------

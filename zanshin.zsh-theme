@@ -1,58 +1,90 @@
-# Shows little symbol '±' if you're currently at a git repo and '○' all other times
+# ----------------------------------------------------------------------------
+# Using bits from Steve Losh
+#	http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# Shows little symbol '±' if you're currently at a git repo,
+#                     '☿' if you're currently at a hg repo,
+#                 and '○' all other times
+# ----------------------------------------------------------------------------
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
+    hg root >/dev/null 2>/dev/null && echo '☿' && return
     echo '○'
 }
 
-#PROMPT='
-#%{$fg[blue]%}%n%{$reset_color%} on %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}%~%b%{$reset_color%} $(git_time_since_commit)$(check_git_prompt_info)
-#${vcs_info_msg_0_}$(prompt_char) '
+# ----------------------------------------------------------------------------
+# hg prompt
+# depends upon ~/Projects/hg/hg-prompt
+# ----------------------------------------------------------------------------
+function hg_prompt_info {
+    hg prompt --angle-brackets "\
+< on %{$fg[magenta]%}<branch>%{$reset_color%}>\
+< at %{$fg[yellow]%}<tags|%{$reset_color%}, %{$fg[yellow]%}>%{$reset_color%}>\
+%{$fg[green]%}<status|modified|unknown><update>%{$reset_color%}<
+patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset_color%})|pre_unapplied(%{$fg_bold[black]%})|post_unapplied(%{$reset_color%})>>" 2>/dev/null
+}
 
+# ----------------------------------------------------------------------------
+# git prompt variables
+# depends on using Steve Losh fork of oh-my-zsh
+# ----------------------------------------------------------------------------
+ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[blue]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} is dirty"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%} has untracked changes"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+# ----------------------------------------------------------------------------
+# zee prompt (ha ha)
+# ----------------------------------------------------------------------------
 PROMPT='
-%{$fg[blue]%}%n%{$reset_color%} on %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}%~%b%{$reset_color%} $(__git_prompt)
-${vcs_info_msg_0_}$(prompt_char) '
+%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
+$(prompt_char) '
 
-# rubies are red, and my rprompt isn't - too hard to read, switched to tan
-#RPROMPT='%{$fg[tan]%}$(rvm_ruby_prompt)%{$reset_color%}%'
+# ----------------------------------------------------------------------------
+# rubies are red, and so my Ruby version is too
+#----------------------------------------------------------------------------
 RPROMPT='%{$fg[red]%}$(rbenv version-name)%{$reset_color%}%'
 
 # git prompt information
-setopt prompt_subst
-autoload colors zsh/terminfo
-colors
+#setopt prompt_subst
+#autoload colors zsh/terminfo
+#colors
 
-function __git_prompt {
-  local DIRTY="%{$fg[yellow]%}"
-  local CLEAN="%{$fg[green]%}"
-  local UNMERGED="%{$fg[red]%}"
-  local RESET="%{$terminfo[sgr0]%}"
-  git rev-parse --git-dir >& /dev/null
-  if [[ $? == 0 ]]
-  then
-    echo -n "["
-    if [[ `git ls-files -u >& /dev/null` == '' ]]
-    then
-      git diff --quiet >& /dev/null
-      if [[ $? == 1 ]]
-      then
-        echo -n $DIRTY
-      else
-        git diff --cached --quiet >& /dev/null
-        if [[ $? == 1 ]]
-        then
-          echo -n $DIRTY
-        else
-          echo -n $CLEAN
-        fi
-      fi
-    else
-      echo -n $UNMERGED
-    fi
-    echo -n `git branch | grep '* ' | sed 's/..//'`
-    echo -n $RESET
-    echo -n "]"
-  fi
-}
+#function __git_prompt {
+#  local DIRTY="%{$fg[yellow]%}"
+#  local CLEAN="%{$fg[green]%}"
+#  local UNMERGED="%{$fg[red]%}"
+#  local RESET="%{$terminfo[sgr0]%}"
+#  git rev-parse --git-dir >& /dev/null
+#  if [[ $? == 0 ]]
+#  then
+#    echo -n "["
+#    if [[ `git ls-files -u >& /dev/null` == '' ]]
+#    then
+#      git diff --quiet >& /dev/null
+#      if [[ $? == 1 ]]
+#      then
+#        echo -n $DIRTY
+#      else
+#        git diff --cached --quiet >& /dev/null
+#        if [[ $? == 1 ]]
+#        then
+#          echo -n $DIRTY
+#        else
+#          echo -n $CLEAN
+#        fi
+#      fi
+#    else
+#      echo -n $UNMERGED
+#    fi
+#    echo -n `git branch | grep '* ' | sed 's/..//'`
+#    echo -n $RESET
+#    echo -n "]"
+#  fi
+#}
 
 # display Ruby information, only when RVM is installed and only when you are using a RVM installed ruby.
 #function rvm_ruby_prompt {
