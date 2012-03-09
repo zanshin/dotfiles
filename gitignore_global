@@ -1,7 +1,12 @@
+# ----------------------------------------------------------------------------
 # Mac OS
+# ----------------------------------------------------------------------------
 *.DS_Store
 
+# ----------------------------------------------------------------------------
 # Java / IntelliJ IDEA
+# (https://github.com/github/gitignore/blob/master/Java.gitignore)
+# ----------------------------------------------------------------------------
 *.iml
 *.ipr
 *.iws
@@ -10,18 +15,42 @@
 *.project
 *.idea
 *.swp
-target
+
+# Maven
+target/
+
 out
 deploy.log
 
-# Xcode
-xcuserstate
-xcuserdata
+*.class
 
-*~.nib
-build/
+# Package Files 
+*.jar
+*.war
+*.ear
 
-# There is no harm in versioning these artifacts, but some purists say not to. Here for future reference only
-# *.pbxuser - stores user's preferences for the project, e.g. window sizes, active build style, etc.
+
+# ----------------------------------------------------------------------------
+# Xcode 
+# (https://github.com/github/gitignore/blob/master/Objective-C.gitignore)
+# There is no harm in versioning these artifacts, but some purists say not to.
+# Here for future reference only
+# *.pbxuser - stores user's preferences for the project, e.g. window sizes,
+#             active build style, etc.
 # *.perspective - more user specific project settings
-*.perspectivev3 - v3 of more user specific project settings
+# *.perspectivev3 - v3 of more user specific project settings
+# ----------------------------------------------------------------------------
+build/*
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
