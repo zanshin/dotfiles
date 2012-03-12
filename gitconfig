@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	editor = /usr/bin/vim
+	editor = "mate -w"
 	autocrlf = input
 	safecrlf = warn
 	excludesfile = /Users/mark/.gitignore_global
