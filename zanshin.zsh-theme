@@ -32,6 +32,9 @@ patches: <patches|join( → )|pre_applied(%{$fg[yellow]%})|post_applied(%{$reset
 # svn prompt
 # based on: https://gist.github.com/1156969 
 # with help from: http://andrewray.me/bash-prompt-builder/index.html
+# 
+# Only the root directory holds the .svn repository. We need to test each directory in the current
+# directory's path to determine if we are under Subversion control.
 # ----------------------------------------------------------------------------
 function svn_prompt_info {
 	# Set up defaults
@@ -40,8 +43,9 @@ function svn_prompt_info {
 	local svn_version=""
 	local svn_change=""
 
-	# only if we are in a directory that contains a .svn entry
-	if [ -d ".svn" ]; then
+	# if `svn info` returns more than 1 line, we are under subversion control
+  testsvn=`svn info > /dev/null 2>&1 | wc -l`
+  if [ $testsvn -gt 1 ] ; then
 		# query svn info and parse the results
 		svn_branch=`svn info | grep '^URL:' | egrep -o '((tags|branches)/[^/]+|trunk).*' | sed -E -e 's/^(branches|tags)\///g'`
 		svn_repository=`svn info | grep '^Repository Root:' | egrep -o '(http|https|file|svn|svn+ssh)/[^/]+' | egrep -o '[^/]+$'`
