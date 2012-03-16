@@ -84,6 +84,15 @@ $(prompt_char) '
 
 # ----------------------------------------------------------------------------
 # rubies are red, and so my Ruby version is too
-#----------------------------------------------------------------------------
-RPROMPT='%{$fg[red]%}$(rbenv version-name)%{$reset_color%}%'
+#-----------------------------------------------------------------------------
+RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}%'
 
+# ----------------------------------------------------------------------------
+# determine the Ruby version for the right prompt
+#-----------------------------------------------------------------------------
+function rvm_ruby_prompt {
+  ruby_version=$(~/.rvm/bin/rvm-prompt)
+  if [ -n "$ruby_version" ]; then
+    echo "[$ruby_version]"
+  fi
+}

@@ -27,10 +27,12 @@ source $ZSH/oh-my-zsh.sh
 # added my path 2011.7.19
 #export PATH=/usr/local/bin:/usr/local/apache-maven-2.2.1/bin:/usr/local/maven-1.1/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mark/.rbenv/bin
 # trimmed path post rebuild 2012.03.09 -- removed items no longer present
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/mark/.rbenv/bin
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
-# rbenv stuff
-eval "$(rbenv init -)"
+# -------------------------------------------------------------------
+# Load RVM into a shell session *as a function*
+# -------------------------------------------------------------------
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # -------------------------------------------------------------------
 # set up history
