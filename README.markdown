@@ -16,9 +16,10 @@ For zsh configuration create the following symlink:
 
 	ln -s ~/.dotfiles/zshrc ~/.zshrc
 		
-Clone on-my-zsh repository from Github:
+Clone oh-my-zsh repository from Github. I'm using Steve Losh's fork of the original to gain access to 
+git prompt variables he's added.
 	
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone https://github.com/sjl/oh-my-zsh.git ~/.oh-my-zsh
 		
 Copy zanshin.zsh-theme to theme directoy
 	
