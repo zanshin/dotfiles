@@ -1,7 +1,0 @@
-# My .amazonrc file for use with ruby-aaws.
-key_id = 'AKIAJMWTQ5UPME7MGMZQ'
-secret_key_id = 'WXYtEcxbIXhHceLYdz+aXo6lVXSggpyW7l8gUWSD'
-associate = 'zanshinnet'
-cache = false
-locale = 'us'
-encoding = 'UTF-8'
