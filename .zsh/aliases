@@ -8,7 +8,7 @@ alias 'adventure=emacs -batch -l dunnet'
 alias 'mailsize=du -hs ~/Library/mail'
 alias 'bk=cd $OLDPWD'
 alias 'ttop=top -ocpu -R -F -s 2 -n30'
-alias lh='ls -a | egrep "^\."'
+alias lh='ls -a | egrep "^\." | column'
 alias lsd='ls -aFhlG'
 
 alias l='ls -al'

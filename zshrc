@@ -50,6 +50,10 @@ savehist=100
 source ${HOME}/.dotfiles/.zsh/aliases
 source ${HOME}/.dotfiles/.zsh/functions
 
+# -------------------------------------------------------------------
+# usr precmd to set OS X Terminal window title 
+# -------------------------------------------------------------------
+precmd () { print -Pn "\e]2;%n@%M %~\a" }
 
 # finis
 # mhn 2011.7.19
