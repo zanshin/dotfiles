@@ -54,3 +54,6 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+# added per CS193p - don't need to version state of IDE
+# may be redundant as xcuserstate is under xcuserdata
+*.xcuserstate
