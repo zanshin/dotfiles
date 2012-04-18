@@ -78,10 +78,10 @@ if has("gui_running")
     set guioptions-=T
     set t_Co=256
     set background=dark
-    colorscheme solarized
+    colorscheme solarized 
     set showtabline=2           " always show tabbar in gui
 else
-    colorscheme solarized
+    colorscheme solarized 
     set background=dark
 endif
 
