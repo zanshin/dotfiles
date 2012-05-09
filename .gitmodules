@@ -2,10 +2,6 @@
 	path = vim/bundle/fugitive
     url = http://github.com/tpope/vim-fugitive.git
     ignore = dirty
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-    url = git://github.com/altercation/vim-colors-solarized.git
-    ignore = dirty
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
     url = https://github.com/sjl/gundo.vim.git
@@ -26,3 +22,7 @@
 	path = vim/bundle/syntastic
     url = https://github.com/scrooloose/syntastic.git
     ignore = dirty
+[submodule "vim/bundle/solarized"]
+	path = vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+	ignore = dirty
