@@ -52,8 +52,14 @@ source ${HOME}/.dotfiles/.zsh/functions
 
 # -------------------------------------------------------------------
 # usr precmd to set OS X Terminal window title 
+# http://timbabwe.com/2012/05/iterm_tab_and_window_titles_with_zsh/
 # -------------------------------------------------------------------
-precmd () { print -Pn "\e]2;%n@%M %~\a" }
+#precmd () { print -Pn "\e]2;%n@%M %~\a" }
+precmd () {
+  tab_label=${PWD/${HOME}/\~} # use 'relative' path
+  echo -ne "\e]2;${tab_label}\a" # set window title to full string
+  echo -ne "\e]1;${tab_label: -24}\a" # set tab title to rightmost 24 characters
+}
 
 # finis
 # mhn 2011.7.19

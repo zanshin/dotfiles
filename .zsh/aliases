@@ -94,7 +94,9 @@ alias 'filecount=find . -type f | wc -l'
 # -------------------------------------------------------------------
 # some Octopress helpers
 # -------------------------------------------------------------------
-alias 'generate=date ; rake generate ; date;'
+alias 'generate=date ; rake generate ; date ;'
+alias 'gen=date ; rake generate ; date ;'
+alias 'ingen=date ; rake integrate ; generate ; date ;'
 alias 'deploy=rm deploy.log ; rake deploy > deploy.log ; tail -n 3 deploy.log ;'
 alias 'np=newpost.rb'
 
