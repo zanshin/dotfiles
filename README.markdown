@@ -85,3 +85,9 @@ For TextMate 2 settings create the following symlink:
 
     $ ln -s ~/.dotflles/tm_properties ~/.tm_properties
 
+## tmux (terminal multiplexer) configuration
+For tmux configuration create this symlink:
+
+    $ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+
+
