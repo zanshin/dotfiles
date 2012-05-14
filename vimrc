@@ -73,8 +73,9 @@ set cmdheight=2                 " ues a status bar that is two rows high
 
 " set options based on whether we're in the GUI or terminal
 " Mostly we're hiding the toolbar in MacVim
-set t_Co=256
+" set t_Co=256
 set background=dark
+let g:solarized_termtrans = 1
 colorscheme solarized
 if has("gui_running")
     set guioptions=egmrt
