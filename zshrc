@@ -61,5 +61,10 @@ precmd () {
   echo -ne "\e]1;${tab_label: -24}\a" # set tab title to rightmost 24 characters
 }
 
+# -------------------------------------------------------------------
+# Undo Lion's aggressive setting of ~/Library to invisible
+# -------------------------------------------------------------------
+/usr/bin/chflags nohidden ~/Library
+
 # finis
 # mhn 2011.7.19
