@@ -91,6 +91,9 @@ alias rake="noglob rake"
 alias 'wordy=wc -w * | sort | tail -n10'
 alias 'filecount=find . -type f | wc -l'
 
+# Force tmux to use 256 colors
+alias tmux="TERM=screen-256color-bce tmux"
+
 # -------------------------------------------------------------------
 # some Octopress helpers
 # -------------------------------------------------------------------

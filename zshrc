@@ -35,6 +35,12 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
 # -------------------------------------------------------------------
+# Load tmuxinator and export EDITOR as tmuxinator expects it
+# -------------------------------------------------------------------
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+export EDITOR=vim
+
+# -------------------------------------------------------------------
 # set up history
 #   keep 100 commands internally (histsize)
 #   store history in .zsh_history
