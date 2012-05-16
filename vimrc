@@ -71,13 +71,18 @@ set laststatus=2                " tell Vim to always put a status line in,
                                 "   even if there is only one window
 set cmdheight=2                 " ues a status bar that is two rows high 
 
+" ---------------------------------------------------------------------------------
 " Set up the solarized color scheme - not as easy as it ought to be
-" set background=dark
+" need `syntax on` for colors to work properly
+" ---------------------------------------------------------------------------------
+syntax on
+set background=dark
 " let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
-" let g:solarized_termtrans = 1
-colorscheme Tomorrow-Night
+colorscheme solarized 
+
 
 " set options based on whether we're in the GUI or terminal
 " Mostly we're hiding the toolbar in MacVim
