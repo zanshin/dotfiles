@@ -85,7 +85,13 @@ $(prompt_char) '
 # ----------------------------------------------------------------------------
 # rubies are red, and so my Ruby version is too
 #-----------------------------------------------------------------------------
-RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}%'
+case `uname` in
+  Darwin)
+    RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}%'
+    ;;
+esac
+
+
 
 # ----------------------------------------------------------------------------
 # determine the Ruby version for the right prompt
