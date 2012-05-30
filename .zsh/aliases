@@ -105,7 +105,7 @@ alias 'deploy=rm deploy.log ; rake deploy > deploy.log ; tail -n 3 deploy.log ;'
 alias 'np=newpost.rb'
 
 # copy .htaccess files for zanshin.net and its image sub-directory
-alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markhnic@markhnichols.com:~/public_html/zanshin.net/images ;'
+alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markn@markn.webfactional.com:~/webapps/zanshin ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markn@markn.webfactional.com:~/webapps/zanshin/images ;'
 
 # deploy zanshin.net and move its .htaccess files
 alias 'dz=deploy ; htaccess ;'
