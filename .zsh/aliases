@@ -102,6 +102,9 @@ alias 'filecount=find . -type f | wc -l'
 # Force tmux to use 256 colors
 alias tmux="TERM=screen-256color-bce tmux"
 
+# Hall of the Mountain King
+alias cello='say -v cellos "di di di di di di di di di di di di di di di di di di di di di di di di di di"'
+
 # -------------------------------------------------------------------
 # some Octopress helpers
 # -------------------------------------------------------------------
