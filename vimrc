@@ -4,6 +4,7 @@
 " addition bits borrowed from https://github.com/nvie/vimrc/blob/master/vimrc
 " further bits from http://vimcasts.org
 " also, https://github.com/lukaszkorecki/DOtFiles 
+" and from: http://www.drbunsen.org/text-triumvirate.html
 "
 " ---------------------------------------------------------------------------------
 " use Vim settings rather than vi settings (must be first) 
@@ -112,6 +113,16 @@ set hlsearch                    " highlight search terms
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
+
+" ---------------------------------------------------------------------------------
+" working with OS X Clipboard
+" ---------------------------------------------------------------------------------
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " ---------------------------------------------------------------------------------
 " handle long lines
