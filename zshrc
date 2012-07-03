@@ -41,6 +41,14 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 export EDITOR=vim
 
 # -------------------------------------------------------------------
+# vi style incremental search
+# -------------------------------------------------------------------
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward 
+
+# -------------------------------------------------------------------
 # set up history
 #   keep 100 commands internally (histsize)
 #   store history in .zsh_history
