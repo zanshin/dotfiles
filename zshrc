@@ -19,7 +19,7 @@ export ZSH_THEME="zanshin"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git textmate osx ruby rvm pow)
+plugins=(git textmate osx ruby rvm pow)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,6 +42,14 @@ PATH=$PATH:$HOME/.rvm/bin
 # -------------------------------------------------------------------
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 export EDITOR=vim
+
+# -------------------------------------------------------------------
+# vi style incremental search
+# -------------------------------------------------------------------
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward 
 
 # -------------------------------------------------------------------
 # set up history

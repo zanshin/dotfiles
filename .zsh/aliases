@@ -21,7 +21,7 @@ alias 'rm=rm -i'
 # -------------------------------------------------------------------
 # remote machines
 # -------------------------------------------------------------------
-alias 'palantir=ssh mhn@palantir.ome.ksu.edu'
+alias 'palantir=ssh mhn@palantir.ome.ksu.edu -p 10022'
 alias 'pvnc=open vnc://palantir.ome.ksu.edu'
 alias 'ksunix=ssh mhn@unix.ksu.edu'
 alias 'veld=ssh mhn@veld.ome.ksu.edu'
@@ -101,6 +101,9 @@ alias 'filecount=find . -type f | wc -l'
 
 # Force tmux to use 256 colors
 alias tmux="TERM=screen-256color-bce tmux"
+
+# Hall of the Mountain King
+alias cello='say -v cellos "di di di di di di di di di di di di di di di di di di di di di di di di di di"'
 
 # -------------------------------------------------------------------
 # some Octopress helpers
