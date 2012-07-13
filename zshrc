@@ -34,6 +34,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 # -------------------------------------------------------------------
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin 
+
 # -------------------------------------------------------------------
 # Load tmuxinator and export EDITOR as tmuxinator expects it
 # -------------------------------------------------------------------
