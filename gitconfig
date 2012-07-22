@@ -20,3 +20,10 @@
 [mergetool "sourcetree"]
 	cmd = /Users/mark/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh "$LOCAL" "$REMOTE" -ancestor "$BASE" -merge "$MERGED"
 	trustExitCode = true
+# Github helpers
+[url "git://github.com/"]
+  # Read-only
+  insteadOf = gh:
+[url "git@github.com:"]
+  # With write access
+  insteadOf = wgh:
