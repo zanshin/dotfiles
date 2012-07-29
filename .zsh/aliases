@@ -107,6 +107,9 @@ alias tmux="TERM=screen-256color-bce tmux"
 # Hall of the Mountain King
 alias cello='say -v cellos "di di di di di di di di di di di di di di di di di di di di di di di di di di"'
 
+# alias to cat this file to display
+alias acat='< ~/.dotfiles/.zsh/aliases'
+
 # -------------------------------------------------------------------
 # some Octopress helpers
 # -------------------------------------------------------------------
