@@ -19,7 +19,7 @@ export ZSH_THEME="zanshin"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git textmate osx ruby rvm pow)
+#plugins=(git textmate osx ruby rvm pow)
 
 source $ZSH/oh-my-zsh.sh
 
