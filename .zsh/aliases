@@ -110,6 +110,9 @@ alias cello='say -v cellos "di di di di di di di di di di di di di di di di di d
 # alias to cat this file to display
 alias acat='< ~/.dotfiles/.zsh/aliases'
 
+# alias to show all Mac App store apps
+alias apps='mdfind "kMDItemAppStoreHasReceipt=1"'
+
 # -------------------------------------------------------------------
 # some Octopress helpers
 # -------------------------------------------------------------------
