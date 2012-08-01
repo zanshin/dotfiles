@@ -113,6 +113,9 @@ alias acat='< ~/.dotfiles/.zsh/aliases'
 # alias to show all Mac App store apps
 alias apps='mdfind "kMDItemAppStoreHasReceipt=1"'
 
+# reset Address Book permissions in Mountain Lion (and later presumably)
+alias resetaddressbook='tccutil reset AddressBook'
+
 # -------------------------------------------------------------------
 # some Octopress helpers
 # -------------------------------------------------------------------
