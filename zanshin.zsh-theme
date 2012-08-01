@@ -87,11 +87,9 @@ $(prompt_char) '
 #-----------------------------------------------------------------------------
 case `uname` in
   Darwin)
-    RPROMPT='%{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}%'
+    RPROMPT='%{$fg[green]%}$(virtualenv_info)%{$reset_color%}% %{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
     ;;
 esac
-
-
 
 # ----------------------------------------------------------------------------
 # determine the Ruby version for the right prompt
@@ -101,4 +99,11 @@ function rvm_ruby_prompt {
   if [ -n "$ruby_version" ]; then
     echo "[$ruby_version]"
   fi
+}
+
+# ----------------------------------------------------------------------------
+# virtualenv information
+# ----------------------------------------------------------------------------
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
 }
