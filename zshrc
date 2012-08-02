@@ -38,6 +38,15 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 PATH=$PATH:$HOME/.rvm/bin 
 
 # -------------------------------------------------------------------
+# Setup virtualenvwrapper
+# -------------------------------------------------------------------
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects/python
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export VIRTUAL_ENV_DISABLE_PROMPT='Y'
+source /usr/local/bin/virtualenvwrapper.sh
+
+# -------------------------------------------------------------------
 # Load tmuxinator and export EDITOR as tmuxinator expects it
 # -------------------------------------------------------------------
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
