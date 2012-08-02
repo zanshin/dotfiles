@@ -84,6 +84,13 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 alias gu="git shortlog | grep -E '^[^ ]'"
 
 # -------------------------------------------------------------------
+# virtualenv 
+# -------------------------------------------------------------------
+alias mkenv='mkvirtualenv'
+alias on="workon"
+alias off="deactivate"
+
+# -------------------------------------------------------------------
 # Oddball stuff
 # -------------------------------------------------------------------
 alias 'sloc=/usr/local/sloccount/bin/sloccount'
