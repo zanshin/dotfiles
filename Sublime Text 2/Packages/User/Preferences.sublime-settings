@@ -1,0 +1,20 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"draw_white_space": "all",
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg"
+	],
+	"font_face": "Ubuntu Mono",
+	"font_size": 13.0,
+	"highlight_line": true,
+	"rulers":
+	[
+		72,
+		79
+	],
+	"theme": "Soda Dark.sublime-theme",
+	"translate_tabs_to_spaces": true
+}
