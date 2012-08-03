@@ -90,4 +90,23 @@ For tmux configuration create this symlink:
 
     $ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
+## Sublime Text 2 (subl)
+For Sublime Text 2 settings remove the following directories from 
+`~/Library/Application Support/Sublime Text 2`:
+
+    Installed Packages
+    Packages
+    Preistine Packages
+
+Then add these symlinks:
+
+    $ cd ~/Library/Application\ Support/Sublime\ Text\ 2
+    $ ln -s ~/.dotfiles/Sublime\ Text\ 2/Installed\ Packages ./Installed\ Packages
+    $ ln -s ~/.dotfiles/Sublime\ Text\ 2/Packages ./Packages
+    $ ln -s ~/.dotfiles/Sublime\ Text\ 2/Pristine\ Packages ./Pristine\ Packages
+
+Finally, to enable the hidden command line tool `subl` add this symlink:
+
+    $ ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
 
