@@ -96,7 +96,7 @@ For Sublime Text 2 settings remove the following directories from
 
     Installed Packages
     Packages
-    Preistine Packages
+    Pristine Packages
 
 Then add these symlinks:
 
