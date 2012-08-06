@@ -52,6 +52,7 @@ set backupdir=~/.tmp            " set backup directory to ~/.tmp
 set directory=~/.tmp
 set ffs=unix,mac,dos            " default file types
 set spell                       " turn spell check on
+set autoread                    " automatically updates file when editted outside vim
 
 " use relatice (offset) line number only in active window split
 set relativenumber
@@ -95,7 +96,7 @@ if has("gui_running")
 endif
 
 " Fonts
-set gfn=Menlo:h11
+set gfn=Ubuntu\ Mono:h11
 set shell=/bin/zsh
 
 " ---------------------------------------------------------------------------------
