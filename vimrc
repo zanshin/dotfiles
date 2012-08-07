@@ -54,7 +54,7 @@ set ffs=unix,mac,dos            " default file types
 set spell                       " turn spell check on
 set autoread                    " automatically updates file when editted outside vim
 
-" use relatice (offset) line number only in active window split
+" use relative (offset) line number only in active window split
 set relativenumber
 :au WinEnter * :setlocal relativenumber
 :au WinLeave * :setlocal nonumber
@@ -233,7 +233,7 @@ if has("autocmd")
 
     " Python specific settings
     let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
-    autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtav
+    autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
 endif
 
 " ---------------------------------------------------------------------------------
