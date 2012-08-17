@@ -1,9 +1,16 @@
 {
-	"auto_upgrade_last_run": 1344008057,
+	"auto_upgrade_last_run": 1344019906,
 	"installed_packages":
 	[
 		"Git",
+		"MarkdownEditing",
+		"Package Control",
+		"SideBarEnhancements",
 		"Theme - Soda",
 		"Tomorrow Color Schemes"
+	],
+	"repositories":
+	[
+		"https://github.com/ttscoff/MarkdownEditing"
 	]
 }
