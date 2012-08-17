@@ -36,17 +36,17 @@ set expandtab                   " expand tabs to spaces (overloadable by file ty
 set scrolloff=3                 " keep 3 lines off the edges of the screen when scrolling
 set autoindent                  " always set autoindenting on
 set showmode                    " always show what mode we're in
-set showcmd
+set showcmd                     " display info about current command in status lin 
 set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
-set cursorline
-set ttyfast
+set wildmenu                    " navigate <Left> & <Right> through completion lists
+set wildmode=list:longest       " allows expansion of wildmenu
+set visualbell                  " visual bell
+set cursorline                  " highlight the line containing the cursor
+set ttyfast                     " improves redrawing
 set ruler                       " show row,col in status area
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set history=1000
-set undodir=~/.tmp/undodir      " set unfo file location
+set undodir=~/.tmp/undodir      " set undo file location
 set undofile
 set backupdir=~/.tmp            " set backup directory to ~/.tmp
 set directory=~/.tmp
