@@ -91,6 +91,11 @@ alias on="workon"
 alias off="deactivate"
 
 # -------------------------------------------------------------------
+# use nocorrect alias to prevent auto correct from "fixing" these
+# -------------------------------------------------------------------
+#alias foobar="nocorrect foobar"
+
+# -------------------------------------------------------------------
 # Oddball stuff
 # -------------------------------------------------------------------
 alias 'sloc=/usr/local/sloccount/bin/sloccount'
