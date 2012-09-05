@@ -26,3 +26,7 @@
 	path = vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 	ignore = dirty
+[submodule "z"]
+	path = z
+	url = https://github.com/rupa/z.git
+	ignore = dirty

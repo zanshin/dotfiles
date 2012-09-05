@@ -77,6 +77,12 @@ source ${HOME}/.dotfiles/.zsh/aliases
 source ${HOME}/.dotfiles/.zsh/functions
 
 # -------------------------------------------------------------------
+# source z funtionality for directory hopping
+# https://github.com/rupa/z
+# -------------------------------------------------------------------
+source ${HOME}/.dotfiles/z/z.sh
+
+# -------------------------------------------------------------------
 # Darmin specific settings
 # -------------------------------------------------------------------
 case `uname` in
