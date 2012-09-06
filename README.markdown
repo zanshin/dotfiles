@@ -109,4 +109,21 @@ Finally, to enable the hidden command line tool `subl` add this symlink:
 
     $ ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
+##z
+To enable z directory function from https://github.com/rupa/z :
 
+	$ git submodule init
+	
+If not already present in `.zshrc` add:
+
+    source ${HOME}/.dotfiles/z/z.sh
+	
+To update z:
+
+    $ cd ~/.dotfiles/z
+    $ git pull origin master
+
+z will also be updated when all other git submodules are updated via:
+
+    $ cd ~/.dotfiles
+    $ git submodule foreach git pull origin master
