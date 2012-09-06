@@ -40,7 +40,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 # -------------------------------------------------------------------
 # rbenv setup
 # -------------------------------------------------------------------
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # -------------------------------------------------------------------
 # Setup virtualenvwrapper
