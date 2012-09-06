@@ -79,6 +79,15 @@ For Mercurial configuration and global ignore files, create these symlinks:
 
     $ ln -s ~/.dotfiles/hgrc ~/.hgrc
     $ ln -s ~/.dotfiles/hgignore_global ~/.hgignore_global
+	
+Also, the Steve Losh hg-prompt project is needed. Ensure that there is a `${HOME}/Projects/hg` directory, and clone the hg-prompt project to that location.
+
+    $ hg clone http://bitbucket.org/sjl/hg-prompt/
+	
+Once the hg-prompt clone is complete, edit the `.hgrc` to make sure that the following line is present:
+
+    [extensions]
+    prompt = ${HOME}/Projects/hg/hg-prompt/prompt.py
 
 ## TextMate (mate)
 For TextMate 2 settings create the following symlink:

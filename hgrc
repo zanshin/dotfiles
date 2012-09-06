@@ -3,7 +3,7 @@ username = Mark Nichols <mark@zanshin.net>
 ignore = /Users/mark/.hgignore_global
 [extensions]
 convert =
-prompt = /Users/mark/Projects/hg/hg-prompt/prompt.py
+prompt = ${HOME}/Projects/hg/hg-prompt/prompt.py
 [merge-tools]
 sourcetreemerge.gui=False
 sourcetreebulkmerge.gui=False
