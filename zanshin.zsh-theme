@@ -12,7 +12,7 @@
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
-	svn info >/dev/null 2>/dev/null && echo '⚡' && return
+    svn info >/dev/null 2>/dev/null && echo '⚡' && return
     echo '○'
 }
 
@@ -92,7 +92,7 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)e
 #-----------------------------------------------------------------------------
 case `uname` in
   Darwin)
-    RPROMPT='%{$fg[green]%}$(virtualenv_info)%{$reset_color%}% %{$fg[red]%}$(rvm_ruby_prompt)%{$reset_color%}'
+    RPROMPT='%{$fg[green]%}$(virtualenv_info)%{$reset_color%}% %{$fg[red]%}$(rbenv version-name)%{$reset_color%}'
     ;;
 esac
 
