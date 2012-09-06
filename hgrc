@@ -1,6 +1,6 @@
 [ui]
 username = Mark Nichols <mark@zanshin.net>
-ignore = /Users/mark/.hgignore_global
+ignore = ${HOME}/.hgignore_global
 [extensions]
 convert =
 prompt = ${HOME}/Projects/hg/hg-prompt/prompt.py
