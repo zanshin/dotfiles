@@ -32,15 +32,10 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 # -------------------------------------------------------------------
 # Load RVM into a shell session *as a function*
 # -------------------------------------------------------------------
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
-#
-# Add RVM to PATH for scripting
-#PATH=$PATH:$HOME/.rvm/bin 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 
-# -------------------------------------------------------------------
-# rbenv setup
-# -------------------------------------------------------------------
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin 
 
 # -------------------------------------------------------------------
 # Setup virtualenvwrapper
