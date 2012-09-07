@@ -12,7 +12,7 @@
 function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '±' && return
     hg root >/dev/null 2>/dev/null && echo '☿' && return
-	svn info >/dev/null 2>/dev/null && echo '⚡' && return
+    svn info >/dev/null 2>/dev/null && echo '⚡' && return
     echo '○'
 }
 
@@ -102,7 +102,7 @@ esac
 function rvm_ruby_prompt {
   ruby_version=$(~/.rvm/bin/rvm-prompt)
   if [ -n "$ruby_version" ]; then
-    echo "[$ruby_version]"
+    echo "$ruby_version"
   fi
 }
 
