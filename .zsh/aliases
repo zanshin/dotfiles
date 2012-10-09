@@ -96,6 +96,7 @@ alias off="deactivate"
 # use nocorrect alias to prevent auto correct from "fixing" these
 # -------------------------------------------------------------------
 #alias foobar="nocorrect foobar"
+alias g8="nocorrect g8"
 
 # -------------------------------------------------------------------
 # Oddball stuff
