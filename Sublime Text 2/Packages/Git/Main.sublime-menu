@@ -15,6 +15,7 @@
                             ,{ "caption": "Graph", "command": "git_graph" }
                             ,{ "caption": "-" }
                             ,{ "caption": "Diff", "command": "git_diff" }
+                            ,{ "caption": "DiffTool", "command": "git_diff_tool" }
                             ,{ "caption": "-" }
                             ,{ "caption": "Add", "command": "git_add" }
                             ,{ "caption": "Add Selected Hunk", "command": "git_add_selected_hunk" }
@@ -39,7 +40,7 @@
                             ,{ "caption": "-" }
                             ,{ "caption": "Diff", "command": "git_diff_all" }
                             ,{ "caption": "Diff Staged", "command": "git_diff_commit" }
-                            ,{ "caption": "Diff Tool", "command": "git_diff_tool" }
+                            ,{ "caption": "Diff Tool", "command": "git_diff_tool_all" }
                             ,{ "caption": "Reset Hard", "command": "git_reset_hard_head" }
                             ,{ "caption": "-" }
                             ,{ "caption": "Add...", "command": "git_add_choice" }
@@ -83,6 +84,40 @@
                     ,{ "caption": "Branches...", "command": "git_branch" }
                     ,{ "caption": "Merge...", "command": "git_merge" }
                     ,{ "caption": "See commit history...", "command": "git_commit_history"}
+                ]
+            }
+        ]
+    }
+
+    ,{
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "Git",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/Git/Git.sublime-settings"},
+                                "caption": "Settings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {"file": "${packages}/User/Git.sublime-settings"},
+                                "caption": "Settings – User"
+                            },
+                            { "caption": "-" }
+                        ]
+                    }
                 ]
             }
         ]

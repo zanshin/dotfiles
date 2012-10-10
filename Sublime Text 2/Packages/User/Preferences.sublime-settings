@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+=======
+	"color_scheme": "Packages/Color Scheme - Default/Monokai Bright.tmTheme",
+>>>>>>> 3a8c47b72feaab33ef1be5b94537bdbecc70d620
 	"draw_white_space": "all",
 	"folder_exclude_patterns":
 	[

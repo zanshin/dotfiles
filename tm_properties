@@ -65,6 +65,12 @@ wrapColumn     = "Use Window Frame"
 softTabs       = false
 tabSize        = 4
 
+[ scala ]
+softWrap       = false
+wrapColumn     = 80
+softTabs       = true
+tabSize        = 4
+
 [ source ]
 softWrap       = false
 wrapColumn     = 80

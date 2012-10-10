@@ -13,6 +13,8 @@ alias lsd='ls -aFhlG'
 
 alias l='ls -al'
 
+alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+
 # -------------------------------------------------------------------
 # make rm command (potentially) less destructive
 # -------------------------------------------------------------------
@@ -94,6 +96,7 @@ alias off="deactivate"
 # use nocorrect alias to prevent auto correct from "fixing" these
 # -------------------------------------------------------------------
 #alias foobar="nocorrect foobar"
+alias g8="nocorrect g8"
 
 # -------------------------------------------------------------------
 # Oddball stuff

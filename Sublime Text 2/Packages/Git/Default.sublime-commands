@@ -7,6 +7,18 @@
         "command": "git_blame"
     }
     ,{
+        "caption": "Git: New Tag",
+        "command": "git_new_tag"
+    }
+    ,{
+        "caption": "Git: Show Tags",
+        "command": "git_show_tags"
+    }
+    ,{
+        "caption": "Git: Push Tags",
+        "command": "git_push_tags"
+    }
+    ,{
         "caption": "Git: Log Current File",
         "command": "git_log"
     }
@@ -35,8 +47,12 @@
         "command": "git_diff_commit"
     }
     ,{
-        "caption": "Git: Diff Tool",
+        "caption": "Git: Diff Tool Current File",
         "command": "git_diff_tool"
+    }
+    ,{
+        "caption": "Git: Diff Tool All",
+        "command": "git_diff_tool_all"
     }
     ,{
         "caption": "Git: Commit",
