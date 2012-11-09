@@ -90,7 +90,7 @@ source ${HOME}/.dotfiles/.zsh/functions
 source ${HOME}/.dotfiles/z/z.sh
 
 # -------------------------------------------------------------------
-# Darmin specific settings
+# Darwin specific settings
 # -------------------------------------------------------------------
 case `uname` in
   Darwin)
