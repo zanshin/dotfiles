@@ -40,6 +40,11 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/
 PATH=$PATH:$HOME/.rvm/bin 
 
 # -------------------------------------------------------------------
+# JVM settings
+# -------------------------------------------------------------------
+export SBT_OPTS=-XX:MaxPermSize=1024m
+
+# -------------------------------------------------------------------
 # Setup virtualenvwrapper
 # -------------------------------------------------------------------
 export WORKON_HOME=$HOME/.virtualenvs

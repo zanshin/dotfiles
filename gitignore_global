@@ -10,7 +10,7 @@
 *.netrwhist
 
 # ----------------------------------------------------------------------------
-# Java / IntelliJ IDEA
+# Java / Scala / IntelliJ IDEA
 # (https://github.com/github/gitignore/blob/master/Java.gitignore)
 # ----------------------------------------------------------------------------
 *.iml
@@ -29,11 +29,23 @@ out
 deploy.log
 
 *.class
+*.log
 
 # Package Files 
 *.jar
 *.war
 *.ear
+
+# sbt specific
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot
+project/plugins/project/
+
+# IntelliJ
+.idea/*
 
 
 # ----------------------------------------------------------------------------
