@@ -57,21 +57,31 @@ project/plugins/project/
 #             active build style, etc.
 # *.perspective - more user specific project settings
 # *.perspectivev3 - v3 of more user specific project settings
+#
+# Updated 1/15/2013 per
+# http://robots.thoughtbot.com/post/33796217972/xcode-and-git-bridging-the-gap
 # ----------------------------------------------------------------------------
-build/*
-*.pbxuser
-!default.pbxuser
+
+# Xcode per-user config
+*.mode1
 *.mode1v3
-!default.mode1v3
 *.mode2v3
-!default.mode2v3
+*.perspective
 *.perspectivev3
-!default.perspectivev3
+*.pbxuser
 *.xcworkspace
-!default.xcworkspace
 xcuserdata
-profile
-*.moved-aside
-# added per CS193p - don't need to version state of IDE
-# may be redundant as xcuserstate is under xcuserdata
-*.xcuserstate
+
+# Build products
+build/
+*.o
+*.LinkFileList
+*.hmap
+
+# Automatic backup files
+*~.nib/
+*.swp
+*~
+*.dat
+*.dep
+
