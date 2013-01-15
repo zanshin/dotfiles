@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-	"auto_upgrade_last_run": 1349377097,
-=======
-	"auto_upgrade_last_run": 1349448351,
->>>>>>> 3a8c47b72feaab33ef1be5b94537bdbecc70d620
+	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
 		"AdvancedNewFile",
@@ -11,13 +7,8 @@
 		"Git",
 		"MarkdownEditing",
 		"Package Control",
-		"SideBarEnhancements",
 		"SublimeLinter",
 		"Theme - Soda",
 		"Tomorrow Color Schemes"
-	],
-	"repositories":
-	[
-		"https://github.com/ttscoff/MarkdownEditing"
 	]
 }

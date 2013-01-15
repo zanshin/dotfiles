@@ -7,6 +7,8 @@
         [
             {
                 "caption": "Gist",
+                "mnemonic": "G",
+                "id": "root",
                 "children":
                 [
                     { "command": "gist", "caption": "Create Public Gist…" },
@@ -24,7 +26,6 @@
                     { "command": "gist_delete", "caption": "Delete Gist" }
                 ]
             }
-
         ]
     },
     {

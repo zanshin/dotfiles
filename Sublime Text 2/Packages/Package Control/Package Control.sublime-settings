@@ -15,6 +15,10 @@
 		"sublime.wbond.net": ["7f4f8622b4fd001c7f648e09aae7edaa", ""]
 	},
 
+	// If debugging information for HTTP/HTTPS connections should be printed
+	// to the Sublime Text console
+	"debug": false,
+
 	// This helps solve naming issues where a repository it not named the
 	// same as the package should be. This is primarily only useful for
 	// GitHub and BitBucket repositories. This mapping will override the
@@ -31,6 +35,9 @@
 	// If packages should be automatically upgraded when ST2 starts
 	"auto_upgrade": true,
 
+	// If missing packages should be automatically installed when ST2 starts
+	"install_missing": true,
+
 	// The minimum frequency in hours in which to check for automatic upgrades,
 	// setting this to 0 will always check for automatic upgrades
 	"auto_upgrade_frequency": 1,
@@ -46,9 +53,14 @@
 
 	// An HTTP proxy server to use for requests
 	"http_proxy": "",
-	// An HTTPS proxy server to use for requests - if not specified, but
-	// http_proxy is, http_proxy will be used for https_proxy also
+	// An HTTPS proxy server to use for requests - this will inherit from
+	// http_proxy if it is set to "" or null and http_proxy has a value. You
+	// can set this to false to prevent inheriting from http_proxy.
 	"https_proxy": "",
+
+	// Username and password for both http_proxy and https_proxy
+	"proxy_username": "",
+	"proxy_password": "",
 
 	// Setting this to true will cause Package Control to ignore all git
 	// and hg repositories - this may help if trying to list packages to install

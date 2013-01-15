@@ -14,34 +14,46 @@ Go to the "Packages" directory (`Preferences` / `Browse Packages…`). Then clon
 
     git clone git://github.com/condemil/Gist
 
+# Generating Access Token
+
+Currently, the only way to create a Gist Access Token is to curl the authorize API from Github. Here's the command you can run from your terminal to do so:
+
+    curl -v -u USERNAME -X POST https://api.github.com/authorizations --data "{\"scopes\":[\"gist\"]}"
+
+Where USERNAME is your Github username. Save the token generated and paste it in the settings section under the token option.
+
 # Options
 
-If you're using OS X and have a keychain entry for github.com, no configuration is needed. Otherwise, edit the settings file (it should open automatically the first time you use a Gist command):
+If you're using OS X and have a keychain entry for github.com, no configuration is needed. Otherwise, edit the settings file (it should open automatically the first time you use a Gist command). Note you must specifiy either username AND password or token.
 
 *   `"username": ""`
 
-    You need to enter your GitHub username here
+    You can enter your GitHub username here
 
 *   `"password": ""`
 
-    You need to enter your GitHub password here
+    You can enter your GitHub password here
 
 *   `"https_proxy": http://user:pass@proxy:port`
 
     You can enter https proxy here
     Format: "http://user:pass@proxy:port"
 
-*	`"enterprise": false`
+*   `"enterprise": false`
 
-	Set this to true if you want to use a enterprise version of github instead of github.com
+    Set this to true if you want to use a enterprise version of github instead of github.com
 
-*	`"url": ""`
+*   `"url": ""`
 
-	Set the url of the enterprise version of github you want to use. Leave this blank if the enterprise option is set to false.
+    Set the url of the enterprise version of github you want to use. Leave this blank if the enterprise option is set to false.
 
-*	`"max_gists": 100`
+*   `"max_gists": 100`
 
-	Set the maximum number of Gists that can will fetched by the plugin. It can't be higher than 100, because of GitHub API limitations.
+    Set the maximum number of Gists that can will fetched by the plugin. It can't be higher than 100, because of GitHub API limitations.
+
+* `"gist_prefix": ""`
+
+    Limit the Gists displayed in the `Open Gist` list by prefix. Leave blank to display all Gists. Example: `"gist_prefix": "Snippet:"` will only list Gists with names starting with the text **Snippet:**.
 
 # Usage
 
@@ -64,27 +76,32 @@ Use the `Gist` / `Add File To Gist` command to see a list of your Gists. Selecti
 ## Create Public Gist
 
 * Windows and Linux: `Ctrl+K` `Ctrl+I`
-* OS X: `Cmd+K` `Cmd+I`
+* OS X: `Super+K` `Super+I`
 
 ## Create Private Gist
 
-* Windows and Linux: `Ctrl+K` `Ctrl+L`
-* OS X: `Cmd+K` `Cmd+L`
+* Windows and Linux: `Ctrl+K` `Ctrl+P`
+* OS X: `Super+K` `Super+P`
 
 ## Update File
 
 * Windows and Linux: `Ctrl+K` `Ctrl+S`
-* OS X: `Cmd+K` `Cmd+S`
+* OS X: `Super+K` `Super+S`
 
 ## Open Gist
 
-* Windows and Linux: `Ctrl+Shift+G`
-* OS X: `Ctrl+Cmd+G`
+* Windows and Linux: `Ctrl+K` `Ctrl+O`
+* OS X: `Super+K` `Super+O`
 
 ## Insert Gist
 
-* Windows and Linux: "ctrl+shift+alt+g"
-* OS X: "ctrl+shift+super+g"
+* Windows and Linux: `Ctrl+K` `Ctrl+[`
+* OS X: `Super+K` `Super+[`
+
+## Add File
+
+* Windows and Linux: `Ctrl+K` `Ctrl+]`
+* OS X: `Super+K` `Super+]`
 
 # Information
 

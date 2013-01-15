@@ -203,7 +203,8 @@ class BaseLinter(object):
                                        stdout=subprocess.PIPE,
                                        stderr=subprocess.STDOUT,
                                        startupinfo=self.get_startupinfo())
-            result = process.communicate(code)[0]
+            process.stdin.write(code)
+            result = process.communicate()[0]
         finally:
             if tempfilePath:
                 os.remove(tempfilePath)
@@ -299,7 +300,7 @@ class BaseLinter(object):
             lang = self.language.lower()
 
             if lang in map:
-                return map[lang]
+                return map[lang].encode('utf-8')
 
         return default
 
@@ -384,7 +385,7 @@ class BaseLinter(object):
                 if engine == 'node':
                     try:
                         path = self.get_mapped_executable(view, 'node')
-                        subprocess.call([path, '-v'], startupinfo=self.get_startupinfo())
+                        subprocess.call([path, u'-v'], startupinfo=self.get_startupinfo())
                         self.js_engine = {
                             'name': engine,
                             'path': path,
