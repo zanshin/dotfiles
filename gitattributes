@@ -1,0 +1,8 @@
+# use .gitattributes to tell git that any file with the 
+# extension .pbxproj should be treated as binary
+# from
+# http://robots.thoughtbot.com/post/33796217972/xcode-and-git-bridging-the-gap
+#
+# this file should go at the root of all Xcode projects as
+# .gitattributes
+*.pbxproj binary merge=union
