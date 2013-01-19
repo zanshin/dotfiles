@@ -21,10 +21,10 @@ git prompt variables he's added.
 	
     git clone https://github.com/sjl/oh-my-zsh.git ~/.oh-my-zsh
 		
-Copy zanshin.zsh-theme to theme directoy
+Link to cello.zsh-theme:
 	
     cd .oh-my-zsh/themes
-	ln -s ~/.dotfiles/zanshin.zsh-theme zanshin.zsh-theme
+	ln -s ~/.dotfiles/cello.zsh-theme cello.zsh-theme
 	
 ## Vim
 For Vim configuration and use, create the following symlinks:
