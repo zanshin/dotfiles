@@ -19,5 +19,6 @@
 		72,
 		79
 	],
+	"spell_check": false,
 	"translate_tabs_to_spaces": true
 }
