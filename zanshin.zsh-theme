@@ -79,8 +79,13 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # zee prompt (ha ha)
 # ----------------------------------------------------------------------------
 PROMPT='
-%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)$(svn_prompt_info)
+%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
 $(prompt_char) '
+
+# parked prompt that utilizes svn_prompt_info
+# PROMPT='
+#%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg[green]%}${PWD/#$HOME/~}%b%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)$(svn_prompt_info)
+#$(prompt_char) '
 
 # ----------------------------------------------------------------------------
 # error prompt

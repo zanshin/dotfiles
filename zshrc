@@ -23,13 +23,12 @@ export ZSH_THEME="zanshin"
 #plugins=(git textmate osx ruby rvm pow)
 plugins=(zsh-syntax-highlighting)
 
+# alias to rvm-prompt
+alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-# added my path 2011.7.19
-#export PATH=/usr/local/bin:/usr/local/apache-maven-2.2.1/bin:/usr/local/maven-1.1/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/mark/.rbenv/bin
-# trimmed path post rebuild 2012.03.09 -- removed items no longer present
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # -------------------------------------------------------------------
 # Load RVM into a shell session *as a function*
@@ -108,6 +107,8 @@ case `uname` in
     ;;
 esac
 
+# here since I use iTerm2 and zsh per https://rvm.io/integration/zsh/
+__rvm_project_rvmrc
 
 # finis
-# mhn 2011.7.19
+# mhn 2013.1.19
