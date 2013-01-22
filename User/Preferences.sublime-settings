@@ -1,12 +1,6 @@
 {
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
 	"draw_white_space": "all",
-	"folder_exclude_patterns":
-	[
-		".svn",
-		".git",
-		".hg"
-	],
 	"font_face": "Ubuntu Mono",
 	"font_size": 12.0,
 	"highlight_line": true,
@@ -19,6 +13,6 @@
 		72,
 		79
 	],
-	"spell_check": false,
+	"spell_check": true,
 	"translate_tabs_to_spaces": true
 }
