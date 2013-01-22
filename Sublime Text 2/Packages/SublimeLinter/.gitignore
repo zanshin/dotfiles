@@ -1,8 +1,0 @@
-.git
-.hg
-.svn
-
-*.pyc
-*.pyo
-
-.DS_Store

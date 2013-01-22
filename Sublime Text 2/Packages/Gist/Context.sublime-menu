@@ -1,4 +1,0 @@
-[
-    { "command": "gist", "caption": "Create Public Gist…" },
-    { "command": "gist_private", "caption": "Create Private Gist…" }
-]

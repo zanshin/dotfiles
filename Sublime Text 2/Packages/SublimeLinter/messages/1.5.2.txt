@@ -1,5 +1,0 @@
-SublimeLinter 1.5.2 changelog
-
-CHANGES/FIXES
-
-- Fixed a problem with messages.json that prevented correct upgrading.
