@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	editor = "mate -w"
+	editor = "subl -n -w"
 	autocrlf = input
 	safecrlf = warn
 	excludesfile = /Users/mark/.gitignore_global
