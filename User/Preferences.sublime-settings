@@ -3,7 +3,7 @@
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
 	"draw_white_space": "all",
 	"font_face": "Ubuntu Mono",
-	"font_options": 
+	"font_options":
 	[
 		"subpixel_antialias"
 	],
@@ -15,7 +15,8 @@
 	],
 	"rulers":
 	[
-		72, 79
+		72,
+		79
 	],
 	"spell_check": true,
 	"theme": "Soda Dark.sublime-theme",
