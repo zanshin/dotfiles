@@ -1,7 +1,12 @@
 {
+	"caret_style": "phase",
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
 	"draw_white_space": "all",
 	"font_face": "Ubuntu Mono",
+	"font_options": 
+	[
+		"subpixel_antialias"
+	],
 	"font_size": 12.0,
 	"highlight_line": true,
 	"ignored_packages":
@@ -10,9 +15,9 @@
 	],
 	"rulers":
 	[
-		72,
-		79
+		72, 79
 	],
 	"spell_check": true,
+	"theme": "Soda Dark.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
