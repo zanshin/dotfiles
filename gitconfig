@@ -27,3 +27,9 @@
 [url "git@github.com:"]
   # With write access
   insteadOf = wgh:
+# Sublime Text 2 as merge tool
+[mergetool "sublime"]
+	cmd = subl -w $MERGED
+	trustExitCode = false
+[merge]
+	tool = sublime
