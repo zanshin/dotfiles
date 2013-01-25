@@ -24,19 +24,19 @@ export ZSH_THEME="zanshin"
 plugins=(zsh-syntax-highlighting)
 
 # alias to rvm-prompt
-alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
+#alias rvm-prompt=$HOME/.rvm/bin/rvm-prompt
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+
+# Add RVM to PATH for scripting
+#export PATH=$PATH:$HOME/.rvm/bin 
 
 # -------------------------------------------------------------------
 # Load RVM into a shell session *as a function*
 # -------------------------------------------------------------------
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
-
-# Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.rvm/bin 
 
 # -------------------------------------------------------------------
 # JVM settings
