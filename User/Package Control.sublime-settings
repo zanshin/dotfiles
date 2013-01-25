@@ -1,4 +1,5 @@
 {
+	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
 		"AdvancedNewFile",
@@ -6,9 +7,15 @@
 		"Dotfiles Syntax Highlighting",
 		"Emmet",
 		"Gist",
+		"Git",
+		"GitGutter",
+		"IndentGuides",
+		"MarkdownEditing",
 		"Package Control",
+		"Rake",
 		"SideBarEnhancements",
 		"SublimeLinter",
+		"Theme - Soda",
 		"Tomorrow Color Schemes"
 	]
 }

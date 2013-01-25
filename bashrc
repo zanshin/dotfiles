@@ -131,7 +131,7 @@ function pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps"
 function startvm() { VBoxHeadless --startvm devvm ; }
 function stopvm() { VBoxManage controlvm devvm poweroff ; }
 function devvm() { ssh -p 10022 ome@localhost ; }
-function devmount() { mount_smbfs //ome:ch1cag0@localhost:10139/ome /Users/mark/Projects/devvm/ ; }
+function devmount() { mount_smbfs //ome:xxxxxxx@localhost:10139/ome /Users/mark/Projects/devvm/ ; }
 
 # apache tomcat functions
 function tomcatup() { /usr/local/tomcat/bin/startup.sh ; }

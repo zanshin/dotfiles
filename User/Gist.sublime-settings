@@ -1,0 +1,16 @@
+{
+    // Your username on GitHub
+    "username": "zan5hin",
+
+    // Your GitHub API token
+    // see: https://github.com/condemil/Gist#generating-access-token
+    "token": "efd2c818fb62cceb2f434f40f1b261b70ddf4c6b",
+
+    // Show GitHub organizations
+    "include_orgs": true,
+    // "include_orgs": ["kstateome"],
+
+    // Show the authors of Gists
+    "show_authors": true
+
+}

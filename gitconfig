@@ -1,19 +1,25 @@
 [user]
 	name = Mark Nichols
 	email = mark@zanshin.net
+[github]
+	user = zan5hin
+	token = efd2c818fb62cceb2f434f40f1b261b70ddf4c6b
 [color]
 	ui = auto
+	interactive = auto
 [core]
-	editor = "mate -w"
+	editor = "subl -n -w"
 	autocrlf = input
 	safecrlf = warn
 	excludesfile = /Users/mark/.gitignore_global
 	quotepath = false
 [alias]
+	yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
 	hist = log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative
+	ahead = log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative
 	today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
-	type = cat-file -t
-	dump = cat-file -p
+	# type = cat-file -t
+	# dump = cat-file -p
 [difftool "sourcetree"]
 	cmd = opendiff "$LOCAL" "$REMOTE"
 	path = 
@@ -27,3 +33,9 @@
 [url "git@github.com:"]
   # With write access
   insteadOf = wgh:
+# Sublime Text 2 as merge tool
+[mergetool "sublime"]
+	cmd = subl -w $MERGED
+	trustExitCode = false
+[merge]
+	tool = sublime
