@@ -1,5 +1,6 @@
 {
-	"caret_style": "phase",
+	"caret_style": "smooth",
+	"wide_caret": true,
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
 	"draw_white_space": "all",
 	"font_face": "Ubuntu Mono",
