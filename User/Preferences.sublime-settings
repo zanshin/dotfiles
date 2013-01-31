@@ -1,5 +1,6 @@
 {
 	"caret_style": "smooth",
+	"detect_slow_plugins": false,
 	"wide_caret": true,
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
 	"draw_white_space": "all",
