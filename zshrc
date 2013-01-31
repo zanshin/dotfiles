@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="zanshin"
+export ZSH_THEME="cello"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"

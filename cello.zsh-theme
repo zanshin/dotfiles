@@ -19,24 +19,12 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} [dirty]"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[yellow]%} [untracked]"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT="
-%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}$(box_name)%{$reset_color%} in %{$fg[green]%}${current_dir}%{$reset_color%}${git_info} 
-$(prompt_char) "
-
-# error prompt
-export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
-
-
-RPROMPT='%{$fg[green]%}$(virtualenv_info)%{$reset_color%}% %{$fg[red]%}${rvm_ruby}%{$reset_color%}'
-
-local rvm_ruby=''
-if which rvm-prompt &> /dev/null; then
-  rvm_ruby='$(rvm-prompt i v p g)'
-else
-  if which rbenv &> /dev/null; then
-    rvm_ruby='‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
-  fi
-fi
+function rvm_ruby_prompt {
+    ruby_version=$(~/.rvm/bin/rvm-prompt)
+    if [ -n "$ruby_version" ]; then 
+        echo "$ruby_version"
+    fi
+}
 
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
@@ -48,3 +36,15 @@ function box_name {
 
 local current_dir='${PWD/#$HOME/~}'
 local git_info='$(git_prompt_info)'
+
+PROMPT="
+%{$fg[blue]%}%n%{$reset_color%} at %{$fg[yellow]%}$(box_name)%{$reset_color%} in %{$fg[green]%}${current_dir}%{$reset_color%}${git_info} 
+$(prompt_char) "
+
+# error prompt
+export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
+
+
+RPROMPT='%{$fg[green]%}$(virtualenv_info)%{$reset_color%}% %{$fg[red]%}${ruby_version}%{$reset_color%}'
+
+
