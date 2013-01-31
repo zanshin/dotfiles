@@ -1,7 +1,12 @@
 {
+	"bold_folder_labels": true,
 	"caret_style": "smooth",
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
+	"detect_slow_plugins": false,
 	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
+	"fallback_encoding": "UTF-8",
 	"font_face": "Ubuntu Mono",
 	"font_options":
 	[
@@ -13,6 +18,8 @@
 	[
 		"Vintage"
 	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
 	"rulers":
 	[
 		72,
