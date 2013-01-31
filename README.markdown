@@ -100,6 +100,8 @@ For tmux configuration create this symlink:
     $ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 ## Sublime Text 2 (subl)
+Install Package Control following the instructions here: http://wbond.net/sublime_packages/package_control
+
 For Sublime Text 2 settings remove the following directory from 
 `~/Library/Application Support/Sublime Text 2`:
 
