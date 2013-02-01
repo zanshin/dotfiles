@@ -16,6 +16,7 @@ For zsh configuration create the following symlinks:
 
 	ln -s ~/.dotfiles/zshrc ~/.zshrc
     ln -s ~/.dotfiles/.zsh ~/.zsh
+    ln -s ~/.dotfiles/zshenv ~/.zshenv
 		
 	
 ## Vim
