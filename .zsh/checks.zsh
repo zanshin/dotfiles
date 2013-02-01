@@ -8,7 +8,7 @@ if [[ $(uname) = 'Darwin' ]]; then
 fi
 
 if [[ -x `which brew` ]]; then
-    HAS_BREW
+    HAS_BREW=1
 fi
 
 if [[ -x `which apt-get` ]]; then
