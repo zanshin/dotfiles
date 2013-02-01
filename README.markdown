@@ -12,19 +12,11 @@ easily.
     $ git submodule foreach git pull origin master
 
 ## zsh
-For zsh configuration create the following symlink:
+For zsh configuration create the following symlinks:
 
 	ln -s ~/.dotfiles/zshrc ~/.zshrc
+    ln -s ~/.dotfiles/.zsh ~/.zsh
 		
-Clone oh-my-zsh repository from Github. I'm using Steve Losh's fork of the original to gain access to 
-git prompt variables he's added.
-	
-    git clone https://github.com/sjl/oh-my-zsh.git ~/.oh-my-zsh
-		
-Link to cello.zsh-theme:
-	
-    cd .oh-my-zsh/themes
-	ln -s ~/.dotfiles/cello.zsh-theme cello.zsh-theme
 	
 ## Vim
 For Vim configuration and use, create the following symlinks:
