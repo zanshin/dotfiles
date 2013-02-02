@@ -26,9 +26,9 @@ GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
 GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"
 GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"
 GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"
-GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
-GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●%{$reset_color%}"
-GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
+GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}u%{$reset_color%}"
+GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}d%{$reset_color%}"
+GIT_PROMPT_STAGED="%{$fg_bold[green]%}s%{$reset_color%}"
  
 # Show Git branch/tag, or name-rev if on detached head
 function parse_git_branch() {
