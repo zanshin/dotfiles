@@ -1,9 +1,7 @@
-# -------------------------------------------------------------------
-# Functions
-# -------------------------------------------------------------------
+
 
 # -------------------------------------------------------------------
-# compress file expander 
+# compressed file expander 
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
 # -------------------------------------------------------------------
 ex() {
@@ -32,6 +30,7 @@ ex() {
 
 # -------------------------------------------------------------------
 # any function from http://onethingwell.org/post/14669173541/any
+# search for running processes
 # -------------------------------------------------------------------
 any() {
     emulate -L zsh
@@ -45,16 +44,32 @@ any() {
 }
 
 # -------------------------------------------------------------------
-# view man pages in Preview
+# display a neatly formatted path
 # -------------------------------------------------------------------
-function pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
+path() {
+  echo $PATH | tr ":" "\n" | \
+    awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
+           sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
+           sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
+           sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
+           sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
+           print }"
+}
 
 # -------------------------------------------------------------------
-# function to show interface IP assignments
+# Mac specific functions
 # -------------------------------------------------------------------
-function ips() {
-  foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo;
-} 
+if [[ $IS_MAC -eq 1 ]]; then
+
+    # view man pages in Preview
+    pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
+
+    # function to show interface IP assignments
+    ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; } 
+
+    # notify function - http://hints.macworld.com/article.php?story=20120831112030251
+    notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow }
+fi
 
 # -------------------------------------------------------------------
 # nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
@@ -66,11 +81,11 @@ function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') 
 # myIP address
 # -------------------------------------------------------------------
 function myip() {
-    ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
-	ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-	ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-	ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-	ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+  ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
+  ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+  ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+  ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+  ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
 }
 
 # -------------------------------------------------------------------
@@ -104,12 +119,4 @@ givedef() {
   fi
 }
 
-# --------------------------------------------------------------------
-# notify function
-# http://hints.macworld.com/article.php?story=20120831112030251&utm_source=dlvr.it&utm_medium=twitter
-#
-# creates new notification
-# --------------------------------------------------------------------
-notify() {
-  automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow
-}
+

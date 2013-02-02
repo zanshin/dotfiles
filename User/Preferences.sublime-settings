@@ -1,9 +1,8 @@
 {
 	"bold_folder_labels": true,
 	"caret_style": "smooth",
-	"detect_slow_plugins": false,
-	"wide_caret": true,
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
+	"detect_slow_plugins": false,
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
@@ -28,5 +27,6 @@
 	],
 	"spell_check": true,
 	"theme": "Soda Dark.sublime-theme",
-	"translate_tabs_to_spaces": true
+	"translate_tabs_to_spaces": true,
+	"wide_caret": true
 }
