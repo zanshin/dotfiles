@@ -53,6 +53,7 @@ path() {
            sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
            sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
            sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
+           sub(\"/.rvm\",  \"$fg_no_bold[red]/.rvm$reset_color\"); \
            print }"
 }
 
