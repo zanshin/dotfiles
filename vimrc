@@ -46,8 +46,10 @@ set ttyfast                     " improves redrawing
 set ruler                       " show row,col in status area
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set history=1000
-set undodir=~/.tmp/undodir      " set undo file location
-set undofile
+if version >=7.3
+    set undodir=~/.tmp/undodir      " set undo file location
+    set undofile
+endif
 set backupdir=~/.tmp            " set backup directory to ~/.tmp
 set directory=~/.tmp
 set ffs=unix,mac,dos            " default file types
@@ -55,9 +57,16 @@ set spell                       " turn spell check on
 set autoread                    " automatically updates file when editted outside vim
 
 " use relative (offset) line number only in active window split
-set relativenumber
-:au WinEnter * :setlocal relativenumber
-:au WinLeave * :setlocal nonumber
+if version >= 7.3
+    set relativenumber
+    :au WinEnter * :setlocal relativenumber
+    :au WinLeave * :setlocal nonumber
+else
+    set number
+    :au WinEnter * :setlocal number
+    :au WinLeave * :setlocal nonumber
+endif
+
 
 " automatically resize vertical splits to maximize current split
 :au WinEnter * :set winfixheight
@@ -131,7 +140,9 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+if version >=7.3
+    set colorcolumn=85
+endif
 
 " command to Wrap long lines. Sets wrap, linebreak, and nolist
 command! -nargs=* Wrap set wrap linebreak nolist
