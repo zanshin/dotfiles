@@ -46,7 +46,7 @@ set ttyfast                     " improves redrawing
 set ruler                       " show row,col in status area
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set history=1000
-if version >=7.3
+if version >= 730
     set undodir=~/.tmp/undodir      " set undo file location
     set undofile
 endif
@@ -57,7 +57,7 @@ set spell                       " turn spell check on
 set autoread                    " automatically updates file when editted outside vim
 
 " use relative (offset) line number only in active window split
-if version >= 7.3
+if version >= 730
     set relativenumber
     :au WinEnter * :setlocal relativenumber
     :au WinLeave * :setlocal nonumber
@@ -140,7 +140,7 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if version >=7.3
+if version >= 730
     set colorcolumn=85
 endif
 
