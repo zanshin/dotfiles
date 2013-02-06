@@ -23,7 +23,8 @@ export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 if [[ $IS_MAC -eq 1 ]]; then
     export EDITOR='subl -w'
-else
+fi
+if [[ $IS_LINUX -eq 1 ]]; then
     export EDITOR='vim'
 fi
 
