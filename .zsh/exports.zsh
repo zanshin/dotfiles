@@ -3,7 +3,9 @@
 export PATH=$PATH:$HOME/bin:/usr/local/bin:/usr/local/sbin
 
 # Set default console Java to 1.6
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+if [[ $IS_MAC -eq 1 ]]; then
+    export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+fi
 
 # Setup terminal, and turn on colors
 export TERM=xterm-256color
@@ -19,7 +21,11 @@ export ARCHFLAGS='-arch x86_64'
 
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
-export EDITOR='subl -w'
+if [[ $IS_MAC -eq 1 ]]; then
+    export EDITOR='subl -w'
+else
+    export EDITOR='vim'
+fi
 
 #export NODE_PATH=/opt/github/homebrew/lib/node_modules
 #export PYTHONPATH=/usr/local/lib/python2.6/site-packages
