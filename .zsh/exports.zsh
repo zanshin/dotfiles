@@ -31,6 +31,6 @@ export LC_COLLATE=C
 # Virtual Environment Stuff
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects/django
-if [[ `which virtualenv &>/dev/null` ]]; then
+if [[ -x `which virtualenv &>/dev/null` ]]; then
     source /usr/local/bin/virtualenvwrapper.sh 
 fi
