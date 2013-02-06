@@ -24,7 +24,8 @@ if [[ $IS_MAC -eq 1 ]]; then
 fi
 
 if [[ $IS_LINUX -eq 1 ]]; then
-    LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
-    export LS_COLORS
+    # LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+    # export LS_COLORS
+    eval $(dircolors -b /etc/DIR_COLORS256.color)
 fi
 
