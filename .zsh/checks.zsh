@@ -7,14 +7,18 @@ if [[ $(uname) = 'Darwin' ]]; then
     IS_MAC=1
 fi
 
-if [[ -x `which brew &>/dev/null` ]]; then
+if [[ -x `which brew` ]]; then
     HAS_BREW=1
 fi
 
-if [[ -x `which apt-get &>/dev/null` ]]; then
+if [[ -x `which apt-get` ]]; then
     HAS_APT=1
 fi
 
-if [[ -x `which yum &>/dev/null` ]]; then
+if [[ -x `which yum` ]]; then
     HAS_YUM=1
+fi
+
+if [[ -x `which virtualenv` ]]; then
+    HAS_VIRTUALENV=1
 fi
