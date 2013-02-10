@@ -79,10 +79,11 @@ alias 'wf=ssh markn@markn.webfactional.com'
 # -------------------------------------------------------------------
 # database
 # -------------------------------------------------------------------
-alias 'psqlstart=/usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start'
-alias 'psqlstop=/usr/local/pgsql/bin/pg_ctl stop'
-#alias mysql='mysql -u root'
-#alias mysqladmin='mysqladmin -u root'
+if [[ $IS_MAC -eq 1 ]]; then
+    alias 'psqlstart=pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+    alias 'psqlstop=pg_ctl stop'
+    alias 'psql=/usr/local/Cellar/postgres/9.2.2/bin/psql'
+fi
 
 # -------------------------------------------------------------------
 # ome devvm start, stop, ssh, and mount
