@@ -82,7 +82,7 @@ alias 'wf=ssh markn@markn.webfactional.com'
 if [[ $IS_MAC -eq 1 ]]; then
     alias 'psqlstart=pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
     alias 'psqlstop=pg_ctl stop'
-    alias 'psql=/usr/local/Cellar/postgres/9.2.2/bin/psql'
+    #alias psql=/usr/local/Cellar/postgres/9.2.2/bin/psql
 fi
 
 # -------------------------------------------------------------------
