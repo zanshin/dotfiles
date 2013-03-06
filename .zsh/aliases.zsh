@@ -44,6 +44,11 @@ alias 'dus=du -sckx * | sort -nr' #directories sorted by size
 alias 'wordy=wc -w * | sort | tail -n10' # sort files in current directory by the number of words they contain
 alias 'filecount=find . -type f | wc -l' # number of files (not directories)
 
+# these require zsh
+alias ltd='ls *(m0)' # files & directories modified in last day
+alias lt='ls *(.m0)' # files (no directories) modified in last day
+alias lnew='ls *(.om[1,3])' # list three newest
+
 # -------------------------------------------------------------------
 # Mac only
 # -------------------------------------------------------------------
