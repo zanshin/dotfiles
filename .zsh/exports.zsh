@@ -1,6 +1,6 @@
 # Currently this path is appended to dynamically when picking a ruby version
 # zshenv has already started PATH with rbenv so append only here
-export PATH=$PATH:$HOME/bin:/usr/local/bin:/usr/local/sbin
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin
 
 # Set default console Java to 1.6
 if [[ $IS_MAC -eq 1 ]]; then
@@ -22,7 +22,7 @@ export ARCHFLAGS='-arch x86_64'
 export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 if [[ $IS_MAC -eq 1 ]]; then
-    export EDITOR='subl -w'
+    export EDITOR='subl -n'
 fi
 if [[ $IS_LINUX -eq 1 ]]; then
     export EDITOR='vim'
