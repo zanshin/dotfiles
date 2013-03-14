@@ -99,6 +99,17 @@ alias 'devvm=ssh -p 10022 ome@localhost'
 alias 'devmount=mount_smbfs //ome:ch1cag0@localhost:10139/ome /Users/$USERNAME/Projects/devvm/'
 
 # -------------------------------------------------------------------
+# Vagrant
+# -------------------------------------------------------------------
+alias 'vg=vagrant'
+alias 'vs=vagrant ssh'
+alias 'vu=vagrant up'
+alias 'vp=vagrant provision'
+alias 'vh=vagrant halt'
+alias 'vr=vagrant reload'
+
+
+# -------------------------------------------------------------------
 # Mercurial (hg)
 # -------------------------------------------------------------------
 alias 'h=hg status'
