@@ -28,6 +28,8 @@
 		"bashrc",
 		"bash_profile",
 		"bash_aliases",
-		"zsh-theme"
+		"zsh-theme",
+		".zshenv",
+		"zshenv"
 	]
 }

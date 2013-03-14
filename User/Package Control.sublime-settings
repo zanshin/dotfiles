@@ -12,11 +12,13 @@
 		"IndentGuides",
 		"MarkdownEditing",
 		"Package Control",
+		"Python Auto-Complete",
 		"Rake",
 		"SideBarEnhancements",
 		"Solarized Color Scheme",
 		"SublimeLinter",
 		"Theme - Soda",
-		"Tomorrow Color Schemes"
+		"Tomorrow Color Schemes",
+		"WordCount"
 	]
 }

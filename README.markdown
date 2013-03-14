@@ -12,19 +12,12 @@ easily.
     $ git submodule foreach git pull origin master
 
 ## zsh
-For zsh configuration create the following symlink:
+For zsh configuration create the following symlinks:
 
 	ln -s ~/.dotfiles/zshrc ~/.zshrc
+    ln -s ~/.dotfiles/.zsh ~/.zsh
+    ln -s ~/.dotfiles/zshenv ~/.zshenv
 		
-Clone oh-my-zsh repository from Github. I'm using Steve Losh's fork of the original to gain access to 
-git prompt variables he's added.
-	
-    git clone https://github.com/sjl/oh-my-zsh.git ~/.oh-my-zsh
-		
-Link to cello.zsh-theme:
-	
-    cd .oh-my-zsh/themes
-	ln -s ~/.dotfiles/cello.zsh-theme cello.zsh-theme
 	
 ## Vim
 For Vim configuration and use, create the following symlinks:
@@ -74,6 +67,8 @@ For Git configuration and global ignore files, create these symlinks:
     $ ln -s ~/.dotfiles/gitconfig ~/.gitconfig
     $ ln -s ~/.dotfiles/gitignore_global ~/.gitignore_global
 
+NB: For machines where Sublime Text 2 cannot be installed, link `gitconfig_remote` instead. This will use vim as the editor and vimdiff as the merge and diff tools.
+
 ## Mercurial (hg)
 For Mercurial configuration and global ignore files, create these symlinks:
 
@@ -100,6 +95,8 @@ For tmux configuration create this symlink:
     $ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 ## Sublime Text 2 (subl)
+Install Package Control following the instructions here: http://wbond.net/sublime_packages/package_control
+
 For Sublime Text 2 settings remove the following directory from 
 `~/Library/Application Support/Sublime Text 2`:
 
