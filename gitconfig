@@ -8,7 +8,7 @@
 	ui = auto
 	interactive = auto
 [core]
-	editor = "subl -n -w"
+	editor = "subl -n"
 	autocrlf = input
 	safecrlf = warn
 	excludesfile = /Users/mark/.gitignore_global
@@ -32,5 +32,5 @@
   insteadOf = wgh:
 # Sublime Text 2 as merge tool
 [mergetool "sublime"]
-	cmd = subl -w $MERGED
+	cmd = subl -n $MERGED
 	trustExitCode = false
