@@ -94,6 +94,10 @@ For tmux configuration create this symlink:
 
     $ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
+My tmux setup also uses tmux-powerline for the status bar. Add the tmux-powerlinerc to the home directory.
+
+    $ ln -s ~/.dotfiles/.tmux-powerlinerc ~/.tmux-powerlinerc
+
 ## Sublime Text 2 (subl)
 Install Package Control following the instructions here: http://wbond.net/sublime_packages/package_control
 

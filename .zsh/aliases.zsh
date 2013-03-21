@@ -67,7 +67,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     # refresh brew by upgrading all outdated casks
     alias refreshbrew='brew outdated | while read cask; do brew upgrade $cask; done'
     # rebuild Launch Services to remove duplicate entries on Open With menu
-    alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.fram ework/Support/lsregister -kill -r -domain local -domain system -domain user'
+    alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 fi
 
 
