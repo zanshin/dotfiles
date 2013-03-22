@@ -94,6 +94,8 @@ function _update_ruby_version() {
       fi
     fi
 }
+
+# list of functions to call for each directory change
 chpwd_functions+=(_update_ruby_version)
 
 function current_pwd {
