@@ -70,14 +70,14 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
         #"mailcount ${WHITE} ${GMAIL_RED}" \
         #"now_playing 234 37" \
         #"cpu 240 136" \
-        "load ${BASE2} ${RED}" \
+        "load ${BASE02} ${BLUE}" \
         #"tmux_mem_cpu_load 234 136" \
-        "battery ${YELLOW} ${MAGENTA}" \
+        "battery ${BASE02} ${GREEN}" \
         "weather ${BASE3} ${CYAN}" \
         #"xkb_layout 125 117" \
-        "date_day ${BASE2} ${VIOLET}" \
-        "date ${BASE2} ${VIOLET} ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-        "time ${BASE2} ${VIOLET} ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+        "date_day ${BASE03} ${YELLOW}" \
+        "date ${BASE03} ${YELLOW} ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+        "time ${BASE03} ${YELLOW} ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
         #"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
     )
 fi
