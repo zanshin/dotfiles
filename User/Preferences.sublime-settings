@@ -7,7 +7,7 @@
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
 	"fallback_encoding": "UTF-8",
-	"font_face": "Ubuntu Mono",
+	"font_face": "Inconsolata",
 	"font_options":
 	[
 		"subpixel_antialias"
