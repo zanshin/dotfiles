@@ -25,7 +25,11 @@
 [submodule "vim/bundle/solarized"]
 	path = vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-	ignore = dirty
+    ignore = dirty
+[submodule "vim/bundle/powerline"]
+    path = vim/bundle/powerline
+    url = https://github.com/Lokaltog/vim-powerline.git
+    ignore = dirty
 [submodule "z"]
 	path = z
 	url = https://github.com/rupa/z.git
