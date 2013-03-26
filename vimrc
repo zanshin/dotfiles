@@ -283,6 +283,9 @@ let NERDTreeDirArrows=1
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 
+" Powerline
+"let g:Powerline_theme = 'solarized256'
+
 " ---------------------------------------------------------------------------------
 "  finis
 " ---------------------------------------------------------------------------------
