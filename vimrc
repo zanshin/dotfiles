@@ -3,11 +3,11 @@
 " largely copied from Steve Losh (stevelosh.com)
 " addition bits borrowed from https://github.com/nvie/vimrc/blob/master/vimrc
 " further bits from http://vimcasts.org
-" also, https://github.com/lukaszkorecki/DOtFiles 
+" also, https://github.com/lukaszkorecki/DOtFiles
 " and from: http://www.drbunsen.org/text-triumvirate.html
 "
 " ---------------------------------------------------------------------------------
-" use Vim settings rather than vi settings (must be first) 
+" use Vim settings rather than vi settings (must be first)
 " ---------------------------------------------------------------------------------
 set nocompatible
 
@@ -15,12 +15,12 @@ set nocompatible
 " setup Pathogen to manage plugins
 " ---------------------------------------------------------------------------------
 filetype off                  " force reloading after pathogen loaded
-call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 filetype plugin indent on     " enable plugins, detection and indenting in one step
 
 " ---------------------------------------------------------------------------------
-" change mapleader from \ to , 
+" change mapleader from \ to ,
 " ---------------------------------------------------------------------------------
 let mapleader=','
 
@@ -36,7 +36,7 @@ set expandtab                   " expand tabs to spaces (overloadable by file ty
 set scrolloff=3                 " keep 3 lines off the edges of the screen when scrolling
 set autoindent                  " always set autoindenting on
 set showmode                    " always show what mode we're in
-set showcmd                     " display info about current command in status lin 
+set showcmd                     " display info about current command in status lin
 set hidden
 set wildmenu                    " navigate <Left> & <Right> through completion lists
 set wildmode=list:longest       " allows expansion of wildmenu
@@ -46,12 +46,32 @@ set ttyfast                     " improves redrawing
 set ruler                       " show row,col in status area
 set backspace=indent,eol,start  " allow backspacing over everything in insert mode
 set history=1000
-if version >= 730
-    set undodir=~/.tmp/undodir      " set undo file location
-    set undofile
+"if version >= 730
+"    set undodir=~/.tmp/undodir      " set undo file location
+"    set undofile
+"endif
+
+" ---------------------------------------------------------------------------------
+" backups
+" ---------------------------------------------------------------------------------
+set backup
+set noswapfile
+
+set undodir=~/.tmp/undo/       " undo files
+set backupdir=~/.tmp/backup/   " backups
+set directory=~/.tmp/swap/     " swap files
+
+" make those directories automatically if they don't already exist
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
 endif
-set backupdir=~/.tmp            " set backup directory to ~/.tmp
-set directory=~/.tmp
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
+
 set ffs=unix,mac,dos            " default file types
 set spell                       " turn spell check on
 set autoread                    " automatically updates file when editted outside vim
@@ -80,7 +100,7 @@ set encoding=utf-8
 set lazyredraw                  " don't update the display while executing macros
 set laststatus=2                " tell Vim to always put a status line in,
                                 "   even if there is only one window
-set cmdheight=2                 " ues a status bar that is two rows high 
+set cmdheight=2                 " ues a status bar that is two rows high
 
 " ---------------------------------------------------------------------------------
 " Set up the solarized color scheme - not as easy as it ought to be
@@ -92,7 +112,7 @@ set background=dark
 let g:solarized_termtrans = 1
 " let g:solarized_visibility = "high"
 " let g:solarized_contrast = "high"
-colorscheme solarized 
+colorscheme solarized
 
 
 " set options based on whether we're in the GUI or terminal
@@ -197,7 +217,7 @@ inoremap jj <ESC>
 " stuff for working with split windows
 " ---------------------------------------------------------------------------------
 nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <C-h> <C-w>h  
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
@@ -258,7 +278,7 @@ let NERDTreeDirArrows=1
 " let NERDTreeWinSize=40
 
 " NERDCommenter
-" <leader>c 
+" <leader>c
 "
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
