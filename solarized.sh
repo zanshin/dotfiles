@@ -73,12 +73,12 @@ if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
         "load ${BASE02} ${BLUE}" \
         #"tmux_mem_cpu_load 234 136" \
         "battery ${BASE02} ${GREEN}" \
-        "weather ${BASE3} ${CYAN}" \
+        #"weather ${BASE3} ${CYAN}" \
         #"xkb_layout 125 117" \
         "date_day ${BASE03} ${YELLOW}" \
         "date ${BASE03} ${YELLOW} ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
         "time ${BASE03} ${YELLOW} ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-        #"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
+        "utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
     )
 fi
 
