@@ -8,7 +8,7 @@
 	ui = auto
 	interactive = auto
 [core]
-	editor = "subl -n"
+	editor = "vim"
 	autocrlf = input
 	safecrlf = warn
 	excludesfile = /Users/mark/.gitignore_global
@@ -22,7 +22,7 @@
 	# dump = cat-file -p
 [difftool "sourcetree"]
 	cmd = opendiff "$LOCAL" "$REMOTE"
-	path = 
+	path =
 # Github helpers
 [url "git://github.com/"]
   # Read-only
