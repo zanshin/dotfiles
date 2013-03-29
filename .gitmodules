@@ -36,4 +36,5 @@
 	ignore = dirty
 [submodule "tmux-powerline"]
 	path = tmux-powerline
-	url = https://github.com/erikw/tmux-powerline.git
+    url = https://github.com/erikw/tmux-powerline.git
+    ignore = dirty
