@@ -14,6 +14,7 @@ set nocompatible
 " ---------------------------------------------------------------------------------
 " setup Pathogen to manage plugins
 " ---------------------------------------------------------------------------------
+filetype on                   " best to have it on before turning it off
 filetype off                  " force reloading after pathogen loaded
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
