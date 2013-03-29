@@ -144,7 +144,7 @@ alias gv='git log --pretty=format:'%s' | cut -d " " -f 1 | sort | uniq -c | sort
 alias gh='git hist'
 alias gt='git today'
 
-# curiosities 
+# curiosities
 # gsh shows the number of commits for the current repos for all developers
 alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
@@ -152,7 +152,7 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 alias gu="git shortlog | grep -E '^[^ ]'"
 
 # -------------------------------------------------------------------
-# Python virtualenv 
+# Python virtualenv
 # -------------------------------------------------------------------
 alias mkenv='mkvirtualenv'
 alias on="workon"
@@ -169,7 +169,7 @@ alias 'rm=rm -i' # make rm command (potentially) less destructive
 # Force tmux to use 256 colors
 alias tmux='TERM=screen-256color-bce tmux'
 
-# fakecall.net 
+# fakecall.net
 #alias fakecall='curl --request POST --user "7852368181:ghoti" http://api.fakecall.net/v1/account/7852368181/call'
 
 # alias to cat this file to display
@@ -183,7 +183,7 @@ alias sz='source ~/.zshrc'
 # -------------------------------------------------------------------
 alias 'generate=date ; rake generate ; date ;'
 alias 'gen=date ; rake generate ; date ;'
-alias 'ingen=date ; rake integrate ; generate ; date ;'
+alias 'ingen=date ; rake integrate ; rake generate ; date ;'
 alias 'deploy=rm deploy.log ; rake deploy > deploy.log ; tail -n 3 deploy.log ;'
 alias 'np=newpost.rb'
 
