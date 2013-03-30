@@ -1,11 +1,11 @@
 This repository holds my configuration files so that I can clone them to other machines
 easily.
 
-##Installation:
+#Installation
 
     git clone git://github.com/zan5hin/dotfiles.git ~/.dotfiles
 	
-## Updating
+# Updating
 There are several git submodules included in this configuration. On a new
 installation these submodules need to be initialized and updated.
 
@@ -18,6 +18,7 @@ It is also possible to use `git pull` to update the submodules.
     $ cd ~/.dotfiles
     $ git submodule foreach git pull origin master
 
+#Setup
 ## zsh
 For zsh configuration create the following symlinks:
 
