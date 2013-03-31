@@ -5,6 +5,7 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 # Put Homebrew at the head of the path
+# /usr/local/bin is also first in /etc/paths
 export PATH="/usr/local/bin:$PATH"
 
 # if rbenv is present, configure it for use
