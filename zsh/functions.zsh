@@ -1,7 +1,7 @@
 
 
 # -------------------------------------------------------------------
-# compressed file expander 
+# compressed file expander
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
 # -------------------------------------------------------------------
 ex() {
@@ -26,6 +26,70 @@ ex() {
     else
         echo "'$1' is not a valid file"
     fi
+}
+
+# -------------------------------------------------------------------
+# Find files and exec commands at them.
+# $ find-exec .coffee cat | wc -l
+# # => 9762
+# from https://github.com/paulmillr/dotfiles
+# -------------------------------------------------------------------
+function find-exec() {
+  find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
+}
+
+# -------------------------------------------------------------------
+# Count code lines in some directory.
+# $ loc py js css
+# # => Lines of code for .py: 3781
+# # => Lines of code for .js: 3354
+# # => Lines of code for .css: 2970
+# # => Total lines of code: 10105
+# from https://github.com/paulmillr/dotfiles
+# -------------------------------------------------------------------
+function loc() {
+  local total
+  local firstletter
+  local ext
+  local lines
+  total=0
+  for ext in $@; do
+    firstletter=$(echo $ext | cut -c1-1)
+    if [[ firstletter != "." ]]; then
+      ext=".$ext"
+    fi
+    lines=`find-exec "*$ext" cat | wc -l`
+    lines=${lines// /}
+    total=$(($total + $lines))
+    echo "Lines of code for ${fg[blue]}$ext${reset_color}: ${fg[green]}$lines${reset_color}"
+  done
+  echo "${fg[blue]}Total${reset_color} lines of code: ${fg[green]}$total${reset_color}"
+}
+
+# -------------------------------------------------------------------
+# Show how much RAM application uses.
+# $ ram safari
+# # => safari uses 154.69 MBs of RAM.
+# from https://github.com/paulmillr/dotfiles
+# -------------------------------------------------------------------
+function ram() {
+  local sum
+  local items
+  local app="$1"
+  if [ -z "$app" ]; then
+    echo "First argument - pattern to grep from processes"
+  else
+    sum=0
+    for i in `ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}'`; do
+      sum=$(($i + $sum))
+    done
+    sum=$(echo "scale=2; $sum / 1024.0" | bc)
+    if [[ $sum != "0" ]]; then
+      echo "${fg[blue]}${app}${reset_color} uses ${fg[green]}${sum}${reset_color} MBs of RAM."
+    else
+      echo "There are no processes with pattern '${fg[blue]}${app}${reset_color}' are running."
+    fi
+  fi
 }
 
 # -------------------------------------------------------------------
@@ -66,7 +130,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
 
     # function to show interface IP assignments
-    ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; } 
+    ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; }
 
     # notify function - http://hints.macworld.com/article.php?story=20120831112030251
     notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow }
