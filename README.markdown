@@ -19,6 +19,15 @@ It is also possible to use `git pull` to update the submodules.
     $ git submodule foreach git pull origin master
 
 #Setup
+## Homebrew
+On those Mac OS machines where I install Homebrew I also edit `/etc/paths` to move the `/usr/local/bin` entry to the top of the list. This ensures that Homebrew-managed programs and libraries occur prior to `/usr/bin` and system-provided programs and libraries. The resulting `/etc/paths` files looks like this:
+
+    /usr/local/bin
+    /usr/bin
+    /bin
+    /usr/sbin
+    /sbin
+    
 ## zsh
 For zsh configuration create the following symlinks:
 
