@@ -18,5 +18,5 @@ fi
 
 # Add RVM to PATH for scripting, if rvm is present
 if which rvm-prompt &> /dev/null; then
-    export PATH=$HOME/.rvm/bin :$PATH
+    export PATH=$HOME/.rvm/bin:$PATH
 fi
