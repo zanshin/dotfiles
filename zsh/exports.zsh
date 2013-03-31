@@ -3,6 +3,9 @@
 #export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin
 export PATH=$PATH:/usr/local/sbin:$HOME/bin
 
+# remove duplicate entries
+typeset -U PATH 
+
 # Set default console Java to 1.6
 if [[ $IS_MAC -eq 1 ]]; then
     export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
