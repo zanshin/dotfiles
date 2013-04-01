@@ -95,7 +95,7 @@ For Sublime Text 2 settings, remove the `User` directory from
 `~/Library/Application Support/Sublime Text 2/Packages`. Then add this symlink:
 
     $ cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages
-    $ ln -s ~/.dotfiles/sublime/User User
+    $ ln -s ~/.dotfiles/sublimetext/User User
 
 Finally, to enable the command line tool, `subl`, add this symlink:
 
