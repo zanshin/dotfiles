@@ -226,17 +226,18 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " ---------------------------------------------------------------------------------
-" shortcut to open vimrc file and stuff to automagically update it on the fly
-" turned off as it takes a HUGELY long time to save the buffer with it on
+" from vimcasts.org #24
+" automatically source .vimrc when it is saved
 " ---------------------------------------------------------------------------------
-" if has("autocmd")
-"    autocmd bufwritepost .vimrc source $MYVIMRC
-" endif
+if has("autocmd")
+   autocmd! bufwritepost .vimrc source $MYVIMRC
+endif
 
 " ---------------------------------------------------------------------------------
-" shortcut to edit .vimrc file
+" from vimcasts.org #24
+" shortcut to edit .vimrc file -- opens file in new tab
 " ---------------------------------------------------------------------------------
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nnoremap <leader>v :tabedit $MYVIMRC<CR>
 
 " ---------------------------------------------------------------------------------
 " control whitespace preferences based on filetype, uses autocmd
