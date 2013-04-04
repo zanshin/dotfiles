@@ -78,7 +78,7 @@ set spell                       " turn spell check on
 set autoread                    " automatically updates file when editted outside vim
 
 " use relative (offset) line number only in active window split
-if version >= 730
+if v:version >= 703
     set relativenumber
     :au WinEnter * :setlocal relativenumber
     :au WinLeave * :setlocal nonumber
@@ -126,7 +126,7 @@ if has("gui_running")
 endif
 
 " Fonts
-set gfn=Ubuntu\ Mono:h11
+set gfn=Inconsolata:h11
 set shell=/bin/zsh
 
 " ---------------------------------------------------------------------------------

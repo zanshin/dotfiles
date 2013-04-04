@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/mark/.vim'
 let g:netrw_dirhist_2='/Users/mark/.hudson'
 let g:netrw_dirhist_3='/Users/mark/Projects/rails/demo'
 let g:netrw_dirhist_4='/Users/mark/Projects/github/site-monitor'
 let g:netrw_dirhist_5='/Users/mhn/Projects/django/docs'
 let g:netrw_dirhist_6='/Users/mhn/.dotfiles/tmux-powerline'
+let g:netrw_dirhist_7='/Users/mhn/.dotfiles'
