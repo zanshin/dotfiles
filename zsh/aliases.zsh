@@ -68,6 +68,7 @@ if [[ $IS_MAC -eq 1 ]]; then
     alias refreshbrew='brew outdated | while read cask; do brew upgrade $cask; done'
     # rebuild Launch Services to remove duplicate entries on Open With menu
     alias rebuildopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
+    alias defaults='history 1 | grep "defaults"'
 fi
 
 
