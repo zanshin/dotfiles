@@ -161,7 +161,7 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if version >= 730
+if version >= 703
     set colorcolumn=85
 endif
 
@@ -174,11 +174,13 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
 " ---------------------------------------------------------------------------------
 " add TextMate indentation key mappings
+" from vimcasts,org #5
+" altered to be non-recursive
 " ---------------------------------------------------------------------------------
-nmap <D-[> <<
-nmap <D-]> >>
-nmap <D-[> <gv
-nmap <d-]> >gv
+nnoremap <D-[> <<
+nnoremap <D-]> >>
+nnoremap <D-[> <gv
+nnoremap <d-]> >gv
 
 " ---------------------------------------------------------------------------------
 " force hjkl movement keys. painful but essential
@@ -273,7 +275,7 @@ endif
 " ---------------------------------------------------------------------------------
 " NERDTree
 " toggle NERDTRee on or off via F2
-map <F2> :NERDTreeToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 " let NERDTreeWinSize=40
