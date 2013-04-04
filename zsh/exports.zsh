@@ -4,7 +4,7 @@
 export PATH=$PATH:/usr/local/sbin:$HOME/bin
 
 # remove duplicate entries
-typeset -U PATH 
+typeset -U PATH
 
 # Set default console Java to 1.6
 if [[ $IS_MAC -eq 1 ]]; then
@@ -32,12 +32,10 @@ if [[ $IS_LINUX -eq 1 ]]; then
     export EDITOR='vim'
 fi
 
-# CTAGS Sorting in VIM/Emacs is better behaved with this in place
-export LC_COLLATE=C
-
 # Set LC_ALL="UTF8"
-export LC_ALL="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
+export LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Virtual Environment Stuff
 export WORKON_HOME=$HOME/.virtualenvs
