@@ -182,9 +182,9 @@ alias sz='source ~/.zshrc'
 # -------------------------------------------------------------------
 # some Octopress helpers
 # -------------------------------------------------------------------
-alias 'generate=date ; rake generate ; date ;'
-alias 'gen=date ; rake generate ; date ;'
-alias 'ingen=date ; rake integrate ; rake generate ; date ;'
+alias 'generate=time rake generate'
+alias 'gen=time rake generate'
+alias 'ingen=time rake integrate ; rake generate ;'
 alias 'deploy=rm deploy.log ; rake deploy > deploy.log ; tail -n 3 deploy.log ;'
 alias 'np=newpost.rb'
 
