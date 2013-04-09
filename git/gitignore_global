@@ -1,13 +1,28 @@
 # ----------------------------------------------------------------------------
 # Mac OS
+# https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
 # ----------------------------------------------------------------------------
-*.DS_Store
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
 
 # ----------------------------------------------------------------------------
 # Vim
-# .netrwhist - netrw history file
+# https://github.com/github/gitignore/blob/master/Global/vim.gitignore
 # ----------------------------------------------------------------------------
-*.netrwhist
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
 
 # ----------------------------------------------------------------------------
 # Java / Scala / IntelliJ IDEA
@@ -31,7 +46,7 @@ deploy.log
 *.class
 *.log
 
-# Package Files 
+# Package Files
 *.jar
 *.war
 *.ear
@@ -45,11 +60,15 @@ project/boot
 project/plugins/project/
 
 # IntelliJ
-.idea/*
+# https://github.com/github/gitignore/blob/master/Global/IntelliJ.gitignore
+*.iml
+*.ipr
+*.iws
+.idea/
 
 
 # ----------------------------------------------------------------------------
-# Xcode 
+# Xcode
 # (https://github.com/github/gitignore/blob/master/Objective-C.gitignore)
 # There is no harm in versioning these artifacts, but some purists say not to.
 # Here for future reference only
