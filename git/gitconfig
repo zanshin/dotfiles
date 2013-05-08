@@ -1,13 +1,13 @@
 [user]
-	name = Mark Nichols
+    name = Mark Nichols
     email = mark@zanshin.net
 
 [github]
-	user = zan5hin
-    token = efd2c818fb62cceb2f434f40f1b261b70ddf4c6b
+    user = zanshin
+
 
 [color]
-	ui = auto
+    ui = auto
     interactive = auto
 
 [color "branch"]
