@@ -145,6 +145,12 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
+" Next or previous bufffer and next or previous tab movement keys
+map <C-J> :bnext<CR>            " next buffer
+map <C-K> :bprev<CR>            " previous buffer
+map <C-H> :tabn<CR>             " next tab
+map <C-L> :tabp<CR>             " previous tab
+
 " ---------------------------------------------------------------------------------
 " working with OS X Clipboard
 " ---------------------------------------------------------------------------------
@@ -270,6 +276,12 @@ if has("autocmd")
     let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
     autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
 endif
+
+" ---------------------------------------------------------------------------------
+" Define path to Ruby when using rbenv or RVM
+" ---------------------------------------------------------------------------------
+let g:ruby_path = system('rvm current')
+" let g:ruby_path = system ('echo $HOME/.rbenv/shims')
 
 " ---------------------------------------------------------------------------------
 " stuff for bundles
