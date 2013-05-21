@@ -21,9 +21,9 @@
     new = green bold
 
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+    added = green
+    changed = magenta
+    untracked = bold yellow
 
 [core]
 	editor = "vim"
