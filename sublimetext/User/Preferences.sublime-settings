@@ -12,7 +12,7 @@
 	[
 		"subpixel_antialias"
 	],
-	"font_size": 12.0,
+	"font_size": 11.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -25,6 +25,7 @@
 		72,
 		79
 	],
+	"scroll_past_end": true,
 	"spell_check": true,
 	"tab_size": 2,
 	"theme": "Soda Dark.sublime-theme",

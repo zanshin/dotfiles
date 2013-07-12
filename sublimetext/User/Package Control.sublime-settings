@@ -3,6 +3,7 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
+		"Boron Color Scheme",
 		"DocBlockr",
 		"Dotfiles Syntax Highlighting",
 		"Emmet",
@@ -14,9 +15,12 @@
 		"Package Control",
 		"Python Auto-Complete",
 		"Rake",
+		"Sass",
 		"SideBarEnhancements",
 		"Solarized Color Scheme",
 		"SublimeLinter",
+		"Theme - Flatland",
+		"Theme - Phoenix",
 		"Theme - Soda",
 		"Tmux",
 		"Tomorrow Color Schemes",
