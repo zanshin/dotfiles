@@ -20,7 +20,7 @@
 	# How to display battery remaining. Can be {percentage, cute}.
 	export TMUX_POWERLINE_SEG_BATTERY_TYPE="percentage"
 	# How may hearts to show if cute indicators are used.
-	export TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS="5"
+	# export TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS="0"
 # }
 
 # date.sh {
