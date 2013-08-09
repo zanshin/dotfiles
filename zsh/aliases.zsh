@@ -19,6 +19,7 @@ alias rake="noglob rake" # necessary to make rake work inside of zsh
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias .....='cd ../../../..'
 alias 'bk=cd $OLDPWD'
 
 # -------------------------------------------------------------------
@@ -71,6 +72,13 @@ if [[ $IS_MAC -eq 1 ]]; then
     alias defhist='history 1 | grep "defaults"'
 fi
 
+# -------------------------------------------------------------------
+# random shortcuts
+# -------------------------------------------------------------------
+alias s='subl -n .'
+alias p='cd ~/Projects'
+alias v='vim'
+alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
 
 # -------------------------------------------------------------------
 # remote machines
