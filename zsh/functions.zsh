@@ -220,4 +220,11 @@ givedef() {
   fi
 }
 
+# --------------------------------------------------------------------
+# ps with a grep
+# from http://hiltmon.com/blog/2013/07/30/quick-process-search/
+# --------------------------------------------------------------------
+function psax() {
+  ps auxwwwh | grep "$@" | grep -v grep
+}
 
