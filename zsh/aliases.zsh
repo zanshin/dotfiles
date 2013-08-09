@@ -82,6 +82,7 @@ alias 'veld=ssh mhn@veld.ome.ksu.edu'
 alias 'dev=ssh mhn@ome-dev-as1.ome.campus'
 alias 'tools=ssh mhn@tools.ome.ksu.edu'
 alias 'wf=ssh markn@markn.webfactional.com'
+alias 'chef=ssh mark@129.130.49.121'
 
 # -------------------------------------------------------------------
 # database
