@@ -1,0 +1,29 @@
+# WebFaction
+# port 52698 is the rmate port
+#Host *.webfactional.com
+#RemoteForward 52698 127.0.0.1:52698
+
+host wf
+    HostName markn.webfactional.com
+    User markn
+
+host palantir
+    HostName palantir.ome.ksu.edu
+    Port 11122
+    User mhn
+
+host ksuunix
+    HostName unix.ksu.edu
+    User mhn
+
+host veld
+    HostName veld.ome.ksu.edu
+    User mhn
+
+host dev
+    HostName ome-dev-as1.ome.campus
+    User mhn
+
+host tools
+    HostName tools.ome.ksu.edu
+    User mhn

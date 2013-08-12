@@ -36,7 +36,11 @@ For zsh configuration create the following symlinks:
     ln -s ~/.dotfiles/zsh/zshenv ~/.zshenv
     ln -s ~/.dotfiles/zsh/zprofile ~/.zprofile
 		
-	
+## ssh
+For ssh configuration, create the following symlink:
+
+    ln -s ~/.dotfiles/ssh/config ~/.ssh/config
+
 ## Vim
 For Vim configuration and use, create the following symlinks:
 
