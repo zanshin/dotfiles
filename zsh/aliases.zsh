@@ -75,7 +75,7 @@ fi
 # -------------------------------------------------------------------
 # random shortcuts
 # -------------------------------------------------------------------
-alias s='subl -n .'
+#alias s='subl -n .'
 alias p='cd ~/Projects'
 alias v='vim'
 alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
