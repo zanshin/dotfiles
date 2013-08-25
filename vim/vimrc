@@ -144,6 +144,7 @@ set hlsearch                    " highlight search terms
 nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
+nnoremap <CR> :nohlsearch<cr>  " clear search highlight when hitting return
 
 " Next or previous bufffer and next or previous tab movement keys
 map <C-J> :bnext<CR>            " next buffer
