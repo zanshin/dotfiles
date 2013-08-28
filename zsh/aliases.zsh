@@ -3,6 +3,7 @@
 # -------------------------------------------------------------------
 #alias foobar='nocorrect foobar'
 alias g8='nocorrect g8'
+alias cookbook='nocorrect cookbook'
 
 # -------------------------------------------------------------------
 # Ruby stuff
