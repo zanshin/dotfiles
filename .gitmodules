@@ -1,35 +1,3 @@
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
-    url = http://github.com/tpope/vim-fugitive.git
-    ignore = dirty
-[submodule "vim/bundle/gundo"]
-	path = vim/bundle/gundo
-    url = https://github.com/sjl/gundo.vim.git
-    ignore = dirty
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-    url = https://github.com/scrooloose/nerdtree.git
-    ignore = dirty
-[submodule "vim/bundle/nerdcommenter"]
-	path = vim/bundle/nerdcommenter
-    url = https://github.com/scrooloose/nerdcommenter.git
-    ignore = dirty
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-    url = git://git.wincent.com/command-t.git
-    ignore = dirty
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-    url = https://github.com/scrooloose/syntastic.git
-    ignore = dirty
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
-    ignore = dirty
-[submodule "vim/bundle/powerline"]
-    path = vim/bundle/powerline
-    url = https://github.com/Lokaltog/vim-powerline.git
-    ignore = dirty
 [submodule "z"]
 	path = z
 	url = https://github.com/rupa/z.git
