@@ -38,6 +38,10 @@ set autowrite
 " Saves file when Vim loses focus
 au FocusLost * :wa
 
+" With Git who needs backup files?
+set nobackup
+set noswapfile
+
 " Use a different map leader than \
 " and reduce lag after typing leader key + command
 :let mapleader = "-"
@@ -79,6 +83,9 @@ set ruler               " display current cursor position
 set list                " show invisible characters
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set showmatch           " show matching brackets
+
+" Paste mode to prevent autoindentation of pasted lines
+set pastetoggle=<F2>
 
 " Map escape to jj -- much faster to reach and type
 imap jj <esc>
