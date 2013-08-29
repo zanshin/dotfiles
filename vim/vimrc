@@ -32,11 +32,15 @@ filetype plugin on
 filetype indent on
 syntax on
 
-" Write out old file when switching between files
-set autowrite
+" Encoding anyone?
+set termencoding=utf-8  " we like utf-8
+set encoding=utf-8
 
-" Saves file when Vim loses focus
-au FocusLost * :wa
+" What to do with files and focus
+set autowrite           " write out old file when switching between files
+set autoread            " reload files changed on disk, i.e. via `git checkout`
+au FocusLost * :wa      " save file when Vim loses focus
+set hidden              " switch beteen buffers without saving
 
 " With Git who needs backup files?
 set nobackup
@@ -44,35 +48,23 @@ set noswapfile
 
 " Use a different map leader than \
 " and reduce lag after typing leader key + command
-:let mapleader = "-"
+:let mapleader = ","
 set timeoutlen=500
-
-" Switch between buffers without saving
-set hidden
 
 " Set the color scheme
 colorscheme Tomorrow-Night-Bright
 
-" Set font type and size
-set guifont=Menlo:h14
-
 " Set tab stuff
-set tabstop=2        " 2 spaces for a tab
-set shiftwidth=2     " 2 spaces for autoindenting
-set softtabstop=2    " when <BS>, pretend a tab is removed even if spaces
-set expandtab        " expand tabs to spaces (overloadable by file type)
-
-" Use relative line numbers
-set relativenumber
-"set number
+set tabstop=2           " 2 spaces for a tab
+set shiftwidth=2        " 2 spaces for autoindenting
+set softtabstop=2       " when <BS>, pretend a tab is removed even if spaces
+set expandtab           " expand tabs to spaces (overloadable by file type)
 
 " Editor and Layout stuff
 set laststatus=2        " always show the status line
 set cmdheight=2         " and use a two-line tall status line
 set showcmd             " show the command
 set showmode            " and show the current mode
-set termencoding=utf-8  " we like utf-8
-set encoding=utf-8
 set autoindent          " turns it on
 set smartindent         " does the right thing (mostly) in programs
 set linespace=3         " prefer a slight higher line height
@@ -83,6 +75,7 @@ set ruler               " display current cursor position
 set list                " show invisible characters
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set showmatch           " show matching brackets
+set relativenumber      " use relative line numbers
 
 " Paste mode to prevent autoindentation of pasted lines
 set pastetoggle=<F2>
@@ -102,14 +95,9 @@ set foldenable
 " Hide mouse when typing
 set mousehide
 
-" Open a vertical split and switch to it (-v)
-nnoremap <leader>v <C-w>v<C-w>l
-
-" Open a horizontal split and switch to it (-h)
-nnoremap <leader>h <C-w>s<C-w>j
-
-" Split windows below the current window
-set splitbelow
+" Splits
+nnoremap <leader>v <C-w>v<C-w>l   " open a vertical split and switch to it (,v)
+nnoremap <leader>h <C-w>s<C-w>j   " open a horizontal split and switch to it (,h)
 
 " vimrc shortcuts
 " open vimrc in new tab for editing
@@ -119,6 +107,9 @@ nmap <leader>ev :tabedit $MYVIMRC<cr>
 if has("autocmd")
   autocmd! bufwritepost .vimrc source $MYVIMRC
 endif
+
+" reload .vimrc
+map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Command line completion
 "set wildmode                 " navigate <left> & <right> through completion lists
@@ -159,10 +150,16 @@ endif
 " Stuff for Bundles
 " ----------------------------------------------------------
 " NERDTree
-nmap <leader>nt :NERDTreeToggle <CR>
+nmap <leader>d :NERDTreeToggle <CR>
+nmap <leader>f :NERDTreeFind <CR>
 
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
+
+" Command-t
+nmap <leader>t :CommandT <CR>
+nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
+
 
 " ----------------------------------------------------------
 "  finis 
