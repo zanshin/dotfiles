@@ -73,7 +73,7 @@ set textwidth=79        " at column 79
 set formatoptions=qrn1
 set ruler               " display current cursor position
 set list                " show invisible characters
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 set showmatch           " show matching brackets
 set relativenumber      " use relative line numbers
 
