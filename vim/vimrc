@@ -77,6 +77,9 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 set showmatch           " show matching brackets
 set relativenumber      " use relative line numbers
 
+" toggle listchars on or off
+noremap <Leader>i :set list!<CR>
+
 " Paste mode to prevent autoindentation of pasted lines
 set pastetoggle=<F2>
 
