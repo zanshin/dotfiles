@@ -18,6 +18,10 @@ It is also possible to use `git pull` to update the submodules.
     $ cd ~/.dotfiles
     $ git submodule foreach git pull origin master
 
+Vundle managed Vim bundles maybe updated from the command line via
+
+    $ vim +BundleInstall +qall
+
 #Setup
 ## Homebrew
 On those Mac OS machines where I install Homebrew I also edit `/etc/paths` to move the `/usr/local/bin` entry to the top of the list. This ensures that Homebrew-managed programs and libraries occur prior to `/usr/bin` and system-provided programs and libraries. The resulting `/etc/paths` files looks like this:
@@ -32,7 +36,7 @@ On those Mac OS machines where I install Homebrew I also edit `/etc/paths` to mo
 For zsh configuration create the following symlinks:
 
     ln -s ~/.dotfiles/zsh ~/.zsh
-	ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
+    ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc
     ln -s ~/.dotfiles/zsh/zshenv ~/.zshenv
     ln -s ~/.dotfiles/zsh/zprofile ~/.zprofile
 		
@@ -48,9 +52,15 @@ For Vim configuration and use, create the following symlinks:
     ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
     ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
 
-Vim's backup and swap files are stored in `~/.tmp`, so that directory must exist. To be sure run:
+To install Vim bundles, which are managed via Vundle, Run
 
-    $ touch ~/.tmp
+    vim +BundleInstall +qall
+
+From the command prompt, or run
+
+    :BundleInstall
+
+From inside of Vim.
 
 ## bash
 For those machines where zsh isn't installed or won't easily work, create the
