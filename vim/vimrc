@@ -32,6 +32,16 @@ filetype plugin on
 filetype indent on
 syntax on
 
+" disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 " Encoding anyone?
 set termencoding=utf-8  " we like utf-8
 set encoding=utf-8
