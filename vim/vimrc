@@ -47,7 +47,7 @@ set timeoutlen=500
 set hidden
 
 " Set the color scheme
-"colorscheme twilight
+colorscheme Tomorrow-Night-Bright
 
 " Set font type and size
 set guifont=Menlo:h14
@@ -133,7 +133,7 @@ if has("autocmd")
   
   " markdown files
   autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
-  autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell
+  autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
 
   " non ruby files related to Ruby
   autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
