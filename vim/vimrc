@@ -34,6 +34,7 @@ filetype plugin on
 filetype indent on
 syntax on
 
+" Navigation
 " disable arrow keys
 map <up> <nop>
 map <down> <nop>
@@ -43,6 +44,12 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
+" use <C>hjkl to switch between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Encoding anyone?
 set termencoding=utf-8  " we like utf-8
