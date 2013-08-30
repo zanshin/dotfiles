@@ -20,6 +20,8 @@ Bundle 'gmarik/vundle'
 " original repositories on github
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-fugitive'
+Bundle 'bling/vim-airline'
 
 " non github repositories
 Bundle 'git://git.wincent.com/command-t.git'
@@ -141,7 +143,7 @@ if has("autocmd")
 
   " treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
-  
+
   " markdown files
   autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
   autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
@@ -173,8 +175,15 @@ let NERDTreeShowHidden=1
 nmap <leader>t :CommandT <CR>
 nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
 
+" vim-airline settings
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+
 
 " ----------------------------------------------------------
-"  finis 
+"  finis
 " ----------------------------------------------------------
-
