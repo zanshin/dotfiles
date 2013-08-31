@@ -26,11 +26,14 @@
     untracked = bold yellow
 
 [core]
-	editor = "vim"
-	autocrlf = input
-	safecrlf = warn
-	excludesfile = /Users/mark/.gitignore_global
+    editor = /usr/local/bin/vim
+    autocrlf = input
+    safecrlf = warn
+    excludesfile = /Users/mark/.gitignore_global
     quotepath = false
+
+[diff]
+    tool = vimdiff
 
 [merge]
     # Include summaries of merged commits in newly created merge commit
@@ -38,21 +41,12 @@
     log = true
 
 [alias]
-	yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
-	hist = "log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
-	ahead = "log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
+    yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
+    hist = "log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
+    ahead = "log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
     today = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
     # Show verbose output about tags, branches, or remotes
     tags = tag -l
     branches = branch -a
     remotes = remote -v
-
-[difftool "sourcetree"]
-	cmd = opendiff "$LOCAL" "$REMOTE"
-    path =
-
-# Sublime Text 2 as merge tool
-[mergetool "sublime"]
-	cmd = subl -n $MERGED
-    trustExitCode = false
 
