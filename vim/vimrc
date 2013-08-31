@@ -83,7 +83,7 @@ set expandtab           " expand tabs to spaces (overloadable by file type)
 set laststatus=2        " always show the status line
 set cmdheight=2         " and use a two-line tall status line
 set showcmd             " show the command
-set showmode            " and show the current mode
+set noshowmode          " don't show the mode, vim-airline will do that for us
 set autoindent          " turns it on
 set smartindent         " does the right thing (mostly) in programs
 set linespace=3         " prefer a slight higher line height
@@ -102,6 +102,12 @@ noremap <Leader>i :set list!<CR>
 
 " Paste mode to prevent autoindentation of pasted lines
 set pastetoggle=<F2>
+
+" show cursorline only in active window
+if has("autocmd")
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter * set cursorline
+endif
 
 " Map escape to jj -- much faster to reach and type
 imap jj <esc>
@@ -151,6 +157,9 @@ if has("autocmd")
 
   " treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
+
+  " spell check Git commit messages
+  autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 
   " markdown files
   autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
