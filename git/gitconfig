@@ -39,6 +39,7 @@
     # Include summaries of merged commits in newly created merge commit
     # messages
     log = true
+    tool = vimdiff
 
 [alias]
     yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
