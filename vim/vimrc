@@ -87,7 +87,7 @@ set expandtab           " expand tabs to spaces (overloadable by file type)
 set laststatus=2        " always show the status line
 set cmdheight=2         " and use a two-line tall status line
 set showcmd             " show the command
-set showmode          " don't show the mode, vim-airline will do that for us
+set noshowmode          " don't show the mode, vim-airline will do that for us
 set autoindent          " turns it on
 set smartindent         " does the right thing (mostly) in programs
 set linespace=3         " prefer a slight higher line height
