@@ -7,3 +7,6 @@
 Session.vim
 .netrwhist
 *~
+
+# Ignore vim/bundles
+vim/bundle
