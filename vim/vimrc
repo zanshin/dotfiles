@@ -75,7 +75,8 @@ set noswapfile
 set timeoutlen=500
 
 " Set the color scheme
-colorscheme Tomorrow-Night-Bright
+set background=dark
+silent! colorscheme Tomorrow-Night-Bright
 
 " Set tab stuff
 set tabstop=2           " 2 spaces for a tab
@@ -241,7 +242,7 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
-let g:airline_theme= "solarized"
+"let g:airline_theme= "tomorrownight"
 
 " ----------------------------------------------------------
 "  finis
