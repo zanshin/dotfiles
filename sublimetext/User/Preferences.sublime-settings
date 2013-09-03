@@ -16,7 +16,10 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"Tomorrow Color Schemes",
+		"Vagrant",
+		"WordCount"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
