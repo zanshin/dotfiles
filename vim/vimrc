@@ -122,6 +122,7 @@ set incsearch           " use incremental search
 set hlsearch            " highlight search results
 set ignorecase          " ignore case when searching
 set smartcase           " ignore case if search string is all lower case, case-sensitve otherwise
+:nnoremap <CR> :nohlsearch<cr> " clear search highlight by pressing <Enter>
 
 " Enable code folding
 set foldenable
