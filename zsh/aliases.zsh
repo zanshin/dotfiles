@@ -84,7 +84,7 @@ alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
 # -------------------------------------------------------------------
 # remote machines
 # -------------------------------------------------------------------
-alias 'vpn=sudo openconnect --config .~/.openconnect https://vpn.net.k-state.edu'
+alias 'vpn=sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu'
 alias 'palantir=ssh mhn@palantir.ome.ksu.edu -p 11122'
 alias 'pvnc=open vnc://palantir.ome.ksu.edu'
 alias 'ksunix=ssh mhn@unix.ksu.edu'
