@@ -26,7 +26,7 @@
     untracked = bold yellow
 
 [core]
-    editor = /usr/local/bin/vim -f
+    editor = vim 
     autocrlf = input
     safecrlf = warn
     excludesfile = /Users/mark/.gitignore_global
