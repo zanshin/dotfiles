@@ -101,6 +101,8 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 set showmatch           " show matching brackets
 set relativenumber      " use relative line numbers
 set backspace=indent,eol,start " make backspace behave in a sane manner
+set mousehide           " hide mouse when typing
+set foldenable          " enable code folding
 
 " Scrolling
 set scrolloff=5         " show context above/below cursor line
@@ -129,10 +131,11 @@ set incsearch           " use incremental search
 set hlsearch            " highlight search results
 set ignorecase          " ignore case when searching
 set smartcase           " ignore case if search string is all lower case, case-sensitve otherwise
-nnoremap <F3> :noh <CR> " remove search highlights with <F3>
 
+" ------------------------------------------------------------
 " Preserve function: saves search history and cursor position
 "  call with some command, like removing all whitespace
+" ------------------------------------------------------------
 function! Preserve(command)
   " preparation: save last search, and cursor position
   let _s=@/
@@ -151,11 +154,8 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 " reindent entire file
 nmap _= :call Preserve("normal gg=G")<CR>
 
-" Enable code folding
-set foldenable
-
-" Hide mouse when typing
-set mousehide
+" remove search highlights with <F3>
+nmap <F3> :call Preserve(":noh")<CR>
 
 " Splits
 nnoremap <leader>v <C-w>v<C-w>l   " open a vertical split and switch to it (,v)
@@ -193,6 +193,9 @@ if has("autocmd")
 
   " spell check Git commit messages
   autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+
+  " start commit message in insert mode
+  autocmd BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
 
   " markdown files
   autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
