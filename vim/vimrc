@@ -102,11 +102,18 @@ set showmatch           " show matching brackets
 set relativenumber      " use relative line numbers
 set backspace=indent,eol,start " make backspace behave in a sane manner
 
+" Scrolling
+set scrolloff=5         " show context above/below cursor line
+set sidescrolloff=10    " number of cols from horizontal edge to  start scrolling
+set sidescroll=1        " number of cols to scroll at a time
+
 " toggle listchars on or off
 noremap <Leader>i :set list!<CR>
 
 " Paste mode to prevent autoindentation of pasted lines
 set pastetoggle=<F2>
+
+set clipboard=unnamed   " yank and paste with the system clipboard
 
 " show cursorline only in active window
 if has("autocmd")
