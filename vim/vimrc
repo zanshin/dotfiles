@@ -129,7 +129,27 @@ set incsearch           " use incremental search
 set hlsearch            " highlight search results
 set ignorecase          " ignore case when searching
 set smartcase           " ignore case if search string is all lower case, case-sensitve otherwise
-nnoremap <F3> :noh <CR> " remove search highlights with <F3> 
+nnoremap <F3> :noh <CR> " remove search highlights with <F3>
+
+" Preserve function: saves search history and cursor position
+"  call with some command, like removing all whitespace
+function! Preserve(command)
+  " preparation: save last search, and cursor position
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " do the business
+  execute a:command
+  " clean up: restore previous search history and cursor position
+  let @/=_s
+  call cursor(l,c)
+endfunction
+
+" strip whitespace from all lines in file
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+
+" reindent entire file
+nmap _= :call Preserve("normal gg=G")<CR>
 
 " Enable code folding
 set foldenable
