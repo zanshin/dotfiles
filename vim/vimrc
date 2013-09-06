@@ -3,42 +3,94 @@
 " mark@zanshin.net
 " http;//zanshin.net
 "
-
+" -------------------------------------------------------------------
 " Forget compatibility with vi. Who cares.
+" -------------------------------------------------------------------
 set nocompatible
 
+" -------------------------------------------------------------------
+" setup Vundle to manage plugins
+" -------------------------------------------------------------------
 " turn filetype on so that we can turn if off without generating an exit code
 " of 1 when quiting vim.
-filetype on
-
-" Initialize vundle
-filetype off
+filetype on                  " best to have it on before turning it off
+filetype off                 " needs to be off to setup Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
-
-" My Bundles
-"
-" original repositories on github
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
-
-" non github repositories
 Bundle 'git://git.wincent.com/command-t.git'
 
-" end of Vundle setup
-
-" Enable filetypes
-filetype on
-filetype plugin on
-filetype indent on
+filetype plugin indent on    " enable plugins, detection and indenting
 syntax on
 
-" Navigation
+" -------------------------------------------------------------------
+"  change map <leader> from \ to ,
+"  ------------------------------------------------------------------
+:let mapleader = ","
+set timeoutlen=500           " reduce lag after typying <leader>+command
+
+" -------------------------------------------------------------------
+" basic options
+" -------------------------------------------------------------------
+set laststatus=2                  " always show the status line
+set cmdheight=2                   " and use a two-line tall status line
+set showcmd                       " show the command
+set noshowmode                    " don't show the mode, vim-airline will do that for us
+set autoindent                    " turns it on
+set smartindent                   " does the right thing (mostly) in programs
+set linespace=3                   " prefer a slight higher line height
+set wrap                          " use line wrapping
+set textwidth=79                  " at column 79
+set formatoptions=qrn1
+set ruler                         " display current cursor position
+set list                          " show invisible characters
+set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
+set showmatch                     " show matching brackets
+set relativenumber                " use relative line numbers
+set backspace=indent,eol,start    " make backspace behave in a sane manner
+set mousehide                     " hide mouse when typing
+set foldenable                    " enable code folding
+set history=1000
+set ffs=unix,mac,dos              " default file types
+set autoread                      " automatically update file when editted outside of vim
+
+" -------------------------------------------------------------------
+" let's have a complicated relative to absolute numbering setup
+" -------------------------------------------------------------------
+" function to toggle relative & absolute line numbers
+" map function to C-n (control+n)
+function! NumberToggle()
+  if (&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set nonumber
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
+" use absolute numbers when Vim loses focus
+:au FocusLost * :set norelativenumber
+:au FocusLost * :set number
+:au FocusGained * :set nonumber
+:au FocusGained * :set relativenumber
+
+" use absolute number when in insert mode, relative otherwise
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set nonumber
+autocmd InsertLeave * :set relativenumber
+
+" -------------------------------------------------------------------
+" Navigation and movement
+" -------------------------------------------------------------------
 " disable arrow keys
 map <up> <nop>
 map <down> <nop>
@@ -55,60 +107,50 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" -------------------------------------------------------------------
 " Encoding anyone?
+" -------------------------------------------------------------------
 set termencoding=utf-8  " we like utf-8
 set encoding=utf-8
 
+" -------------------------------------------------------------------
 " What to do with files and focus
+" -------------------------------------------------------------------
 set autowrite           " write out old file when switching between files
 set autoread            " reload files changed on disk, i.e. via `git checkout`
 au FocusLost * :wa      " save file when Vim loses focus
 set hidden              " switch beteen buffers without saving
 
+" -------------------------------------------------------------------
 " With Git who needs backup files?
+" -------------------------------------------------------------------
 set nobackup
 set noswapfile
 
-" Use a different map leader than \
-" and reduce lag after typing leader key + command
-:let mapleader = ","
-set timeoutlen=500
-
+" -------------------------------------------------------------------
 " Set the color scheme
+" -------------------------------------------------------------------
 set background=dark
 silent! colorscheme Tomorrow-Night-Bright
 
+" -------------------------------------------------------------------
 " Set tab stuff
+" -------------------------------------------------------------------
 set tabstop=2           " 2 spaces for a tab
 set shiftwidth=2        " 2 spaces for autoindenting
 set softtabstop=2       " when <BS>, pretend a tab is removed even if spaces
 set expandtab           " expand tabs to spaces (overloadable by file type)
 
-" Editor and Layout stuff
-set laststatus=2        " always show the status line
-set cmdheight=2         " and use a two-line tall status line
-set showcmd             " show the command
-set noshowmode          " don't show the mode, vim-airline will do that for us
-set autoindent          " turns it on
-set smartindent         " does the right thing (mostly) in programs
-set linespace=3         " prefer a slight higher line height
-set wrap                " use line wrapping
-set textwidth=79        " at column 79
-set formatoptions=qrn1
-set ruler               " display current cursor position
-set list                " show invisible characters
-set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
-set showmatch           " show matching brackets
-set relativenumber      " use relative line numbers
-set backspace=indent,eol,start " make backspace behave in a sane manner
-set mousehide           " hide mouse when typing
-set foldenable          " enable code folding
-
+" -------------------------------------------------------------------
 " Scrolling
+" -------------------------------------------------------------------
 set scrolloff=5         " show context above/below cursor line
 set sidescrolloff=10    " number of cols from horizontal edge to  start scrolling
 set sidescroll=1        " number of cols to scroll at a time
 
+" -------------------------------------------------------------------
+" Miscellaneous
+" -------------------------------------------------------------------
 " toggle listchars on or off
 noremap <Leader>i :set list!<CR>
 
@@ -126,16 +168,18 @@ endif
 " Map escape to jj -- much faster to reach and type
 imap jj <esc>
 
+" -------------------------------------------------------------------
 " Searching
+" -------------------------------------------------------------------
 set incsearch           " use incremental search
 set hlsearch            " highlight search results
 set ignorecase          " ignore case when searching
 set smartcase           " ignore case if search string is all lower case, case-sensitve otherwise
 
-" ------------------------------------------------------------
+" -------------------------------------------------------------------
 " Preserve function: saves search history and cursor position
-"  call with some command, like removing all whitespace
-" ------------------------------------------------------------
+" call with some command, like removing all whitespace
+" -------------------------------------------------------------------
 function! Preserve(command)
   " preparation: save last search, and cursor position
   let _s=@/
@@ -155,13 +199,17 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
 " remove search highlights with <F3>
-nmap <F3> :call Preserve(":noh")<CR>
+nmap <F3> :call Preserve("noh")<CR>
 
+" -------------------------------------------------------------------
 " Splits
+" -------------------------------------------------------------------
 nnoremap <leader>v <C-w>v<C-w>l   " open a vertical split and switch to it (,v)
 nnoremap <leader>h <C-w>s<C-w>j   " open a horizontal split and switch to it (,h)
 
+" -------------------------------------------------------------------
 " vimrc shortcuts
+" -------------------------------------------------------------------
 " open vimrc in new tab for editing
 nmap <leader>ev :tabedit $MYVIMRC<cr>
 
@@ -173,13 +221,15 @@ endif
 " reload .vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" -------------------------------------------------------------------
 " Command line completion
+" -------------------------------------------------------------------
 "set wildmode                 " navigate <left> & <right> through completion lists
 "set wildmode=list:longest    " allows expansion of items
 
-" --------------------------------------------------------
+" -------------------------------------------------------------------
 " control whitespace preferences based on filetype
-" --------------------------------------------------------
+" -------------------------------------------------------------------
 if has("autocmd")
   " enable file type detection
   filetype on
@@ -216,46 +266,9 @@ if has("autocmd")
 
 endif
 
-" ---------------------------------------------------------
-" homegrown status line
-" http://stackoverflow.com/a/10416234/120037
-" ---------------------------------------------------------
-" Colors (adapted from ligh2011.vim)
-"hi User1 ctermfg=darkcyan
-"hi User2 ctermfg=darkgreen
-"hi User3 ctermfg=yellow
-"hi User4 ctermfg=darkmagenta
-"hi User5 ctermfg=blue
-"hi User7 ctermfg=darkgray
-"hi User8 ctermfg=brown
-"hi User9 ctermfg=red
-"hi User0 ctermfg=darkblue
-
-"set statusline=
-"set statusline+=%0*\[%n]                                  "buffernr
-"set statusline+=%1*\ %<%F\                                "File+path
-"set statusline+=%2*\ %y\                                  "FileType
-"set statusline+=\ %{fugitive#statusline()}
-"set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
-"set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
-"set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..)
-"set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
-"set statusline+=%2*\ col:%03c\                            "Colnr
-"set statusline+=%9*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
-
-" Highlight on? function
-"function! HighlightSearch()
-"  if &hls
-"    return 'H'
-"  else
-"    return ''
-"  endif
-"endfunction
-
-
-" ----------------------------------------------------------
+" -------------------------------------------------------------------
 " Stuff for Bundles
-" ----------------------------------------------------------
+" -------------------------------------------------------------------
 " NERDTree
 nmap <leader>d :NERDTreeToggle <CR>
 nmap <leader>f :NERDTreeFind <CR>
@@ -276,6 +289,6 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline_theme='dark'
 
-" ----------------------------------------------------------
+" -------------------------------------------------------------------
 "  finis
-" ----------------------------------------------------------
+" -------------------------------------------------------------------
