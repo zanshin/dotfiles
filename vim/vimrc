@@ -24,6 +24,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
+Bundle 'benmills/vimux'
 Bundle 'git://git.wincent.com/command-t.git'
 
 filetype plugin indent on    " enable plugins, detection and indenting
@@ -288,6 +289,23 @@ let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline_theme='dark'
+
+" Vimux settings
+let g:VimuxHeight = "30"
+let g:VimuxOrientation = "v"
+let g:VimuxUseNearestPane = 0
+
+" Vimux Mappings
+nmap <leader>vp :VimuxPromptCommand<cr>
+nmap <leader>vl :VimuxRunLastCommand<cr>
+nmap <leader>vq :VimuxCloseRunner<cr>
+nmap <leader>vx :VimuxInterruptRunner<cr>
+
+" Vimux Octopress helpers
+nmap <leader>vg :call VimuxRunCommand("gen")<CR>
+nmap <leader>vi :call VimuxRunCommand("ingen")<CR>
+nmap <leader>vz :call VimuxRunCommand("dz")<CR>
+nmap <leader>vd :call VimuxRunCommand("deploy")<CR>
 
 " -------------------------------------------------------------------
 "  finis
