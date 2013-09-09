@@ -176,6 +176,8 @@ set incsearch           " use incremental search
 set hlsearch            " highlight search results
 set ignorecase          " ignore case when searching
 set smartcase           " ignore case if search string is all lower case, case-sensitve otherwise
+" remove search highlighting with <F3>
+nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " -------------------------------------------------------------------
 " Preserve function: saves search history and cursor position
@@ -198,9 +200,6 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 
 " reindent entire file
 nmap _= :call Preserve("normal gg=G")<CR>
-
-" remove search highlights with <F3>
-nmap <F3> :call Preserve("noh")<CR>
 
 " -------------------------------------------------------------------
 " Splits
