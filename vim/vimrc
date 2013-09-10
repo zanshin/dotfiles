@@ -36,6 +36,11 @@ syntax on
 :let mapleader = ","
 set timeoutlen=500           " reduce lag after typying <leader>+command
 
+" Trying to break a very old habit...
+" ex mode commands made easy
+nnoremap ; :
+nnoremap Q <nop>
+
 " -------------------------------------------------------------------
 " basic options
 " -------------------------------------------------------------------
