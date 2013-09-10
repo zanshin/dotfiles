@@ -34,7 +34,9 @@ syntax on
 "  change map <leader> from \ to ,
 "  ------------------------------------------------------------------
 :let mapleader = ","
-set timeoutlen=500           " reduce lag after typying <leader>+command
+
+" time out mappings after 1 second (1000) and key codes after 1/2 a second (500)
+set timeout timeoutlen=1000 ttimeoutlen=500
 
 " Trying to break a very old habit...
 " ex mode commands made easy
@@ -241,7 +243,7 @@ if has("autocmd")
 
   " syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
   " treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
@@ -255,6 +257,7 @@ if has("autocmd")
   " markdown files
   autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
   autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
+  autocmd FileType markdown setlocal tw=100
 
   " non ruby files related to Ruby
   autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
