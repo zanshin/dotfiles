@@ -37,3 +37,11 @@ host dev
 host tools
     HostName tools.ome.ksu.edu
     User mhn
+
+host txhub1
+    HostName ome-dev-txhub1.cc.ksu.edu
+    User mhn
+
+host txhub2
+    HostName ome-dev-txhub2.cc.ksu.edu
+    User mhn
