@@ -70,34 +70,6 @@ set ffs=unix,mac,dos              " default file types
 set autoread                      " automatically update file when editted outside of vim
 
 " -------------------------------------------------------------------
-" let's have a complicated relative to absolute numbering setup
-" -------------------------------------------------------------------
-" function to toggle relative & absolute line numbers
-" map function to C-n (control+n)
-"function! NumberToggle()
-"  if (&relativenumber == 1)
-"    set norelativenumber
-"    set number
-"  else
-"    set nonumber
-"    set relativenumber
-"  endif
-"endfunc
-"nnoremap <C-n> :call NumberToggle()<cr>
-
-" use absolute numbers when Vim loses focus
-":au FocusLost * :set norelativenumber
-":au FocusLost * :set number
-":au FocusGained * :set nonumber
-":au FocusGained * :set relativenumber
-
-" use absolute number when in insert mode, relative otherwise
-"autocmd InsertEnter * :set norelativenumber
-"autocmd InsertEnter * :set number
-"autocmd InsertLeave * :set nonumber
-"autocmd InsertLeave * :set relativenumber
-
-" -------------------------------------------------------------------
 " Navigation and movement
 " -------------------------------------------------------------------
 " disable arrow keys
