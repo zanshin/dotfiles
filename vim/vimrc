@@ -26,6 +26,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'benmills/vimux'
 Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'plasticboy/vim-markdown'
 
 filetype plugin indent on    " enable plugins, detection and indenting
 syntax on
