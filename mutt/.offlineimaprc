@@ -1,5 +1,5 @@
 [general]
-ui = TTY.TTYUI
+ui = Curses.Blinkenlights 
 accounts = CodeProle
 pythonfile=~/.mutt/offlineimap.py
 fsync = False

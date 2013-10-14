@@ -22,10 +22,14 @@ set beep_new             # bell on new mails
 set pipe_decode          # strip headers and eval mimes when piping
 set thorough_search      # strip headers and eval mimes before searching
 
+# Color Scheme -----
+source ~/.mutt/themes/tomorrow-night.muttrc
+
 # Sidebar Patch -----
-set sidebar_delim   = '  |'
-set sidebar_visible = yes
+set sidebar_visible = yes 
+set sidebar_delim   = ' | '
 set sidebar_width   = 30 
+set sidebar_shortpath=yes
 color sidebar_new  yellow default
 
 # Status Bar -----
