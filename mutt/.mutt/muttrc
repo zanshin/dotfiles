@@ -75,21 +75,24 @@ hdr_order from: to: cc: date: subject:           # and in this order
 
 # Account Settings -----
 
+# Multiple account setup. 
 # Default inbox.
 set spoolfile = "+codeprole-gmail.com/INBOX"
 
-# Alternate email addresses.
-# alternates mail@example.com mail@example.net
+folder-hook codeprole/* source ~/.mutt/accounts/codeprole
+folder-hook chef/* source ~/.mutt/accounts/chef
 
 # Mailboxes to show in the sidebar.
 mailboxes +codeprole-gmail.com/INBOX \
           +codeprole-gmail.com/archive \
           +codeprole-gmail.com/sent \
           +codeprole-gmail.com/drafts \
+          +chef-zanshin.net/INBOX \
+          +chef-zanshin.net/archive \
+          +chef-zanshin.net/Drafts \
+          +chef-zanshin.net/Sent\ Messages \
 
-# Other special folders.
-set mbox      = "+codeprole-gmail.com/archive"
-set postponed = "+codeprole-gmail.com/drafts"
+
 
 # Index View Options -----
 set date_format = %m.%d.%y"
@@ -168,8 +171,8 @@ set forward_quote                                # include message in forwards
 
 set editor = "vim"                               # use terminal Vim to compose email
 
-set from      = "code.prole@gmail.com"
-set sendmail  = "/usr/local/bin/msmtp -a codeprole"
+# set from      = "code.prole@gmail.com"
+# set sendmail  = "/usr/local/bin/msmtp -a codeprole"
 set sendmail_wait = 0
 unset record
 
