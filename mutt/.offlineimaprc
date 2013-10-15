@@ -1,6 +1,9 @@
+# vim: ft=rc:
+
 [general]
-ui = TTY.TTYUI
-accounts = CodeProle
+# ui = ttyui 
+ui = blinkenlights
+accounts = CodeProle,Chef
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
@@ -10,26 +13,48 @@ remoterepository = CodeProle-Remote
 status-backend = sqlite
 postsynchook = notmuch new
 
+[Account Chef]
+localrepository = Chef-Local
+remoterepository = Chef-Remote
+status-backend = sqlite
+postsynchook = notmuch new
+
 [Repository CodeProle-Local]
 type = Maildir
 localfolders = ~/.mail/codeprole-gmail.com
 nametrans = lambda folder: {'drafts':   '[Gmail]/Drafts',
-                                             'sent':      '[Gmail]/Sent Mail',
-					      'flagged': '[Gmail]/Starred',
-					      'trash':     '[Gmail]/Trash',
-					      'archive':  '[Gmail]/All Mail',
-					      }.get(folder, folder)
-						  
+                            'sent':     '[Gmail]/Sent Mail',
+                            'flagged':  '[Gmail]/Starred',
+                            'trash':    '[Gmail]/Trash',
+                            'archive':  '[Gmail]/All Mail',
+                           }.get(folder, folder)
+
+[Repository Chef-Local]
+type = Maildir
+localfolders = ~/.mail/chef-zanshin.net
+
 [Repository CodeProle-Remote]
 maxconnections = 1
 type = Gmail
 remoteuser = code.prole@gmail.com
 remotepasseval = get_keychain_pass(account="code.prole@gmail.com", server="imap.gmail.com")
 realdelete = no
-nametrans = lambda folder: {'[Gmail]/Drafts': 'drafts',
-                                             '[Gmail]/Sent Mail': 'sent',
-					      '[Gmail]/Starred': 'flagged',
-					      '[Gmail]/Trash': 'trash',
-					      '[Gmail]/All Mail': 'archive',
-					      }.get(folder, folder)  
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                           }.get(folder, folder)
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam',]
+
+[Repository Chef-Remote]
+maxconnections =2 
+type = IMAP
+remoteuser = chef_zanshin
+remotehost = mail.webfaction.com
+remoteport = 993
+ssl = yes
+remotepasseval = get_keychain_pass(account="chef_zanshin", server="mail.webfaction.com")
+realdelete = no
+
+folderfilter = lambda folder: folder in ['INBOX', 'Sent Messages', 'Drafts', 'Trash', 'archive']
