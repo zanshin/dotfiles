@@ -1,13 +1,14 @@
 # Account Settings -----
 
-set from      = "code.prole@gmail.com"
-set sendmail  = "/usr/local/bin/msmtp -a codeprole"
+set from      = "chef@zanshin.net"
+set sendmail  = "/usr/local/bin/msmtp -a chef"
 
 # Default inbox.
-set spoolfile = "+codeprole-gmail.com/INBOX"
+set spoolfile = "+chef-zanshin.net/INBOX"
 
 # Other special folders.
-set mbox      = "+codeprole-gmail.com/archive"
-set postponed = "+codeprole-gmail.com/drafts"
+set mbox      = "+chef-zanshin.net/archive"
+set postponed = "+chef-zanshin.net/drafts"
+set record    = "+chef-zanshin.net/Sent Messages"
 
-color status green default
+color status yellow default
