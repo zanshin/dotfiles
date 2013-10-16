@@ -1,9 +1,9 @@
 # vim: ft=rc:
 
 [general]
-# ui = ttyui 
-ui = blinkenlights
-accounts = CodeProle,Chef
+ui = ttyui 
+# ui = blinkenlights
+accounts = CodeProle,Chef,mhn
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
@@ -19,6 +19,10 @@ remoterepository = Chef-Remote
 status-backend = sqlite
 postsynchook = notmuch new
 
+[Account mhn]
+localrepository = mhn-Local
+remoterepository = mhn-Remote
+
 [Repository CodeProle-Local]
 type = Maildir
 localfolders = ~/.mail/codeprole-gmail.com
@@ -32,6 +36,10 @@ nametrans = lambda folder: {'drafts':   '[Gmail]/Drafts',
 [Repository Chef-Local]
 type = Maildir
 localfolders = ~/.mail/chef-zanshin.net
+
+[Repository mhn-Local]
+type = Maildir
+localfolders = ~/.mail/mhn-ksu.edu
 
 [Repository CodeProle-Remote]
 maxconnections = 1
@@ -48,7 +56,7 @@ nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam',]
 
 [Repository Chef-Remote]
-maxconnections =2 
+maxconnections = 3 
 type = IMAP
 remoteuser = chef_zanshin
 remotehost = mail.webfaction.com
@@ -58,3 +66,14 @@ remotepasseval = get_keychain_pass(account="chef_zanshin", server="mail.webfacti
 realdelete = no
 
 folderfilter = lambda folder: folder in ['INBOX', 'Sent Messages', 'Drafts', 'Trash', 'archive']
+
+[Repository mhn-Remote]
+maxconnections =3 
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = mhn@ksu.edu
+remoteport = 993
+ssl = yes
+remotepasseval = get_keychain_pass(account="mhn@ksu.edu", server="outlook.office365.com")
+
+folderfilter = lambda folder: folder in ['INBOX', 'Sent Items', 'Drafts', '_archive', '_follow-up', '_github', '_pending', '_transaction-hub', '_travel', '_bugzilla', '_meetings', '_ome-dt-l', 'Deleted\ Items', 'Junk\ Email']

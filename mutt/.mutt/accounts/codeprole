@@ -9,5 +9,6 @@ set spoolfile = "+codeprole-gmail.com/INBOX"
 # Other special folders.
 set mbox      = "+codeprole-gmail.com/archive"
 set postponed = "+codeprole-gmail.com/drafts"
+set record    = "+codeprole-gmail.com/sent"
 
 color status green default

@@ -77,20 +77,39 @@ hdr_order from: to: cc: date: subject:           # and in this order
 
 # Multiple account setup. 
 # Default inbox.
-set spoolfile = "+codeprole-gmail.com/INBOX"
+# set spoolfile = "+codeprole-gmail.com/INBOX"
+set spoolfile = "+mhn-ksu.edu/INBOX"
 
+folder-hook mhn/*       source ~/.mutt/accounts/mhn
+folder-hook chef/*      source ~/.mutt/accounts/chef
 folder-hook codeprole/* source ~/.mutt/accounts/codeprole
-folder-hook chef/* source ~/.mutt/accounts/chef
 
 # Mailboxes to show in the sidebar.
-mailboxes +codeprole-gmail.com/INBOX \
-          +codeprole-gmail.com/archive \
-          +codeprole-gmail.com/sent \
-          +codeprole-gmail.com/drafts \
+mailboxes "+-- mhn (ksu) ----------" \
+          +mhn-ksu.edu/INBOX \
+          +mhn-ksu.edu/Drafts \
+          +mhn-ksu.edu/Sent\ Items \
+          +mhn-ksu.edu/_archive \
+          +mhn-ksu.edu/_follow-up \
+          +mhn-ksu.edu/_pending \
+          +mhn-ksu.edu/_github \
+          +mhn-ksu.edu/_transaction-hub \
+          +mhn-ksu.edu/_meetings \
+          +mhn-ksu.edu/_bugzilla \
+          +mhn-ksu.edu/_travel \
+          +mhn-ksu.edu/_ome-dt-l \
+          +mhn-ksu.edu/Junk\ Email \
+          +mhn-ksu.edu/Deleted\ Items \
+          "+-- Chef (zanshin) -----" \
           +chef-zanshin.net/INBOX \
           +chef-zanshin.net/archive \
           +chef-zanshin.net/Drafts \
           +chef-zanshin.net/Sent\ Messages \
+          "+-- CodeProle (GMail) --" \
+          +codeprole-gmail.com/INBOX \
+          +codeprole-gmail.com/archive \
+          +codeprole-gmail.com/sent \
+          +codeprole-gmail.com/drafts \
 
 
 
@@ -152,6 +171,10 @@ bind attach <return> view-mailcap
 # Handle URLs.
 macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
+# enriched messages
+auto_view text/html                                  # view html automatically
+alternative_order text/plain text/enriched text/html # but save it for last
+
 # Compose View Options -----
 set realname = "Mark Nichols"                    # who am I?
 set envelope_from                                # which from?
@@ -169,7 +192,7 @@ set reverse_name                                 # reply as whoever it was to
 set include                                      # include message in reply
 set forward_quote                                # include message in forwards
 
-set editor = "vim"                               # use terminal Vim to compose email
+set editor = "vim +:silent+?^$"                  # use terminal Vim to compose email
 
 # set from      = "code.prole@gmail.com"
 # set sendmail  = "/usr/local/bin/msmtp -a codeprole"
