@@ -9,6 +9,13 @@
 set nocompatible
 
 " -------------------------------------------------------------------
+" Get SID prefix of vimrc (see :h <SID>)
+" -------------------------------------------------------------------
+function! s:SID_PREFIX()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_')
+endfunction
+
+" -------------------------------------------------------------------
 " setup Vundle to manage plugins
 " -------------------------------------------------------------------
 " turn filetype on so that we can turn if off without generating an exit code
@@ -27,6 +34,7 @@ Bundle 'bling/vim-airline'
 Bundle 'benmills/vimux'
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'fholgado/minibufexpl.vim'
 
 filetype plugin indent on    " enable plugins, detection and indenting
 syntax on
@@ -56,7 +64,6 @@ set smartindent                   " does the right thing (mostly) in programs
 set linespace=3                   " prefer a slight higher line height
 set wrap                          " use line wrapping
 set textwidth=79                  " at column 79
-set formatoptions=qrn1
 set ruler                         " display current cursor position
 set list                          " show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
@@ -69,6 +76,16 @@ set foldenable                    " enable code folding
 set history=1000
 set ffs=unix,mac,dos              " default file types
 set autoread                      " automatically update file when editted outside of vim
+
+" Setup automatic text formatting/wrapping (previously: grn1 )
+set formatoptions=
+set formatoptions-=t              " don't autowrap text
+set formatoptions+=c              " do autowrap comments
+set formatoptions+=r              " automatically continue comments
+set formatoptions+=o              " automatically continue comments when hitting 'o' or 'O'
+set formatoptions+=q              " allow formating of comments with 'gq'
+set formatoptions+=n              " recognize numbered lists
+set formatoptions+=l              " don't break long lines that were already there
 
 " -------------------------------------------------------------------
 " Navigation and movement
@@ -88,6 +105,55 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" movement between open tabs
+" nnoremap tn  :tabnew %<CR>
+" nnoremap tc  :tabclose<CR>
+" nnoremap tj  :tabnext<CR>
+" nnoremap th  :tabfirst<CR>
+" nnoremap tk  :tabprevious<CR>
+" nnoremap tl  :tablast<CR>
+" nnoremap tt  :tabs<CR>
+" nnoremap tm  :tabmove
+
+" -------------------------------------------------------------------
+" Tab line setup
+" -------------------------------------------------------------------
+" set showtabline=2   " always show the tab bar
+" let &tabline = '%!' . s:SID_PREFIX() . 'tabline()'
+" function! s:tabline()
+"   let s = ''
+"   for i in range(1, tabpagenr('$'))
+"     let list = tabpagebuflist(i)
+"     let nr = tabpagewinnr(i)
+"     let title = fnamemodify(bufname(list[nr - 1]), ':t')
+"     let title = empty(title) ? '[No name]' : title
+" 
+"     let s .= i == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+"     let s .= '%' . i . 'T[' . i . '] ' . title
+"     let s .= '  '
+"   endfor
+" 
+"   let tabpaged_cwd = exists('t:cwd') ? '[' . t:cwd . ']' : ''
+"   if exists('*lingr#unread_count')
+"     let lingr_unread_count = lingr#unread_count()
+"     if lingr_unread_count > 0
+"       let lingr_unread = "%#ErrorMsg#(" . lingr_unread_count . ")"
+"     elseif lingr_unread_count == 0
+"       let lingr_unread = "()"
+"     else
+"       let lingr_unread = ""
+"     endif
+"   else
+"     let lingr_unread = ""
+"   endif
+"   let s .= '%#TabLineFill#%T%=%<' . tabpaged_cwd . lingr_unread
+"   return s
+" endfunction
+" 
+" :hi TabLine      ctermfg=254 ctermbg=238 cterm=none
+" :hi TabLineSel   ctermfg=231 ctermbg=235 cterm=bold
+" :hi TabLineFill  ctermfg=254 ctermbg=238 cterm=none
 
 " -------------------------------------------------------------------
 " Move line(s) up or down via C-j and C-k respectively 
@@ -302,6 +368,20 @@ nmap <leader>vg :call VimuxRunCommand("gen")<CR>
 nmap <leader>vi :call VimuxRunCommand("ingen")<CR>
 nmap <leader>vz :call VimuxRunCommand("dz")<CR>
 nmap <leader>vd :call VimuxRunCommand("deploy")<CR>
+
+" MiniBufExpl setup
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1 
+
+" MiniBufExpl Colors
+hi MBENormal               ctermfg=244 ctermbg=235
+hi MBEChanged              ctermfg=166 ctermbg=235
+hi MBEVisibleNormal        ctermfg=147 ctermbg=235
+hi MBEVisibleChanged       ctermfg=164 ctermbg=235
+hi MBEVisibleActiveNormal  ctermfg=229 ctermbg=235
+hi MBEVisibleActiveChanged ctermfg=203 ctermbg=235
 
 " -------------------------------------------------------------------
 "  finis
