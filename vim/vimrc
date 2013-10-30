@@ -28,7 +28,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
+" Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'benmills/vimux'
@@ -333,11 +333,11 @@ endif
 " Stuff for Bundles
 " -------------------------------------------------------------------
 " NERDTree
-nmap <leader>d :NERDTreeToggle <CR>
-nmap <leader>f :NERDTreeFind <CR>
+" nmap <leader>d :NERDTreeToggle <CR>
+" nmap <leader>f :NERDTreeFind <CR>
 
 " show hidden files in NERDTree
-let NERDTreeShowHidden=1
+" let NERDTreeShowHidden=1
 
 " Command-t
 nmap <leader>t :CommandT <CR>
