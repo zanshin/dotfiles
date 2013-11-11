@@ -60,6 +60,10 @@ From inside of Vim run
 
     :BundleInstall
 
+If this is the first time setting up Vim on the machine, it will be necessary to install Vundle itself, prior to teh bundles.
+
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
 ## bash
 For those machines where zsh isn't installed or won't easily work, create the
 following symlinks:
