@@ -45,3 +45,7 @@ host txhub1
 host txhub2
     HostName ome-dev-txhub2.cc.ksu.edu
     User mhn
+
+host xendor
+    HostName 129.130.48.13
+    User mark
