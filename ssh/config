@@ -3,23 +3,13 @@
 #Host *.webfactional.com
 #RemoteForward 52698 127.0.0.1:52698
 
-host devvm
-    HostName localhost
-    Port 10022
-    User ome
+# OME system admin
+host tx1
+    HostName ome-txhub1.cc.ksu.edu
+    User mhn
 
-host ome-devvm
-    HostName localhost
-    Port 2222
-    user vagrant
-
-host wf
-    HostName markn.webfactional.com
-    User markn
-
-host palantir
-    HostName palantir.ome.ksu.edu
-    Port 11122
+host tx2
+    HostName ome-txhub2.cc.ksu.edu
     User mhn
 
 host ksuunix
@@ -38,14 +28,37 @@ host tools
     HostName tools.ome.ksu.edu
     User mhn
 
-host txhub1
+host txdev1
     HostName ome-dev-txhub1.cc.ksu.edu
     User mhn
 
-host txhub2
+host txdev2
     HostName ome-dev-txhub2.cc.ksu.edu
     User mhn
 
+# OME local VMs
+host devvm
+    HostName localhost
+    Port 10022
+    User ome
+
+host ome-devvm
+    HostName localhost
+    Port 2222
+    user vagrant
+
+# WebFaction hosting
+host wf
+    HostName markn.webfactional.com
+    User markn
+
+# iMac desktop
+host palantir
+    HostName palantir.ome.ksu.edu
+    Port 11122
+    User mhn
+
+# iMac test machine
 host xendor
     HostName 129.130.48.13
     User mark
