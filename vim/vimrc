@@ -20,9 +20,9 @@ endfunction
 " -------------------------------------------------------------------
 " turn filetype on so that we can turn if off without generating an exit code
 " of 1 when quiting vim.
-filetype on                  " best to have it on before turning it off
-filetype off                 " needs to be off to setup Vundle
-set rtp+=~/.vim/bundle/vundle/
+filetype on                     " best to have it on before turning it off
+filetype off                    " needs to be off to setup Vundle
+set rtp+=~/.vim/bundle/vundle/  " add vundle to run time path
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -68,7 +68,9 @@ set ruler                         " display current cursor position
 set list                          " show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 set showmatch                     " show matching brackets
-set relativenumber                " use relative line numbers
+if exists("&relativenumber")
+  set relativenumber              " use relative line numbers
+endif
 set number                        " except for the current line - absolute number there
 set backspace=indent,eol,start    " make backspace behave in a sane manner
 set mousehide                     " hide mouse when typing
