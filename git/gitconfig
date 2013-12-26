@@ -52,4 +52,6 @@
     remotes = remote -v
 
 [push]
-	default = simple
+    # simple is the new default, requires > 1.7
+    # default = simple
+    default = matching
