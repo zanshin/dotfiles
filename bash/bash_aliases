@@ -4,41 +4,54 @@
 # Various aliases that I like and use.
 # -------------------------------------------------------------------
 
-# -------------------------------------------------------------------
-# some alias settings, just for fun
-# -------------------------------------------------------------------
-#alias 'today=calendar -A 0 -f ~/calendar/calendar.mark | sort'
-alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
-alias 'dus=du -sckx * | sort -nr'
-alias 'adventure=emacs -batch -l dunnet'
-alias 'mailsize=du -hs ~/Library/mail'
-alias 'bk=cd $OLDPWD'
-alias 'ttop=top -ocpu -R -F -s 2 -n30'
-alias lh='ls -a | egrep "^\."'
+# Start & stop my war, ejb,  or ear container
+alias 'start-war=/as/bin/jboss.pl -c mhn-war -d start'
+alias 'stop-war=/as/bin/jboss.pl -c mhn-war -d stop'
+alias 'start-ejb=/as/bin/jboss.pl -c mhn-ejb'
+alias 'start-ear=/as/bin/jboss.pl -c mhn-ear'
 
-# -------------------------------------------------------------------
-# make some commands (potentially) less destructive
-# -------------------------------------------------------------------
+# Sorted size
+alias 'dus=du -sckx * | sort -nr'
+
+# Movement aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+# Mac OS X specific aliases
+myos=`uname -s`
+case "$myos" in
+  Darwin)
+    alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort' 
+    alias 'adventure=emacs -batch -l dunnet' 
+    alias 'mailsize=du -hs ~/Library/mail' 
+    alias 'ttop=top -ocpu -R -F -s 2 -n30' 
+    ;;
+  *) ;;
+esac
+
+# ls command variations using colorflag set above
+alias l="ls -al ${colorflag}"
+alias lsd='ls -al ${colorflag} | grep \"^d\"'
+alias lh='ls -a | egrep "^\."'
+alias ls="command ls ${colorflag}"
+
+# Miscellaneous
+alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
 
-# -------------------------------------------------------------------
-# Jboss
-# -------------------------------------------------------------------
-alias 'startjboss=/usr/local/jboss-4.0.5.GA/bin/run.sh &'
-alias 'stopjboss=/usr/local/jboss-4.0.5.GA/bin/shutdown.sh --shutdown'
-
-# -------------------------------------------------------------------
 # Mercurial (hg)
-# -------------------------------------------------------------------
 alias 'h=hg status'
 alias 'hc=hg commit'
 alias 'push=hg push'
 alias 'pull=hg pull'
 alias 'clone=hg clone'
 
-# -------------------------------------------------------------------
 # Git
-# -------------------------------------------------------------------
 alias ga='git add'
 alias gp='git push'
 alias gl='git log'
@@ -59,10 +72,5 @@ alias gf='git reflog'
 alias gh='git hist'
 
 
-# -------------------------------------------------------------------
-# Oddball stuff
-# -------------------------------------------------------------------
-alias 'sloc=/usr/local/sloccount/bin/sloccount'
-
 # finis
-# mhn 2011.7.19
+# mhn 2013.12.24 

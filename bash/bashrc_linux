@@ -1,0 +1,19 @@
+# ------------------------------------------------------------------
+# bashrc_linux
+#
+# The individual per-interactive-shell startup file
+# Linux specific aliases, settings, and exports
+# ------------------------------------------------------------------
+
+umask 002
+. /as/conf/shell/bashrc.developer
+
+# source useful bashrc stuff
+for name in /as/conf/shell/bashrc/developer /as/conf/shell/bashrc.asa
+  do
+    if [ -f $name ]
+      then
+        . $name
+    fi
+done
+
