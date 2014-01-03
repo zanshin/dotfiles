@@ -6,18 +6,18 @@
 # OME system admin
 host tx1
     HostName ome-txhub1.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host tx2
     HostName ome-txhub2.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
     User mhn
 
-host ksuunix
-    HostName unix.ksu.edu
-    User mhn
 
 host veld
     HostName veld.ome.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host dev
@@ -32,10 +32,17 @@ host tools
 
 host txdev1
     HostName ome-dev-txhub1.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host txdev2
     HostName ome-dev-txhub2.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+# Personal K-State Webpage
+host ksuunix
+    HostName unix.ksu.edu
     User mhn
 
 # OME local VMs
