@@ -1,94 +1,55 @@
-# -------------------------------------------------------------------
-# .bashrc
+# ------------------------------------------------------------------
+# bashrc
 #
 # The individual per-interactive-shell startup file
-# -------------------------------------------------------------------
+# ------------------------------------------------------------------
 
-# -------------------------------------------------------------------
-# Source global definitions and my aliases file
-# -------------------------------------------------------------------
-# source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+# Determine the operating system and use to set or source things
+myos=`uname -s`
 
-# source my aliases file
-if [ -f .bash_aliases ]; then
-	. .bash_aliases
-fi
+case "$myos" in
+  SunOS)
+    # colorflag="--color=auto -AFC"
+    colorflag=""
+    source ~/.dotfiles/bash/bashrc_sunos
+    ;;
+  Darwin)
+    colorflag="-G"
+    source ~/.dotfiles/bash/bashrc_mac
+    ;;
+  Linux)
+    colorflag="--color"
+    source ~/.dotfiles/bash/bashrc_linux
+    ;;
+  *)
+    colorflag=""
+esac
 
-# -------------------------------------------------------------------
-# stuff for bash-completion and git-completion
-# -------------------------------------------------------------------
-if [ -f /usr/local/etc/bash_completion ]; then
-  source /usr/local/etc/bash_completion
-fi
+# set the prompt, and include the machine name in RED
+PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\H:\w\007\] '
 
-if [ -f /usr/local/etc/git-completion.bash ]; then
-  source /usr/local/etc/git-completion.bash
-fi
-GIT_PS1_SHOWDIRTYSTATE=1
+# aliases
+source ~/.dotfiles/bash/bash_aliases
 
+# exports
+export EDITOR=vim
+export PAGER=less
+export LESS="-M -n -q -i"
 
-# -------------------------------------------------------------------
-# Prompts
-# -------------------------------------------------------------------
-# set prompt: user@host working directory new line $ using colors (copied from cygwin profile)
-# also set title to user@host and display current directory
-# added git repository information 7.15.2011
-
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\H \[\e[33m\]\w\[\e[0m\] $(__git_ps1 "(%s)") \n$\[\033]0;\u@\h:\w\007\] '
-#PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\h:\w\007\] '
-
-
-# -------------------------------------------------------------------
-# Environment configuration stuff
-# -------------------------------------------------------------------
-# setup for java
-JAVA_HOME=/Library/Java/Home
-
-# setup for Jboss 5
-JBOSS_HOME=/usr/local/jboss5
-
-# setup for Maven 1 & 2
-MAVEN_HOME=/usr/local/maven-1.1
-M2_HOME=/usr/local/apache-maven-2.2.1
-M2=/usr/local/apache-maven-2.2.1/bin
-
-# Java and Maven opts
-JAVA_OPTS='-Xms512m -Xmx1024m -XX:MaxPermSize=512m'
-MAVEN_OPTS='-Xms512m -Xmx1024m -XX:MaxPermSize=200m'
-
-# CVS setup
-# CVSROOT=/as/data/cvsroot
-CVSROOT=:ext:mhn@poof.ome.ksu.edu:/usr/local/share/cvsroot
-CVS_RSH='ssh'
+export IGNOREEOF=2
+export TMOUT=0
 
 # configure how history works
-HISTCONTROL=ignoredups                         		# ignore the line if it matches previous line
-HISTFILESIZE=20000                             		# size of the history file cf. also shopt -s histappend
-HISTSIZE=1000                                  		# size of the run-time history list
-HISTIGNORE=ls:ll:la:l:cd:pwd:exit:mc:su:df:clear 	# do not put these in history file
-
-# -------------------------------------------------------------------
-# Color
-# -------------------------------------------------------------------
-# add colors to terminal (see man ls for details)
-CLICOLOR=1
-# Order:
-# 1. directory, 2. symbolic link, 3. socket, 4. pipe, 5. executable, 6. block special, 7. character special
-# 8. executabel with setuid bit set, 9. executable with setgid bit set, 10. directory writable to others, with sticky bit
-# 11. directory writable to others, without sticky bit
-#
-# Colors
-# a - black, b - red, c - green, d - brown (yellow), e - blue, f - magenta, g - cyan, h - light grey
-# A - Bold black, B - Bold red, C - Bold green, D - Bold brown (yellow), E - Bold blue, F - Bold Magenta, G - Bold cyan,
-# H - Bold light grey (appears bright white), x - default color
-LSCOLORS=gxFxCxDxBxegedabagacad
+HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
+HISTFILESIZE=20000                                # size of the history file cf. also shopt -s histappend
+HISTSIZE=1000                                     # size of the run-time history list
+HISTIGNORE=ls:ll:la:l:cd:pwd:exit:mc:su:df:clear  # do not put these in history file
 
 # export settings
-export JAVA_HOME M2_HOME M2 MAVEN_HOME HISTCONTROL HISTFILESIZE HISTSIZE HISTIGNORE CLICOLOR LSCOLORS 
-export JAVA_OPTS MAVEN_OPTS CVSROOT CVS_RSH
+export HISTCONTROL HISTFILESIZE HISTSIZE HISTIGNORE 
+
+alias ls="command ls ${colorflag}"
+export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 # -------------------------------------------------------------------
 # Color man pages:
@@ -101,62 +62,9 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 
-
-# -------------------------------------------------------------------
-# Functions (NB: single-line functions must end with a semi-colon)
-# -------------------------------------------------------------------
-# turn hidden files on/off in Finder
-function hiddenOn() { defaults write com.apple.Finder AppleShowAllFiles YES ; }
-function hiddenOff() { defaults write com.apple.Finder AppleShowAllFiles NO ; }
-
-# remote machine functions
-function palantir() { ssh mhn@palantir.ome.ksu.edu ; }
-function pvnc() { open vnc://palantir.ome.ksu.edu ; }
-function ksunix() { ssh mhn@unix.ksu.edu ; }
-function veld() { ssh mhn@veld.ome.ksu.edu ; }
-function dev() { ssh mhn@ome-dev-as1.ome.campus ; }
-
-
-# function for Bluehost
-function bh() { ssh markhnic@markhnichols.com ; }
-
-# postgres functions
-function psqlstart() { /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start ; }
-function psqlstop() { /usr/local/pgsql/bin/pg_ctl stop ; }
-
-# view man pages in Preview
-function pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
-
-# devvm functions
-function startvm() { VBoxHeadless --startvm devvm ; }
-function stopvm() { VBoxManage controlvm devvm poweroff ; }
-function devvm() { ssh -p 10022 ome@localhost ; }
-function devmount() { mount_smbfs //ome:xxxxxxx@localhost:10139/ome /Users/mark/Projects/devvm/ ; }
-
-# apache tomcat functions
-function tomcatup() { /usr/local/tomcat/bin/startup.sh ; }
-function tomcatdown() { /usr/local/tomcat/bin/shutdown.sh ; }
-
-# function to show interface IP assignments
-function ips() {
-  foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo;
-} 
-
 # nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
 # displays mounted drive information in a nicely formatted manner
 function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
-# mount android source disk image
-function mountAndroid() { hdiutil attach /Volumes/Palantir\ HD/androidHD.dmg -mountpoint /Volumes/androidHD ; }
-
-# myIP address
-function myip() {
-    ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
-	ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-	ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-	ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-	ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-}
-
 # finis
-# mhn 2011.7.19
+# mhn 12.25.2013

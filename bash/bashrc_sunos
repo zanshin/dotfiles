@@ -1,0 +1,187 @@
+# -------------------------------------------------------------------
+# .bashrc
+#
+# The individual per-interactive-shell startup file
+# -------------------------------------------------------------------
+
+# Capture OS flavor
+myos=`uname -s`
+
+# Use OS Flavor to set various options
+case "$myos" in
+  SunOS)
+    # colorflag="--color=auto -AFC"
+    colorflag=""
+    ;;
+  Darwin)
+    colorflag="-G"
+    JAVA_HOME=/Library/Java/Home
+    JBOSS_HOME=/usr/local/jboss5
+    ;;
+  Linux)
+    colorflag="--color"
+    JAVA_HOME=/as/app/java/current
+    
+    ;;
+  *)
+    colorflag=""
+esac
+
+# Assign permissions so that only me and my group have read/write access to files, and read/write/search 
+# access to directories you own. All others have read access to my files, and read/search to my directories.
+umask 002
+
+# Source bashrc.developer
+. /as/conf/shell/bashrc.developer
+
+# -------------------------------------------------------------------
+# Source global definitions and my aliases file
+# -------------------------------------------------------------------
+# source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# source my aliases file
+if [ -f .bash_aliases ]; then
+	. .bash_aliases
+fi
+
+# -------------------------------------------------------------------
+# stuff for bash-completion and git-completion
+# -------------------------------------------------------------------
+if [ -f /usr/local/etc/bash_completion ]; then
+  source /usr/local/etc/bash_completion
+fi
+
+if [ -f /usr/local/etc/git-completion.bash ]; then
+  source /usr/local/etc/git-completion.bash
+fi
+
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
+fi
+
+GIT_PS1_SHOWDIRTYSTATE=1
+
+
+# -------------------------------------------------------------------
+# Prompts
+# -------------------------------------------------------------------
+# set prompt: user@host working directory new line $ using colors (copied from cygwin profile)
+# also set title to user@host and display current directory
+# added git repository information 7.15.2011
+
+PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\H \[\e[33m\]\w\[\e[0m\] $(__git_ps1 "(%s)") \n$\[\033]0;\u@\h:\w\007\] '
+#PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\h:\w\007\] '
+
+# setup for Maven 1 & 2
+MAVEN_HOME=/usr/local/maven-1.1
+M2_HOME=/usr/local/apache-maven-2.2.1
+M2=/usr/local/apache-maven-2.2.1/bin
+
+# Java and Maven opts
+JAVA_OPTS='-Xms512m -Xmx1024m -XX:MaxPermSize=512m'
+MAVEN_OPTS='-Xms512m -Xmx1024m -XX:MaxPermSize=200m'
+
+# CVS setup
+# CVSROOT=/as/data/cvsroot
+CVSROOT=:ext:mhn@poof.ome.ksu.edu:/usr/local/share/cvsroot
+CVS_RSH='ssh'
+
+# configure how history works
+HISTCONTROL=ignoredups                         		# ignore the line if it matches previous line
+HISTFILESIZE=20000                             		# size of the history file cf. also shopt -s histappend
+HISTSIZE=1000                                  		# size of the run-time history list
+HISTIGNORE=ls:ll:la:l:cd:pwd:exit:mc:su:df:clear 	# do not put these in history file
+
+# -------------------------------------------------------------------
+# Color
+# -------------------------------------------------------------------
+# add colors to terminal (see man ls for details)
+CLICOLOR=1
+# Order:
+# 1. directory, 2. symbolic link, 3. socket, 4. pipe, 5. executable, 6. block special, 7. character special
+# 8. executabel with setuid bit set, 9. executable with setgid bit set, 10. directory writable to others, with sticky bit
+# 11. directory writable to others, without sticky bit
+#
+# Colors
+# a - black, b - red, c - green, d - brown (yellow), e - blue, f - magenta, g - cyan, h - light grey
+# A - Bold black, B - Bold red, C - Bold green, D - Bold brown (yellow), E - Bold blue, F - Bold Magenta, G - Bold cyan,
+# H - Bold light grey (appears bright white), x - default color
+LSCOLORS=gxFxCxDxBxegedabagacad
+
+# export settings
+export JAVA_HOME M2_HOME M2 MAVEN_HOME HISTCONTROL HISTFILESIZE HISTSIZE HISTIGNORE CLICOLOR LSCOLORS 
+export JAVA_OPTS MAVEN_OPTS CVSROOT CVS_RSH
+
+# -------------------------------------------------------------------
+# Color man pages:
+# -------------------------------------------------------------------
+export LESS_TERMCAP_mb=$'\E[01;31m'      # begin blinking
+export LESS_TERMCAP_md=$'\E[01;31m'      # begin bold
+export LESS_TERMCAP_me=$'\E[0m'          # end mode
+export LESS_TERMCAP_se=$'\E[0m'          # end standout-mode
+export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'          # end underline
+export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
+
+
+# -------------------------------------------------------------------
+# Functions (NB: single-line functions must end with a semi-colon)
+# -------------------------------------------------------------------
+# turn hidden files on/off in Finder
+function hiddenOn() { defaults write com.apple.Finder AppleShowAllFiles YES ; }
+function hiddenOff() { defaults write com.apple.Finder AppleShowAllFiles NO ; }
+
+# remote machine functions
+function palantir() { ssh mhn@palantir.ome.ksu.edu ; }
+function pvnc() { open vnc://palantir.ome.ksu.edu ; }
+function ksunix() { ssh mhn@unix.ksu.edu ; }
+function veld() { ssh mhn@veld.ome.ksu.edu ; }
+function dev() { ssh mhn@ome-dev-as1.ome.campus ; }
+
+
+# function for Bluehost
+function bh() { ssh markhnic@markhnichols.com ; }
+
+# postgres functions
+function psqlstart() { /usr/local/pgsql/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start ; }
+function psqlstop() { /usr/local/pgsql/bin/pg_ctl stop ; }
+
+# view man pages in Preview
+function pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
+
+# devvm functions
+function startvm() { VBoxHeadless --startvm devvm ; }
+function stopvm() { VBoxManage controlvm devvm poweroff ; }
+function devvm() { ssh -p 10022 ome@localhost ; }
+function devmount() { mount_smbfs //ome:xxxxxxx@localhost:10139/ome /Users/mark/Projects/devvm/ ; }
+
+# apache tomcat functions
+function tomcatup() { /usr/local/tomcat/bin/startup.sh ; }
+function tomcatdown() { /usr/local/tomcat/bin/shutdown.sh ; }
+
+# function to show interface IP assignments
+function ips() {
+  foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo;
+} 
+
+# nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
+# displays mounted drive information in a nicely formatted manner
+function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
+
+# mount android source disk image
+function mountAndroid() { hdiutil attach /Volumes/Palantir\ HD/androidHD.dmg -mountpoint /Volumes/androidHD ; }
+
+# myIP address
+function myip() {
+    ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
+	ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+	ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+	ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+	ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+}
+
+# finis
+# mhn 2011.7.19
