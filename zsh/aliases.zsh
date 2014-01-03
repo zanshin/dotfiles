@@ -101,7 +101,7 @@ alias 'chef=ssh mark@129.130.49.121'
 # tmux stuff
 # ------------------------------------------------------------------
 alias takeover="tmux detach -a"
-alias attach="tmux attach -t base"
+alias attach="tmux attach -t base || tmux new -s base"
 
 # -------------------------------------------------------------------
 # Mutt stuff
