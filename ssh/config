@@ -22,10 +22,12 @@ host veld
 
 host dev
     HostName ome-dev-as1.ome.campus
+    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host tools
     HostName tools.ome.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host txdev1
