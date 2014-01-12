@@ -135,6 +135,12 @@ alias 'vp=vagrant provision'
 alias 'vh=vagrant halt'
 alias 'vr=vagrant reload'
 
+# ------------------------------------------------------------------
+# Knife
+# ------------------------------------------------------------------
+alias 'ks=knife status'
+alias 'kn=knife node'
+alias 'kc=knife client'
 
 # -------------------------------------------------------------------
 # Mercurial (hg)
