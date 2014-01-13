@@ -40,6 +40,22 @@ host txdev2
     LocalForward 5555 127.0.0.1:5555
     User mhn
 
+host web2
+    HostName ome-web2.campus.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host web3
+    HostName ome-web3.campus.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host web4
+    HostName ome-web4.campus.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+
 # Personal K-State Webpage
 host ksuunix
     HostName unix.ksu.edu
