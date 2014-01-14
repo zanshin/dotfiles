@@ -22,14 +22,22 @@ alias .....="cd ../../../.."
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
-# Mac OS X specific aliases
+# determine operating system
 myos=`uname -s`
+
 case "$myos" in
+  # Mac OS X specific aliases
   Darwin)
     alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort' 
     alias 'adventure=emacs -batch -l dunnet' 
     alias 'mailsize=du -hs ~/Library/mail' 
     alias 'ttop=top -ocpu -R -F -s 2 -n30' 
+    ;;
+  SunOS)
+    if [ -e /usr/sfw/bin/ggrep ]
+    then
+      alias grep=ggrep
+    fi
     ;;
   *) ;;
 esac
