@@ -150,7 +150,7 @@ function pptree() {
 
 # CVS setup
 export CVS_RSH=ssh
-alias omecvs="export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot"
+export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 
 # aliases and functions
 source ~/.dotfiles/bash/bash_aliases
@@ -189,4 +189,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
 # finis
-# mhn 12.25.2013
+# mhn 2014.01.14 
