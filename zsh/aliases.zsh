@@ -101,7 +101,7 @@ alias 'chef=ssh mark@129.130.49.121'
 # tmux stuff
 # ------------------------------------------------------------------
 alias takeover="tmux detach -a"
-alias attach="tmux attach -t base"
+alias attach="tmux attach -t base || tmux new -s base"
 
 # -------------------------------------------------------------------
 # Mutt stuff
@@ -135,6 +135,12 @@ alias 'vp=vagrant provision'
 alias 'vh=vagrant halt'
 alias 'vr=vagrant reload'
 
+# ------------------------------------------------------------------
+# Knife
+# ------------------------------------------------------------------
+alias 'ks=knife status'
+alias 'kn=knife node'
+alias 'kc=knife client'
 
 # -------------------------------------------------------------------
 # Mercurial (hg)
