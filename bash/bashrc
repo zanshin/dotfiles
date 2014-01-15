@@ -41,7 +41,7 @@ then
   unset LPATH
   source /usr/local/etc/ksu.bashrc
 else
-  lpath=/usr/loca/bin:/usr/bin:/bin:${OPENWINHOMW}/bin
+  lpath=/usr/local/bin:/usr/bin:/bin:${OPENWINHOMW}/bin
   if [ "$myos" = "SunOS" ] && [ -z "MANPATH" ]
   then
     export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man:${OPENWINPATH}/man:usr/dt/man:/usr/sfw/share/man:/opt/SUNWspro/man
