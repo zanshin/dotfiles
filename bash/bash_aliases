@@ -33,12 +33,6 @@ case "$myos" in
     alias 'mailsize=du -hs ~/Library/mail' 
     alias 'ttop=top -ocpu -R -F -s 2 -n30' 
     ;;
-  SunOS)
-    if [ -e /usr/sfw/bin/ggrep ]
-    then
-      alias grep=ggrep
-    fi
-    ;;
   *) ;;
 esac
 
