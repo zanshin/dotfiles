@@ -2,6 +2,10 @@
 # bashrc
 #
 # The individual per-interactive-shell startup file
+# OS'es this is made to work (reasonably) well on are:
+# - Linux (specifcially RedHat)
+# - Solaris (specifically 2.5.1 - 2.8)
+# 
 # ------------------------------------------------------------------
 
 # Determine the operating system and use to set or source things
@@ -129,6 +133,32 @@ function session-test {
 }
 
 ## end tools
+
+# Setup TERM
+if [ "$TERM" = "xterm" ] && [ "$myos" = "Linux" ]
+then
+  export TERM=vt100
+fi
+
+if [ "$TERM" = "linux" ]
+then
+  export TERM=vt100
+fi
+
+if [ "$TERM" = "vt320" ]
+then
+  export TERM=xterm
+fi
+
+if [ "$TERM" = "screen" ]
+then
+  stty erase '^?'
+fi
+
+if [ "$TERM" = "screen" ] && [ "$myos" = "SunOS" ]
+then
+  TERM=xterm
+fi
 
 # Miscellaneous functions
 function wordfind() {
