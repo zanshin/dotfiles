@@ -298,6 +298,10 @@ if has("autocmd")
   " enable file type detection
   filetype on
 
+  " prevent Vim from auto-inserting comment on subsequent lines
+  " http://tilvim.com/2013/12/30/remove-comment-prefix-2.html
+  autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+
   " syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
