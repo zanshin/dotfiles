@@ -9,7 +9,8 @@ fi
 export PATH="/usr/local/bin:$PATH"
 
 # if rbenv is present, configure it for use
-if which rbenv &> /dev/null; then
+# if which rbenv &> /dev/null; then
+if [ -d $HOME/.rbenv ]; then
     # Put the rbenv entry at the front of the line
     export PATH="$HOME/.rbenv/bin:$PATH"
 
