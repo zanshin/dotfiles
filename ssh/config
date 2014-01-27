@@ -3,6 +3,65 @@
 #Host *.webfactional.com
 #RemoteForward 52698 127.0.0.1:52698
 
+# OME system admin
+host tx1
+    HostName ome-txhub1.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host tx2
+    HostName ome-txhub2.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+
+host veld
+    HostName veld.ome.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host dev
+    HostName ome-dev-as1.ome.campus
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host tools
+    HostName tools.ome.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host txdev1
+    HostName ome-dev-txhub1.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host txdev2
+    HostName ome-dev-txhub2.cc.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host web2
+    HostName ome-web2.campus.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host web3
+    HostName ome-web3.campus.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+host web4
+    HostName ome-web4.campus.ksu.edu
+    LocalForward 5555 127.0.0.1:5555
+    User mhn
+
+
+# Personal K-State Webpage
+host ksuunix
+    HostName unix.ksu.edu
+    User mhn
+
+# OME local VMs
 host devvm
     HostName localhost
     Port 10022
@@ -13,35 +72,18 @@ host ome-devvm
     Port 2222
     user vagrant
 
+# WebFaction hosting
 host wf
     HostName markn.webfactional.com
     User markn
 
+# iMac desktop
 host palantir
     HostName palantir.ome.ksu.edu
     Port 11122
     User mhn
 
-host ksuunix
-    HostName unix.ksu.edu
-    User mhn
-
-host veld
-    HostName veld.ome.ksu.edu
-    User mhn
-
-host dev
-    HostName ome-dev-as1.ome.campus
-    User mhn
-
-host tools
-    HostName tools.ome.ksu.edu
-    User mhn
-
-host txhub1
-    HostName ome-dev-txhub1.cc.ksu.edu
-    User mhn
-
-host txhub2
-    HostName ome-dev-txhub2.cc.ksu.edu
-    User mhn
+# iMac test machine
+host xendor
+    HostName 129.130.48.13
+    User mark

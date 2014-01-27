@@ -4,6 +4,7 @@
 #alias foobar='nocorrect foobar'
 alias g8='nocorrect g8'
 alias cookbook='nocorrect cookbook'
+alias sudo='nocorrect sudo'
 
 # -------------------------------------------------------------------
 # Ruby stuff
@@ -97,6 +98,12 @@ alias 'tools=ssh mhn@tools.ome.ksu.edu'
 alias 'wf=ssh markn@markn.webfactional.com'
 alias 'chef=ssh mark@129.130.49.121'
 
+# ------------------------------------------------------------------
+# tmux stuff
+# ------------------------------------------------------------------
+alias takeover="tmux detach -a"
+alias attach="tmux attach -t base || tmux new -s base"
+
 # -------------------------------------------------------------------
 # Mutt stuff
 # -------------------------------------------------------------------
@@ -129,6 +136,12 @@ alias 'vp=vagrant provision'
 alias 'vh=vagrant halt'
 alias 'vr=vagrant reload'
 
+# ------------------------------------------------------------------
+# Knife
+# ------------------------------------------------------------------
+alias 'ks=knife status'
+alias 'kn=knife node'
+alias 'kc=knife client'
 
 # -------------------------------------------------------------------
 # Mercurial (hg)

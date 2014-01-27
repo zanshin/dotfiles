@@ -20,15 +20,15 @@ endfunction
 " -------------------------------------------------------------------
 " turn filetype on so that we can turn if off without generating an exit code
 " of 1 when quiting vim.
-filetype on                  " best to have it on before turning it off
-filetype off                 " needs to be off to setup Vundle
-set rtp+=~/.vim/bundle/vundle/
+filetype on                     " best to have it on before turning it off
+filetype off                    " needs to be off to setup Vundle
+set rtp+=~/.vim/bundle/vundle/  " add vundle to run time path
 call vundle#rc()
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdtree'
+" Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'benmills/vimux'
@@ -68,7 +68,9 @@ set ruler                         " display current cursor position
 set list                          " show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 set showmatch                     " show matching brackets
-set relativenumber                " use relative line numbers
+if exists("&relativenumber")
+  set relativenumber              " use relative line numbers
+endif
 set number                        " except for the current line - absolute number there
 set backspace=indent,eol,start    " make backspace behave in a sane manner
 set mousehide                     " hide mouse when typing
@@ -312,6 +314,10 @@ if has("autocmd")
   " enable file type detection
   filetype on
 
+  " prevent Vim from auto-inserting comment on subsequent lines
+  " http://tilvim.com/2013/12/30/remove-comment-prefix-2.html
+  autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+
   " syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -349,11 +355,11 @@ endif
 " Stuff for Bundles
 " -------------------------------------------------------------------
 " NERDTree
-nmap <leader>d :NERDTreeToggle <CR>
-nmap <leader>f :NERDTreeFind <CR>
+" nmap <leader>d :NERDTreeToggle <CR>
+" nmap <leader>f :NERDTreeFind <CR>
 
 " show hidden files in NERDTree
-let NERDTreeShowHidden=1
+" let NERDTreeShowHidden=1
 
 " Command-t
 nmap <leader>t :CommandT <CR>

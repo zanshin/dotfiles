@@ -51,3 +51,7 @@
     branches = branch -a
     remotes = remote -v
 
+[push]
+    # simple is the new default, requires > 1.7
+    # default = simple
+    default = matching
