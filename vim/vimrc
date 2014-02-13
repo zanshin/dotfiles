@@ -29,6 +29,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 " Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'benmills/vimux'
@@ -356,6 +357,10 @@ hi MBEVisibleChanged       ctermfg=164 ctermbg=235
 hi MBEVisibleActiveNormal  ctermfg=229 ctermbg=235
 hi MBEVisibleActiveChanged ctermfg=203 ctermbg=235
 
+" Control-P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 " -------------------------------------------------------------------
 "  finis
 " -------------------------------------------------------------------
