@@ -24,6 +24,10 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias 'bk=cd $OLDPWD'
 
+# directory shortcuts
+alias projects='~/Projects/'
+alias github='~/Projects/github/'
+
 # -------------------------------------------------------------------
 # directory information
 # -------------------------------------------------------------------
