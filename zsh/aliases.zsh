@@ -84,6 +84,7 @@ alias mutt 'cd ~/Desktop && mutt'
 alias p='cd ~/Projects'
 alias v='vim'
 alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
+alias wifi="networksetup -setairportpower en0"
 
 # -------------------------------------------------------------------
 # remote machines
