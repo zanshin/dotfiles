@@ -102,9 +102,13 @@ function chef_prompt() {
 #  [ pwd = '^.*opscode-chef' ] && echo "[chef: opscode]"
 #  [ pwd = '^.*zanshin-chef' ] && echo "[chef: zanshin]"
 
-  if [[ "`pwd | sed -e 's/.*-chef.*//'`" == "" ]]; then
-    echo "[chef: `pwd | sed -e 's/.*\/\([a-z0-9]*\)-chef.*/\1/'`]"
-  fi
+#  if [[ "`pwd | sed -e 's/.*-chef.*//'`" == "" ]]; then
+#    echo "[chef: `pwd | sed -e 's/.*\/\([a-z0-9]*\)-chef.*/\1/'`]"
+#  fi
+
+#  if [[ "` pwd | sed -e 's/.*\/chef.*//'`" == "" ]]; then
+#    echo "[`pwd | sed -e 's/.*\/chef\/\([a-z0-9]*\)/\1/'`]"
+#  fi
 }
 
 # list of functions to call for each directory change
@@ -117,7 +121,7 @@ function current_pwd {
 
 
 PROMPT='
-${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string) $(chef_prompt)
+${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string) 
 $(prompt_char) '
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
