@@ -36,6 +36,12 @@ Bundle 'benmills/vimux'
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'fholgado/minibufexpl.vim'
+" vim-snipmate requires vim-addon-mw-utils and tlib_vim
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+" Some snippets to get started
+Bundle "honza/vim-snippets"
 
 if has('autocmd')
   filetype plugin indent on    " enable plugins, detection and indenting
@@ -302,6 +308,9 @@ if has("autocmd")
   autocmd BufNewFile,BufRead Rakefile set syntax=ruby
   autocmd BufNewFile,BufRead *.rake setfiletype rake
   autocmd BufNEwFile,BufRead *.rake set syntax=ruby
+
+  " Chef uses Ruby, and this will enable the Chef snippets
+  autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
   " Python files
   let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
