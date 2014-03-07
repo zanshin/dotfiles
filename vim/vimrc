@@ -29,15 +29,27 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 " Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'bling/vim-airline'
 Bundle 'benmills/vimux'
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'fholgado/minibufexpl.vim'
+" vim-snipmate requires vim-addon-mw-utils and tlib_vim
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+" Some snippets to get started
+Bundle "honza/vim-snippets"
 
-filetype plugin indent on    " enable plugins, detection and indenting
-syntax on
+if has('autocmd')
+  filetype plugin indent on    " enable plugins, detection and indenting
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+  syntax on
+endif
 
 " -------------------------------------------------------------------
 "  change map <leader> from \ to ,
@@ -62,6 +74,7 @@ set noshowmode                    " don't show the mode, vim-airline will do tha
 set autoindent                    " turns it on
 set smartindent                   " does the right thing (mostly) in programs
 set linespace=3                   " prefer a slight higher line height
+set linebreak                     " wrap intelligently, won't insert hard line breaks
 set wrap                          " use line wrapping
 set textwidth=79                  " at column 79
 set ruler                         " display current cursor position
@@ -107,55 +120,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-" movement between open tabs
-" nnoremap tn  :tabnew %<CR>
-" nnoremap tc  :tabclose<CR>
-" nnoremap tj  :tabnext<CR>
-" nnoremap th  :tabfirst<CR>
-" nnoremap tk  :tabprevious<CR>
-" nnoremap tl  :tablast<CR>
-" nnoremap tt  :tabs<CR>
-" nnoremap tm  :tabmove
-
-" -------------------------------------------------------------------
-" Tab line setup
-" -------------------------------------------------------------------
-" set showtabline=2   " always show the tab bar
-" let &tabline = '%!' . s:SID_PREFIX() . 'tabline()'
-" function! s:tabline()
-"   let s = ''
-"   for i in range(1, tabpagenr('$'))
-"     let list = tabpagebuflist(i)
-"     let nr = tabpagewinnr(i)
-"     let title = fnamemodify(bufname(list[nr - 1]), ':t')
-"     let title = empty(title) ? '[No name]' : title
-" 
-"     let s .= i == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
-"     let s .= '%' . i . 'T[' . i . '] ' . title
-"     let s .= '  '
-"   endfor
-" 
-"   let tabpaged_cwd = exists('t:cwd') ? '[' . t:cwd . ']' : ''
-"   if exists('*lingr#unread_count')
-"     let lingr_unread_count = lingr#unread_count()
-"     if lingr_unread_count > 0
-"       let lingr_unread = "%#ErrorMsg#(" . lingr_unread_count . ")"
-"     elseif lingr_unread_count == 0
-"       let lingr_unread = "()"
-"     else
-"       let lingr_unread = ""
-"     endif
-"   else
-"     let lingr_unread = ""
-"   endif
-"   let s .= '%#TabLineFill#%T%=%<' . tabpaged_cwd . lingr_unread
-"   return s
-" endfunction
-" 
-" :hi TabLine      ctermfg=254 ctermbg=238 cterm=none
-" :hi TabLineSel   ctermfg=231 ctermbg=235 cterm=bold
-" :hi TabLineFill  ctermfg=254 ctermbg=238 cterm=none
 
 " -------------------------------------------------------------------
 " Move line(s) up or down via C-j and C-k respectively 
@@ -233,6 +197,22 @@ endif
 " Map escape to jj -- much faster to reach and type
 imap jj <esc>
 
+" Highlight words to avoid in tech writing
+" =======================================
+"
+"   obviously, basically, simply, of course, clearly,
+"   just, everyone knows, However, So, easy
+"
+"   http://css-tricks.com/words-avoid-educational-writing/
+"   https://github.com/pengwynn/dotfiles/commit/12159ea233180344be4e25d57056ccd37061a153
+
+highlight TechWordsToAvoid ctermbg=red ctermfg=white
+match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so,\|easy/
+autocmd BufWinEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
+autocmd InsertEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
+autocmd InsertLeave * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
+autocmd BufWinLeave * call clearmatches()
+
 " -------------------------------------------------------------------
 " Searching
 " -------------------------------------------------------------------
@@ -298,6 +278,10 @@ if has("autocmd")
   " enable file type detection
   filetype on
 
+  " prevent Vim from auto-inserting comment on subsequent lines
+  " http://tilvim.com/2013/12/30/remove-comment-prefix-2.html
+  autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+
   " syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -325,6 +309,9 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.rake setfiletype rake
   autocmd BufNEwFile,BufRead *.rake set syntax=ruby
 
+  " Chef uses Ruby, and this will enable the Chef snippets
+  autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
+
   " Python files
   let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
   autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
@@ -334,12 +321,6 @@ endif
 " -------------------------------------------------------------------
 " Stuff for Bundles
 " -------------------------------------------------------------------
-" NERDTree
-" nmap <leader>d :NERDTreeToggle <CR>
-" nmap <leader>f :NERDTreeFind <CR>
-
-" show hidden files in NERDTree
-" let NERDTreeShowHidden=1
 
 " Command-t
 nmap <leader>t :CommandT <CR>
@@ -385,6 +366,10 @@ hi MBEVisibleChanged       ctermfg=164 ctermbg=235
 hi MBEVisibleActiveNormal  ctermfg=229 ctermbg=235
 hi MBEVisibleActiveChanged ctermfg=203 ctermbg=235
 
+" Control-P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 " -------------------------------------------------------------------
 "  finis
 " -------------------------------------------------------------------

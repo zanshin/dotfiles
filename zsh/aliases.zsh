@@ -4,6 +4,7 @@
 #alias foobar='nocorrect foobar'
 alias g8='nocorrect g8'
 alias cookbook='nocorrect cookbook'
+alias sudo='nocorrect sudo'
 
 # -------------------------------------------------------------------
 # Ruby stuff
@@ -22,6 +23,10 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias 'bk=cd $OLDPWD'
+
+# directory shortcuts
+alias projects='~/Projects/'
+alias github='~/Projects/github/'
 
 # -------------------------------------------------------------------
 # directory information
@@ -83,6 +88,7 @@ alias mutt 'cd ~/Desktop && mutt'
 alias p='cd ~/Projects'
 alias v='vim'
 alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
+alias wifi="networksetup -setairportpower en0"
 
 # -------------------------------------------------------------------
 # remote machines
