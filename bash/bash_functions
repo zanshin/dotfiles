@@ -1,0 +1,40 @@
+# -------------------------------------------------------------------
+# .bash_functions
+#
+# Various functions 
+# -------------------------------------------------------------------
+
+# Stolen from Matt Baxa
+myjlog () {
+  tail -F -n 20 /as/log/jboss/${1}.log
+}
+
+myjall () {
+  tail -F -n 20 /as/log/app/${1}/ALL.log
+}
+
+myjlist () {
+  for dir in `find /as/data/jboss -maxdepth 2 -name deploy -type d`
+  do
+    find $dir -type l
+  done
+}
+
+# -------------------------------------------------------------------
+# display a neatly formatted path
+# -------------------------------------------------------------------
+path() {
+local blue="\033[1;34m"
+local green="\033[0;32m"
+local cyan="\033[0;36m"
+local purple="\033[0;35m"
+local brown="\033[0;33m"
+local reset_color="\033[0m"
+  echo $PATH | tr ":" "\n" | \
+    awk "{ sub(\"/usr\",   \"$green/usr$reset_color\"); \
+           sub(\"/bin\",   \"$blue/bin$reset_color\"); \
+           sub(\"/opt\",   \"$cyan/opt$reset_color\"); \
+           sub(\"/sbin\",  \"$purple/sbin$reset_color\"); \
+           sub(\"/local\", \"$brown/local$reset_color\"); \
+           print }"
+}
