@@ -111,6 +111,7 @@ alias attach="tmux attach -t base || tmux new -s base"
 alias ta='tmux attach -t' 
 alias tn='tmux new -s' 
 alias tls='tmux ls'
+alias tk='tmux kill-session -t'
 
 # -------------------------------------------------------------------
 # Mutt stuff
