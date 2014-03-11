@@ -89,7 +89,3 @@ host palantir
     Port 11122
     User mhn
 
-# iMac test machine
-host xendor
-    HostName 129.130.48.13
-    User mark
