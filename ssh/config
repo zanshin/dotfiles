@@ -44,6 +44,12 @@ host web4
     HostName ome-web4.campus.ksu.edu
     User mhn
 
+# WebTeam Fabric
+Host ec2*compute-1.amazonaws.com
+    StrictHostKeyChecking no
+    User fabric
+    IdentityFile  /Users/mhn/.ssh/id_fabric
+
 
 # Personal K-State Webpage
 host ksuunix
@@ -72,7 +78,3 @@ host palantir
     Port 11122
     User mhn
 
-# iMac test machine
-host xendor
-    HostName 129.130.48.13
-    User mark

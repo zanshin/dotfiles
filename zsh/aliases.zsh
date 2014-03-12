@@ -111,6 +111,7 @@ alias attach="tmux attach -t base || tmux new -s base"
 alias ta='tmux attach -t' 
 alias tn='tmux new -s' 
 alias tls='tmux ls'
+alias tk='tmux kill-session -t'
 
 # -------------------------------------------------------------------
 # Mutt stuff
@@ -236,6 +237,9 @@ alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htac
 
 # deploy zanshin.net and move its .htaccess files
 alias 'dz=deploy ; htaccess ;'
+
+# Just for fun
+alias please='sudo !!'
 
 # -------------------------------------------------------------------
 # Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh
