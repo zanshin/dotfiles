@@ -119,4 +119,5 @@ To enable z directory function from https://github.com/rupa/z, source the
 
     source ${HOME}/.dotfiles/z/z.sh
 	
+Some new things here
 
