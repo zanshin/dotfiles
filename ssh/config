@@ -6,53 +6,42 @@
 # OME system admin
 host tx1
     HostName ome-txhub1.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host tx2
     HostName ome-txhub2.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
-
 
 host veld
     HostName veld.ome.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host dev
     HostName ome-dev-as1.ome.campus
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host tools
     HostName tools.ome.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host txdev1
     HostName ome-dev-txhub1.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host txdev2
     HostName ome-dev-txhub2.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host web2
     HostName ome-web2.campus.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host web3
     HostName ome-web3.campus.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 host web4
     HostName ome-web4.campus.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
     User mhn
 
 # WebTeam Fabric
