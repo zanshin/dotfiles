@@ -118,5 +118,15 @@ To enable z directory function from https://github.com/rupa/z, source the
 `z.sh` script in the `.zshrc` file: 
 
     source ${HOME}/.dotfiles/z/z.sh
-	
+
+## Doing
+Install `doing` gem (https://github.com/ttscoff/doing/ & http://brettterpstra.com/2014/03/15/scatterbrains-3-a-new-tool-for-doing/)
+
+    $ [sudo] gem install doing
+
+Create symlink to `doingrc` file.
+
+    $ ln -s ~/.dotfiles/doing/doingrc ~/.doingrc
+
+
 
