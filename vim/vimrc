@@ -56,11 +56,21 @@ endif
 "  ------------------------------------------------------------------
 :let mapleader = ","
 
-" time out mappings after 1 second (1000) and key codes after 1/2 a second (500)
+" -------------------------------------------------------------------
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" -------------------------------------------------------------------
+cmap w!! w !sudo tee > /dev/null %
+
+" -------------------------------------------------------------------
+" time out mappings after 1 second (1000) 
+" and key codes after 1/2 a second (500)
+" -------------------------------------------------------------------
 set timeout timeoutlen=1000 ttimeoutlen=500
 
+" -------------------------------------------------------------------
 " Trying to break a very old habit...
 " ex mode commands made easy
+" -------------------------------------------------------------------
 nnoremap ; :
 nnoremap Q <nop>
 
