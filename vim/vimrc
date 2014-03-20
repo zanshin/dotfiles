@@ -196,6 +196,10 @@ noremap <Leader>i :set list!<CR>
 " Paste mode to prevent autoindentation of pasted lines
 set pastetoggle=<F2>
 
+" Better pasting from clipboard
+" http://tilvim.com/2014/03/18/a-better-paste.html
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+
 set clipboard=unnamed   " yank and paste with the system clipboard
 
 " show cursorline only in active window
