@@ -89,6 +89,7 @@ alias p='cd ~/Projects'
 alias v='vim'
 alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
 alias wifi="networksetup -setairportpower en0"
+alias makepass="openssl rand -base64 12"
 
 # -------------------------------------------------------------------
 # remote machines
