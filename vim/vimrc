@@ -28,6 +28,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'sjl/badwolf/'
 " Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
@@ -153,6 +154,11 @@ set termencoding=utf-8  " we like utf-8
 set encoding=utf-8
 
 " -------------------------------------------------------------------
+" Encryption settings
+" -------------------------------------------------------------------
+set cryptmethod=blowfish " Strong encryption is good
+
+" -------------------------------------------------------------------
 " What to do with files and focus
 " -------------------------------------------------------------------
 set autowrite           " write out old file when switching between files
@@ -171,6 +177,9 @@ set noswapfile
 " -------------------------------------------------------------------
 set background=dark
 silent! colorscheme Tomorrow-Night-Bright
+" silent! colorscheme badwolf
+" Make the gutters darker than the background.
+" let g:badwolf_darkgutter = 1
 
 " -------------------------------------------------------------------
 " Set tab stuff
