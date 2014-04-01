@@ -28,6 +28,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'sjl/badwolf/'
 " Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
@@ -56,11 +57,21 @@ endif
 "  ------------------------------------------------------------------
 :let mapleader = ","
 
-" time out mappings after 1 second (1000) and key codes after 1/2 a second (500)
+" -------------------------------------------------------------------
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+" -------------------------------------------------------------------
+cmap w!! w !sudo tee > /dev/null %
+
+" -------------------------------------------------------------------
+" time out mappings after 1 second (1000) 
+" and key codes after 1/2 a second (500)
+" -------------------------------------------------------------------
 set timeout timeoutlen=1000 ttimeoutlen=500
 
+" -------------------------------------------------------------------
 " Trying to break a very old habit...
 " ex mode commands made easy
+" -------------------------------------------------------------------
 nnoremap ; :
 nnoremap Q <nop>
 
@@ -143,6 +154,11 @@ set termencoding=utf-8  " we like utf-8
 set encoding=utf-8
 
 " -------------------------------------------------------------------
+" Encryption settings
+" -------------------------------------------------------------------
+set cryptmethod=blowfish " Strong encryption is good
+
+" -------------------------------------------------------------------
 " What to do with files and focus
 " -------------------------------------------------------------------
 set autowrite           " write out old file when switching between files
@@ -161,6 +177,9 @@ set noswapfile
 " -------------------------------------------------------------------
 set background=dark
 silent! colorscheme Tomorrow-Night-Bright
+" silent! colorscheme badwolf
+" Make the gutters darker than the background.
+" let g:badwolf_darkgutter = 1
 
 " -------------------------------------------------------------------
 " Set tab stuff
@@ -185,6 +204,10 @@ noremap <Leader>i :set list!<CR>
 
 " Paste mode to prevent autoindentation of pasted lines
 set pastetoggle=<F2>
+
+" Better pasting from clipboard
+" http://tilvim.com/2014/03/18/a-better-paste.html
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 set clipboard=unnamed   " yank and paste with the system clipboard
 

@@ -58,7 +58,6 @@ Host ec2*compute-1.amazonaws.com
     User fabric
     IdentityFile  /Users/mhn/.ssh/id_fabric
 
-
 # Personal K-State Webpage
 host ksuunix
     HostName unix.ksu.edu
@@ -85,4 +84,9 @@ host palantir
     HostName palantir.ome.ksu.edu
     Port 11122
     User mhn
+
+# Mac Pro xendor
+host xendor
+    HostName xendor.ome.ksu.edu
+    user mark
 
