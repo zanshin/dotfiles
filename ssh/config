@@ -44,6 +44,14 @@ host web4
     HostName ome-web4.campus.ksu.edu
     User mhn
 
+host trebor
+    HostName trebor.ome.ksu.edu
+    User mhn
+
+host mon1
+    HostName ome-mon1.campus.ksu.edu
+    User mhn
+
 # WebTeam Fabric
 Host ec2*compute-1.amazonaws.com
     StrictHostKeyChecking no
