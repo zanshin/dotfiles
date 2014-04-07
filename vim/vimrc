@@ -36,7 +36,7 @@ Bundle 'bling/vim-airline'
 Bundle 'benmills/vimux'
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'fholgado/minibufexpl.vim'
+" Bundle 'fholgado/minibufexpl.vim'
 " vim-snipmate requires vim-addon-mw-utils and tlib_vim
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -356,6 +356,12 @@ let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 let g:airline_theme='dark'
 
 " Vimux settings
@@ -376,18 +382,18 @@ nmap <leader>vz :call VimuxRunCommand("dz")<CR>
 nmap <leader>vd :call VimuxRunCommand("deploy")<CR>
 
 " MiniBufExpl setup
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
+" let g:miniBufExplMapWindowNavVim = 1 
+" let g:miniBufExplMapWindowNavArrows = 1 
+" let g:miniBufExplMapCTabSwitchBufs = 1 
+" let g:miniBufExplModSelTarget = 1 
 
 " MiniBufExpl Colors
-hi MBENormal               ctermfg=244 ctermbg=235
-hi MBEChanged              ctermfg=166 ctermbg=235
-hi MBEVisibleNormal        ctermfg=147 ctermbg=235
-hi MBEVisibleChanged       ctermfg=164 ctermbg=235
-hi MBEVisibleActiveNormal  ctermfg=229 ctermbg=235
-hi MBEVisibleActiveChanged ctermfg=203 ctermbg=235
+" hi MBENormal               ctermfg=244 ctermbg=235
+" hi MBEChanged              ctermfg=166 ctermbg=235
+" hi MBEVisibleNormal        ctermfg=147 ctermbg=235
+" hi MBEVisibleChanged       ctermfg=164 ctermbg=235
+" hi MBEVisibleActiveNormal  ctermfg=229 ctermbg=235
+" hi MBEVisibleActiveChanged ctermfg=203 ctermbg=235
 
 " Control-P
 let g:ctrlp_map = '<c-p>'
