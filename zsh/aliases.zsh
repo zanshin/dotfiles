@@ -45,6 +45,8 @@ if [[ $IS_LINUX -eq 1 ]]; then
     alias ls='ls -GFh --color' # Colorize output, add file type indicator, and put sizes in human readable format
     alias ll='ls -GFhl --color' # Same as above, but in long listing format
 fi
+
+alias ld="ls -ld *" # show directories
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 alias 'dus=du -sckx * | sort -nr' #directories sorted by size
 
