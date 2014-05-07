@@ -48,7 +48,8 @@ fi
 
 alias lsd="ls -ld *" # show directories
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
-alias 'dus=du -sckx * | sort -nr' #directories sorted by size
+alias 'dirdus=du -sckx * | sort -nr' #directories sorted by size
+alias 'dus=du -kx | sort -nr | less' #files sorted by size
 
 alias 'wordy=wc -w * | sort | tail -n10' # sort files in current directory by the number of words they contain
 alias 'filecount=find . -type f | wc -l' # number of files (not directories)
