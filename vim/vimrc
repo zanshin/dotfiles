@@ -176,10 +176,10 @@ set noswapfile
 " Set the color scheme
 " -------------------------------------------------------------------
 set background=dark
-silent! colorscheme Tomorrow-Night-Bright
-" silent! colorscheme badwolf
+" silent! colorscheme Tomorrow-Night
+silent! colorscheme badwolf
 " Make the gutters darker than the background.
-" let g:badwolf_darkgutter = 1
+let g:badwolf_darkgutter = 1
 
 " -------------------------------------------------------------------
 " Set tab stuff
