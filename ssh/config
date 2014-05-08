@@ -21,7 +21,7 @@ host dev
     User mhn
 
 host tools
-    HostName tools.ome.ksu.edu
+    HostName ome-tools1.campus.ksu.edu
     User mhn
 
 host txdev1
