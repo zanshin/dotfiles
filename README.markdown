@@ -88,7 +88,11 @@ For Mercurial configuration and global ignore files, create these symlinks:
 
     $ ln -s ~/.dotfiles/hg/hgrc ~/.hgrc
     $ ln -s ~/.dotfiles/hg/hgignore_global ~/.hgignore_global
-	
+
+## Gem
+In order to prevent `gem install` or `gem update` from downloading RDoc and RI, symlink this file.
+
+    $ ln -s ~/.dotfiles/gem/gemrc ~/.gemrc
 
 ## TextMate (mate)
 For TextMate 2 settings create the following symlink:
