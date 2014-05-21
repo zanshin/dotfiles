@@ -1,6 +1,8 @@
 This repository holds my configuration files so that I can clone them to other machines
 easily.
 
+My primary OS is OS X (10.9.x) and some of these configurations are tuned to work on that platform. The `bash` files are more generic and friendly toward other Unix-based operating systems. 
+
 #Installation
 
     git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
