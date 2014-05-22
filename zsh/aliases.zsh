@@ -148,10 +148,12 @@ alias 'vu=vagrant up'
 alias 'vp=vagrant provision'
 alias 'vh=vagrant halt'
 alias 'vr=vagrant reload'
+alias 'vd=vagrant destroy'
 
 # ------------------------------------------------------------------
 # Knife
 # ------------------------------------------------------------------
+alias 'kso=knife status "hostname:ome*"'
 alias 'ks=knife status'
 alias 'kn=knife node'
 alias 'kc=knife client'
