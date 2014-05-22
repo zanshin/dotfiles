@@ -10,6 +10,18 @@ function knaws() {
 }
 
 # -------------------------------------------------------------------
+# Dash functions
+# -------------------------------------------------------------------
+# Open argument in Dash
+function dash() {
+  open "dash://$*"
+}
+
+function dman() {
+  open "dash://man:$*"
+}
+
+# -------------------------------------------------------------------
 # compressed file expander
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
 # -------------------------------------------------------------------
