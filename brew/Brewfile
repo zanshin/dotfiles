@@ -10,6 +10,18 @@ upgrade
 install reattach-to-user-namespace
 install tmux
 
+# Version Control
+install git
+install mercurial
+
+# Editor
+install vim
+
+# Utilities
+install archey
+install wget
+install youtube-dl
+
 # Cleanup any outdated formulas from the cellar
 cleanup
 
