@@ -21,6 +21,7 @@ install vim
 install archey
 install wget
 install youtube-dl
+install openssl
 
 # Cleanup any outdated formulas from the cellar
 cleanup
