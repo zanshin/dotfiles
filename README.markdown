@@ -33,6 +33,8 @@ On those Mac OS machines where I install Homebrew I also edit `/etc/paths` to mo
     /bin
     /usr/sbin
     /sbin
+
+The `~/.dotfiles/brew/Brewfile` acts as a bundle for Homebrew. Use `brew bundle ~/.dotfiles/brew/Brewfile` to set up brews.
     
 ## zsh
 For zsh configuration create the following symlinks:
