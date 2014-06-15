@@ -17,11 +17,6 @@ install mercurial
 # Editor
 install vim
 
-# Ruby
-install rbenv
-install ruby-build
-install rbenv-gemset
-
 # Utilities
 install archey
 install wget
