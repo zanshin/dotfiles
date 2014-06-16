@@ -17,6 +17,10 @@ install mercurial
 # Editor
 install vim
 
+# For compiling older libraries
+tap homebrew/dupes
+install apple-gcc42
+
 # Utilities
 install archey
 install wget
