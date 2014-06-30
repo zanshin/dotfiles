@@ -1,4 +1,4 @@
-" .vimrc
+e .vimrc
 " Maintained by: Mark Nichols
 " mark@zanshin.net
 " http;//zanshin.net
@@ -201,6 +201,10 @@ set sidescroll=1        " number of cols to scroll at a time
 " -------------------------------------------------------------------
 " toggle listchars on or off
 noremap <Leader>i :set list!<CR>
+
+" fix Vim's regex handling
+nnoremap / /\v
+vnoremap / /\v
 
 " Paste mode to prevent autoindentation of pasted lines
 set pastetoggle=<F2>
