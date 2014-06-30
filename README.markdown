@@ -136,5 +136,13 @@ Create symlink to `doingrc` file.
 
     $ ln -s ~/.dotfiles/doing/doingrc ~/.doingrc
 
+## OpenConnect
+An alternative to using Cisco's AnyConnect.
+
+Requires that `openconnect` be installed via Homebrew and that TUN/TAP for OS X be installed. See http://zanshin.net/2013/08/27/setup-openconnect-for-mac-os-x-lion/
+for details.
+
+    $ ln -s ~/.dotfiles/openconnect/openconnect ~/.openconnect
+
 
 
