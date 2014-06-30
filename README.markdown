@@ -108,6 +108,14 @@ For tmux configuration create this symlink:
 
     $ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
+Setup `tmuxinator` by installing it's gem
+
+    $ gem install tmuxinator
+
+And link in the directory containing the YML files for the `mux` command.
+
+    $ ln -s ~/.dotfiles/tmux/tmuxinator ~/.tmuxinator
+
 ## Sublime Text 2 (subl)
 Install Package Control following the instructions here: http://wbond.net/sublime_packages/package_control
 
