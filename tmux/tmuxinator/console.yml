@@ -1,0 +1,5 @@
+name: console
+root: ~/
+
+windows:
+  - console: tmux-multistart as; tmux-multistart web; tmux-multistart txhub; tmux-multistart alpha

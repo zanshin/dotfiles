@@ -1,0 +1,8 @@
+name: toolmon
+root: ~/
+
+windows:
+  - tools: ssh tools
+  - ome-mon1: ssh ome-mon1
+  - veld: ssh vel
+  - trebor: ssh trebor
