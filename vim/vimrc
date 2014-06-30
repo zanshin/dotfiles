@@ -243,6 +243,7 @@ autocmd BufWinLeave * call clearmatches()
 " -------------------------------------------------------------------
 " Searching
 " -------------------------------------------------------------------
+set gdefault            " apply substitutions globally by default. add `g` for old behavior
 set incsearch           " use incremental search
 set hlsearch            " highlight search results
 set ignorecase          " ignore case when searching
