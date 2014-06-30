@@ -85,6 +85,11 @@ host palantir
     Port 11122
     User mhn
 
+host krayt
+    HostName krayt.ome.ksu.edu
+    Port 11122
+    User mark
+
 # Mac Pro xendor
 host xendor
     HostName xendor.ome.ksu.edu
