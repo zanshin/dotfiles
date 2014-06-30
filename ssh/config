@@ -9,51 +9,42 @@ host *
 # OME system admin
 host tx1
     HostName ome-txhub1.cc.ksu.edu
-    User mhn
 
 host tx2
     HostName ome-txhub2.cc.ksu.edu
-    User mhn
 
 host veld
     HostName veld.ome.ksu.edu
-    User mhn
 
 host dev
     HostName ome-dev-as1.ome.campus
-    User mhn
 
 host tools
     HostName ome-tools1.campus.ksu.edu
-    User mhn
 
 host txdev1
     HostName ome-dev-txhub1.cc.ksu.edu
-    User mhn
 
 host txdev2
     HostName ome-dev-txhub2.cc.ksu.edu
-    User mhn
+
+host web1
+    HostName ome-web1.campus.ksu.edu
 
 host web2
     HostName ome-web2.campus.ksu.edu
-    User mhn
 
 host web3
     HostName ome-web3.campus.ksu.edu
-    User mhn
 
 host web4
     HostName ome-web4.campus.ksu.edu
-    User mhn
 
 host trebor
     HostName trebor.ome.ksu.edu
-    User mhn
 
 host mon1
     HostName ome-mon1.campus.ksu.edu
-    User mhn
 
 # WebTeam Fabric
 Host ec2*compute-1.amazonaws.com
@@ -64,7 +55,6 @@ Host ec2*compute-1.amazonaws.com
 # Personal K-State Webpage
 host ksuunix
     HostName unix.ksu.edu
-    User mhn
 
 # OME local VMs
 host devvm
@@ -86,12 +76,10 @@ host wf
 host palantir
     HostName palantir.ome.ksu.edu
     Port 11122
-    User mhn
 
 host krayt
     HostName krayt.ome.ksu.edu
     Port 11122
-    User mark
 
 # Mac Pro xendor
 host xendor
