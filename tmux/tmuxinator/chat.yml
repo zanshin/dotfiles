@@ -1,9 +1,0 @@
-name: chat
-root: ~/
-
-windows:
-  - chat:
-    layout: 8739,200x60,0,0{164x60,0,0,26,43x60,165,0,27}
-    panes:
-      - irssi
-      - nicklist
