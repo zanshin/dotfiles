@@ -28,6 +28,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'itchyny/landscape.vim'
 Bundle 'git://github.com/sjl/badwolf.git'
 " Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
@@ -177,9 +178,10 @@ set noswapfile
 " -------------------------------------------------------------------
 set background=dark
 " silent! colorscheme Tomorrow-Night
-silent! colorscheme badwolf
+" silent! colorscheme badwolf
 " Make the gutters darker than the background.
-let g:badwolf_darkgutter = 1
+" let g:badwolf_darkgutter = 1
+silent! colorscheme landscape
 
 " -------------------------------------------------------------------
 " Set tab stuff
