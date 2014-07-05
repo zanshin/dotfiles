@@ -27,6 +27,12 @@ install wget
 install youtube-dl
 install openssl
 
+# HandBrake required library
+install libdvdcss
+
+# OpenConnect
+install openconnect
+
 # Cleanup any outdated formulas from the cellar
 cleanup
 
