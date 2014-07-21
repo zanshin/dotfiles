@@ -26,6 +26,7 @@ install archey
 install wget
 install youtube-dl
 install openssl
+install htop-osx
 
 # HandBrake required library
 install libdvdcss
