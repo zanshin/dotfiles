@@ -1,4 +1,25 @@
+# -------------------------------------------------------------------
+# Chef functions
+# -------------------------------------------------------------------
+function knhost() {
+  sed -e 's/.*://' -e 's/.*items found//'
+}
 
+function knaws() {
+  knife search node "tags:$*" -a cloud.public_hostname | knhost
+}
+
+# -------------------------------------------------------------------
+# Dash functions
+# -------------------------------------------------------------------
+# Open argument in Dash
+function dash() {
+  open "dash://$*"
+}
+
+function dman() {
+  open "dash://man:$*"
+}
 
 # -------------------------------------------------------------------
 # compressed file expander

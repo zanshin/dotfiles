@@ -3,57 +3,48 @@
 #Host *.webfactional.com
 #RemoteForward 52698 127.0.0.1:52698
 
+host *
+    User mhn
+
 # OME system admin
 host tx1
     HostName ome-txhub1.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
 
 host tx2
     HostName ome-txhub2.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
-
 
 host veld
     HostName veld.ome.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
 
 host dev
     HostName ome-dev-as1.ome.campus
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
 
 host tools
-    HostName tools.ome.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
+    HostName ome-tools1.campus.ksu.edu
 
 host txdev1
     HostName ome-dev-txhub1.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
 
 host txdev2
     HostName ome-dev-txhub2.cc.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
+
+host web1
+    HostName ome-web1.campus.ksu.edu
 
 host web2
     HostName ome-web2.campus.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
 
 host web3
     HostName ome-web3.campus.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
 
 host web4
     HostName ome-web4.campus.ksu.edu
-    LocalForward 5555 127.0.0.1:5555
-    User mhn
+
+host trebor
+    HostName trebor.ome.ksu.edu
+
+host mon1
+    HostName ome-mon1.campus.ksu.edu
 
 # WebTeam Fabric
 Host ec2*compute-1.amazonaws.com
@@ -61,11 +52,9 @@ Host ec2*compute-1.amazonaws.com
     User fabric
     IdentityFile  /Users/mhn/.ssh/id_fabric
 
-
 # Personal K-State Webpage
 host ksuunix
     HostName unix.ksu.edu
-    User mhn
 
 # OME local VMs
 host devvm
@@ -87,5 +76,13 @@ host wf
 host palantir
     HostName palantir.ome.ksu.edu
     Port 11122
-    User mhn
+
+host krayt
+    HostName krayt.ome.ksu.edu
+    Port 11122
+
+# Mac Pro xendor
+host xendor
+    HostName xendor.ome.ksu.edu
+    user mark
 

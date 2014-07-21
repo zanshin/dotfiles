@@ -45,8 +45,11 @@ if [[ $IS_LINUX -eq 1 ]]; then
     alias ls='ls -GFh --color' # Colorize output, add file type indicator, and put sizes in human readable format
     alias ll='ls -GFhl --color' # Same as above, but in long listing format
 fi
+
+alias lsd="ls -ld *" # show directories
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
-alias 'dus=du -sckx * | sort -nr' #directories sorted by size
+alias 'dirdus=du -sckx * | sort -nr' #directories sorted by size
+alias 'dus=du -kx | sort -nr | less' #files sorted by size
 
 alias 'wordy=wc -w * | sort | tail -n10' # sort files in current directory by the number of words they contain
 alias 'filecount=find . -type f | wc -l' # number of files (not directories)
@@ -89,6 +92,7 @@ alias p='cd ~/Projects'
 alias v='vim'
 alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
 alias wifi="networksetup -setairportpower en0"
+alias makepass="openssl rand -base64 12"
 
 # -------------------------------------------------------------------
 # remote machines
@@ -144,13 +148,17 @@ alias 'vu=vagrant up'
 alias 'vp=vagrant provision'
 alias 'vh=vagrant halt'
 alias 'vr=vagrant reload'
+alias 'vd=vagrant destroy'
 
 # ------------------------------------------------------------------
 # Knife
 # ------------------------------------------------------------------
+alias 'kso=knife status "hostname:ome*"'
 alias 'ks=knife status'
 alias 'kn=knife node'
 alias 'kc=knife client'
+alias 'tagged=knife search node "name:ome-vm*" -a tags'
+alias 'notags=knife search node "NOT tags:* AND name:ome*" -a tags'
 
 # -------------------------------------------------------------------
 # Mercurial (hg)

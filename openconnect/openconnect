@@ -1,0 +1,7 @@
+authgroup=OMEASAVPN
+user=mhn
+no-cert-check
+script=/usr/local/bin/vpnc-script
+#background
+passwd-on-stdin
+#verbose
