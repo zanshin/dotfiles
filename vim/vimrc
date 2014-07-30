@@ -207,6 +207,9 @@ set sidescroll=1        " number of cols to scroll at a time
 " -------------------------------------------------------------------
 " Miscellaneous
 " -------------------------------------------------------------------
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null
+
 " toggle listchars on or off
 noremap <Leader>i :set list!<CR>
 
