@@ -10,3 +10,6 @@ Session.vim
 
 # Ignore vim/bundles
 vim/bundle
+
+# Ignore vim/tmp
+vim/tmp
