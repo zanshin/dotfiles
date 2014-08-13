@@ -12,7 +12,8 @@ if [[ $IS_MAC -eq 1 ]]; then
 fi
 
 # Setup terminal, and turn on colors
-export TERM=xterm-256color
+#export TERM=xterm-256color
+export TERM=screen-256color
 export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 
