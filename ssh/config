@@ -3,8 +3,6 @@
 #Host *.webfactional.com
 #RemoteForward 52698 127.0.0.1:52698
 
-host *
-    User mhn
 
 # OME system admin
 host tx1
@@ -65,12 +63,12 @@ host aws_prod1
 host web_prod1
     HostName ec2-23-21-38-28.compute-1.amazonaws.com
     User ubuntu
-    IdentityFile /Users/mhn/.ssh/asakey.pem
+    IdentityFile ~/.ssh/asakey.pem
 
 host web_prod2
     HostName ec2-50-16-61-249.compute-1.amazonaws.com
     User ubuntu
-    IdentityFile /Users/mhn/.ssh/asakey.pem
+    IdentityFile ~/.ssh/asakey.pem
 
 # Personal K-State Webpage
 host ksuunix
@@ -92,11 +90,6 @@ host wf
     HostName markn.webfactional.com
     User markn
 
-# iMac desktop
-host palantir
-    HostName palantir.ome.ksu.edu
-    Port 11122
-
 host krayt
     HostName krayt.ome.ksu.edu
     Port 11122
@@ -106,3 +99,5 @@ host xendor
     HostName xendor.ome.ksu.edu
     user mark
 
+host *
+    User mhn
