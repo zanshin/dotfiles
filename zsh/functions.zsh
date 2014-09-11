@@ -6,7 +6,15 @@ function knhost() {
 }
 
 function knaws() {
-  knife search node "tags:$*" -a cloud.public_hostname | knhost
+  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a cloud.public_hostname | knhost
+}
+
+function knssh() {
+  for i in "$@"; do
+    for j in `knaws "$i"`; do
+      ssh $j
+    done
+  done
 }
 
 # -------------------------------------------------------------------

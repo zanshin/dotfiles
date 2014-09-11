@@ -49,26 +49,26 @@ host mon1
 #    StrictHostKeyChecking no
 #    User fabric
 #    IdentityFile  /Users/mhn/.ssh/id_fabric
-#Host ec2*compute-1.amazonaws.com
+Host ec2*compute-1.amazonaws.com
+    StrictHostKeyChecking no
+    User ubuntu
+    IdentityFile /Users/mhn/.ssh/asakey.pem
+
+#host aws_prod1
+#    HostName ec2-23-21-38-28.compute-1.amazonaws.com
 #    StrictHostKeyChecking no
 #    User mhn
 #    IdentityFile /Users/mhn/.ssh/mhn.pem
 
-host aws_prod1
-    HostName ec2-23-21-38-28.compute-1.amazonaws.com
-    StrictHostKeyChecking no
-    User mhn
-    IdentityFile /Users/mhn/.ssh/mhn.pem
+#host web_prod1
+#    HostName ec2-23-21-38-28.compute-1.amazonaws.com
+#    User ubuntu
+#    IdentityFile ~/.ssh/asakey.pem
 
-host web_prod1
-    HostName ec2-23-21-38-28.compute-1.amazonaws.com
-    User ubuntu
-    IdentityFile ~/.ssh/asakey.pem
-
-host web_prod2
-    HostName ec2-50-16-61-249.compute-1.amazonaws.com
-    User ubuntu
-    IdentityFile ~/.ssh/asakey.pem
+#host web_prod2
+#    HostName ec2-50-16-61-249.compute-1.amazonaws.com
+#    User ubuntu
+#    IdentityFile ~/.ssh/asakey.pem
 
 # Personal K-State Webpage
 host ksuunix
