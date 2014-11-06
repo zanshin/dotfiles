@@ -88,7 +88,9 @@ set foldenable                    " enable code folding
 set history=1000
 set ffs=unix,mac,dos              " default file types
 set autoread                      " automatically update file when editted outside of vim
-set cryptmethod=blowfish          " Strong encryption is good
+if exists("&cryptmethod")
+  set cryptmethod=blowfish        " Strong encryption is good
+endif
 
 " Folding settings
 set foldcolumn=3                  " room for fold markers
