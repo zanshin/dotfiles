@@ -159,6 +159,7 @@ alias 'kn=knife node'
 alias 'kc=knife client'
 alias 'tagged=knife search node "name:ome-vm*" -a tags'
 alias 'notags=knife search node "NOT tags:* AND name:ome*" -a tags'
+alias 'k=knife'
 
 # -------------------------------------------------------------------
 # Mercurial (hg)
