@@ -134,6 +134,13 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " }}}
+" Buffers ---------------------------------------------------------------- {{{
+nmap <leader>be :enew<cr>           " create new empty buffer
+nmap <leader>bn :bnext<cr>          " move to next buffer
+nmap <leader>bp :bprevious<cr>      " move to previous buffer
+nmap <leader>bq :bp <BAR> bd #<cr>  " move to previous and close buffer
+
+" }}}
 " File focus ------------------------------------------------------------- {{{
 
 " What to do with files and focus
