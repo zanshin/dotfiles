@@ -3,6 +3,9 @@
 #Host *.webfactional.com
 #RemoteForward 52698 127.0.0.1:52698
 
+# Set ServerAliveInterval for all connections
+Host * 
+    ServerAliveInterval 60
 
 # OME system admin
 host tx1

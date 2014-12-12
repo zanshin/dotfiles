@@ -17,6 +17,8 @@ function knssh() {
   done
 }
 
+function kick() { knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" }
+
 # -------------------------------------------------------------------
 # Dash functions
 # -------------------------------------------------------------------
