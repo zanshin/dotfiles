@@ -24,6 +24,7 @@ Plugin 'benmills/vimux'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'rizzatti/dash.vim'
+Plugin 'sjl/gundo.vim'
 
 if has('autocmd')
   filetype plugin indent on    " enable plugins, detection and indenting
@@ -60,7 +61,7 @@ set textwidth=79                  " at column 79
 set ruler                         " display current cursor position
 set list                          " show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
-set showmatch                     " show matching brackets
+set showmatch                     " show matching brackets [{()}]
 if exists("&relativenumber")
   set relativenumber              " use relative line numbers
 endif
@@ -74,6 +75,7 @@ set autoread                      " automatically update file when editted outsi
 if exists("&cryptmethod")
   set cryptmethod=blowfish        " Strong encryption is good
 endif
+set cursorline                    " highlight the line where the cursor is
 
 " Folding settings
 set foldcolumn=3                  " room for fold markers
@@ -167,9 +169,9 @@ silent! colorscheme landscape
 
 " }}}
 " Set tab stuff ---------------------------------------------------------- {{{
-set tabstop=2           " 2 spaces for a tab
+set tabstop=2           " 2 spaces for a tab - used when vim opens a file having <tab>s in it
 set shiftwidth=2        " 2 spaces for autoindenting
-set softtabstop=2       " when <BS>, pretend a tab is removed even if spaces
+set softtabstop=2       " 2 spaces inserted for <tab> when editing a file, also # removed by backspace
 set expandtab           " expand tabs to spaces (overloadable by file type)
 
 " }}}
@@ -322,10 +324,6 @@ let g:netrw_liststyle=3
 " }}}
 " Stuff for Plugins ------------------------------------------------------ {{{
 
-" Command-t
-nmap <leader>t :CommandT <CR>
-nmap <leader>T :CommandTFlush<CR>:CommandT<CR>
-
 " vim-airline settings
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -364,6 +362,9 @@ nmap <leader>vd :call VimuxRunCommand("deploy")<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+" Gundo
+nnoremap <leader>U :GundoToggle<CR>
 
 " }}}
 "  finis ----------------------------------------------------------------- {{{
