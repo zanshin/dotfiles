@@ -16,7 +16,7 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 Plugin 'gmarik/vundle'
-Plugin 'git://github.com/sjl/badwolf.git'
+Plugin 'itchyny/landscape.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
@@ -38,9 +38,6 @@ endif
 
 "  change map <leader> from \ to ` ` (space)
 :let mapleader = " "
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
 
 " time out mappings after 1 second (1000) and key codes after 1/2 second (500)
 set timeout timeoutlen=1000 ttimeoutlen=500
@@ -166,10 +163,6 @@ endif
 " }}}
 " Set the color scheme --------------------------------------------------- {{{
 set background=dark
-" silent! colorscheme Tomorrow-Night
-" silent! colorscheme badwolf
-" Make the gutters darker than the background.
-" let g:badwolf_darkgutter = 1
 silent! colorscheme landscape
 
 " }}}
@@ -184,7 +177,8 @@ set expandtab           " expand tabs to spaces (overloadable by file type)
 set scrolloff=5         " show context above/below cursor line
 set sidescrolloff=10    " number of cols from horizontal edge to  start scrolling
 set sidescroll=1        " number of cols to scroll at a time
- " }}}
+
+" }}}
 " Miscellaneous ---------------------------------------------------------- {{{
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
@@ -322,47 +316,6 @@ if has("autocmd")
 endif
 
 " }}}
-" Folding ---------------------------------------------------------------- {{{
-"
-"set foldlevelstart=0
-"
-" space to toggle folds
-"nnoremap <Space> za
-"vnoremap <Space> za
-"
-" make z0 recursively open whatever fold we're in, even if it's partially open
-"nnoremap z0 zcz0
-"
-" "Focus" the current line. 
-"
-" 1. Close all folds
-" 2. Open the folds containing the current line
-" 3. Move the line to a little bit (15 lines) above the center of the screen
-" 4. Pulse the cursor line. My eyes are bad
-"
-" This mapping wipes out the z mark, which I never use
-"
-" I use :sus for the rare times I want to actually background Vim
-"nnoremap <c-z> mzzMzvzz15<c-e>`z:Pulse<cr>
-"
-"function! MyFoldText() " {{{
-"  let line = getline(v:foldstart)
-"
-"  let nucolwidth = &fdc + &number * &numberwidth
-"  let windowwidth - winwidth(0) - nucolwidth - 3
-"  let foldedlinecount = v:foldend - v:foldstart
-"
-"  " expand tabs into spaces
-"  let onetab = strpart('  ', 0, &tabstop)
-"  let line = substitute(line, '\t', onetab, 'g')
-"
-"  let line = strpart(line, 0, windowwidth - 2 - len(foldedlinecount))
-"  let fillchartcount = windowwidth - len(line) - len(foldedlinecount)
-"  return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
-"endfunction " }}}
-"set foldtext=MyFoldText()
-"
-" }}}
 " NetRW ------------------------------------------------------------------ {{{
 let g:netrw_liststyle=3
 
@@ -406,20 +359,6 @@ nmap <leader>vg :call VimuxRunCommand("gen")<CR>
 nmap <leader>vi :call VimuxRunCommand("ingen")<CR>
 nmap <leader>vz :call VimuxRunCommand("dz")<CR>
 nmap <leader>vd :call VimuxRunCommand("deploy")<CR>
-
-" MiniBufExpl setup
-" let g:miniBufExplMapWindowNavVim = 1 
-" let g:miniBufExplMapWindowNavArrows = 1 
-" let g:miniBufExplMapCTabSwitchBufs = 1 
-" let g:miniBufExplModSelTarget = 1 
-
-" MiniBufExpl Colors
-" hi MBENormal               ctermfg=244 ctermbg=235
-" hi MBEChanged              ctermfg=166 ctermbg=235
-" hi MBEVisibleNormal        ctermfg=147 ctermbg=235
-" hi MBEVisibleChanged       ctermfg=164 ctermbg=235
-" hi MBEVisibleActiveNormal  ctermfg=229 ctermbg=235
-" hi MBEVisibleActiveChanged ctermfg=203 ctermbg=235
 
 " Control-P
 let g:ctrlp_map = '<c-p>'
