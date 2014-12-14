@@ -15,24 +15,15 @@ set rtp+=~/.vim/bundle/vundle/  " add vundle to run time path
 call vundle#rc()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'itchyny/landscape.vim'
-Bundle 'git://github.com/sjl/badwolf.git'
-" Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'bling/vim-airline'
-Bundle 'benmills/vimux'
-Bundle 'git://git.wincent.com/command-t.git'
-Bundle 'plasticboy/vim-markdown'
-" Bundle 'fholgado/minibufexpl.vim'
-" vim-snipmate requires vim-addon-mw-utils and tlib_vim
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-" Some snippets to get started
-Bundle "honza/vim-snippets"
+Plugin 'gmarik/vundle'
+Plugin 'git://github.com/sjl/badwolf.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'benmills/vimux'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'rizzatti/dash.vim'
 
 if has('autocmd')
   filetype plugin indent on    " enable plugins, detection and indenting
@@ -223,22 +214,6 @@ endif
 " Map escape to jj -- much faster to reach and type
 imap jj <esc>
 
-" Highlight words to avoid in tech writing
-" =======================================
-"
-"   obviously, basically, simply, of course, clearly,
-"   just, everyone knows, However, So, easy
-"
-"   http://css-tricks.com/words-avoid-educational-writing/
-"   https://github.com/pengwynn/dotfiles/commit/12159ea233180344be4e25d57056ccd37061a153
-
-highlight TechWordsToAvoid ctermbg=red ctermfg=white
-match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so,\|easy/
-autocmd BufWinEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
-autocmd InsertEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
-autocmd InsertLeave * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
-autocmd BufWinLeave * call clearmatches()
-
 " }}}
 " Searching -------------------------------------------------------------- {{{
 
@@ -392,7 +367,7 @@ endif
 let g:netrw_liststyle=3
 
 " }}}
-" Stuff for Bundles ------------------------------------------------------ {{{
+" Stuff for Plugins ------------------------------------------------------ {{{
 
 " Command-t
 nmap <leader>t :CommandT <CR>
