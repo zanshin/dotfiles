@@ -95,6 +95,8 @@ set formatoptions+=q              " allow formating of comments with 'gq'
 set formatoptions+=n              " recognize numbered lists
 set formatoptions+=l              " don't break long lines that were already there
 
+" Set match pairs beyond default {...}. (...), and [...]
+set matchpairs+=<:>
 " }}}
 " Navaigation and movement ----------------------------------------------- {{{
 
@@ -179,6 +181,22 @@ set expandtab           " expand tabs to spaces (overloadable by file type)
 set scrolloff=5         " show context above/below cursor line
 set sidescrolloff=10    " number of cols from horizontal edge to  start scrolling
 set sidescroll=1        " number of cols to scroll at a time
+
+" }}}
+" Help ------------------------------------------------------------------- {{{
+" only apply to .txt files
+augroup HelpInTabs
+  autocmd!
+  autocmd BufEnter *.txt call HelpInNewTab()
+augroup END
+
+" only apply to help files...
+function! HelpInNewTab ()
+  if &buftype == 'help'
+    " convert help window to a tab
+    execute "normal \<C-W>T"
+  endif
+endfunction
 
 " }}}
 " Miscellaneous ---------------------------------------------------------- {{{
