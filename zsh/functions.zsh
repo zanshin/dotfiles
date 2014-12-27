@@ -43,7 +43,11 @@ function dash() {
 }
 
 function dman() {
-  open "dash://man:$*"
+  open "dash://manpages:$*"
+}
+
+function dchef() {
+  open "dash://chef:$*"
 }
 
 # -------------------------------------------------------------------

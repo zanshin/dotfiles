@@ -384,6 +384,9 @@ let g:ctrlp_working_path_mode = 'ra'
 " Gundo
 nnoremap <leader>U :GundoToggle<CR>
 
+" Dash
+nmap <silent><leader>d <Plug>DashSearch
+
 " }}}
 "  finis ----------------------------------------------------------------- {{{
 
