@@ -213,29 +213,10 @@ alias 'rm=rm -i' # make rm command (potentially) less destructive
 # Force tmux to use 256 colors
 alias tmux='TERM=screen-256color-bce tmux'
 
-# fakecall.net
-#alias fakecall='curl --request POST --user "7852368181:ghoti" http://api.fakecall.net/v1/account/7852368181/call'
-
 # alias to cat this file to display
 alias acat='< ~/.zsh/aliases.zsh'
 alias fcat='< ~/.zsh/functions.zsh'
 alias sz='source ~/.zshrc'
-
-
-# -------------------------------------------------------------------
-# some Octopress helpers
-# -------------------------------------------------------------------
-alias 'generate=time rake generate'
-alias 'gen=time rake generate'
-alias 'ingen=time rake integrate ; rake generate ;'
-alias 'deploy=rm deploy.log ; rake deploy > deploy.log ; tail -n 3 deploy.log ;'
-alias 'np=newpost.rb'
-
-# copy .htaccess files for zanshin.net and its image sub-directory
-alias 'htaccess=scp /Users/mark/Projects/octopress/zanshin/source/htaccess/.htaccess markn@markn.webfactional.com:~/webapps/zanshin ; scp /Users/mark/Projects/octopress/zanshin/source/images/.htaccess markn@markn.webfactional.com:~/webapps/zanshin/images ;'
-
-# deploy zanshin.net and move its .htaccess files
-alias 'dz=deploy ; htaccess ;'
 
 # Just for fun
 alias please='sudo !!'
