@@ -77,6 +77,9 @@ if exists("&cryptmethod")
 endif
 set cursorline                    " highlight the line where the cursor is
 
+" Relative Number and Number toggle
+nnoremap <F10> :set relativenumber! number! number?<CR>
+
 " Folding settings
 set foldcolumn=3                  " room for fold markers
 set foldmethod=marker             " use the standard 3 curly braces as markers
