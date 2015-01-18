@@ -3,14 +3,14 @@ Here be Dragons
 #Introduction
 The `mutt` directory in my dotfiles contains the configuration of my mutt mail setup. This is heavily influenced by [The Homely Mutt](http://stevelosh.com/blog/2012/10/the-homely-mutt/ "The Homely Mutt"). You should go read that from top to bottom several times before attempting to use or mimic my mutt setup.
 
-Unlike Git or Vim or tmux where lack of understanding us relatively harmless, screwing up mutt or offlineimap could result in permanently lost email.
+Unlike Git or Vim or tmux where lack of understanding is relatively harmless, screwing up mutt or offlineimap could result in permanently lost email.
 
 PROCEED AT YOUR OWN RISK.
 
 #Dependencies
 This configuration relies upon a number of tools. They are presented in the order The Homely Mutt introduces them. (You did read that, right?)
 
-* Offlineimap
+* [Offlineimap](http://offlineimap.org)
  
     git clone git://github.com/spaetz/offlineimap.git
     cd offlineimap
@@ -19,11 +19,11 @@ This configuration relies upon a number of tools. They are presented in the orde
 
 Note: `sudo` may be required for the install step.
 
-* Mutt
+* [Mutt](http://www.mutt.org)
  
     $ brew install mutt --sidebar-patch
 
-At present the brew formula for mutt does not include the sidebar patch. Follow these steps to edit the formula:
+At present the brew formula for mutt does not include the sidebar patch. Follow [these steps](http://stackoverflow.com/questions/20883936/how-to-apply-this-mutt-sidebar-patch) to edit the formula:
 
     $ brew edit mutt
 
@@ -56,19 +56,19 @@ And add this block:
 
 Exit the editor and run the `brew install mutt --with-sidebbar-patch` command.
 
-* urlview
+* [urlview](https://github.com/sigpipe/urlview)
  
     $ brew install urlview
 
-* msmtp
+* [msmtp](http://msmtp.sourceforge.net)
  
     $ brew install msmtp
 
-* contacts (requires full Xcode install)
+* [contacts](http://gnufoo.org/contacts/) (requires full Xcode install)
  
     $ brew install contacts
 
-* notmuch
+* [notmuch](http://notmuchmail.org)
  
     $ brew install notmuch
 
