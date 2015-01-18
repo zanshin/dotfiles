@@ -1,0 +1,42 @@
+# general-doesn't-fit stuff
+color normal color252 color233
+color error color193 color124
+color markers color142 color233
+color tilde color142 color233
+color status color172 color233
+
+# index stuff
+color tree color244 color233
+color indicator color255 color235
+color index color117 color233 ~N
+color index color124 color233 ~D
+
+# header stuff
+color hdrdefault color248 color233
+color header color226 color233 "^Subject"
+
+# url, email and web stuff
+color body color68 color233 "(finger|ftp|http|https|news|telnet)://[^ >]*"
+color body color111 color233 "<URL:[^ ]*>"
+color body color111 color233 "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body color111 color233 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+color body brightred color233 "^-.*"
+color body green color233 "^[+].*"
+color body brightwhite color233 "^diff .*"
+color body brightyellow color233 "^@@.*"
+
+# misc body stuff
+color attachment color111 color233
+color signature color244 color233
+
+# quote levels
+color quoted color34   color233
+color quoted1 color142 color233
+color quoted2 color34  color233
+color quoted3 color142 color233
+color quoted4 color34  color233
+color quoted5 color142 color233
+color quoted6 color34  color233
+color quoted7 color142 color233
+color quoted8 color34  color233
+color quoted9 color142 color233

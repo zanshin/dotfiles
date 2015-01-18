@@ -1,0 +1,14 @@
+# Account Settings -----
+
+set from      = "root@zanshin.net"
+set sendmail  = "/usr/local/bin/msmtp -a root"
+
+# Default inbox.
+set spoolfile = "+root/INBOX"
+
+# Other special folders.
+set mbox      = "+root/archive"
+set postponed = "+root/drafts"
+set record    = "+root/Sent Messages"
+
+color status yellow default
