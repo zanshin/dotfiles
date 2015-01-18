@@ -1,0 +1,14 @@
+# Account Settings ------------------------------
+
+set from      = "mark@zanshin.net"
+set sendmail  = "/usr/local/bin/msmtp -a mark"
+
+# Default inbox.
+set spoolfile = "+mark/INBOX"
+
+# Other special folders.
+set mbox      = "+mark/archive"
+set postponed = "+mark/drafts"
+set record    = "+mark/Sent Messages"
+
+color status yellow default
