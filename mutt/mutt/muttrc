@@ -92,10 +92,11 @@ hdr_order from: to: cc: date: subject: # and in this order
 set spoolfile = "+mark/INBOX"
 
 # Set account specific options on folder change
-folder-hook mark/*      source ~/.mutt/accounts/mark
-folder-hook root/*      source ~/.mutt/accounts/root
-folder-hook chef/*      source ~/.mutt/accounts/chef
-folder-hook codeprole/* source ~/.mutt/accounts/codeprole
+folder-hook mark/*        source ~/.mutt/accounts/mark
+folder-hook root/*        source ~/.mutt/accounts/root
+folder-hook chef/*        source ~/.mutt/accounts/chef
+folder-hook marknichols/* source ~/.mutt/accounts/marknichols
+folder-hook codeprole/*   source ~/.mutt/accounts/codeprole
 
 # Mailboxes to show in the sidebar.
 mailboxes "+-- mark ---------------" \
@@ -108,16 +109,21 @@ mailboxes "+-- mark ---------------" \
           +root/archive \
           +root/Drafts \
           +root/Sent\ Messages \
-          "+-- Chef ---------------" \
-          +chef/INBOX \
-          +chef/archive \
-          +chef/Drafts \
-          +chef/Sent\ Messages \
+          "+-- MarkNichols ----------" \
+          +marknichols/INBOX \
+          +marknichols/archive \
+          +marknichols/drafts \
+          +marknichols/sent \
           "+-- CodeProle ----------" \
           +codeprole/INBOX \
           +codeprole/archive \
           +codeprole/drafts \
           +codeprole/sent \
+          "+-- Chef ---------------" \
+          +chef/INBOX \
+          +chef/archive \
+          +chef/Drafts \
+          +chef/Sent\ Messages \
 
 # Other special folders
 # set mbox      = "+codeprole/archive"
@@ -194,7 +200,8 @@ set edit_headers                                 # show headers when composing
 set fast_reply                                   # skip to compose when replying
 set askcc                                        # ask for CC:
 set fcc_attach                                   # save attachments with the body
-unset mime_forward                               # forward attachments as a part of body
+set mime_forward = ask-no                        # forward attachments as attachments
+# unset mime_forward                               # forward attachments as a part of body
 set forward_format = "Fwd: %s"                   # format of subject when forwarding
 set forward_decode                               # decode when forwarding
 set attribution = "On %d, %n wrote:"             # format of quoting header

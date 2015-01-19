@@ -88,4 +88,36 @@ To download mail:
 
 Note, this will likely take a very long time.
 
+#Add new mail account
+
+##Update `offlineimaprc`
+
+* Add account name to `accounts`
+* Create `[Account ...]` section for new account
+* Create `[Repository ...-Local]` section for new account
+* Create `[Repository ...-Remote]` section for new account
+
+##Add Keychain entries
+Use `Keychain Access` app to create new `http://imap.server.tld` and `smtp://smtp.server.tld` password entries for the new account.
+
+##Synchronize email
+Run offlineimap to download email.
+
+    $ offlineimap
+
+The first time the new keychain entries are accesed you will have to repsond to a GUI dialog. Click `Always allow`. Resolve any errors before proceeding, this way the download can happen while the rest of the steps below are completed.
+
+##Update Mutt configuration
+Edit `~/.muttrc`. Update `Account Settings` section. Add new account's mailboxes to list that appears in sidebar. Reorder sidebar if desired.
+
+Add `folder-hook` for new account.
+
+##Create `accounts` entry
+The `folder-hook` in `.muttrc` requires a new file in the `~/.mutt/accounts` directory. Copy an existing entry, rename it, and edit the contents for the new account.
+
+##Create msmtprc entry
+In order to send mail create a new `account` entry in ~/.msmtprc.
+
+##Test new account
+Once offlineimap has completed the initial mail download, you should see the account in mutt.
 
