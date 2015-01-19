@@ -2,8 +2,8 @@
 
 [general]
 # ui = ttyui
-#ui = blinkenlights
-ui = quiet
+ui = blinkenlights
+#ui = quiet
 accounts = mark,root,chef,marknichols,codeprole 
 pythonfile=~/.mutt/offlineimap.py
 fsync = False

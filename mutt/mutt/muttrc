@@ -75,6 +75,7 @@ set status_chars   = " *%A"
 #set status_format=" Msgs=%M(%m) [N=%n,O=%o,*=%t,p=%p] %> %r (%P) %h:%f [%l] (%s/%S) (%v) "
 
 #set status_format  = "Folder: %f : %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? %>-%?p?( %p postponed )? : "
+set status_on_top = yes
 set status_format  = "Folder: %f : %r%n new (%m messages)%?d? (%d to delete)?%?t? (%t tagged)? %>-%?p?( %p postponed )? : "
 
 # }}}
