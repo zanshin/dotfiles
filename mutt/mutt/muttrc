@@ -211,7 +211,8 @@ set reverse_name                                 # reply as whoever it was to
 set include                                      # include message in reply
 set forward_quote                                # include message in forwards
 
-set editor = "vim +:silent+?^$"                  # use terminal Vim to compose email
+#set editor = "vim +:silent+?^$"                  # use terminal Vim to compose email
+set editor = "vim -c 'set spell spelllang=en' +:silent+?^$"
 
 # Postpone message
 bind compose p postpone-message
