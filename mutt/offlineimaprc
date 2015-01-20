@@ -4,7 +4,7 @@
 # ui = ttyui
 ui = blinkenlights
 #ui = quiet
-accounts = mark,root,chef,marknichols,codeprole 
+accounts = mark,root,chef,marknichols,codeprole,mhn
 pythonfile=~/.mutt/offlineimap.py
 fsync = False
 
@@ -126,3 +126,23 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
                                              ]
+
+[Account mhn]
+localrepository = mhn-Local
+remoterepository = mhn-Remote
+status_backend = sqlite
+
+[Repository mhn-Local]
+type = Maildir
+localfolders = ~/.mail/mhn
+
+[Repository mhn-Remote]
+maxconnections = 3
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = mhn@ksu.edu
+remoteport = 993
+ssl = yes
+remotepasseval = get_keychain_pass(account="mhn@ksu.edu", server="outlook.office365.com")
+
+folderfilter = lambda folder: folder in ['INBOX', 'Sent\ Items', 'Drafts', 'Archive', 'Deleted\ Items', 'Junk\ Email', 'ome-dt-l', 'github', 'bugzilla']
