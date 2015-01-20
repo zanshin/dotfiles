@@ -98,6 +98,7 @@ folder-hook root/*        source ~/.mutt/accounts/root
 folder-hook chef/*        source ~/.mutt/accounts/chef
 folder-hook marknichols/* source ~/.mutt/accounts/marknichols
 folder-hook codeprole/*   source ~/.mutt/accounts/codeprole
+folder-hook mhn/*         source ~/.mutt/accounts/mhn
 
 # Mailboxes to show in the sidebar.
 mailboxes "+-- mark ---------------" \
@@ -119,7 +120,17 @@ mailboxes "+-- mark ---------------" \
           +codeprole/INBOX \
           +codeprole/archive \
           +codeprole/drafts \
-          +codeprole/sent \
+          +codeprole/sent 
+          "+-- mhn (ksu) ----------" \
+          +mhn/INBOX \
+          +mhn/Archive \
+          +mhn/Drafts \
+          +mhn/Sent\ Items \
+          +mhn/github \
+          +mhn/bugzilla \
+          +mhn/ome-dt-l \
+          +mhn/Junk\ Email \
+          +mhn/Deleted\ Items \\
           "+-- Chef ---------------" \
           +chef/INBOX \
           +chef/archive \
