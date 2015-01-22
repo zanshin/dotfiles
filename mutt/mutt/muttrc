@@ -120,7 +120,7 @@ mailboxes "+-- mark ---------------" \
           +codeprole/INBOX \
           +codeprole/archive \
           +codeprole/drafts \
-          +codeprole/sent 
+          +codeprole/sent \
           "+-- mhn (ksu) ----------" \
           +mhn/INBOX \
           +mhn/Archive \
@@ -130,7 +130,7 @@ mailboxes "+-- mark ---------------" \
           +mhn/bugzilla \
           +mhn/ome-dt-l \
           +mhn/Junk\ Email \
-          +mhn/Deleted\ Items \\
+          +mhn/Deleted\ Items \
           "+-- Chef ---------------" \
           +chef/INBOX \
           +chef/archive \
@@ -222,8 +222,9 @@ set reverse_name                                 # reply as whoever it was to
 set include                                      # include message in reply
 set forward_quote                                # include message in forwards
 
-#set editor = "vim +:silent+?^$"                  # use terminal Vim to compose email
-set editor = "vim -c 'set spell spelllang=en' +:silent+?^$"
+set editor = "vim +:silent+?^$"                  # use terminal Vim to compose email
+set text_flowed = yes                            # eliminate odd line breaks
+# set editor = "vim -c 'set spell spelllang=en' -c 'setlocal fo+=aw' +:silent+?^$"
 
 # Postpone message
 bind compose p postpone-message
