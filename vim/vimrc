@@ -129,11 +129,18 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " }}}
-" Buffers ---------------------------------------------------------------- {{{
+" Buffers or Tabs -------------------------------------------------------- {{{
 nmap <leader>be :enew<cr>           " create new empty buffer
 nmap <leader>bn :bnext<cr>          " move to next buffer
 nmap <leader>bp :bprevious<cr>      " move to previous buffer
 nmap <leader>bq :bp <BAR> bd #<cr>  " move to previous and close buffer
+
+nnoremap <C-t> :tabnew<CR>              " new tab
+nnoremap <C-b> :tabprevious<CR>         " previous tab
+nnoremap <C-n> :tabnext<CR>             " next tab
+inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
+inoremap <C-b> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
+inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab
 
 " }}}
 " File focus ------------------------------------------------------------- {{{
