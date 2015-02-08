@@ -136,10 +136,10 @@ nmap <leader>bp :bprevious<cr>      " move to previous buffer
 nmap <leader>bq :bp <BAR> bd #<cr>  " move to previous and close buffer
 
 nnoremap <C-t> :tabnew<CR>              " new tab
-nnoremap <C-b> :tabprevious<CR>         " previous tab
+nnoremap <C-p> :tabprevious<CR>         " previous tab
 nnoremap <C-n> :tabnext<CR>             " next tab
 inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
-inoremap <C-b> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
+inoremap <C-p> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
 inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab
 
 " }}}
@@ -294,8 +294,13 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " }}}
 " Command line completion ------------------------------------------------ {{{
 
-"set wildmode                 " navigate <left> & <right> through completion lists
-"set wildmode=list:longest    " allows expansion of items
+set wildmenu                 " navigate <left> & <right> through completion lists
+set wildmode=full             " complete first full match, next match (default) 
+
+set wildignore+=.git                           " ignore Git 
+set wildignore+=*.jpg,*.png,*.gif,*.jpeg,*.bmp " ignore image files
+set wildignore+=*.sw?                          " swap files
+set wildignore+=*.DS_Store                     " OS X clutter
 
 " }}}
 " Filetype settings ------------------------------------------------------ {{{
@@ -346,6 +351,9 @@ if has("autocmd")
   " Python files
   let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
   autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
+
+  " Ensure syntax highlighting for diffs
+  autocmd FileType diff syntax enable
 
 endif
 
