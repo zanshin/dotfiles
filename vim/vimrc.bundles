@@ -36,8 +36,13 @@ Plugin 'benmills/vimux'
 
 call vundle#end()
 
+" turn things on
 if has('autocmd')
-  filetype plugin indent on       " enable plugins, detection and indenting
+  filetype plugin indent on
+endif
+
+if has('syntax') && !exists('g:syntax_on')
+  syntax on
 endif
 
 " }}}
@@ -47,22 +52,22 @@ silent! colorscheme landscape
 
 " }}}
 " Airline ----------------------------------------------------------------- {{{
-let g:airline_theme='dark'¬
-let g:airline_left_sep=''¬
-let g:airline_right_sep=''¬
-let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'¬
-let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'¬
-let g:airline#extensions#branch#enabled = 1¬
-let g:airline#extensions#branch#empty_message = ''¬
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Hide function display (don't use it)
+let g:airline#extensions#tagbar#enabled = 0
 
-" Enable the list of buffers¬
-let g:airline#extensions#tabline#enabled = 1¬
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
-" Hide function display (don't use it)¬
-let g:airline#extensions#tagbar#enabled = 0¬
+let g:airline_theme='dark'
 
-" Show just the filename¬
-let g:airline#extensions#tabline#fnamemod = ':t'¬
 
 " }}}
 " Control-P --------------------------------------------------------------- {{{
