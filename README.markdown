@@ -71,6 +71,11 @@ If this is the first time setting up Vim on the machine, it will be necessary to
 
 All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on remote servers, without having to install all the bundles I normally have. 
 
+The `YouCompleteMe` bundle requires an additional compile step. Go read teh "Installation" section on http://valloric.github.io/YouCompleteMe/. Short version is:
+
+    $ cd ~/.vim/bundle/YouCompleteMe
+    $ ./install.sh --clang-completer
+
 ## bash
 For those machines where zsh isn't installed or won't easily work, create the
 following symlinks:
