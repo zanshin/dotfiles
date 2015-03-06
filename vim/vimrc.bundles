@@ -7,7 +7,7 @@ filetype on                       " best to have it on before turning it off
 filetype off                      " needs to be off to setup Vundle
 
 set rtp+=~/.vim/bundle/vundle/    " add Vundle to the run-time path
-call vundle#begin()
+call vundle#rc()
 
 " ----- Let Vundle manage Vundle ------------------------------------
 Plugin 'gmarik/Vundle.vim'
@@ -30,11 +30,13 @@ Plugin 'plasticboy/vim-markdown'
 " ----- Undo --------------------------------------------------------
 Plugin 'sjl/gundo.vim'
 
+" ----- YouCompleteMe (YCM) -----------------------------------------
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'honza/vim-snippets'
+
 " ----- Et cetera ---------------------------------------------------
 Plugin 'rizzatti/dash.vim'
 Plugin 'benmills/vimux'
-
-call vundle#end()
 
 " turn things on
 if has('autocmd')
