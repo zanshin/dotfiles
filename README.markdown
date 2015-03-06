@@ -8,7 +8,7 @@ My primary OS is OS X (10.9.x) and some of these configurations are tuned to wor
     git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
 	
 # Updating
-There are several git submodules included in this configuration. On a new
+There are still a couple git submodules included in this configuration. On a new
 installation these submodules need to be initialized and updated.
 
     $ cd ~/.dotfiles
@@ -22,7 +22,7 @@ It is also possible to use `git pull` to update the submodules.
 
 Vundle managed Vim bundles maybe updated from the command line via
 
-    $ vim +BundleInstall +qall
+    $ vim +PluginInstall +qall
 
 #Setup
 ## Homebrew
@@ -54,19 +54,22 @@ For Vim configuration and use, create the following symlinks:
 
     ln -s ~/.dotfiles/vim ~/.vim
     ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+    ln -s ~/.dotfiles/vimrc.bundles ~/.vimrc.bundles
     ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
 
 To install Vim bundles, which are managed via Vundle, via the command line run
 
-    vim +BundleInstall +qall
+    vim +PluginInstall +qall
 
 From inside of Vim run
 
-    :BundleInstall
+    :PluginInstall
 
 If this is the first time setting up Vim on the machine, it will be necessary to install Vundle itself, prior to teh bundles.
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on remote servers, without having to install all the bundles I normally have. 
 
 ## bash
 For those machines where zsh isn't installed or won't easily work, create the

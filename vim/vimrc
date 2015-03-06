@@ -6,28 +6,10 @@
 " Forget compatibility with vi. Who cares.
 set nocompatible
 
-" setup Vundle to manage plugins
-" turn filetype on so that we can turn if off without generating an exit code
-" of 1 when quiting vim.
-filetype on                     " best to have it on before turning it off
-filetype off                    " needs to be off to setup Vundle
-set rtp+=~/.vim/bundle/vundle/  " add vundle to run time path
-call vundle#rc()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/vundle'
-Plugin 'itchyny/landscape.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-Plugin 'benmills/vimux'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rizzatti/dash.vim'
-Plugin 'sjl/gundo.vim'
-
-if has('autocmd')
-  filetype plugin indent on    " enable plugins, detection and indenting
+" }}}
+" Bundles ---------------------------------------------------------------- {{{
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
 endif
 
 if has('syntax') && !exists('g:syntax_on')
@@ -173,11 +155,6 @@ set directory=~/.vim/tmp/swap     " swap files
 if !isdirectory(expand(&directory))
   call mkdir(expand(&directory), "p")
 endif
-
-" }}}
-" Color scheme ----------------------------------------------------------- {{{
-set background=dark
-silent! colorscheme landscape
 
 " }}}
 " Tabstops --------------------------------------------------------------- {{{
@@ -360,54 +337,6 @@ endif
 " }}}
 " NetRW ------------------------------------------------------------------ {{{
 let g:netrw_liststyle=3
-
-" }}}
-" Stuff for Plugins ------------------------------------------------------ {{{
-
-" vim-airline settings
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
-let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Hide function display (don't use it)
-let g:airline#extensions#tagbar#enabled = 0
-
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-let g:airline_theme='dark'
-
-" Vimux settings
-let g:VimuxHeight = "30"
-let g:VimuxOrientation = "v"
-let g:VimuxUseNearestPane = 0
-
-" Vimux Mappings
-nmap <leader>vp :VimuxPromptCommand<cr>
-nmap <leader>vl :VimuxRunLastCommand<cr>
-nmap <leader>vq :VimuxCloseRunner<cr>
-nmap <leader>vx :VimuxInterruptRunner<cr>
-
-" Vimux Octopress helpers
-nmap <leader>vg :call VimuxRunCommand("gen")<CR>
-nmap <leader>vi :call VimuxRunCommand("ingen")<CR>
-nmap <leader>vz :call VimuxRunCommand("dz")<CR>
-nmap <leader>vd :call VimuxRunCommand("deploy")<CR>
-
-" Control-P
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-
-" Gundo
-nnoremap <leader>U :GundoToggle<CR>
-
-" Dash
-nmap <silent><leader>d <Plug>DashSearch
 
 " }}}
 " finis ------------------------------------------------------------------ {{{
