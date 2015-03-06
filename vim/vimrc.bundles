@@ -32,6 +32,9 @@ Plugin 'sjl/gundo.vim'
 
 " ----- YouCompleteMe (YCM) -----------------------------------------
 Plugin 'Valloric/YouCompleteMe'
+
+" ----- ultisnips ---------------------------------------------------
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " ----- Et cetera ---------------------------------------------------
@@ -110,6 +113,13 @@ nmap <leader>vg :call VimuxRunCommand("gen")<cr>
 nmap <leader>vi :call VimuxRunCommand("ingen")<cr>
 nmap <leader>vz :call VimuxRunCommand("dz")<cr>
 nmap <leader>vd :call VimuxRunCommand("deploy")<cr>
+
+" }}}
+" ultisnips --------------------------------------------------------------- {{{
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-c>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " }}}
 " finis ------------------------------------------------------------------- {{{
