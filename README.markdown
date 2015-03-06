@@ -8,7 +8,7 @@ My primary OS is OS X (10.9.x) and some of these configurations are tuned to wor
     git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
 	
 # Updating
-There are several git submodules included in this configuration. On a new
+There are still a couple git submodules included in this configuration. On a new
 installation these submodules need to be initialized and updated.
 
     $ cd ~/.dotfiles
