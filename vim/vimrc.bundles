@@ -115,9 +115,24 @@ nmap <leader>vz :call VimuxRunCommand("dz")<cr>
 nmap <leader>vd :call VimuxRunCommand("deploy")<cr>
 
 " }}}
+" YouCompleteMe ----------------------------------------------------------- {{{
+" prevent YCM from using <tab> so that ultisnips can use it
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+
+" dictionary of file types to not auto-complete
+let g:ycm_filetype_blacklist = {
+      \ 'markdown' : 1,
+      \ 'mkd' : 1,
+      \ 'md' : 1,
+      \ 'text' : 1,
+      \ 'mail' : 1
+      \}
+
+"}}}
 " ultisnips --------------------------------------------------------------- {{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-c>"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
