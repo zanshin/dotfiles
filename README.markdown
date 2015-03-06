@@ -73,6 +73,7 @@ All Bundles and their associated configurations are kept in `vimrc.bundles`. Thi
 
 The `YouCompleteMe` bundle requires an additional compile step. Go read teh "Installation" section on http://valloric.github.io/YouCompleteMe/. Short version is:
 
+    $ brew list # if cmake isn't there, brew install cmake
     $ cd ~/.vim/bundle/YouCompleteMe
     $ ./install.sh --clang-completer
 
