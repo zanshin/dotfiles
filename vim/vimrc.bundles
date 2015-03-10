@@ -36,6 +36,7 @@ Plugin 'Valloric/YouCompleteMe'
 " ----- ultisnips ---------------------------------------------------
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+" Plugin 'vadv/vim-chef'
 
 " ----- Et cetera ---------------------------------------------------
 Plugin 'rizzatti/dash.vim'
