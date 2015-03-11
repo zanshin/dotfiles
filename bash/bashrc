@@ -8,6 +8,8 @@
 # 
 # ------------------------------------------------------------------
 
+umask 002
+
 # Determine the operating system and use to set or source things
 myos=`uname -s`
 

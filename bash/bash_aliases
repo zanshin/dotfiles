@@ -45,6 +45,7 @@ alias ls="command ls ${colorflag}"
 # Miscellaneous
 alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
+alias 'vi=vim'
 
 # Mercurial (hg)
 alias 'h=hg status'
