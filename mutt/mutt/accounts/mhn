@@ -1,0 +1,14 @@
+# Account Settings ------------------------------
+
+set from      = "mhn@ksu.edu"
+set sendmail  = "/usr/local/bin/msmtp -a mhn"
+
+# Default inbox.
+set spoolfile = "+mhn/INBOX"
+
+# Other special folders.
+set mbox      = "+mhn/Archive"
+set postponed = "+mhn/Drafts"
+set record    = "+mhn/Sent Items"
+
+color status yellow default

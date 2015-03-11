@@ -6,28 +6,10 @@
 " Forget compatibility with vi. Who cares.
 set nocompatible
 
-" setup Vundle to manage plugins
-" turn filetype on so that we can turn if off without generating an exit code
-" of 1 when quiting vim.
-filetype on                     " best to have it on before turning it off
-filetype off                    " needs to be off to setup Vundle
-set rtp+=~/.vim/bundle/vundle/  " add vundle to run time path
-call vundle#rc()
-
-" let Vundle manage Vundle
-Plugin 'gmarik/vundle'
-Plugin 'itchyny/landscape.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'bling/vim-airline'
-Plugin 'benmills/vimux'
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rizzatti/dash.vim'
-Plugin 'sjl/gundo.vim'
-
-if has('autocmd')
-  filetype plugin indent on    " enable plugins, detection and indenting
+" }}}
+" Bundles ---------------------------------------------------------------- {{{
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
 endif
 
 if has('syntax') && !exists('g:syntax_on')
@@ -77,6 +59,9 @@ if exists("&cryptmethod")
 endif
 set cursorline                    " highlight the line where the cursor is
 
+" Relative Number and Number toggle
+nnoremap <F10> :set relativenumber! number! number?<CR>
+
 " Folding settings
 set foldcolumn=3                  " room for fold markers
 set foldmethod=marker             " use the standard 3 curly braces as markers
@@ -95,6 +80,8 @@ set formatoptions+=q              " allow formating of comments with 'gq'
 set formatoptions+=n              " recognize numbered lists
 set formatoptions+=l              " don't break long lines that were already there
 
+" Set match pairs beyond default {...}. (...), and [...]
+set matchpairs+=<:>
 " }}}
 " Navaigation and movement ----------------------------------------------- {{{
 
@@ -130,6 +117,13 @@ nmap <leader>bn :bnext<cr>          " move to next buffer
 nmap <leader>bp :bprevious<cr>      " move to previous buffer
 nmap <leader>bq :bp <BAR> bd #<cr>  " move to previous and close buffer
 
+nnoremap <C-t> :tabnew<CR>              " new tab
+nnoremap <C-p> :tabprevious<CR>         " previous tab
+nnoremap <C-n> :tabnext<CR>             " next tab
+inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
+inoremap <C-p> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
+inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab
+
 " }}}
 " File focus ------------------------------------------------------------- {{{
 
@@ -163,12 +157,7 @@ if !isdirectory(expand(&directory))
 endif
 
 " }}}
-" Set the color scheme --------------------------------------------------- {{{
-set background=dark
-silent! colorscheme landscape
-
-" }}}
-" Set tab stuff ---------------------------------------------------------- {{{
+" Tabstops --------------------------------------------------------------- {{{
 set tabstop=2           " 2 spaces for a tab - used when vim opens a file having <tab>s in it
 set shiftwidth=2        " 2 spaces for autoindenting
 set softtabstop=2       " 2 spaces inserted for <tab> when editing a file, also # removed by backspace
@@ -179,6 +168,22 @@ set expandtab           " expand tabs to spaces (overloadable by file type)
 set scrolloff=5         " show context above/below cursor line
 set sidescrolloff=10    " number of cols from horizontal edge to  start scrolling
 set sidescroll=1        " number of cols to scroll at a time
+
+" }}}
+" Help ------------------------------------------------------------------- {{{
+" only apply to .txt files
+augroup HelpInTabs
+  autocmd!
+  autocmd BufEnter *.txt call HelpInNewTab()
+augroup END
+
+" only apply to help files...
+function! HelpInNewTab ()
+  if &buftype == 'help'
+    " convert help window to a tab
+    execute "normal \<C-W>T"
+  endif
+endfunction
 
 " }}}
 " Miscellaneous ---------------------------------------------------------- {{{
@@ -266,8 +271,13 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " }}}
 " Command line completion ------------------------------------------------ {{{
 
-"set wildmode                 " navigate <left> & <right> through completion lists
-"set wildmode=list:longest    " allows expansion of items
+set wildmenu                 " navigate <left> & <right> through completion lists
+set wildmode=full             " complete first full match, next match (default) 
+
+set wildignore+=.git                           " ignore Git 
+set wildignore+=*.jpg,*.png,*.gif,*.jpeg,*.bmp " ignore image files
+set wildignore+=*.sw?                          " swap files
+set wildignore+=*.DS_Store                     " OS X clutter
 
 " }}}
 " Filetype settings ------------------------------------------------------ {{{
@@ -284,6 +294,10 @@ if has("autocmd")
   " syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+  " setup for mail
+  autocmd FileType mail setlocal formatoptions+=aw
+  autocmd FileType mail setlocal spell spelllang=en_us
 
   " treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
@@ -315,6 +329,9 @@ if has("autocmd")
   let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
   autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
 
+  " Ensure syntax highlighting for diffs
+  autocmd FileType diff syntax enable
+
 endif
 
 " }}}
@@ -322,51 +339,6 @@ endif
 let g:netrw_liststyle=3
 
 " }}}
-" Stuff for Plugins ------------------------------------------------------ {{{
-
-" vim-airline settings
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
-let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Hide function display (don't use it)
-let g:airline#extensions#tagbar#enabled = 0
-
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-let g:airline_theme='dark'
-
-" Vimux settings
-let g:VimuxHeight = "30"
-let g:VimuxOrientation = "v"
-let g:VimuxUseNearestPane = 0
-
-" Vimux Mappings
-nmap <leader>vp :VimuxPromptCommand<cr>
-nmap <leader>vl :VimuxRunLastCommand<cr>
-nmap <leader>vq :VimuxCloseRunner<cr>
-nmap <leader>vx :VimuxInterruptRunner<cr>
-
-" Vimux Octopress helpers
-nmap <leader>vg :call VimuxRunCommand("gen")<CR>
-nmap <leader>vi :call VimuxRunCommand("ingen")<CR>
-nmap <leader>vz :call VimuxRunCommand("dz")<CR>
-nmap <leader>vd :call VimuxRunCommand("deploy")<CR>
-
-" Control-P
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-
-" Gundo
-nnoremap <leader>U :GundoToggle<CR>
-
-" }}}
-"  finis ----------------------------------------------------------------- {{{
+" finis ------------------------------------------------------------------ {{{
 
 " }}}

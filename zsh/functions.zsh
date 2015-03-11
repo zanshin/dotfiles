@@ -5,16 +5,31 @@ function knhost() {
   sed -e 's/.*://' -e 's/.*items found//'
 }
 
-function knaws() {
+function knifeaws() {
   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a cloud.public_hostname | knhost
 }
 
-function knssh() {
+function knifeome() {
+  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | knhost
+}
+
+function knaws() {
   for i in "$@"; do
-    for j in `knaws "$i"`; do
+    for j in `knifeaws "$i"`; do
       ssh $j
     done
   done
+}
+
+function knome() {
+  `tmux new-window -n "$@"`
+  for i in "$@"; do
+    for j in `knifeome "$i"`; do
+      tmux-ministart "$j"
+    done
+  done
+  `tmux kill-pane -t 1`
+  `tmux select-layout even-vertical >/dev/null 2>&1`
 }
 
 function kick() { knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" }
@@ -28,7 +43,11 @@ function dash() {
 }
 
 function dman() {
-  open "dash://man:$*"
+  open "dash://manpages:$*"
+}
+
+function dchef() {
+  open "dash://chef:$*"
 }
 
 # -------------------------------------------------------------------

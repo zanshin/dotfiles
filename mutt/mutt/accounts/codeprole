@@ -1,0 +1,14 @@
+# Account Settings ------------------------------
+
+set from      = "code.prole@gmail.com"
+set sendmail  = "/usr/local/bin/msmtp -a codeprole"
+
+# Default inbox.
+set spoolfile = "+codeprole/INBOX"
+
+# Other special folders.
+set mbox      = "+codeprole/archive"
+set postponed = "+codeprole/drafts"
+set record    = "+codeprole/sent"
+
+color status green default
