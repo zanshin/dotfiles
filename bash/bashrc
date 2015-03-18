@@ -135,6 +135,17 @@ function session-test {
 ## end tools
 
 # Setup TERM
+# thanks to tmux I use `screen-256color` so...
+if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Linux" ]
+then
+  export TERM=vt100
+fi
+
+if [ "$TERM" = "screen-256color" ] && [ "$myos" = "SunOS" ]
+then
+  export TERM=xterm
+fi
+
 if [ "$TERM" = "xterm" ] && [ "$myos" = "Linux" ]
 then
   export TERM=vt100
