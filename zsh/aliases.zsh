@@ -94,6 +94,7 @@ alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
 alias wifi="networksetup -setairportpower en0"
 alias makepass="openssl rand -base64 12"
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+alias cowsay='fortune | cowsay'
 
 # -------------------------------------------------------------------
 # remote machines
