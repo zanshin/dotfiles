@@ -21,8 +21,8 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'git://git.wincent.com/command-t.git'
 
 " ----- Working with Git --------------------------------------------
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
 
 " ----- Other text editing features ---------------------------------
 Plugin 'plasticboy/vim-markdown'
@@ -31,11 +31,11 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'sjl/gundo.vim'
 
 " ----- YouCompleteMe (YCM) -----------------------------------------
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " ----- ultisnips ---------------------------------------------------
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 " Plugin 'vadv/vim-chef'
 
 " ----- Et cetera ---------------------------------------------------
@@ -86,9 +86,9 @@ let g:ctrlp_working_path_mode = 'ra'
 " need some settings here
 " }}}
 " Git Gutter -------------------------------------------------------------- {{{
-hi clear SignColumn               " required after changing colorscheme
+" hi clear SignColumn               " required after changing colorscheme
 " In vim-airline, only display "hunks" if the diff is non-zero
-let g:airline#extensions#hunks#non_zero_only = 1
+" let g:airline#extensions#hunks#non_zero_only = 1
 
 " }}}
 " Markdown ---------------------------------------------------------------- {{{
@@ -118,24 +118,24 @@ nmap <leader>vd :call VimuxRunCommand("deploy")<cr>
 " }}}
 " YouCompleteMe ----------------------------------------------------------- {{{
 " prevent YCM from using <tab> so that ultisnips can use it
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-
+" let g:ycm_key_list_select_completion=[]
+" let g:ycm_key_list_previous_completion=[]
+" 
 " dictionary of file types to not auto-complete
-let g:ycm_filetype_blacklist = {
-      \ 'markdown' : 1,
-      \ 'mkd' : 1,
-      \ 'md' : 1,
-      \ 'text' : 1,
-      \ 'mail' : 1
-      \}
+" let g:ycm_filetype_blacklist = {
+"       \ 'markdown' : 1,
+"       \ 'mkd' : 1,
+"       \ 'md' : 1,
+"       \ 'text' : 1,
+"       \ 'mail' : 1
+"       \}
 
 "}}}
 " ultisnips --------------------------------------------------------------- {{{
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " }}}
 " finis ------------------------------------------------------------------- {{{
