@@ -27,7 +27,7 @@ tmux send-keys -t tools:1 'cd ~/' C-m
 tmux send-keys -t tools:2 'ssh ome-tools1' C-m
 
 # window 3 - ome-mon1: access to ome-mon1 
-tmux send-keys -t tools:3 'ssh ome-mon1'
+tmux send-keys -t tools:3 'ssh ome-mon1' C-m
 
 # window 4 - trebor: access to trebor 
 tmux send-keys -t tools:4 'ssh trebor' C-m
