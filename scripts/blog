@@ -1,0 +1,60 @@
+# vim: set filetype=bash: 
+#
+# Tmux Name:   blog
+# Description: creates 4 named windows for blogging 
+#
+# check if session exists
+tmux has-session -t blog
+if [ $? != 0 ]
+then
+
+# if session does not exist create it
+tmux -2 new-session -s blog -n home -d
+
+# set default directory
+tmux send-keys -t blog:1 'cd ~/' C-m
+
+# create additional named windows
+tmux new-window -n zanshin
+tmux new-window -n health
+tmux new-window -n books
+tmux new-window -n cello
+
+# window 1 - default window for normal use. lets make sure this starts in ouri home directory.
+tmux send-keys -t blog:1 'cd ~/' C-m
+
+# window 2 - zanshin
+# zanshin | ls -al
+#         +--------
+#         | rake watch[drafts]
+#
+tmux split-window -h -p 50 -t blog:2
+tmux split-window -v -p 30 -t blog:2.2
+tmux send-keys -t blog:2.1 'cd ~/code/zanshin' C-m
+tmux send-keys -t blog:2.2 'cd ~/code/zanshin' C-m
+tmux send-keys -t blog:2.2 'ls -al' C-m
+tmux send-keys -t blog:2.3 'cd ~/code/zanshin' C-m
+tmux send-keys -t blog:2.3 'rake watch[drafts]' C-m
+
+# window 3 - health 
+tmux send-keys -t blog:3 'cd ~/code/health' C-m
+
+# window 4 - books 
+tmux send-keys -t blog:4 'cd ~/code/books' C-m
+
+# window 5 - cello 
+# cello | ls -al
+#       +-------
+#       | rake watch[drafts]
+#
+tmux split-window -h -p 50 -t blog:5
+tmux split-window -v -p 30 -t blog:5.2
+tmux send-keys -t blog:5.1 'cd ~/code/cello' C-m
+tmux send-keys -t blog:5.2 'cd ~/code/cello' C-m
+tmux send-keys -t blog:5.2 'ls -al' C-m
+tmux send-keys -t blog:5.3 'cd ~/code/cello' C-m
+tmux send-keys -t blog:5.3 'rake watch[drafts]' C-m
+
+ # end if statement and attach mytmux if it existed
+fi
+tmux attach -t blog
