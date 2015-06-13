@@ -4,9 +4,9 @@ The scripts folder contains tmux scripts for defining multi-window, multi-pane t
 
 This script creates the default tmux session on my primary personal machine. In addition to a `home` window, this session contains windows for the websites I regularly update or work with.
 
-# base
+# chef
 
-This script creates the default tmux session for my development work at my employer. In addition to a `home` window (containing a separate pane for a VPN connection), this session has multi-pane windows for two Chef organizations.
+This script creates the default tmux session for my Chef development work at my employer. In addition to a `vpn` window, this session has multi-pane windows for two Chef organizations, and a desktop window for convenience.
 
 # console
 

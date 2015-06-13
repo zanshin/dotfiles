@@ -1,0 +1,60 @@
+# vim: set filetype=bash: 
+#
+# Tmux Name:   chef
+# Description: creates 4 named windows for development at work 
+#
+# check if session exists
+tmux has-session -t chef
+if [ $? != 0 ]
+then
+
+# if session does not exist create it
+# note - default window numbered either 0 or 1 depending on tmux 'chef-index'
+# note - my setup assumes 'chef-index' was set at 1
+tmux -2 new-session -s chef -n vpn -d
+
+# set default directory
+tmux send-keys -t chef:1 'cd ~/' C-m
+
+# create additional named windows
+# note - extra windows start at 1 or 2 and count upward depending on tmux 'chef-index'
+# note - my setup assumes 'chef-index' was set at 1
+tmux new-window -n ome
+tmux new-window -n omedev
+tmux new-window -n desktop
+
+# window 1 - vpn connection lives here 
+tmux send-keys -t chef:1 'cd ~/' C-m
+tmux send-keys -t chef:1 'vpn' C-m
+
+# window 2 - ome: window for `ome` Chef organization
+# knife status | ome-chef-data | cookbooks 
+#
+tmux split-window -h -p 66 -t chef:2
+tmux split-window -h -p 50 -t chef:2.2
+tmux send-keys -t chef:2.1 'cd ~/code/chef/ome/chef-repo' C-m
+tmux send-keys -t chef:2.1 'knife status' C-m
+tmux send-keys -t chef:2.2 'cd ~/code/chef/ome/chef-repo/ome_chef_data' C-m
+tmux send-keys -t chef:2.2 'ls -al' C-m
+tmux send-keys -t chef:2.3 'cd ~/code/chef/ome/chef-repo/cookbooks' C-m
+tmux send-keys -t chef:2.3 'ls -al' C-m
+
+# window 3 - omedev: window for `omedev` Chef organization
+# knife status | ome-chef-data | cookbooks 
+#
+tmux split-window -h -p 66 -t chef:3
+tmux split-window -h -p 50 -t chef:3.2
+tmux send-keys -t chef:3.1 'cd ~/code/chef/omedev/chef-repo' C-m
+tmux send-keys -t chef:3.1 'knife status' C-m
+tmux send-keys -t chef:3.2 'cd ~/code/chef/omedev/chef-repo/ome_chef_data' C-m
+tmux send-keys -t chef:3.2 'ls -al' C-m
+tmux send-keys -t chef:3.3 'cd ~/code/chef/omedev/chef-repo/cookbooks' C-m
+tmux send-keys -t chef:3.3 'ls -al' C-m
+
+# window 4 - desktop: window for general usage
+tmux send-keys -t chef:4 'cd ~/' C-m
+tmux send-keys -t chef:4 'ls' C-m
+
+# end if statement and attach mytmux if it existed
+fi
+tmux attach -t chef
