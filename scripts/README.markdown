@@ -12,6 +12,10 @@ This script creates the default tmux session for my Chef development work at my 
 
 This script creates a tmux session for monitoring production and test servers and virtual machines.
 
+# logs
+
+A virtual copy of console - to allow for log view while executing commands in the console.
+
 # tools
 
 This script creates a tmux session for accessing a variety of utility servers and virtual machines.
