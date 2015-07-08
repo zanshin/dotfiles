@@ -1,0 +1,70 @@
+# vim: set filetype=bash: 
+#
+# Tmux Name:   logs
+# Description: creates 5 named windows for monitoring: prod, web, txhub, and
+# test (alpha). 
+#
+# check if session exists
+tmux has-session -t logs
+if [ $? != 0 ]
+then
+
+# if session does not exist create it
+tmux -2 new-session -s logs -n desktop -d
+
+# set default directory
+tmux send-keys -t logs:1 'cd ~/' C-m
+
+# create additional named windows
+tmux new-window -n prod
+tmux new-window -n web
+tmux new-window -n txhub
+tmux new-window -n alpha
+
+# window 1 - a view to the host machine's desktop 
+tmux send-keys -t logs:1 'cd ~/' C-m
+
+# window 2 - prod: four pane window for monitoring as[3456] 
+tmux split-window -v -p 75 -t logs:2
+tmux split-window -v -p 33 -t logs:2.2
+tmux split-window -v -p 50 -t logs:2.3
+tmux select-layout even-vertical
+tmux send-keys -t logs:2.1 'ssh ome-as3' C-m
+tmux send-keys -t logs:2.2 'ssh ome-as4' C-m
+tmux send-keys -t logs:2.3 'ssh ome-as5' C-m
+tmux send-keys -t logs:2.4 'ssh ome-as6' C-m
+tmux set-window-option synchronize-panes
+
+# window 3 - web: 4 pane window for montioring ome-web[134] and web5 
+tmux split-window -v -p 75 -t logs:3
+tmux split-window -v -p 33 -t logs:3.2
+tmux split-window -v -p 50 -t logs:3.3
+tmux select-layout even-vertical
+tmux send-keys -t logs:3.1 'ssh ome-web1' C-m
+tmux send-keys -t logs:3.2 'ssh ome-web3' C-m
+tmux send-keys -t logs:3.3 'ssh ome-web4' C-m
+tmux send-keys -t logs:3.4 'ssh web5' C-m
+tmux set-window-option synchronize-panes
+
+# window 4 - txhub: two pane window for monitoring TxHub
+tmux split-window -v -p 50 -t logs:4
+tmux select-layout even-vertical
+tmux send-keys -t logs:4.1 'ssh ome-txhub1' C-m
+tmux send-keys -t logs:4.2 'ssh ome-txhub2' C-m
+tmux set-window-option synchronize-panes
+
+# window 5 - alpha: four pane window for monitoring ome-alpha-as[1234] 
+tmux split-window -v -p 75 -t logs:5
+tmux split-window -v -p 33 -t logs:5.2
+tmux split-window -v -p 50 -t logs:5.3
+tmux select-layout even-vertical
+tmux send-keys -t logs:5.1 'ssh ome-alpha-as1' C-m
+tmux send-keys -t logs:5.2 'ssh ome-alpha-as2' C-m
+tmux send-keys -t logs:5.3 'ssh ome-alpha-as3' C-m
+tmux send-keys -t logs:5.4 'ssh ome-alpha-as4' C-m
+tmux set-window-option synchronize-panes
+
+
+# end if statement and attach mytmux if it existed
+fi
+tmux attach -t logs

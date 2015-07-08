@@ -1,0 +1,37 @@
+# vim: set filetype=bash: 
+#
+# Tmux Name:   tools
+# Description: creates 4 named windows for utility sesrvers: tools, mon1,
+# trebor
+#
+# check if session exists
+tmux has-session -t tools
+if [ $? != 0 ]
+then
+
+# if session does not exist create it
+tmux -2 new-session -s tools -n desktop -d
+
+# set default directory
+tmux send-keys -t tools:1 'cd ~/' C-m
+
+# create additional named windows
+tmux new-window -n tools
+tmux new-window -n ome-mon1
+tmux new-window -n trebor
+
+# window 1 - a view to the host machine's desktop 
+tmux send-keys -t tools:1 'cd ~/' C-m
+
+# window 2 - tools: access ome-tools1 
+tmux send-keys -t tools:2 'ssh ome-tools1' C-m
+
+# window 3 - ome-mon1: access to ome-mon1 
+tmux send-keys -t tools:3 'ssh ome-mon1' C-m
+
+# window 4 - trebor: access to trebor 
+tmux send-keys -t tools:4 'ssh trebor' C-m
+
+# end if statement and attach mytmux if it existed
+fi
+tmux attach -t tools

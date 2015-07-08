@@ -94,6 +94,7 @@ alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
 alias wifi="networksetup -setairportpower en0"
 alias makepass="openssl rand -base64 12"
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+alias cowsay='fortune | cowsay'
 
 # -------------------------------------------------------------------
 # remote machines
@@ -194,6 +195,10 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
 
 # gu shows a list of all developers and the number of commits they've made
 alias gu="git shortlog | grep -E '^[^ ]'"
+
+# ect (Edit Changed in Tabs) opens all files maked as changed by Git in Vim
+# tabs
+alias ect="git status --short | awk '{print $2}' | xagrs -o vim"
 
 # -------------------------------------------------------------------
 # Python virtualenv

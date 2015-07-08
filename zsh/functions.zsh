@@ -10,7 +10,7 @@ function knifeaws() {
 }
 
 function knifeome() {
-  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | knhost
+  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
 }
 
 function knaws() {
@@ -30,9 +30,15 @@ function knome() {
   done
   `tmux kill-pane -t 1`
   `tmux select-layout even-vertical >/dev/null 2>&1`
+  `tmux set-window-option synchronize-panes`
 }
 
 function kick() { knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" }
+
+# -------------------------------------------------------------------
+# Git function
+# -------------------------------------------------------------------
+function gg() { git commit -m "$*" }
 
 # -------------------------------------------------------------------
 # Dash functions
