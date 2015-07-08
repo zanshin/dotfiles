@@ -10,6 +10,8 @@ set nocompatible
 " Bundles ---------------------------------------------------------------- {{{
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
+else
+  silent! colorscheme molokai 
 endif
 
 if has('syntax') && !exists('g:syntax_on')
@@ -28,6 +30,7 @@ set timeout timeoutlen=1000 ttimeoutlen=500
 " Trying to break a very old habit...
 " ex mode commands made easy
 nnoremap ; :
+noremap ;; ;
 nnoremap Q <nop>
 
 set laststatus=2                  " always show the status line
