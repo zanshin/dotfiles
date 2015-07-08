@@ -73,6 +73,10 @@ set foldmethod=marker             " use the standard 3 curly braces as markers
 set termencoding=utf-8            " we like utf-8
 set encoding=utf-8
 
+" Change options: set $ at end of change range
+" https://www.reddit.com/r/vim/comments/3b7324/insert_dollar_sign_at_end_of_change_command/
+set cpoptions+=$
+
 " Setup automatic text formatting/wrapping (previously: grn1 )
 set formatoptions=
 set formatoptions-=t              " don't autowrap text

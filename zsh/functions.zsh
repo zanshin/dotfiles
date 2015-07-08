@@ -10,7 +10,7 @@ function knifeaws() {
 }
 
 function knifeome() {
-  knife search node "tags:*${@}* OR name:*${@}* OR roles:*${@}* " -a hostname | knhost
+  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
 }
 
 function knaws() {
