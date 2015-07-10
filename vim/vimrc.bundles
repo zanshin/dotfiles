@@ -2,46 +2,44 @@
 " Author: Mark Nichols <mark@zanshin.net>
 " Source: http:/github.com/zanshin/dotfiles/vim/vimrc.bundles
 "
-" Setup bundles using Vundle ---------------------------------------------- {{{
+" Setup bundles using vim-plug ---------------------------------------------- {{{
 filetype on                       " best to have it on before turning it off
 filetype off                      " needs to be off to setup Vundle
 
-set rtp+=~/.vim/bundle/vundle/    " add Vundle to the run-time path
-call vundle#rc()
-
-" ----- Let Vundle manage Vundle ------------------------------------
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " ----- Make Vim look good ------------------------------------------
-Plugin 'itchyny/landscape.vim'
-Plugin 'bling/vim-airline'
-Plugin 'romainl/Apprentice'
+Plug 'itchyny/landscape.vim'
+Plug 'bling/vim-airline'
+Plug 'romainl/Apprentice'
 
 " ----- Vim as programmer's text editor -----------------------------
-Plugin 'kien/ctrlp.vim'
-Plugin 'git://git.wincent.com/command-t.git'
+Plug 'kien/ctrlp.vim'
+Plug 'git://git.wincent.com/command-t.git'
 
 " ----- Working with Git --------------------------------------------
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
 
 " ----- Other text editing features ---------------------------------
-Plugin 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 
 " ----- Undo --------------------------------------------------------
-Plugin 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim'
 
 " ----- YouCompleteMe (YCM) -----------------------------------------
-" Plugin 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 " ----- ultisnips ---------------------------------------------------
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" Plugin 'vadv/vim-chef'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'vadv/vim-chef'
 
 " ----- Et cetera ---------------------------------------------------
-Plugin 'rizzatti/dash.vim'
-Plugin 'benmills/vimux'
+Plug 'rizzatti/dash.vim'
+Plug 'benmills/vimux'
+
+call plug#end()
 
 " turn things on
 if has('autocmd')
