@@ -28,7 +28,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'sjl/gundo.vim'
 
 " ----- Snipmate ----------------------------------------------------
-Plug 'msanders/snipmate.vim'
+Plug 'zanshin/snipmate.vim'
 
 " ----- YouCompleteMe (YCM) -----------------------------------------
 " Plug 'Valloric/YouCompleteMe'
