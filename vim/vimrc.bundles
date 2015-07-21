@@ -6,43 +6,48 @@
 filetype on                       " best to have it on before turning it off
 filetype off                      " needs to be off to setup Vundle
 
-call plug#begin('~/.vim/plugged')
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+" ----- Let Vundle manage Vundle, required --------------------------
+Plugin 'gmarik/Vundle.vim'
 
 " ----- Make Vim look good ------------------------------------------
-Plug 'itchyny/landscape.vim'
-Plug 'bling/vim-airline'
-Plug 'romainl/Apprentice'
+Plugin 'itchyny/landscape.vim'
+Plugin 'bling/vim-airline'
+Plugin 'romainl/Apprentice'
 
 " ----- Vim as programmer's text editor -----------------------------
-Plug 'kien/ctrlp.vim'
-Plug 'git://git.wincent.com/command-t.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'git://git.wincent.com/command-t.git'
 
 " ----- Working with Git --------------------------------------------
-" Plug 'tpope/vim-fugitive'
-" Plug 'airblade/vim-gitgutter'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
 
 " ----- Other text editing features ---------------------------------
-Plug 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
 " ----- Undo --------------------------------------------------------
-Plug 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'
 
 " ----- Snipmate ----------------------------------------------------
-Plug 'zanshin/snipmate.vim'
+Plugin 'zanshin/snipmate.vim'
 
 " ----- YouCompleteMe (YCM) -----------------------------------------
-" Plug 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " ----- ultisnips ---------------------------------------------------
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-" Plug 'vadv/vim-chef'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'vadv/vim-chef'
 
 " ----- Et cetera ---------------------------------------------------
-Plug 'rizzatti/dash.vim'
-Plug 'benmills/vimux'
+Plugin 'rizzatti/dash.vim'
+Plugin 'benmills/vimux'
 
-call plug#end()
+call vundle#end() 
 
 " turn things on
 if has('autocmd')
