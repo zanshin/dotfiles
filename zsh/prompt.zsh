@@ -3,9 +3,9 @@ function virtualenv_info {
 }
 
 function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo  $fg[black]':'$fg[default]'±'$fg[black]';'$fg[default] && return
-    hg root >/dev/null 2>/dev/null && echo $fg[black]':'$fg[default]'☿'$fg[black]';'$fg[default] && return
-    echo $fg[black]':'$fg[default]'○'$fg[black]';'$fg[default]
+    git branch >/dev/null 2>/dev/null && echo  $fg[default]'±' && return
+    hg root >/dev/null 2>/dev/null && echo $fg[default]'☿' && return
+    echo $fg[default]'○'
 }
 
 function box_name {
