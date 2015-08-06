@@ -87,13 +87,13 @@ function _update_ruby_version() {
     typeset -g ruby_version=''
     if which rvm-prompt &> /dev/null; then
       # ruby_version="$(rvm-prompt i v g)"
-      ruby_version="$(rvm-prompt i v p g)"
+      ruby_version="using $(rvm-prompt i v p g)"
     else
       if which rbenv &> /dev/null; then
         ruby_version="$(rbenv version | sed -e "s/ (set.*$//")"
       else
         if which ruby &> /dev/null; then
-          ruby_version="$(ruby --version | awk '{print $2}')"
+          ruby_version="using ${PR_RED}$(ruby --version | awk '{print $2}')%{$reset_color%}"
         fi
       fi
     fi
@@ -124,7 +124,7 @@ function current_pwd {
 
 
 PROMPT='
-${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} using ${PR_RED}${ruby_version}%{$reset_color%} $FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string) 
+${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} ${ruby_version} $FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string) 
 $(prompt_char) '
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
