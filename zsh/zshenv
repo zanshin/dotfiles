@@ -6,7 +6,7 @@ fi
 
 # ChefDK - add path to ChefDK ahead of /usr/bin so as to get ChefDK ruby and
 # gem
-export PATH=/opt/chefdk/embedded/bin:$HOME/.chefdk/gem/ruby/2.1.5/bin:$PATH
+# export PATH=/opt/chefdk/bin:/opt/chefdk/embedded/bin:$HOME/.gem/ruby/2.1.5/bin:$PATH
 
 # Put Homebrew at the head of the path
 # /usr/local/bin is also first in /etc/paths
