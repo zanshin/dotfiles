@@ -54,7 +54,7 @@ For Vim configuration and use, create the following symlinks:
 
     ln -s ~/.dotfiles/vim ~/.vim
     ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-    ln -s ~/.dotfiles/vimrc.bundles ~/.vimrc.bundles
+    ln -s ~/.dotfiles/vim/vimrc.bundles ~/.vimrc.bundles
     ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
 
 To install Vim bundles, which are managed via Vundle, via the command line run
