@@ -3,9 +3,9 @@ function virtualenv_info {
 }
 
 function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo  $fg[black]':'$fg[default]'±'$fg[black]';'$fg[default] && return
-    hg root >/dev/null 2>/dev/null && echo $fg[black]':'$fg[default]'☿'$fg[black]';'$fg[default] && return
-    echo $fg[black]':'$fg[default]'○'$fg[black]';'$fg[default]
+    git branch >/dev/null 2>/dev/null && echo  $fg[default]'±' && return
+    hg root >/dev/null 2>/dev/null && echo $fg[default]'☿' && return
+    echo $fg[default]'○'
 }
 
 function box_name {
@@ -87,13 +87,13 @@ function _update_ruby_version() {
     typeset -g ruby_version=''
     if which rvm-prompt &> /dev/null; then
       # ruby_version="$(rvm-prompt i v g)"
-      ruby_version="$(rvm-prompt i v p g)"
+      ruby_version="using $(rvm-prompt i v p g)"
     else
       if which rbenv &> /dev/null; then
         ruby_version="$(rbenv version | sed -e "s/ (set.*$//")"
       else
         if which ruby &> /dev/null; then
-          ruby_version="$(ruby --version | awk '{print $2}')"
+          ruby_version="using ${PR_RED}$(ruby --version | awk '{print $2}')%{$reset_color%}"
         fi
       fi
     fi
@@ -124,7 +124,7 @@ function current_pwd {
 
 
 PROMPT='
-${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} %{$FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string) 
+${PR_GREEN}%n%{$reset_color%} %{$FG[239]%}at%{$reset_color%} ${PR_BOLD_BLUE}$(box_name)%{$reset_color%} ${ruby_version} $FG[239]%}in%{$reset_color%} ${PR_BOLD_YELLOW}$(current_pwd)%{$reset_color%} $(git_prompt_string) 
 $(prompt_char) '
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)es (n)o (a)bort (e)dit]? "
@@ -132,7 +132,7 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color [(y)e
 # Setup Vi-mode indicator in right-prompt
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}${PR_GREEN}$(virtualenv_info)%{$reset_color%} ${PR_RED}${ruby_version}%{$reset_color%} $EPS1"
+  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}${PR_GREEN}$(virtualenv_info)%{$reset_color%} $EPS1"
   zle reset-prompt
 }
 

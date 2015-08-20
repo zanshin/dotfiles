@@ -2,14 +2,15 @@
 " Author: Mark Nichols <mark@zanshin.net>
 " Source: http:/github.com/zanshin/dotfiles/vim/vimrc.bundles
 "
-" Setup bundles using Vundle ---------------------------------------------- {{{
+" Setup bundles using vim-plug ---------------------------------------------- {{{
 filetype on                       " best to have it on before turning it off
 filetype off                      " needs to be off to setup Vundle
 
-set rtp+=~/.vim/bundle/vundle/    " add Vundle to the run-time path
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" ----- Let Vundle manage Vundle ------------------------------------
+call vundle#begin()
+
+" ----- Let Vundle manage Vundle, required --------------------------
 Plugin 'gmarik/Vundle.vim'
 
 " ----- Make Vim look good ------------------------------------------
@@ -31,6 +32,9 @@ Plugin 'plasticboy/vim-markdown'
 " ----- Undo --------------------------------------------------------
 Plugin 'sjl/gundo.vim'
 
+" ----- Snipmate ----------------------------------------------------
+Plugin 'zanshin/snipmate.vim'
+
 " ----- YouCompleteMe (YCM) -----------------------------------------
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -42,6 +46,8 @@ Plugin 'sjl/gundo.vim'
 " ----- Et cetera ---------------------------------------------------
 Plugin 'rizzatti/dash.vim'
 Plugin 'benmills/vimux'
+
+call vundle#end() 
 
 " turn things on
 if has('autocmd')
