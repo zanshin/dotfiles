@@ -8,8 +8,6 @@
 # 
 # ------------------------------------------------------------------
 
-umask 002
-
 # Determine the operating system and use to set or source things
 myos=`uname -s`
 
@@ -137,17 +135,6 @@ function session-test {
 ## end tools
 
 # Setup TERM
-# thanks to tmux I use `screen-256color` so...
-if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Linux" ]
-then
-  export TERM=vt100
-fi
-
-if [ "$TERM" = "screen-256color" ] && [ "$myos" = "SunOS" ]
-then
-  export TERM=xterm
-fi
-
 if [ "$TERM" = "xterm" ] && [ "$myos" = "Linux" ]
 then
   export TERM=vt100
@@ -196,8 +183,8 @@ export CVS_RSH=ssh
 export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 
 # aliases and functions
-source ~/.dotfiles/bash/bash_aliases
-source ~/.dotfiles/bash/bash_functions
+source ~/.bash_aliases
+source ~/.bash_functions
 
 # set the prompt, and include the machine name in RED
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\H:\w\007\] '

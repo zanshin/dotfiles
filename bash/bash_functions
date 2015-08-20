@@ -20,8 +20,11 @@ myjlist () {
   done
 }
 
+# -------------------------------------------------------------------
+# show header and search term only from ps
+# -------------------------------------------------------------------
 psg () {
-  ps -ef | grep ${1}
+  ps -ef | egrep "$1|PID" | grep -v grep
 }
 
 psig () {
