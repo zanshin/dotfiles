@@ -11,6 +11,7 @@ set nocompatible
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 else
+  set background=dark
   silent! colorscheme molokai 
 endif
 

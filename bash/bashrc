@@ -160,6 +160,11 @@ then
   TERM=xterm
 fi
 
+if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Linux" ]
+then
+  TERM=xterm-256color
+fi
+
 # Miscellaneous functions
 function wordfind() {
   egrep "$*" /usr/share/dict/words
