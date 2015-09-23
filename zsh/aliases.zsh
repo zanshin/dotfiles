@@ -139,6 +139,7 @@ alias 'vp=vagrant provision'
 alias 'vh=vagrant halt'
 alias 'vr=vagrant reload'
 alias 'vd=vagrant destroy'
+alias 'vgs=vagrant global-status'
 
 # ------------------------------------------------------------------
 # Knife
