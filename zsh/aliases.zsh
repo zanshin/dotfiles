@@ -186,6 +186,10 @@ alias gv='git log --pretty=format:'%s' | cut -d " " -f 1 | sort | uniq -c | sort
 alias gdb='git diff master..`git rev-parse --abbrev-ref HEAD`'
 alias gr='git diff master..'
 
+# requires git-up gem to be installed
+alias gu='git up'
+
+
 # leverage aliases from ~/.gitconfig
 alias gh='git hist'
 alias gt='git today'
