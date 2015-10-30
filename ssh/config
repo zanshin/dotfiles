@@ -4,8 +4,12 @@
 #RemoteForward 52698 127.0.0.1:52698
 
 # Set ServerAliveInterval for all connections
+# Set ControlMaster auto to enable sharing network connection
+# SEt ControlPath to populate shared connection properly
 Host * 
     ServerAliveInterval 60
+    ControlMaster auto
+    ControlPath ~/.ssh/master-%r@%h:%p
 
 # OME system admin
 host tx1
