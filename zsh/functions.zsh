@@ -22,15 +22,16 @@ function knaws() {
 }
 
 function knome() {
-  `tmux new-window -n "$@"`
+  title=$1
+  tmux new-window -n "$title"
   for i in "$@"; do
     for j in `knifeome "$i"`; do
-      tmux-ministart "$j"
+      tmux-ministart "$title $j"
     done
   done
-  `tmux kill-pane -t 1`
-  `tmux select-layout even-vertical >/dev/null 2>&1`
-  `tmux set-window-option synchronize-panes`
+  tmux kill-pane -t 1
+  tmux select-layout even-vertical >/dev/null 2>&1
+  tmux set-window-option synchronize-panes
 }
 
 function kick() { knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" }
