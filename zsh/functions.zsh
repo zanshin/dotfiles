@@ -27,9 +27,8 @@ function knome() {
     tmux split-window -t :$ "ssh $node"
   done
   tmux kill-pane -t $.1
-  # tmux select-window -t :$
-  tmux select-layout even-vertical >/dev/null 2>&1
-  tmux set-window-option synchronize
+  tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+  tmux set-window-option -t :$ synchronize 
 }
 
 function kick() { knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" }
