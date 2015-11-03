@@ -43,15 +43,15 @@ function gg() { git commit -m "$*" }
 # -------------------------------------------------------------------
 # Open argument in Dash
 function dash() {
-  open "dash://$*"
+  open dash://$*
 }
 
 function dman() {
-  open "dash://manpages:$*"
+  open dash://manpages:$*
 }
 
 function dchef() {
-  open "dash://chef:$*"
+  open dash://chef:$*
 }
 
 # -------------------------------------------------------------------
