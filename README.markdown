@@ -67,7 +67,7 @@ From inside of Vim run
 
 If this is the first time setting up Vim on the machine, it will be necessary to install Vundle itself, prior to teh bundles.
 
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on remote servers, without having to install all the bundles I normally have. 
 
