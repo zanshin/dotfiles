@@ -94,7 +94,7 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
                                              ]
-                                             
+
 [Account codeprole]
 localrepository = codeprole-Local
 remoterepository = codeprole-Remote
