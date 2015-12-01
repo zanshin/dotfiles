@@ -235,6 +235,7 @@ alias sz='source ~/.zshrc'
 
 # Just for fun
 alias please='sudo !!'
+alias fail='tail -f'
 
 # -------------------------------------------------------------------
 # Source: http://aur.archlinux.org/packages/lolbash/lolbash/lolbash.sh
