@@ -3,7 +3,7 @@
 " Source: http://github.com/zanshin/dotfiles/neovim/nvimrc
 "
 " Plugins ............................................................ {{{
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " -- Make Neovim look good
 Plug 'itchyny/landscape.vim'
@@ -108,7 +108,7 @@ set formatoptions+=l                        " don't break longs lines that were 
 " }}}
 " Vimrc .............................................................. {{{
 " Reload .nvimrc
-map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
+map <silent> <leader>R :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " }}}
 " Movement ........................................................... {{{
