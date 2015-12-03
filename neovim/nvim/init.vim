@@ -2,7 +2,7 @@
 " Author: Mark Nichols <mark@zanshin.net>
 " Source: http://github.com/zanshin/dotfiles/neovim/nvimrc
 "
-" Plugins ............................................................ {{{
+" Plugins {{{
 call plug#begin('~/.config/nvim/plugged')
 
 " -- Make Neovim look good
@@ -42,12 +42,12 @@ if has ('syntax') && !exists('g:syntax_on')
 endif
 
 " }}}
-" Color .............................................................. {{{
+" Color {{{
 set background=dark
 silent! colorscheme landscape
 
 " }}}
-" Basics ............................................................. {{{
+" Basics {{{
 " Change map <leader> from \ to ` ` (space)
 :let mapleader = " "
 
@@ -106,12 +106,12 @@ set formatoptions+=n                        " recognize numbered lists
 set formatoptions+=l                        " don't break longs lines that were already there
 
 " }}}
-" Vimrc .............................................................. {{{
+" Vimrc {{{
 " Reload .nvimrc
 map <silent> <leader>R :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " }}}
-" Movement ........................................................... {{{
+" Movement {{{
 
 " Disable arrow keys and make snarky comments.
 nnoremap <Left> :echoe "Use h"<CR>
@@ -139,7 +139,7 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " }}}
-" Buffers ............................................................ {{{
+" Buffers {{{
 nmap <leader>be :enew<cr>                   " create new empty buffer
 nmap <leader>bn :bnext<cr>                  " move to next buffer
 nmap <leader>bp :bprevious<cr>              " move to previous buffer
@@ -153,7 +153,7 @@ inoremap <C-p> :<ESC>:tabprevious<cr>i      " insert mode, previous tab
 inoremap <C-n> :<ESC>:tabnext<cr>i          " insert mode, next tab
 
 " }}}
-" Focus .............................................................. {{{
+" Focus {{{
 " What to do with files and focus
 set autowrite                               " write out old file when switching between files
 set autoread                                " reload files changed on disk, i.e., via `git checkout`
@@ -161,7 +161,7 @@ au FocusLost * :wa                          " save file when Neovim loses focus
 set hidden                                  " switch between buffers without saving
 
 " }}}
-" Backups ............................................................ {{{
+" Backups {{{
 set backup                                  " enable backups
 set noswapfile                              " It's the 21st century already
 
@@ -183,20 +183,20 @@ if !isdirectory(expand(&directory))
 endif
 
 " }}}
-" Tabstops ........................................................... {{{
+" Tabstops {{{
 set tabstop=2                               " 2 spaces for a tab - used when nvim opens a file having <tab>s in it
 set shiftwidth=2                            " 2 spaces for autoindenting
 set softtabstop=2                           " 2 spaces inserted for <tab> when editing a file, also # removed by backspace
 set expandtab                               " expand tabs to spaces (overloadable by file type settings)
 
 " }}}
-" Scrolling .......................................................... {{{
+" Scrolling  {{{
 set scrolloff=5                             " show content above/below cursor line
 set sidescrolloff=10                        " number of cols from horizontal edge to start scrolling
 set sidescroll=1                            " number of cols to scroll at a time
 
 " }}}
-" Help ............................................................... {{{
+" Help {{{
 " Only apply to .txt files
 augroup HelpInTabs
   autocmd!
@@ -212,7 +212,7 @@ function! HelpInNewTab()
 endfunction
 
 " }}}
-" Miscellaneous ...................................................... {{{
+" Miscellaneous {{{
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
@@ -241,7 +241,7 @@ endif
 imap jj <esc>
 
 " }}}
-" Searching .......................................................... {{{
+" Searching {{{
 set gdefault                                " apply substitution globally by default. add `g` for old behavior
 set incsearch                               " use incrementail search
 set hlsearch                                " highlight search results
@@ -252,12 +252,12 @@ set smartcase                               " ignore case if search string is al
 nnoremap <silent> <leader>/ :nohlsearch<cr>
 
 " }}}
-" Splits ............................................................. {{{
+" Splits {{{
 noremap <leader>v <C-w>v<C-w>l              " open a vertical split and switch to it
 noremap <leader>h <C-w>s<C-w>j              " open a horizontal split and swtich to it 
 
 " }}}
-" Completion ......................................................... {{{
+" Completion {{{
 set wildmenu                                " navigate <left> & <right> through completion lists
 set wildmode=full                           " complete first full match, next match (default)
 
@@ -267,7 +267,7 @@ set wildignore+=*.sw?                       " ignore swap files
 set wildignore+=*.DS_Store                  " ignore OS X clutter
 
 " }}}
-" Filetype ........................................................... {{{
+" Filetype {{{
 " Control whitespace preferences based on filetype
 if has("autocmd")
   "enable file type detection
@@ -321,15 +321,15 @@ if has("autocmd")
 endif
 
 " }}}
-" NetRW .............................................................. {{{
+" NetRW {{{
 let g:netrw_liststyle=3
 
 " }}}
-" Python ............................................................. {{{
+" Python {{{
 let g:python_host_prog = '/usr/bin/python'
 
 " }}}
-" Airline ............................................................ {{{
+" Airline {{{
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
@@ -350,15 +350,15 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme='dark'
 
 " }}}
-" Gundo .............................................................. {{{
+" Gundo {{{
 nnoremap <leader>U :GundoToggle<cr>
 
 " }}}
-" Neomake ............................................................ {{{
+" Neomake {{{
 autocmd! BufWritePost * Neomake
 
 " }}}
-" Nerdtree ........................................................... {{{
+" Nerdtree {{{
 map <C-n> :NERDTreeToggle<cr>
 
 let g:NERDTreeIndicatorMapCustom = {
@@ -374,11 +374,11 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " }}}
-" Dash ............................................................... {{{
+" Dash  {{{
 nmap <silent><leader>d <Plug>DashSearch
 
 " }}}
-" indentLind ......................................................... {{{
+" indentLind {{{
 let g:indentLine_color_term = 239
 let g:indentLine_char = '︙'
 
