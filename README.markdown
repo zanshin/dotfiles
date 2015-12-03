@@ -49,6 +49,21 @@ For ssh configuration, create the following symlink:
 
     ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 
+## Neovim (nvim)
+For Neovim configuration and use, create the following symlinks:
+
+    ln -s ~/.dotfiles./neovim/nvim ~/.config/nvim
+
+To install vim-plug managed plugins run the following command from within nvim:
+
+    :PlugInstall
+
+To install vim-plug run the following command:
+
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
 ## Vim
 For Vim configuration and use, create the following symlinks:
 
