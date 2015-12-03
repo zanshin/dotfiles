@@ -8,12 +8,11 @@ call plug#begin('~/.config/nvim/plugged')
 " -- Make Neovim look good
 Plug 'itchyny/landscape.vim'
 Plug 'bling/vim-airline'
+"Plug 'mhartington/oceanic-next'
 
 " -- Syntax & Highlighting
-Plug 'tpope/vim-markdown'
-Plug 'suan/vim-instant-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'Yggdroot/indentLine'
-"Plug 'valloric/MatchTagAlways'
 
 " -- Git helpers
 Plug 'tpope/vim-fugitive'
@@ -24,9 +23,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sjl/gundo.vim'
 
 " -- Utilities
-Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'rizzatti/dash.vim'
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
 
 
 " Add plugins to &runtimepath
@@ -99,8 +99,8 @@ set cpoptions+=$
 set formatoptions=
 set formatoptions-=t                        " don't autowrap text
 set formatoptions+=c                        " do autowrap comments
-set formatoptions+=r                        " automatically continue comments
-set formatoptions+=o                        " automatically continue commnets with 'o' or 'O'
+"set formatoptions+=r                        " automatically continue comments
+"set formatoptions+=o                        " automatically continue commnets with 'o' or 'O'
 set formatoptions+=q                        " allow formatting of comments with 'gq'
 set formatoptions+=n                        " recognize numbered lists
 set formatoptions+=l                        " don't break longs lines that were already there
@@ -108,7 +108,8 @@ set formatoptions+=l                        " don't break longs lines that were 
 " }}}
 " Vimrc {{{
 " Reload .nvimrc
-map <silent> <leader>R :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
+"map <silent> <leader>R :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
+map <silent> <leader>R :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " }}}
 " Movement {{{
@@ -248,7 +249,7 @@ set hlsearch                                " highlight search results
 set ignorecase                              " ignore case when searching
 set smartcase                               " ignore case if search string is all lower case, case-sensitive otherwise
 
-" Remove search highlighting with <F3>
+" Remove search highlighting with <leader>/
 nnoremap <silent> <leader>/ :nohlsearch<cr>
 
 " }}}
@@ -350,12 +351,13 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme='dark'
 
 " }}}
-" Gundo {{{
-nnoremap <leader>U :GundoToggle<cr>
+" Markdown {{{
+" Highligh YAML frontmatter as used by Jekyll
+let g:vim_markdown_frontmatter=1
 
 " }}}
-" Neomake {{{
-autocmd! BufWritePost * Neomake
+" Gundo {{{
+nnoremap <leader>U :GundoToggle<cr>
 
 " }}}
 " Nerdtree {{{
@@ -378,8 +380,9 @@ let g:NERDTreeIndicatorMapCustom = {
 nmap <silent><leader>d <Plug>DashSearch
 
 " }}}
-" indentLind {{{
+" indentLine {{{
 let g:indentLine_color_term = 239
-let g:indentLine_char = '︙'
+let g:indentLine_char = '|'
+nmap <leader>i :IndentLinesToggle<cr>
 
 " }}}
