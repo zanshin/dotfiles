@@ -13,7 +13,7 @@ Plug 'bling/vim-airline'
 Plug 'tpope/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 Plug 'Yggdroot/indentLine'
-Plug 'valloric/MatchTagAlways'
+"Plug 'valloric/MatchTagAlways'
 
 " -- Git helpers
 Plug 'tpope/vim-fugitive'
