@@ -28,6 +28,8 @@ Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 
+" Encryption
+Plug 'jamessan/vim-gnupg'
 
 " Add plugins to &runtimepath
 call plug#end()
