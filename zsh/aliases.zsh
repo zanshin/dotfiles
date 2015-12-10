@@ -1,4 +1,4 @@
-# -------------------------------------------------------------------
+#-------------------------------------------------------------------
 # use nocorrect alias to prevent auto correct from "fixing" these
 # -------------------------------------------------------------------
 #alias foobar='nocorrect foobar'
@@ -83,6 +83,13 @@ fi
 
 # The Venerable Mutt
 alias mutt 'cd ~/Desktop && mutt'
+
+# tmux scripts
+alias blog='~/.dotfiles/scripts/blog'
+alias chef='~/.dotfiles/scripts/chef'
+alias console='~/.dotfiles/scripts/console'
+alias tools='~/.dotfiles/scripts/tools'
+alias deploy='~/.dotfiles/scripts/deploy'
 
 # -------------------------------------------------------------------
 # random shortcuts
