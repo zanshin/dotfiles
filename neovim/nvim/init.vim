@@ -31,6 +31,10 @@ Plug 'tomtom/tcomment_vim'
 " Encryption
 Plug 'jamessan/vim-gnupg'
 
+" Markdown
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -96,6 +100,9 @@ set termencoding=utf-8                      " we like utf-8
 " Change options: set $ at end of change range
 " https://www.reddit.com/r/vim/comments/3b7324/insert_dollar_sign_at_end_of_chage_command/
 set cpoptions+=$
+
+" Model lines
+set modeline
 
 " Setup automatic text formatting/wrapping
 set formatoptions=
@@ -380,6 +387,19 @@ let g:NERDTreeIndicatorMapCustom = {
 " }}}
 " Dash  {{{
 nmap <silent><leader>d <Plug>DashSearch
+
+" }}}
+" Goyo {{{
+let g:goyo_width=100
+let g:goyo_height=90
+
+" }}}
+" Pencil {{{
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
 
 " }}}
 " indentLine {{{
