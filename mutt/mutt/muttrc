@@ -25,8 +25,8 @@ set thorough_search      # strip headers and eval mimes before searching
 
 # }}}
 # Color Scheme {{{ 
-source ~/.mutt/themes/colors.muttrc
-#source ~/.mutt/themes/tomorrow-night.muttrc
+#source ~/.mutt/themes/colors.muttrc
+source ~/.mutt/themes/tomorrow-night.muttrc
 
 # }}}
 # Sidebar Patch {{{ 
@@ -101,41 +101,40 @@ folder-hook codeprole/*   source ~/.mutt/accounts/codeprole
 folder-hook mhn/*         source ~/.mutt/accounts/mhn
 
 # Mailboxes to show in the sidebar.
-mailboxes "+-- mark ---------------" \
+mailboxes "+-- Inbox---------------" \
           +mark/INBOX \
-          +mark/archive \
-          +mark/Drafts \
-          +mark/Sent\ Messages \
-          "+-- root ---------------" \
           +root/INBOX \
-          +root/archive \
-          +root/Drafts \
-          +root/Sent\ Messages \
-          "+-- MarkNichols ----------" \
           +marknichols/INBOX \
-          +marknichols/archive \
-          +marknichols/drafts \
-          +marknichols/sent \
-          "+-- CodeProle ----------" \
           +codeprole/INBOX \
-          +codeprole/archive \
-          +codeprole/drafts \
-          +codeprole/sent \
-          "+-- mhn (ksu) ----------" \
           +mhn/INBOX \
+          +chef/INBOX \
+          "+-- Archive ------------" \
+          +mark/archive \
+          +root/archive \
+          +marknichols/archive \
+          +codeprole/archive \
           +mhn/Archive \
+          +chef/archive \
+          "+-- Drafts --------------" \
+          +mark/Drafts \
+          +root/Drafts \
+          +marknichols/drafts \
+          +codeprole/drafts \
           +mhn/Drafts \
+          +chef/Drafts \
+          "+-- Sent ----------------" \
+          +mark/Sent\ Messages \
+          +root/Sent\ Messages \
+          +marknichols/sent \
+          +codeprole/sent \
           +mhn/Sent\ Items \
+          +chef/Sent\ Messages \
+          "+-- mhn (ksu) ----------" \
           +mhn/github \
           +mhn/bugzilla \
           +mhn/ome-dt-l \
           +mhn/Junk\ Email \
           +mhn/Deleted\ Items \
-          "+-- Chef ---------------" \
-          +chef/INBOX \
-          +chef/archive \
-          +chef/Drafts \
-          +chef/Sent\ Messages \
 
 # Other special folders
 # set mbox      = "+codeprole/archive"
