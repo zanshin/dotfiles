@@ -81,9 +81,6 @@ if [[ $IS_MAC -eq 1 ]]; then
     alias defhist='history 1 | grep "defaults"'
 fi
 
-# The Venerable Mutt
-alias mutt 'cd ~/Desktop && mutt'
-
 # tmux scripts
 alias blog='~/.dotfiles/scripts/blog'
 alias chef='~/.dotfiles/scripts/chef'

@@ -3,7 +3,8 @@
 #
 # The individual per-interactive-shell startup file
 # OS'es this is made to work (reasonably) well on are:
-# - Linux (specifcially RedHat)
+# - Mac OS X 
+# - Linux (specifcially Ubuntu and RedHat)
 # - Solaris (specifically 2.5.1 - 2.8)
 # 
 # ------------------------------------------------------------------
@@ -93,7 +94,6 @@ for i in ${quoteold[@]} ; do
   else
     NEWPATH=${NEWPATH}:"$i"
   fi
-fi
 done
 export PATH=$NEWPATH
 
@@ -102,7 +102,11 @@ export PERLDOC="-U"
 export MANPATH=${MANPATH}:${HOME}/man
 
 # export EDITOR, PAGER, and LESS 
-export EDITOR=vim
+if [ "myos" == "Darwin" ]; then
+  export EDITOR=nvim
+else
+  export EDITOR=vim
+fi
 export PAGER=less
 export LESS="-M -n -q -i"
 
