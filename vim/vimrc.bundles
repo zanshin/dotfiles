@@ -29,9 +29,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
 
-" ----- Snipmate
-Plug 'zanshin/snipmate.vim'
-
 call plug#end() 
 
 " turn things on
