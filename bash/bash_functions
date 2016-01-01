@@ -1,6 +1,4 @@
-# -------------------------------------------------------------------
-# Chef functions
-# -------------------------------------------------------------------
+# Chef functions {{{
 function knhost() {
   sed -e 's/.*://' -e 's/.*items found//'
 }
@@ -28,19 +26,21 @@ function knome() {
   done
   tmux kill-pane -t $.1
   tmux select-layout -t :$ even-vertical >/dev/null 2>&1
-  tmux set-window-option -t :$ synchronize 
+  tmux set-window-option -t :$ synchronize
 }
 
-function kick() { knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" }
+function kick() { 
+  knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" 
+}
 
-# -------------------------------------------------------------------
-# Git function
-# -------------------------------------------------------------------
-function gg() { git commit -m "$*" }
+# }}}
+# Git function {{{
+function gg() {
+  git commit -m "$*"
+}
 
-# -------------------------------------------------------------------
-# Dash functions
-# -------------------------------------------------------------------
+# }}}
+# Dash functions {{{
 # Open argument in Dash
 function dash() {
   open dash://$*
@@ -54,53 +54,50 @@ function dchef() {
   open dash://chef:$*
 }
 
-# -------------------------------------------------------------------
-# compressed file expander
+# }}}
+# compressed file expander {{{
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
-# -------------------------------------------------------------------
 ex() {
-    if [[ -e $1 ]]; then
-        case $1 in
-          *.tar.bz2) tar xvjf $1;;
-          *.tar.gz) tar xvzf $1;;
-          *.tar.xz) tar xvJf $1;;
-          *.tar.lzma) tar --lzma xvf $1;;
-          *.bz2) bunzip $1;;
-          *.rar) unrar $1;;
-          *.gz) gunzip $1;;
-          *.tar) tar xvf $1;;
-          *.tbz2) tar xvjf $1;;
-          *.tgz) tar xvzf $1;;
-          *.zip) unzip $1;;
-          *.Z) uncompress $1;;
-          *.7z) 7z x $1;;
-          *.dmg) hdiutul mount $1;; # mount OS X disk images
-          *) echo "'$1' cannot be extracted via >ex<";;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+  if [[ -e $1 ]]; then
+    case $1 in
+      *.tar.bz2) tar xvjf $1;;
+      *.tar.gz) tar xvzf $1;;
+      *.tar.xz) tar xvJf $1;;
+      *.tar.lzma) tar --lzma xvf $1;;
+      *.bz2) bunzip $1;;
+      *.rar) unrar $1;;
+      *.gz) gunzip $1;;
+      *.tar) tar xvf $1;;
+      *.tbz2) tar xvjf $1;;
+      *.tgz) tar xvzf $1;;
+      *.zip) unzip $1;;
+      *.Z) uncompress $1;;
+      *.7z) 7z x $1;;
+      *.dmg) hdiutul mount $1;; # mount OS X disk images
+      *) echo "'$1' cannot be extracted via >ex<";;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
-# -------------------------------------------------------------------
-# Find files and exec commands at them.
+# }}}
+# Find files and exec commands at them. {{{
 # $ find-exec .coffee cat | wc -l
 # # => 9762
 # from https://github.com/paulmillr/dotfiles
-# -------------------------------------------------------------------
 function find-exec() {
   find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
 }
 
-# -------------------------------------------------------------------
-# Count code lines in some directory.
+# }}}
+# Count code lines in some directory. {{{
 # $ loc py js css
 # # => Lines of code for .py: 3781
 # # => Lines of code for .js: 3354
 # # => Lines of code for .css: 2970
 # # => Total lines of code: 10105
 # from https://github.com/paulmillr/dotfiles
-# -------------------------------------------------------------------
 function loc() {
   local total
   local firstletter
@@ -120,12 +117,11 @@ function loc() {
   echo "${fg[blue]}Total${reset_color} lines of code: ${fg[green]}$total${reset_color}"
 }
 
-# -------------------------------------------------------------------
-# Show how much RAM application uses.
+# }}}
+# Show how much RAM application uses. {{{
 # $ ram safari
 # # => safari uses 154.69 MBs of RAM.
 # from https://github.com/paulmillr/dotfiles
-# -------------------------------------------------------------------
 function ram() {
   local sum
   local items
@@ -146,10 +142,10 @@ function ram() {
   fi
 }
 
-# -------------------------------------------------------------------
-# any function from http://onethingwell.org/post/14669173541/any
+# }}}
+# any function {{{
+# from http://onethingwell.org/post/14669173541/any
 # search for running processes
-# -------------------------------------------------------------------
 any() {
     emulate -L zsh
     unsetopt KSH_ARRAYS
@@ -161,46 +157,48 @@ any() {
     fi
 }
 
-# -------------------------------------------------------------------
-# display a neatly formatted path
-# -------------------------------------------------------------------
+# }}}
+# display a neatly formatted path {{{
 path() {
+local blue="\033[1;34m"
+local green="\033[0;32m"
+local cyan="\033[0;36m"
+local purple="\033[0;35m"
+local brown="\033[0;33m"
+local reset_color="\033[0m"
   echo $PATH | tr ":" "\n" | \
-    awk "{ sub(\"/usr\",   \"$fg_no_bold[green]/usr$reset_color\"); \
-           sub(\"/bin\",   \"$fg_no_bold[blue]/bin$reset_color\"); \
-           sub(\"/opt\",   \"$fg_no_bold[cyan]/opt$reset_color\"); \
-           sub(\"/sbin\",  \"$fg_no_bold[magenta]/sbin$reset_color\"); \
-           sub(\"/local\", \"$fg_no_bold[yellow]/local$reset_color\"); \
-           sub(\"/.rvm\",  \"$fg_no_bold[red]/.rvm$reset_color\"); \
+    awk "{ sub(\"/usr\",   \"$green/usr$reset_color\"); \
+           sub(\"/bin\",   \"$blue/bin$reset_color\"); \
+           sub(\"/opt\",   \"$cyan/opt$reset_color\"); \
+           sub(\"/sbin\",  \"$purple/sbin$reset_color\"); \
+           sub(\"/local\", \"$brown/local$reset_color\"); \
            print }"
 }
 
-# -------------------------------------------------------------------
-# Mac specific functions
-# -------------------------------------------------------------------
+# }}}
+# Mac specific functions {{{
 myos=`uname -s`
-#if [[ "myos" == "Darwin" ]]; then
+if [[ "myos" == "Darwin" ]]; then
 
-    # view man pages in Preview
-    pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
+  # view man pages in Preview
+  pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
 
-    # function to show interface IP assignments
-    ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; }
+  # function to show interface IP assignments
+  ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; }
 
-    # notify function - http://hints.macworld.com/article.php?story=20120831112030251
-    notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow }
+  # notify function - http://hints.macworld.com/article.php?story=20120831112030251
+  notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow ; }
 
-#fi
+fi
 
-# -------------------------------------------------------------------
-# nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
+# }}}
+# nice mount {{{
+# (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
 # displays mounted drive information in a nicely formatted manner
-# -------------------------------------------------------------------
 function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
-# -------------------------------------------------------------------
-# myIP address
-# -------------------------------------------------------------------
+# }}}
+# myIP address {{{
 function myip() {
   ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
   ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
@@ -209,15 +207,13 @@ function myip() {
   ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
 }
 
-# -------------------------------------------------------------------
-# (s)ave or (i)nsert a directory.
-# -------------------------------------------------------------------
+# }}}
+# (s)ave or (i)nsert a directory. {{{
 s() { pwd > ~/.save_dir ; }
 i() { cd "$(cat ~/.save_dir)" ; }
 
-# -------------------------------------------------------------------
-# console function
-# -------------------------------------------------------------------
+# }}}
+# console function {{{
 function console () {
   if [[ $# > 0 ]]; then
     query=$(echo "$*"|tr -s ' ' '|')
@@ -227,10 +223,9 @@ function console () {
   fi
 }
 
-# -------------------------------------------------------------------
-# shell function to define words
+# }}}
+# shell function to define words {{{
 # http://vikros.tumblr.com/post/23750050330/cute-little-function-time
-# -------------------------------------------------------------------
 givedef() {
   if [[ $# -ge 2 ]]; then
     echo "givedef: too many arguments" >&2
@@ -240,11 +235,11 @@ givedef() {
   fi
 }
 
-# --------------------------------------------------------------------
-# ps with a grep
+# }}}
+# ps with a grep {{{
 # from http://hiltmon.com/blog/2013/07/30/quick-process-search/
-# --------------------------------------------------------------------
 function psax() {
   ps auxwwwh | grep "$@" | grep -v grep
 }
 
+# }}}
