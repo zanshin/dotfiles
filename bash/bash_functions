@@ -1,46 +1,164 @@
-# -------------------------------------------------------------------
-# .bash_functions
-#
-# Various functions 
-# -------------------------------------------------------------------
-
-# Stolen from Matt Baxa
-myjlog () {
-  tail -F -n 20 /as/log/jboss/${1}.log
+# Chef functions {{{
+function knhost() {
+  sed -e 's/.*://' -e 's/.*items found//'
 }
 
-myjall () {
-  tail -F -n 20 /as/log/app/${1}/ALL.log
+function knifeaws() {
+  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a cloud.public_hostname | knhost
 }
 
-myjlist () {
-  for dir in `find /as/data/jboss -maxdepth 2 -name deploy -type d`
-  do
-    find $dir -type l
+function knifeome() {
+  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
+}
+
+function knaws() {
+  for i in "$@"; do
+    for j in `knifeaws "$i"`; do
+      ssh $j
+    done
   done
 }
 
-# -------------------------------------------------------------------
-# show header and search term only from ps
-# -------------------------------------------------------------------
-psg () {
-  ps -ef | egrep "$1|PID" | grep -v grep
+function knome() {
+  tmux new-window -n $1
+  for node in `knifeome "$1"`; do
+    tmux split-window -t :$ "ssh $node"
+  done
+  tmux kill-pane -t $.1
+  tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+  tmux set-window-option -t :$ synchronize
 }
 
-psig () {
-  ps -ef | grep -i ${1}
+function kick() { 
+  knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" 
 }
 
-# -------------------------------------------------------------------
-# Since I do `ps -ef | grep <something>` all the time ...
-# -------------------------------------------------------------------
-mps () {
-  ps -ef | grep ${1}
+# }}}
+# Git function {{{
+function gg() {
+  git commit -m "$*"
 }
 
-# -------------------------------------------------------------------
-# display a neatly formatted path
-# -------------------------------------------------------------------
+# }}}
+# Dash functions {{{
+# Open argument in Dash
+function dash() {
+  open dash://$*
+}
+
+function dman() {
+  open dash://manpages:$*
+}
+
+function dchef() {
+  open dash://chef:$*
+}
+
+# }}}
+# compressed file expander {{{
+# (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
+ex() {
+  if [[ -e $1 ]]; then
+    case $1 in
+      *.tar.bz2) tar xvjf $1;;
+      *.tar.gz) tar xvzf $1;;
+      *.tar.xz) tar xvJf $1;;
+      *.tar.lzma) tar --lzma xvf $1;;
+      *.bz2) bunzip $1;;
+      *.rar) unrar $1;;
+      *.gz) gunzip $1;;
+      *.tar) tar xvf $1;;
+      *.tbz2) tar xvjf $1;;
+      *.tgz) tar xvzf $1;;
+      *.zip) unzip $1;;
+      *.Z) uncompress $1;;
+      *.7z) 7z x $1;;
+      *.dmg) hdiutul mount $1;; # mount OS X disk images
+      *) echo "'$1' cannot be extracted via >ex<";;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# }}}
+# Find files and exec commands at them. {{{
+# $ find-exec .coffee cat | wc -l
+# # => 9762
+# from https://github.com/paulmillr/dotfiles
+function find-exec() {
+  find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
+}
+
+# }}}
+# Count code lines in some directory. {{{
+# $ loc py js css
+# # => Lines of code for .py: 3781
+# # => Lines of code for .js: 3354
+# # => Lines of code for .css: 2970
+# # => Total lines of code: 10105
+# from https://github.com/paulmillr/dotfiles
+function loc() {
+  local total
+  local firstletter
+  local ext
+  local lines
+  total=0
+  for ext in $@; do
+    firstletter=$(echo $ext | cut -c1-1)
+    if [[ firstletter != "." ]]; then
+      ext=".$ext"
+    fi
+    lines=`find-exec "*$ext" cat | wc -l`
+    lines=${lines// /}
+    total=$(($total + $lines))
+    echo "Lines of code for ${fg[blue]}$ext${reset_color}: ${fg[green]}$lines${reset_color}"
+  done
+  echo "${fg[blue]}Total${reset_color} lines of code: ${fg[green]}$total${reset_color}"
+}
+
+# }}}
+# Show how much RAM application uses. {{{
+# $ ram safari
+# # => safari uses 154.69 MBs of RAM.
+# from https://github.com/paulmillr/dotfiles
+function ram() {
+  local sum
+  local items
+  local app="$1"
+  if [[ -z "$app" ]]; then
+    echo "First argument - pattern to grep from processes"
+  else
+    sum=0
+    for i in `ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}'`; do
+      sum=$(($i + $sum))
+    done
+    sum=$(echo "scale=2; $sum / 1024.0" | bc)
+    if [[ $sum != "0" ]]; then
+      echo "${fg[blue]}${app}${reset_color} uses ${fg[green]}${sum}${reset_color} MBs of RAM."
+    else
+      echo "There are no processes with pattern '${fg[blue]}${app}${reset_color}' are running."
+    fi
+  fi
+}
+
+# }}}
+# any function {{{
+# from http://onethingwell.org/post/14669173541/any
+# search for running processes
+any() {
+    emulate -L zsh
+    unsetopt KSH_ARRAYS
+    if [[ -z "$1" ]] ; then
+        echo "any - grep for process(es) by keyword" >&2
+        echo "Usage: any " >&2 ; return 1
+    else
+        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
+    fi
+}
+
+# }}}
+# display a neatly formatted path {{{
 path() {
 local blue="\033[1;34m"
 local green="\033[0;32m"
@@ -56,3 +174,72 @@ local reset_color="\033[0m"
            sub(\"/local\", \"$brown/local$reset_color\"); \
            print }"
 }
+
+# }}}
+# Mac specific functions {{{
+myos=`uname -s`
+if [[ "myos" == "Darwin" ]]; then
+
+  # view man pages in Preview
+  pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
+
+  # function to show interface IP assignments
+  ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; }
+
+  # notify function - http://hints.macworld.com/article.php?story=20120831112030251
+  notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow ; }
+
+fi
+
+# }}}
+# nice mount {{{
+# (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
+# displays mounted drive information in a nicely formatted manner
+function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
+
+# }}}
+# myIP address {{{
+function myip() {
+  ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
+  ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+  ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+  ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+  ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+}
+
+# }}}
+# (s)ave or (i)nsert a directory. {{{
+s() { pwd > ~/.save_dir ; }
+i() { cd "$(cat ~/.save_dir)" ; }
+
+# }}}
+# console function {{{
+function console () {
+  if [[ $# > 0 ]]; then
+    query=$(echo "$*"|tr -s ' ' '|')
+    tail -f /var/log/system.log|grep -i --color=auto -E "$query"
+  else
+    tail -f /var/log/system.log
+  fi
+}
+
+# }}}
+# shell function to define words {{{
+# http://vikros.tumblr.com/post/23750050330/cute-little-function-time
+givedef() {
+  if [[ $# -ge 2 ]]; then
+    echo "givedef: too many arguments" >&2
+    return 1
+  else
+    curl "dict://dict.org/d:$1"
+  fi
+}
+
+# }}}
+# ps with a grep {{{
+# from http://hiltmon.com/blog/2013/07/30/quick-process-search/
+function psax() {
+  ps auxwwwh | grep "$@" | grep -v grep
+}
+
+# }}}

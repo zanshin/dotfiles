@@ -1,0 +1,143 @@
+# -------------------------------------------------------------------
+# .bash_functions
+#
+# Various functions 
+# -------------------------------------------------------------------
+# Chef {{{
+# function knhost() {
+#   sed -e 's/.*://' -e 's/.*items found//'
+# }
+# 
+# function knifeaws() {
+#   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a cloud.public_hostname | knhost
+# }
+# 
+# function knifeome() {
+#   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
+# }
+# 
+# function knaws() {
+#   for i in "$@"; do
+#     for j in `knifeaws "$i"`; do
+#       ssh $j
+#     done
+#   done
+# }
+# 
+# function knome() {
+#   tmux new-window -n $1
+#   for node in `knifeome "$1"`; do
+#     tmux split-window -t :$ "ssh $node"
+#   done
+#   tmux kill-pane -t $.1
+#   tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+#   tmux set-window-option -t :$ synchronize 
+# }
+# 
+# function kick() { knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" }
+# 
+# }}}
+# Git {{{
+function gg() { git commit -m "$*" }
+
+# }}}
+# Dash {{{
+# open argument in Dash
+# function dash() {
+#   open dash://$*
+# }
+# 
+# function dman() {
+#   open dash://manpages:$*
+# }
+# 
+# function dchef() {
+#   open dash://chef:$*
+# }
+
+# }}}
+# Compressed file expander {{{
+# https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh
+# ex() {
+#     if [[ -f $1 ]]; then
+#         case $1 in
+#           *.tar.bz2) tar xvjf $1;;
+#           *.tar.gz) tar xvzf $1;;
+#           *.tar.xz) tar xvJf $1;;
+#           *.tar.lzma) tar --lzma xvf $1;;
+#           *.bz2) bunzip $1;;
+#           *.rar) unrar $1;;
+#           *.gz) gunzip $1;;
+#           *.tar) tar xvf $1;;
+#           *.tbz2) tar xvjf $1;;
+#           *.tgz) tar xvzf $1;;
+#           *.zip) unzip $1;;
+#           *.Z) uncompress $1;;
+#           *.7z) 7z x $1;;
+#           *.dmg) hdiutul mount $1;; # mount OS X disk images
+#           *) echo "'$1' cannot be extracted via >ex<";;
+#     esac
+#     else
+#         echo "'$1' is not a valid file"
+#     fi
+# }
+
+# }}}
+# Stolen from Matt Baxa {{{
+# myjlog () {
+#   tail -F -n 20 /as/log/jboss/${1}.log
+# }
+# 
+# myjall () {
+#   tail -F -n 20 /as/log/app/${1}/ALL.log
+# }
+# 
+# myjlist () {
+#   for dir in `find /as/data/jboss -maxdepth 2 -name deploy -type d`
+#   do
+#     find $dir -type l
+#   done
+# }
+
+# }}}
+# ps variants {{{
+# -------------------------------------------------------------------
+# show header and search term only from ps
+# -------------------------------------------------------------------
+# psg () {
+#   ps -ef | egrep "$1|PID" | grep -v grep
+# }
+# 
+# psig () {
+#   ps -ef | grep -i ${1}
+# }
+
+# -------------------------------------------------------------------
+# Since I do 'ps -ef | grep <something>' all the time ...
+# -------------------------------------------------------------------
+# mps () {
+#   ps -ef | grep ${1}
+# }
+
+# }}}
+# Path {{{
+# -------------------------------------------------------------------
+# display a neatly formatted path
+# -------------------------------------------------------------------
+# path() {
+# local blue="\033[1;34m"
+# local green="\033[0;32m"
+# local cyan="\033[0;36m"
+# local purple="\033[0;35m"
+# local brown="\033[0;33m"
+# local reset_color="\033[0m"
+#   echo $PATH | tr ":" "\n" | \
+#     awk "{ sub(\"/usr\",   \"$green/usr$reset_color\"); \
+#            sub(\"/bin\",   \"$blue/bin$reset_color\"); \
+#            sub(\"/opt\",   \"$cyan/opt$reset_color\"); \
+#            sub(\"/sbin\",  \"$purple/sbin$reset_color\"); \
+#            sub(\"/local\", \"$brown/local$reset_color\"); \
+#            print }"
+# }
+
+# }}}

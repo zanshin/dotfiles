@@ -84,15 +84,14 @@ fi
 NEWPATH=""
 quoteold=(`echo $PATH:$OLDPATH:$PATHPOSTPEND | sed -e 's/ /%%/g' -e 's/:/ /g'`)
 for i in ${quoteold[@]} ; do
-  if [ -z "$NEWPATH" ]
-  then
+  if [ -z "$NEWPATH" ] ; then
     NEWPATH="$i"
   else
-    if { echo ":$NEWPATH:" | sed -e 's/ /%%/g' | grep -c ":$i:" > /dev/null; } 
-  then
-    echo foo > /dev/null
-  else
-    NEWPATH=${NEWPATH}:"$i"
+    if { echo ":$NEWPATH:" | sed -e 's/ /%%/g' | grep -c ":$i:" > /dev/null; } ; then
+      echo foo > /dev/null
+    else
+      NEWPATH=${NEWPATH}:"$i"
+    fi
   fi
 done
 export PATH=$NEWPATH
