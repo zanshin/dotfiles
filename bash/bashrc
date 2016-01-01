@@ -194,8 +194,18 @@ export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 source ~/.bash_aliases
 source ~/.bash_functions
 
+# Source git-prompt.sh
+source ~/src/git-prompt.sh
+
+# git-prompt.sh options
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWCOLORHINTS=1
+GIT_PS1_SHOWUPSTREAM="auto"
+
 # set the prompt, and include the machine name in RED
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\H:\w\007\] '
+# PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\H:\w\007\] '
+PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(__git_ps1 " (%s)")\n$\[\033]0;\u@\H:\w\007\] '
 
 
 # configure how history works
@@ -227,4 +237,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
 # finis
-# mhn 2014.01.14 
+# mhn 2016.01.01 
