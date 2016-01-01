@@ -102,9 +102,9 @@ export MANPATH=${MANPATH}:${HOME}/man
 
 # export EDITOR, PAGER, and LESS 
 if [ "myos" == "Darwin" ]; then
-  export EDITOR=nvim
-else
   export EDITOR=vim
+else
+  export EDITOR=vi
 fi
 export PAGER=less
 export LESS="-M -n -q -i"
@@ -201,7 +201,7 @@ source ~/src/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWUPSTREAM="auto verbose"
 
 # set the prompt, and include the machine name in RED
 # PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\H:\w\007\] '
