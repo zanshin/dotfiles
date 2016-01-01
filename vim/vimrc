@@ -2,12 +2,12 @@
 " Author: Mark Nichols <mark@zanshin.net>
 " Source: http://github.com/zanshin/dotfiles/vim/vimrc
 "
-" Preface ---------------------------------------------------------------- {{{
+" Preface {{{
 " Forget compatibility with vi. Who cares.
 set nocompatible
 
 " }}}
-" Bundles ---------------------------------------------------------------- {{{
+" Bundles {{{
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 else
@@ -20,7 +20,7 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 
 " }}}
-" Basic options ---------------------------------------------------------- {{{
+" Basic options {{{
 
 "  change map <leader> from \ to ` ` (space)
 :let mapleader = " "
@@ -91,7 +91,7 @@ set formatoptions+=l              " don't break long lines that were already the
 " Set match pairs beyond default {...}. (...), and [...]
 set matchpairs+=<:>
 " }}}
-" Navaigation and movement ----------------------------------------------- {{{
+" Navaigation and movement {{{
 
 " disable arrow keys and make semi-snarky comment. Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -119,7 +119,7 @@ vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " }}}
-" Buffers ---------------------------------------------------------------- {{{
+" Buffers {{{
 nmap <leader>be :enew<cr>           " create new empty buffer
 nmap <leader>bn :bnext<cr>          " move to next buffer
 nmap <leader>bp :bprevious<cr>      " move to previous buffer
@@ -133,7 +133,7 @@ inoremap <C-p> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
 inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab
 
 " }}}
-" File focus ------------------------------------------------------------- {{{
+" File focus {{{
 
 " What to do with files and focus
 set autowrite           " write out old file when switching between files
@@ -142,7 +142,7 @@ au FocusLost * :wa      " save file when Vim loses focus
 set hidden              " switch beteen buffers without saving
 
 " }}}
-" Backups ---------------------------------------------------------------- {{{
+" Backups {{{
 
 set backup                       " emable backups
 set noswapfile                    " It's the 21st century already
@@ -165,20 +165,20 @@ if !isdirectory(expand(&directory))
 endif
 
 " }}}
-" Tabstops --------------------------------------------------------------- {{{
+" Tabstops {{{
 set tabstop=2           " 2 spaces for a tab - used when vim opens a file having <tab>s in it
 set shiftwidth=2        " 2 spaces for autoindenting
 set softtabstop=2       " 2 spaces inserted for <tab> when editing a file, also # removed by backspace
 set expandtab           " expand tabs to spaces (overloadable by file type)
 
 " }}}
-" Scrolling -------------------------------------------------------------- {{{
+" Scrolling {{{
 set scrolloff=5         " show context above/below cursor line
 set sidescrolloff=10    " number of cols from horizontal edge to  start scrolling
 set sidescroll=1        " number of cols to scroll at a time
 
 " }}}
-" Help ------------------------------------------------------------------- {{{
+" Help {{{
 " only apply to .txt files
 augroup HelpInTabs
   autocmd!
@@ -194,7 +194,7 @@ function! HelpInNewTab ()
 endfunction
 
 " }}}
-" Miscellaneous ---------------------------------------------------------- {{{
+" Miscellaneous {{{
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
@@ -241,7 +241,7 @@ autocmd InsertLeave * match TechWordsToAvoid /\cobviously\|basically\|simply\|of
 autocmd BufWinLeave * call clearmatches()
 
 " }}}
-" Searching -------------------------------------------------------------- {{{
+" Searching {{{
 
 set gdefault            " apply substitutions globally by default. add `g` for old behavior
 set incsearch           " use incremental search
@@ -252,7 +252,7 @@ set smartcase           " ignore case if search string is all lower case, case-s
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " }}}
-" Preserve function ------------------------------------------------------ {{{
+" Preserve function {{{
 " saves search history and cursor position
 " call with some command, like removing all whitespace
 function! Preserve(command)
@@ -274,13 +274,13 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
 " }}}
-" Splits ----------------------------------------------------------------- {{{
+" Splits {{{
 
 nnoremap <leader>v <C-w>v<C-w>l   " open a vertical split and switch to it (,v)
 nnoremap <leader>h <C-w>s<C-w>j   " open a horizontal split and switch to it (,h)
 
 " }}}
-" Vimrc shortcuts -------------------------------------------------------- {{{
+" Vimrc shortcuts {{{
 
 " open vimrc in new tab for editing
 nmap <leader>ev :tabedit $MYVIMRC<cr>
@@ -294,7 +294,7 @@ endif
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " }}}
-" Command line completion ------------------------------------------------ {{{
+" Command line completion {{{
 
 set wildmenu                 " navigate <left> & <right> through completion lists
 set wildmode=full             " complete first full match, next match (default) 
@@ -305,7 +305,7 @@ set wildignore+=*.sw?                          " swap files
 set wildignore+=*.DS_Store                     " OS X clutter
 
 " }}}
-" Filetype settings ------------------------------------------------------ {{{
+" Filetype settings {{{
 
 " control whitespace preferences based on filetype
 if has("autocmd")
@@ -360,10 +360,10 @@ if has("autocmd")
 endif
 
 " }}}
-" NetRW ------------------------------------------------------------------ {{{
+" NetRW {{{
 let g:netrw_liststyle=3
 
 " }}}
-" finis ------------------------------------------------------------------ {{{
+" finis {{{
 
 " }}}

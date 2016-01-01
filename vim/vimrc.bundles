@@ -2,52 +2,37 @@
 " Author: Mark Nichols <mark@zanshin.net>
 " Source: http:/github.com/zanshin/dotfiles/vim/vimrc.bundles
 "
-" Setup bundles using vim-plug ---------------------------------------------- {{{
-filetype on                       " best to have it on before turning it off
-filetype off                      " needs to be off to setup Vundle
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
+" ----- Make Vim look good
+Plug 'itchyny/landscape.vim'
+Plug 'bling/vim-airline'
 
-call vundle#begin()
+" ----- Syntax & Highlighting
+Plug 'plasticboy/vim-markdown'
+Plug 'Yggdroot/indentLine'
 
-" ----- Let Vundle manage Vundle, required --------------------------
-Plugin 'gmarik/Vundle.vim'
+" ----- Git helpers
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" ----- Make Vim look good ------------------------------------------
-Plugin 'itchyny/landscape.vim'
-Plugin 'bling/vim-airline'
-Plugin 'romainl/Apprentice'
+" ----- Undo
+Plug 'sjl/gundo.vim'
 
-" ----- Vim as programmer's text editor -----------------------------
-Plugin 'kien/ctrlp.vim'
-Plugin 'git://git.wincent.com/command-t.git'
+" ----- Utilities
+Plug 'scrooloose/nerdtree'
+Plug 'rizzatti/dash.vim'
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
+Plug 'kien/ctrlp.vim'
+Plug 'benmills/vimux'
 
-" ----- Working with Git --------------------------------------------
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'airblade/vim-gitgutter'
+" ----- Snipmate
+Plug 'zanshin/snipmate.vim'
 
-" ----- Other text editing features ---------------------------------
-Plugin 'plasticboy/vim-markdown'
-
-" ----- Undo --------------------------------------------------------
-Plugin 'sjl/gundo.vim'
-
-" ----- Snipmate ----------------------------------------------------
-Plugin 'zanshin/snipmate.vim'
-
-" ----- YouCompleteMe (YCM) -----------------------------------------
-" Plugin 'Valloric/YouCompleteMe'
-
-" ----- ultisnips ---------------------------------------------------
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" Plugin 'vadv/vim-chef'
-
-" ----- Et cetera ---------------------------------------------------
-Plugin 'rizzatti/dash.vim'
-Plugin 'benmills/vimux'
-
-call vundle#end() 
+call plug#end() 
 
 " turn things on
 if has('autocmd')
@@ -59,13 +44,20 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 
 " }}}
-" Color scheme  ----------------------------------------------------------- {{{
+" Color scheme {{{
 set background=dark
 silent! colorscheme landscape
-" silent! colorscheme appentice
 
 " }}}
-" Airline ----------------------------------------------------------------- {{{
+" Netrw {{{
+let g:netrw_liststyle=3
+
+" }}}
+" Python {{{
+let g:python_host_prog = 'usr/bin/python'
+
+" }}}
+" Airline {{{
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
@@ -84,33 +76,70 @@ let g:airline_theme='dark'
 
 
 " }}}
-" Control-P --------------------------------------------------------------- {{{
+" Control-P {{{
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
 " }}}
-" Fugitive ---------------------------------------------------------------- {{{
+" Fugitive {{{
 " need some settings here
 " }}}
-" Git Gutter -------------------------------------------------------------- {{{
+" Git Gutter {{{
 " hi clear SignColumn               " required after changing colorscheme
 " In vim-airline, only display "hunks" if the diff is non-zero
 " let g:airline#extensions#hunks#non_zero_only = 1
 
 " }}}
-" Markdown ---------------------------------------------------------------- {{{
-" no markdown settings
+" Markdown {{{
+" Highligh YAML frontmatter as used by Jekyll
+let g:vim_markdown_frontmatter=1
+
 " }}}
-" Gundo ------------------------------------------------------------------- {{{
+" Gundo {{{
 nnoremap <leader>U :GundoToggle<CR>
 
 " }}}
-" Dash -------------------------------------------------------------------- {{{
+" Nerdtree {{{
+map <C-n> :NERDTreeToggle<cr>
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+" }}}
+" Dash {{{
 nmap <silent><leader>d <Plug>DashSearch
 
 " }}}
-" Vimux ------------------------------------------------------------------- {{{
+" Goyo {{{
+let g:goyo_width=100
+let g:goyo_height=90
+
+" }}}
+" Pencil {{{
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+" }}}
+" indentLine {{{
+let g:indentLine_color_term = 239
+let g:indentLine_char = "|"
+nmap <leader>i :IndentLinesToggle<cr>
+
+" }}}
+" Vimux {{{
 " mappings
 nmap <leader>vp :VimuxPromptCommand<cr>
 nmap <leader>vl :VimuxRunLastCommand<cr>
@@ -124,28 +153,6 @@ nmap <leader>vz :call VimuxRunCommand("dz")<cr>
 nmap <leader>vd :call VimuxRunCommand("deploy")<cr>
 
 " }}}
-" YouCompleteMe ----------------------------------------------------------- {{{
-" prevent YCM from using <tab> so that ultisnips can use it
-" let g:ycm_key_list_select_completion=[]
-" let g:ycm_key_list_previous_completion=[]
-" 
-" dictionary of file types to not auto-complete
-" let g:ycm_filetype_blacklist = {
-"       \ 'markdown' : 1,
-"       \ 'mkd' : 1,
-"       \ 'md' : 1,
-"       \ 'text' : 1,
-"       \ 'mail' : 1
-"       \}
-
-"}}}
-" ultisnips --------------------------------------------------------------- {{{
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" }}}
-" finis ------------------------------------------------------------------- {{{
+" finis {{{
 
 " }}}
