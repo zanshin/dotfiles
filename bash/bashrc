@@ -194,43 +194,31 @@ export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 source ~/.bash_aliases
 source ~/.bash_functions
 
-# Source git-prompt.sh
-source ~/src/git-prompt.sh
-
-# git-prompt.sh options
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_SHOWUPSTREAM="auto verbose"
-
-
-# set the prompt, and include the machine name in RED
-# PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\H:\w\007\] '
 # PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(__git_ps1 " (%s)")\n$\[\033]0;\u@\H:\w\007\] '
 
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-BLUE="\[\033[0;34m\]"
-LIGHT_RED="\[\033[1;31m\]"
-LIGHT_GREEN="\[\033[1;32m\]"
-WHITE="\[\033[1;37m\]"
-LIGHT_GRAY="\[\033[0;37m\]"
-COLOR_NONE="\[\e[0m\]"
+source ~/.dotfiles/bash/colors
 
-GIT_PROMPT_SYMBOL="${BLUE}±"
-GIT_PROMPT_PREFIX="${GREEN} [${COLOR_NONE}"
-GIT_PROMPT_SUFFIX="${GREEN}]${COLOR_NONE}"
-GIT_PROMPT_AHEAD="${RED}ANUM${COLOR_NONE}"
-GIT_PROMPT_BEHIND="${LIGHT_GREEN}BNUM${COLOR_NONE}"
-GIT_PROMPT_MERGING="${LIGHT_RED}⚡︎${COLOR_NONE}"
-GIT_PROMPT_UNTRACKED="${RED}u${COLOR_NONE}"
-GIT_PROMPT_MODIFIED="${YELLOW}d${COLOR_NONE}"
-GIT_PROMPT_STAGED="${GREEN}s${COLOR_NONE}"
+function prompt_char {
+    git branch >/dev/null 2>/dev/null && echo  "${Color_Off}±" && return
+    hg root >/dev/null 2>/dev/null && echo "${Color_Off}☿" && return
+    echo "${Color_Off}○"
+}
+
+GIT_PROMPT_SYMBOL="${Blue}±"
+GIT_PROMPT_PREFIX="${Green} [${Color_Off}"
+GIT_PROMPT_SUFFIX="${Green}]${Color_Off}"
+GIT_PROMPT_AHEAD="${BRed}ANUM${Color_Off}"
+GIT_PROMPT_BEHIND="${Cyan}BNUM${Color_Off}"
+GIT_PROMPT_MERGING="${Red}⚡︎${Color_Off}"
+GIT_PROMPT_UNTRACKED="${BRed}u${Color_Off}"
+GIT_PROMPT_MODIFIED="${Yellow}d${Color_Off}"
+GIT_PROMPT_STAGED="${Green}s${Color_Off}"
 
 # Show Git branch/tag, or name-rev if on detached head
 function parse_git_branch() {
-  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+#  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
+#  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
 }
 
 # Show different symbols as appropriate for various Git repository states
@@ -275,11 +263,14 @@ function parse_git_state() {
 # If inside a Git repository, print its branch and state
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo " on ${BLUE}${git_where#(refs/heads/|tags/)}${COLOR_NONE}$(parse_git_state)"
+  [ -n "$git_where" ] && echo "on${Blue}${git_where}${Color_Off}$(parse_git_state)"
+#  [ -n "$git_where" ] && echo "on${Blue}${git_where#(refs/heads/|tags/)}${Color_Off}$(parse_git_state)"
+#  [ -n "$git_where" ] && echo " on ${git_where#(refs/heads/|tags/)}$(parse_git_state)"
 }
 
-
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(git_prompt_string)\n$\[\033]0;\u@\H:\w\007\] '
+PS1="\n${Green}\u${Color_Off} at ${Blue}\H${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
+# PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(git_prompt_string)\n$\[\033]0;\u@\H:\w\007\] "
+# PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(git_prompt_string)\n$\[\033]0;\u@\H:\w\007\] '
 
 # configure how history works
 HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
