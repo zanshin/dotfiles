@@ -194,16 +194,10 @@ export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 source ~/.bash_aliases
 source ~/.bash_functions
 
-# PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(__git_ps1 " (%s)")\n$\[\033]0;\u@\H:\w\007\] '
-
+# Import some colors
 source ~/.dotfiles/bash/colors
 
-function prompt_char {
-    git branch >/dev/null 2>/dev/null && echo  "${Color_Off}±" && return
-    hg root >/dev/null 2>/dev/null && echo "${Color_Off}☿" && return
-    echo "${Color_Off}○"
-}
-
+# Variables used in building the Git status portiion of the prompt
 GIT_PROMPT_SYMBOL="${Blue}±"
 GIT_PROMPT_PREFIX="${Green} [${Color_Off}"
 GIT_PROMPT_SUFFIX="${Green}]${Color_Off}"
@@ -216,9 +210,7 @@ GIT_PROMPT_STAGED="${Green}s${Color_Off}"
 
 # Show Git branch/tag, or name-rev if on detached head
 function parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
-#  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
-#  (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
+  (git name-rev --name-only --no-undefined --always HEAD || git symbolic-ref -q HEAD) 2> /dev/null
 }
 
 # Show different symbols as appropriate for various Git repository states
@@ -263,14 +255,17 @@ function parse_git_state() {
 # If inside a Git repository, print its branch and state
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
-  [ -n "$git_where" ] && echo "on${Blue}${git_where}${Color_Off}$(parse_git_state)"
-#  [ -n "$git_where" ] && echo "on${Blue}${git_where#(refs/heads/|tags/)}${Color_Off}$(parse_git_state)"
-#  [ -n "$git_where" ] && echo " on ${git_where#(refs/heads/|tags/)}$(parse_git_state)"
+  [ -n "$git_where" ] && echo "on ${Green}${git_where#(refs/heads/|tags/)}${Color_Off}$(parse_git_state)"
 }
 
-PS1="\n${Green}\u${Color_Off} at ${Blue}\H${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
-# PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(git_prompt_string)\n$\[\033]0;\u@\H:\w\007\] "
-# PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(git_prompt_string)\n$\[\033]0;\u@\H:\w\007\] '
+# Use Bash's prompt_command feature to show the prompt. This causes the various functions the drive the prompt
+# to be evaluated each time it is displayed. Using PS1 by itself introduces stale information.
+function prompt_command {
+  export PS1="\n${Green}\u${Color_Off} at ${Blue}\H${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
+}
+
+# Set the completed prompt
+export PROMPT_COMMAND=prompt_command
 
 # configure how history works
 HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
@@ -301,4 +296,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
 # finis
-# mhn 2016.01.01 
+# mhn 2016.01.05 
