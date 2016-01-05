@@ -194,19 +194,78 @@ export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 source ~/.bash_aliases
 source ~/.bash_functions
 
-# Source git-prompt.sh
-source ~/src/git-prompt.sh
+# Import some colors
+source ~/.dotfiles/bash/colors
 
-# git-prompt.sh options
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWCOLORHINTS=1
-GIT_PS1_SHOWUPSTREAM="auto verbose"
+# Variables used in building the Git status portiion of the prompt
+GIT_PROMPT_SYMBOL="${Blue}±"
+GIT_PROMPT_PREFIX="${Green} [${Color_Off}"
+GIT_PROMPT_SUFFIX="${Green}]${Color_Off}"
+GIT_PROMPT_AHEAD="${BRed}ANUM${Color_Off}"
+GIT_PROMPT_BEHIND="${Cyan}BNUM${Color_Off}"
+GIT_PROMPT_MERGING="${Red}⚡︎${Color_Off}"
+GIT_PROMPT_UNTRACKED="${BRed}u${Color_Off}"
+GIT_PROMPT_MODIFIED="${Yellow}d${Color_Off}"
+GIT_PROMPT_STAGED="${Green}s${Color_Off}"
 
-# set the prompt, and include the machine name in RED
-# PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]\n$\[\033]0;\u@\H:\w\007\] '
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\[\e[31m\]\H \[\e[33m\]\w\[\e[0m\]$(__git_ps1 " (%s)")\n$\[\033]0;\u@\H:\w\007\] '
+# Show Git branch/tag, or name-rev if on detached head
+function parse_git_branch() {
+  (git name-rev --name-only --no-undefined --always HEAD || git symbolic-ref -q HEAD) 2> /dev/null
+}
 
+# Show different symbols as appropriate for various Git repository states
+function parse_git_state() {
+
+  # Compose this value via multiple conditional appends.
+  local GIT_STATE=""
+
+  local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
+  if [ "$NUM_AHEAD" -gt 0 ]; then
+    GIT_STATE=$GIT_STATE${GIT_PROMPT_AHEAD//NUM/$NUM_AHEAD}
+  fi
+
+  local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
+  if [ "$NUM_BEHIND" -gt 0 ]; then
+    GIT_STATE=$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_BEHIND}
+  fi
+
+  local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
+  if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING
+  fi
+
+  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
+  fi
+
+  if ! git diff --quiet 2> /dev/null; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_MODIFIED
+  fi
+
+  if ! git diff --cached --quiet 2> /dev/null; then
+    GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
+  fi
+
+  if [[ -n $GIT_STATE ]]; then
+    echo "$GIT_PROMPT_PREFIX$GIT_STATE$GIT_PROMPT_SUFFIX"
+  fi
+
+}
+
+# If inside a Git repository, print its branch and state
+function git_prompt_string() {
+  local git_where="$(parse_git_branch)"
+  [ -n "$git_where" ] && echo "on ${Green}${git_where#(refs/heads/|tags/)}${Color_Off}$(parse_git_state)"
+}
+
+# Use Bash's prompt_command feature to show the prompt. This causes the various functions the drive the prompt
+# to be evaluated each time it is displayed. Using PS1 by itself introduces stale information.
+function prompt_command {
+  export PS1="\n${Green}\u${Color_Off} at ${Blue}\H${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
+}
+
+# Set the completed prompt
+export PROMPT_COMMAND=prompt_command
 
 # configure how history works
 HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
@@ -237,4 +296,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
 # finis
-# mhn 2016.01.01 
+# mhn 2016.01.05 
