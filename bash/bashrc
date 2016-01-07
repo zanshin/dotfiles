@@ -101,11 +101,8 @@ export PERLDOC="-U"
 export MANPATH=${MANPATH}:${HOME}/man
 
 # export EDITOR, PAGER, and LESS 
-if [ "myos" == "Darwin" ]; then
-  export EDITOR=vim
-else
-  export EDITOR=vi
-fi
+export VISUAL=vim
+export EDITOR="$VISUAL"
 export PAGER=less
 export LESS="-M -n -q -i"
 
