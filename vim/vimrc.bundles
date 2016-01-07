@@ -29,6 +29,10 @@ Plug 'tomtom/tcomment_vim'
 Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
 
+" ----- Markdown
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
+
 call plug#end() 
 
 " turn things on
