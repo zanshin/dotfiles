@@ -109,6 +109,9 @@ export LESS="-M -n -q -i"
 export IGNOREEOF=2
 export TMOUT=0
 
+# Use Vi bindings
+set -o vi
+
 # allow redirection to overwrite file
 unset noclobber
 

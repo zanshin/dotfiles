@@ -1,2 +1,5 @@
-bindkey "^[[A" up-line-or-search ## up arrow for back-history-search
-bindkey "^[[B" down-line-or-search ## down arrow for fwd-history-search
+## bind '"\e[A":up-line-or-search' ## up arrow for back-history-search
+## bind '"\e[B":down-line-or-search' ## down arrow for fwd-history-search
+
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
