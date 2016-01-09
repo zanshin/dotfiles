@@ -191,6 +191,9 @@ export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 source ~/.bash_aliases
 source ~/.bash_functions
 
+# source bindings
+source ~/.dotfiles/bash/bindkeys
+
 # Import some colors
 source ~/.dotfiles/bash/colors
 
