@@ -70,6 +70,16 @@ then
   source /as/conf/shell/bashrc.asa
 fi
 
+if [ -f /usr/local/Library/Contributions/brew_bash_completions.sh ]
+then
+  source /usr/local/Library/Contributions/brew_bash_completions.sh
+fi
+
+if [ -f /usr/local/etc/bash_completions.d/tmux ]
+then
+  source /usr/local/etc/bash_completions.d/tmux
+fi
+
 # Add various bins to Path
 export PATH=${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/sbin:/sbin
 
@@ -118,6 +128,9 @@ set -o vi
 # allow redirection to overwrite file
 unset noclobber
 
+# umask: 002 lets group members create/modify files. outsiders can only read
+umask 002
+
 # General shell tools
 function iflastdo {
   # if last executed thing was successful, execute the arguments
@@ -128,15 +141,15 @@ function iflastdo {
 }
 
 # tmux
-#function has-session {
-#  # $? = success if tmux session exists
-#  tmux has-session -t $1 2>/dev/null
-#}
+function has-session {
+  # $? = success if tmux session exists
+  tmux has-session -t $1 2>/dev/null
+}
 
-#function session-test {
-#  tmux new-session -d -s test
-#  tmux neww -k -t test:1
-#}
+function session-test {
+  tmux new-session -d -s test
+  tmux neww -k -t test:1
+}
 
 ## end tools
 
