@@ -54,7 +54,10 @@ else
 fi
 
 # JamesT's bashrc.developer had broken versions
-PATH=$PATH:/usr/ucb
+if [ -f /usr/ucb ]
+then
+  PATH=$PATH:/usr/ucb
+fi
 
 # Source interesting extensions to bashrc
 if [ -e /as/conf/shell/bashrc.developer ]
@@ -125,15 +128,15 @@ function iflastdo {
 }
 
 # tmux
-function has-session {
-  # $? = success if tmux session exists
-  tmux has-session -t $1 2>/dev/null
-}
+#function has-session {
+#  # $? = success if tmux session exists
+#  tmux has-session -t $1 2>/dev/null
+#}
 
-function session-test {
-  tmux new-session -d -s test
-  tmux neww -k -t test:1
-}
+#function session-test {
+#  tmux new-session -d -s test
+#  tmux neww -k -t test:1
+#}
 
 ## end tools
 
@@ -164,6 +167,11 @@ then
 fi
 
 if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Linux" ]
+then
+  TERM=xterm-256color
+fi
+
+if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Darwin" ]
 then
   TERM=xterm-256color
 fi

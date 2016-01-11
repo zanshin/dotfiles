@@ -112,8 +112,15 @@ alias deploy='~/.dotfiles/scripts/deploy'
 alias takeove='tmux detach -a'
 alias attach='tmux attach -t base || tmux new -s base'
 alias ta='tmux attach -t'
+alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
+
+alias blog='~/.dotfiles/scripts/blog'
+alias chef='~/.dotfiles/scripts/chef'
+alias console='~/.dotfiles/scripts/console'
+alias tools='~/.dotfiles/scripts/tools'
+alias deploy='~/.dotfiles/scripts/deploy'
 
 # force tmux to use 256 colors
 alias tmux='TERM=screen-256colors-bce tmux'
