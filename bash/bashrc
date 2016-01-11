@@ -54,7 +54,10 @@ else
 fi
 
 # JamesT's bashrc.developer had broken versions
-PATH=$PATH:/usr/ucb
+if [ -e /usr/ucb ]
+then
+  PATH=$PATH:/usr/ucb
+fi
 
 # Source interesting extensions to bashrc
 if [ -e /as/conf/shell/bashrc.developer ]
@@ -65,6 +68,16 @@ fi
 if [ -e /as/conf/shell/bashrc.asa ]
 then
   source /as/conf/shell/bashrc.asa
+fi
+
+if [ -f /usr/local/Library/Contributions/brew_bash_completions.sh ]
+then
+  source /usr/local/Library/Contributions/brew_bash_completions.sh
+fi
+
+if [ -f /usr/local/etc/bash_completions.d/tmux ]
+then
+  source /usr/local/etc/bash_completions.d/tmux
 fi
 
 # Add various bins to Path
@@ -114,6 +127,9 @@ set -o vi
 
 # allow redirection to overwrite file
 unset noclobber
+
+# umask: 002 lets group members create/modify files. outsiders can only read
+umask 002
 
 # General shell tools
 function iflastdo {
@@ -191,11 +207,11 @@ export CVS_RSH=ssh
 export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
 
 # aliases and functions
-source ~/.bash_aliases
-source ~/.bash_functions
+#source ~/.bash_aliases
+#source ~/.bash_functions
 
 # source bindings
-source ~/.dotfiles/bash/bindkeys
+#source ~/.dotfiles/bash/bindkeys
 
 # Import some colors
 source ~/.dotfiles/bash/colors
