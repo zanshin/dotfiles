@@ -4,7 +4,7 @@
 # RedHat) and sometimes Solaris.
 #
 # ---
-echo "bashrc.local being sourced"
+
 # Determine the operating system and use it to set or source things
 myos=`uname -s`
 
@@ -101,7 +101,7 @@ then
   export TERM=vt100
 fi
 
-if [ "$TERM" = vt320" ]
+if [ "$TERM" = "vt320" ]
 then
   export TERM=xterm
 fi
