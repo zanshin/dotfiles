@@ -160,4 +160,4 @@ export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 
 # finis
-# mhn 2016.01.05 
+# mhn 2016.01.11 

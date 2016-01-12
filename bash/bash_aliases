@@ -22,23 +22,13 @@ alias 'dus=du -sckx * | sort -nr'
 
 # }}}
 # Mac OS X specific stuff {{{
-# determine operating system
-myos=`uname -s`
-
-case "$myos" in
-  # Mac OS X specific aliases
-  Darwin)
-    alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort' 
-    alias 'adventure=emacs -batch -l dunnet' 
-    alias 'mailsize=du -hs ~/Library/mail' 
-    alias 'ttop=top -ocpu -R -F -s 2 -n30' 
-    ;;
-  *) ;;
-esac
+alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort' 
+alias 'adventure=emacs -batch -l dunnet' 
+alias 'mailsize=du -hs ~/Library/mail' 
+alias 'ttop=top -ocpu -R -F -s 2 -n30' 
 
 # }}}
 # ls variants {{{
-# ls command variations using colorflag set above
 alias l="ls -al -G"
 alias lsd='ls -al -G | grep \"^d\"'
 alias lh='ls -a | egrep "^\."'
@@ -100,14 +90,6 @@ alias guser="git shortlog | grep -E '^[^ ]'"
 alias ect="git status --short | awk '{print $2}' | xargs -o nvim"
 
 # }}}
-# tmux scripts {{{
-alias blog='~/.dotfiles/scripts/blog'
-alias chef='~/.dotfiles/scripts/chef'
-alias console='~/.dotfiles/scripts/console'
-alias tools='~/.dotfiles/scripts/tools'
-alias deploy='~/.dotfiles/scripts/deploy'
-
-# }}}
 # Tmux {{{
 alias takeove='tmux detach -a'
 alias attach='tmux attach -t base || tmux new -s base'
@@ -116,14 +98,15 @@ alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 
+# tmux scripts {{{
 alias blog='~/.dotfiles/scripts/blog'
 alias chef='~/.dotfiles/scripts/chef'
 alias console='~/.dotfiles/scripts/console'
 alias tools='~/.dotfiles/scripts/tools'
 alias deploy='~/.dotfiles/scripts/deploy'
 
-# force tmux to use 256 colors
-alias tmux='TERM=screen-256colors-bce tmux'
+# # force tmux to use 256 colors
+# alias tmux='TERM=screen-256colors tmux'
 
 # }}}
 # Mutt {{{
