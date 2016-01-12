@@ -52,7 +52,7 @@ fi
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export PAGER=less
-export LESS="-M -n -q -i"
+export LESS="-M -n -q -i -r"
 
 # Use Vi bindings
 set -o vi
