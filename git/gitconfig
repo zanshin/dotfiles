@@ -31,6 +31,7 @@
     safecrlf = warn
     excludesfile = /Users/mark/.gitignore_global
     quotepath = false
+  	pager = less -R
 
 [diff]
     tool = vimdiff
