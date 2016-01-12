@@ -11,17 +11,14 @@ myos=`uname -s`
 # Settings based on operating system
 case "$myos" in
   SunOS)
-    colorflag=""
     OPENWINHOME="/usr/openwin"
     PATHPOSTPEND="/usr/css/bin:/usr/ucb"
     ;;
   Linux)
-    colorflag="--color"
     OPENWINHOME="/usr/X11R6"
     PATHPOSTPEND=""
     ;;
   *)
-    colorflag=""
     OPENWINHOME="/usr/X11"
     PATHPOSTPEND=""
 esac
