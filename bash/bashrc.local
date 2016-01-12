@@ -1,0 +1,123 @@
+# ---
+# bashrc.local
+# This file is used on remote servers running primarily Linux (Ubuntu and
+# RedHat) and sometimes Solaris.
+#
+# ---
+
+# Determine the operating system and use it to set or source things
+myos=`uname -s`
+
+# Settings based on operating system
+case "$myos" in
+  SunOS)
+    OPENWINHOME="/usr/openwin"
+    PATHPOSTPEND="/usr/css/bin:/usr/ucb"
+    ;;
+  Linux)
+    OPENWINHOME="/usr/X11R6"
+    PATHPOSTPEND=""
+    ;;
+  *)
+    OPENWINHOME="/usr/X11"
+    PATHPOSTPEND=""
+esac
+
+# Capture current path and then
+# - add ksu.bashrc if present
+# - add various man paths
+OLDPATH=$PATH
+if [ -f /usr/local/etc/ksu.bashrc ]
+then
+  unset lpath
+  unset LPATH
+  source /usr/local/etc/ksu.bashrc
+else
+  lpath=/usr/local/bin:/usr/bin:/bin:${OPENWINHOME}/bin
+  if [ "$myos" = "SunOS" ] && [ -z "MANPATH" ]
+  then
+    export MANPATH=/usr/local/man:/usr/local/share/man:/usr/share/man:${OPENWINPATH}/man:/usr/dt/man:/usr/sfw/share/man:/opt/SUNWspro/man
+  fi
+fi
+
+# JamesT's bashrc.developer had broken versions
+if [ -f /usr/ucb ]
+then
+  PATH=$PATH:/usr/ucb
+fi
+
+# Source interesting extension to bashrc
+for name in /as/conf/shell/bashrc.developer /as/conf/shell/bashrc.asa 
+  do
+  if [ -f $name ]
+    then
+      source $name
+  fi
+done
+
+# Add various bins to PATH
+export PATH=${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/sbin:/sbin
+
+# if root, add /root/bin to PATH
+if [ "$UID" = "0" ]
+then
+  PATH=/root/bin:$PATH
+fi
+
+# Build the PATH and eliminate duplicate entries, maintain order - it's important
+# - $PATH first
+# - $OLDPATH second
+# - $PATHPOSTPEND last
+NEWPATH=""
+quoteold=(`echo $PATH:$OLDPATH:$PATHPOSTPEND | sed -e 's/ /%%/g' -e 's/:/ /g'`)
+for i in ${quoteold[@]} ; do
+  if [ -z "$NEWPATH" ] ; then
+    NEWPATH="$i"
+  else
+    if { echo ":$NEWPATH:" | sed -e 's/ /%%/g' | grep -c ":$i:" > /dev/null; } ; then
+      echo foo > /dev/null
+    else
+      NEWPATH=${NEWPATH}:"$i"
+    fi
+  fi
+done
+export PATH=$NEWPATH
+
+# Some Perl stuff
+export PERLDOC="-U"
+export MANPATH=${MANPATH}:${HOME}/man
+
+export IGNOREEOF=2
+export TMOUT=0
+
+# Set up TERM
+if [ "$TERM" = "xterm" ] && [ "$myos" = "Linux" ]
+then
+  export TERM=vt100
+fi
+
+if [ "$TERM" = "linux" ] 
+then
+  export TERM=vt100
+fi
+
+if [ "$TERM" = "vt320" ]
+then
+  export TERM=xterm
+fi
+
+if [ "$TERM" = "screen" ]
+then
+  stty erase '^?'
+fi
+
+if [ "$TERM" = "screen" ] && [ "$myos" = "SunOS" ]
+then
+  TERM=xterm
+fi
+
+# CVS setup
+export CVS_RSH=ssh
+export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
+
+

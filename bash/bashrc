@@ -4,12 +4,12 @@
 
 # source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  source /etc/bashrc
 fi
 
 # source my aliases file
 if [ -f .bash_aliases ]; then
-	. .bash_aliases
+  source .bash_aliases
 fi
 
 # source my functions file
