@@ -39,10 +39,10 @@ esac
 # }}}
 # ls variants {{{
 # ls command variations using colorflag set above
-alias l="ls -al ${colorflag}"
-alias lsd='ls -al ${colorflag} | grep \"^d\"'
+alias l="ls -al -G"
+alias lsd='ls -al -G | grep \"^d\"'
 alias lh='ls -a | egrep "^\."'
-alias ls="command ls ${colorflag}"
+alias ls="command ls -G"
 
 # }}}
 # Miscellaneous {{{

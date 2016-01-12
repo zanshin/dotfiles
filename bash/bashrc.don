@@ -1,58 +1,126 @@
 # ------------------------------------------------------------------
 # bashrc
+#
+# The individual per-interactive-shell startup file
+# OS'es this is made to work (reasonably) well on are:
+# - Mac OS X 
+# - Linux (specifcially Ubuntu and RedHat)
+# - Solaris (specifically 2.5.1 - 2.8)
+# 
 # ------------------------------------------------------------------
 
-# source global definitions
-if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
-fi
+# Determine the operating system and use to set or source things
+myos=`uname -s`
 
-# source my aliases file
-if [ -f .bash_aliases ]; then
-	. .bash_aliases
-fi
+# Settings based on operating system
+case "$myos" in
+  SunOS)
+    # colorflag="--color=auto -AFC"
+    colorflag=""
+    OPENWINHOME="/user/openwin"
+    PATHPOSTPEND="/usr/css/bin:/usr/ucb"
+    ;;
+  Darwin)
+    colorflag="-G"
+    OPENWINHOME="/usr/X11"
+    PATHPOSTPEND=""
+    ;;
+  Linux)
+    colorflag="--color"
+    OPENWINHOME="/usr/X11R6"
+    PATHPOSTPEND=""
+    ;;
+  *)
+    colorflag=""
+    OPENWINHOME="/usr/X11"
+    PATHPOSTPEND=""
+esac
 
-# source my functions file
-if [ -f ~/.bash_functions ]
+# Capture current path and then
+# - add ksu.bashrc if present
+# - add various man paths
+OLDPATH=$PATH
+if [ -f /usr/local/etc/ksu/bashrc ]
 then
-  source ~/.bash_functions
+  unset lpath
+  unset LPATH
+  source /usr/local/etc/ksu.bashrc
+else
+  lpath=/usr/local/bin:/usr/bin:/bin:${OPENWINHOMW}/bin
+  if [ "$myos" = "SunOS" ] && [ -z "MANPATH" ]
+  then
+    export MANPATH=/usr/local/man:/usr/local/share/man:/usr/man:/usr/share/man:${OPENWINPATH}/man:usr/dt/man:/usr/sfw/share/man:/opt/SUNWspro/man
+  fi
 fi
 
-# setup some key bindings
-if [ -f ~/.dotfiles/bash/bindkeys ]
+# JamesT's bashrc.developer had broken versions
+if [ -f /usr/ucb ]
 then
-  source ~/.dotfiles/bash/bindkeys
+  PATH=$PATH:/usr/ucb
 fi
 
-# add some color
-if [ -f ~/.dotfiles/bash/colors ]
+# Source interesting extensions to bashrc
+if [ -e /as/conf/shell/bashrc.developer ]
 then
-  source ~/.dotfiles/bash/colors
+  source /as/conf/shell/bashrc.developer
 fi
 
-# add brew bash completions
+if [ -e /as/conf/shell/bashrc.asa ]
+then
+  source /as/conf/shell/bashrc.asa
+fi
+
 if [ -f /usr/local/Library/Contributions/brew_bash_completions.sh ]
 then
   source /usr/local/Library/Contributions/brew_bash_completions.sh
 fi
 
-# add tmux completions
 if [ -f /usr/local/etc/bash_completions.d/tmux ]
 then
   source /usr/local/etc/bash_completions.d/tmux
 fi
 
-# add git completions
-if [ -f /usr/local/etc/bash_completions.d/git-completions.bash ]
+# Add various bins to Path
+export PATH=${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH:/usr/sbin:/sbin
+
+# if root, add /root/bin to path
+if [ "$UID" = "0" ]
 then
-  source /usr/local/etc/bash_completions.d/git-completions.bash
+  PATH=/root/bin:$PATH
 fi
+
+# Build the PATH and eliminate duplicate entries
+# Order here is important. We want
+# - $PATH first
+# - $OLDPATH second
+# - $PATHPOSTPEND last
+NEWPATH=""
+quoteold=(`echo $PATH:$OLDPATH:$PATHPOSTPEND | sed -e 's/ /%%/g' -e 's/:/ /g'`)
+for i in ${quoteold[@]} ; do
+  if [ -z "$NEWPATH" ] ; then
+    NEWPATH="$i"
+  else
+    if { echo ":$NEWPATH:" | sed -e 's/ /%%/g' | grep -c ":$i:" > /dev/null; } ; then
+      echo foo > /dev/null
+    else
+      NEWPATH=${NEWPATH}:"$i"
+    fi
+  fi
+done
+export PATH=$NEWPATH
+
+# Some Perl stuff
+export PERLDOC="-U"
+export MANPATH=${MANPATH}:${HOME}/man
 
 # export EDITOR, PAGER, and LESS 
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export PAGER=less
 export LESS="-M -n -q -i"
+
+export IGNOREEOF=2
+export TMOUT=0
 
 # Use Vi bindings
 set -o vi
@@ -63,9 +131,96 @@ unset noclobber
 # umask: 002 lets group members create/modify files. outsiders can only read
 umask 002
 
-# ----------------------------------
-# Build a Git aware prompt
-# ---------------------------------
+# General shell tools
+function iflastdo {
+  # if last executed thing was successful, execute the arguments
+  if [ "$?" -eq 1 ]
+  then
+    $1
+  fi
+}
+
+# tmux
+function has-session {
+  # $? = success if tmux session exists
+  tmux has-session -t $1 2>/dev/null
+}
+
+function session-test {
+  tmux new-session -d -s test
+  tmux neww -k -t test:1
+}
+
+## end tools
+
+# Setup TERM
+if [ "$TERM" = "xterm" ] && [ "$myos" = "Linux" ]
+then
+  export TERM=vt100
+fi
+
+if [ "$TERM" = "linux" ]
+then
+  export TERM=vt100
+fi
+
+if [ "$TERM" = "vt320" ]
+then
+  export TERM=xterm
+fi
+
+if [ "$TERM" = "screen" ]
+then
+  stty erase '^?'
+fi
+
+if [ "$TERM" = "screen" ] && [ "$myos" = "SunOS" ]
+then
+  TERM=xterm
+fi
+
+if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Linux" ]
+then
+  TERM=xterm-256color
+fi
+
+if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Darwin" ]
+then
+  TERM=xterm-256color
+fi
+
+# Miscellaneous functions
+function wordfind() {
+  egrep "$*" /usr/share/dict/words
+}
+
+function pptree() {
+  for pptreepid in `pgrep $*`
+  do
+    echo $pptreeid:
+    # note: linux has -h flag, but solaris doesn't (grep -v...)
+    pptreepidlist=`pgrep -P $pptreepid`
+    if [ "$pptreepidlist" != "" ]
+    then
+      ps -fp $pptreepidlist | sed -e "s/^/ /" | grep -v "UID.*CMD"
+    fi
+  done
+}
+
+# CVS setup
+export CVS_RSH=ssh
+export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
+
+# aliases and functions
+source ~/.bash_aliases
+source ~/.bash_functions
+
+# source bindings
+source ~/.dotfiles/bash/bindkeys
+
+# Import some colors
+source ~/.dotfiles/bash/colors
+
 # Variables used in building the Git status portiion of the prompt
 GIT_PROMPT_SYMBOL="${Blue}±"
 GIT_PROMPT_PREFIX="${Green} [${Color_Off}"
@@ -146,6 +301,7 @@ HISTFILE=~/.bash_history-`hostname`               # track history by host
 # export settings
 export HISTCONTROL HISTFILESIZE HISTSIZE HISTIGNORE HISTFILE 
 
+alias ls="command ls ${colorflag}"
 export LS_COLORS='no=00:fi=00:di=01;34:ow=01;31:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 # -------------------------------------------------------------------
@@ -158,6 +314,10 @@ export LESS_TERMCAP_se=$'\E[0m'          # end standout-mode
 export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
+
+# nice mount (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
+# displays mounted drive information in a nicely formatted manner
+function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
 
 # finis
 # mhn 2016.01.05 

@@ -29,9 +29,14 @@ if [ -d /usr/local/sbin ] ; then
 	PATH="/usr/local/sbin:${PATH}"
 fi
 
-# set PATH so it includes /usr/local/mysql/bin if it exists
-if [ -d /usr/local/mysql/bin ] ; then
-    PATH="/usr/local/mysql/bin:${PATH}"
+# set PATH so it includes /usr/sbin if it exists
+if [ -d /usr/sbin ] ; then
+  PATH="/usr/sbin:${PATH}"
+fi
+
+# set PATH so it includes /sbin if it exists
+if [ -d /sbin ] ; then
+PATH="/sbin:${PATH}"
 fi
 
 # prepend /usr/local/bin to the head of the PATH to keep Homebrew happy
