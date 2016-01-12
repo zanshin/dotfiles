@@ -4,7 +4,7 @@
 # RedHat) and sometimes Solaris.
 #
 # ---
-
+echo "bashrc.local being sourced"
 # Determine the operating system and use it to set or source things
 myos=`uname -s`
 
@@ -90,34 +90,8 @@ export PATH=$NEWPATH
 export PERLDOC="-U"
 export MANPATH=${MANPATH}:${HOME}/man
 
-# export EDITOR, PAGER, and LESS
-export VISUAL=vim
-export EDITOR="$VISUAL"
-export PAGER=less
-export LESS="-M -n -q -i -r"
-
 export IGNOREEOF=2
 export TMOUT=0
-
-# Use Vi bindings
-set -o vi
-
-# Allow redirection to overwrite file
-unset noclobber
-
-# umask: 002 - Lets group member create/modify files. Outsides can read/execute only
-umask 002
-
-# General shell tools
-function iflastdo {
-  # if last executed thing was successful, execute the arguments
-  if [ "$?" -eq 1 ]
-  then
-    $1
-  fi
-}
-
-## end tools
 
 # Set up TERM
 if [ "$TERM" = "xterm" ] && [ "$myos" = "Linux" ]
@@ -142,31 +116,8 @@ fi
 
 if [ "$TERM" = "screen" ] && [ "$myos" = "SunOS" ]
 then
-  export TERM=xterm
+  TERM=xterm
 fi
-
-if [ "$TERM" = "screen-256color" ] && [ "$myos" - "Linux" ]
-then
-  export TERM=xterm-256color
-fi
-
-# Miscellaneous functions
-function wordfind() {
-  egrep "$*" /usr/share/dict/words
-}
-
-function pptreeid() {
-  for pptreeid in `pgrep $*`
-  do
-    echo $pptreeid:
-    # Note: Linux has -h flag, but Solaris doesn't (grep -v ...)
-    $pptreeidlist=`pgrep -P $pptreeid`
-    if [ $pptreeid" != "" ]
-    then
-      ps -fp $pptreeidlist | sed -e "s/^/ /" | grep -v "UID.*CMD"
-    fi
-  done
-}
 
 # CVS setup
 export CVS_RSH=ssh

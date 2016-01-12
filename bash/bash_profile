@@ -12,7 +12,12 @@
 
 # Source our .bashrc, if present 
 if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+  source ~/.bashrc
+fi
+
+# Source our bash.local, if present
+if [ -f ~/.bashrc.local ]; then
+  source ~/.bashrc.local
 fi
 
 # -------------------------------------------------------------------
