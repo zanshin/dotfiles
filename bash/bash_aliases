@@ -107,6 +107,7 @@ alias deploy='~/.dotfiles/scripts/deploy'
 
 # # force tmux to use 256 colors
 # alias tmux='TERM=screen-256colors tmux'
+alias tmux='tmux -2'
 
 # }}}
 # Mutt {{{
