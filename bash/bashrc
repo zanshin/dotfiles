@@ -2,6 +2,20 @@
 # bashrc
 # ------------------------------------------------------------------
 
+myos=`uname -s`
+
+case "$myos" in
+  Linux)
+    colorflag="--color"
+    ;;
+  Darwin)
+    colorflag="-G"
+    ;;
+  *)
+    colorflaag=""
+    ;;
+esac
+
 # source global definitions
 if [ -f /etc/bashrc ]; then
   source /etc/bashrc
