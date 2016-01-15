@@ -252,6 +252,20 @@ set smartcase           " ignore case if search string is all lower case, case-s
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " }}}
+" Trailing Whitespace {{{
+" www.bestofvim.com/tip/trailing-whitespace/
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction
+
+nnoremap <silent> <leader>rts :call TrimWhiteSpace()<CR>
+
+" autocmd FileWritePre   * :call TrimWhiteSpace()
+" autocmc FileAppendPre  * :call TrimWhiteSpace()
+" autocmd FilterWritePre * :call TrimWhiteSpace()
+" autocmd BufWritePre    * :call TrimWhiteSpace()
+
+" }}}
 " Preserve function {{{
 " saves search history and cursor position
 " call with some command, like removing all whitespace
