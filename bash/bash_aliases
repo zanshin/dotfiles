@@ -30,7 +30,7 @@ alias 'ttop=top -ocpu -R -F -s 2 -n30'
 # }}}
 # ls variants {{{
 alias l="ls -al ${colorflag}"
-alias lsd='ls -al ${colorflag} | grep \"^d\"'
+alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
 alias ls="command ls ${colorflag}"
 
