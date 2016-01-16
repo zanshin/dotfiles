@@ -7,6 +7,7 @@
 # Set ControlMaster auto to enable sharing network connection
 # SEt ControlPath to populate shared connection properly
 Host * 
+    UseRoaming no
     ServerAliveInterval 60
     ControlMaster auto
     ControlPath ~/.ssh/master-%r@%h:%p
