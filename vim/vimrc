@@ -31,7 +31,7 @@ set timeout timeoutlen=1000 ttimeoutlen=500
 " Trying to break a very old habit...
 " ex mode commands made easy
 nnoremap ; :
-noremap ;; ;
+nnoremap ;; ;
 nnoremap Q <nop>
 
 set laststatus=2                  " always show the status line
@@ -120,10 +120,10 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 
 " }}}
 " Buffers and Tabs {{{
-nmap <leader>be :enew<cr>           " create new empty buffer
-nmap <leader>bn :bnext<cr>          " move to next buffer
-nmap <leader>bp :bprevious<cr>      " move to previous buffer
-nmap <leader>bq :bp <BAR> bd #<cr>  " move to previous and close buffer
+nnoremap <leader>be :enew<cr>           " create new empty buffer
+nnoremap <leader>bn :bnext<cr>          " move to next buffer
+nnoremap <leader>bp :bprevious<cr>      " move to previous buffer
+nnoremap <leader>bq :bp <BAR> bd #<cr>  " move to previous and close buffer
 
 " nnoremap <M-t> :tabnew<CR>              " new tab <C-t>
 " nnoremap <M-p> :tabprevious<CR>         " previous tab <C-p>
@@ -196,7 +196,7 @@ endfunction
 " }}}
 " Miscellaneous {{{
 " Sudo to write
-cmap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee % >/dev/null
 
 " toggle listchars on or off
 noremap <Leader>i :set list!<CR>
@@ -210,7 +210,7 @@ set pastetoggle=<F2>
 
 " Better pasting from clipboard
 " http://tilvim.com/2014/03/18/a-better-paste.html
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+noremap <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 
 set clipboard=unnamed   " yank and paste with the system clipboard
 
@@ -221,7 +221,7 @@ if has("autocmd")
 endif
 
 " Map escape to jj -- much faster to reach and type
-imap jj <esc>
+inoremap jj <esc>
 
 " Highlight words to avoid in tech writing
 " =======================================
@@ -282,10 +282,10 @@ function! Preserve(command)
 endfunction
 
 " strip whitespace from all lines in file
-nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+nnoremap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 
 " reindent entire file
-nmap _= :call Preserve("normal gg=G")<CR>
+nnoremap _= :call Preserve("normal gg=G")<CR>
 
 " }}}
 " Splits {{{
@@ -297,7 +297,7 @@ nnoremap <leader>h <C-w>s<C-w>j   " open a horizontal split and switch to it (,h
 " Vimrc shortcuts {{{
 
 " open vimrc in new tab for editing
-nmap <leader>ev :tabedit $MYVIMRC<cr>
+nnoremap <leader>ev :tabedit $MYVIMRC<cr>
 
 " automatically source .vimrc when it is saved (from vimcasts.org #24)
 if has("autocmd")
@@ -305,7 +305,7 @@ if has("autocmd")
 endif
 
 " reload .vimrc
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " }}}
 " Command line completion {{{

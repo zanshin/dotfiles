@@ -102,7 +102,7 @@ nnoremap <leader>U :GundoToggle<CR>
 
 " }}}
 " Nerdtree {{{
-map <C-n> :NERDTreeToggle<cr>
+noremap <C-n> :NERDTreeToggle<cr>
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -118,7 +118,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " }}}
 " Dash {{{
-nmap <silent><leader>d <Plug>DashSearch
+nnoremap <silent><leader>d <Plug>DashSearch
 
 " }}}
 " Goyo {{{
@@ -137,21 +137,21 @@ augroup END
 " indentLine {{{
 let g:indentLine_color_term = 239
 let g:indentLine_char = "|"
-nmap <leader>i :IndentLinesToggle<cr>
+nnoremap <leader>i :IndentLinesToggle<cr>
 
 " }}}
 " Vimux {{{
 " mappings
-nmap <leader>vp :VimuxPromptCommand<cr>
-nmap <leader>vl :VimuxRunLastCommand<cr>
-nmap <leader>vq :VimuxCloseRunner<cr>
-nmap <leader>vx :VimuxInterruptRunner<cr>
+nnoremap <leader>vp :VimuxPromptCommand<cr>
+nnoremap <leader>vl :VimuxRunLastCommand<cr>
+nnoremap <leader>vq :VimuxCloseRunner<cr>
+nnoremap <leader>vx :VimuxInterruptRunner<cr>
 
 " Octopress helpers
-nmap <leader>vg :call VimuxRunCommand("gen")<cr>
-nmap <leader>vi :call VimuxRunCommand("ingen")<cr>
-nmap <leader>vz :call VimuxRunCommand("dz")<cr>
-nmap <leader>vd :call VimuxRunCommand("deploy")<cr>
+nnoremap <leader>vg :call VimuxRunCommand("gen")<cr>
+nnoremap <leader>vi :call VimuxRunCommand("ingen")<cr>
+nnoremap <leader>vz :call VimuxRunCommand("dz")<cr>
+nnoremap <leader>vd :call VimuxRunCommand("deploy")<cr>
 
 " }}}
 " finis {{{
