@@ -8,11 +8,18 @@ set nocompatible
 
 " }}}
 " Bundles {{{
+" The presence of the .vimrc.bundles file means we're on a machine I 
+" have more control over rather than less. So we'll use that to setup
+" some spelling settings. Crude.
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
+  set spellfile=~/Dropbox/vim/.vim-spell-en.utf-8.add
+  set complete+=kspell
 else
   set background=dark
   silent! colorscheme molokai 
+  set spellfile=~/.vim-spell-en.utf-8.add
+  set complete+=kspell
 endif
 
 if has('syntax') && !exists('g:syntax_on')
