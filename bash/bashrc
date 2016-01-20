@@ -33,15 +33,15 @@ then
 fi
 
 # setup some key bindings
-if [ -f ~/.dotfiles/bash/bindkeys ]
+if [ -f ~/.bash_bindkeys ]
 then
-  source ~/.dotfiles/bash/bindkeys
+  source ~/.bash_bindkeys
 fi
 
 # add some color
-if [ -f ~/.dotfiles/bash/colors ]
+if [ -f ~/.bash_colors ]
 then
-  source ~/.dotfiles/bash/colors
+  source ~/.bash_colors
 fi
 
 # add brew bash completions
