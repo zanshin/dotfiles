@@ -10,7 +10,7 @@ Plug 'itchyny/landscape.vim'
 Plug 'bling/vim-airline'
 
 " ----- Syntax & Highlighting
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'Yggdroot/indentLine'
 
 " ----- Git helpers
@@ -22,7 +22,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sjl/gundo.vim'
 
 " ----- Utilities
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'rizzatti/dash.vim'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
@@ -30,8 +30,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
 
 " ----- Markdown
-Plug 'junegunn/goyo.vim'
-Plug 'reedes/vim-pencil'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 
 call plug#end() 
 
