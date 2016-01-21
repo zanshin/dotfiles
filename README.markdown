@@ -1,29 +1,12 @@
 This repository holds my configuration files so that I can clone them to other machines
 easily.
 
-My primary OS is OS X (10.9.x) and some of these configurations are tuned to work on that platform. The `bash` files are more generic and friendly toward other Unix-based operating systems. 
+My primary OS is OS X (10.11.x) and some of these configurations are tuned to work on that platform. From about July 2011 until January 2016 `zsh` was my shell of choice. However, I've switched back to `bash` since my working self maintains 200+ servers using bash.
 
 #Installation
 
     git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
 	
-# Updating
-There are still a couple git submodules included in this configuration. On a new
-installation these submodules need to be initialized and updated.
-
-    $ cd ~/.dotfiles
-    $ git submodule init 
-    $ git submodule update 
-
-It is also possible to use `git pull` to update the submodules.
-
-    $ cd ~/.dotfiles
-    $ git submodule foreach git pull origin master
-
-Vundle managed Vim bundles maybe updated from the command line via
-
-    $ vim +PluginInstall +qall
-
 #Setup
 ## Homebrew
 On those Mac OS machines where I install Homebrew I also edit `/etc/paths` to move the `/usr/local/bin` entry to the top of the list. This ensures that Homebrew-managed programs and libraries occur prior to `/usr/bin` and system-provided programs and libraries. The resulting `/etc/paths` files looks like this:
@@ -35,7 +18,21 @@ On those Mac OS machines where I install Homebrew I also edit `/etc/paths` to mo
     /sbin
 
 The `~/.dotfiles/brew/Brewfile` acts as a bundle for Homebrew. Use `brew bundle ~/.dotfiles/brew/Brewfile` to set up brews.
-    
+
+## bash
+For those machines where zsh isn't installed or won't easily work, create the
+following symlinks:
+
+    $ ln -s ~/.dotfiles/bash/bash_profile ~/.bash_profile
+    $ ln -s ~/.dotfiles/bash/bashrc ~/.bashrc
+    $ ln -s ~/.dotfiles/bash/bash_aliases ~/.bash_aliases
+    $ ln -s ~/.dotfiles/bash/bash_colors ~/.bash_colors
+    $ ln -s ~/.dotfiles/bash/bash_bindkeys ~/.bash_bindkeys
+    $ ln -s ~/.dotfiles/bash/bashrc.local ~/.bashrc.local
+
+The `.bashrc.local` file contains configurations only needed on the remote servers I manage.
+Therefore this file is only linked on those remote machines.
+
 ## zsh
 For zsh configuration create the following symlinks:
 
@@ -49,21 +46,6 @@ For ssh configuration, create the following symlink:
 
     ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 
-## Neovim (nvim)
-For Neovim configuration and use, create the following symlinks:
-
-    ln -s ~/.dotfiles./neovim/nvim ~/.config/nvim
-
-To install vim-plug managed plugins run the following command from within nvim:
-
-    :PlugInstall
-
-To install vim-plug run the following command:
-
-    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-
 ## Vim
 For Vim configuration and use, create the following symlinks:
 
@@ -72,34 +54,19 @@ For Vim configuration and use, create the following symlinks:
     ln -s ~/.dotfiles/vim/vimrc.bundles ~/.vimrc.bundles
     ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
 
-To install Vim bundles, which are managed via Vundle, via the command line run
+On remote servers where the Vim version maybe older or not under my control, eliminate the
+`.vimrc.bundles` symlink. All bundles and their settings are encapsulated in this file. The `.vimrc`
+file will default the color scheme and spelling dictionary settings if `.vimrc.bundles` is not
+found.
 
-    vim +PluginInstall +qall
+To install vim-plug managed plugins run the following command from within Vim:
 
-From inside of Vim run
+    :PlugInstall
 
-    :PluginInstall
+To install vim-plug run the following command:
 
-If this is the first time setting up Vim on the machine, it will be necessary to install Vundle itself, prior to teh bundles.
-
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-All Bundles and their associated configurations are kept in `vimrc.bundles`. This file is sourced inside `vimrc` only if found. This allows a minified version of my Vim configuration to be installed on remote servers, without having to install all the bundles I normally have. 
-
-The `YouCompleteMe` bundle requires an additional compile step. Go read teh "Installation" section on http://valloric.github.io/YouCompleteMe/. Short version is:
-
-    $ brew list # if cmake isn't there, brew install cmake
-    $ cd ~/.vim/bundle/YouCompleteMe
-    $ ./install.sh --clang-completer
-
-## bash
-For those machines where zsh isn't installed or won't easily work, create the
-following symlinks:
-
-    $ ln -s ~/.dotfiles/bash/bash_profile ~/.bash_profile
-    $ ln -s ~/.dotfiles/bash/bashrc ~/.bashrc
-    $ ln -s ~/.dotfiles/bash/bash_aliases ~/.bash_aliases
-    $ ln -s ~/.dotfiles/bash/bash_history ~/.bash_history
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ## Git
 For Git configuration and global ignore files, create these symlinks:
@@ -132,14 +99,6 @@ For tmux configuration create this symlink:
 
     $ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-Setup `tmuxinator` by installing it's gem
-
-    $ gem install tmuxinator
-
-And link in the directory containing the YML files for the `mux` command.
-
-    $ ln -s ~/.dotfiles/tmux/tmuxinator ~/.tmuxinator
-
 ## Sublime Text 2 (subl)
 Install Package Control following the instructions here: http://wbond.net/sublime_packages/package_control
 
@@ -152,21 +111,6 @@ For Sublime Text 2 settings, remove the `User` directory from
 Finally, to enable the command line tool, `subl`, add this symlink:
 
     $ ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-
-##z
-To enable z directory function from https://github.com/rupa/z, source the
-`z.sh` script in the `.zshrc` file: 
-
-    source ${HOME}/.dotfiles/z/z.sh
-
-## Doing
-Install `doing` gem (https://github.com/ttscoff/doing/ & http://brettterpstra.com/2014/03/15/scatterbrains-3-a-new-tool-for-doing/)
-
-    $ [sudo] gem install doing
-
-Create symlink to `doingrc` file.
-
-    $ ln -s ~/.dotfiles/doing/doingrc ~/.doingrc
 
 ## OpenConnect
 An alternative to using Cisco's AnyConnect.
