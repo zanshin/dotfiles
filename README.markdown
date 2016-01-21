@@ -74,10 +74,6 @@ For Git configuration and global ignore files, create these symlinks:
     $ ln -s ~/.dotfiles/git/gitconfig ~/.gitconfig
     $ ln -s ~/.dotfiles/git/gitignore_global ~/.gitignore_global
 
-For machines where Sublime Text 2 cannot be installed, link
-`git/gitconfig_remote` instead. This will use `vimdiff` as the merge and diff
-tool rather than ST2.
-
 ## Mercurial (hg)
 For Mercurial configuration and global ignore files, create these symlinks:
 
