@@ -243,12 +243,57 @@ function psax() {
 }
 
 # }}}
-# # turn hidden files on/off in Finder {{{
+# turn hidden files on/off in Finder {{{
 function hiddenOn() {
-	defaults write com.apple.Finder AppleShowAllFiles YES
+  defaults write com.apple.Finder AppleShowAllFiles YES
 }
 function hiddenOff() {
-	defaults write com.apple.Finder AppleShowAllFiles NO
+  defaults write com.apple.Finder AppleShowAllFiles NO
+}
+
+# }}}
+# Stolen from Jessie Frazelle {{{
+# https://github.com/jfrazelle/dotfiles/blob/master/.functions
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+tre() {
+  tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+}
+
+# `v` with no arguments opens the current directory in Vim, otherwise opens the
+# given location
+v() {
+  if [ $# -eq 0 ]; then
+    vim .
+  else
+    vim "$@"
+  fi
+}
+
+# Create a new directory and enter it
+mkd() {
+  mkdir -p "$@" && cd "$@"
+}
+
+# Call from a local repo to open the repository on github/bitbucket in browser
+repo() {
+  local giturl=$(git config --get remote.origin.url | sed 's/git@/\/\//g' | sed 's/.git$//' | sed 's/https://g' | sed 's/:/\//g')
+  if [[ $giturl == "" ]]; then
+    echo "Not a git repository or no remote.origin.url is set."
+  else
+    local gitbranch=$(git rev-parse --abbrev-ref HEAD)
+    local giturl="http:${giturl}"
+
+    if [[ $gitbranch != "master" ]]; then
+      local giturl="${giturl}/tree/${gitbranch}"
+    fi
+
+    echo $giturl
+    open $giturl
+  fi
 }
 
 # }}}
