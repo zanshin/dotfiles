@@ -34,7 +34,7 @@ alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
 alias ls="command ls ${colorflag}"
 
-alias sym="ls -ltra | grep '\->'"
+alias sym="ls -la | grep '\->'"
 
 # }}}
 # Miscellaneous {{{
