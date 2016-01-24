@@ -139,6 +139,7 @@ alias k='knife'
 # }}}
 # Docker {{{
 alias dm='docker-machine'
+alias dmenv='eval "$(docker-machine env local)"'
 
 # }}}
 # Randome shortcuts {{{
