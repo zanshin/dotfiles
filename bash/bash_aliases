@@ -141,6 +141,9 @@ alias k='knife'
 alias dm='docker-machine'
 alias dmenv='eval "$(docker-machine env local)"'
 
+alias d='docker'
+alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
+
 # }}}
 # Randome shortcuts {{{
 alias nv='nvim'
