@@ -31,7 +31,7 @@ Plug 'benmills/vimux'
 
 " ----- Markdown
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-Plug 'reedes/vim-pencil', { 'for': 'markdown' }
+" Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 
 call plug#end() 
 
