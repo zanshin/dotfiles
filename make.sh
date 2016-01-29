@@ -31,14 +31,14 @@ function makeLinks() {
   # Handle odd-ball cases
   # Vim files¬
   echo "Linking vim files"
-  ln -svf ~/.dotfiles/vim ~/.vim;
-  ln -svf ~/.dotfiles/vim/vimrc ~/.vimrc;
-  ln -svf ~/.dotfiles/vim/vimrc.bundles ~/.vimrc.bundles;
+  ln -svf $dotfiles_dir/vim ~/.vim;
+  ln -svf $dotfiles_dir/vim/vimrc ~/.vimrc;
+  ln -svf $dotfiles_dir/vim/vimrc.bundles ~/.vimrc.bundles;
 
   # ssh
   echo ""
   echo "Linking ssh configuration."
-  ln -s $dotfiles/ssh/cong ~/.ssh/config
+  ln -svf $dotfiles_dir/ssh/config ~/.ssh/config
 
   echo ""
   echo "Caveats:"
