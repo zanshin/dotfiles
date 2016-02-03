@@ -5,12 +5,12 @@
 
 # Set ServerAliveInterval for all connections
 # Set ControlMaster auto to enable sharing network connection
-# SEt ControlPath to populate shared connection properly
+# Set ControlPath to populate shared connection properly
 Host * 
     UseRoaming no
     ServerAliveInterval 60
-    ControlMaster auto
-    ControlPath ~/.ssh/master-%r@%h:%p
+#    ControlMaster auto
+#    ControlPath ~/.ssh/master-%r@%h:%p
 
 # OME system admin
 host tx1
@@ -18,9 +18,6 @@ host tx1
 
 host tx2
     HostName ome-txhub2.cc.ksu.edu
-
-host veld
-    HostName veld.ome.ksu.edu
 
 host dev
     HostName ome-dev-as1.ome.campus
