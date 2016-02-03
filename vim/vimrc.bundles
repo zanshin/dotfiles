@@ -31,7 +31,7 @@ Plug 'benmills/vimux'
 
 " ----- Markdown
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-Plug 'reedes/vim-pencil', { 'for': 'markdown' }
+" Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 
 call plug#end() 
 
@@ -127,11 +127,11 @@ let g:goyo_height=90
 
 " }}}
 " Pencil {{{
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup END
+" augroup pencil
+"   autocmd!
+"   autocmd FileType markdown,mkd call pencil#init()
+"   autocmd FileType text         call pencil#init()
+" augroup END
 
 " }}}
 " indentLine {{{

@@ -34,6 +34,8 @@ alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
 alias ls="command ls ${colorflag}"
 
+alias sym="ls -la | grep '\->'"
+
 # }}}
 # Miscellaneous {{{
 alias 'bk=cd $OLDPWD'
@@ -98,14 +100,14 @@ alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 
-# tmux scripts {{{
+# tmux scripts 
 alias blog='~/.dotfiles/scripts/blog'
 alias chef='~/.dotfiles/scripts/chef'
 alias console='~/.dotfiles/scripts/console'
 alias tools='~/.dotfiles/scripts/tools'
 alias deploy='~/.dotfiles/scripts/deploy'
 
-# # force tmux to use 256 colors
+# force tmux to use 256 colors
 # alias tmux='TERM=screen-256colors tmux'
 alias tmux='tmux -2'
 
@@ -137,6 +139,10 @@ alias k='knife'
 # }}}
 # Docker {{{
 alias dm='docker-machine'
+alias dmenv='eval "$(docker-machine env local)"'
+
+alias d='docker'
+alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
 
 # }}}
 # Randome shortcuts {{{
@@ -177,7 +183,16 @@ alias sb='source ~/.bashrc'
 alias please='sudo !!'
 alias fail='tail -f'
 
+# }}}
+# Stolen from Jessie Frazelle {{{
 
+# vhosts - edit hosts file
+alias hosts='sudo vim /etc/hosts'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# }}}
 
 
 # finis
