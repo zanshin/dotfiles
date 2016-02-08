@@ -152,11 +152,14 @@ function git_prompt_string() {
 # Use Bash's prompt_command feature to show the prompt. This causes the various functions the drive the prompt
 # to be evaluated each time it is displayed. Using PS1 by itself introduces stale information.
 function prompt_command {
-  export PS1="\n${Green}\u${Color_Off} at ${Blue}\h${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
+#  export PS1="\n${Green}\u${Color_Off} at ${Blue}\h${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
+  printf "\n${Green}$(id -un)${Color_Off} at ${Blue}$(hostname)${Color_Off} in ${Yellow}$(pwd)${Color_Off} $(git_prompt_string)"
 }
 
 # Set the completed prompt
 export PROMPT_COMMAND=prompt_command
+
+export PS1="\n$ "
 
 # configure how history works
 HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
