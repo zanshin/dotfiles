@@ -79,17 +79,6 @@ Host ec2*compute-1.amazonaws.com
 host ksuunix
     HostName unix.ksu.edu
 
-# OME local VMs
-host devvm
-    HostName localhost
-    Port 10022
-    User ome
-
-host ome-devvm
-    HostName localhost
-    Port 2222
-    user vagrant
-
 # WebFaction hosting
 host wf
     HostName markn.webfactional.com
@@ -98,11 +87,6 @@ host wf
 host krayt
     HostName krayt.ome.ksu.edu
     Port 11122
-
-# Mac Pro xendor
-host xendor
-    HostName xendor.ome.ksu.edu
-    user mark
 
 host *
     User mhn
