@@ -247,6 +247,9 @@ autocmd InsertEnter * match TechWordsToAvoid /\cobviously\|basically\|simply\|of
 autocmd InsertLeave * match TechWordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
 autocmd BufWinLeave * call clearmatches()
 
+" Preview Markdown files using MacDown (OS X only)
+nnoremap <leader>pre :w<cr>:silent! !open -a MacDown % > /dev/null &<cr>:redraw!<cr>
+
 " }}}
 " Searching {{{
 
