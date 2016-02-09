@@ -153,7 +153,7 @@ function git_prompt_string() {
 # to be evaluated each time it is displayed. Using PS1 by itself introduces stale information.
 function prompt_command {
 #  export PS1="\n${Green}\u${Color_Off} at ${Blue}\h${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
-  printf "\n${Green}$(id -un)${Color_Off} at ${Blue}$(hostname)${Color_Off} in ${Yellow}$(pwd)${Color_Off} $(git_prompt_string)"
+  printf "\n${Green}$(id -un)${Color_Off} at ${Blue}$(hostname)${Color_Off} in ${Yellow}${PWD/#$HOME/~}${Color_Off} $(git_prompt_string)"
 }
 
 # Set the completed prompt
