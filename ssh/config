@@ -1,16 +1,11 @@
-# WebFaction
-# port 52698 is the rmate port
-#Host *.webfactional.com
-#RemoteForward 52698 127.0.0.1:52698
-
-# Set ServerAliveInterval for all connections
-# Set ControlMaster auto to enable sharing network connection
-# Set ControlPath to populate shared connection properly
 Host * 
     UseRoaming no
     ServerAliveInterval 60
-#    ControlMaster auto
-#    ControlPath ~/.ssh/master-%r@%h:%p
+
+# Desktop
+host krayt
+    HostName krayt.ome.ksu.edu
+    Port 11122
 
 # OME system admin
 host tx1
@@ -24,6 +19,9 @@ host dev
 
 host tools
     HostName ome-tools1.campus.ksu.edu
+
+host tools1
+    HostName ome-vm-tools1.campus.ksu.edu
 
 host txdev1
     HostName ome-dev-txhub1.cc.ksu.edu
@@ -83,10 +81,6 @@ host ksuunix
 host wf
     HostName markn.webfactional.com
     User markn
-
-host krayt
-    HostName krayt.ome.ksu.edu
-    Port 11122
 
 host *
     User mhn
