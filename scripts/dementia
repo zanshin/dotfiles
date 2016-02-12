@@ -1,0 +1,45 @@
+# vim: set filetype=bash: 
+#
+# Tmux Name:   demetia
+# Description: creates 3 named windows for development at work 
+#
+# check if session exists
+tmux has-session -t dementia
+if [ $? != 0 ]
+then
+
+# if session does not exist create it
+tmux -2 new-session -s dementia -n desktop -d
+
+# set default directory
+tmux send-keys -t dementia:1 'cd ~/' C-m
+
+# create additional named windows
+tmux new-window -n ome
+tmux new-window -n omedev
+
+# window 1 - desktop: window for general usage
+tmux send-keys -t dementia:1 'cd ~/' C-m
+tmux send-keys -t dementia:1 'ls' C-m
+
+# window 2 - ome: window for `ome` Chef 12 organization
+# knife status | cookbooks 
+#
+tmux split-window -h -p 50 -t dementia:2
+tmux send-keys -t dementia:2.1 'cd ~/code/chef/ome/chef-repo/ome_chef_data' C-m
+tmux send-keys -t dementia:2.1 'ls -al' C-m
+tmux send-keys -t dementia:2.2 'cd ~/code/chef/ome/chef-repo/cookbooks' C-m
+tmux send-keys -t dementia:2.2 'ls -al' C-m
+
+# window 3 - omedev: window for `omedev` Chef 12 organization
+# knife status | cookbooks 
+#
+tmux split-window -h -p 50 -t dementia:3
+tmux send-keys -t dementia:3.1 'cd ~/code/chef/omedev/chef-repo/ome_chef_data' C-m
+tmux send-keys -t dementia:3.1 'ls -al' C-m
+tmux send-keys -t dementia:3.2 'cd ~/code/chef/omedev/chef-repo/cookbooks' C-m
+tmux send-keys -t dementia:3.2 'ls -al' C-m
+
+# end if statement and attach mytmux if it existed
+fi
+tmux attach -t dementia
