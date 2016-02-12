@@ -22,26 +22,26 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # source my aliases file
-if [ -f .bash_aliases ]; then
-  source .bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+  source $HOME/.bash_aliases
 fi
 
 # source my functions file
-if [ -f ~/.bash_functions ]
+if [ -f $HOME/.bash_functions ]
 then
-  source ~/.bash_functions
+  source $HOME/.bash_functions
 fi
 
 # setup some key bindings
-if [ -f ~/.bash_bindkeys ]
+if [ -f $HOME/.bash_bindkeys ]
 then
-  source ~/.bash_bindkeys
+  source $HOME/.bash_bindkeys
 fi
 
 # add some color
-if [ -f ~/.bash_colors ]
+if [ -f $HOME/.bash_colors ]
 then
-  source ~/.bash_colors
+  source $HOME/.bash_colors
 fi
 
 # add brew bash completions
