@@ -9,7 +9,7 @@ Host krayt
 
 # Sandbox
 Host mhn
-    HostName ome-wse-mhn.campus.kse.edu
+    HostName ome-wse-mhn.campus.ksu.edu
 
 # OME system admin
 Host tx1
