@@ -3,48 +3,52 @@ Host *
     ServerAliveInterval 60
 
 # Desktop
-host krayt
+Host krayt
     HostName krayt.ome.ksu.edu
     Port 11122
 
+# Sandbox
+Host mhn
+    HostName ome-wse-mhn.campus.kse.edu
+
 # OME system admin
-host tx1
+Host tx1
     HostName ome-txhub1.cc.ksu.edu
 
-host tx2
+Host tx2
     HostName ome-txhub2.cc.ksu.edu
 
-host dev
+Host dev
     HostName ome-dev-as1.ome.campus
 
-host tools
+Host tools
     HostName ome-tools1.campus.ksu.edu
 
-host tools1
+Host tools1
     HostName ome-vm-tools1.campus.ksu.edu
 
-host txdev1
+Host txdev1
     HostName ome-dev-txhub1.cc.ksu.edu
 
-host txdev2
+Host txdev2
     HostName ome-dev-txhub2.cc.ksu.edu
 
-host web1
+Host web1
     HostName ome-web1.campus.ksu.edu
 
-host web2
+Host web2
     HostName ome-web2.campus.ksu.edu
 
-host web3
+Host web3
     HostName ome-web3.campus.ksu.edu
 
-host web4
+Host web4
     HostName ome-web4.campus.ksu.edu
 
-host trebor
+Host trebor
     HostName trebor.ome.ksu.edu
 
-host mon1
+Host mon1
     HostName ome-mon1.campus.ksu.edu
 
 # WebTeam Fabric
@@ -57,30 +61,30 @@ Host ec2*compute-1.amazonaws.com
     User ubuntu
     IdentityFile /Users/mhn/.ssh/asakey.pem
 
-#host aws_prod1
+#Host aws_prod1
 #    HostName ec2-23-21-38-28.compute-1.amazonaws.com
 #    StrictHostKeyChecking no
 #    User mhn
 #    IdentityFile /Users/mhn/.ssh/mhn.pem
 
-#host web_prod1
+#Host web_prod1
 #    HostName ec2-23-21-38-28.compute-1.amazonaws.com
 #    User ubuntu
 #    IdentityFile ~/.ssh/asakey.pem
 
-#host web_prod2
+#Host web_prod2
 #    HostName ec2-50-16-61-249.compute-1.amazonaws.com
 #    User ubuntu
 #    IdentityFile ~/.ssh/asakey.pem
 
 # Personal K-State Webpage
-host ksuunix
+Host ksuunix
     HostName unix.ksu.edu
 
 # WebFaction hosting
-host wf
+Host wf
     HostName markn.webfactional.com
     User markn
 
-host *
+Host *
     User mhn

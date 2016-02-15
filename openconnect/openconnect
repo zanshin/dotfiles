@@ -1,4 +1,5 @@
 authgroup=OMEASAVPN
+#authgroup=OMEDBVPN
 user=mhn
 no-cert-check
 script=/usr/local/bin/vpnc-script
