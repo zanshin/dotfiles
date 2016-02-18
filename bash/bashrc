@@ -159,7 +159,7 @@ function prompt_command {
 # Set the completed prompt
 export PROMPT_COMMAND=prompt_command
 
-export PS1="\n$ "
+export PS1="\n(\$(date +%H:%M:%S)) $ "
 
 # configure how history works
 HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
