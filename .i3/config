@@ -170,3 +170,6 @@ bar {
 # Things to execute on start up
 # start the nm-applet on startup
 exec --no-startup-id nm-applet
+
+# use feh to set wallpaper
+exec_always feh --bg-scale /home/mhn/Pictures/florescence6HDfree.jpg
