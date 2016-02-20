@@ -166,3 +166,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Things to execute on start up
+# start the nm-applet on startup
+exec --no-startup-id nm-applet
