@@ -216,6 +216,7 @@ bindsym $mod+r mode "resize"
 bar {
   font pango: System San Francisco Display, FontAwesome 9
   status_command i3blocks -c /home/mhn/.i3/i3blocks.conf
+#  status_command i3status --config /home/mhn/.i3/status.conf
   position top
   colors {
     separator $base03
@@ -234,7 +235,7 @@ bar {
 exec --no-startup-id nm-applet
 
 # use feh to set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/florescence6HDfree.jpg
+exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/blueshroom.jpg
 
 # Lock the screen using i3lock
 bindsym $mod+shift+x exec i3lock -i /home/mhn/Pictures/shroom.png -c 000000
