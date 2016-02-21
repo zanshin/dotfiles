@@ -216,6 +216,7 @@ bindsym $mod+r mode "resize"
 bar {
   font pango: System San Francisco Display, FontAwesome 9
   status_command i3blocks -c /home/mhn/.i3/i3blocks.conf
+#  status_command i3status --config /home/mhn/.i3/status.conf
   position top
   colors {
     separator $base03
