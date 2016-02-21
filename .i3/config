@@ -161,11 +161,72 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Some colors
+  set $black     #073642
+  set $red       #dc322f
+  set $green     #859900
+  set $yellow    #b58900
+  set $blue      #268bd2
+  set $magenta   #d33682
+  set $cyan      #2aa198
+  set $white     #eee8d5
+
+  set $brblack   #002b36
+  set $brred     #cb4b16
+  set $brgreen   #586e75
+  set $bryellow  #657b83
+  set $brblue    #839496
+  set $brmagenta #6c71c4
+  set $brcyan    #93a1a1
+  set $brwhite   #fdf6e2
+
+  set $base00 #101218
+  set $base01 #1f222d
+  set $base02 #252936
+  set $base03 #7780a1
+  set $base04 #C0C5CE
+  set $base05 #d1d4e0
+  set $base06 #C9CCDB
+  set $base07 #ffffff
+  set $base08 #ee829f
+  set $base09 #f99170
+  set $base0A #ffefcc
+  set $base0B #a5ffe1
+  set $base0C #97e0ff
+  set $base0D #97bbf7
+  set $base0E #c0b7f9
+  set $base0F #fcc09e
+
+
+# Window color assignments
+#                       border   background text     indicator
+#client.focused          $blue    $blue      $white    $red
+#client.focused_inactive $cyan    $black     $white    $red
+#client.unfocused        $cyan    $black     $white    $red
+#client.urgent           $cyan    $red       $white    $red
+
+ client.focused          $base01 $base01    $base07 $base0F
+ client.focused_inactive $base02 $base02    $base03 $base0F
+ client.unfocused        $base02 $base02    $base03 $base0F
+ client.urgent           $base02 $base08    $base00 $base0F
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        position top
+  font pango: System San Francisco Display, FontAwesome 9
+  status_command i3blocks -c /home/mhn/.i3/i3blocks.conf
+  position top
+  colors {
+    separator $base03
+    background $base01
+    statusline $base05
+#                      border  background text
+    focused_workspace  $base01 $base01    $base07
+    active_workspace   $base01 $base02    $base03
+    inactive_workspace $base01 $base01    $base03
+    urgent_workspace   $base01 $base01    $base08
+  }
 }
 
 # Things to execute on start up
@@ -173,7 +234,7 @@ bar {
 exec --no-startup-id nm-applet
 
 # use feh to set wallpaper
-exec_always feh --bg-scale /home/mhn/Pictures/florescence6HDfree.jpg
+exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/florescence6HDfree.jpg
 
 # Lock the screen using i3lock
 bindsym $mod+shift+x exec i3lock -i /home/mhn/Pictures/shroom.png -c 000000
