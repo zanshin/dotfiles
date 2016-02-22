@@ -239,3 +239,13 @@ exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/blueshroom.jpg
 
 # Lock the screen using i3lock
 bindsym $mod+shift+x exec i3lock -i /home/mhn/Pictures/shroom.png -c 000000
+
+# Volume & Media bindings
+bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
+bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
