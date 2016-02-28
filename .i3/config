@@ -239,6 +239,9 @@ exec --no-startup-id nm-applet
 # use feh to set wallpaper
 exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/blueshroom.jpg
 
+# Set the keyboard up to recognize the tilde (~) key
+exec --no-startup-id sudo bash -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"
+
 # Lock the screen using i3lock
 bindsym $mod+shift+x exec i3lock -i /home/mhn/Pictures/shroom.png -c 000000
 
