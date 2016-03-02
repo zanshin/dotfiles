@@ -40,6 +40,11 @@ function makeLinks() {
   echo "Linking ssh configuration."
   ln -svf $dotfiles_dir/ssh/config ~/.ssh/config
 
+  # i3
+  echo ""
+  echo "Linking i3 configuration."
+  ln -svf $dotfiles_dir/.i3 ~/.i3
+
   echo ""
   echo "Caveats:"
   echo "Vim:  If remote server, rm .vimrc.bundles"
