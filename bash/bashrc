@@ -147,6 +147,7 @@ function parse_git_state() {
 function git_prompt_string() {
   local git_where="$(parse_git_branch)"
   [ -n "$git_where" ] && echo "on ${Green}${git_where#(refs/heads/|tags/)}${Color_Off}$(parse_git_state)"
+
 }
 
 # Use Bash's prompt_command feature to show the prompt. This causes the various functions the drive the prompt
@@ -154,12 +155,21 @@ function git_prompt_string() {
 function prompt_command {
 #  export PS1="\n${Green}\u${Color_Off} at ${Blue}\h${Color_Off} in ${Yellow}\w${Color_Off} $(git_prompt_string)\n$ "
   printf "\n${Green}$(id -un)${Color_Off} at ${Blue}$(hostname)${Color_Off} in ${Yellow}${PWD/#$HOME/~}${Color_Off} $(git_prompt_string)"
+
+  _PS1_now=$(date +%s)
+  PS1=$( printf "\n${Cyan}%02d:%02d:%02d${Color_Off} $ " \
+    $((  ( _PS1_now - _PS1_lastcmd ) / 3600)) \
+    $(( (( _PS1_now - _PS1_lastcmd ) % 3600) / 60 )) \
+    $((  ( _PS1_now - _PS1_lastcmd ) % 60)) \
+    )
+  _PS1_lastcmd=$_PS1_now
 }
 
 # Set the completed prompt
 export PROMPT_COMMAND=prompt_command
 
 export PS1="\n$ "
+_PS1_lastcmd=$(date +%s)
 
 # configure how history works
 HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
