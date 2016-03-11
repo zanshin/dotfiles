@@ -32,6 +32,12 @@ then
   source $HOME/.bash_functions
 fi
 
+# source my docker functions file
+if [ -f $HOME/.bash_docker_functions ]
+then
+  source $HOME/.bash_docker_functions
+fi
+
 # setup some key bindings
 if [ -f $HOME/.bash_bindkeys ]
 then
