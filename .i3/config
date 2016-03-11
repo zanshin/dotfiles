@@ -72,8 +72,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "85" -bw 0 -bg "$black" -bc "$black" -fg "$white" -hlbg "$brblack" -hlfg "#9575cd" -font "System San Francisco Display 14"
+bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "85" -bw 0 -bg "$black" -bc "$black" -fg "$white" -hlbg "$brblack" -hlfg "#9575cd" -font "System San Francisco Display 14"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -248,11 +248,17 @@ bar {
 # start the nm-applet on startup
 exec --no-startup-id nm-applet
 
+# Set screen resolution (use arandr to get command flags)
+# exec_always xrandr --output DP3 --off --output eDP1 --mode 2560x1600 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output VGA1 --off
+
+exec_always xrandr --output DP3 --off --output eDP1 --mode 1920x1200 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output VGA1 --off
+
 # use feh to set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/blueshroom.jpg
+# exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/Skylight_Reflect_L_27.jpg
+exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/fluorescence6HDfree.jpg
 
 # Set the keyboard up to recognize the tilde (~) key
-exec --no-startup-id sudo bash -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"
+# exec --no-startup-id sudo bash -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"
 
 # Lock the screen using i3lock
 bindsym $mod+shift+x exec i3lock -i /home/mhn/Pictures/shroom.png -c 000000
