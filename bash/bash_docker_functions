@@ -29,7 +29,7 @@ relies_on() {
   done
 }
 
-cowsay() {
+cows() {
   docker run --rm -it \
          --name cowsay \
          zanshin/cowsay
