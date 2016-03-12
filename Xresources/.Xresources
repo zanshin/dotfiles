@@ -1,5 +1,5 @@
 URxvt.scrollBar: false
-URxvt.font:      xft:Anonymous Pro:size=10
+URxvt.font:      xft:Droid Sans Mono:size=10
 URxvt*transparent: true
 URxvt*shading: 30
 
@@ -34,3 +34,8 @@ URxvt*color19:                        #252936
 URxvt*color20:                        #C0C5CE
 URxvt*color21:                        #C9CCDB
 
+! Clickable URLs
+! --------------
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
