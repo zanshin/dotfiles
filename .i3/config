@@ -152,7 +152,7 @@ set $workspace06 "6 "
 set $workspace07 "7 "
 set $workspace08 "8 "
 set $workspace09 "9 "
-set $workspace10 "10 "
+set $workspace10 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace01
@@ -178,12 +178,27 @@ bindsym $mod+Shift+8 move container to workspace $workspace08
 bindsym $mod+Shift+9 move container to workspace $workspace09
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+assign [class="Rocket.Chat"] $workspace10
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# https://www.reddit.com/r/unixporn/comments/49zncq/questions_regarding_i3/
+set $session " (B)eenden  (S)perren  (H)erunterfahren  (N)eustarten"
+mode $session {
+  bindsym b exec $psst i3-msg exit; mode "default"
+  bindsym s exec $psst ~/.scripts/lockscreen; mode "default"
+  bindsym h exec $psst systemctl poweroff; mode "default"
+  bindsym n exec $psst systemctl reboot; mode "default"
+
+  bindsym q mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode $session
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -248,15 +263,16 @@ bar {
 # start the nm-applet on startup
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start 
+exec /opt/rocketchat/rocketchat
 
 # Set screen resolution (use arandr to get command flags)
 # exec_always xrandr --output DP3 --off --output eDP1 --mode 2560x1600 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output VGA1 --off
-
 exec_always xrandr --output DP3 --off --output eDP1 --mode 1920x1200 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI3 --off --output HDMI2 --off --output HDMI1 --off --output VGA1 --off
 
 # use feh to set wallpaper
 # exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/Skylight_Reflect_L_27.jpg
-exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/fluorescence6HDfree.jpg
+exec_always --no-startup-id feh --bg-fill /home/mhn/Pictures/shroom.png
+
 
 # Set the keyboard up to recognize the tilde (~) key
 # exec --no-startup-id sudo bash -c "echo 0 > /sys/module/hid_apple/parameters/iso_layout"

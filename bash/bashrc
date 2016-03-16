@@ -75,7 +75,7 @@ export PAGER=less
 export LESS="-M -n -q -i -r"
 
 # Go path
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
 # Prefer US English and use UTF-8
