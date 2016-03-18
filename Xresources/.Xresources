@@ -1,7 +1,11 @@
-URxvt.scrollBar: false
-URxvt.font:      xft:Droid Sans Mono:size=10
+! Base Settings
+! -------------
+URxvt.termName:    rxvt-256color
+URxvt.scrollBar:   false
+URxvt.font:        xft:Droid Sans Mono:size=10
 URxvt*transparent: true
-URxvt*shading: 30
+URxvt*shading:     25
+URxvt.saveLines:   50000
 
 URxvt*background:                     #101218
 URxvt*foreground:                     #d1d4e0
@@ -34,8 +38,19 @@ URxvt*color19:                        #252936
 URxvt*color20:                        #C0C5CE
 URxvt*color21:                        #C9CCDB
 
+! Enable Perl extensions
+! ----------------------
+URxvt.perl-ext-common: default,matcher,fullscreen,resize-font,clipboard
+
 ! Clickable URLs
 ! --------------
-URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
+
+! Fullscreen toggle
+URxvt.keysym.F11: perl:fullscreen:switch
+
+! Clipboard copy/paste
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+
