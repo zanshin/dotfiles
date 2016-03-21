@@ -283,7 +283,7 @@ exec_always xrandr --output DP3 --off --output eDP1 --mode 1920x1200 --pos 0x0 -
 # use feh to set wallpaper
 # exec_always --no-startup-id feh --bg-scale /home/mhn/Pictures/Skylight_Reflect_L_27.jpg
 #exec_always --no-startup-id feh --bg-fill /home/mhn/Pictures/shroom.png
-exec_always --no-startup-id feh --bg-fill /home/mhn/Pictures/keyboard_lettre-wallpaper-1920x1200.jpg
+exec_always --no-startup-id feh --bg-fill /home/mhn/Pictures/keyboard-1920x1200.jpg
 
 
 # Set the keyboard up to recognize the tilde (~) key
