@@ -35,6 +35,43 @@ cows() {
          zanshin/cowsay
 }
 
+chrome() {
+  # add flags for proxy if passed
+  local proxy=
+  local map=
+  local args=$@
+  if [[ "$1" == "tor" ]]; then
+    relies_on torproxy
+
+    map="MAP * ~NOTFOUND , EXCLUDE torproxy"
+    proxy="socks5://torproxy:9050"
+    args="https://check.torproject.org/api/ip ${@:2}"
+  fi
+
+  del_stopped chrome
+
+  sudo docker run -d \
+    --memory 3gb \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    -v $HOME/Downloads:/root/Downloads \
+    -v $HOME/Pictures:/root/Pictures \
+    -v $HOME/Torrents:/root/Torrents \
+    -v $HOME/.chrome:/data \
+    -v /dev/shm:/dev/shm \
+    -v /etc/hosts:/etc/hosts \
+    --device /dev/snd \
+    --device /dev/dri \
+    --device /dev/video0 \
+    --group-add audio \
+    --group-add video \
+    --name chrome \
+    jess/chrome --user-data-dir=/data \
+    --proxy-server="$proxy" \
+    --host-resolver-rules="$map" "$args"
+}
+
 htop() {
   docker run --rm -it \
          --pid host \
