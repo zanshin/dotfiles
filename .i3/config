@@ -302,3 +302,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Screen backlighting
+# bindsym XF86MonBrightnessUp exec sudo screen-backlight up
+# bindsym XF86MonBrightnessDown exec sudo screen-backlight down
+
