@@ -32,6 +32,12 @@ then
   source $HOME/.bash_functions
 fi
 
+# source my docker functions file
+if [ -f $HOME/.bash_docker_functions ]
+then
+  source $HOME/.bash_docker_functions
+fi
+
 # setup some key bindings
 if [ -f $HOME/.bash_bindkeys ]
 then
@@ -69,15 +75,12 @@ export PAGER=less
 export LESS="-M -n -q -i -r"
 
 # Go path
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
-
-# Use Vi bindings
-set -o vi
 
 # allow redirection to overwrite file
 unset noclobber

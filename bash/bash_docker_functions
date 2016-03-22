@@ -1,0 +1,45 @@
+#!/bin/bash
+# Bash wrappers for docker run commands
+
+# Helper functions
+dcleanup() {
+  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+del_stopped() {
+  local name=$1
+  local state=$(docker inspect --format "{{.State.Runing}" $name 2>/dev/null)
+
+  if [[ "$state" == "false" ]] ; then
+    docker rm $name
+  fi
+}
+
+relies_on() {
+  local containers=$@
+
+  for container in $containers; do
+    local state=$(docker inspect --format "{{.State.Running}}" $container 2>/dev/null)
+
+    if [[ "$state" == "false" ]] || [[ "$state" == "" ]]; then
+      echo "$container is not running, starting it for you."
+      $container
+    fi
+  done
+}
+
+cows() {
+  docker run --rm -it \
+         --name cowsay \
+         zanshin/cowsay
+}
+
+htop() {
+  docker run --rm -it \
+         --pid host \
+         --net none \
+         --name htop \
+         zanshin/htop
+}
+

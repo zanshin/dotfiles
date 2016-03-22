@@ -388,6 +388,19 @@ endif
 let g:netrw_liststyle=3
 
 " }}}
+" Vimscript {{{
+" Syntax toggle {{{
+function! ToggleSyntax()
+  if exists("g:syntax_on")
+    syntax off
+  else
+    syntax enable
+  endif
+endfunction
+
+nmap <silent><leader>s :call ToggleSyntax()<cr>
+" }}}
+" }}}
 " finis {{{
 
 " }}}

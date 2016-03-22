@@ -128,7 +128,7 @@ function! plug#begin(...)
 endfunction
 
 function! s:define_commands()
-  command! -nargs=+ -bar Plug call s:add(<args>)
+  command! -nargs=+ -bar Plug call s:Plug(<args>)
   if !executable('git')
     return s:err('`git` executable not found. Most commands will not be available. To suppress this message, prepend `silent!` to `call plug#begin(...)`.')
   endif
@@ -149,12 +149,19 @@ function! s:to_s(v)
   return type(a:v) == s:TYPE.string ? a:v : join(a:v, "\n") . "\n"
 endfunction
 
+function! s:glob(from, pattern)
+  return s:lines(globpath(a:from, a:pattern))
+endfunction
+
 function! s:source(from, ...)
+  let found = 0
   for pattern in a:000
-    for vim in s:lines(globpath(a:from, pattern))
+    for vim in s:glob(a:from, pattern)
       execute 'source' s:esc(vim)
+      let found = 1
     endfor
   endfor
+  return found
 endfunction
 
 function! s:assoc(dict, key, val)
@@ -248,7 +255,9 @@ function! plug#end()
   call s:reorg_rtp()
   filetype plugin indent on
   if has('vim_starting')
-    syntax enable
+    if has('syntax') && !exists('g:syntax_on')
+      syntax enable
+    end
   else
     call s:reload()
   endif
@@ -279,8 +288,9 @@ function! s:version_requirement(val, min)
 endfunction
 
 function! s:git_version_requirement(...)
-  let s:git_version = get(s:, 'git_version',
-    \ map(split(split(s:system('git --version'))[-1], '\.'), 'str2nr(v:val)'))
+  if !exists('s:git_version')
+    let s:git_version = map(split(split(s:system('git --version'))[-1], '\.'), 'str2nr(v:val)')
+  endif
   return s:version_requirement(s:git_version, a:000)
 endfunction
 
@@ -411,7 +421,7 @@ function! s:remove_triggers(name)
   call remove(s:triggers, a:name)
 endfunction
 
-function! s:lod(names, types)
+function! s:lod(names, types, ...)
   for name in a:names
     call s:remove_triggers(name)
     let s:loaded[name] = 1
@@ -423,6 +433,12 @@ function! s:lod(names, types)
     for dir in a:types
       call s:source(rtp, dir.'/**/*.vim')
     endfor
+    if a:0
+      if !s:source(rtp, a:1) && !empty(s:glob(rtp, a:2))
+        execute 'runtime' a:1
+      endif
+      call s:source(rtp, a:2)
+    endif
     if exists('#User#'.name)
       execute 'doautocmd User' name
     endif
@@ -430,7 +446,8 @@ function! s:lod(names, types)
 endfunction
 
 function! s:lod_ft(pat, names)
-  call s:lod(a:names, ['plugin', 'after/plugin', 'syntax', 'after/syntax'])
+  let syn = 'syntax/'.a:pat.'.vim'
+  call s:lod(a:names, ['plugin', 'after/plugin'], syn, 'after/'.syn)
   execute 'autocmd! PlugLOD FileType' a:pat
   if exists('#filetypeplugin#FileType')
     doautocmd filetypeplugin FileType
@@ -458,7 +475,7 @@ function! s:lod_map(map, names, prefix)
   call feedkeys(a:prefix . substitute(a:map, '^<Plug>', "\<Plug>", '') . extra)
 endfunction
 
-function! s:add(repo, ...)
+function! s:Plug(repo, ...)
   if a:0 > 1
     return s:err('Invalid number of arguments (1..2)')
   endif
@@ -546,12 +563,14 @@ function! s:syntax()
   syn match plugStar /^*/
   syn match plugMessage /\(^- \)\@<=.*/
   syn match plugName /\(^- \)\@<=[^ ]*:/
-  syn match plugSha /\%(: \)\@<=[0-9a-z]\{4,}$/
+  syn match plugSha /\%(: \)\@<=[0-9a-f]\{4,}$/
   syn match plugTag /(tag: [^)]\+)/
   syn match plugInstall /\(^+ \)\@<=[^:]*/
   syn match plugUpdate /\(^* \)\@<=[^:]*/
-  syn match plugCommit /^  [0-9a-z]\{7} .*/ contains=plugRelDate,plugSha,plugTag
-  syn match plugSha /\(^  \)\@<=[0-9a-z]\{7}/ contained
+  syn match plugCommit /^  \X*[0-9a-f]\{7} .*/ contains=plugRelDate,plugEdge,plugTag
+  syn match plugEdge /^  \X\+$/
+  syn match plugEdge /^  \X*/ contained nextgroup=plugSha
+  syn match plugSha /[0-9a-f]\{7}/ contained
   syn match plugRelDate /([^)]*)$/ contained
   syn match plugNotLoaded /(not loaded)$/
   syn match plugError /^x.*/
@@ -575,6 +594,7 @@ function! s:syntax()
 
   hi def link plugError   Error
   hi def link plugRelDate Comment
+  hi def link plugEdge    PreProc
   hi def link plugSha     Identifier
   hi def link plugTag     Constant
 
@@ -646,6 +666,10 @@ function! s:finish_bindings()
 endfunction
 
 function! s:prepare(...)
+  if empty(getcwd())
+    throw 'Invalid current working directory. Cannot proceed.'
+  endif
+
   call s:job_abort()
   if s:switch_in()
     normal q
@@ -1722,7 +1746,7 @@ function! s:shellesc(arg)
 endfunction
 
 function! s:glob_dir(path)
-  return map(filter(s:lines(globpath(a:path, '**')), 'isdirectory(v:val)'), 's:dirpath(v:val)')
+  return map(filter(s:glob(a:path, '**'), 'isdirectory(v:val)'), 's:dirpath(v:val)')
 endfunction
 
 function! s:progress_bar(line, bar, total)
@@ -1999,7 +2023,7 @@ function! s:preview_commit()
     let b:plug_preview = !s:is_preview_window_open()
   endif
 
-  let sha = matchstr(getline('.'), '\(^  \)\@<=[0-9a-z]\{7}')
+  let sha = matchstr(getline('.'), '^  \X*\zs[0-9a-f]\{7}')
   if empty(sha)
     return
   endif
@@ -2024,10 +2048,15 @@ function! s:section(flags)
 endfunction
 
 function! s:format_git_log(line)
-  let [sha, refs, subject, date] = split(a:line, nr2char(1))
+  let indent = '  '
+  let tokens = split(a:line, nr2char(1))
+  if len(tokens) != 5
+    return indent.substitute(a:line, '\s*$', '', '')
+  endif
+  let [graph, sha, refs, subject, date] = tokens
   let tag = matchstr(refs, 'tag: [^,)]\+')
   let tag = empty(tag) ? ' ' : ' ('.tag.') '
-  return printf('  %s%s%s (%s)', sha, tag, subject, date)
+  return printf('%s%s%s%s%s (%s)', indent, graph, sha, tag, subject, date)
 endfunction
 
 function! s:append_ul(lnum, text)
@@ -2049,7 +2078,7 @@ function! s:diff()
     call s:append_ul(2, origin ? 'Pending updates:' : 'Last update:')
     for [k, v] in plugs
       let range = origin ? '..origin/'.v.branch : 'HEAD@{1}..'
-      let diff = s:system_chomp('git log --pretty=format:"%h%x01%d%x01%s%x01%cr" '.s:shellesc(range), v.dir)
+      let diff = s:system_chomp('git log --graph --color=never --pretty=format:"%x01%h%x01%d%x01%s%x01%cr" '.s:shellesc(range), v.dir)
       if !empty(diff)
         let ref = has_key(v, 'tag') ? (' (tag: '.v.tag.')') : has_key(v, 'commit') ? (' '.v.commit) : ''
         call append(5, extend(['', '- '.k.':'.ref], map(s:lines(diff), 's:format_git_log(v:val)')))
