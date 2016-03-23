@@ -1,0 +1,111 @@
+# Slate configuration
+#
+# Configuration directives: config name value
+#
+# Default to the current screen, if the referenced screen does not exist.
+config defaultToCurrentScreen true
+
+# The base value for nudge precent calculation.
+config nudgePercentOf screenSize
+
+# The base value for resize precent calculation.
+config resizePercentOf screenSize
+
+# Alias directives: alias name value
+#
+alias full        move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf    move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias leftthird   move screenOriginX;screenOriginY screenSizeX/3;screenSizeY
+alias righthalf   move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias rightthird  move screenOriginX+screenSizeX/3+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias middlethird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias tophalf     move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias bottomhalf  move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias topleft     corner top-left     resize:screenSizeX/2;screenSizeY/2
+alias topright    corner top-right    resize:screenSizeX/2;screenSizeY/2
+alias bottomleft  corner bottom-left  resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+# Layout directives: layout name 'app name':OPTIONS operations
+
+# Aliases for this example
+# alias 0-full move screenOriginX;screenOriginY screenSizeX;screenSizeY 0
+# alias 1-full move screenOriginX;screenOriginY screenSizeX;screenSizeY 1
+#
+# oneDisplayLayout - puts iTerm in the left half and Firefox in the right half.
+# layout oneDisplayLayout 'iTerm':MAIN_FIRST #{lefthalf}
+# layout oneDisplayLayout 'Firefox':REPEAT #{righthalf}
+#
+# twoDisplayLayout - puts iTerm in full screen mode on first display, and
+# Firefox in full screen mode on the second display
+# layout twoDisplayLayout 'iTerm':MAIN_FIRST #{0-full}
+# layout twoDispalyLayout 'Firefox':REPEAT #{1-full}
+#
+
+# Default directives: default layout-or-snapshot-name screen-configuration
+#
+# Triggers the twoScreenLayout when there are 2 monitors
+# default twoScreenLayout count:2
+#
+
+# Bind directives: bind key:modifiers oepration parameter+
+#                  bind key:modal-key operation parameter+
+#
+# Location - sets the window to the specified location.
+# map
+# ... Y * * * P    top-left * * * top-right
+# ... H J K L      left-half bottom-half top-half right-half 
+# ... B * * * .    bottom-left * * * bottom-right
+bind return:shift;cmd ${full}
+
+# top-{left|right}
+bind y:shift;cmd ${topleft}
+bind p:shift;cmd ${topright}
+
+# bottom-{left|right}
+bind b:shift;cmd ${bottomleft}
+bind .:shift;cmd ${bottomright}
+
+# left{half|third}
+bind h:shift;cmd ${lefthalf}
+bind h:shift;alt;cmd ${leftthird}
+
+# right{half|third}
+bind l:shift;cmd ${righthalf}
+bind l:shift;alt;cmd ${rightthird}
+
+# {top|bottom}half
+bind k:shift;cmd ${tophalf}
+bind j:shift;cmd ${bottomhalf}
+
+# Resize - resizes the window in the specified direction
+bind l:alt resize +1% +0
+bind h:alt resize -1% +0
+bind k:alt resize +0 -1%
+bind j:alt resize +0 +1%
+bind l:ctrl;alt resize -1% +0 bottom-right
+bind h:ctrl;alt resize +1% +0 bottom-right
+bind k:ctrl;alt resize +0 +1% bottom-right
+bind j:ctrl;alt resize +0 -1% bottom-right
+
+# Nudge - nudge the window in the specified direction
+bind l:shift;alt nudge +1% +0
+bind h:shift;alt nudge -1% +0
+bind k:shift;alt nudge +0 -1%
+bind j:shift;alt nudge +0 +1%
+
+# Focus - brings the focus to the window in the specified position
+bind l:shift;ctrl focus right
+bind h:shift;ctrl focus left
+bind k:shift;ctrl focus up
+bind j:shift;ctrl focus down
+bind k:shift;ctrl;alt focus above
+bind j:shift;ctrl;alt focus behind
+
+# Source directive: source filename optional:if_exists
+source ~/.slate-configuration if_exists
+
+# Application Bindings
+# bind i:shift;cmd focus 'iTerm'
+# bind u:shift;cmd focus 'iTunes'
+#
