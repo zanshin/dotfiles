@@ -33,6 +33,9 @@ Plug 'benmills/vimux'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 
+" ----- Orgmode
+Plug 'jceb/vim-orgmode'
+
 call plug#end() 
 
 " turn things on
