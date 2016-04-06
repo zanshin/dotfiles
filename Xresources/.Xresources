@@ -39,6 +39,47 @@ URxvt*color19:              #252936
 URxvt*color20:              #C0C5CE
 URxvt*color21:              #C9CCDB
 
+! Spacegray colors
+! ----------------
+! URxvt*background:           #111314
+! URxvt*foreground:           #b7bbb7
+! URxvt*cursorColor:          #b7bbb7
+! URxvt*scrollColor:          #b7bbb7
+! URxvt*highlightColor:
+! URxvt*hihglightTextColor:
+
+! black
+! URxvt*color0:               #2c2f33
+! URxvt*color8:               #4b5056
+! red
+! URxvt*color1:               #b04c50
+! URxvt*color9:               #b04c50
+! green
+! URxvt*color2:               #919652
+! URxvt*color10:              #94985b
+! yellow
+! URxvt*color3:               #e2995c
+! URxvt*color11:              #e2995c
+! blue
+! URxvt*color4:               #66899d
+! URxvt*color12:              #66899d
+! magenta
+! URxvt*color5:               #8d6494
+! URxvt*color13:              #8d6494
+! cyan
+! URxvt*color6:               #527c77
+! URxvt*color14:              #527c77
+! white
+! URxvt*color7:               #606360
+! URxvt*color15:              #dde3dc
+
+
+
+
+
+
+
+
 ! Enable Perl extensions
 ! ----------------------
 URxvt.perl-ext-common: default,matcher,fullscreen,resize-font,clipboard
