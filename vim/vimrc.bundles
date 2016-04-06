@@ -33,16 +33,6 @@ Plug 'benmills/vimux'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 
-" ----- Orgmode
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-speeddating'
-Plug 'chrisbra/NrrwRgn'
-Plug 'mattn/calendar-vim'
-Plug 'vim-scripts/utl.vim'
-Plug 'vim-scripts/taglist.vim'
-Plug 'vim-scripts/SyntaxRange'
-
 call plug#end() 
 
 " turn things on
