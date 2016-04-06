@@ -35,11 +35,21 @@ Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 
 " ----- Orgmode
 Plug 'jceb/vim-orgmode'
+<<<<<<< HEAD
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 Plug 'mattn/calendar-vim'
 Plug 'vim-scripts/utl.vim'
 Plug 'vim-scripts/taglist.vim'
+=======
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'chrisbra/NrrwRgn'
+Plug 'mattn/calendar-vim'
+Plug 'vim-scripts/utl.vim'
+Plug 'vim-scripts/taglist.vim'
+Plug 'vim-scripts/SyntaxRange'
+>>>>>>> master
 
 call plug#end() 
 
