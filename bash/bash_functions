@@ -36,7 +36,7 @@ function kick() {
 # }}}
 # Git function {{{
 function gg() {
-  git commit -S -m "$*"
+  git commit -m "$*"
 }
 
 # }}}
