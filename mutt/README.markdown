@@ -12,10 +12,10 @@ This configuration relies upon a number of tools. They are presented in the orde
 
 * [Offlineimap](http://offlineimap.org)
  
-    git clone git://github.com/spaetz/offlineimap.git
-    cd offlineimap
-    git checkout 679c491c56c981961e18aa43b31955900491d7a3
-    python setup.py install
+    git clone git://github.com/spaetz/offlineimap.git  
+    cd offlineimap  
+    git checkout 679c491c56c981961e18aa43b31955900491d7a3  
+    python setup.py install  
 
 Note: `sudo` may be required for the install step.
 

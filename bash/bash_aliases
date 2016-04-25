@@ -20,6 +20,10 @@ alias code='~/code'
 # Sorted size {{{
 alias 'dus=du -sckx * | sort -nr'
 
+# Processes {{{
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+
+# }}}
 # }}}
 # Mac OS X specific stuff {{{
 alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort' 
