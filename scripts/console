@@ -10,7 +10,7 @@ if [ $? != 0 ]
 then
 
 # if session does not exist create it
-tmux -2 new-session -s console -n desktop -d
+tmux new-session -s console -n desktop -d
 
 # set default directory
 tmux send-keys -t console:1 'cd ~/' C-m
@@ -67,4 +67,4 @@ tmux set-window-option synchronize-panes
 
 # end if statement and attach mytmux if it existed
 fi
-tmux attach -t console
+tmux -2 attach -t console

@@ -9,7 +9,7 @@ if [ $? != 0 ]
 then
 
 # if session does not exist create it
-tmux -2 new-session -s dementia -n desktop -d
+tmux new-session -s dementia -n desktop -d
 
 # set default directory
 tmux send-keys -t dementia:1 'cd ~/' C-m
@@ -42,4 +42,4 @@ tmux send-keys -t dementia:3.2 'ls -al' C-m
 
 # end if statement and attach mytmux if it existed
 fi
-tmux attach -t dementia
+tmux -2 attach -t dementia
