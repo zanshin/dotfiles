@@ -11,6 +11,11 @@ Host krayt
 Host mhn
     HostName ome-wse-mhn.campus.ksu.edu
 
+# Access GitHub even when port 22 isn't available
+Host github.com
+    HostName ssh.github.com
+    Port 443
+
 # OME system admin
 Host tx1
     HostName ome-txhub1.cc.ksu.edu
