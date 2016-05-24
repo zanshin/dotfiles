@@ -197,7 +197,5 @@ alias hosts='sudo vim /etc/hosts'
 alias sudo='sudo '
 
 # }}}
-
-
-# finis
-# mhn 2013.12.24 
+# Aliases from new-alias function
+alias lst='ls -alt'

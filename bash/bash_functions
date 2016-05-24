@@ -300,4 +300,11 @@ repo() {
   fi
 }
 
+# Function to create aliases
+new-alias() {
+  local last_command=$(echo `history |tail -n2 |head -n1` | sed 's/[0-9]* //')
+  echo alias $1="'""$last_command""'" >> ~/.bash_aliases
+  . ~/.bash_profile
+}
+
 # }}}
