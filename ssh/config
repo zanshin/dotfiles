@@ -7,6 +7,11 @@ Host krayt
     HostName krayt.ome.ksu.edu
     Port 11122
 
+# Treadmill iMac
+Host fugazi
+    HostName fugazi.ome.ksu.edu
+    Port 11122
+
 # Sandbox
 Host mhn
     HostName ome-wse-mhn.campus.ksu.edu
