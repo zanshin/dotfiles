@@ -116,5 +116,9 @@ for details.
 
     $ ln -s ~/.dotfiles/openconnect/openconnect ~/.openconnect
 
+## i3
+The beginnings of an i3 window manager configuration. Originally setup on Debian, now used on Ubuntu
+16.
 
+    ln -s ~/.dotfiles/i3/config ~/.i3/config
 
