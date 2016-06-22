@@ -89,6 +89,12 @@ unset noclobber
 umask 002
 
 # ----------------------------------
+# Export settings for Wildfly reboot scripts
+# ---------------------------------
+export CHEFTEST="/Users/mhn/code/chef/omedev/chef-repo"
+export CHEFPROD="/Users/mhn/code/chef/ome/chef-repo"
+
+# ----------------------------------
 # Build a Git aware prompt
 # ---------------------------------
 # Variables used in building the Git status portiion of the prompt
