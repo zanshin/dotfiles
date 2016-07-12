@@ -23,6 +23,7 @@ function knome() {
   tmux new-window -n $1
   for node in `knifeome "$1"`; do
     tmux split-window -t :$ "ssh $node"
+    tmux select-layout -t :$ even-vertical >/dev/null 2>&1
   done
   tmux kill-pane -t $.1
   tmux select-layout -t :$ even-vertical >/dev/null 2>&1
