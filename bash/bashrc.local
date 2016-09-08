@@ -116,6 +116,11 @@ then
   TERM=xterm
 fi
 
+if [ "$TERM" = "screen-256color" ] && [ "$myos" = "Linux" ]
+then
+  TERM=xterm-256color
+fi
+
 # CVS setup
 export CVS_RSH=ssh
 export CVSROOT=:ext:mhn@cvs.ome.ksu.edu:/as/data/cvsroot
