@@ -168,7 +168,25 @@ function prompt_command {
 # Set the completed prompt
 export PROMPT_COMMAND=prompt_command
 
-export PS1="\n(\$(date +%H:%M:%S)) $ "
+function timer_start {
+  timer=${timer:-$SECONDS}
+}
+
+function timer_stop {
+  timer_show=$(($SECONDS - $timer))
+  unset timer
+}
+
+trap 'timer_start' DEBUG
+
+if [ "$PROMPT_COMMAND" == "" ]; then
+  PROMPT_COMMAND="timer_stop"
+else
+  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+fi
+
+# export PS1='\n($(date +%H:%M:%S))[ ${timer_show}s] $ '
+export PS1='\n[${timer_show}s] $ '
 
 # configure how history works
 HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
