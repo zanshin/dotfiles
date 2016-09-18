@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 " ----- Make Vim look good
 Plug 'itchyny/landscape.vim'
 Plug 'bling/vim-airline'
+Plug 'jacoborus/tender'
 
 " ----- Syntax & Highlighting
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -47,7 +48,12 @@ endif
 " }}}
 " Color scheme {{{
 set background=dark
-silent! colorscheme landscape
+" silent! colorscheme landscape
+" enable true color, required for Vim < 8.0
+if v:version < 800
+  set guicolors
+endif
+silent! colorscheme tender
 
 " }}}
 " Netrw {{{
@@ -73,7 +79,12 @@ let g:airline#extensions#tagbar#enabled = 0
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-let g:airline_theme='dark'
+" let g:airline_theme='dark'
+
+" enable tender airline theme
+let g:tender_airline = 1
+" set airline theme
+let g:airline_theme = 'tender'
 
 
 " }}}
