@@ -1,5 +1,5 @@
 Host * 
-    UseRoaming no
+#    UseRoaming no
     ServerAliveInterval 60
 
 # Desktop
