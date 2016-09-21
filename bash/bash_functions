@@ -23,6 +23,7 @@ function knome() {
   tmux new-window -n $1
   for node in `knifeome "$1"`; do
     tmux split-window -t :$ "ssh $node"
+    tmux select-layout -t :$ even-vertical >/dev/null 2>&1
   done
   tmux kill-pane -t $.1
   tmux select-layout -t :$ even-vertical >/dev/null 2>&1
@@ -305,6 +306,19 @@ new-alias() {
   local last_command=$(echo `history |tail -n2 |head -n1` | sed 's/[0-9]* //')
   echo alias $1="'""$last_command""'" >> ~/.bash_aliases
   . ~/.bash_profile
+}
+
+# }}}
+# Colorize Man {{{
+man() {
+  env \
+    LESS_TERMCAP_md=$'\E[1;36m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[1;40;92m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[1;32m' \
+      man "$@"
 }
 
 # }}}
