@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/landscape.vim'
 Plug 'bling/vim-airline'
 Plug 'jacoborus/tender'
+Plug 'sjl/badwolf'
 
 " ----- Syntax & Highlighting
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -50,10 +51,21 @@ endif
 set background=dark
 " silent! colorscheme landscape
 " enable true color, required for Vim < 8.0
-if v:version < 800
-  set guicolors
-endif
-silent! colorscheme tender
+"if v:version < 800
+"  set guicolors
+"endif
+"silent! colorscheme tender
+
+" badwolf
+silent! colorscheme badwolf
+" Make the gutters darker than the background
+let g:badwolf_darkgutter = 1
+"Make the tab line darker than the background
+let g:badwolf_tabline = 3
+" Turn on HTML link underlining
+let g:badwolf_html_link_underline = 1
+" Turn on CSS properties highlighting
+let g:badwolf_css_props_highlight =1
 
 " }}}
 " Netrw {{{
@@ -82,9 +94,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline_theme='dark'
 
 " enable tender airline theme
-let g:tender_airline = 1
+"let g:tender_airline = 1
 " set airline theme
-let g:airline_theme = 'tender'
+"let g:airline_theme = 'tender'
 
 
 " }}}
