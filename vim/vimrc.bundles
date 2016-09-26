@@ -99,7 +99,7 @@ let g:airline#extensions#tagbar#enabled = 0
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" let g:airline_theme='dark'
+let g:airline_theme='dark'
 
 " enable tender airline theme
 "let g:tender_airline = 1
