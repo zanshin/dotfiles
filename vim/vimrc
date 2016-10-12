@@ -388,6 +388,11 @@ if has("autocmd")
 endif
 
 " }}}
+" Snippets {{{
+nnoremap ,pkg :-1read $HOME/.vim/snippets/chef/package.rb<CR>fnct'
+nnoremap ,cbf :-1read $HOME/.vim/snippets/chef/cookbook_file.rb<CR>fpct"
+
+" }}}
 " NetRW {{{
 let g:netrw_liststyle=3
 
