@@ -45,6 +45,7 @@ alias sym="ls -la | grep '\->'"
 alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
 alias 'vi=vim'
+alias 'netwtf=sudo /usr/local/Cellar/mtr/0.87/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
 
 # }}}
 # Mercurial (hg) {{{
