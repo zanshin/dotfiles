@@ -1,0 +1,11 @@
+__Account Description__
+  Site: __URL__
+  Username: __username__
+  Password: __password__
+  Email: __email__
+
+  Login with: __login__
+
+  Address on file: __address__
+  Phone on file: __phone__
+ 
