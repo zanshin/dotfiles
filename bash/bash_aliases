@@ -106,11 +106,11 @@ alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 
 # tmux scripts 
-alias blog='~/.dotfiles/scripts/blog'
-alias dev='~/.dotfiles/scripts/chef'
-alias console='~/.dotfiles/scripts/console'
-alias tools='~/.dotfiles/scripts/tools'
-alias deploy='~/.dotfiles/scripts/deploy'
+alias tb='~/.dotfiles/scripts/blog'
+alias td='~/.dotfiles/scripts/chef'
+alias tc='~/.dotfiles/scripts/console'
+alias tt='~/.dotfiles/scripts/tools'
+alias td='~/.dotfiles/scripts/deploy'
 
 # force tmux to use 256 colors
 # alias tmux='TERM=screen-256colors tmux'
