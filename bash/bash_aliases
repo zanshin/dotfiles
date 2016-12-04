@@ -174,7 +174,7 @@ alias off='deactivate'
 
 # }}}
 # Oddball stuff {{{
-alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
 alias sloc='/usr/local/sloccount/bin/sloccount'
 alias adventure='emacs -batch -l dunnet'
 alias ttop='top -ocpu -R -F -s 2 -n30'
