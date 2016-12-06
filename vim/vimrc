@@ -391,6 +391,8 @@ endif
 " Snippets {{{
 nnoremap ,pkg :-1read $HOME/.vim/snippets/chef/package.rb<CR>/__.*__<CR>
 nnoremap ,cbf :-1read $HOME/.vim/snippets/chef/cookbook_file.rb<CR>/__.*__<CR>
+nnoremap ,tpl :-1read $HOME/.vim/snippets/chef/template.rb<CR>/__.*__<CR>
+nnoremap ,pass :-1read $HOME/.vim/snippets/password/pass.txt<CR>/__.*__<CR>
 
 " }}}
 " NetRW {{{

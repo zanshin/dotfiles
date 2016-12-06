@@ -16,6 +16,12 @@ Host fugazi
 Host mhn
     HostName ome-wse-mhn.campus.ksu.edu
 
+# Ubuntu desktop
+Host fermata
+    HostName 68.102.23.189
+    Port 11122
+    user mark
+
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com

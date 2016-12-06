@@ -203,7 +203,9 @@ function! plug#end()
   endif
   let lod = { 'ft': {}, 'map': {}, 'cmd': {} }
 
-  filetype off
+  if exists('g:did_load_filetypes')
+    filetype off
+  endif
   for name in g:plugs_order
     if !has_key(g:plugs, name)
       continue
@@ -223,6 +225,7 @@ function! plug#end()
           endif
           call add(s:triggers[name].map, cmd)
         elseif cmd =~# '^[A-Z]'
+          let cmd = substitute(cmd, '!*$', '', '')
           if exists(':'.cmd) != 2
             call s:assoc(lod.cmd, cmd, name)
           endif
@@ -249,7 +252,7 @@ function! plug#end()
 
   for [cmd, names] in items(lod.cmd)
     execute printf(
-    \ 'command! -nargs=* -range -bang %s call s:lod_cmd(%s, "<bang>", <line1>, <line2>, <q-args>, %s)',
+    \ 'command! -nargs=* -range -bang -complete=file %s call s:lod_cmd(%s, "<bang>", <line1>, <line2>, <q-args>, %s)',
     \ cmd, string(cmd), string(names))
   endfor
 
@@ -257,8 +260,8 @@ function! plug#end()
     for [mode, map_prefix, key_prefix] in
           \ [['i', '<C-O>', ''], ['n', '', ''], ['v', '', 'gv'], ['o', '', '']]
       execute printf(
-      \ '%snoremap <silent> %s %s:<C-U>call <SID>lod_map(%s, %s, "%s")<CR>',
-      \ mode, map, map_prefix, string(map), string(names), key_prefix)
+      \ '%snoremap <silent> %s %s:<C-U>call <SID>lod_map(%s, %s, %s, "%s")<CR>',
+      \ mode, map, map_prefix, string(map), string(names), mode != 'i', key_prefix)
     endfor
   endfor
 
@@ -310,7 +313,7 @@ endfunction
 
 function! s:git_version_requirement(...)
   if !exists('s:git_version')
-    let s:git_version = map(split(split(s:system('git --version'))[-1], '\.'), 'str2nr(v:val)')
+    let s:git_version = map(split(split(s:system('git --version'))[2], '\.'), 'str2nr(v:val)')
   endif
   return s:version_requirement(s:git_version, a:000)
 endfunction
@@ -399,7 +402,7 @@ function! s:reorg_rtp()
 
   let s:middle = get(s:, 'middle', &rtp)
   let rtps     = map(s:loaded_names(), 's:rtp(g:plugs[v:val])')
-  let afters   = filter(map(copy(rtps), 'globpath(v:val, "after")'), 'isdirectory(v:val)')
+  let afters   = filter(map(copy(rtps), 'globpath(v:val, "after")'), '!empty(v:val)')
   let rtp      = join(map(rtps, 'escape(v:val, ",")'), ',')
                  \ . ','.s:middle.','
                  \ . join(map(afters, 'escape(v:val, ",")'), ',')
@@ -498,7 +501,7 @@ function! s:lod_cmd(cmd, bang, l1, l2, args, names)
   execute printf('%s%s%s %s', (a:l1 == a:l2 ? '' : (a:l1.','.a:l2)), a:cmd, a:bang, a:args)
 endfunction
 
-function! s:lod_map(map, names, prefix)
+function! s:lod_map(map, names, with_prefix, prefix)
   call s:lod(a:names, ['ftdetect', 'after/ftdetect', 'plugin', 'after/plugin'])
   call s:dobufread(a:names)
   let extra = ''
@@ -510,15 +513,17 @@ function! s:lod_map(map, names, prefix)
     let extra .= nr2char(c)
   endwhile
 
-  let prefix = v:count ? v:count : ''
-  let prefix .= '"'.v:register.a:prefix
-  if mode(1) == 'no'
-    if v:operator == 'c'
-      let prefix = "\<esc>" . prefix
+  if a:with_prefix
+    let prefix = v:count ? v:count : ''
+    let prefix .= '"'.v:register.a:prefix
+    if mode(1) == 'no'
+      if v:operator == 'c'
+        let prefix = "\<esc>" . prefix
+      endif
+      let prefix .= v:operator
     endif
-    let prefix .= v:operator
+    call feedkeys(prefix, 'n')
   endif
-  call feedkeys(prefix, 'n')
   call feedkeys(substitute(a:map, '^<Plug>', "\<Plug>", '') . extra)
 endfunction
 
@@ -572,8 +577,7 @@ function! s:infer_properties(name, repo)
       let fmt = get(g:, 'plug_url_format', 'https://git::@github.com/%s.git')
       let uri = printf(fmt, repo)
     endif
-    let dir = s:dirpath( fnamemodify(join([g:plug_home, a:name], '/'), ':p') )
-    return { 'dir': dir, 'uri': uri }
+    return { 'dir': s:dirpath(g:plug_home.'/'.a:name), 'uri': uri }
   endif
 endfunction
 
@@ -747,7 +751,7 @@ function! s:prepare(...)
   for k in ['<cr>', 'L', 'o', 'X', 'd', 'dd']
     execute 'silent! unmap <buffer>' k
   endfor
-  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap cursorline modifiable
+  setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline modifiable nospell
   setf vim-plug
   if exists('g:syntax_on')
     call s:syntax()

@@ -25,13 +25,16 @@ set thorough_search      # strip headers and eval mimes before searching
 
 # }}}
 # Color Scheme {{{ 
+source ~/.mutt/themes/mhn.muttrc
+#source ~/.mutt/themes/mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/themes/vombatidae.muttrc
 #source ~/.mutt/themes/colors.muttrc
-source ~/.mutt/themes/tomorrow-night.muttrc
+#source ~/.mutt/themes/tomorrow-night.muttrc
 
 # }}}
 # Sidebar Patch {{{ 
 set sidebar_visible = yes 
-set sidebar_delim   = ' | '
+set sidebar_divider_char   = ' | '
 set sidebar_width   = 30 
 # set sidebar_delim_chars = "./"
 color sidebar_new  yellow default
