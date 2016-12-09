@@ -54,6 +54,11 @@ if [ -d /usr/local/bin ] ; then
 	PATH="/usr/local/bin:${PATH}"
 fi
 
+# Add Standard ML/NJ binaries to path
+if [ -d /usr/local/smlnj/bin ] ; then
+  PATH="${PATH}:/usr/local/smlnj/bin"
+fi
+
 export PATH
 
 # finis	
