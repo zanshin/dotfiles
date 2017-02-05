@@ -9,7 +9,7 @@ if [ $? != 0 ]
 then
 
 # if session does not exist create it
-tmux -2 new-session -s chef -n vpn -d
+tmux new-session -s chef -n vpn -d
 
 # set default directory
 tmux send-keys -t chef:1 'cd ~/' C-m
@@ -53,4 +53,4 @@ tmux send-keys -t chef:4 'ls' C-m
 
 # end if statement and attach mytmux if it existed
 fi
-tmux attach -t chef
+tmux -2 attach -t chef

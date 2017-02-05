@@ -9,7 +9,7 @@ if [ $? != 0 ]
 then
 
 # if session does not exist create it
-tmux -2 new-session -s blog -n home -d
+tmux new-session -s blog -n home -d
 
 # set default directory
 tmux send-keys -t blog:1 'cd ~/' C-m
@@ -57,4 +57,4 @@ tmux send-keys -t blog:5.3 'rake watch[drafts]' C-m
 
  # end if statement and attach mytmux if it existed
 fi
-tmux attach -t blog
+tmux -2 attach -t blog

@@ -10,7 +10,7 @@ if [ $? != 0 ]
 then
 
 # if session does not exist create it
-tmux -2 new-session -s tools -n desktop -d
+tmux new-session -s tools -n desktop -d
 
 # set default directory
 tmux send-keys -t tools:1 'cd ~/' C-m
@@ -34,4 +34,4 @@ tmux send-keys -t tools:4 'ssh trebor' C-m
 
 # end if statement and attach mytmux if it existed
 fi
-tmux attach -t tools
+tmux -2 attach -t tools
