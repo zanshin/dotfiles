@@ -51,21 +51,21 @@ then
 fi
 
 # add brew bash completions
-if [ -f /usr/local/Library/Contributions/brew_bash_completions.sh ]
+if [ -f $(brew --prefix)/etc/bash_completion ]
 then
-  source /usr/local/Library/Contributions/brew_bash_completions.sh
+  source $(brew --prefix)/etc/bash_completion
 fi
 
-# add tmux completions
-if [ -f /usr/local/etc/bash_completions.d/tmux ]
+# add brew provided tmux completions
+if [ -f $(brew --prefix)/etc/bash_completions.d/tmux ]
 then
-  source /usr/local/etc/bash_completions.d/tmux
+  source $(bash --prefix)/etc/bash_completions.d/tmux
 fi
 
-# add git completions
-if [ -f /usr/local/etc/bash_completions.d/git-completions.bash ]
+# add brew provided git completions
+if [ -f $(brew --prefix)/etc/bash_completions.d/git-completions.bash ]
 then
-  source /usr/local/etc/bash_completions.d/git-completions.bash
+  source $(brew --prefix)/etc/bash_completions.d/git-completions.bash
 fi
 
 # export EDITOR, PAGER, and LESS 
