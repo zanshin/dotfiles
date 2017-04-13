@@ -30,6 +30,7 @@ alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
 alias 'adventure=emacs -batch -l dunnet' 
 alias 'mailsize=du -hs ~/Library/mail' 
 alias 'ttop=top -ocpu -R -F -s 2 -n30' 
+alias "dismount=osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true)'"
 
 # }}}
 # ls variants {{{
