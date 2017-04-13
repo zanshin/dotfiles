@@ -34,6 +34,10 @@ function kick() {
   knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" 
 }
 
+function ktags() {
+  knife search "tags:*${@}*" -a name -a tags
+}
+
 # }}}
 # Git function {{{
 function gg() {
