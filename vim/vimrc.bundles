@@ -15,7 +15,7 @@ Plug 'romainl/flattened'
 
 " ----- Syntax & Highlighting
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-"Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " ----- Git helpers
 Plug 'tpope/vim-fugitive'
