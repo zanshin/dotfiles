@@ -50,8 +50,8 @@ endif
 
 " }}}
 " Color scheme {{{
-set background=dark
-silent! colorscheme landscape
+" set background=dark
+" silent! colorscheme landscape
 "silent! colorscheme flattened_dark
 " enable true color, required for Vim < 8.0
 "if v:version < 800
@@ -60,15 +60,15 @@ silent! colorscheme landscape
 "silent! colorscheme tender
 
 " badwolf
-" silent! colorscheme badwolf
+silent! colorscheme badwolf
 " Make the gutters darker than the background
-" let g:badwolf_darkgutter = 1
+let g:badwolf_darkgutter = 1
 "Make the tab line darker than the background
-" let g:badwolf_tabline = 3
+let g:badwolf_tabline = 3
 " Turn on HTML link underlining
-" let g:badwolf_html_link_underline = 1
+let g:badwolf_html_link_underline = 1
 " Turn on CSS properties highlighting
-" let g:badwolf_css_props_highlight =1
+let g:badwolf_css_props_highlight =1
 
 " Oceanic-Next
 " set background=dark
