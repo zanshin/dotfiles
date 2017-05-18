@@ -13,3 +13,6 @@ vim/bundle
 
 # Ignore vim/tmp
 vim/tmp
+
+# Ignore bash_history
+bash/bash_history
