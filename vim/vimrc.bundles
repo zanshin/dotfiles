@@ -34,7 +34,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'benmills/vimux'
 
 " ----- Markdown
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+" Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 " Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 
 call plug#end() 
@@ -52,6 +52,7 @@ endif
 " Color scheme {{{
 set background=dark
 silent! colorscheme landscape
+
 "silent! colorscheme flattened_dark
 " enable true color, required for Vim < 8.0
 "if v:version < 800
