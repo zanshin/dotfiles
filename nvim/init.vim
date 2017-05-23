@@ -219,7 +219,7 @@ set sidescroll=1                       " number of cols to scroll at a time
 " Show help in tabs
 augroup HelpInTabs
     autocmd!
-    autocmd BufEnter *.txt call HeloInNewTab()
+    autocmd BufEnter *.txt call HelpInNewTab()
 augroup END
 
 " only apply to help file ...
