@@ -331,7 +331,7 @@ if has("autocmd")
 
     " syntax of these languages is fussy over tabs Vs spaces
     autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+    " autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
     " setup for mail
     autocmd FileType mail setlocal formatoptions+=aw
@@ -352,20 +352,20 @@ if has("autocmd")
     autocmd FileType markdown setlocal tw=100
 
     " non Ruby files related to Ruby
-    autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
-    autocmd BufNewFile,BufRead Thorfile,config.ru,Vagrantfile setfiletype ruby
-    autocmd BufNewFile,BufRead Berksfile,Berksfile.lock setfiletype ruby
-    autocmd BufNewFile,BufRead Rakefile setfiletype rake
-    autocmd BufNewFile,BufRead Rakefile set syntax=ruby 
-    autocmd BufNewFile,BufRead *.rake setfiletype rake
-    autocmd BufNewFile,BufRead *.rake set syntax=ruby
+    " autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
+    " autocmd BufNewFile,BufRead Thorfile,config.ru,Vagrantfile setfiletype ruby
+    " autocmd BufNewFile,BufRead Berksfile,Berksfile.lock setfiletype ruby
+    " autocmd BufNewFile,BufRead Rakefile setfiletype rake
+    " autocmd BufNewFile,BufRead Rakefile set syntax=ruby 
+    " autocmd BufNewFile,BufRead *.rake setfiletype rake
+    " autocmd BufNewFile,BufRead *.rake set syntax=ruby
 
     " Chef uses Ruby, and this enabled Chef snippets
-    autocmd FileType ruby,eruby set filetype ruby.eruby.chef
-
+    " autocmd FileType ruby,eruby set filetype ruby.eruby.chef
+    "
     " Python file
     let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
-    autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
+    " autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
 
     " enable syntax highlighting for diffs
     autocmd FileType diff syntax enable
