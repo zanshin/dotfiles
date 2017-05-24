@@ -5,5 +5,3 @@ au! BufNewFile,BufRead Rakefile set filetype=ruby
 au! BufNewFile,BufRead Rakefile set syntax=ruby
 au! BufNewFile,BufRead *.rake set filetype=ruby
 au! BufNewFile,BufRead *.rake set syntax=ruby
-
-au! FileType eruby set filetype=ruby 

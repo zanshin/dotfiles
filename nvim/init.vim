@@ -334,17 +334,17 @@ if has("autocmd")
     " autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
     " setup for mail
-    autocmd FileType mail setlocal formatoptions+=aw
-    autocmd FileType mail setlocal spell spelllang=en_us
+    " autocmd FileType mail setlocal formatoptions+=aw
+    " autocmd FileType mail setlocal spell spelllang=en_us
 
     " treat .rss files as XML
-    autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
+    " autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 
     " spell check Git commit messages
-    autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+    " autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 
     " start commit messages in insert mode
-    autocmd BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
+    " autocmd BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
 
     " markdown files
     autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
