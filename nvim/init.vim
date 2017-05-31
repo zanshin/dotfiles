@@ -8,24 +8,6 @@ if has('vim_starting')
     set nocompatible
 endif
 
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-
-" let g:vim_bootstrap_langs = "html,perl,python,ruby"
-" let g:vim_bootstrap_editor = "nvim"
-
-if !filereadable(vimplug_exists)
-    if !executable("curl")
-        echoerr "You have to install curl or first install vim-plug yourself."
-        execute "q!"
-    endif
-    echo "Installing Vim-Plug ..."
-    echo ""
-    silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    let g:not_finish_vimplug = "yes"
-
-    autocmd VimEnter * PLugInstall
-endif
-
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
@@ -49,7 +31,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sjl/gundo.vim'
 
 " ----- Utilities
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 
