@@ -58,7 +58,7 @@ if ask "Setup Neovim (nvim)" Y; then
   echo "Linking Neovim (nvim) files"
   cd $dotfiles_dir/nvim;
   mkdir -p ${HOME}/.config
-  ln -svf $dotfiles_dir/nvim ${HOME}/.config/nvim;
+  ln -sfn $dotfiles_dir/nvim ${HOME}/.config/nvim;
 fi
 
 # Setup Vim
