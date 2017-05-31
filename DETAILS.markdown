@@ -28,7 +28,7 @@ following symlinks:
 The `.bashrc.local` file contains configurations only needed on the remote servers I manage.
 Therefore this file is only linked on those remote machines.
 
-## zsh
+## zsh - No longer maintained
 For zsh configuration create the following symlinks:
 
     ln -s ~/.dotfiles/zsh ~/.zsh
@@ -63,6 +63,16 @@ To install vim-plug run the following command:
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+## Neovim (nvim)
+For Neovim configuration, create the following symlink:
+
+    ln -sn ~/.dotfiles/nvim ~/.config/nvim
+
+The `n` flag on the `ln` command treats directories as files when making the link. This prevents the
+link command from nesting the destination under an already existing directory.
+
+Neovim also uses Vim-Plug. See the Vim-Plug notes in the Vim section above.
+
 ## Git
 For Git configuration and global ignore files, create these symlinks:
 
@@ -90,6 +100,10 @@ For tmux configuration create this symlink:
 
     $ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
+My tmux configuration doesn't alwasy work on Linux - depending the the distro being used. The
+`tmux.linux` file is an alternate tmux configuration that can be linked on Linux. It isn't well
+maintained.
+
 ## Sublime Text 2 (subl)
 Install Package Control following the instructions here: http://wbond.net/sublime_packages/package_control
 
@@ -116,4 +130,27 @@ The beginnings of an i3 window manager configuration. Originally setup on Debian
 16.
 
     ln -s ~/.dotfiles/i3/config ~/.i3/config
+
+## config
+The $XDG_CONFIG_HOME location (as far as I know) is `$HOME/.config`. On Linux, and increasingly on
+macOS, tools are placing their configurations under `~/.config`. At present have font, polybar, and
+i3 configurations for Arch and Antergos stored in this directory. The Neovim configuration lives in
+$XDG_CONFIG_HOME/nvim, but I keep it separately in this repository.
+
+## mutt and mutt-deprecated
+I have threatened to use mutt for email more than once. These two directories contain the
+configurations that resulted from these experiements. Do not blindly copy these and use them.
+Really. 
+
+## ohmyzsh
+This is how I got introduced to zsh. I haven't used or updated this configuration in a very long
+time. Do a search for `onmyzsh` and follow the directions you find there rather than using my
+ancient, crufy, setup.
+
+## scripts
+These are some tmux setup scripts that I use. Highly personalized. 
+
+## slate
+Slate is a macOS window manager. This is my configuration for it.
+
 
