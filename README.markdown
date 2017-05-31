@@ -1,7 +1,7 @@
 This repository holds my configuration files so that I can clone them to other machines
 easily.
 
-My primary OS is OS X (10.11.x) and some of these configurations are tuned to work on that platform. From about July 2011 until January 2016 `zsh` was my shell of choice. Recently I've switched back to `bash` since my working self maintains 200+ servers using bash.
+My primary OS is macOS X and some of these configurations are tuned to work on that platform. From about July 2011 until January 2016 `zsh` was my shell of choice. Recently I've switched back to `bash` since my working self maintains 200+ servers using `bash`.
 
 #Installation
 
@@ -9,7 +9,7 @@ My primary OS is OS X (10.11.x) and some of these configurations are tuned to wo
 	
 #Setup
 ## Homebrew
-On those Mac OS machines where I install Homebrew I also edit `/etc/paths` to move the `/usr/local/bin` entry to the top of the list. This ensures that Homebrew-managed programs and libraries occur prior to `/usr/bin` and system-provided programs and libraries. The resulting `/etc/paths` files looks like this:
+On those macOS machines where I install Homebrew I also edit `/etc/paths` to move the `/usr/local/bin` entry to the top of the list. This ensures that Homebrew-managed programs and libraries occur prior to `/usr/bin` and system-provided programs and libraries. The resulting `/etc/paths` files looks like this:
 
     /usr/local/bin
     /usr/bin
