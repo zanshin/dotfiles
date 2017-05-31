@@ -48,32 +48,36 @@ for pair in $tuples; do
     echo "Linking $dir files"
     cd $dotfiles_dir/$dir;
     for file in *; do
-      ln -svf $dotfiles_dir/$dir/$file ${HOME}/.$file
+      ln -sf $dotfiles_dir/$dir/$file ${HOME}/.$file
     done
   fi
+  echo ""
 done
 
 # Setup Neovim (nvim)
+# need 'n' flag on ln statement, since we're linking a directory
 if ask "Setup Neovim (nvim)" Y; then
   echo "Linking Neovim (nvim) files"
   cd $dotfiles_dir/nvim;
   mkdir -p ${HOME}/.config
   ln -sfn $dotfiles_dir/nvim ${HOME}/.config/nvim;
 fi
+echo ""
 
 # Setup Vim
 if ask "Setup Vim" Y; then
   echo "Linking Vim files"
   cd $dotfiles_dir/vim;
-  ln -svf $dotfiles_dir/vim ${HOME}/.vim;
-  ln -svf $dotfiles_dir/vim/vimrc ${HOME}/.vimrc;
-  ln -svf $dotfiles_dir/vim/vimrc.bundles ${HOME}/.vimrc.bundles;
+  ln -sf $dotfiles_dir/vim ${HOME}/.vim;
+  ln -sf $dotfiles_dir/vim/vimrc ${HOME}/.vimrc;
+  ln -sf $dotfiles_dir/vim/vimrc.bundles ${HOME}/.vimrc.bundles;
 fi
+echo ""
 
 # Setup ssh
 if ask "Setp ssh config" Y; then
   echo "Linking ssh config"
-  ln -svf $dotfiles_dir/ssh/config ${HOME}/.ssh/config
+  ln -sf $dotfiles_dir/ssh/config ${HOME}/.ssh/config
 fi
 
 echo ""
