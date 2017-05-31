@@ -41,9 +41,9 @@ tuples="bash,Y gem,Y git,Y openconnect,Y tmux,Y slate,Y hg,N textmate,N"
 # For these directories, create symlinks for each file present
 # By passing the ask function `Y` we default to creating these
 # By passing the ask function `N` we default to not creating these
-for i in $tuples; do
-  dir=${i%,*};
-  flag=${i#*,};
+for pair in $tuples; do
+  dir=${pair%,*};
+  flag=${pair#*,};
   if ask "Setup $dir" $flag; then
     echo "Linking $dir files"
     cd $dotfiles_dir/$dir;
