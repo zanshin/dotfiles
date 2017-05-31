@@ -41,45 +41,49 @@ tuples="bash,Y gem,Y git,Y openconnect,Y tmux,Y slate,Y hg,N textmate,N"
 # For these directories, create symlinks for each file present
 # By passing the ask function `Y` we default to creating these
 # By passing the ask function `N` we default to not creating these
-for pair in $tuples do
-  dir=${pair%,*};
-  flag=${pair#*,};
+for i in $tuples; do
+  dir=${i%,*};
+  flag=${i#*,};
   if ask "Setup $dir" $flag; then
     echo "Linking $dir files"
     cd $dotfiles_dir/$dir;
     for file in *; do
-      ls -svf $dotfiles_dir/$dir/$file ${HOME}/.$file
+      ln -sf $dotfiles_dir/$dir/$file ${HOME}/.$file
     done
   fi
+  echo ""
 done
 
 # Setup Neovim (nvim)
+# need 'n' flag on ln statement, since we're linking a directory
 if ask "Setup Neovim (nvim)" Y; then
   echo "Linking Neovim (nvim) files"
   cd $dotfiles_dir/nvim;
   mkdir -p ${HOME}/.config
-  ln -svf $dotfiles_dir/nvim ${HOME}/.config/nvim;
+  ln -sfn $dotfiles_dir/nvim ${HOME}/.config/nvim;
 fi
+echo ""
 
 # Setup Vim
 if ask "Setup Vim" Y; then
   echo "Linking Vim files"
   cd $dotfiles_dir/vim;
-  ln -svf $dotfiles_dir/vim ${HOME}/.vim;
-  ln -svf $dotfiles_dir/vim/vimrc ${HOME}/.vimrc;
-  ln -svf $dotfiles_dir/vim/vimrc.bundles ${HOME}/.vimrc.bundles;
+  ln -sf $dotfiles_dir/vim ${HOME}/.vim;
+  ln -sf $dotfiles_dir/vim/vimrc ${HOME}/.vimrc;
+  ln -sf $dotfiles_dir/vim/vimrc.bundles ${HOME}/.vimrc.bundles;
 fi
+echo ""
 
 # Setup ssh
 if ask "Setp ssh config" Y; then
   echo "Linking ssh config"
-  ln -svf $dotfiles_dir/ssh/config ${HOME}/.ssh/config
+  ln -sf $dotfiles_dir/ssh/config ${HOME}/.ssh/config
 fi
 
 echo ""
 echo "Caveats:"
-echo "Vim: if remote server, `rm .vimrc.bundles`"
-echo "Bash: if local machine, `rm .bashrc.local`"
+echo "Vim: if remote server, rm .vimrc.bundles"
+echo "Bash: if local machine, rm .bashrc.local"
 
 echo ""
 echo "Finished."
