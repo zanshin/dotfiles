@@ -41,14 +41,14 @@ tuples="bash,Y gem,Y git,Y openconnect,Y tmux,Y slate,Y hg,N textmate,N"
 # For these directories, create symlinks for each file present
 # By passing the ask function `Y` we default to creating these
 # By passing the ask function `N` we default to not creating these
-for pair in $tuples do
+for pair in $tuples; do
   dir=${pair%,*};
   flag=${pair#*,};
   if ask "Setup $dir" $flag; then
     echo "Linking $dir files"
     cd $dotfiles_dir/$dir;
     for file in *; do
-      ls -svf $dotfiles_dir/$dir/$file ${HOME}/.$file
+      ln -svf $dotfiles_dir/$dir/$file ${HOME}/.$file
     done
   fi
 done
@@ -78,8 +78,8 @@ fi
 
 echo ""
 echo "Caveats:"
-echo "Vim: if remote server, `rm .vimrc.bundles`"
-echo "Bash: if local machine, `rm .bashrc.local`"
+echo "Vim: if remote server, rm .vimrc.bundles"
+echo "Bash: if local machine, rm .bashrc.local"
 
 echo ""
 echo "Finished."
