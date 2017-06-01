@@ -14,5 +14,9 @@ vim/bundle
 # Ignore vim/tmp
 vim/tmp
 
+# Ignore Neovim plugins & tmp files
+nvim/plugged
+nvim/tmp
+
 # Ignore bash_history
 bash/bash_history
