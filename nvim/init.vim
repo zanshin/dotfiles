@@ -284,12 +284,12 @@ nnoremap <leader>h <C-w>s<C-w>j        " open a horizontal split and switch to i
 nnoremap <leader>ev :e $MYVIMRC<CR>
 
 " Automatically source init.vim when it is saved (from vimcasts.org #24)
-if has("autocmd")
-    autocmd! bufwritepost init.vim source $MYVIMRC
-endif
+" if has("autocmd")
+"     autocmd! bufwritepost init.vim source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
+" endif
 
 " Reload init.vim
-noremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
+noremap <silent> <leader>sv :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " }}}
 " Command line completion {{{
