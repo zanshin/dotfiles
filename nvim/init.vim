@@ -8,7 +8,7 @@ if has('vim_starting')
     set nocompatible
 endif
 
-" Required:
+" Required
 call plug#begin(expand('~/.config/nvim/plugged'))
 
 " }}}
@@ -16,6 +16,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " ----- Make Neovim look good
 Plug 'itchyny/landscape.vim'
+" Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -44,6 +45,9 @@ endif
 
 if has('syntax') && !exists('g:syntx_on')
     syntax on
+    " Unfortunately this gets over laid by the colorscheme. Shrug
+    hi Comment ctermfg=LightBlue
+
 endif
 
 " }}}
@@ -108,8 +112,8 @@ set cpoptions+=$
 set formatoptions=
 set formatoptions-=t                   " don't autowrap text
 set formatoptions+=c                   " do autowrap comments
-set formatoptions+=r                   " automatically continue comments
-set formatoptions+=o                   " automatically continue comments when hitting 'o' or 'O'
+" set formatoptions+=r                   " automatically continue comments
+" set formatoptions+=o                   " automatically continue comments when hitting 'o' or 'O'
 set formatoptions+=q                   " allow formatting of comments with 'gq'
 set formatoptions+=n                   " recognize number lists
 set formatoptions+=l                   " don't break long lines that were already there
@@ -277,15 +281,15 @@ nnoremap <leader>h <C-w>s<C-w>j        " open a horizontal split and switch to i
 " Configuration file shortcuts {{{
 
 " Open init.vim in new tab for editing
-" nnoremap <leader>ev :tabedit $MYVIMRC<CR>
+nnoremap <leader>ev :e $MYVIMRC<CR>
 
 " Automatically source init.vim when it is saved (from vimcasts.org #24)
-" if has("autocmd")
-"     autocmd! bufwritepost init.vim source $MYVIMRC
-" endif
+if has("autocmd")
+    autocmd! bufwritepost init.vim source $MYVIMRC
+endif
 
 " Reload init.vim
-" noremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
+noremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
 
 " }}}
 " Command line completion {{{
@@ -373,7 +377,7 @@ function! ToggleSyntax()
     endif
 endfunction
 
-nmap <silent> <leader>s :call ToggleSyntax()<CR>
+noremap <silent> <leader>s :call ToggleSyntax()<CR>
 
 " }}}
 " Color scheme {{{
@@ -385,13 +389,27 @@ silent! colorscheme landscape
 let g:python_host_prog = '/usr/bin/python'
 
 " }}}
+" Lightline {{{
+" let g:lightline = {
+"       \ 'colorscheme': 'landscape',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'fugitive#statusline'
+"       \ },
+"       \ }
+
+" }}}
 " Airline {{{
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
-let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#branch#empty_message = ''
+let g:airline_theme='landscape'
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
+" let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+" let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+" let g:airline#extensions#branch#enabled = 1
+" let g:airline#extensions#branch#empty_message = ''
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -402,7 +420,7 @@ let g:airline#extensions#tagbar#enabled = 0
 " Show just the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-let g:airline_theme='dark'
+" let g:airline_theme='dark'
 
 " }}}
 " Vim-fugitive {{{
