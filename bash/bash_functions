@@ -38,6 +38,10 @@ function ktags() {
   knife search "tags:*${@}*" -a name -a tags
 }
 
+function kshow() {
+  knife node show $1.campus.ksu.edu
+}
+
 # }}}
 # Git function {{{
 function gg() {
