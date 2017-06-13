@@ -51,6 +51,16 @@ if has('syntax') && !exists('g:syntx_on')
 endif
 
 " }}}
+" Neovim Settings {{{
+" Enable True Color support
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" Enable shape cursor on insert mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+" }}}
 " Basic options {{{
 
 " change map <leader> from \ to " " (space)
@@ -357,6 +367,22 @@ if has("autocmd")
     autocmd FileType diff syntax enable
 
 endif
+
+" }}}
+" Writing {{{
+func! WordProcessorMode()
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  map j gj
+  map k gk
+  setlocal spell spelllang=en_us
+  set thesaurus+=/Users/sbrown/.vim/thesaurus/mthesaur.txt
+  set complete+=s
+  set formatprg=par
+  setlocal wrap
+  setlocal linebreak
+endfu
+com! WP call WordProcessorMode()
 
 " }}}
 " NetRW {{{
