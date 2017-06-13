@@ -159,6 +159,10 @@ inoremap <C-k> :m <ESC>:m .-2<CR>==gi
 vnoremap <C-j> :m '>+1<CR>gv=gv
 vnoremap <C-k> :m '>-2<CR>gv=gv
 
+" Move to first non-blank or last non-blank character in current line
+nnoremap H ^
+nnoremap L g_
+
 " }}}
 " Buffers and Tabs {{{
 nnoremap <leader>be :enew<CR>          " create new empty buffer
@@ -470,6 +474,10 @@ nnoremap <leader>U :GundoToggle<CR>
 " NERDTree {{{
 noremap <C-n> :NERDTreeToggle<CR>
 
+" Show hidden files
+let NERDTreeShowHidden=1
+
+" Some custom indicators for file state
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
