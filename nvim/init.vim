@@ -413,8 +413,8 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " }}}
 " Color scheme {{{
 set background=dark
-" silent! colorscheme landscape
-silent! colorscheme nova
+silent! colorscheme landscape
+" silent! colorscheme nova
 
 " }}}
 " Python {{{
