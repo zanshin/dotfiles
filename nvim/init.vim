@@ -496,6 +496,10 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = "|"
 nnoremap <leader>i :IndentLinesToggle<CR>
 
+" Improve indentLine performance
+let g:indentLine_faster = 1
+let g:indentLine_setConceal = 0
+
 " }}}
 " finis {{{
 
