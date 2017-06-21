@@ -19,6 +19,7 @@ Plug 'itchyny/landscape.vim'
 " Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'trevordmiller/nova-vim'
 
 " ----- Syntax & Highlighting
 Plug 'Yggdroot/indentline'
@@ -412,7 +413,8 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " }}}
 " Color scheme {{{
 set background=dark
-silent! colorscheme landscape
+" silent! colorscheme landscape
+silent! colorscheme nova
 
 " }}}
 " Python {{{
@@ -433,7 +435,7 @@ let g:python_host_prog = '/usr/bin/python'
 
 " }}}
 " Airline {{{
-let g:airline_theme='landscape'
+" let g:airline_theme='landscape'
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
 " let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
