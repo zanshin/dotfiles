@@ -492,6 +492,10 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" Close nerdtree and vim on close file
+" from https://github.com/jessfraz/.vim/blob/master/vimrc#L491
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 " }}}
 " Indentline {{{
 let g:indentLine_color_term = 239
