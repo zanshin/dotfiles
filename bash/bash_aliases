@@ -167,7 +167,8 @@ alias rot13='tr a-xA-Z n-za-mN-ZA-M'
 
 # }}}
 # Remote machines {{{
-alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu'
+# alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu'
+alias vpn='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
 alias kvnc='open vnc://krayt.ome.ksu.edu'
 alias ksunix='ssh mhn@unix.ksuedu'
 alias tools='ssh mhn@tools.ome.ksu.edu'
