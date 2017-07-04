@@ -8,13 +8,13 @@ Session.vim
 .netrwhist
 *~
 
-# Ignore vim/bundles
+# Ignore vim/bundles, vim/tmp, and vim/autoload
 vim/bundle
-
-# Ignore vim/tmp
 vim/tmp
+vim/autoload
 
 # Ignore Neovim plugins & tmp files
+nvim/autoload
 nvim/plugged
 nvim/tmp
 
