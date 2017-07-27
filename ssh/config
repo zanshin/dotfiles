@@ -1,10 +1,10 @@
-Host * 
+Host *
 #    UseRoaming no
     ServerAliveInterval 60
 
 # Desktop
-Host krayt
-    HostName krayt.ome.ksu.edu
+Host sarabande
+    HostName sarabande.ome.ksu.edu
     Port 11122
 
 # Treadmill iMac
@@ -16,7 +16,7 @@ Host fugazi
 Host mhn
     HostName ome-wse-mhn.campus.ksu.edu
 
-# Ubuntu desktop
+# Debian 9 desktop
 Host fermata
     HostName 68.102.23.189
     Port 11122
@@ -34,26 +34,26 @@ Host github.com
 Host ome-tools1*
     HostkeyAlgorithms ssh-dss
 
-Host tx1
-    HostName ome-txhub1.cc.ksu.edu
+Host txp1
+    HostName ome-webmethods-p-app-01.campus.ksu.edu
 
-Host tx2
-    HostName ome-txhub2.cc.ksu.edu
+Host txp2
+    HostName ome-webmethods-p-app-02.campus.ksu.edu
 
-Host dev
-    HostName ome-dev-as1.ome.campus
+Host txt1
+    HostName ome-webmethods-t-app-01.campus.ksu.edu
+
+Host txt2
+    HostName ome-webmethods-t-app-02.campus.ksu.edu
+
+Host txd1
+    HostName ome-webmethods-d-app-01.campus.ksu.edu
 
 Host tools
     HostName ome-tools1.campus.ksu.edu
 
 Host tools1
     HostName ome-vm-tools1.campus.ksu.edu
-
-Host txdev1
-    HostName ome-dev-txhub1.cc.ksu.edu
-
-Host txdev2
-    HostName ome-dev-txhub2.cc.ksu.edu
 
 Host web1
     HostName ome-web1.campus.ksu.edu
