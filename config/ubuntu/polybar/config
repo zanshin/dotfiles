@@ -107,7 +107,7 @@ font-1 = FontAwesome:pixelsize=10;0
 ;modules-center = xwindow
 ;modules-right = backlight volume memory cpu wlan eth battery temperature date powermenu
 modules-left = volume
-modules-center = cpu memory temperature
+modules-center = cpu memory temperature battery
 modules-right = filesystem
 
 
@@ -121,9 +121,7 @@ label-maxlen = 40
 type = internal/fs
 interval = 25
 
-mount-0 = /home
-mount-1 = /var
-mount-2 = /
+mount-0 = /
 
 ;label-mounted = %mountpoint%: %percentage_free%
 label-mounted =  %mountpoint%: %used% of %total%
@@ -288,7 +286,7 @@ bar-used-empty-foreground = #444444
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp1s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -369,12 +367,18 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
+label-charging = %percentage%
+label-discharging = %percentage%
+label-full = %percentage%
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+;format-charging-underline = #ffb52a
+format-charging-overline = #f50a4d
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+;format-discharging-underline = ${self.format-charging-underline}
+format-discharging-overline = ${self.format-charging-overline}
 format-full = %{F#55}%{F#ff}  <label-full>
-format-full-underline = ${self.format-charging-underline}
+;format-full-underline = ${self.format-charging-underline}
+format-full-overline = ${self.format-charging-overline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
