@@ -1,7 +1,7 @@
-# vim: set filetype=bash: 
+# vim: set filetype=bash:
 #
 # Tmux Name:   chef
-# Description: creates 4 named windows for development at work 
+# Description: creates 4 named windows for development at work
 #
 # check if session exists
 tmux has-session -t chef
@@ -19,12 +19,12 @@ tmux new-window -n ome
 tmux new-window -n omedev
 tmux new-window -n desktop
 
-# window 1 - vpn connection lives here 
+# window 1 - vpn connection lives here
 tmux send-keys -t chef:1 'cd ~/' C-m
-tmux send-keys -t chef:1 'vpn' C-m
+tmux send-keys -t chef:1 'vpnon' C-m
 
 # window 2 - ome: window for `ome` Chef 12 organization
-# knife status | ome-chef-data | cookbooks 
+# knife status | ome-chef-data | cookbooks
 #
 tmux split-window -h -p 50 -t chef:2
 tmux split-window -v -p 50 -t chef:2.1
@@ -36,7 +36,7 @@ tmux send-keys -t chef:2.3 'cd ~/code/chef/ome/chef-repo' C-m
 tmux send-keys -t chef:2.3 'knife status' C-m
 
 # window 3 - omedev: window for `omedev` Chef 12 organization
-# knife status | ome-chef-data | cookbooks 
+# knife status | ome-chef-data | cookbooks
 #
 tmux split-window -h -p 50 -t chef:3
 tmux split-window -v -p 50 -t chef:3.1
