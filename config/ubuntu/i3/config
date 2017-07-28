@@ -38,11 +38,11 @@ set $base0E #c0b7f9
 set $base0F #fcc09e
 
 # i3 gaps settings
-for_window [class="^.*"] border pixel 0
-set $default_gaps_inner 0
-set $default_gaps_outer 0
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# for_window [class="^.*"] border pixel 0
+# set $default_gaps_inner 0
+# set $default_gaps_outer 0
+# gaps inner $default_gaps_inner
+# gaps outer $default_gaps_outer
 
 # Workspaces
 set $ws1  "1: "
