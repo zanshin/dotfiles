@@ -39,8 +39,8 @@ set $base0F #fcc09e
 
 # i3 gaps settings
 for_window [class="^.*"] border pixel 0
-set $default_gaps_inner 5
-set $default_gaps_outer 5
+set $default_gaps_inner 0
+set $default_gaps_outer 0
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
@@ -53,7 +53,7 @@ set $ws4  "4: "
 set $ws6  "6: "
 set $ws7  "7: "
 set $ws8  "8: "
-set $ws9  "9: "
+set $ws9  "9: "
 set $ws10 "10: "
 
 
@@ -97,7 +97,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 #bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "85" -bw 0 -bg "$black" -bc "$black" -fg "$white" -hlbg "$brblack" -hlfg "#9575cd" -font "System San Francisco Display 14"
-bindsym $mod+d exec rofi -show run 
+bindsym $mod+d exec rofi -show run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -200,18 +200,18 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 # https://www.reddit.com/r/unixporn/comments/49zncq/questions_regarding_i3/
-set $session "(E)xit (L)ock (P)ower off (R)eboot"
-mode $session {
-  bindsym e exec $psst i3-msg exit; mode "default"
-  bindsym l exec $psst ~/.scripts/lockscreen; mode "default"
-  bindsym p exec $psst systemctl poweroff; mode "default"
-  bindsym r exec $psst systemctl reboot; mode "default"
-
-  bindsym q mode "default"
-  bindsym Escape mode "default"
-}
-bindsym $mod+Shift+e mode $session
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# set $session "(E)xit (L)ock (P)ower off (R)eboot"
+# mode $session {
+#   bindsym e exec $psst i3-msg exit; mode "default"
+#   bindsym l exec $psst ~/.scripts/lockscreen; mode "default"
+#   bindsym p exec $psst systemctl poweroff; mode "default"
+#   bindsym r exec $psst systemctl reboot; mode "default"
+#
+#   bindsym q mode "default"
+#   bindsym Escape mode "default"
+# }
+# bindsym $mod+Shift+e mode $session
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -262,7 +262,7 @@ bindsym $mod+r mode "resize"
   #i3bar_command i3bar -t
   #status_command i3blocks -c ~/.config/i3blocks.conf
 #  position top
-#  height 25 
+#  height 25
 #  strip_workspace_numbers yes
 #  colors {
 #    separator $base03
@@ -283,7 +283,7 @@ bindsym $mod+r mode "resize"
 
 # start the nm-applet on startup
 exec --no-startup-id nm-applet
-exec --no-startup-id dropbox start 
+exec --no-startup-id dropbox start
 exec /opt/rocketchat/rocketchat
 
 # Set screen resolution (use arandr to get command flags)
