@@ -197,6 +197,26 @@ assign [class="Rocket.Chat"] $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+# exit i3 (logs out out of your X session)
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Set shutdown, restart, and locking features
+bindsym $mod+Shift+s mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch)(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+  bindsym l exec --no-startup-id i3exit lock, mode "default"
+  bindsym s exec --no-startup-id i3exit suspend, mode "default"
+  bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+  bindsym e exec --no-startup-id i3exit logout, mode "default"
+  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  bindsym r exec --no-startup-id i3exit reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+# exit system mode: "Enter" or "Escape"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
 
 # exit i3 (logs you out of your X session)
 # https://www.reddit.com/r/unixporn/comments/49zncq/questions_regarding_i3/
@@ -211,7 +231,6 @@ bindsym $mod+Shift+r restart
 #    bindsym Escape mode "default"
 #  }
 # bindsym $mod+Shift+e mode $session
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -284,7 +303,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # start the nm-applet on startup
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start
-exec /opt/rocketchat/rocketchat
+exec /usr/local/bin/rocketchat
 
 # Set screen resolution (use arandr to get command flags)
 exec xrandr --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI1 --off --output VIRTUAL1 --off --output DP1 --off
@@ -296,15 +315,14 @@ exec_always --no-startup-id feh --bg-fill /home/mark/Pictures/wallpaper.jpg
 # Lock the screen using i3lock
 # bindsym $mod+shift+x exec i3lock -i /home/mhn/Pictures/shroom.png -c 000000
 
-# Volume & Media bindings
-bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
-bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
-bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute
 
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# Volume & Media bindings
+#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ '+5%'
+#bindsym XF86AudioLowerVOlume exec pactl set-sink-volume @DEFAULT_SINK@ -- '-5%'
+#bindsym Xf86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute        exec amixer -q set Master mute
 
 # Screen backlighting
 # bindsym XF86MonBrightnessUp exec sudo screen-backlight up
