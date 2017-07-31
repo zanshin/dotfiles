@@ -67,7 +67,7 @@ set $ws10 "10: "
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -202,14 +202,14 @@ bindsym $mod+Shift+r restart
 # https://www.reddit.com/r/unixporn/comments/49zncq/questions_regarding_i3/
 # set $session "(E)xit (L)ock (P)ower off (R)eboot"
 # mode $session {
-#   bindsym e exec $psst i3-msg exit; mode "default"
-#   bindsym l exec $psst ~/.scripts/lockscreen; mode "default"
-#   bindsym p exec $psst systemctl poweroff; mode "default"
-#   bindsym r exec $psst systemctl reboot; mode "default"
+#    bindsym e exec $psst i3-msg exit; mode "default"
+#    bindsym l exec $psst ~/.scripts/lockscreen; mode "default"
+#    bindsym p exec $psst systemctl poweroff; mode "default"
+#    bindsym r exec $psst systemctl reboot; mode "default"
 #
-#   bindsym q mode "default"
-#   bindsym Escape mode "default"
-# }
+#    bindsym q mode "default"
+#    bindsym Escape mode "default"
+#  }
 # bindsym $mod+Shift+e mode $session
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -255,12 +255,12 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
-#  font pango: System San Francisco Display, FontAwesome 9
-  #status_command i3blocks -c /home/mark/.config/i3/i3blocks.conf
-  #status_command i3status --config /home/mark/.config/i3/status.conf
-  #i3bar_command i3bar -t
-  #status_command i3blocks -c ~/.config/i3blocks.conf
+# bar {
+#   font pango: System San Francisco Display, FontAwesome 9
+#   status_command i3blocks -c /home/mark/.config/i3/i3blocks.conf
+#  status_command i3status --config /home/mark/.config/i3/status.conf
+#  i3bar_command i3bar -t
+#  status_command i3blocks -c ~/.config/i3blocks.conf
 #  position top
 #  height 25
 #  strip_workspace_numbers yes
@@ -279,7 +279,7 @@ bindsym $mod+r mode "resize"
 
 # Things to execute on start up
 # Run polybar
- exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # start the nm-applet on startup
 exec --no-startup-id nm-applet
