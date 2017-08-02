@@ -10,7 +10,7 @@
 # Source my bashrc file
 # -------------------------------------------------------------------
 
-# Source our .bashrc, if present 
+# Source our .bashrc, if present
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
@@ -25,8 +25,8 @@ fi
 # -------------------------------------------------------------------
 
 # set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH="~/bin:${PATH}"
+if [ -d $HOME/bin ] ; then
+    PATH="${HOME}/bin:${PATH}"
 fi
 
 # set PATH so it includes /usr/local/sbin if it exists
@@ -62,9 +62,9 @@ fi
 export PATH
 
 # -------------------------------------------------------------------
-# Enable rbenv 
+# Enable rbenv
 # -------------------------------------------------------------------
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# finis	
+# finis
 # mhn 2016.1.9
