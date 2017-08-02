@@ -158,8 +158,12 @@ label-empty-padding = 2
 type = internal/i3
 ;pin-workspaces = true
 strip-wsnumbers = true
-format = <label-state>
+format = <label-state> <label-mode>
 index-sort = true
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #d60027
 
 ;label-focused = %index%
 label-focused = %name%
