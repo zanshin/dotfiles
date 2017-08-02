@@ -319,12 +319,9 @@ exec_always --no-startup-id feh --bg-fill /home/mark/Pictures/wallpaper.jpg
 
 
 # Volume & Media bindings
-#bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ '+5%'
-#bindsym XF86AudioLowerVOlume exec pactl set-sink-volume @DEFAULT_SINK@ -- '-5%'
-#bindsym Xf86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioMute        exec amixer -q set Master mute
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 '+5%'
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 '-5%'
+bindsym XF86AudioMute        exec pactl set-sink-mute 0 toggle
 
 # Screen backlighting
 # bindsym XF86MonBrightnessUp exec sudo screen-backlight up

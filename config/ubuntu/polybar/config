@@ -346,7 +346,7 @@ label-volume-foreground = ${root.foreground}
 label-muted =  sound muted
 label-muted-foreground = #55
 
-bar-volume-width = 10
+bar-volume-width = 20
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
