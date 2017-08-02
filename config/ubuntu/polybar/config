@@ -67,7 +67,7 @@ bottom = true
 
 tray-position = right
 tray-detached = false
-tray-maxsize = 16
+tray-maxsize = 25
 ;tray-transparent = true
 tray-background = ${root.background}
 tray-offset-x = 0
