@@ -38,11 +38,46 @@ set $base0E #c0b7f9
 set $base0F #fcc09e
 
 # i3 gaps settings
-# for_window [class="^.*"] border pixel 0
-# set $default_gaps_inner 0
-# set $default_gaps_outer 0
-# gaps inner $default_gaps_inner
-# gaps outer $default_gaps_outer
+for_window [class="^.*"] border pixel 0
+smart_gaps on
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 
 # Workspaces
 set $ws1  "1: "
@@ -97,7 +132,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
-#bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -opacity "85" -bw 0 -bg "$black" -bc "$black" -fg "$white" -hlbg "$brblack" -hlfg "#9575cd" -font "System San Francisco Display 14"
 bindsym $mod+d exec rofi -show run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -218,21 +252,6 @@ mode "$session" {
 }
 bindsym $mod+Shift+s mode "$session"
 
-
-# exit i3 (logs you out of your X session)
-# https://www.reddit.com/r/unixporn/comments/49zncq/questions_regarding_i3/
-# set $session "(E)xit (L)ock (P)ower off (R)eboot"
-# mode $session {
-#    bindsym e exec $psst i3-msg exit; mode "default"
-#    bindsym l exec $psst ~/.scripts/lockscreen; mode "default"
-#    bindsym p exec $psst systemctl poweroff; mode "default"
-#    bindsym r exec $psst systemctl reboot; mode "default"
-#
-#    bindsym q mode "default"
-#    bindsym Escape mode "default"
-#  }
-# bindsym $mod+Shift+e mode $session
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -259,6 +278,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Dropdown/Scratchpad Windows
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+exec --no-startup-id terminator -name dropdown
+
+bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
 
 # Window color assignments
 #                       border   background text     indicator
