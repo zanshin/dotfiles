@@ -11,6 +11,32 @@
 margin-top = 5
 margin-bottom = 5
 
+[colors]
+navy    = #001f3f
+blue    = #0074d9
+aqua    = #7fdbff
+teal    = #39cccc
+olive   = #3d9970
+green   = #3ecc40
+lime    = #01ff70
+yellow  = #ffdc00
+orange  = #ff851b
+red     = #ff4136
+maroon  = #85144b
+fuchsia = #f012be
+purple  = #b10dc9
+black   = #111111
+gray    = #aaaaaa
+silver  = #dddddd
+white   = #ffffff
+
+background    = #ed222222
+foreground    = #dfdfdf
+underline     = #00f
+overline      = #f00
+border-bottom = #333
+border-top    = #333
+
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI2}
 monitor = eDP-1
@@ -22,18 +48,18 @@ offset-y = 0
 
 
 ;background = ${xrdb:color9}
-background = #ee222222
-foreground = #dfdfdf
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 ;lineheight = 1
 ;linecolor = #555
 overline-size = 2
-overline-color = #f00
+overline-color = ${colors.overline}
 underline-size = 2
-underline-color = #00f
+underline-color = ${colors.underline}
 
 border-bottom = 2
-border-bottom-color = #333
+border-bottom-color = ${colors.border-bottom}
 
 spacing = 1
 padding-left = 0
@@ -77,18 +103,18 @@ tray-scale = 1.0
 
 
 ;background = ${xrdb:color9}
-background = #ee222222
-foreground = #dfdfdf
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 ;lineheight = 1
 ;linecolor = #555
 overline-size = 2
-overline-color = #00f
+overline-color = ${colors.overline}
 underline-size = 2
-underline-color = #f00
+underline-color = ${colors.underline}
 
 border-top = 2
-border-top-color = #333
+border-top-color = ${colors.border-top}
 
 spacing = 1
 padding-left = 0
@@ -125,33 +151,13 @@ mount-0 = /
 
 ;label-mounted = %mountpoint%: %percentage_free%
 label-mounted =  %mountpoint%: %used% of %total%
+label-mounted-foreground = ${colors.gray}
 
 label-unmounted = %mountpoint%: not mounted
 label-unmounted-foreground = #55
 
-label-mounted-overline = #ffdc00
-label-unmounted-overline = #ffdc00
-
-
-[module/bspwm]
-type = internal/bspwm
-ws-icon-default = x
-
-label-active = %index%
-label-active-background = #ee333333
-label-active-underline= #cc333333
-label-active-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%
-label-urgent-background = #bd2c40
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = #55
-label-empty-padding = 2
+label-mounted-overline = ${colors.yellow}
+label-unmounted-overline = ${colors.yellow}
 
 
 [module/i3]
@@ -167,18 +173,24 @@ label-mode-background = #d60027
 
 ;label-focused = %index%
 label-focused = %name%
-label-focused-background = #ee333333
-label-focused-underline= #cc333333
+;label-focused-background = #ee333333
+label-focused-background = ${colors.aqua}
+label-focused-foreground = ${colors.black}
 label-focused-padding = 2
+label-focused-underline = ${colors.aqua}
 
 ;label-unfocused = %index%
 label-unfocused = %name%
 label-unfocused-padding = 2
+label-unfocused-underline = ${colors.blue}
 
 ;label-urgent = %index%!
 label-urgent = %name%!
-label-urgent-background = #bd2c40
+;label-urgent-background = #bd2c40
 label-urgent-padding = 2
+label-urgent-underline = ${colors.red}
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.white}
 
 ;label-visible = %index%
 label-visible = %name%
@@ -199,53 +211,12 @@ ws-icon-9 = 0;
 ;ws-icon-default = 
 
 
-;[module/mpd]
-;type = internal/mpd
-;
-;format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
-;
-;label-song-maxlen = 25
-;label-song-ellipsis = true
-;
-;icon-prev = 
-;icon-seekb = 
-;icon-stop = 
-;icon-play = 
-;icon-pause = 
-;icon-next = 
-;icon-seekf = 
-;
-;icon-random = 
-;icon-repeat = 
-;
-;toggle-on-foreground = #e60053
-;toggle-off-foreground = #66
-
-
-[module/backlight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = │
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = #55
-
-
 [module/cpu]
 type = internal/cpu
 interval = 2
 label = CPU %{F#666}%{F#cc} %percentage%
 ;label-underline = #f90000
-label-overline = #f90000
+label-overline = ${colors.orange}
 
 format = <label> <bar-load>
 ;label = CPU
@@ -269,7 +240,7 @@ type = internal/memory
 interval = 2
 label = RAM %{F#665}%{F#cc} %percentage_used%
 ;label-underline = #4bffdc
-label-overline = #ff4136
+label-overline = ${colors.orange}
 
 format = <label> <bar-used>
 ;label = RAM
@@ -293,13 +264,15 @@ type = internal/network
 interface = wlp1s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+;format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
+format-connected-underline = ${colors.purple}
 ;format-connected-overline = #9f78e1
 format-disconnected-underline = ${self.format-connected-underline}
 ;format-disconnected-overline = ${self.format-connected-overline}
 
-label-connected = %{F#55} %{F#ff} %essid%
+;label-connected = %{F#55} %{F#ff} %essid%
+label-connected = %{F#ff} %essid%
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = #55
 
@@ -316,7 +289,7 @@ type = internal/network
 interface = enp0s25
 interval = 3.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.purple}
 ;format-connected-overline = #55aa55
 format-disconnected-underline = ${self.format-connected-underline}
 ;format-disconnected-overline = ${self.format-connected-overline}
@@ -332,7 +305,7 @@ type = internal/date
 ;date-alt = %%{F#55}%{F#ff} %Y-%m-%d  %%{F#55}%%{F#ff} %H:%M
 date =   %%{F#999}%a %e %b%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
 interval = 5
-format-underline = #0a6cf5
+format-underline = ${colors.purple}
 
 
 [module/volume]
@@ -342,6 +315,7 @@ format-volume = <label-volume> <bar-volume>
 
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
+label-volume-overline = ${colors.green}
 
 label-muted =  sound muted
 label-muted-foreground = #55
@@ -363,7 +337,6 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = #55
-
 
 [module/battery]
 type = internal/battery
@@ -426,8 +399,8 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 
 ;format-charging-underline = #ffb52a
-format-charging-overline = #f50a4d
-format-discharging-overline = #f50a4d
+format-charging-overline = ${colors.orange}
+format-discharging-overline = ${colors.orange}
 
 
 [module/temperature]
@@ -437,7 +410,7 @@ warn-temperature = 60
 
 format = <ramp> <label>
 ;format-underline = #f50a4d
-format-overline = #f50a4d
+format-overline = ${colors.orange}
 format-warn = <ramp> <label-warn>
 ;format-warn-underline = ${self.format-underline}
 format-warn-overline = ${self.format-overline}
