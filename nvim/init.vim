@@ -37,6 +37,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 
+" ----- Neovim stuff
+Plug 'kassio/neoterm'
+
 call plug#end()
 
 " turn things on
@@ -505,6 +508,26 @@ nnoremap <leader>i :IndentLinesToggle<CR>
 " Improve indentLine performance
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 0
+
+" }}}
+" Neoterm {{{
+" Always scroll to latest output
+let g:neoterm_autoscroll = '1'
+
+" Manage the size of the neoterm buffer
+let g:neoterm_size = 16
+
+" Open new terminal if none is open, or existing one
+command! -nargs=+ TT Topen | T
+nnoremap \ :TT
+
+" Interact with the REPL
+vnoremap <leader>2 :TREPLSendSelection
+nnoremap <leader>2 :TREPLSendLine
+nnoremap <leader>3 :Tmap
+nnoremap <leader>0 :Ttoggle
+let g:neoterm_automap_keys = '<F5>'
+
 
 " }}}
 " finis {{{
