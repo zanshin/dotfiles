@@ -22,9 +22,6 @@ Host fermata
     Port 11122
     user mark
 
-Host 192.168.1.20
-    user mark
-
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
