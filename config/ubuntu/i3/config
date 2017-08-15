@@ -41,42 +41,50 @@ set $base0F #fcc09e
 for_window [class="^.*"] border pixel 0
 smart_gaps on
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+gaps inner 6
+smart_borders no_gaps
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+bindsym $mod+y       gaps inner current minus 6
+bindsym $mod+u       gaps inner current plus 6
+bindsym $mod+Shift+y gaps outer current minus 6
+bindsym $mod+Shift+u gaps outer current plus 6
 
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+# set $mode_gaps Gaps: (o) outer, (i) inner
+# set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+# bindsym $mod+Shift+g mode "$mode_gaps"
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+# mode "$mode_gaps" {
+#         bindsym o      mode "$mode_gaps_outer"
+#         bindsym i      mode "$mode_gaps_inner"
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# mode "$mode_gaps_inner" {
+#         bindsym plus  gaps inner current plus 5
+#         bindsym minus gaps inner current minus 5
+#         bindsym 0     gaps inner current set 0
+#
+#         bindsym Shift+plus  gaps inner all plus 5
+#         bindsym Shift+minus gaps inner all minus 5
+#         bindsym Shift+0     gaps inner all set 0
+#
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+# mode "$mode_gaps_outer" {
+#         bindsym plus  gaps outer current plus 5
+#         bindsym minus gaps outer current minus 5
+#         bindsym 0     gaps outer current set 0
+#
+#         bindsym Shift+plus  gaps outer all plus 5
+#         bindsym Shift+minus gaps outer all minus 5
+#         bindsym Shift+0     gaps outer all set 0
+#
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
 
 
 # Workspaces
@@ -279,13 +287,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Dropdown/Scratchpad Windows
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize set 625 400
-for_window [instance="dropdown"] move position center
-for_window [instance="dropdown"] move scratchpad
-exec --no-startup-id terminator -name dropdown
+# for_window [instance="dropdown"] floating enable
+# for_window [instance="dropdown"] resize set 625 400
+# for_window [instance="dropdown"] move position center
+# for_window [instance="dropdown"] move scratchpad
+# exec --no-startup-id terminator -name dropdown
 
-bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
+# bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
 
 # Window color assignments
 #                       border   background text     indicator
@@ -352,6 +360,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 '-5%'
 bindsym XF86AudioMute        exec pactl set-sink-mute 0 toggle
 
 # Screen backlighting
-# bindsym XF86MonBrightnessUp exec sudo screen-backlight up
-# bindsym XF86MonBrightnessDown exec sudo screen-backlight down
+bindsym XF86MonBrightnessUp exec sudo screen-backlight up
+bindsym XF86MonBrightnessDown exec sudo screen-backlight down
 

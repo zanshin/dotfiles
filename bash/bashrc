@@ -79,6 +79,7 @@ export LESS="-M -n -q -i -r"
 # Go path
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8";
