@@ -166,10 +166,16 @@ alias rot13='tr a-xA-Z n-za-mN-ZA-M'
 #alias cowsay='fortune | cowsay'
 
 # }}}
-# Remote machines {{{
-alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu &'
+# VPN & Remote machines {{{
+# alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu &'
+alias estvpn='sudo openconnect --config ~/.openconnect/estvpn https://vpn.net.k-state.edu'
+alias asavpn='sudo openconnect --config ~/.openconnect/asavpn https://vpn.net.k-state.edu'
+alias dbvpn='sudo openconnect --config ~/.openconnect/dbvpn https://vpn.net.k-state.edu'
+alias omevpn='sudo openconnect --config ~/.openconnect/omevpn https://vpn.net.k-state.edu'
+
 alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
 alias vpnoff='/opt/cisco/anyconnect/bin/vpn disconnect'
+
 alias kvnc='open vnc://krayt.ome.ksu.edu'
 alias ksunix='ssh mhn@unix.ksuedu'
 alias tools='ssh mhn@tools.ome.ksu.edu'
