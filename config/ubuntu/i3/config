@@ -41,13 +41,13 @@ set $base0F #fcc09e
 for_window [class="^.*"] border pixel 0
 smart_gaps on
 
-gaps inner 6
+gaps inner 15
 smart_borders no_gaps
 
-bindsym $mod+y       gaps inner current minus 6
-bindsym $mod+u       gaps inner current plus 6
-bindsym $mod+Shift+y gaps outer current minus 6
-bindsym $mod+Shift+u gaps outer current plus 6
+bindsym $mod+y       gaps inner current minus 5
+bindsym $mod+u       gaps inner current plus 5
+bindsym $mod+Shift+y gaps outer current minus 5
+bindsym $mod+Shift+u gaps outer current plus 5
 
 # set $mode_gaps Gaps: (o) outer, (i) inner
 # set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -90,7 +90,7 @@ bindsym $mod+Shift+u gaps outer current plus 6
 # Workspaces
 set $ws1  "1: "
 set $ws2  "2: "
-set $ws3  "3: "
+set $ws3  "3: "
 set $ws5  "5: "
 set $ws4  "4: "
 set $ws6  "6: "
@@ -287,13 +287,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Dropdown/Scratchpad Windows
-# for_window [instance="dropdown"] floating enable
-# for_window [instance="dropdown"] resize set 625 400
-# for_window [instance="dropdown"] move position center
-# for_window [instance="dropdown"] move scratchpad
-# exec --no-startup-id terminator -name dropdown
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+exec --no-startup-id terminator -name dropdown -e tmux
 
-# bindsym $mod+u [instance="dropdown"] scratchpad show; move position center
+bindsym $mod+Shift+d [instance="dropdown"] scratchpad show; move position center
 
 # Window color assignments
 #                       border   background text     indicator
