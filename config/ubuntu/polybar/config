@@ -164,7 +164,7 @@ label-unmounted-overline = ${colors.yellow}
 [module/i3]
 type = internal/i3
 ;pin-workspaces = true
-strip-wsnumbers = true
+strip-wsnumbers = false
 format = <label-state> <label-mode>
 index-sort = true
 
