@@ -56,3 +56,5 @@
     # simple is the new default, requires > 1.7
     # default = simple
     default = matching
+[http]
+	cookiefile = /home/mark/.gitcookies

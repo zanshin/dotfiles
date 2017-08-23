@@ -45,7 +45,7 @@ width = 100%
 height = 27
 offset-x = 0
 offset-y = 0
-
+override-redirect = true
 
 ;background = ${xrdb:color9}
 background = ${colors.background}
@@ -90,6 +90,7 @@ height = 27
 offset-x = 0
 offset-y = 0
 bottom = true
+override-redirect = true
 
 tray-position = right
 tray-detached = false
@@ -163,7 +164,7 @@ label-unmounted-overline = ${colors.yellow}
 [module/i3]
 type = internal/i3
 ;pin-workspaces = true
-strip-wsnumbers = true
+strip-wsnumbers = false
 format = <label-state> <label-mode>
 index-sort = true
 
@@ -200,7 +201,7 @@ label-visible-padding = 2
 ;ws-icon-[0-9]+= label:icon
 ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;
+ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
 ws-icon-5 = 6;
