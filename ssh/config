@@ -16,10 +16,16 @@ Host fugazi
 Host mhn
     HostName ome-wse-mhn.campus.ksu.edu
 
-# Debian 9 desktop
+# Ubuntu on NUC
 Host fermata
     HostName 68.102.23.189
-    Port 11122
+    Port 11105
+    user mark
+
+# Ubuntu on ASUS
+Host vivaldi
+    HostName 68.102.23.189
+    Port 11111
     user mark
 
 # Access GitHub even when port 22 isn't available
