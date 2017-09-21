@@ -37,7 +37,7 @@ alias "dismount=osascript -e 'tell application "Finder" to eject (every disk who
 alias l="ls -al ${colorflag}"
 alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
-alias ls="command ls ${colorflag}"
+alias ls="ls ${colorflag}"
 
 alias sym="ls -la | grep '\->'"
 
