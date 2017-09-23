@@ -3,8 +3,10 @@
 URxvt.termName:    rxvt-256color
 URxvt.scrollBar:   false
 ! URxvt.font:        xft:monospace:size=11
-URxvt.font:        xft:Inconsolata:size=13
-xterm*faceName:    xft:Inconsolata:size=13
+!URxvt.font:        xft:Inconsolata:size=13
+URxvt.font:        xft:Hack:size=11
+!xterm*faceName:    xft:Inconsolata:size=13
+xterm*faceName:    xft:Hack:size=11
 URxvt*transparent: true
 URxvt*shading:     25
 URxvt*fading:      30
@@ -149,7 +151,5 @@ URxvt.matcher.button: 1
 ! Fullscreen toggle
 URxvt.keysym.F11: perl:fullscreen:switch
 
-! Clipboard copy/paste
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.iso14755: False
-
+! Copy to Clipboard and Primary (keep them in sync)
+Urxvt.perl-ext-common: selection-to-clipboard
