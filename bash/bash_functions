@@ -30,8 +30,8 @@ function knome() {
   tmux set-window-option -t :$ synchronize
 }
 
-function kick() { 
-  knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart" 
+function kick() {
+  knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart"
 }
 
 function ktags() {
@@ -327,6 +327,21 @@ man() {
     LESS_TERMCAP_ue=$'\E[0m' \
     LESS_TERMCAP_us=$'\E[1;32m' \
       man "$@"
+}
+
+# }}}
+# Jekyll helpers {{{
+draft() {
+  rake draft["$1"]
+}
+publish() {
+  rake publish
+}
+deploy() {
+  rake deploy
+}
+build() {
+  rake build
 }
 
 # }}}
