@@ -332,3 +332,18 @@ man() {
 }
 
 # }}}
+# Jekyll helpers {{{
+draft() {
+  rake draft["$1"]
+}
+publish() {
+  rake publish
+}
+deploy() {
+  rake deploy
+}
+build() {
+  rake build
+}
+
+# }}}
