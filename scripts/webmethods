@@ -1,0 +1,40 @@
+# vim: set filetype=bash:
+#
+# Tmux Name:   webmethods
+# Description: creates 3 named windows for webMethods: dev, test, and prod.
+#
+# check if session exists
+tmux has-session -t webmethods
+if [ $? != 0 ]
+then
+
+# if session does not exist create it
+tmux -2 new-session -s webmethods -n desktop -d
+
+# set default directory
+tmux send-keys -t webmethods:1 'cd ~/' C-m
+
+# create additional named windows
+tmux new-window -n dev
+tmux new-window -n test
+tmux new-window -n prod
+
+# window 1 - a view to the host machine's desktop
+tmux send-keys -t webmethods:1 'cd ~/' C-m
+
+# window 2 - dev - ome-webmethods-d-app-01
+tmux send-keys -t webmethods:2 'ssh ome-webmethods-d-app-01' C-m
+
+# window 3 - test - ome-webmethods-t-app-0[12]
+tmux split-window -v -p 50 -t webmethods:3
+tmux send-keys -t webmethods:3.1 'ssh ome-webmethods-t-app-01' C-m
+tmux send-keys -t webmethods:3.2 'ssh ome-webmethods-t-app-02' C-m
+
+# window 4 - prod - ome-webmethods-p-app-0[12]
+tmux split-window -v -p 50 -t webmethods:4
+tmux send-keys -t webmethods:4.1 'ssh ome-webmethods-p-app-01' C-m
+tmux send-keys -t webmethods:4.2 'ssh ome-webmethods-p-app-02' C-m
+
+# end if statement and attach mytmux if it existed
+fi
+tmux attach -t webmethods

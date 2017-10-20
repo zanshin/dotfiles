@@ -39,7 +39,9 @@ function ktags() {
 }
 
 function kshow() {
-  knife node show $1.campus.ksu.edu
+  host $1.campus.ksu.edu >/dev/null 2>&1 && knife node show $1.campus.ksu.edu
+  host $1.ads.campus >/dev/null 2>&1 && knife node show $1.ads.campus
+  host $1.users.campus >/dev/null 2>&1 && knife node show $1.users.campus
 }
 
 # }}}
