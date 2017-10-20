@@ -28,6 +28,12 @@ Host vivaldi
     Port 11111
     user mark
 
+# macOS High Sierra on MacBook Pro
+Host rosindust
+    HostName 68.102.23.189
+    Port 11110
+    user mark
+
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
