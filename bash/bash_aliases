@@ -96,6 +96,10 @@ alias guser="git shortlog | grep -E '^[^ ]'"
 # ect (Edit Changed in Tabs) opens all foles marked as changed by Git in tabs
 alias ect="git status --short | awk '{print $2}' | xargs -o nvim"
 
+# Use `git up` Git alias to update master branch on all repositories in parent
+# directory
+alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs -I @@ bash -c 'cd @@ && echo @@ && git checkout master && git up && cd ..'"
+
 # }}}
 # Neovim and Vim {{{
 # alias 'vi=vim'
