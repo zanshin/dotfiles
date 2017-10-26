@@ -26,7 +26,7 @@
     untracked = bold yellow
 
 [core]
-    editor = vim 
+    editor = vim
     autocrlf = input
     safecrlf = warn
     excludesfile = /Users/mark/.gitignore_global
@@ -51,6 +51,8 @@
     tags = tag -l
     branches = branch -a
     remotes = remote -v
+    up = pull --rebase --autostash origin master
+
 
 [push]
     # simple is the new default, requires > 1.7
