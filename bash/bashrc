@@ -71,7 +71,7 @@ if [[ "myos" == "Darwin" ]]; then
 fi
 
 # export EDITOR, PAGER, and LESS
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PAGER=less
 export LESS="-M -n -q -i -r"
