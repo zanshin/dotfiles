@@ -94,6 +94,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 [[ $- = *i* ]] || return
 
 # Use Liquid Prompt
-source $HOME/src/liquidprompt/liquidprompt
+LP_PS1_PREFIX="\n"
+source $HOME/.config/liquidprompt/liquidprompt
 
 # finis
