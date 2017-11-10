@@ -78,7 +78,8 @@ font-1 = FontAwesome:pixelsize=10;0
 modules-left = i3
 modules-center = xwindow
 ;modules-right = backlight volume memory cpu wlan eth battery temperature date powermenu
-modules-right = wlan date powermenu
+;modules-right = wlan date powermenu
+modules-right = wlan date powermenubarlauncher
 
 ;wm-restack = bspwm
 
@@ -429,29 +430,100 @@ ramp-2 = 
 ramp-foreground = #55
 
 
-[module/powermenu]
-type = custom/menu
+;[module/powermenu]
+;type = custom/menu
+;
+;label-open = 
+;label-open-foreground = #e60053
+;label-close =  cancel
+;label-close-foreground = #e60053
+;label-separator = |
+;label-separator-foreground = #55
+;
+;menu-0-0 =  reboot
+;menu-0-0-exec = menu-open-1
+;menu-0-1 =  power off
+;menu-0-1-exec = menu-open-2
+;
+;menu-1-0 =  cancel
+;menu-1-0-exec = menu-open-0
+;menu-1-1 = reboot
+;menu-1-1-exec = sudo systemctl reboot
+;
+;menu-2-0 =  power off
+;menu-2-0-exec = sudo systemctl poweroff
+;menu-2-1 =  cancel
+;menu-2-1-exec = menu-open-0
 
-label-open = 
-label-open-foreground = #e60053
-label-close =  cancel
-label-close-foreground = #e60053
-label-separator = |
-label-separator-foreground = #55
+; "Floating power options menu bar
+; from: https://github.com/djsavvy/dotfiles
+[module/powermenubarlauncher]
+type = custom/text
+content = " "
+click-left = polybar powermenubar
 
-menu-0-0 =  reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 =  power off
-menu-0-1-exec = menu-open-2
+[bar/powermenubar]
+monitor =
+width = 26%
+height = 27
+radius = 0
 
-menu-1-0 =  cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo systemctl reboot
+background = ${colors.background}
+foreground = ${colors.foreground}
 
-menu-2-0 =  power off
-menu-2-0-exec = sudo systemctl poweroff
-menu-2-1 =  cancel
-menu-2-1-exec = menu-open-0
+border-size = 1
+border-color = #00
+border-bottom-size = 1
+border-bottom-color = ${colors.border-bottom}
+border-top-size = 1
+border-top-color = ${colors.border-top}
+border-right-size = 0
+border-right-color = #333
+
+offset-x = 1420
+offset-y = 33
+
+padding = 3
+module-margin = 2
+separator = %{F#33}|
+
+font-0 = Hack:pixelsize=8;0
+font-1 = FontAwesome:pixelsize=10;0
+
+modules-center = lock logout suspend reboot poweroff closepowermenubar
+
+override-redirect = true
+wm-restack = true
+
+[module/lock]
+type = custom/text
+content = " Lock"
+click-left = "pkill -n polybar ; lock -f Hack-Regular"
+; click-left = "pkill -n polybar ; sh ~/.config/i3/Lock.sh"
+
+[module/suspend]
+type = custom/text
+content = " Suspend"
+click-left = "pkill -n polybar ; lock -f Hack-Regular && systemctl suspend"
+
+[module/logout]
+type = custom/text
+content = " Logout"
+click-left = "pkill -n polybar ; i3-msg exit"
+
+[module/reboot]
+type = custom/text
+content = " Reboot"
+click-left = "pkill -n polybar ; systemctl reboot"
+
+[module/poweroff]
+type = custom/text
+content = " Poweroff"
+click-left = "pkill -n polybar ; systemctl poweroff"
+
+[module/closepowermenubar]
+type = custom/text
+content = " Cancel"
+click-left = "pkill -n polybar"
 
 ; vim:ft=dosini
