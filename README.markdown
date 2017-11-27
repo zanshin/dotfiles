@@ -6,7 +6,7 @@ My primary OS is macOS X and some of these configurations are tuned to work on t
 # Installation
 
     git clone git://github.com/zanshin/dotfiles.git ~/.dotfiles
-	
+
 # Setup
 The `install.sh` script will setup the dotfiles I use on most machines. It asks about each tool,
 defaulting to yes for those I typically use, and no for those I no longer use, or use as much.
@@ -14,7 +14,7 @@ defaulting to yes for those I typically use, and no for those I no longer use, o
     cd ~/.dotfiles
     ./install.sh
 
-This script supercedes the older `make.sh` script which accomplished the same thing, albeit less
+This script supersedes the older `make.sh` script which accomplished the same thing, albeit less
 gracefully.
 
 For manual setup, and more details about the dotfiles, please read the [Details](DETAILS.markdown)
