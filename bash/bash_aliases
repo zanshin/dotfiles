@@ -42,6 +42,13 @@ alias ls="ls ${colorflag}"
 alias sym="ls -la | grep '\->'"
 
 # }}}
+# Directory shortcuts {{{
+alias omedev="cd ~/code/chef-old/omedev/chef-repo"
+alias ome="cd ~/code/chef/ome"
+alias omepci="cd ~/code/chef-old/omepci/chef-repo"
+alias omepcidev="cd ~/code/chef-old/omepcidev/chef-repo"
+
+# }}}
 # Miscellaneous {{{
 alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
