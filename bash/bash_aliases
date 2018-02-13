@@ -47,6 +47,10 @@ alias omedev="cd ~/code/chef/omedev"
 alias ome="cd ~/code/chef-old/ome/chef-repo"
 alias omepci="cd ~/code/chef-old/omepci/chef-repo"
 alias omepcidev="cd ~/code/chef-old/omepcidev/chef-repo"
+alias est="cd ~/code/chef/est"
+alias estdev="cd ~/code/chef/estdev"
+alias estwin="cd ~/code/chef/estwin"
+alias estwindev="cd ~/code/chef/estwindev"
 
 # }}}
 # Miscellaneous {{{
