@@ -42,6 +42,17 @@ alias ls="ls ${colorflag}"
 alias sym="ls -la | grep '\->'"
 
 # }}}
+# Directory shortcuts {{{
+alias omedev="cd ~/code/chef/omedev"
+alias ome="cd ~/code/chef-old/ome/chef-repo"
+alias omepci="cd ~/code/chef-old/omepci/chef-repo"
+alias omepcidev="cd ~/code/chef-old/omepcidev/chef-repo"
+alias est="cd ~/code/chef/est"
+alias estdev="cd ~/code/chef/estdev"
+alias estwin="cd ~/code/chef/estwin"
+alias estwindev="cd ~/code/chef/estwindev"
+
+# }}}
 # Miscellaneous {{{
 alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
@@ -195,6 +206,7 @@ alias off='deactivate'
 # }}}
 # Oddball stuff {{{
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
+alias inet='ifconfig | grep inet | grep -v inet6'
 alias sloc='/usr/local/sloccount/bin/sloccount'
 alias adventure='emacs -batch -l dunnet'
 alias ttop='top -ocpu -R -F -s 2 -n30'

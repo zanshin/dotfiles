@@ -26,10 +26,10 @@
     untracked = bold yellow
 
 [core]
-    editor = vim
+    editor = nvim
     autocrlf = input
     safecrlf = warn
-    excludesfile = /Users/mark/.gitignore_global
+    excludesfile = ~/.gitignore_global
     quotepath = false
   	pager = less -R
 
@@ -53,10 +53,10 @@
     remotes = remote -v
     up = pull --rebase --autostash origin master
 
-
 [push]
     # simple is the new default, requires > 1.7
     # default = simple
     default = matching
+
 [http]
-	cookiefile = /home/mark/.gitcookies
+	cookiefile = ~/.gitcookies
