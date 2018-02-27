@@ -46,6 +46,7 @@ alias sym="ls -la | grep '\->'"
 alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
 #alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
+alias 'previous=history | grep '
 
 # }}}
 # Mercurial (hg) {{{
