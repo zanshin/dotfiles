@@ -3,8 +3,8 @@
 # set-window-option -g utf8 on
 
 # make tmux display things in 256 colors
-# set -g default-terminal "screen-256color"
-set -g default-terminal "xterm-256color"
+set -g default-terminal "screen-256color"
+# set -g default-terminal "xterm-256color"
 
 # set scrollback history to 30000 (30k)
 set -g history-limit 30000
@@ -133,19 +133,19 @@ set -g visual-activity on
 # set color for status bar
 set-option -g status-bg colour235 #base02
 set-option -g status-fg yellow #yellow
-set-option -g status-attr dim 
+set-option -g status-attr dim
 
 # set window list colors - red for active and cyan for inactive
 set-window-option -g window-status-fg brightblue #base0
-set-window-option -g window-status-bg colour236 
+set-window-option -g window-status-bg colour236
 set-window-option -g window-status-attr dim
 
 set-window-option -g window-status-current-fg brightred #orange
-set-window-option -g window-status-current-bg colour236 
+set-window-option -g window-status-current-bg colour236
 set-window-option -g window-status-current-attr bright
 
 # show host name and IP address on left side of status bar
-set -g status-left-length 85 
+set -g status-left-length 85
 #set -g status-left "#[fg=green]: #h : #[fg=brightblue]#(dig +short myip.opendns.com @resolver1.opendns.com) #[fg=yellow]#(ifconfig en0 | grep 'inet ' | awk '{print \"en0 \" $2}') #(ifconfig en1 | grep 'inet ' | awk '{print \"en1 \" $2}') #(ifconfig en3 | grep 'inet ' | awk '{print \"en3 \" $2}') #[fg=red]#(ifconfig tun0 | grep 'inet ' | awk '{print \"vpn \" $2}') #[fg=green]#(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk -F': ' '/ SSID/{print $2}') "
 #set -g status-left "#[fg=green]: #h : #[fg=brightblue]#(curl icanhazip.com) #[fg=yellow]#(ifconfig en0 | grep 'inet ' | awk '{print \"en0 \" $2}') #(ifconfig en1 | grep 'inet ' | awk '{print \"en1 \" $2}') #(ifconfig en3 | grep 'inet ' | awk '{print \"en3 \" $2}') #[fg=red]#(ifconfig tun0 | grep 'inet ' | awk '{print \"vpn \" $2}') #[fg=green]#(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk -F': ' '/ SSID/{print $2}') "
 # set -g status-left "#[fg=green]: #h : #[fg=yellow]#(ifconfig en0 | grep 'inet ' | awk '{print \"en0 \" $2}') #(ifconfig en1 | grep 'inet ' | awk '{print \"en1 \" $2}') #(ifconfig en3 | grep 'inet ' | awk '{print \"en3 \" $2}') #[fg=red]#(ifconfig tun0 | grep 'inet ' | awk '{print \"vpn \" $2}') #[fg=green]#(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk -F': ' '/ SSID/{print $2}') "
