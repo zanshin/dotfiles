@@ -142,7 +142,8 @@ alias tmux='tmux -2'
 
 # }}}
 # Mutt {{{
-alias mutt='cd ~/Desktop && mutt'
+# alias mutt='cd ~/Desktop && mutt'
+alias mutt='mutt -e "set crypt_use_gpgme=no"'
 
 # }}}
 # Vagrant {{{
