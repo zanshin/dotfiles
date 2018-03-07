@@ -1,0 +1,454 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[colors]
+navy    = #001f3f
+blue    = #0074d9
+aqua    = #7fdbff
+teal    = #39cccc
+olive   = #3d9970
+green   = #3ecc40
+lime    = #01ff70
+yellow  = #ffdc00
+orange  = #ff851b
+red     = #ff4136
+maroon  = #85144b
+fuchsia = #f012be
+purple  = #b10dc9
+black   = #111111
+gray    = #aaaaaa
+silver  = #dddddd
+white   = #ffffff
+
+background    = #ed222222
+foreground    = #dfdfdf
+underline     = #00f
+overline      = #f00
+border-bottom = #333
+border-top    = #333
+
+[bar/top]
+;monitor = ${env:MONITOR:HDMI2}
+monitor = eDP-1
+dock = false
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+override-redirect = true
+
+;background = ${xrdb:color9}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;lineheight = 1
+;linecolor = #555
+overline-size = 2
+overline-color = ${colors.overline}
+underline-size = 2
+underline-color = ${colors.underline}
+
+border-bottom = 2
+border-bottom-color = ${colors.border-bottom}
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Hack:pixelsize=10;0
+font-1 = FontAwesome:pixelsize=10;0
+;font-1 = fixed:pixelsize=10;0
+;font-2 = unifont:size=6:heavy:fontformat=truetype;-2
+;font-3 = siji:pixelsize=10;0
+
+;modules-left = bspwm i3
+modules-left = i3
+modules-center = xwindow
+;modules-right = backlight volume memory cpu wlan eth battery temperature date powermenu
+modules-right = wlan date powermenu
+
+;wm-restack = bspwm
+
+[bar/bottom]
+;monitor = ${env:MONITOR:HDMI2}
+monitor = eDP-1
+dock = false
+width = 100%
+height = 27
+offset-x = 0
+offset-y = 0
+bottom = true
+override-redirect = true
+
+tray-position = right
+tray-detached = false
+tray-maxsize = 25
+;tray-transparent = true
+tray-background = ${root.background}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 2
+tray-scale = 1.0
+
+
+;background = ${xrdb:color9}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+;lineheight = 1
+;linecolor = #555
+overline-size = 2
+overline-color = ${colors.overline}
+underline-size = 2
+underline-color = ${colors.underline}
+
+border-top = 2
+border-top-color = ${colors.border-top}
+
+spacing = 1
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Hack:pixelsize=10;0
+font-1 = FontAwesome:pixelsize=10;0
+;font-1 = fixed:pixelsize=10;0
+;font-2 = unifont:size=6:heavy:fontformat=truetype;-2
+;font-3 = siji:pixelsize=10;0
+
+;modules-left = bspwm i3
+;modules-left = i3
+;modules-center = xwindow
+;modules-right = backlight volume memory cpu wlan eth battery temperature date powermenu
+modules-left = volume
+modules-center = cpu memory temperature battery
+modules-right = filesystem
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 40
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+;label-mounted = %mountpoint%: %percentage_free%
+label-mounted =  %mountpoint%: %used% of %total%
+label-mounted-foreground = ${colors.gray}
+
+label-unmounted = %mountpoint%: not mounted
+label-unmounted-foreground = #55
+
+label-mounted-overline = ${colors.yellow}
+label-unmounted-overline = ${colors.yellow}
+
+
+[module/i3]
+type = internal/i3
+;pin-workspaces = true
+strip-wsnumbers = false
+format = <label-state> <label-mode>
+index-sort = true
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #d60027
+
+;label-focused = %index%
+label-focused = %name%
+;label-focused-background = #ee333333
+label-focused-background = ${colors.aqua}
+label-focused-foreground = ${colors.black}
+label-focused-padding = 2
+label-focused-underline = ${colors.aqua}
+
+;label-unfocused = %index%
+label-unfocused = %name%
+label-unfocused-padding = 2
+label-unfocused-underline = ${colors.blue}
+
+;label-urgent = %index%!
+label-urgent = %name%!
+;label-urgent-background = #bd2c40
+label-urgent-padding = 2
+label-urgent-underline = ${colors.red}
+label-urgent-background = ${colors.red}
+label-urgent-foreground = ${colors.white}
+
+;label-visible = %index%
+label-visible = %name%
+label-visible-foreground = #55
+label-visible-padding = 2
+
+;ws-icon-[0-9]+= label:icon
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 0;
+;ws-icon-default = 
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label = CPU %{F#666}%{F#cc} %percentage%
+;label-underline = #f90000
+label-overline = ${colors.orange}
+
+format = <label> <bar-load>
+;label = CPU
+
+bar-load-width = 30
+bar-load-foreground-0 = #aaff77
+bar-load-foreground-1 = #aaff77
+bar-load-foreground-2 = #fba922
+bar-load-foreground-3 = #ff5555
+bar-load-indicator = |
+bar-load-indicator-foreground = #ff
+bar-load-indicator-font = 3
+bar-load-fill = =
+bar-load-fill-font = 3
+bar-load-empty = ─
+bar-load-empty-font = 3
+bar-load-empty-foreground = #444444
+
+[module/memory]
+type = internal/memory
+interval = 2
+label = RAM %{F#665}%{F#cc} %percentage_used%
+;label-underline = #4bffdc
+label-overline = ${colors.orange}
+
+format = <label> <bar-used>
+;label = RAM
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-foreground = #ff
+bar-used-indicator-font = 3
+bar-used-fill = =
+bar-used-fill-font = 3
+bar-used-empty = ─
+bar-used-empty-font = 3
+bar-used-empty-foreground = #444444
+
+[module/wlan]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+
+;format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
+format-connected-underline = ${colors.purple}
+;format-connected-overline = #9f78e1
+format-disconnected-underline = ${self.format-connected-underline}
+;format-disconnected-overline = ${self.format-connected-overline}
+
+;label-connected = %{F#55} %{F#ff} %essid%
+label-connected = %{F#ff} %essid%
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = #55
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #55
+
+
+;[module/eth]
+;type = internal/network
+;interface = enp0s25
+;;interval = 3.0
+;
+;format-connected-underline = ${colors.purple}
+;;format-connected-overline = #55aa55
+;format-disconnected-underline = ${self.format-connected-underline}
+;;format-disconnected-overline = ${self.format-connected-overline}
+;
+;label-connected = %{F#55}%{F#ff} %local_ip%
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = #55
+
+
+[module/date]
+type = internal/date
+;date = %%{F#55}%%{F#ff} %H:%M
+;date-alt = %%{F#55}%{F#ff} %Y-%m-%d  %%{F#55}%%{F#ff} %H:%M
+date =   %%{F#999}%a %e %b%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+interval = 5
+format-underline = ${colors.purple}
+
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+label-volume-overline = ${colors.green}
+
+label-muted =  sound muted
+label-muted-foreground = #55
+
+bar-volume-width = 20
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = #55
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = Charging %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = Discharging %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-full = Fully charged
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+;format-charging-underline = #ffb52a
+format-charging-overline = ${colors.orange}
+format-discharging-overline = ${colors.orange}
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+;format-underline = #f50a4d
+format-overline = ${colors.orange}
+format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+format-warn-overline = ${self.format-overline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = #e60053
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #55
+
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+label-open-foreground = #e60053
+label-close =  cancel
+label-close-foreground = #e60053
+label-separator = |
+label-separator-foreground = #55
+
+menu-0-0 =  reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 =  power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 =  cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo systemctl reboot
+
+menu-2-0 =  power off
+menu-2-0-exec = sudo systemctl poweroff
+menu-2-1 =  cancel
+menu-2-1-exec = menu-open-0
+
+; vim:ft=dosini
