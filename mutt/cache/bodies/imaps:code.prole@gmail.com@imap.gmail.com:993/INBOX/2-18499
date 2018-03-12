@@ -1,0 +1,619 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp4931803qtm;
+        Wed, 7 Mar 2018 03:25:27 -0800 (PST)
+X-Google-Smtp-Source: AG47ELvGIP/yB61xmwxylPq+6oHpPmwTdABu4C/RgvDSDf9CndTQotYetxhp+CDJRAVwC8Hxwryu
+X-Received: by 10.237.55.132 with SMTP id j4mr34219764qtb.275.1520421927159;
+        Wed, 07 Mar 2018 03:25:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520421927; cv=none;
+        d=google.com; s=arc-20160816;
+        b=mFxOIOCKzmuQTSk1zftd2H5i2oaYJCGvaaCYIw1loUS4fVuKezFvOoG0Q0YRr6hkbg
+         rBNANkDXon4klk2JCNueyRDKzn2E3kdeeOO+jNQr0klom/ZJ3jLYp7mAD+GUl4RzGU89
+         2HIxfTLS0NUDitCCS0J74V15zZQDXofxEl3VZQo1+h6LvUbQ9dwRd9aZqtL/NwjBehOg
+         mhJ34kDAfw0nhrhs/qYWfM6T1NJfdVvWKAodp6T58BrWAHY9xJxjqmq20Ojy0wnTHA2d
+         V89Pz7/hMP5RWcnJw939X6N25RY3e0L9zUFiW/cDclsRogU/Sc+vNREe5MMb6WNxcZ+/
+         gvvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature:dkim-signature:arc-authentication-results;
+        bh=52HXCTHRyiTO2mbc1HhQa0M0qylPP7MAibORwVRBazY=;
+        b=NaHfjxhQQh7MxThQWEMBXNVi+D0EZtnP+uXtwYYIk/aU4lR6OWCM+NlKjxGLwcufV/
+         MF1BEILieJ6f9a9xrMnB5GddkPKiFl9CH0KsgbhYtxGUzMM6I0TfyJmqr5xQtOav8EBA
+         4JMVWLHJ+oEZAo6Z3aofCZJTjfDUZwBUFjS3o8YxL/GmljvNH9BKtzLocFyV2z+3pmqj
+         3pa0Xx7GHRtn27AgdsH74WwGrw+iG4hhc+zF1Po6CUSkDA0DgCEBVfnUPBjkLFWD71Ox
+         malD8lCD/7N8OPOWcQqXxOW8kUAX3XdTb2gJ8sY6C5ITZRAWHNkwmnA4pk+9FcOUmqlw
+         WZhw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@oreilly.com header.s=m1 header.b=fOZCVuAR;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=d+ydVF7S;
+       spf=pass (google.com: domain of 107-fms-070.0.669.0.0.1443.9.6869222@em.oreilly.com designates 192.28.152.137 as permitted sender) smtp.mailfrom=107-FMS-070.0.669.0.0.1443.9.6869222@em.oreilly.com
+Return-Path: <107-FMS-070.0.669.0.0.1443.9.6869222@em.oreilly.com>
+Received: from em.oreilly.com (em.oreilly.com. [192.28.152.137])
+        by mx.google.com with ESMTPS id 90si18322472qkr.181.2018.03.07.03.25.26
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 07 Mar 2018 03:25:27 -0800 (PST)
+Received-SPF: pass (google.com: domain of 107-fms-070.0.669.0.0.1443.9.6869222@em.oreilly.com designates 192.28.152.137 as permitted sender) client-ip=192.28.152.137;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@oreilly.com header.s=m1 header.b=fOZCVuAR;
+       dkim=pass header.i=@mktdns.com header.s=m1 header.b=d+ydVF7S;
+       spf=pass (google.com: domain of 107-fms-070.0.669.0.0.1443.9.6869222@em.oreilly.com designates 192.28.152.137 as permitted sender) smtp.mailfrom=107-FMS-070.0.669.0.0.1443.9.6869222@em.oreilly.com
+Return-Path: <reply@oreilly.com>
+X-MSFBL: Y29kZS5wcm9sZUBnbWFpbC5jb21AZHZwLTE5Mi0yOC0xNTItMTM3QGJnLWFiZC02
+	MjJAMTA3LUZNUy0wNzA6NTIzOjE2NzM6Mzg0MDowOjE0NDM6OTo2Njk6Njg2OTIy
+	Mg==
+Received: from [10.1.87.249] ([10.1.87.249:41883] helo=abmas02.marketo.org)
+	by abmta07.marketo.org (envelope-from <reply@oreilly.com>)
+	(ecelerity 3.6.8.47404 r(Core:3.6.8.0)) with ESMTP
+	id FC/1E-55300-EFBCF9A5; Wed, 07 Mar 2018 05:24:46 -0600
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1520421886;
+	s=m1; d=oreilly.com; i=@oreilly.com;
+	h=Date:From:To:Subject:MIME-Version:Content-Type;
+	bh=52HXCTHRyiTO2mbc1HhQa0M0qylPP7MAibORwVRBazY=;
+	b=fOZCVuARfJg84l8PU56CWJP7hJ4W4YQ0eLqQznY/JDBZDhplv9XlId9CzVKFMw5w
+	lL0YqP6SFp+pwQe2HzYwAhS658eybNRSWidweBLPKOPEqH0l3iwrYNzkk8CP5TpqUZG
+	Svv9cMBbZSjm3AD1pXXmKTKEXBkzNW1qV0nF3EAY=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1520421886;
+	s=m1; d=mktdns.com; i=@mktdns.com;
+	h=Date:From:To:Subject:MIME-Version:Content-Type;
+	bh=52HXCTHRyiTO2mbc1HhQa0M0qylPP7MAibORwVRBazY=;
+	b=d+ydVF7Sr+asfXzEfrK8UPQHhI11TGmSqE0GstSCl8pGdjS8IhscG6KMOeBfh031
+	grgF+AzeQTqr83K8y5l7zQgFYO/wl3CP+ALziLSTZoZZlmLMDEzOZMVO0i8baVXUjmf
+	x/rm+qrVgPYoGjT1jJMXxyQ5B2HcARNs9YR+LnQk=
+Date: Wed, 7 Mar 2018 05:24:46 -0600 (CST)
+From: O'Reilly OSCON <reply@oreilly.com>
+Reply-To: reply@oreilly.com
+To: code.prole@gmail.com
+Message-ID: <117111854.-167710464.1520421886655.JavaMail.root@abmas02.marketo.org>
+Subject: The one that started it all - 25% off for 1 week
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_-167710465_497344971.1520421886655"
+X-PVIQ: mkto-107FMS070-000001-000000-000669
+X-Binding: bg-abd-622
+X-MarketoID: 107-FMS-070:523:1673:3840:0:1443:9:669:6869222
+X-MktArchive: false
+List-Unsubscribe: <mailto:NJVGQNTOJU4XU5DFIJHG4ZBRGY2DANDSIRAT2PI.669.1443.9@unsub-ab.mktomail.com>
+X-Mailfrom: 107-FMS-070.0.669.0.0.1443.9.6869222@em.oreilly.com
+X-MSYS-API: {"options":{"open_tracking":false,"click_tracking":false}}
+X-MktMailDKIM: true
+
+------=_Part_-167710465_497344971.1520421886655
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+View this information in your browser: https://get.oreilly.com/index.php/em=
+ail/emailWebview?mkt_tok=3DeyJpIjoiTTJNek5UbGlObVJrWmpObSIsInQiOiJCSU9CMGlM=
+ZHlQTFRMdkM4WU9ldy9LeXdrSTlyNC95bURwdWhxb1RzTVFmT21ObWhMRmh4cEFTcUtHeWR3bnN=
+TZ04xREU0YXl3N0dHSkdsWCtUcnpUNHJEOEtyZk8xS1pmeDBUTkYrZmkyMnRVY2ppNCs5cDJZaU=
+pzRngrOVBrSiJ9
+
+Hi there,
+
+OSCON (https://conferences.oreilly.com/oscon/oscon-or?cmp=3Dem-prog-confreg=
+-na-osor18_em3_reg_open_newsletter) turns 20 this year, and now that regist=
+ration is open, the party has officially started. Here's your first party f=
+avor: buy your Gold, Silver, or Bronze conference pass in the next 7 days a=
+nd get a 25% discount on top of Best Price.
+
+Open source has penetrated every aspect of business, ecommerce, education, =
+and the web, and you need to know which technologies work well together, in=
+ addition to how the open source projects you use are supported. OSCON didn=
+'t get to be the longest running software conference by accident. Developer=
+s, engineers, and business leaders like you who build and support transform=
+ative technologies make OSCON the heartbeat of the movement.
+
+Come to Portland July 16=E2=80=9319 for perspective on the decisions that s=
+trengthen and grow companies, deep knowledge of the technology to make it h=
+appen, and access to a community that can help both you and your organizati=
+on thrive.
+
+Make sure you register using code VIP25 before midnight PST on March 14 to =
+nab your 25% discount.
+
+Register now: https://conferences.oreilly.com/oscon/oscon-or/public/registe=
+r?cmp=3Dem-prog-confreg-na-osor18_em3_reg_open_newsletter
+
+See you in Portland,
+
+Rachel Roumeliotis, Kelsey Hightower, and Scott Hanselman
+OSCON Program Chairs
+
+------------------------------------------------------
+
+Not planning to attend OSCON this year and wish to no longer receive inform=
+ation about it? Simply opt-out here: http://www.oreilly.com/emails/oscon-su=
+bscription.html
+
+You are receiving this because you're a customer of O'Reilly Media, or you'=
+ve signed up to receive email from us. We hope you found this message to be=
+ useful. However, if you'd rather not receive future emails of this type fr=
+om O'Reilly, please manage your preferences here:=20
+
+http://get.oreilly.com/Manage_My_Subscriptions.html
+
+O'Reilly Media, Inc. 1005 Gravenstein Highway North, Sebastopol, CA 95472 (=
+707) 827-7019 / (800) 889-8969
+
+------------------------------------------------------
+
+.
+
+------=_Part_-167710465_497344971.1520421886655
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.=
+w3.org/TR/html4/loose.dtd">
+<html lang=3D"en">
+<head>=20
+<meta http-equiv=3D"Content-type" content=3D"text/html;charset=3DUTF-8">=20
+<style type=3D"text/css">
+.mobile-show {
+  display:none !important;
+  overflow:hidden !important;
+  float:left !important;
+}
+
+@media only screen and (max-width:655px) {
+.fullwidth {
+  width:100% !important;
+}
+}
+
+@media only screen and (max-width:480px) {
+.smaller-hide {
+  display:none !important;
+  width:0px !important;
+  overflow:hidden !important;
+  float:left !important;
+}
+
+.medium-size {
+  width:50% !important;
+}
+
+.mobile {
+  width:100% !important;
+  text-align:left !important;
+  padding-top:15px !important;
+  align:left !important;
+}
+
+.header-spacing {
+  padding-bottom:24px !important;
+}
+
+.logos {
+  padding-left:20px !important;
+}
+
+.share {
+  text-align:left !important;
+}
+}
+
+@media screen and (max-width:400px) {
+.mobile-hide {
+  display:none !important;
+  width:0px !important;
+  overflow:hidden !important;
+  float:left !important;
+}
+
+.mobile-show {
+  display:inline !important;
+  overflow:visible !important;
+  float:none !important;
+}
+
+.medium-padding {
+  padding:30px 30px 0 30px !important;
+}
+}
+</style>=20
+</head>=20
+<body class=3D"fullwidth" style=3D"padding:0; margin:0; background-color:#f=
+ff;"><style type=3D"text/css">div#emailPreHeader{ display: none !important;=
+ }</style><div id=3D"emailPreHeader" style=3D"mso-hide:all; visibility:hidd=
+en; opacity:0; color:transparent; mso-line-height-rule:exactly; line-height=
+:0; font-size:0px; overflow:hidden; border-width:0; display:none !important=
+;">OSCON 2018 is live</div>=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=20
+<tbody>
+<tr>=20
+<td style=3D"font-family:'Open Sans',HelveticaNeue-Light,'Helvetica Neue Li=
+ght',Helvetica,sans-serif; background-color:#fff; font-size:16px; color:#44=
+4; line-height:22px; margin:0 0 12px 0; padding:0;">=20
+<table border=3D"0" class=3D"fullwidth" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"640" align=3D"center">=20
+<tbody>
+<tr>=20
+<td style=3D"padding:30px 20px 30px 20px; background-color:#fff;">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=20
+<tbody>
+<tr>=20
+<td class=3D"header-spacing" style=3D"border-bottom:1px solid #ddd; padding=
+-bottom:30px;">=20
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"width:107px; height:30px; margin:0; padding:0 10px 0 0;">=20
+<tbody>
+<tr>=20
+<td style=3D"width:107px; height:30px; padding:0; font-size:0; margin:0;"><=
+a href=3D
+"http://link.oreilly.com/a0000W01OF0Z00rSFMQ6sUr" target=3D"_blank"
+><img src=3D"https://cdn.oreillystatic.com/oreilly/email/logos/2018/oreilly=
+-logo-107x30@2x.png" alt=3D"O'Reilly Media Logo" width=3D"107" height=3D"30=
+" border=3D"0"></a> </td>=20
+</tr>=20
+</tbody>
+</table>=20
+<table align=3D"right" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"70%" class=3D"mobile" style=3D"width:70%; max-width:420px; height:30p=
+x; vertical-align:top; padding:0; color:#666; font-family:'Open Sans',Helve=
+ticaNeue-Light,'Helvetica Neue Light',Helvetica,sans-serif; font-weight:300=
+; font-size:14px; line-height:14px; text-align:right;">=20
+<tbody>
+<tr>=20
+<td><a href=3D
+"http://link.oreilly.com/b0000rMW6FG0SU1s000OZsQ" target=3D"_blank" style=
+=3D"font-weight:300; text-decoration:none; color:#666;"
+>Learning Platform</a> =E2=80=A2 <a href=3D
+"http://link.oreilly.com/NM00HFOr0001U6S0tQs0Z0W" target=3D"_blank" style=
+=3D"font-weight:300; text-decoration:none; color:#666;"
+>Conferences</a> =E2=80=A2 <a href=3D
+"http://link.oreilly.com/XrW0UuM0Q000S6sZO001FI0" target=3D"_blank" style=
+=3D"font-weight:300; text-decoration:none; color:#666;"
+>Ideas</a> </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table>=20
+<!-- /end logo -->=20
+<!-- Update (480 Width) Logo, Logo Alt (Preheader), and Conference Home URL=
+ below -->=20
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-s=
+pacing:0; background-color:#ffffff;">=20
+<tbody>
+<tr>=20
+<td style=3D"margin:0; padding:30px 0 0 0; border:0; width:100%; vertical-a=
+lign:top; text-align:center; height:220px; vertical-align:top; text-align:l=
+eft;">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" heig=
+ht=3D"100%">=20
+<tbody>
+<tr>=20
+<td class=3D"medium-size" style=3D"width:30%; background-color:#d3002d;">=
+=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" heig=
+ht=3D"100%">=20
+<tbody>
+<tr>=20
+<td style=3D"margin:0; border:0; padding:40px 30px 0 30px; vertical-align:t=
+op; text-align:center;"> <a href=3D
+"http://link.oreilly.com/G1M0S600ZvsJF0rW0000UQO"
+><img src=3D"http://cdn.oreillystatic.com/oreilly/email/logos/2018/oscon-48=
+0.png" alt=3D"OSCON Logo" style=3D"display:inline-block; padding:0; min-wid=
+th:160px; max-width:240px; width:100%;"></a> </td>=20
+</tr>=20
+<!-- Update conference date and location below -->=20
+<tr>=20
+<td style=3D"margin:0; padding:10px 0 30px 0; border:0; vertical-align:bott=
+om; text-align:center; font-size:16px; line-height:24px; font-weight:300; c=
+olor:#ffffff; font-family:'Open Sans',HelveticaNeue-Light,'Helvetica Neue L=
+ight',Helvetica,sans-serif;">July 16=E2=80=9319<span class=3D"mobile-show" =
+style=3D"display:none;"> =E2=80=A2 </span><span class=3D"mobile-hide"><br><=
+/span>Portland, OR </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+<!-- Update (380 Width by 220 Height) background-image here, if there is a =
+speaker they should be centered. Background-position can be updated if mobi=
+le doesn't look right. -->=20
+<td width=3D"70%" class=3D"mobile-hide medium-size" style=3D"margin:0; padd=
+ing:0; border:0; text-align:center; background-color:#d3002d; height:220px;=
+ background-image: url('http://cdn.oreillystatic.com/oreilly/email/headers/=
+oscon/2018/oscon-pdx18-b-380x220.jpg'); background-position:center top; bac=
+kground-repeat:no-repeat; background-size:cover;">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" heig=
+ht=3D"100%">=20
+<tbody>
+<tr>=20
+<!-- Update image header copy below, doesn't show up below 480px width in m=
+ost email clients -->=20
+<td style=3D"margin:0; padding:0 10px 29px 10px; border:0; width:100%; font=
+-size:16px; line-height:24px; font-weight:300; vertical-align:bottom; color=
+:#ffffff; font-family:'Open Sans',HelveticaNeue-Light,'Helvetica Neue Light=
+',Helvetica,sans-serif;"><span class=3D"smaller-hide">The complete converge=
+nce of the technologies transforming industries&nbsp;today</span> </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table>=20
+<!-- Begin: Body -->=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0">=20
+<tbody>
+<tr>=20
+<td style=3D"padding:30px 0 25px 0; margin:0; font-size:16px; line-height:2=
+4px; font-weight:300; color:#444; font-family:'Open Sans',HelveticaNeue-Lig=
+ht,'Helvetica Neue Light',Helvetica,sans-serif;">Hi there, </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"padding:0 0 25px 0; margin:0; font-size:16px; line-height:24px=
+; font-weight:300; color:#444; font-family:'Open Sans',HelveticaNeue-Light,=
+'Helvetica Neue Light',Helvetica,sans-serif;"><a href=3D
+"http://link.oreilly.com/G1M0S600ZvsJF0rW0000UQO" style=3D"text-decoration:=
+none; font-weight:normal; color:#0000ee;"
+>OSCON</a> <strong>turns 20 this year</strong>, and now that registration i=
+s open, the party has officially started. Here's your first party favor: bu=
+y your Gold, Silver, or Bronze conference pass in the next 7 days and <stro=
+ng>get a 25% discount on top of Best Price</strong>. </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"padding:0 0 25px 0; margin:0; font-size:16px; line-height:24px=
+; font-weight:300; color:#444; font-family:'Open Sans',HelveticaNeue-Light,=
+'Helvetica Neue Light',Helvetica,sans-serif;">Open source has penetrated ev=
+ery aspect of business, ecommerce, education, and the web, and you need to =
+know which technologies work well together, in addition to how the open sou=
+rce projects you use are supported. OSCON didn't get to be the longest runn=
+ing software conference by accident. Developers, engineers, and business le=
+aders like you who build and support transformative technologies make OSCON=
+ the heartbeat of the movement. </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"padding:0 0 25px 0; margin:0; font-size:16px; line-height:24px=
+; font-weight:300; color:#444; font-family:'Open Sans',HelveticaNeue-Light,=
+'Helvetica Neue Light',Helvetica,sans-serif;"><strong>Come to Portland July=
+ 16=E2=80=9319</strong> for perspective on the decisions that strengthen an=
+d grow companies, deep knowledge of the technology to make it happen, and a=
+ccess to a community that can help both you and your organization thrive. <=
+/td>=20
+</tr>=20
+<tr>=20
+<td style=3D"padding:0 0 25px 0; margin:0; font-size:16px; line-height:24px=
+; font-weight:300; color:#444; font-family:'Open Sans',HelveticaNeue-Light,=
+'Helvetica Neue Light',Helvetica,sans-serif;">Make sure you <a href=3D
+"http://link.oreilly.com/B100wF0SQ000s06M0ZKWUOr" style=3D"text-decoration:=
+none; font-weight:normal; color:#0000ee;"
+>register using <strong>code VIP25</strong></a> before midnight PST on Marc=
+h 14 to nab your 25% discount. </td>=20
+</tr>=20
+<tr>=20
+<td align=3D"left" style=3D"padding:4px 0 29px 0;">=20
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=20
+<tbody>
+<tr>=20
+<td align=3D"center"><a href=3D
+"http://link.oreilly.com/B100wF0SQ000s06M0ZKWUOr" target=3D"_blank" style=
+=3D"font-size:16px; line-height:16px; font-family:'Open Sans',HelveticaNeue=
+-Light,'Helvetica Neue Light',Helvetica,sans-serif; font-weight:500; text-d=
+ecoration:none; color:#fff; background-color:#d3002d; border-width:22px 30p=
+x; border-style:solid; border-color:#d3002d; border-radius:2px; display:blo=
+ck;"
+>Register now</a> </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"padding:0 0 25px 0; margin:0; font-size:16px; line-height:24px=
+; font-weight:300; color:#444; font-family:'Open Sans',HelveticaNeue-Light,=
+'Helvetica Neue Light',Helvetica,sans-serif;">See you in Portland, </td>=20
+</tr>=20
+<!-- The <td> below has a padding of 0 to keep the <hr> spacing in one plac=
+e, use this as the final copy <td>. -->=20
+<tr>=20
+<td style=3D"padding:0 0 25px 0; margin:0; font-size:16px; line-height:24px=
+; font-weight:300; color:#444; font-family:'Open Sans',HelveticaNeue-Light,=
+'Helvetica Neue Light',Helvetica,sans-serif; border-bottom:1px solid #ddd;"=
+ align=3D"left">Rachel Roumeliotis, Kelsey Hightower, and Scott Hanselman<b=
+r>OSCON Program Chairs </td>=20
+</tr>=20
+</tbody>
+</table>=20
+<!--End: Body-->=20
+<!-- Begin:Sponsors -->=20
+<table class=3D"fullwidth" align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"600" bgcolor=3D"#ffffff" style=3D"text-align:cen=
+ter; margin:0; padding:0;">=20
+<tbody>
+<tr>=20
+<td style=3D"padding:55px 0 20px 0;">=20
+<table align=3D"center" border=3D"0" cellpadding=3D"20" cellspacing=3D"0" s=
+tyle=3D"margin:0; text-align:center; width:100%;">=20
+<tbody>
+<tr>=20
+<td style=3D"padding:0 0 5px 0; margin:0; width:40%; text-align:center; fon=
+t-weight:400;"> <h2 style=3D"color:#444; font-family:'Open Sans',HelveticaN=
+eue-Light,'Helvetica Neue Light',Helvetica,sans-serif; font-size:20px; font=
+-weight:300; line-height:24px; margin:0; padding:0 0 25px 0;">Thank you to =
+our sponsors </h2> <h4 style=3D"color: #444; font-family:'Open Sans',Helvet=
+icaNeue-Light,'Helvetica Neue Light',Helvetica,sans-serif; font-size: 16px;=
+ font-weight: 300; line-height: 16px; margin: 0; padding: 10px 0px;">Premie=
+r Diamond Sponsors</h4>
+<table align=3D"center">
+<tbody>
+<tr>
+<td style=3D"margin-right: auto; margin-left: auto;text-align: center;paddi=
+ng-top: 5px;">
+<table class=3D"sponsor" cellpadding=3D"20" cellspacing=3D"0" border=3D"0" =
+align=3D"center">
+<tbody>
+<tr>
+<td style=3D"padding-top: 5px;vertical-align: center;" width=3D"50%"><a hre=
+f=3D
+"http://link.oreilly.com/dr0WU1LQ6O0SZ00Msx000F0" style=3D"font-weight: bol=
+d;text-decoration: none;color: #00E;"
+><img class=3D"sponsor" src=3D"https://cdn.oreillystatic.com/conferences/im=
+ages/logos/huawei.png" alt=3D"Huawei" title=3D"Huawei" width=3D"100" border=
+=3D"0"></a></td>
+<td style=3D"padding-top: 5px;vertical-align: middle;" width=3D"50%"><a hre=
+f=3D
+"http://link.oreilly.com/JM0WFO0M1S0Qy6Z0rU000s0" style=3D"font-weight: bol=
+d;text-decoration: none;color: #00E;"
+><img class=3D"sponsor" src=3D"https://cdn.oreillystatic.com/conferences/im=
+ages/logos/ibm.gif" alt=3D"IBM" title=3D"IBM" width=3D"120" border=3D"0"></=
+a></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table><h4 style=3D"color: #444; font-family:'Open Sans',HelveticaNeue-Lig=
+ht,'Helvetica Neue Light',Helvetica,sans-serif; font-size: 16px; font-weigh=
+t: 300; line-height: 16px; margin: 0; padding: 10px 0px;">Diamond Sponsor</=
+h4>
+<table align=3D"center">
+<tbody>
+<tr>
+<td style=3D"margin-right: auto; margin-left: auto;text-align: center;paddi=
+ng-top: 5px;">
+<table class=3D"sponsor" cellpadding=3D"20" cellspacing=3D"0" border=3D"0" =
+align=3D"center">
+<tbody>
+<tr>
+<td style=3D"padding-top: 5px;vertical-align: middle;"><a href=3D
+"http://link.oreilly.com/o00NQ00z6001UF0sZSMrOW0" style=3D"font-weight: bol=
+d;text-decoration: none;color: #00E;"
+><img class=3D"sponsor" src=3D"https://cdn.oreillystatic.com/conferences/im=
+ages/logos/amazon-web-services.png" alt=3D"Amazon Web Services" title=3D"Am=
+azon Web Services" width=3D"120" border=3D"0"></a></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table><h4 style=3D"color: #444; font-family:'Open Sans',HelveticaNeue-Lig=
+ht,'Helvetica Neue Light',Helvetica,sans-serif; font-size: 16px; font-weigh=
+t: 300; line-height: 16px; margin: 0; padding: 10px 0px;">Platinum Sponsor<=
+/h4>
+<table align=3D"center">
+<tbody>
+<tr>
+<td style=3D"margin-right: auto; margin-left: auto;text-align: center;paddi=
+ng-top: 5px;">
+<table class=3D"sponsor" cellpadding=3D"20" cellspacing=3D"0" border=3D"0" =
+align=3D"center">
+<tbody>
+<tr>
+<td style=3D"padding-top: 5px;vertical-align: middle;"><a href=3D
+"http://link.oreilly.com/z0OZ0rW000sMQO61FUA0S00" style=3D"font-weight: bol=
+d;text-decoration: none;color: #00E;"
+><img class=3D"sponsor" src=3D"https://cdn.oreillystatic.com/conferences/im=
+ages/logos/github-1.png" alt=3D"GitHub" title=3D"GitHub" width=3D"120" bord=
+er=3D"0"></a></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table> </td>=20
+</tr>=20
+<tr>=20
+<td style=3D"color:#444; font-size:14px; font-weight:300; line-height:16px;=
+ padding:3px 0 35px 0; margin:0; font-family:'Open Sans',HelveticaNeue-Ligh=
+t,'Helvetica Neue Light',Helvetica,sans-serif; margin-bottom:0;" align=3D"c=
+enter"><em>For exhibition and sponsorship opportunities, email <a href=3D
+"http://link.oreilly.com/CMU00B0PW06F0QrZ0O01S0s" style=3D"text-decoration:=
+none; color:#0000ee;"
+>oscon@oreilly.com</a></em> </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table>=20
+<!-- End:Sponsors -->=20
+<!--Begin Footer-->=20
+<table class=3D"fullwidth" align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"600" bgcolor=3D"#ffffff" style=3D"margin:0; padd=
+ing:0;">=20
+<tbody>
+<tr>=20
+<td style=3D"padding:30px 0 0 0; border-top:1px solid #ddd; color:#444; mar=
+gin:0;">=20
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"margin:0; =
+padding:0; height:30px;">=20
+<tbody>
+<tr>=20
+<td style=3D"vertical-align:middle; padding:0; text-align:left;"><a href=3D
+"http://link.oreilly.com/a0000W01OF0Z00rSFMQ6sUr" target=3D"_blank"
+><img src=3D"https://cdn.oreillystatic.com/oreilly/email/logos/2018/oreilly=
+-logo-107x30@2x.png" alt=3D"O'Reilly Media Logo" width=3D"107" height=3D"30=
+" border=3D"0"></a> </td>=20
+<td class=3D"logos" style=3D"vertical-align:middle; padding:0 0 0 35px; tex=
+t-align:left;"><a href=3D
+"http://link.oreilly.com/a0000W01OF0Z00CSQMQ6sUr" target=3D"_blank"
+><img src=3D"https://cdn.oreillystatic.com/oreilly/email/logos/2018/twitter=
+-20171204-30x24_360.png" alt=3D"Twitter Logo" width=3D"30" border=3D"0"></a=
+> </td>=20
+<td class=3D"logos" style=3D"vertical-align:middle; padding:0 0 0 30px; tex=
+t-align:left;"><a href=3D
+"http://link.oreilly.com/WF01DQMsW0R0SrU00O0Z600" target=3D"_blank"
+><img src=3D"https://cdn.oreillystatic.com/oreilly/email/logos/2018/faceboo=
+k-20171204-14x24_360.png" alt=3D"Facebook Logo" width=3D"14" border=3D"0"><=
+/a> </td>=20
+<td class=3D"logos" style=3D"vertical-align:middle; padding:0 0 0 30px;"><a=
+ href=3D
+"http://link.oreilly.com/JM0WFO0S1S0QE6Z0rU000s0" target=3D"_blank"
+><img src=3D"https://cdn.oreillystatic.com/oreilly/email/logos/2018/linkedi=
+n-20171204-24x24_360.png" alt=3D"LinkedIn Logo" width=3D"24" border=3D"0"><=
+/a> </td>=20
+</tr>=20
+</tbody>
+</table> <p style=3D"font-family:'Open Sans',HelveticaNeue-Light,'Helvetica=
+ Neue Light',Helvetica,sans-serif; font-size:14px; line-height:22px; font-w=
+eight:300; color:#666; padding:0; margin:25px 0 0 0;">Not planning to atten=
+d OSCON this year and wish to no longer receive information about it? Simpl=
+y <a target=3D"_blank" href=3D
+"http://link.oreilly.com/eQ0ZTS00000MF60Os1FWU0r" style=3D"font-weight:norm=
+al; color:#666;"
+>opt-out here</a>. </p> <p style=3D"font-family:'Open Sans',HelveticaNeue-L=
+ight,'Helvetica Neue Light',Helvetica,sans-serif; font-size:14px; line-heig=
+ht:22px; font-weight:300; color:#666; padding:0; margin:15px 0 0 0;">You ar=
+e receiving this because you're a customer of O'Reilly Media, or you've sig=
+ned up to receive email from us. We hope you found this message to be usefu=
+l. However, if you'd rather not receive future emails of this type from O'R=
+eilly, please <a target=3D"_blank" href=3D
+"http://link.oreilly.com/y16FZOUQ0r0WSMU0sG00000" style=3D"font-weight:norm=
+al; color:#666;"
+>manage your preferences or unsubscribe here</a>. </p> <p style=3D"font-fam=
+ily:'Open Sans',HelveticaNeue-Light,'Helvetica Neue Light',Helvetica,sans-s=
+erif; font-size:14px; line-height:22px; font-weight:300; color:#666; paddin=
+g:0; margin:15px 0 0 0;">O'Reilly Media, Inc. 1005 Gravenstein Highway Nort=
+h, Sebastopol, CA 95472 (707) 827-7000 </p> </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table> </td>=20
+</tr>=20
+</tbody>
+</table> <style data-ignore-inlining>@media print{ #_t { background-image: =
+url('https://n89apv0n.emltrk.com/n89apv0n?p&d=3D{{lead.Email Address:defaul=
+t=3Dnoemail}}');}} div.OutlookMessageHeader {background-image:url('https://=
+n89apv0n.emltrk.com/n89apv0n?f&d=3D{{lead.Email Address:default=3Dnoemail}}=
+')} table.moz-email-headers-table {background-image:url('https://n89apv0n.e=
+mltrk.com/n89apv0n?f&d=3D{{lead.Email Address:default=3Dnoemail}}')} blockq=
+uote #_t {background-image:url('https://n89apv0n.emltrk.com/n89apv0n?f&d=3D=
+{{lead.Email Address:default=3Dnoemail}}')} #MailContainerBody #_t {backgro=
+und-image:url('https://n89apv0n.emltrk.com/n89apv0n?f&d=3D{{lead.Email Addr=
+ess:default=3Dnoemail}}')}</style><div id=3D"_t"></div> <img src=3D"https:/=
+/n89apv0n.emltrk.com/n89apv0n?d=3D{{lead.Email Address:default=3Dnoemail}}"=
+ width=3D"1" height=3D"1" border=3D"0" alt=3D"" /> =20
+
+<img src=3D"http://link.oreilly.com/trk?t=3D1&mid=3DMTA3LUZNUy0wNzA6NTIzOjE=
+2NzM6Mzg0MDowOjE0NDM6OTo2Njk6Njg2OTIyMjpjb2RlLnByb2xlQGdtYWlsLmNvbQ%3D%3D" =
+width=3D"1" height=3D"1" style=3D"display:none !important;" alt=3D"" />
+
+<!--This is a comment -->
+</body>
+</html>
+------=_Part_-167710465_497344971.1520421886655--

@@ -1,0 +1,589 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp1644320qtm;
+        Sun, 4 Mar 2018 06:46:08 -0800 (PST)
+X-Google-Smtp-Source: AG47ELvBp92bD0o4CbUchXTJf/jRGbV5ZWzn4hfMmnYsfksWYsSysA5SllevdPxA54JZsEyktRHK
+X-Received: by 10.129.52.88 with SMTP id b85mr7593026ywa.189.1520174768590;
+        Sun, 04 Mar 2018 06:46:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520174768; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0M7FZB9/PX24hNwfwQKZDvr/rKfGSSUiKy03XgEIeUPORl7OgMmHtS64L7vFC7uy34
+         0Zb/4qtNYwDsn/6YnuDb8tzOyvFElCmFk2F5aTwjENMoGppbeNfzvfCvEphNBYnOKR9M
+         x0/y4zwe/n191YMjUCpj6f08KSUyhup8ZWpwElq5aIJ+HSuY5JEzXxdva3manAPu1MWB
+         xME/qLQAVXx4YFz1dDFcbt/zd55UrZ/Kvy7SDd5Q47OFbLwnZsw7hXws4XGJYRJOHBZU
+         pfSfKreTxGxshtiV+Gr09jiQY95wEaqiZoAjbpB1GqN1QKyE47qRFzZ/qAZtyGRIFgiy
+         OgAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:list-id:feedback-id:message-id:date
+         :to:reply-to:from:subject:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=pBF0nyIJ2KeJVcmj7abSV1VnG/amrJ7YDnVi0hy0z4I=;
+        b=DkXSv2MGDNAl0Mf6wJiX7ct7C2QxZWlVGfdmB3lJn24P7Q91SNL+qAGr+S3WZjO2AK
+         awuMbfYcZ9mlz6eeM5U+bE8pTN7RXfVY/7YIoD8/qX2MrzfUDKerFDYvJtu2P2d412eb
+         kSiKPJKgt20U9c7k7WA0gzoGWc1iKZiYaV4uvnmuGT5gXJN3v7vgYCYOTi9oWjIdROTJ
+         g4fKf888pYgQzWCdUp3bSO6sfK7YEODvyMzC/JPW1srPMpp+L2iA3ez7nq0vety+qEHB
+         rKZCWWsWDCfY/IddAR6pXVpso0DpksvGCWGqcs/N/qefjWhY8wFRXYxeFoIXK6JcB9bs
+         3Qfg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@kottke.org header.s=k1 header.b=xpLnIPfP;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=oC0Fgvpe;
+       spf=pass (google.com: domain of bounce-mc.us14_67219497.7335151-code.prole=gmail.com@mail25.sea61.rsgsv.net designates 148.105.14.25 as permitted sender) smtp.mailfrom=bounce-mc.us14_67219497.7335151-code.prole=gmail.com@mail25.sea61.rsgsv.net
+Return-Path: <bounce-mc.us14_67219497.7335151-code.prole=gmail.com@mail25.sea61.rsgsv.net>
+Received: from mail25.sea61.rsgsv.net (mail25.sea61.rsgsv.net. [148.105.14.25])
+        by mx.google.com with ESMTPS id e7si1769872ywd.520.2018.03.04.06.46.08
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Mar 2018 06:46:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us14_67219497.7335151-code.prole=gmail.com@mail25.sea61.rsgsv.net designates 148.105.14.25 as permitted sender) client-ip=148.105.14.25;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@kottke.org header.s=k1 header.b=xpLnIPfP;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=oC0Fgvpe;
+       spf=pass (google.com: domain of bounce-mc.us14_67219497.7335151-code.prole=gmail.com@mail25.sea61.rsgsv.net designates 148.105.14.25 as permitted sender) smtp.mailfrom=bounce-mc.us14_67219497.7335151-code.prole=gmail.com@mail25.sea61.rsgsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=kottke.org;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=noticing@kottke.org;
+ bh=pBF0nyIJ2KeJVcmj7abSV1VnG/amrJ7YDnVi0hy0z4I=;
+ b=xpLnIPfPQHbkSAm7U+ZoHhlFKdHjetRbtT/n6YJ83tcxIYxpPAGuJ0CgWm2GoSycwfq+K0LWp4vl
+   R+qoQlZeUXhYwwCXFLkdBeXkSxt/AY5gn1I3bgkg77ZQdZZe9hIOmHuIizmnLOF5AiOw8CmsD+PT
+   bbqXR10ServPZb9QDh8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=pBF0nyIJ2KeJVcmj7abSV1VnG/amrJ7YDnVi0hy0z4I=;
+ b=oC0FgvpeWFV9VBmnYSHCYHGL7DispHmlJ0PoOe9WZQQ6mRXxFegUPR1pT9T34wT/mxQ7fYDLGctM
+   Hc6EdD7S69vswHgrfJB8mKmy5r3gxN1NGWdBqXXzMBmS3/UttpB9INVGhdCOiELNCVnsp3UnuP2N
+   cNoKsS9x7HP1SAk2JDU=
+Received: from (127.0.0.1) by mail25.sea61.rsgsv.net id hjg3b02ddl49 for <code.prole@gmail.com>; Sun, 4 Mar 2018 14:45:08 +0000 (envelope-from <bounce-mc.us14_67219497.7335151-code.prole=gmail.com@mail25.sea61.rsgsv.net>)
+Subject: =?utf-8?Q?=F0=9F=91=80=20Noticing=3A=20Every=20Breath=20You=20Take=20Is=20Mercy=20From=20Me=3B=203=2F4=2F2018?=
+From: =?utf-8?Q?Noticing=20=2F=20kottke.org?= <noticing@kottke.org>
+Reply-To: =?utf-8?Q?Noticing=20=2F=20kottke.org?= <noticing@kottke.org>
+To: <code.prole@gmail.com>
+Date: Sun, 4 Mar 2018 14:45:08 +0000
+Message-ID: <f2ef8dc4cb32880aecd8d6730.779a416347.20180304144433.aa2cb91112.de0c6482@mail25.sea61.rsgsv.net>
+X-Mailer: MailChimp Mailer - **CIDaa2cb91112779a416347**
+X-Campaign: mailchimpf2ef8dc4cb32880aecd8d6730.aa2cb91112
+X-campaignid: mailchimpf2ef8dc4cb32880aecd8d6730.aa2cb91112
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=f2ef8dc4cb32880aecd8d6730&id=aa2cb91112&e=779a416347
+X-MC-User: f2ef8dc4cb32880aecd8d6730
+Feedback-ID: 67219497:67219497.7335151:us14:mc
+List-ID: f2ef8dc4cb32880aecd8d6730mc list <f2ef8dc4cb32880aecd8d6730.149979.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://kottke.us14.list-manage.com/unsubscribe?u=f2ef8dc4cb32880aecd8d6730&id=1932a9452f&e=779a416347&c=aa2cb91112>, <mailto:unsubscribe-mc.us14_f2ef8dc4cb32880aecd8d6730.aa2cb91112-779a416347@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1030935209"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1030935209
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+https://us14.campaign-archive.com/?e=3D779a416347&u=3Df2ef8dc4cb32880aecd8d6=
+730&id=3Daa2cb91112
+
+Tim (https://twitter.com/tcarmody) here=2C back writing the newsletter aga=
+in. If you missed it=2C I'm excited to let you know that next week=2C Chry=
+santhe Tenentes (https://twitter.com/eqx1979) will be guest-hosting the si=
+te. I am a huge fan of the Kottke guest editor program =E2=80=94 starting=
+ eight years ago=2C it quite literally changed my life =E2=80=94 and I'm l=
+ooking forward to reading Chrysanthe's version of the best blog in the uni=
+verse.
+
+
+** "Every breath you take is mercy from me"
+------------------------------------------------------------
+
+Hold on; it turns out I'm not done thinking about Black Panther (https://k=
+ottke.org/18/02/a-short-melancholy-review-of-black-panther) . (It's still=
+ the biggest movie going=2C and one of the biggest of all time=2C so we ca=
+n all be forgiven.) I saw it again=2C and I'm still convinced the key line=
+ in the film is T'Challa's "every breath you take is mercy from me" =E2=80=
+=94 spoken to Klaw (but not just to Klaw; it's really T'Challa's attitude=
+ towards the entire world).
+
+I also happen to know that this line is a lift from the comics=2C specific=
+ally New Avengers vol. 3=2C no. 22=2C written by Jonathan Hickman. (Consid=
+er New Avengers added to the recommended comics reading list for Black Pan=
+ther (https://kottke.org/18/02/black-panther-a-suggested-comics-reading-li=
+st) .) There=2C T'Challa says it to Namor=2C whom he's also intent on kill=
+ing in retribution for murdering Wakandans. And there=2C the line conclude=
+s=2C "... And I'm all out."
+
+New Avengers 22=2C art by Kev Walker
+
+It seems important that Black Panther is a superhero who is willing to kil=
+l but prefers not to. Usually=2C superheroes are either killing people alm=
+ost all the time (Logan=2C Deadpool=2C etc.)=2C or they've sworn never to=
+ kill anyone (Batman=2C Spider-Man=2C etc.). Wonder Woman is one of the on=
+ly other heroes who's ready and willing to use deadly force in extraordina=
+ry circumstances=2C but is generally bent on saving people rather than kil=
+ling them.
+
+Part of what this does is it makes Black Panther's mercy mean something. H=
+e saves=2C and offers to save=2C people he has every reason to kill. He's=
+ appalled by his father's lack of mercy =E2=80=94 not so much for killing=
+ his own brother=2C but for abandoning his brother's son (and in a larger=
+ sense=2C all of Wakanda's lost children). T'Challa is a man who will not=
+ waste a single Wakandan=2C who would never give up a single Wakandan life=
+=2E This is his strongest contrast with Killmonger/N'Jadaku=2C who treats ev=
+ery Wakandan (in fact=2C every person=2C including the black people of the=
+ diaspora he claims to champion) as totally disposable.
+
+So what we get with T'Challa is a doctrine of radical mercy (https://longr=
+eads.com/2018/02/22/how-black-panther-asks-us-to-examine-who-we-are-to-one=
+-another/) . He could kill all his enemies. He doesn't. He saves them. And=
+ more than once (https://www.gq.com/story/black-panther-and-the-search-for=
+-home) =2C that saves him.
+
+
+** In case you haven't had enough
+------------------------------------------------------------
+
+There's a terrific decade-old profile of BP director Ryan Coogle (https://=
+kottke.org/18/02/profile-of-21-year-old-film-student-ryan-coogler) r when=
+ he was still a film student. There's a trailer for Fahrenheit 451 (https:=
+//kottke.org/18/02/fahrenheit-451) =2C with Creed/Black Panther star Micha=
+el B. Jordan. And there's a closer look at the typeface (https://kottke.or=
+g/18/02/the-cool-futuristic-typeface-from-the-black-panther-ending-credits=
+) used in BP's closing credits. Ah; we covered the story=2C the filmmaker=
+=2C actors=2C and design. That works out quite neatly.
+
+
+** I'm only here for the fonts
+------------------------------------------------------------
+
+I think you mean typefaces=2C but I got you. There are a full eight in use=
+ on the iconic Huy Fong sriracha hot sauce label (https://kottke.org/18/02=
+/all-the-typefaces-used-on-the-iconic-huy-fong-sriracha-label) =2C not cou=
+nting the icon of the rooster. And if you just love crazy bits of juxtapos=
+ed text=2C you want this Winter Olympics wrap-up written on a predictive t=
+ext keyboard (https://kottke.org/18/02/a-winter-olympics-wrap-up-written-w=
+ith-a-predictive-text-keyboard) . I for one cannot wait for speed torah-re=
+ading to become a thing.
+
+
+** You're probably doing this wrong
+------------------------------------------------------------
+
+You might know you should sneeze or cough into the inside of your elbow (h=
+ttps://twitter.com/kottke/status/968540231178731521) =2C not your hands. Y=
+ou should know to fact-check things before you share them on social media=
+ (https://twitter.com/kottke/status/968155724810477568) =2C although I bet=
+ we've all been embarrassed at least once. It would help if we used our sm=
+art phones=2C um=2C smarter (https://kottke.org/18/02/were-all-addicted-to=
+-the-smartphone-slot-machines-in-our-pockets) . But did you know that you'=
+re probably bending over wrong (https://twitter.com/kottke/status/96852362=
+3551193088) ? It's not at your waist=2C or even with your legs; you should=
+ be bending with your hips. (In other words=2C you've got to stick your bu=
+tt out.) This GIF shows you how:
+
+Jenn Sherer/Spinefulness
+
+
+** Look=2C I just love movies
+------------------------------------------------------------
+
+I do too. Have you considered donating a ticket to see A Wrinkle In Time (=
+https://twitter.com/kottke/status/968556337163419648) to a child in need?=
+ Have you seen Rihanna With A Pearl Earring (https://kottke.org/18/02/riha=
+nna-with-a-pearl-earring) (mashups of classic art with movies and video st=
+ills)? Or these amazing layout drawings from Hayao Miyazaki's Howl's Movin=
+g Castle (https://kottke.org/18/03/miyazakis-layouts-for-howls-moving-cast=
+le) ? Maybe these famous scenes from 2018 Oscar-nominated movies=2C as ree=
+nacted by a family of young girls (https://kottke.org/18/02/famous-scenes-=
+from-2018-oscar-nominated-films-recreated-by-three-young-girls) =2C is mor=
+e your speed.
+
+If history is any indication=2C the wrong movies will win (https://twitter=
+=2Ecom/kottke/status/969715024385200128) =2C the right movies will find othe=
+r ways to be remembered=2C and we'll have fun arguing about and overanalyz=
+ing it all. Besides watching and rewatching the movies=2C that's the part=
+ I like best.
+
+=F0=9F=91=80 =F0=9F=91=8B =F0=9F=8E=89
+
+This has been Noticing for Mar 4=2C 2018. Noticing is supported by Kottke=
+=E2=80=A4org members (https://kottke.org/members/) & Tim Carmody's patrons=
+ (https://www.patreon.com/tcarmody) . If you enjoyed this newsletter=2C pl=
+ease forward it to a friend.
+
+You are receiving this email because you signed up here (https://kottke.or=
+g/newsletter/) .
+
+Want to change how you receive these emails? You can update your preferenc=
+es (https://kottke.us14.list-manage.com/profile?u=3Df2ef8dc4cb32880aecd8d6=
+730&id=3D1932a9452f&e=3D779a416347) or unsubscribe from this newsletter (htt=
+ps://kottke.us14.list-manage.com/unsubscribe?u=3Df2ef8dc4cb32880aecd8d6730=
+&id=3D1932a9452f&e=3D779a416347&c=3Daa2cb91112) .
+--_----------=_MCPart_1030935209
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www=
+=2Ew3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+  <head>
+    <!--[if gte mso 15]>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:AllowPNG />
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <meta charset=3D"UTF-8">
+    <meta http-equiv=3D"x-ua-compatible" content=3D"IE=3Dedge">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-sca=
+le=3D1">
+    <meta name=3D"format-detection" content=3D"telephone=3Dno">
+    <title>=F0=9F=91=80 Noticing: Every Breath You Take Is Mercy From Me;=
+ 3/4/2018</title>
+
+  <style type=3D"text/css">
+=09=09body{
+=09=09=09background-color:#ffffff;
+=09=09=09font-family:Helvetica=2CArial=2CVerdana=2C"Trebuchet MS"=2Csans-s=
+erif;
+=09=09=09font-size:18px;
+=09=09=09line-height:25px;
+=09=09=09text-align:left;
+=09=09=09padding:0;
+=09=09=09margin:0;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09=09-ms-text-size-adjust:100%;
+=09=09}
+=09=09A:link=2CA:active=2CA:hover{
+=09=09=09color:#000000;
+=09=09=09font-weight:bold;
+=09=09}
+=09=09A:visited{
+=09=09=09color:#666666;
+=09=09=09font-weight:normal;
+=09=09}
+=09=09p{
+=09=09=09margin:0 0 15px;
+=09=09}
+=09=09blockquote{
+=09=09=09color:#333;
+=09=09=09padding-left:25px;
+=09=09=09padding-right:25px;
+=09=09=09margin:0 0 15px;
+=09=09=09max-width:100%;
+=09=09}
+=09=09#logo{
+=09=09=09display:block;
+=09=09=09font-size:0;
+=09=09=09line-height:0;
+=09=09=09margin:0 0 15px !important;
+=09=09=09padding:0;
+=09=09}
+=09=09h2{
+=09=09=09color:#F00A0A;
+=09=09=09font-size:22px;
+=09=09=09line-height:27px;
+=09=09=09font-weight:bold;
+=09=09=09margin:35px 0 10px;
+=09=09}
+=09=09.subtitle{
+=09=09=09font-size:14px;
+=09=09=09line-height:20px;
+=09=09=09color:#999999;
+=09=09=09text-align:center;
+=09=09=09margin:0 0 10px;
+=09=09=09padding:0;
+=09=09}
+=09=09.contain{
+=09=09=09background-color:#ffffff;
+=09=09=09max-width:700px;
+=09=09=09text-align:left;
+=09=09=09margin:0 auto;
+=09=09=09padding:10px 20px 50px;
+=09=09}
+=09=09.contain img{
+=09=09=09border:0 none;
+=09=09=09line-height:100%;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09=09max-width:100%;
+=09=09=09height:auto;
+=09=09=09margin:6px 0 10px !important;
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09.contain a img{
+=09=09=09border:0 none;
+=09=09}
+=09=09.image-caption{
+=09=09=09color:#666666;
+=09=09=09font-size:16px;
+=09=09=09line-height:22px;
+=09=09=09margin:-15px 0 25px;
+=09=09}
+=09=09.image-caption A:link=2C.image-caption A:active=2C.image-caption A:h=
+over=2C.image-caption A:visited{
+=09=09=09color:#666666;
+=09=09=09font-weight:bold;
+=09=09}
+=09=09.smallprint{
+=09=09=09font-size:14px;
+=09=09=09line-height:17px;
+=09=09=09margin:0 0 10px;
+=09=09}
+=09@media only screen and (max-width:480px){
+=09=09body{
+=09=09=09font-size:15px !important;
+=09=09=09line-height:21px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09p{
+=09=09=09margin:0 0 15px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09blockquote{
+=09=09=09padding-left:20px !important;
+=09=09=09padding-right:20px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09#logo{
+=09=09=09margin:0 0 12px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09h2{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:22px !important;
+=09=09=09margin:25px 0 8px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.subtitle{
+=09=09=09font-size:13px !important;
+=09=09=09line-height:18px !important;
+=09=09=09margin:0 10px 12px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.contain{
+=09=09=09padding:10px 12px 50px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.contain img{
+=09=09=09margin:3px 0 8px !important;
+=09=09}
+
+}=09@media only screen and (max-width:480px){
+=09=09.image-caption{
+=09=09=09font-size:13px !important;
+=09=09=09line-height:18px !important;
+=09=09=09margin:-14px 0 20px !important;
+=09=09}
+
+}</style></head>
+  <body style=3D"background-color: #ffffff;font-family: Helvetica=2CArial=
+=2CVerdana=2C&quot;Trebuchet MS&quot;=2Csans-serif;font-size: 18px;line-he=
+ight: 25px;text-align: left;padding: 0;margin: 0;-webkit-text-size-adjust:=
+ 100%;-ms-text-size-adjust: 100%;">
+    <div class=3D"contain" style=3D"background-color: #ffffff;max-width: 7=
+00px;text-align: left;margin: 0 auto;padding: 10px 20px 50px;">
+      <div id=3D"logo" style=3D"display: block;font-size: 0;line-height: 0=
+;padding: 0;margin: 0 0 15px !important;">
+        <a href=3D"https://us14.campaign-archive.com/?e=3D779a416347&u=3Df2e=
+f8dc4cb32880aecd8d6730&id=3Daa2cb91112" style=3D"color: #000000;font-weigh=
+t: bold;"><img src=3D"https://gallery.mailchimp.com/f2ef8dc4cb32880aecd8d6=
+730/images/130cd5be-dd3e-4f14-8c8c-e48e762b8a84.jpg" width=3D"420" height=
+=3D"94" border=3D"0" alt=3D"Noticing" style=3D"border: 0 none;line-height:=
+ 100%;outline: none;text-decoration: none;max-width: 100%;height: auto;-ms=
+-interpolation-mode: bicubic;margin: 6px 0 10px !important;"></a>
+      </div>
+      <!-- BEGIN MODULE: BODY CONTENT // -->
+      <div><p style=3D"margin: 0 0 15px;"><a href=3D"https://twitter.com/t=
+carmody" target=3D"_blank" style=3D"color: #000000;font-weight: bold;">Tim=
+</a> here=2C back writing the newsletter again. If you missed it=2C I&#39;=
+m excited to let you know that next week=2C <a class=3D"ProfileHeaderCard-=
+nameLink u-textInheritColor js-nav" href=3D"https://twitter.com/eqx1979" s=
+tyle=3D"color: #000000;font-weight: bold;">Chrysanthe Tenentes</a> will be=
+ guest-hosting the site. I am a huge fan of the Kottke guest editor progra=
+m &mdash;&nbsp;starting eight years ago=2C it quite literally changed my l=
+ife &mdash;&nbsp;and I&#39;m looking forward to reading Chrysanthe&#39;s v=
+ersion of the best blog in the universe.</p>
+
+<h2 style=3D"color: #F00A0A;font-size: 22px;line-height: 27px;font-weight:=
+ bold;margin: 35px 0 10px;">&quot;Every breath you take is mercy from me&q=
+uot;</h2>
+
+<p style=3D"margin: 0 0 15px;">Hold on; it turns out I&#39;m <a href=3D"ht=
+tps://kottke.org/18/02/a-short-melancholy-review-of-black-panther" target=
+=3D"_blank" style=3D"color: #000000;font-weight: bold;">not done thinking=
+ about <em>Black Panther</em></a>. (It&#39;s still the biggest movie going=
+=2C and one of the biggest of all time=2C so we can all be forgiven.) I sa=
+w it again=2C and I&#39;m still convinced the key line in the film is T&#3=
+9;Challa&#39;s &quot;every breath you take is mercy from me&quot; &mdash;&=
+nbsp;spoken to Klaw (but not just to Klaw; it&#39;s really T&#39;Challa&#3=
+9;s attitude towards the entire world).</p>
+
+<p style=3D"margin: 0 0 15px;">I also happen to know that this line is a l=
+ift from the comics=2C specifically New Avengers vol. 3=2C no. 22=2C writt=
+en by Jonathan Hickman. (Consider New Avengers added to the <a href=3D"htt=
+ps://kottke.org/18/02/black-panther-a-suggested-comics-reading-list" targe=
+t=3D"_blank" style=3D"color: #000000;font-weight: bold;">recommended comic=
+s reading list for Black Panther</a>.) There=2C T&#39;Challa says it to Na=
+mor=2C whom he&#39;s also intent on killing in retribution for murdering W=
+akandans. And there=2C the line concludes=2C &quot;... And I&#39;m all out=
+=2E&quot;</p>
+
+<p style=3D"margin: 0 0 15px;"><img data-file-id=3D"901635" src=3D"https:/=
+/gallery.mailchimp.com/f2ef8dc4cb32880aecd8d6730/images/1e05c9a7-a1f5-461c=
+-a746-be1ada509eb3.jpg" style=3D"border: 0px;width: 1000px;margin: 0px;lin=
+e-height: 100%;outline: none;text-decoration: none;max-width: 100%;height:=
+ auto;-ms-interpolation-mode: bicubic;" width=3D"1000"></p>
+
+<p class=3D"image-caption" style=3D"margin: -15px 0 25px;color: #666666;fo=
+nt-size: 16px;line-height: 22px;">New Avengers 22=2C art by Kev Walker</p>
+
+<p style=3D"margin: 0 0 15px;">It seems important that Black Panther is a=
+ superhero who is willing to kill but prefers not to. Usually=2C superhero=
+es are either killing people almost all the time (Logan=2C Deadpool=2C etc=
+=2E)=2C or they&#39;ve sworn never to kill anyone (Batman=2C Spider-Man=2C e=
+tc.). Wonder Woman is one of the only other heroes who&#39;s ready and wil=
+ling to use deadly force in extraordinary circumstances=2C but is generall=
+y bent on saving people rather than killing them.</p>
+
+<p style=3D"margin: 0 0 15px;">Part of what this does is it makes Black Pa=
+nther&#39;s mercy <em>mean</em> something. He saves=2C and offers to save=
+=2C people he has every reason to kill. He&#39;s appalled by his father&#3=
+9;s lack of mercy &mdash;&nbsp;not so much for killing his own brother=2C=
+ but for abandoning his brother&#39;s son (and in a larger sense=2C all of=
+ Wakanda&#39;s lost children). T&#39;Challa is a man who will not waste a=
+ single Wakandan=2C who would never give up a single Wakandan life. This i=
+s his strongest contrast with Killmonger/N&#39;Jadaku=2C who treats every=
+ Wakandan (in fact=2C every person=2C including the black people of the di=
+aspora he claims to champion) as totally disposable.</p>
+
+<p style=3D"margin: 0 0 15px;">So what we get with T&#39;Challa is a doctr=
+ine of <a href=3D"https://longreads.com/2018/02/22/how-black-panther-asks-=
+us-to-examine-who-we-are-to-one-another/" target=3D"_blank" style=3D"color=
+: #000000;font-weight: bold;">radical mercy</a>. He could kill all his ene=
+mies. He doesn&#39;t. He saves them. And <a href=3D"https://www.gq.com/sto=
+ry/black-panther-and-the-search-for-home" target=3D"_blank" style=3D"color=
+: #000000;font-weight: bold;">more than once</a>=2C that saves him.</p>
+
+<h2 class=3D"null" style=3D"color: #F00A0A;font-size: 22px;line-height: 27=
+px;font-weight: bold;margin: 35px 0 10px;">In case you haven&#39;t had eno=
+ugh</h2>
+
+<p style=3D"margin: 0 0 15px;">There&#39;s a terrific <a href=3D"https://k=
+ottke.org/18/02/profile-of-21-year-old-film-student-ryan-coogler" target=
+=3D"_blank" style=3D"color: #000000;font-weight: bold;">decade-old profile=
+ of BP director Ryan Coogle</a>r when he was still a film student. There&#=
+39;s a <a href=3D"https://kottke.org/18/02/fahrenheit-451" target=3D"_blan=
+k" style=3D"color: #000000;font-weight: bold;">trailer for <em>Fahrenheit=
+ 451</em></a><em>=2C</em> with <em>Creed</em>/<em>Black Panther</em> star=
+ Michael B. Jordan. And there&#39;s a <a href=3D"https://kottke.org/18/02/=
+the-cool-futuristic-typeface-from-the-black-panther-ending-credits" target=
+=3D"_blank" style=3D"color: #000000;font-weight: bold;">closer look at the=
+ typeface</a> used in BP&#39;s closing credits. Ah; we covered the story=
+=2C the filmmaker=2C actors=2C and design. That works out quite neatly.</p=
+>
+
+<h2 class=3D"null" style=3D"color: #F00A0A;font-size: 22px;line-height: 27=
+px;font-weight: bold;margin: 35px 0 10px;">I&#39;m only here for the fonts=
+</h2>
+
+<p style=3D"margin: 0 0 15px;">I think you mean typefaces=2C but I got you=
+=2E There are a full eight in use on <a href=3D"https://kottke.org/18/02/all=
+-the-typefaces-used-on-the-iconic-huy-fong-sriracha-label" target=3D"_blan=
+k" style=3D"color: #000000;font-weight: bold;">the iconic Huy Fong srirach=
+a hot sauce label</a>=2C not counting the icon of the rooster. And if you=
+ just love crazy bits of juxtaposed text=2C you want this <a href=3D"https=
+://kottke.org/18/02/a-winter-olympics-wrap-up-written-with-a-predictive-te=
+xt-keyboard" target=3D"_blank" style=3D"color: #000000;font-weight: bold;"=
+>Winter Olympics wrap-up written on a predictive text keyboard</a>. I for=
+ one cannot wait for speed torah-reading to become a thing.</p>
+
+<h2 class=3D"null" style=3D"color: #F00A0A;font-size: 22px;line-height: 27=
+px;font-weight: bold;margin: 35px 0 10px;">You&#39;re probably doing this=
+ wrong</h2>
+
+<p style=3D"margin: 0 0 15px;">You might know you should <a href=3D"https:=
+//twitter.com/kottke/status/968540231178731521" target=3D"_blank" style=3D=
+"color: #000000;font-weight: bold;">sneeze or cough into the inside of you=
+r elbow</a>=2C not your hands. You should know to <a href=3D"https://twitt=
+er.com/kottke/status/968155724810477568" target=3D"_blank" style=3D"color:=
+ #000000;font-weight: bold;">fact-check things before you share them on so=
+cial media</a>=2C although I bet we&#39;ve all been embarrassed at least o=
+nce. It would help if <a href=3D"https://kottke.org/18/02/were-all-addicte=
+d-to-the-smartphone-slot-machines-in-our-pockets" target=3D"_blank" style=
+=3D"color: #000000;font-weight: bold;">we used our smart phones=2C um=2C s=
+marter</a>. But did you know that you&#39;re probably <a href=3D"https://t=
+witter.com/kottke/status/968523623551193088" target=3D"_blank" style=3D"co=
+lor: #000000;font-weight: bold;">bending over wrong</a>? It&#39;s not at y=
+our waist=2C or even with your legs; you should be bending with your hips.=
+ (In other words=2C you&#39;ve got to stick your butt out.) This GIF shows=
+ you how:</p>
+
+<p style=3D"margin: 0 0 15px;"><img data-file-id=3D"901655" src=3D"https:/=
+/gallery.mailchimp.com/f2ef8dc4cb32880aecd8d6730/images/a84e346e-64a8-43c2=
+-92d9-8d9bd8446daa.gif" style=3D"border: 0px;width: 450px;margin: 0px;line=
+-height: 100%;outline: none;text-decoration: none;max-width: 100%;height:=
+ auto;-ms-interpolation-mode: bicubic;" width=3D"450"></p>
+
+<p class=3D"image-caption" style=3D"margin: -15px 0 25px;color: #666666;fo=
+nt-size: 16px;line-height: 22px;">Jenn Sherer/Spinefulness</p>
+
+<h2 class=3D"null" style=3D"color: #F00A0A;font-size: 22px;line-height: 27=
+px;font-weight: bold;margin: 35px 0 10px;">Look=2C I just love movies</h2>
+
+<p style=3D"margin: 0 0 15px;">I do too. Have you considered <a href=3D"ht=
+tps://twitter.com/kottke/status/968556337163419648" target=3D"_blank" styl=
+e=3D"color: #000000;font-weight: bold;">donating a ticket to see <em>A Wri=
+nkle In Time</em></a> to a child in need? Have you seen <a href=3D"https:/=
+/kottke.org/18/02/rihanna-with-a-pearl-earring" target=3D"_blank" style=3D=
+"color: #000000;font-weight: bold;">Rihanna With A Pearl Earring</a> (mash=
+ups of classic art with movies and video stills)? Or these amazing <a href=
+=3D"https://kottke.org/18/03/miyazakis-layouts-for-howls-moving-castle" ta=
+rget=3D"_blank" style=3D"color: #000000;font-weight: bold;">layout drawing=
+s from Hayao Miyazaki&#39;s Howl&#39;s Moving Castle</a>? Maybe these famo=
+us scenes from 2018 Oscar-nominated movies=2C as <a href=3D"https://kottke=
+=2Eorg/18/02/famous-scenes-from-2018-oscar-nominated-films-recreated-by-thre=
+e-young-girls" target=3D"_blank" style=3D"color: #000000;font-weight: bold=
+;">reenacted by a family of young girls</a>=2C is more your speed.</p>
+
+<p style=3D"margin: 0 0 15px;">If history is any indication=2C <a href=3D"=
+https://twitter.com/kottke/status/969715024385200128" target=3D"_blank" st=
+yle=3D"color: #000000;font-weight: bold;">the wrong movies will win</a>=2C=
+ the right movies will find other ways to be remembered=2C and we&#39;ll h=
+ave fun arguing about and overanalyzing it all. Besides watching and rewat=
+ching the movies=2C that&#39;s the part I like best.</p>
+</div>
+      <!-- // END MODULE: BODY CONTENT -->
+      <p style=3D"margin: 0 0 15px;">=F0=9F=91=80 =F0=9F=91=8B =F0=9F=8E=
+=89<br>=C2=A0</p>
+      <p class=3D"smallprint" style=3D"margin: 0 0 10px;font-size: 14px;li=
+ne-height: 17px;">This has been Noticing for Mar 4=2C 2018. Noticing is su=
+pported by <a href=3D"https://kottke.org/members/" style=3D"color: #000000=
+;font-weight: bold;">Kottke=E2=80=A4org members</a> &amp; <a href=3D"https=
+://www.patreon.com/tcarmody" style=3D"color: #000000;font-weight: bold;">T=
+im Carmody's patrons</a>. If you enjoyed this newsletter=2C please forward=
+ it to a friend.</p>
+      <p class=3D"smallprint" style=3D"margin: 0 0 10px;font-size: 14px;li=
+ne-height: 17px;">You are receiving this email because <a href=3D"https://=
+kottke.org/newsletter/" style=3D"color: #000000;font-weight: bold;">you si=
+gned up here</a>.</p>
+      <p class=3D"smallprint" style=3D"margin: 0 0 10px;font-size: 14px;li=
+ne-height: 17px;">Want to change how you receive these emails? You can <a=
+ href=3D"https://kottke.us14.list-manage.com/profile?u=3Df2ef8dc4cb32880ae=
+cd8d6730&id=3D1932a9452f&e=3D779a416347" style=3D"color: #000000;font-weight=
+: bold;">update your preferences</a> or <a href=3D"https://kottke.us14.lis=
+t-manage.com/unsubscribe?u=3Df2ef8dc4cb32880aecd8d6730&id=3D1932a9452f&e=
+=3D779a416347&c=3Daa2cb91112" style=3D"color: #000000;font-weight: bold;">un=
+subscribe from this newsletter</a>.</p>
+    </div>
+  <img src=3D"https://kottke.us14.list-manage.com/track/open.php?u=3Df2ef8=
+dc4cb32880aecd8d6730&id=3Daa2cb91112&e=3D779a416347" height=3D"1" width=
+=3D"1"></body>
+</html>
+--_----------=_MCPart_1030935209--

@@ -1,0 +1,109 @@
+Return-Path: <mhn@ksu.edu>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx7.webfaction.com (mail7.webfaction.com [185.20.49.162])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 40E16191C021CB
+	for <mark_zanshin@mailbox20.webfaction.com>; Fri, 26 Jan 2018 04:29:05 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx7.webfaction.com (Postfix) with ESMTP id 3E37120061163
+	for <mark_zanshin@mailbox20.webfaction.com>; Fri, 26 Jan 2018 04:29:05 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.12
+X-Spam-Level:
+X-Spam-Status: No, score=-0.12 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HTML_MESSAGE=0.001, RCVD_IN_DNSWL_NONE=-0.0001,
+	RCVD_IN_MSPIKE_H4=-0.01, RCVD_IN_MSPIKE_WL=-0.01,
+	SPF_HELO_PASS=-0.001, SPF_PASS=-0.001, URIBL_BLOCKED=0.001]
+	autolearn=unavailable autolearn_force=no
+Received: from mx7.webfaction.com ([127.0.0.1])
+	by localhost (mail7.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id BkEmouf5srE2
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Fri, 26 Jan 2018 04:29:02 +0000 (UTC)
+Received: from NAM02-SN1-obe.outbound.protection.outlook.com (mail-sn1nam02on0048.outbound.protection.outlook.com [104.47.36.48])
+	by mx7.webfaction.com (Postfix) with ESMTPS id D07902005F9E7
+	for <mark@zanshin.net>; Fri, 26 Jan 2018 04:29:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ksu.edu; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=3QZQBJeyUtvy751tPJbOb41+X/Nmp6TeAKhTBBEx1uQ=;
+ b=pgKO/hYUrBAzQDC1mPPEWplFeAVFzUEWgztC9waEaw40011HahkL2iYLsdvuWVDWulNvKAdvhFhdfR++7cxI3qUpOneHH3CNQ6oAdygoU9CUFol1A0hJ9AKbBET2BVBMOIuA2bMfJIEh/v5Rltjr+KEm3QmJlHTw10tZsEwSaoc=
+Received: from BN6PR05MB3507.namprd05.prod.outlook.com (10.174.234.144) by
+ BN6PR05MB2868.namprd05.prod.outlook.com (10.168.255.141) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256) id
+ 15.20.464.6; Fri, 26 Jan 2018 04:28:59 +0000
+Received: from BN6PR05MB3507.namprd05.prod.outlook.com ([10.174.234.144]) by
+ BN6PR05MB3507.namprd05.prod.outlook.com ([10.174.234.144]) with mapi id
+ 15.20.0464.006; Fri, 26 Jan 2018 04:28:59 +0000
+From: Mark Nichols <mhn@ksu.edu>
+To: Mark Nichols <mark@zanshin.net>
+Subject: HWiNFO - Hardware Information, Analysis and Monitoring Tools
+Thread-Topic: HWiNFO - Hardware Information, Analysis and Monitoring Tools
+Thread-Index: AQHTll4vVOpMF3gN5UKvN87kaIjMvA==
+Date: Fri, 26 Jan 2018 04:28:59 +0000
+Message-ID: <65ECBA93-DDB6-405E-8508-2E7FC9B9BA4A@ksu.edu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: spf=none (sender IP is ) smtp.mailfrom=mhn@ksu.edu; 
+x-originating-ip: [68.102.23.189]
+x-ms-publictraffictype: Email
+x-microsoft-exchange-diagnostics: 1;BN6PR05MB2868;7:h1Lxkxatr/9+rq7gNYfhZu0n3aZc+f9SHIVC7SiZ0Y5Aizf9Y24tC2JSiEPxnI6m+mlhVQHAlfLpplGFU62sTkU/mAcXtcFzh9KntvXqC5clDFiPw97//bxWaJszbjSCTTL46g1vA2fEuv3WnkaIxV8zg57LL84uSt6i8MsWYuMr+UuzXjI6r/6ekrE+JU1E+0RhIkdCXUyn28EmukmO6eQweuwcqvzErCR3lQ0q12u1+CSBb0QUC5xYCZayi0MX;20:nPHWBQv/AJpWvdlYia6ZzVS83/xL54HtGWYxZrW0YL/adT+7NIK/tfCm8ZgmzhZ+PcwrPkYTuYJbDCu+Y+iHFGMCSERn4rXjA3nkQHdszpA8i/39nWA38GzLFU1g4YQJTiY3jE/t2C0ZiYy/ArxTLO3UekWpy6F3wb57nX5D3w0=
+x-ms-exchange-antispam-srfa-diagnostics: SSOS;
+x-ms-office365-filtering-correlation-id: 0c7cf243-9de1-4dcb-86ce-08d564755244
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:(7020095)(4652020)(8989060)(4534165)(4627221)(201703031133081)(201702281549075)(8990040)(5600026)(4604075)(3008032)(2017052603307)(7153060)(7193020);SRVR:BN6PR05MB2868;
+x-ms-traffictypediagnostic: BN6PR05MB2868:
+x-microsoft-antispam-prvs: <BN6PR05MB286807960DF3301451E0E32AA6E00@BN6PR05MB2868.namprd05.prod.outlook.com>
+x-exchange-antispam-report-test: UriScan:(72170088055959);
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(6040501)(2401047)(5005006)(8121501046)(93006095)(93001095)(10201501046)(3002001)(3231023)(2400081)(944501161)(6041288)(201703131423095)(201702281529075)(201702281528075)(20161123555045)(201703061421075)(201703061406153)(20161123560045)(20161123558120)(20161123562045)(20161123564045)(6072148)(201708071742011);SRVR:BN6PR05MB2868;BCL:0;PCL:0;RULEID:;SRVR:BN6PR05MB2868;
+x-forefront-prvs: 05641FD966
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(376002)(396003)(366004)(39850400004)(346002)(39380400002)(199004)(189003)(588024002)(6306002)(3660700001)(54896002)(6116002)(8676002)(6436002)(4270600006)(82746002)(316002)(186003)(8936002)(6916009)(786003)(25786009)(966005)(6512007)(3846002)(102836004)(606006)(2906002)(99286004)(478600001)(236005)(36756003)(83716003)(3280700002)(2900100001)(88552002)(558084003)(77096007)(33656002)(6486002)(81156014)(106356001)(81166006)(6506007)(7736002)(75432002)(86362001)(5660300001)(66066001)(105586002)(14454004)(26005)(97736004)(68736007)(53936002)(42262002);DIR:OUT;SFP:1101;SCL:1;SRVR:BN6PR05MB2868;H:BN6PR05MB3507.namprd05.prod.outlook.com;FPR:;SPF:None;PTR:InfoNoRecords;A:1;MX:1;LANG:en;
+received-spf: None (protection.outlook.com: ksu.edu does not designate
+ permitted sender hosts)
+x-microsoft-antispam-message-info: u/K8pB2F2TZJDDxOncHe81pXeMCiA4JSH/Q1H1Dz3SRiRRVd2+g3IaEJ63jQVXy7nQ0Im/idiGvbaj+ovxiiyA==
+spamdiagnosticoutput: 1:99
+spamdiagnosticmetadata: NSPM
+Content-Type: multipart/alternative;
+	boundary="_000_65ECBA93DDB6405E85082E7FC9B9BA4Aksuedu_"
+MIME-Version: 1.0
+X-OriginatorOrg: ksu.edu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c7cf243-9de1-4dcb-86ce-08d564755244
+X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jan 2018 04:28:59.6185
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: d9a2fa71-d67d-4cb6-b541-06ccaa8013fb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR05MB2868
+
+--_000_65ECBA93DDB6405E85082E7FC9B9BA4Aksuedu_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+
+https://www.hwinfo.com/
+
+--_000_65ECBA93DDB6405E85082E7FC9B9BA4Aksuedu_
+Content-Type: text/html; charset="us-ascii"
+Content-ID: <5B9552C6328915439C9DA667A15D7085@namprd05.prod.outlook.com>
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body style=3D"word-wrap: break-word; -webkit-nbsp-mode: space; line-break:=
+ after-white-space;" class=3D"">
+<div class=3D"Apple-Mail-URLShareUserContentTopClass"><br class=3D"">
+</div>
+<div class=3D"Apple-Mail-URLShareWrapperClass">
+<blockquote type=3D"cite" style=3D"border-left-style: none; color: inherit;=
+ padding: inherit; margin: inherit;" class=3D"">
+<a href=3D"https://www.hwinfo.com/" class=3D"">https://www.hwinfo.com/</a><=
+br class=3D"">
+</blockquote>
+</div>
+</body>
+</html>
+
+--_000_65ECBA93DDB6405E85082E7FC9B9BA4Aksuedu_--

@@ -1,0 +1,80 @@
+Return-Path: <bounce-md_30850198.5a7139b1.v1-2ea5929a9cb34e0386af57455c260c49@mandrillapp.com>
+X-Original-To: root_zanshin@mailbox20.webfaction.com
+Delivered-To: root_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 99FA61E2EF0F61
+	for <root_zanshin@mailbox20.webfaction.com>; Wed, 31 Jan 2018 03:36:27 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id 9726E2002C850
+	for <root_zanshin@mailbox20.webfaction.com>; Wed, 31 Jan 2018 03:36:27 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 0.139
+X-Spam-Level:
+X-Spam-Status: No, score=0.139 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HEADER_FROM_DIFFERENT_DOMAINS=0.25, RCVD_IN_DNSWL_NONE=-0.0001,
+	SPF_HELO_PASS=-0.001, SPF_PASS=-0.001, T_RP_MATCHES_RCVD=-0.01,
+	URIBL_BLOCKED=0.001] autolearn=no autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id eanlVw_xqXYZ
+	for <root_zanshin@mailbox20.webfaction.com>;
+	Wed, 31 Jan 2018 03:36:18 +0000 (UTC)
+Received: from mail186-21.suw21.mandrillapp.com (mail186-21.suw21.mandrillapp.com [198.2.186.21])
+	by mx8.webfaction.com (Postfix) with ESMTPS id 3814E2002C849
+	for <root@zanshin.net>; Wed, 31 Jan 2018 03:36:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=mandrill; d=letsencrypt.org;
+ h=From:Subject:Message-Id:List-Unsubscribe:To:Date:MIME-Version:Content-Type:Content-Transfer-Encoding; i=expiry@letsencrypt.org;
+ bh=VLeQ0eVM20dNU9GBnB3+F9P9PWruVQp5NWqQjxKWNZY=;
+ b=fLF6yDrOmn2HtQbHVJsRNbU1t7cJyOOqEPrcE95hPB0eZxlH53Qn93Y8PaTFb7E7QuX1N+908onb
+   mn1vjGpATvyQfShNegOg2SQQIrdQGks9xyGDMVXXU5+4HEx/3RcwS50oaAL+RJ2dsJPHd33ABA+J
+   0PM47PfHrdtM8gyukn4=
+Received: from pmta02.mandrill.prod.suw01.rsglab.com (127.0.0.1) by mail186-21.suw21.mandrillapp.com id he4sr4174bk5 for <root@zanshin.net>; Wed, 31 Jan 2018 03:36:17 +0000 (envelope-from <bounce-md_30850198.5a7139b1.v1-2ea5929a9cb34e0386af57455c260c49@mandrillapp.com>)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandrillapp.com; 
+ i=@mandrillapp.com; q=dns/txt; s=mandrill; t=1517369777; h=From : 
+ Subject : Message-Id : List-Unsubscribe : To : Date : MIME-Version : 
+ Content-Type : Content-Transfer-Encoding : From : Subject : Date : 
+ X-Mandrill-User : List-Unsubscribe; 
+ bh=VLeQ0eVM20dNU9GBnB3+F9P9PWruVQp5NWqQjxKWNZY=; 
+ b=NkLWEdH86W91Vqk6z9Mfcf91OLJlIcwl7LhD16RFhmdWZzK2Y+ZvbcL45LzaJvLurPVeCI
+ sQzxKwQhJdMgvTCeDd8duZcoQbD5LthEshd4jLc/50azlhjKwIjPSaJuguwCi0pIL6kqzfRa
+ oltmw/meLBkayCm8kx+cErYbtO9Bo=
+From: Let's Encrypt Expiry Bot <expiry@letsencrypt.org>
+Subject: Let's Encrypt certificate expiration notice for domain "hannelorebohlig.com" (and 1 more)
+Received: from [66.133.109.36] by mandrillapp.com id 2ea5929a9cb34e0386af57455c260c49; Wed, 31 Jan 2018 03:36:17 +0000
+Message-Id: <20180131T033616.538873939320605971.expiry@letsencrypt.org>
+List-Unsubscribe: <mailto:unsubscribe-md_30850198.5a7139b1.v1-2ea5929a9cb34e0386af57455c260c49@mailin1.us2.mcsv.net?subject=unsub>
+To: <root@zanshin.net>
+X-Report-Abuse: Please forward a copy of this message, including all headers, to abuse@mandrill.com
+X-Report-Abuse: You can also report abuse here: http://mandrillapp.com/contact/abuse?id=30850198.2ea5929a9cb34e0386af57455c260c49
+X-Mandrill-User: md_30850198
+Date: Wed, 31 Jan 2018 03:36:17 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Hello,
+
+Your certificate (or certificates) for the names listed below will expire in
+10 days (on 10 Feb 18 03:38 +0000). Please make sure to renew
+your certificate before then, or visitors to your website will encounter errors.
+
+hannelorebohlig.com
+www.hannelorebohlig.com
+
+For any questions or support, please visit https://community.letsencrypt.org/.
+Unfortunately, we can't provide support by email.
+
+For details about when we send these emails, please visit
+https://letsencrypt.org/docs/expiration-emails/. In particular, note
+that this reminder email is still sent if you've obtained a slightly
+different certificate by adding or removing names. If you've replaced
+this certificate with a newer one that covers more or fewer names than
+the list above, you may be able to ignore this message.
+
+If you want to stop receiving all email from this address, click
+http://mandrillapp.com/track/unsub.php?u=30850198&id=2ea5929a9cb34e0386af57455c260c49.L2kP6cyl1R2n9rAN56ghmiJ%2B5Q4%3D&r=https%3A%2F%2Fmandrillapp.com%2Funsub%3Fmd_email%3Droot%2540zanshin.net
+(Warning: this is a one-click action that cannot be undone)
+
+Regards,
+The Let's Encrypt Team

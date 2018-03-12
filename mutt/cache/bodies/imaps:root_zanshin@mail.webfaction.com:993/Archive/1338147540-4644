@@ -1,0 +1,43 @@
+Return-Path: <markn@web520.webfaction.com>
+X-Original-To: root_zanshin@mailbox20.webfaction.com
+Delivered-To: root_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 7793F1808BE66B
+	for <root_zanshin@mailbox20.webfaction.com>; Sat, 13 Jan 2018 15:30:03 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id 7503F20048D44
+	for <root_zanshin@mailbox20.webfaction.com>; Sat, 13 Jan 2018 15:30:03 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.03
+X-Spam-Level:
+X-Spam-Status: No, score=-0.03 tagged_above=-999 required=3
+	tests=[RCVD_IN_MSPIKE_H3=-0.01, RCVD_IN_MSPIKE_WL=-0.01,
+	T_RP_MATCHES_RCVD=-0.01] autolearn=no autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ylNRB7PWEJBa
+	for <root_zanshin@mailbox20.webfaction.com>;
+	Sat, 13 Jan 2018 15:30:03 +0000 (UTC)
+Received: from smtp.webfaction.com (mail6.webfaction.com [31.170.123.134])
+	by mx8.webfaction.com (Postfix) with ESMTPS id 4D86D20048D66
+	for <root@zanshin.net>; Sat, 13 Jan 2018 15:30:03 +0000 (UTC)
+Received: from localhost (web520.webfaction.com [207.38.86.215])
+	by smtp.webfaction.com (Postfix) with ESMTPA id E524C6105EEEE
+	for <root@zanshin.net>; Sat, 13 Jan 2018 15:30:02 +0000 (UTC)
+Date: Sat, 13 Jan 2018 15:30:02 +0000
+To: root@zanshin.net
+Subject: Zanshin RSS feed subscribers
+User-Agent: Heirloom mailx 12.5 7/5/10
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Message-Id: <20180113153002.E524C6105EEEE@smtp.webfaction.com>
+From: markn@web520.webfaction.com
+
+Feed stats for 2018-01-12:
+
+       0 Google Reader subscribers
+       4 subscribers from other aggregators
+      16 direct subscribers
+--------
+      20 total subscribers 

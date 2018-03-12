@@ -1,0 +1,296 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.149.131 with SMTP id s3csp3340559qvs;
+        Mon, 22 Jan 2018 14:30:49 -0800 (PST)
+X-Google-Smtp-Source: AH8x226IEzVSMS0qba6s4K7+pOPv/Rz/pkpyUsv7l/CVEG5SYvQw+Ze2x0Vua8lJpXpd5zAHqtzn
+X-Received: by 10.200.16.19 with SMTP id z19mr683198qti.10.1516660249847;
+        Mon, 22 Jan 2018 14:30:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1516660249; cv=none;
+        d=google.com; s=arc-20160816;
+        b=e8Yr3RUHUZtcIeZhpC2X/iKnvtC2M+HZW8NQ/vDHitMFu9ilXDWDOf35GTXaLnK11c
+         ztfU7VLzmhonfVG3CzAst9OuhuuIGMpfURdIxkBa237t9FBRznScCsABVMtqCTI7IAHo
+         rdNO8BH52eLvck4jxzZNdpK9y+4oTx83p+I68rRHdy69w7f6Xq+xz9Zmnn4Rcr+dS3uc
+         ZXjERDmpczXiny1jmVvZvhGu5eG/MhUVGaQZkRhDdHdzxnps63LfI1EcQxH3PHW3vD2/
+         Tsf5kl12wIwdsrY3TSPoMiW16II9Z4nqiJ0sHDfUZmV+tc/hvk4Ctqe0XboB1bC6dr2g
+         oR5g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:errors-to:subject:reply-to:from:to:message-id:date
+         :dkim-signature:dkim-filter:arc-authentication-results;
+        bh=oWXrKOW0BMbKp6pk7XMOfK3lJu6g6MXeHDBZjFofA+0=;
+        b=PpDPLkiiHhUjdt0jzZVBU2j5gdXv02EOkNDIO0907vyxjNCp4WwMZHc89B3BPrad5p
+         LfPOmeRtriqhvpaAE8FiyAN+6pNc8GYfZgoPmr13+N4X7t7HA4QRFUcPi6R0fiqml6ew
+         vxcx58SZqaX39e142a2g6HfAK6VWXRA99DFt8rryAKojZSu6b61Uih4eZoyyGBLiP+TU
+         jtb4icl+4e/dEtleuUWIX30xnnBXz4NZQDFyk5K3wkBAI0A4A7qvCFIxD04buCOeuumB
+         EeEVgjPCum73Z2YGxXfU28QB2j6+Pg16kUs027UelzTDkjji4Nu24JckUbPW+CzqdHWk
+         wCKA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass (test mode) header.i=@vanguard.com header.s=vanguard1 header.b=okeAWXUx;
+       spf=pass (google.com: domain of aoea4p@pssva400.vanguard.com designates 192.175.194.35 as permitted sender) smtp.mailfrom=aoea4p@pssva400.vanguard.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=vanguard.com
+Return-Path: <aoea4p@pssva400.vanguard.com>
+Received: from pslna966.vanguard.com (pslna869.vanguard.com. [192.175.194.35])
+        by mx.google.com with ESMTPS id l186si1380134qkf.332.2018.01.22.14.30.49
+        for <mark.nichols@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 22 Jan 2018 14:30:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of aoea4p@pssva400.vanguard.com designates 192.175.194.35 as permitted sender) client-ip=192.175.194.35;
+Authentication-Results: mx.google.com;
+       dkim=pass (test mode) header.i=@vanguard.com header.s=vanguard1 header.b=okeAWXUx;
+       spf=pass (google.com: domain of aoea4p@pssva400.vanguard.com designates 192.175.194.35 as permitted sender) smtp.mailfrom=aoea4p@pssva400.vanguard.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=vanguard.com
+Received: from pslna968.vanguard.com (pslna968.vanguard.com [10.222.64.170])
+	by pslna966.vanguard.com (Sentrion-MTA-4.3.2/Sentrion-MTA-4.3.2) with ESMTP id w0MMUn9Z025719
+	for <mark.nichols@gmail.com>; Mon, 22 Jan 2018 17:30:49 -0500
+Received: from pssva400.vanguard.com (pssva400.vanguard.com [10.17.38.191])
+	by pslna968.vanguard.com (Sentrion-MTA-4.3.2/Sentrion-MTA-4.3.2) with SMTP id w0MMT0Mk007782
+	for mark.nichols@gmail.com; Mon, 22 Jan 2018 17:30:49 -0500
+DKIM-Filter: OpenDKIM Filter v2.7.5 pslna968.vanguard.com w0MMT0Mk007782
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vanguard.com;
+	s=vanguard1; t=1516660249;
+	bh=oWXrKOW0BMbKp6pk7XMOfK3lJu6g6MXeHDBZjFofA+0=;
+	h=Date:To:From:Reply-To:Subject;
+	b=okeAWXUx9opNO7kI91BDjXfCTYGDt8Xu7qxkmTnzBAfRfmFQiDvJDl8UpK3bgS7W9
+	 T1OmkYEdPVpBL0QqHkk6JlE75SeJq7MrBps94sXQUova+lktopjcrlPpWaVmRPqOnb
+	 05STspL+nC0ixlfZwn61mryBF+CsYzMbpVKbp1gA=
+Date: Mon, 22 Jan 2018 17:30:49 -0500 (EST)
+Message-Id: <22615.1326.1516660249.949523174@pssva400.vanguard.com>
+To: mark.nichols@gmail.com
+From: Vanguard <vanguardinvestments@vanguard.com>
+Reply-To: Vanguard <vanguardinvestments@vanguard.com>
+Subject: Important tax return document available
+Errors-To: aoea4p@pssva400.vanguard.com
+X-VGI-OESCD: 949523174
+X-Campaign-ID: vanguard=20180122000000
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="__VG_GENERAL_BOUNDARY__"
+
+Your e-mail system is unable to display this message.
+Please contact your e-mail provider to resolve this issue.
+
+
+--__VG_GENERAL_BOUNDARY__
+Content-Type: text/plain
+
+***************************************************
+Your Foreign Tax Paid Statement is now available on vanguard.com
+***************************************************
+
+Dear Mark H Nichols:
+
+Your mutual fund Foreign Tax Paid Statement is now available.
+
+Thank you for choosing to go paperless and receive your 
+tax forms electronically. Follow these steps to access 
+and print your tax form:
+
+1. Log on to your account at vanguard.com.
+2. From the "My Accounts" dropdown, choose "Tax center."
+3. On the right side under "Forms and documents," select 
+the appropriate form.
+4. Once the form is open, you can print it or save it to 
+your computer.
+
+If you'd like to view the schedule for our tax forms or 
+the brochures that explain how to use the forms for tax 
+reporting, go to:
+http://personal.vanguard.com/us/insights/taxcenter
+
+Please remember that you won't receive a paper copy of this form 
+by U.S. mail.
+
+Thank you for investing with Vanguard(R).
+
+
+__________________________________________________________
+-------------------------------------------
+| Legal notices and e-mail administration |
+-------------------------------------------
+If you elected e-delivery of account documents at vanguard.com 
+and want to change your election to U.S. mail, log on to 
+vanguard.com and update your mailing preferences. Please 
+do not reply to this message to opt out.
+
+(c) 2018 The Vanguard Group, Inc. All rights 
+reserved. | Privacy policy:
+http://www.vanguard.com/privacy 
+
+455 Devon Park Drive | Wayne, PA 19087-1815 | vanguard.com
+P2739
+
+--__VG_GENERAL_BOUNDARY__
+Content-Type: text/html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta ecm_name="MobileOptimized" content="0">
+<title>Your Foreign Tax Paid Statement is now available on vanguard.com</title></head>
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0" bgcolor="#d4cfc3">
+  <tr>
+    <td><table width="614" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="1" height="42"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="1" height="42"/></td>
+        <td width="613"><font face="Arial, Helvetica, sans-serif" color="#666666" style="font-size: 11px; line-height: 42px"></font></td>
+        </tr>
+    </table>
+      <table width="614" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+      <tr>
+        <td><table width="614" height="70" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="21" width="18"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="21" border="0"/></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td width="18" height="39"></td>
+            <td width="139"><a href="http://www.vanguard.com/us/home?oeaut=FKycfZfwGQ" target="_blank"><img src="http://www.vanguard.com/web/email/header/Vanguard_logo_139x39.gif" alt="Vanguard homepage" border="0" align="left" height="39" width="139" style="display: block"/></a></td>
+             <td width="439" align="right" valign="bottom"><font face="Arial, Helvetica, sans-serif" color="#999999" style="font-size: 13px; line-height: 19px"><font size="1"></font></font>&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="11" width="18"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="11" border="0" /></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+          <table width="614" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+            <tr>
+              <td width="16" height="28"><img src="http://www.vanguard.com/web/email/image/clear.gif" border="0" style="display:block" width="16" height="53"/></td>
+              <td width="11" bgcolor="#96151d"></td>
+              <td width="558" align="left" valign="middle" bgcolor="#96151d"><font face="Arial, Helvetica, sans-serif" color="#ffffff" style="font-size: 18px; line-height: 55px;">Your Foreign Tax Paid Statement is now available on vanguard.com</font></td>
+              <td width="11" align="right" valign="top" bgcolor="#96151d">&nbsp;</td>
+              <td width="18" align="right" valign="top"><img src="http://www.vanguard.com/web/email/image/clear.gif" border="0" style="display:block" width="16" height="53"/></td>
+            </tr>
+            </table>
+          <table width="614" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="18" height="24"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="24"/></td>
+              <td width="503"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="503" height="24"/></td>
+              <td width="75"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="75" height="24"/></td>
+              <td width="18"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="24"/></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">
+Dear Mark H Nichols,
+				  <br><br>
+Your mutual fund Foreign Tax Paid Statement is now available.
+				  <br><br>
+Thank you for choosing to go paperless and receive your tax forms electronically. Follow these steps to access and print your tax form:
+				  <br><br>
+                    <table width="490" border="0" cellpadding="0" cellspacing="0">
+                  <tr valign="top">
+                    <td width="10" valign="top"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display:block" width="10" height="5"/></td>
+                    <td width="18" valign="top"><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">1.</font></td>
+                    <td width="462"><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">Log on to your account at <a href="http://www.vanguard.com" target="_blank" style="text-decoration: underline;color:#965e23"><font face="Arial, Helvetica, sans-serif" color="#965e23" style="font-size: 13px; line-height: 19px">vanguard.com</font></a>.</font></td>
+                  </tr>
+                  <tr valign="top">
+                    <td valign="top"></td>
+                    <td valign="top"><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">2.</font></td>
+                    <td><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">From the <strong>My Accounts</strong> dropdown, choose <strong>Tax center</strong>.</font></td>
+                  </tr>
+                  <tr valign="top">
+                    <td valign="top"></td>
+                    <td valign="top"><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">3.</font></td>
+                    <td><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">On the right side under "Forms and documents," select the appropriate form.</font></td>
+                  </tr>
+                  <tr valign="top">
+                    <td valign="top"></td>
+                    <td valign="top"><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">4.</font></td>
+                    <td><font face="Arial, Helvetica, sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">Once the form is open, you can print it or save it to your computer.</font></td>
+                  </tr>
+                </table>
+				  <br>
+                    If you'd like to view the schedule for our tax forms or the brochures that explain how to use the forms for tax reporting, go to <a href="http://personal.vanguard.com/us/insights/taxcenter" target="_blank" style="text-decoration: underline;color:#965e23"><font face="Arial, Helvetica, sans-serif" color="#965e23" style="font-size: 13px; line-height: 19px">vanguard.com/taxcenter</font></a>. Please remember that you won't receive a paper copy of this form by U.S. mail.
+				  <br><br>
+Thank you for investing with Vanguard.
+                </font></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td height="60" width="18"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="60"/></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td height="1"></td>
+              <td height="1" width="578" colspan="2" bgcolor="#D7D7D7" background="http://www.vanguard.com/web/email/image/Rule_horiz_D7D7D7.gif"></td>
+              <td height="1"></td>
+            </tr>
+      </table>
+          <table width="614" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="18" height="13"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="13"/></td>
+              <td width="503" height="13"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="503" height="13"/></td>
+              <td width="75"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="75" height="13"/></td>
+              <td width="18" height="13"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="13"/></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><font face="Arial, Helvetica, Sans-serif" color="#333333" style="font-size: 13px; line-height: 19px"><strong>Legal notices and e-mail administration<br></strong></font></td>
+              <td rowspan="5" align="left" valign="top">&nbsp;</td>
+              <td></td>
+            </tr>
+            <tr>              
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+<font face="Arial, Helvetica, Sans-serif" color="#333333" style="font-size: 13px; line-height: 19px">
+If you elected e-delivery of account documents at <a href="http://www.vanguard.com" target="_blank" style="text-decoration: underline;color:#965e23"><font face="Arial, Helvetica, sans-serif" color="#965e23" style="font-size: 13px; line-height: 19px">vanguard.com</font></a> and want to change your election to U.S. mail, log on to vanguard.com and update your mailing preferences. Please do not reply to this message to opt out.
+				<br><br>
+&copy; 2018 The Vanguard Group, Inc. All rights reserved.
+				<br><br>
+455 Devon Park Drive | Wayne, PA 19087-1815 | <a href="http://www.vanguard.com" target="_blank" style="text-decoration: none"><font face="Arial, Helvetica, Sans-serif" color="#333333" style="font-size: 13px; line-height: 19px; text-decoration: none">vanguard.com</font></a><br>
+P2739<br><br></font>
+
+	<a href="http://www.vanguard.com/privacy?oeaut=njZaZiEFsJ" target="_blank" color="#666666" style="color: #666666; text-decoration: underline;" id="GrayFoot">
+    <font face="Arial, Helvetica, sans-serif" color="#666666" style="font-size: 13px; line-height: 19px">Privacy policy</font></a> 
+    <font color="#666666">|</font> 
+
+	<a href="http://www.vanguard.com/econtactus?oeaut=jlwRELUgWI" target="_blank" color="#666666" style="color: #666666; text-decoration: underline;" id="GrayFoot">
+    <font face="Arial, Helvetica, sans-serif" color="#666666" style="font-size: 13px; line-height: 19px">Contact us</font></a> 
+    <font color="#666666">|</font> 
+
+	<a href="http://www.vanguard.com/onlinesecurity?oeaut=KQlttoUNdS" target="_blank" color="#666666" style="color: #666666; text-decoration: underline;" id="GrayFoot">
+    <font face="Arial, Helvetica, sans-serif" color="#666666" style="font-size: 13px; line-height: 19px">Online security</font></a> 
+    <font color="#666666">|</font> 
+
+	<a href="http://www.vanguard.com/us/home?oeaut=FKycfZfwGQ" target="_blank" color="#666666" style="color: #666666; text-decoration: underline;" id="GrayFoot">
+    <font face="Arial, Helvetica, sans-serif" color="#666666" style="font-size: 13px; line-height: 19px">Home</font></a>
+			  </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td height="18" width="18"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="18"/></td>
+              <td><img src="https://pixel.monitor1.returnpath.net/pixel.gif?r=c8f21b5250e7226ff9701bafa20511d5bff2fca1&c=OES" width="1" height="1" /></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table></td>
+      </tr>
+    </table>
+      <table width="614" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="18" height="42"><img src="http://www.vanguard.com/web/email/image/clear.gif" style="display: block" width="18" height="42"/></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<style type="text/css">
+a:link { color: #965e23 !important; cursor: auto !important; }
+#GrayFoot { color: #666666 !important; text-decoration: underline !important; }
+#HideTextFormatting { color: #333333 !important; text-decoration: none !important; }
+#phone { color: #333333 !important; text-decoration: none !important; }
+body { width: 100% !important; }
+</style>
+<IMG SRC="https://flagship.vanguard.com/web/images/marker.jpg?oeaop=htqsLdbXQA"/></body>
+</html>
+
+--__VG_GENERAL_BOUNDARY__--
+
+

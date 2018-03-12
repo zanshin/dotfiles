@@ -1,0 +1,18 @@
+Date: Mon, 5 Mar 2018 23:15:33 -0600
+From: mark nichols <root@zanshin.net>
+To: mark@zanshin.net
+Subject: Root sending mail
+Message-ID: <20180306045551.x6pkhnfjx4ybcuaa@fermata>
+Reply-To: mark nichols <root@zanshin.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+Errors-To: root@zanshin.net
+User-Agent: NeoMutt/20170609 (1.8.3)
+
+Test of root@zanshin.net send email.
+
+--
+Mark Nichols
+gpgkey: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
+curl: https://keybase.io/zanshin/key.asc

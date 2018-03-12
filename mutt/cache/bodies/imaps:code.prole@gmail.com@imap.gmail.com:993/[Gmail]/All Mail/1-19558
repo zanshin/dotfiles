@@ -1,0 +1,647 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp7932866qtm;
+        Thu, 1 Mar 2018 09:34:39 -0800 (PST)
+X-Google-Smtp-Source: AG47ELtp046DxgSRrZR1zynHBGkCTXWegaE5IQcmNFoXDwag3jCb890vKau1+TflDbv0AvZfPOU2
+X-Received: by 10.107.40.73 with SMTP id o70mr2831550ioo.6.1519925679521;
+        Thu, 01 Mar 2018 09:34:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1519925679; cv=none;
+        d=google.com; s=arc-20160816;
+        b=EbPwyoeUBk3NuOgH+kpPgmBWGYoWa7oXDdnRT0XBYH9h9+aDyvu/a41MJmGHDePT+/
+         0fuyozlmTRtx+SO7/fy2gqBaN0ElB98SFUYDjt0hIproMKfIg2O1fgftENVK868q6Fac
+         yGo2GOfoZ4wcgSFkMIgi5YhLrUkkDKvO6UzsxaA5sg5+Vqy3VYe7t2cO9d0u6NdJCu/8
+         BJQC/yxbu7EElKa8VwEwVYs64IYN+fTZLx16xT//vevoUzK3YlFj6RG4rt1+7EsVfcZO
+         ND/cO7+ac+zQAIkcq5wvUw5e8smDbvFmEvYQOQY7RDxYywU4fBS8KsiFMc/tw+vck3Yw
+         EIPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:subject:message-id:to:mime-version:from:date
+         :dkim-signature:dkim-signature:arc-authentication-results;
+        bh=V5Biuj3hlK0C2QVmNUY7N1LmT4pakSjYzdfXv5C3e2o=;
+        b=NyFMCA+5Ltlx/Wb4LMMnR9378HhzQkdqqcIhhh/u6f5ATuhd1pW9EfzlqIuMGhY3eH
+         oR0meG6VQNNeoJUwjZFikjtf1pbajZcBrT+aAil9/GCn/K7jlXJ4U5ByTdzQPz7tNZ8g
+         371DdLlm2TVUgNknVfnnvaDE5lF+EkWz26lY1f9N6uItWTfOw3sScAumLYoLB5aFfQHe
+         R9fEAP/OKog2i4IhFzTmGGAnQBr7XSzoIy1zxB5+cFzgJdP/NMshVVMYBT2zIwqpyakZ
+         0wwb9Q2clmJMQkH/65dHm392f2c1fBX1/SzTQEBvl4gz/FgrUYrktqnGAlcjKFVZuuNd
+         BJEQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@peterc.org header.s=s1 header.b=bV3ZTkUv;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=GXpgWEmf;
+       spf=pass (google.com: domain of bounces+3465002-3fce-code.prole=gmail.com@sg.peterc.org designates 167.89.103.72 as permitted sender) smtp.mailfrom=bounces+3465002-3fce-code.prole=gmail.com@sg.peterc.org
+Return-Path: <bounces+3465002-3fce-code.prole=gmail.com@sg.peterc.org>
+Received: from o1.sg1.cooperpress.com (o1.sg1.cooperpress.com. [167.89.103.72])
+        by mx.google.com with ESMTPS id g88si2736179ioi.135.2018.03.01.09.34.38
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 01 Mar 2018 09:34:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounces+3465002-3fce-code.prole=gmail.com@sg.peterc.org designates 167.89.103.72 as permitted sender) client-ip=167.89.103.72;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@peterc.org header.s=s1 header.b=bV3ZTkUv;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=GXpgWEmf;
+       spf=pass (google.com: domain of bounces+3465002-3fce-code.prole=gmail.com@sg.peterc.org designates 167.89.103.72 as permitted sender) smtp.mailfrom=bounces+3465002-3fce-code.prole=gmail.com@sg.peterc.org
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=peterc.org; 
+	h=content-type:from:mime-version:to:subject:list-unsubscribe; 
+	s=s1; bh=hRA7vxb/gCpqYr3SpsKLEo7xSvg=; b=bV3ZTkUva66Qsm6jOdhRXIo
+	2QMR7YJD/PYV7lc5eYY2Pnuc/JEqWf0XpFjP8A512jrBxV96O+UJVaXfCzqHghZW
+	JunfS5HQOds4rKSpAouNEVPANmYRiDnbj7D2SKlyqLfcG9VQZVxEu4gLmK/PWisB
+	U5lx3AGlZDeJ8zpyv7uM=
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=sendgrid.info; 
+	h=content-type:from:mime-version:to:subject:list-unsubscribe:x-feedback-id; 
+	s=smtpapi; bh=hRA7vxb/gCpqYr3SpsKLEo7xSvg=; b=GXpgWEmfp4Mh3Y5H+i
+	TOqupAwmDEGDg51tbStUNqyh16PbnyC+rj5H2bXr7wABeq/jd68rpFWwXOoW/INj
+	rsR16X0xcIlNWHn1kQXb5cG/Gso4KESPRcqcDJJgox52nAKTxbu62F2wlel+n6ka
+	KLa5Psg474/32evRf8HHNZLow=
+Received: by filter1231p1mdw1.sendgrid.net with SMTP id filter1231p1mdw1-19678-5A9839AD-15
+        2018-03-01 17:34:38.087367343 +0000 UTC
+Received: from MzQ2NTAwMg (li299-121.members.linode.com [178.79.161.121])
+	by ismtpd0006p1lon1.sendgrid.net (SG) with HTTP id a577a2vsQK-UM9cwKOAsiA
+	Thu, 01 Mar 2018 17:34:37.956 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=ff4352d180c64478bac4d3fe5752b82ae159d471cc3b1e506184e9ddf285
+Date: Thu, 01 Mar 2018 17:34:38 +0000 (UTC)
+From: "Ruby Weekly" <rw@peterc.org>
+Mime-Version: 1.0
+To: code.prole@gmail.com
+Message-ID: <a577a2vsQK-UM9cwKOAsiA@ismtpd0006p1lon1.sendgrid.net>
+Subject: Ruby 2.6 Preview Released
+List-Unsubscribe: <mailto:unsub-3ec9147c6c@n2.cooperpress.com>
+X-SG-EID: GwnOggQJ8odZTO6PvponV6KY5z7tG6P20gKqA5o5z+qBiC8Umay4eU37UKs0qg9YLsxJNJEdghcg1K
+ empmvd/tUWG0JAWCAcq4lUUVqZE6w8Dazn1lZOSlxt6cVmlzQYqmKr+rv1CWbY2o2B4Asn/GPUrvhN
+ yPkFoxDtoni14f8Hxxzj+N6K9ghideRYjU26cfkkcPUCVe4WNHfDacxcWQ==
+X-Feedback-ID: 3465002:HRXkh4VeDw85yjYUQlbvjOL4WzbsF497d3I16NCZSWU=:HRXkh4VeDw85yjYUQlbvjOL4WzbsF497d3I16NCZSWU=:SG
+
+--ff4352d180c64478bac4d3fe5752b82ae159d471cc3b1e506184e9ddf285
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Mime-Version: 1.0
+
+This week's Ruby and Rails news
+
+Ruby Weekly - A Weekly Ruby Newsletter
+Issue 388 - March  1, 2018
+
+Ruby 2.6 Preview 1 Released
+https://www.ruby-lang.org/en/news/2018/02/24/ruby-2-6-0-preview1-released/
+
+  Always exciting to see a preview release of a new version of Ruby,=20
+  especially since 2.6 introduces an initial implementation of the=20
+  performance-boosting MJIT compiler that we=E2=80=99ve mentioned a <a=20
+  href=3D"https://medium.com/@k0kubun/the-method-jit-compiler-for-ruby-2-6-=
+388ee0989c13">few</a>=20
+  <a=20
+  href=3D"https://medium.com/square-corner-blog/rubys-new-jit-91a5c864dd10"=
+>times</a>=20
+  <a=20
+  href=3D"https://www.johnhawthorn.com/2018/02/playing-with-ruby-jit-mjit/"=
+>recently.</a>=20
+
+Ruby Optimization with One Magic Comment
+https://www.mikeperham.com/2018/02/28/ruby-optimization-with-one-magic-comm=
+ent/
+
+  Mike Perham of Sidekiq fame explains how freezing your strings can help=
+=20
+  performance quite a bit and how Ruby 2.3+ can help make this easier.=20
+
+A Roundup of Managed Kubernetes Platforms
+https://resources.codeship.com/ebooks/managed-kubernetes-platforms-aw?utm_s=
+ource=3Demail-sponsorship&utm_medium=3Dcpc-ruby-weekly-primary&utm_campaign=
+=3Dmanaged-kubernetes-platforms
+
+  In the race of container orchestrators, Kubernetes is surging ahead.=20
+  However, people are often stuck on the step of getting their infrastructu=
+re=20
+  to production. Get an overview of Managed Kubernetes Platforms and their=
+=20
+  basic features.=20
+
+Clowne: Clone Ruby Models With=C2=A0a Smile
+https://evilmartians.com/chronicles/clowne-clone-ruby-models-with-a-smile
+
+  A clean way to easily duplicate models that pulls the good bits from=20
+  several other gems.=20
+
+Build Your Own RSpec: A Gentle Metaprogramming Intro
+http://pdabrowski.com/blog/ruby-on-rails/testing/build-your-own-rspec/
+
+  Create <code>describe</code>, <code>it</code>, <code>expect</code>, and=
+=20
+  other RSpec-like methods in your own mini DSL.=20
+
+Rubygems.org TLS 1.0 and 1.1 Deprecation Notice
+https://blog.rubygems.org/2018/02/24/tls-10-and-11-deprecation-notice.html
+
+  Won=E2=80=99t affect many but worth knowing, especially if you have any s=
+ervers=20
+  with old versions of Ruby and OpenSSL running (e.g. Ruby 1.9 on Ubuntu=20
+  12.04 or something).=20
+
+Sr. Software Engineer (Full stack) - Finance Applications
+https://jobs.netflix.com/jobs/865941
+
+  Join the Netflix Finance Tech team, and help build modern applications to=
+=20
+  support our global finance team.=20
+
+Want to Work with Engineers Who Read Ruby Weekly?
+https://detective-labs.breezy.hr/p/da041b2db095-software-engineer?source=3D=
+20180301-ruby-weekly
+
+  We're hiring our 5th engineer in Chicago to help build our platform of=20
+  automation based sales tools. We use Rails, React & Redux.=20
+
+Looking For A New Ruby Job?
+https://underdog.io/?utm_medium=3Dadvertisement&utm_source=3Drubyweekly&utm=
+_campaign=3Dhomepage2018-mar-1&utm_content=3Dnew-job
+
+  Try Underdog.io, where hundreds of the best tech companies go to meet top=
+=20
+  Ruby engineers. Companies email you directly as soon as next Monday.=20
+
+Rubyhack Conference (Salt Lake City, May 3-4, 2018)
+http://rubyhack.com/
+
+  An amazing speaker lineup and early bird ends today.=20
+
+Passenger 5.2.1 Released
+https://blog.phusion.nl/2018/02/27/passenger-5-2-1/
+
+  Fixing some key regressions.=20
+
+The 13 Ruby Conferences You Cannot Miss in 2018
+https://www.engineyard.com/blog/the-13-ruby-conferences-you-cannot-miss-in-=
+2018
+
+Four Continuous Delivery Metrics that Improve Your Pipeline
+https://www.gocd.org/2018/01/31/continuous-delivery-metrics/?utm_campaign=
+=3Dcd_metrics_blog&utm_medium=3Demail&utm_source=3Dcooperess_ruby&utm_conte=
+nt=3Dcd_metrics_blog&utm_term=3D
+
+  This blog is based on our user research with developers, operations teams=
+,=20
+  business stakeholders, and people at every intersection of DevOps.=20
+
+Active Record Associations Without Foreign Keys
+https://thomasleecopeland.com/2018/02/28/associations-without-foreign-keys.=
+html
+
+Deploying a Rails App on Kubernetes with HAProxy Ingress, Unicorn/Puma and =
+WebSockets
+https://blog.bigbinary.com/2018/02/28/using-haproxy-ingress-with-rails-unic=
+onrn-and-websockets.html
+
+  Lots of parts brought together in one place here.=20
+
+Quick Tip: Using Rack-Proxy
+https://www.mayerdan.com/ruby/2018/02/26/rack-proxy-tour
+
+Optimizing Rails with Caching and Rack Middleware
+https://pawelurbanek.com/2018/02/05/optimize-rails-performance-bottleneck-w=
+ith-caching-and-rack-middleware/
+
+  Maybe you=E2=80=99ll improve your performance 500% like the author did.=
+=20
+
+How to Use Algolia Without Coupling to ActiveRecord::Base
+https://blog.arkency.com/how-to-use-algolia-without-coupling-to-activerecor=
+d-base/
+
+  Algolia is a third-party search service/API.=20
+
+How To Parse Command Line Options with OptionParser
+https://readysteadycode.com/howto-parse-command-line-options-with-ruby-optp=
+arse
+
+Quick Tip: Temporarily Disabling 'Touching' in ActiveRecord
+https://karolgalanciak.com/blog/2018/02/25/rails-quick-tips-temporarily-dis=
+abling-touching-with-activerecord-dot-no-touching/
+
+Ajax on Rails with Unobtrusive JavaScript
+https://www.engineyard.com/blog/ajax-on-rails-with-unobtrusive-javascript
+
+A Better Dependencies Badge for Your Repo
+https://depfu.com/blog/rethinking-the-dependencies-badge?utm_source=3Drubyw=
+eekly&utm_campaign=3Dbrief&utm_content=3Dbadge
+
+The Ruby Advisory Database: A Database of Vulnerable Gems
+https://github.com/rubysec/ruby-advisory-db
+
+One-Click Install and Deploy Ruby on Rails - 60-day for Free
+https://try.digitalocean.com/virtual-private-servers/?utm_source=3Dpaid_new=
+sletter+ruby+weekly&utm_medium=3Ddisplay&utm_campaign=3DPricePerf+dr+free+n=
+ewsletter+trial&utm_content=3D3-1-2018+ruby+weekly+cooperpress
+
+Hanami v1.2.0.beta1: A Fast Ruby Web Framework
+http://hanamirb.org/blog/2018/02/28/announcing-hanami-120beta1.html
+
+  Adds HTTP/2 Early Hints and unobtrusive JavaScript support.=20
+
+Steep: Gradual Typing for Ruby
+https://github.com/soutaro/steep
+
+Globalize: Rails I18n Library for ActiveRecord
+https://github.com/globalize/globalize
+
+image_optim: Optimize Images Using Multiple Utilities
+https://github.com/toy/image_optim
+
+  Based on the <a href=3D"https://imageoptim.com/mac">ImageOptim app</a>,=
+=20
+  optimizes images with compression and metadata removal.=20
+
+
+
+--
+You joined Ruby Weekly at http://rubyweekly.com/ to get weekly e-mails
+about the Ruby programming language.
+
+You can stop getting Ruby Weekly at: https://rubyweekly.com/leave/3ec9147c6c
+
+Our mailing address is: Fairfield Enterprise Centre, Lincoln Way,
+Louth, Lincs, UK, LN11 OLS.
+
+You can e-mail the list maintainer directly at rw@peterc.org in case of
+problems/questions.
+
+--ff4352d180c64478bac4d3fe5752b82ae159d471cc3b1e506184e9ddf285
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Mime-Version: 1.0
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml"><head><meta http-equiv=3D"Content-Type" content=3D"text/htm=
+l; charset=3DUTF-8" /><title>Ruby 2.6 Preview Released</title><meta name=3D=
+"viewport" content=3D"width=3Ddevice-width"/><style type=3D"text/css">
+body, table, td, p, a, li, blockquote { -webkit-text-size-adjust: 100%; -ms=
+-text-size-adjust: 100% }
+table, td {mso-table-rspace: 0pt; mso-table-lspace: 0pt }
+img{ -ms-interpolation-mode: bicubic }
+body { margin: 0; padding: 0; width: 100%; font-family: 'helvetica neue', h=
+elvetica, arial, sans-serif; }
+table {border-spacing: 0;  mso-table-lspace:-1pt; mso-table-rspace:-1pt; bo=
+rder-collapse: collapse !important }
+@media screen and (max-width: 600px) {
+body, table, td, p, a, li, blockquote { -webkit-text-size-adjust: none !imp=
+ortant }
+body { width: 100% !important; min-width: 100% !important }
+.nomo { display: none; }
+.lonmo { text-align: left !important; }
+.gowide { width: 100%; }
+.container { width: auto !important;}
+}
+</style></head><body style=3D"margin: 0"><table border=3D"0" width=3D"100%"=
+ cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ffffff" style=3D"font-fami=
+ly: 'helvetica neue', helvetica, arial, sans-serif; font-size: 14px; line-h=
+eight: 20px; color: #333"><tr><td align=3D"center" valign=3D"top"><table bo=
+rder=3D"0" width=3D"600" cellpadding=3D"0" cellspacing=3D"0" class=3D"conta=
+iner noarchive" style=3D"border-collapse: collapse;"><tr><td style=3D"paddi=
+ng-top: 6px; padding-bottom: 6px; font-size: 12px; text-align: center; colo=
+r: #555"><span class=3D"nomo">This week's Ruby and Rails news<br/></span><a=
+ href=3D"http://rubyweekly.com/issues/388" style=3D"color: #dd0000">Read th=
+is e-mail on the Web</a></td></tr></table><table border=3D"0" width=3D"600"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"container" style=3D"border-co=
+llapse: collapse"><tr><td style=3D"background-color: #dd0000"><table width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" align=3D"left"><tr><td align=
+=3D"left" class=3D"block" style=3D"padding: 6px 12px;"><table align=3D"left=
+" width=3D"50%" class=3D"gowide"><tr><td><span style=3D"line-height: 36px; =
+font-size: 23px; color: #dd0000; font-weight: bold; color: #ffffff; -webkit=
+-font-smoothing: antialiased;">Ruby Weekly</span></td></tr></table><table a=
+lign=3D"left" style=3D"text-align: right" width=3D"50%" class=3D"gowide lon=
+mo"><tr><td><span style=3D"font-size: 14px; line-height: 36px; font-weight:=
+ normal; color: #ffffff">
+Issue 388 &mdash; March  1, 2018
+</span></td></tr></table></td></tr></table></td></tr><tr><td style=3D"paddi=
+ng: 16px 12px 12px 12px" align=3D"left"><table width=3D"100%" align=3D"left=
+" class=3D"gowide" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-coll=
+apse: collapse"><tr><td><div style=3D"color: #dd0000; font-weight: normal; =
+font-size: 12px; line-height: 14px; text-transform: uppercase; margin-top: =
+2px; font-family: verdana, arial, sans-serif">
+Yui Naruse
+</div><div style=3D"font-size: 18px; margin: 2px 0px"><a href=3D"https://ru=
+byweekly.com/link/37025/3ec9147c6c" title=3D"www.ruby-lang.org/en/news/2018=
+/02/24/ruby-2-6-0-preview1-released/" style=3D"display: block; color: #0055=
+bb; line-height: 24px; text-decoration: underline; font-weight: normal">Rub=
+y 2.6 Preview 1 Released</a></div><div style=3D"font-size: 13px; line-heigh=
+t: 17px; margin-top: 4px">Always exciting to see a preview release of a new=
+ version of Ruby, especially since 2.6 introduces an initial implementation=
+ of the performance-boosting MJIT compiler that we&rsquo;ve mentioned a <a =
+href=3D"https://rubyweekly.com/link/37026/3ec9147c6c">few</a> <a href=3D"ht=
+tps://rubyweekly.com/link/37027/3ec9147c6c">times</a> <a href=3D"https://ru=
+byweekly.com/link/37028/3ec9147c6c">recently.</a></div><br/></td></tr></tab=
+le><br clear=3D"all" style=3D"clear: both" /><table width=3D"100%" align=3D=
+"left" class=3D"gowide" cellpadding=3D"0" cellspacing=3D"0" style=3D"border=
+-collapse: collapse"><tr><td><div style=3D"color: #dd0000; font-weight: nor=
+mal; font-size: 12px; line-height: 14px; text-transform: uppercase; margin-=
+top: 2px; font-family: verdana, arial, sans-serif">
+Mike Perham
+</div><div style=3D"font-size: 18px; margin: 2px 0px"><a href=3D"https://ru=
+byweekly.com/link/37029/3ec9147c6c" title=3D"www.mikeperham.com/2018/02/28/=
+ruby-optimization-with-one-magic-comment/" style=3D"display: block; color: =
+#0055bb; line-height: 24px; text-decoration: underline; font-weight: normal=
+">Ruby Optimization with One Magic Comment</a></div><div style=3D"font-size=
+: 13px; line-height: 17px; margin-top: 4px">Mike Perham of Sidekiq fame exp=
+lains how freezing your strings can help performance quite a bit and how Ru=
+by 2.3+ can help make this easier.</div><br/></td></tr></table><br clear=3D=
+"all" style=3D"clear: both" /><table width=3D"435" align=3D"left" class=3D"=
+gowide" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: colla=
+pse"><tr><td><div style=3D"color: #dd0000; font-weight: normal; font-size: =
+12px; line-height: 14px; text-transform: uppercase; margin-top: 2px; font-f=
+amily: verdana, arial, sans-serif">
+Codeship&nbsp;&nbsp;<span style=3D"border: 1px solid #dd0000; font-size: 11=
+px; border-radius: 2px; font-weight: normal; padding: 0px 3px 0px 3px;">Spo=
+nsored</span></div><div style=3D"font-size: 18px; margin: 2px 0px"><a href=
+=3D"https://rubyweekly.com/link/37030/3ec9147c6c" title=3D"resources.codesh=
+ip.com/ebooks/managed-kubernetes-platforms-aw?utm_source=3Demail-sponsorshi=
+p&utm_medium=3Dcpc-ruby-weekly-primary&utm_campaign=3Dmanaged-kubernetes-pl=
+atforms" style=3D"display: block; color: #0055bb; line-height: 24px; text-d=
+ecoration: underline; font-weight: normal">A Roundup of Managed Kubernetes =
+Platforms</a></div><div style=3D"font-size: 13px; line-height: 17px; margin=
+-top: 4px">In the race of container orchestrators, Kubernetes is surging ah=
+ead. However, people are often stuck on the step of getting their infrastru=
+cture to production. Get an overview of Managed Kubernetes Platforms and th=
+eir basic features.</div><br/></td></tr></table><table width=3D"133" class=
+=3D"nomo" align=3D"left"><tr><td style=3D"text-align: right"><a href=3D"htt=
+ps://rubyweekly.com/link/37030/3ec9147c6c"><img src=3D"https://copm.s3.amaz=
+onaws.com/d416a14d.png" style=3D"border: 0" width=3D"125" height=3D"110" al=
+t=3D"Codeship" /></a></td></tr></table><br clear=3D"all" style=3D"clear: bo=
+th" /><table width=3D"100%" align=3D"left" class=3D"gowide" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse"><tr><td><div style=
+=3D"color: #dd0000; font-weight: normal; font-size: 12px; line-height: 14px=
+; text-transform: uppercase; margin-top: 2px; font-family: verdana, arial, =
+sans-serif">
+Martian Chronicles
+</div><div style=3D"font-size: 18px; margin: 2px 0px"><a href=3D"https://ru=
+byweekly.com/link/37031/3ec9147c6c" title=3D"evilmartians.com/chronicles/cl=
+owne-clone-ruby-models-with-a-smile" style=3D"display: block; color: #0055b=
+b; line-height: 24px; text-decoration: underline; font-weight: normal">Clow=
+ne: Clone Ruby Models With=C2=A0a Smile</a></div><div style=3D"font-size: 1=
+3px; line-height: 17px; margin-top: 4px">A clean way to easily duplicate mo=
+dels that pulls the good bits from several other gems.</div><br/></td></tr>=
+</table><br clear=3D"all" style=3D"clear: both" /><table width=3D"100%" ali=
+gn=3D"left" class=3D"gowide" cellpadding=3D"0" cellspacing=3D"0" style=3D"b=
+order-collapse: collapse"><tr><td><div style=3D"color: #dd0000; font-weight=
+: normal; font-size: 12px; line-height: 14px; text-transform: uppercase; ma=
+rgin-top: 2px; font-family: verdana, arial, sans-serif">
+Pawe=C5=82 Dabrowski
+</div><div style=3D"font-size: 18px; margin: 2px 0px"><a href=3D"https://ru=
+byweekly.com/link/37032/3ec9147c6c" title=3D"pdabrowski.com/blog/ruby-on-ra=
+ils/testing/build-your-own-rspec/" style=3D"display: block; color: #0055bb;=
+ line-height: 24px; text-decoration: underline; font-weight: normal">Build =
+Your Own RSpec: A Gentle Metaprogramming Intro</a></div><div style=3D"font-=
+size: 13px; line-height: 17px; margin-top: 4px">Create <code>describe</code=
+>, <code>it</code>, <code>expect</code>, and other RSpec-like methods in yo=
+ur own mini DSL.</div><br/></td></tr></table><br clear=3D"all" style=3D"cle=
+ar: both" /><table width=3D"100%" align=3D"left" class=3D"gowide" cellpaddi=
+ng=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse"><tr><td><div=
+ style=3D"color: #dd0000; font-weight: normal; font-size: 12px; line-height=
+: 14px; text-transform: uppercase; margin-top: 2px; font-family: verdana, a=
+rial, sans-serif">
+RubyGems Blog
+</div><div style=3D"font-size: 18px; margin: 2px 0px"><a href=3D"https://ru=
+byweekly.com/link/37033/3ec9147c6c" title=3D"blog.rubygems.org/2018/02/24/t=
+ls-10-and-11-deprecation-notice.html" style=3D"display: block; color: #0055=
+bb; line-height: 24px; text-decoration: underline; font-weight: normal">Rub=
+ygems.org TLS 1.0 and 1.1 Deprecation Notice</a></div><div style=3D"font-si=
+ze: 13px; line-height: 17px; margin-top: 4px">Won&rsquo;t affect many but w=
+orth knowing, especially if you have any servers with old versions of Ruby =
+and OpenSSL running (e.g. Ruby 1.9 on Ubuntu 12.04 or something).</div><br/=
+></td></tr></table><br clear=3D"all" style=3D"clear: both" /><p style=3D"co=
+lor: #dd0000; font-size: 18px; font-weight: normal; margin-top: 8px; margin=
+-bottom: 10px">Jobs </p><ul style=3D"padding-left: 18px; margin-top: 10px; =
+list-style-type: square"><li style=3D"color: #dd0000; margin-bottom: 16px; =
+font-size: 16px; line-height: 16px"><a href=3D"https://rubyweekly.com/link/=
+37034/3ec9147c6c" style=3D"color: #0055bb; margin-right: 4px; line-height: =
+18px; font-weight: normal">Sr. Software Engineer (Full stack) - Finance App=
+lications</a><span style=3D"font-size: 12px; color: #666666">Join the Netfl=
+ix Finance Tech team, and help build modern applications to support our glo=
+bal finance team.</span>&nbsp;<span style=3D"color: #dd0000; font-weight: n=
+ormal; font-size: 12px; text-transform: uppercase; font-family: verdana, ar=
+ial, sans-serif">NETFLIX</span></li><li style=3D"color: #dd0000; margin-bot=
+tom: 16px; font-size: 16px; line-height: 16px"><a href=3D"https://rubyweekl=
+y.com/link/37035/3ec9147c6c" style=3D"color: #0055bb; margin-right: 4px; li=
+ne-height: 18px; font-weight: normal">Want to Work with Engineers Who Read =
+Ruby Weekly?</a><span style=3D"font-size: 12px; color: #666666">We're hirin=
+g our 5th engineer in Chicago to help build our platform of automation base=
+d sales tools. We use Rails, React &amp; Redux.</span>&nbsp;<span style=3D"=
+color: #dd0000; font-weight: normal; font-size: 12px; text-transform: upper=
+case; font-family: verdana, arial, sans-serif">Detective<span>.</span>io</s=
+pan></li><li style=3D"color: #dd0000; margin-bottom: 16px; font-size: 16px;=
+ line-height: 16px"><a href=3D"https://rubyweekly.com/link/37036/3ec9147c6c=
+" style=3D"color: #0055bb; margin-right: 4px; line-height: 18px; font-weigh=
+t: normal">Looking For A New Ruby Job?</a><span style=3D"font-size: 12px; c=
+olor: #666666">Try Underdog.io, where hundreds of the best tech companies g=
+o to meet top Ruby engineers. Companies email you directly as soon as next =
+Monday.</span>&nbsp;<span style=3D"color: #dd0000; font-weight: normal; fon=
+t-size: 12px; text-transform: uppercase; font-family: verdana, arial, sans-=
+serif">Underdog<span>.</span>io</span></li></ul><!-- <p style=3D"color: #33=
+3; font-size: 12px; font-weight: normal; margin-top: 0px; margin-bottom: 10=
+px">Can't find the right job? Want companies to apply to <em>you?</em> <a h=
+ref=3D"https://hired.com/?utm_source=3Dnewsletters&amp;utm_medium=3Dpeterco=
+operpress&amp;utm_term=3Dcat-tech-ruby&amp;utm_campaign=3Dq3-17-ruby" style=
+=3D"color: #666666">Try Hired.com.</a></p>--><p style=3D"color: #dd0000; fo=
+nt-size: 18px; font-weight: normal; margin-top: 24px; margin-bottom: 10px">=
+In brief</p><ul style=3D"padding-left: 18px; margin-top: 10px; list-style-t=
+ype: square"><li style=3D"color: #ee5533; margin-bottom: 16px; font-size: 1=
+6px; line-height: 16px"><a href=3D"https://rubyweekly.com/link/37037/3ec914=
+7c6c" style=3D"color: #0055bb; margin-right: 4px; line-height: 20px; font-w=
+eight: normal">Rubyhack Conference (Salt Lake City, May 3-4, 2018)</a>&nbsp=
+;<span style=3D"font-size: 12px; padding: 1px 3px; text-transform: uppercas=
+e; background-color: #bbbbbb; color: #fff; font-weight: normal; font-family=
+: verdana, arial, sans-serif">news</span> <br/><span style=3D"font-size: 12=
+px; color: #666666">An amazing speaker lineup and early bird ends today.</s=
+pan>&nbsp;<span style=3D"color: #888888; font-weight: normal; font-size: 12=
+px; text-transform: uppercase; font-family: verdana, arial, sans-serif"><br=
+/></span></li><li style=3D"color: #ee5533; margin-bottom: 16px; font-size: =
+16px; line-height: 16px"><a href=3D"https://rubyweekly.com/link/37038/3ec91=
+47c6c" style=3D"color: #0055bb; margin-right: 4px; line-height: 20px; font-=
+weight: normal">Passenger 5.2.1 Released</a>&nbsp;<span style=3D"font-size:=
+ 12px; padding: 1px 3px; text-transform: uppercase; background-color: #bbbb=
+bb; color: #fff; font-weight: normal; font-family: verdana, arial, sans-ser=
+if">news</span> <br/><span style=3D"font-size: 12px; color: #666666">Fixing=
+ some key regressions.</span>&nbsp;<span style=3D"color: #888888; font-weig=
+ht: normal; font-size: 12px; text-transform: uppercase; font-family: verdan=
+a, arial, sans-serif"><br/>Phusion</span></li><li style=3D"color: #ee5533; =
+margin-bottom: 16px; font-size: 16px; line-height: 16px"><a href=3D"https:/=
+/rubyweekly.com/link/37039/3ec9147c6c" style=3D"color: #0055bb; margin-righ=
+t: 4px; line-height: 20px; font-weight: normal">The 13 Ruby Conferences You=
+ Cannot Miss in 2018</a>&nbsp;<span style=3D"font-size: 12px; padding: 1px =
+3px; text-transform: uppercase; background-color: #bbbbbb; color: #fff; fon=
+t-weight: normal; font-family: verdana, arial, sans-serif">news</span>&nbsp=
+;<span style=3D"color: #888888; font-weight: normal; font-size: 12px; text-=
+transform: uppercase; font-family: verdana, arial, sans-serif"><br/>Engine =
+Yard</span></li><li style=3D"color: #ee5533; margin-bottom: 16px; font-size=
+: 16px; line-height: 16px"><a href=3D"https://rubyweekly.com/link/37041/3ec=
+9147c6c" style=3D"color: #0055bb; margin-right: 4px; line-height: 20px; fon=
+t-weight: normal">Four Continuous Delivery Metrics that Improve Your Pipeli=
+ne</a>&nbsp;<br/><span style=3D"font-size: 12px; color: #666666">This blog =
+is based on our user research with developers, operations teams, business s=
+takeholders, and people at every intersection of DevOps.</span>&nbsp;<span =
+style=3D"color: #888888; font-weight: normal; font-size: 12px; text-transfo=
+rm: uppercase; font-family: verdana, arial, sans-serif"><br/>GoCD&nbsp;&nbs=
+p;<span style=3D"border: 1px solid #888888; font-size: 11px; border-radius:=
+ 2px; font-weight: normal; padding: 0px 3px 0px 3px;">Sponsored</span></spa=
+n></li><li style=3D"color: #ee5533; margin-bottom: 16px; font-size: 16px; l=
+ine-height: 16px"><a href=3D"https://rubyweekly.com/link/37042/3ec9147c6c" =
+style=3D"color: #0055bb; margin-right: 4px; line-height: 20px; font-weight:=
+ normal">Active Record Associations Without Foreign Keys</a>&nbsp;<span sty=
+le=3D"font-size: 12px; padding: 1px 3px; text-transform: uppercase; backgro=
+und-color: #00bb00; color: #fff; font-weight: normal; font-family: verdana,=
+ arial, sans-serif">tutorial</span>&nbsp;<span style=3D"color: #888888; fon=
+t-weight: normal; font-size: 12px; text-transform: uppercase; font-family: =
+verdana, arial, sans-serif"><br/>Tom Copeland</span></li><li style=3D"color=
+: #ee5533; margin-bottom: 16px; font-size: 16px; line-height: 16px"><a href=
+=3D"https://rubyweekly.com/link/37043/3ec9147c6c" style=3D"color: #0055bb; =
+margin-right: 4px; line-height: 20px; font-weight: normal">Deploying a Rail=
+s App on Kubernetes with HAProxy Ingress, Unicorn/Puma and WebSockets</a>&n=
+bsp;<span style=3D"font-size: 12px; padding: 1px 3px; text-transform: upper=
+case; background-color: #00bb00; color: #fff; font-weight: normal; font-fam=
+ily: verdana, arial, sans-serif">tutorial</span> <br/><span style=3D"font-s=
+ize: 12px; color: #666666">Lots of parts brought together in one place here=
+.</span>&nbsp;<span style=3D"color: #888888; font-weight: normal; font-size=
+: 12px; text-transform: uppercase; font-family: verdana, arial, sans-serif"=
+><br/>Rahul Mahale</span></li><li style=3D"color: #ee5533; margin-bottom: 1=
+6px; font-size: 16px; line-height: 16px"><a href=3D"https://rubyweekly.com/=
+link/37044/3ec9147c6c" style=3D"color: #0055bb; margin-right: 4px; line-hei=
+ght: 20px; font-weight: normal">Quick Tip: Using Rack-Proxy</a>&nbsp;<span =
+style=3D"font-size: 12px; padding: 1px 3px; text-transform: uppercase; back=
+ground-color: #00bb00; color: #fff; font-weight: normal; font-family: verda=
+na, arial, sans-serif">tutorial</span>&nbsp;<span style=3D"color: #888888; =
+font-weight: normal; font-size: 12px; text-transform: uppercase; font-famil=
+y: verdana, arial, sans-serif"><br/>Dan Mayer</span></li><li style=3D"color=
+: #ee5533; margin-bottom: 16px; font-size: 16px; line-height: 16px"><a href=
+=3D"https://rubyweekly.com/link/37045/3ec9147c6c" style=3D"color: #0055bb; =
+margin-right: 4px; line-height: 20px; font-weight: normal">Optimizing Rails=
+ with Caching and Rack Middleware</a>&nbsp;<span style=3D"font-size: 12px; =
+padding: 1px 3px; text-transform: uppercase; background-color: #00bb00; col=
+or: #fff; font-weight: normal; font-family: verdana, arial, sans-serif">tut=
+orial</span> <br/><span style=3D"font-size: 12px; color: #666666">Maybe you=
+&rsquo;ll improve your performance 500% like the author did.</span>&nbsp;<s=
+pan style=3D"color: #888888; font-weight: normal; font-size: 12px; text-tra=
+nsform: uppercase; font-family: verdana, arial, sans-serif"><br/>Pawe=C5=82=
+ Urbanek</span></li><li style=3D"color: #ee5533; margin-bottom: 16px; font-=
+size: 16px; line-height: 16px"><a href=3D"https://rubyweekly.com/link/37046=
+/3ec9147c6c" style=3D"color: #0055bb; margin-right: 4px; line-height: 20px;=
+ font-weight: normal">How to Use Algolia Without Coupling to ActiveRecord::=
+Base</a>&nbsp;<span style=3D"font-size: 12px; padding: 1px 3px; text-transf=
+orm: uppercase; background-color: #00bb00; color: #fff; font-weight: normal=
+; font-family: verdana, arial, sans-serif">tutorial</span> <br/><span style=
+=3D"font-size: 12px; color: #666666">Algolia is a third-party search servic=
+e/API.</span>&nbsp;<span style=3D"color: #888888; font-weight: normal; font=
+-size: 12px; text-transform: uppercase; font-family: verdana, arial, sans-s=
+erif"><br/>Robert Pankowecki</span></li><li style=3D"color: #ee5533; margin=
+-bottom: 16px; font-size: 16px; line-height: 16px"><a href=3D"https://rubyw=
+eekly.com/link/37047/3ec9147c6c" style=3D"color: #0055bb; margin-right: 4px=
+; line-height: 20px; font-weight: normal">How To Parse Command Line Options=
+ with OptionParser</a>&nbsp;<span style=3D"font-size: 12px; padding: 1px 3p=
+x; text-transform: uppercase; background-color: #00bb00; color: #fff; font-=
+weight: normal; font-family: verdana, arial, sans-serif">tutorial</span>&nb=
+sp;<span style=3D"color: #888888; font-weight: normal; font-size: 12px; tex=
+t-transform: uppercase; font-family: verdana, arial, sans-serif"><br/>Tim C=
+raft</span></li><li style=3D"color: #ee5533; margin-bottom: 16px; font-size=
+: 16px; line-height: 16px"><a href=3D"https://rubyweekly.com/link/37048/3ec=
+9147c6c" style=3D"color: #0055bb; margin-right: 4px; line-height: 20px; fon=
+t-weight: normal">Quick Tip: Temporarily Disabling 'Touching' in ActiveReco=
+rd</a>&nbsp;<span style=3D"font-size: 12px; padding: 1px 3px; text-transfor=
+m: uppercase; background-color: #00bb00; color: #fff; font-weight: normal; =
+font-family: verdana, arial, sans-serif">tutorial</span>&nbsp;<span style=
+=3D"color: #888888; font-weight: normal; font-size: 12px; text-transform: u=
+ppercase; font-family: verdana, arial, sans-serif"><br/>Karol Galanciak</sp=
+an></li><li style=3D"color: #ee5533; margin-bottom: 16px; font-size: 16px; =
+line-height: 16px"><a href=3D"https://rubyweekly.com/link/37049/3ec9147c6c"=
+ style=3D"color: #0055bb; margin-right: 4px; line-height: 20px; font-weight=
+: normal">Ajax on Rails with Unobtrusive JavaScript</a>&nbsp;<span style=3D=
+"font-size: 12px; padding: 1px 3px; text-transform: uppercase; background-c=
+olor: #00bb00; color: #fff; font-weight: normal; font-family: verdana, aria=
+l, sans-serif">tutorial</span>&nbsp;<span style=3D"color: #888888; font-wei=
+ght: normal; font-size: 12px; text-transform: uppercase; font-family: verda=
+na, arial, sans-serif"><br/>Christopher Rigor</span></li><li style=3D"color=
+: #ee5533; margin-bottom: 16px; font-size: 16px; line-height: 16px"><a href=
+=3D"https://rubyweekly.com/link/37050/3ec9147c6c" style=3D"color: #0055bb; =
+margin-right: 4px; line-height: 20px; font-weight: normal">A Better Depende=
+ncies Badge for Your Repo</a>&nbsp;
+&nbsp;<span style=3D"color: #888888; font-weight: normal; font-size: 12px; =
+text-transform: uppercase; font-family: verdana, arial, sans-serif"><br/>De=
+pfu&nbsp;&nbsp;<span style=3D"border: 1px solid #888888; font-size: 11px; b=
+order-radius: 2px; font-weight: normal; padding: 0px 3px 0px 3px;">Sponsore=
+d</span></span></li><li style=3D"color: #ee5533; margin-bottom: 16px; font-=
+size: 16px; line-height: 16px"><a href=3D"https://rubyweekly.com/link/37051=
+/3ec9147c6c" style=3D"color: #0055bb; margin-right: 4px; line-height: 20px;=
+ font-weight: normal">The Ruby Advisory Database: A Database of Vulnerable =
+Gems</a>&nbsp;<span style=3D"font-size: 12px; padding: 1px 3px; text-transf=
+orm: uppercase; background-color: #0077cc; color: #fff; font-weight: normal=
+; font-family: verdana, arial, sans-serif">tools</span>&nbsp;<span style=3D=
+"color: #888888; font-weight: normal; font-size: 12px; text-transform: uppe=
+rcase; font-family: verdana, arial, sans-serif"><br/>Rubysec</span></li><li=
+ style=3D"color: #ee5533; margin-bottom: 16px; font-size: 16px; line-height=
+: 16px"><a href=3D"https://rubyweekly.com/link/37052/3ec9147c6c" style=3D"c=
+olor: #0055bb; margin-right: 4px; line-height: 20px; font-weight: normal">O=
+ne-Click Install and Deploy Ruby on Rails - 60-day for Free</a>&nbsp;<span =
+style=3D"font-size: 12px; padding: 1px 3px; text-transform: uppercase; back=
+ground-color: #0077cc; color: #fff; font-weight: normal; font-family: verda=
+na, arial, sans-serif">tools</span>&nbsp;<span style=3D"color: #888888; fon=
+t-weight: normal; font-size: 12px; text-transform: uppercase; font-family: =
+verdana, arial, sans-serif"><br/>DigitalOcean&nbsp;&nbsp;<span style=3D"bor=
+der: 1px solid #888888; font-size: 11px; border-radius: 2px; font-weight: n=
+ormal; padding: 0px 3px 0px 3px;">Sponsored</span></span></li><li style=3D"=
+color: #ee5533; margin-bottom: 16px; font-size: 16px; line-height: 16px"><a=
+ href=3D"https://rubyweekly.com/link/37053/3ec9147c6c" style=3D"color: #005=
+5bb; margin-right: 4px; line-height: 20px; font-weight: normal">Hanami v1.2=
+.0.beta1: A Fast Ruby Web Framework</a>&nbsp;<span style=3D"font-size: 12px=
+; padding: 1px 3px; text-transform: uppercase; background-color: #00bbbb; c=
+olor: #fff; font-weight: normal; font-family: verdana, arial, sans-serif">c=
+ode</span> <br/><span style=3D"font-size: 12px; color: #666666">Adds HTTP/2=
+ Early Hints and unobtrusive JavaScript support.</span>&nbsp;<span style=3D=
+"color: #888888; font-weight: normal; font-size: 12px; text-transform: uppe=
+rcase; font-family: verdana, arial, sans-serif"><br/>Luca Guidi</span></li>=
+<li style=3D"color: #ee5533; margin-bottom: 16px; font-size: 16px; line-hei=
+ght: 16px"><a href=3D"https://rubyweekly.com/link/37055/3ec9147c6c" style=
+=3D"color: #0055bb; margin-right: 4px; line-height: 20px; font-weight: norm=
+al">Steep: Gradual Typing for Ruby</a>&nbsp;<span style=3D"font-size: 12px;=
+ padding: 1px 3px; text-transform: uppercase; background-color: #00bbbb; co=
+lor: #fff; font-weight: normal; font-family: verdana, arial, sans-serif">co=
+de</span>&nbsp;<span style=3D"color: #888888; font-weight: normal; font-siz=
+e: 12px; text-transform: uppercase; font-family: verdana, arial, sans-serif=
+"><br/>Soutaro Matsumoto</span></li><li style=3D"color: #ee5533; margin-bot=
+tom: 16px; font-size: 16px; line-height: 16px"><a href=3D"https://rubyweekl=
+y.com/link/37057/3ec9147c6c" style=3D"color: #0055bb; margin-right: 4px; li=
+ne-height: 20px; font-weight: normal">Globalize: Rails I18n Library for Act=
+iveRecord</a>&nbsp;<span style=3D"font-size: 12px; padding: 1px 3px; text-t=
+ransform: uppercase; background-color: #00bbbb; color: #fff; font-weight: n=
+ormal; font-family: verdana, arial, sans-serif">code</span>&nbsp;<span styl=
+e=3D"color: #888888; font-weight: normal; font-size: 12px; text-transform: =
+uppercase; font-family: verdana, arial, sans-serif"><br/></span></li><li st=
+yle=3D"color: #ee5533; margin-bottom: 16px; font-size: 16px; line-height: 1=
+6px"><a href=3D"https://rubyweekly.com/link/37059/3ec9147c6c" style=3D"colo=
+r: #0055bb; margin-right: 4px; line-height: 20px; font-weight: normal">imag=
+e_optim: Optimize Images Using Multiple Utilities</a>&nbsp;<span style=3D"f=
+ont-size: 12px; padding: 1px 3px; text-transform: uppercase; background-col=
+or: #00bbbb; color: #fff; font-weight: normal; font-family: verdana, arial,=
+ sans-serif">code</span> <br/><span style=3D"font-size: 12px; color: #66666=
+6">Based on the <a href=3D"https://rubyweekly.com/link/37061/3ec9147c6c">Im=
+ageOptim app</a>, optimizes images with compression and metadata removal.</=
+span>&nbsp;<span style=3D"color: #888888; font-weight: normal; font-size: 1=
+2px; text-transform: uppercase; font-family: verdana, arial, sans-serif"><b=
+r/>Ivan Kuchin</span></li></ul></td></tr><tr><td bgcolor=3D"#f4f4f4" style=
+=3D"font-family: verdana, helvetica, arial, sans-serif; text-align: left; p=
+adding-top: 12px; padding-left: 12px; padding-right: 12px; padding-bottom: =
+12px" class=3D"noarchive"><p style=3D"line-height: 15px; font-size: 11px; m=
+argin-top: 0">Curated by <a href=3D"https://rubyweekly.com/link/37063/3ec91=
+47c6c" style=3D"color: #dd0000">Peter Cooper</a> and <a href=3D"https://rub=
+yweekly.com/link/37065/3ec9147c6c" style=3D"color: #dd0000">Glenn Goodrich<=
+/a>, and published by <a href=3D"https://cooperpress.com/" style=3D"color: =
+#dd0000">Cooperpress</a>.<br/>Send feedback by simply replying to this mail=
+.<br/>Want to sponsor an issue? See our <a href=3D"https://cooperpress.com/=
+mediakit" style=3D"color: #666666">media kit.</a><br/>Want to post a job? E=
+mail us or <a href=3D"https://booking.cooperpress.com/jobs" style=3D"color:=
+ #666666">use our self-serve system.</a></p><p style=3D"font-size: 14px"><a=
+ href=3D"https://rubyweekly.com/leave/3ec9147c6c" style=3D"color: #dd0000">=
+Stop getting Ruby Weekly</a> | <a href=3D"https://rubyweekly.com/edit_subsc=
+ription/3ec9147c6c" style=3D"color: #dd0000">Change email address</a> | <a =
+href=3D"http://rubyweekly.com/issues/388" style=3D"color: #dd0000">Read thi=
+s issue on the Web</a></p><p style=3D"font-size: 11px; line-height: 15px">&=
+copy; Cooperpress Ltd, Fairfield Enterprise Centre, Louth, LN11 0LS, UK<br/=
+><a href=3D"https://cooperpress.com/spam.html" style=3D"color: #666666">Ema=
+il policy</a> <a href=3D"https://cooperpress.com/privacy.html" style=3D"col=
+or: #666666">Privacy policy</a></p></td></tr></table></td></tr></table><img=
+ src=3D"https://rubyweekly.com/open/388/3ec9147c6c" width=3D"1" height=3D"1=
+" /></body></html>
+
+--ff4352d180c64478bac4d3fe5752b82ae159d471cc3b1e506184e9ddf285--

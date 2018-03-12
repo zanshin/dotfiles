@@ -1,0 +1,1613 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp3627081qtm;
+        Sun, 25 Feb 2018 22:16:10 -0800 (PST)
+X-Google-Smtp-Source: AG47ELtCKU/Mj6WSN7KUSy0KwYCw+nFipnJ8Sf7KZhO/fZ/hHkbW3hQ8/PxHIsKcvJWEaYNUp64D
+X-Received: by 10.13.220.3 with SMTP id f3mr6138474ywe.288.1519625769962;
+        Sun, 25 Feb 2018 22:16:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1519625769; cv=none;
+        d=google.com; s=arc-20160816;
+        b=P3wbo0cx+7RuDftB671c1ssVnUadm1H1SyRnVcoIsGCCOgYe96HysFjXDuBY0v22Le
+         GOvMt/BLjWAp6VzfZt29qQL1ZQrUhy2M5mDPRNfUEvYLXiwCbaqU8FEKFKiqZSO1OW3U
+         dUPeDc6F9rSwmZ/rtQr4Cgz/6RdksNT6jUKP7tu2Ls+A1zjOiJI9IolOc8F9V49kC4PE
+         iR+GSun2coS77BFz4ed9PRylcaJ7R5Oes1VEd0U7HOkSUSsoxcHoVs2YXNqpytkoi54Q
+         cKPnXMCHLZX0xVrbHs/d1cvhL09WWYUKz41DOTOZHKDwsrrK5Z1RTK3ToWjjDLOX5pI3
+         QWnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:list-id:feedback-id:message-id:date
+         :to:reply-to:from:subject:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=4Yfx+WIUIiwCT2E4T6240pFO1MZ4jqee4m9fvkA8TQg=;
+        b=gZJJavRxSG7Vdw547rsUHdJAv9jtaipXC1Jz06YbKHU6vcVpV4uD0yVisTtThHUJV1
+         UWFTNyqNpRjPcT9n6epIskG6SZOILVJFKIzFMxG3JIxKQm60JVtw7l28k/Cr75iEdxgg
+         iFWtYqaAckeRDnQ1gy73GUpIzrs+pZBA0qW25YnsCAJyl0c6Qhtipt8QFQ9X8RbgnAYl
+         iaf2WNjNpyXY+I9jEOKJsZjsG64IGmYt8bxqB+g1wYuzPvk4cVqxnCTs2pYhQnESmaAA
+         8PVSIhWFpSg0yMXylzceBzvhEL/HOesjfanIlyDSKfNAmpQfsk7VTAFKSW83F7FVRYFv
+         aKhg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=Dg0HezCT;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=JKlgnzea;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470317-code.prole=gmail.com@mail114.us4.mcsv.net designates 205.201.128.114 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470317-code.prole=gmail.com@mail114.us4.mcsv.net
+Return-Path: <bounce-mc.us9_35713533.1470317-code.prole=gmail.com@mail114.us4.mcsv.net>
+Received: from mail114.us4.mcsv.net (mail114.us4.mcsv.net. [205.201.128.114])
+        by mx.google.com with ESMTPS id b135si1394726ywh.430.2018.02.25.22.16.09
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 25 Feb 2018 22:16:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_35713533.1470317-code.prole=gmail.com@mail114.us4.mcsv.net designates 205.201.128.114 as permitted sender) client-ip=205.201.128.114;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=Dg0HezCT;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=JKlgnzea;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470317-code.prole=gmail.com@mail114.us4.mcsv.net designates 205.201.128.114 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470317-code.prole=gmail.com@mail114.us4.mcsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=onelanday.co.uk;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=the-morning-paper@onelanday.co.uk;
+ bh=4Yfx+WIUIiwCT2E4T6240pFO1MZ4jqee4m9fvkA8TQg=;
+ b=Dg0HezCTNRXT0gP/Mr0MzbUnvWtqNqkx1EJQUoKlPhK6ID8cvkYb5VzEMx+vI4cbuvloH9zp4EcR
+   E0uCmuQPcLRwz/OCVjo/lr7hrTvjw3MAhUQdfzkn/DY5+C2LOOBUcGXb+jaMeh3PyFboy/6BRmFP
+   iUdUAplvpqJfYqegdL8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=4Yfx+WIUIiwCT2E4T6240pFO1MZ4jqee4m9fvkA8TQg=;
+ b=JKlgnzeaM36HzPa41ik1FLHbY5WCZR08XGIOufaw6G7TbwIIaaLQtQpxwk/UB/An0t+NPidC+dDB
+   /fxxD6l9FLEfCZlWD3j0FRrap2Wdo6/rA325iAPp0pubrbaWgZwe2TkwDwIlhKUc+0rC3k1UopTK
+   WC6RphKaS1UigSJqcnA=
+Received: from (127.0.0.1) by mail114.us4.mcsv.net id hiej2i2akecg for <code.prole@gmail.com>; Mon, 26 Feb 2018 06:15:35 +0000 (envelope-from <bounce-mc.us9_35713533.1470317-code.prole=gmail.com@mail114.us4.mcsv.net>)
+Subject: =?utf-8?Q?The=20Morning=20Paper=3A=20Fail=2Dslow=20at=20scale=20=2D=20evidence=20of=20hardware=20performance=20faults=20in=20large=20production=20systems?=
+From: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+Reply-To: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+To: <code.prole@gmail.com>
+Date: Mon, 26 Feb 2018 06:15:35 +0000
+Message-ID: <4188b6afbe9e5d43111fef4d4.1c7444593b.20180226061458.0532042f2b.214ee269@mail114.us4.mcsv.net>
+X-Mailer: MailChimp Mailer - **CID0532042f2b1c7444593b**
+X-Campaign: mailchimp4188b6afbe9e5d43111fef4d4.0532042f2b
+X-campaignid: mailchimp4188b6afbe9e5d43111fef4d4.0532042f2b
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=4188b6afbe9e5d43111fef4d4&id=0532042f2b&e=1c7444593b
+X-MC-User: 4188b6afbe9e5d43111fef4d4
+Feedback-ID: 35713533:35713533.1470317:us9:mc
+List-ID: 4188b6afbe9e5d43111fef4d4mc list <4188b6afbe9e5d43111fef4d4.597133.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://acolyer.us9.list-manage.com/unsubscribe?u=4188b6afbe9e5d43111fef4d4&id=de5773de0c&e=1c7444593b&c=0532042f2b>, <mailto:unsubscribe-mc.us9_4188b6afbe9e5d43111fef4d4.0532042f2b-1c7444593b@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_173331774"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_173331774
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Sometimes doing better at masking failures actually makes things worse...
+View this email in your browser (http://mailchi.mp/onelanday/the-morning-p=
+aper-fail-slow-at-scale-evidence-of-hardware-performance-faults-in-large-p=
+roduction-systems?e=3D1c7444593b)
+This paper write-up is also available online at The Morning Paper. (http:/=
+/blog.acolyer.org/2018/02/26/fail-slow-at-scale-evidence-of-hardware-perfo=
+rmance-faults-in-large-production-systems)
+
+
+** the morning paper
+------------------------------------------------------------
+
+
+** Fail-slow at scale: evidence of hardware performance faults in large pr=
+oduction systems
+------------------------------------------------------------
+
+Fail-slow at scale: evidence of hardware performance faults in large produ=
+ction systems (https://www.usenix.org/conference/fast18/presentation/gunaw=
+i) Gunawi et al.=2C FAST=E2=80=9918
+
+The first thing that strikes you about this paper is the long list of auth=
+ors from multiple different establishments. That=E2=80=99s because it=E2=
+=80=99s actually a study of 101 different fail-slow hardware incidents col=
+lected across large-scale cluster deployments in 12 different institutions=
+=2E
+
+Last year we looked at =E2=80=98Gray failure: the Achilles=E2=80=99 heel o=
+f cloud-scale systems (https://blog.acolyer.org/2017/06/15/gray-failure-th=
+e-achilles-heel-of-cloud-scale-systems/) =2C=E2=80=99 in which partial fai=
+lures and system components running in degraded mode were revealed to be i=
+nvolved in many production incidents=2C and difficult to detect and diagno=
+se with today=E2=80=99s systems. In =E2=80=98Fail-slow at scale=E2=80=99 w=
+e have a catalog of ways in which hardware has been shown to run in degrad=
+ed mode=2C causing all sorts of problems. Fail-slow hardware=2C like file=
+ system faults (https://blog.acolyer.org/2017/03/08/redundancy-does-not-im=
+ply-fault-tolerance-analysis-of-distributed-storage-reactions-to-single-er=
+rors-and-corruptions/) and network partitions (https://blog.acolyer.org/20=
+14/12/18/the-network-is-reliable/) =2C should be added to the list of thin=
+gs that occur much more frequently than we=E2=80=99d like to think=2C and=
+ cause a lot of damage when they do occur.
+
+This paper highlights an under-studied =E2=80=9Cnew=E2=80=9D failure type:=
+ fail-slow hardware=2C hardware that is still running and functional but i=
+n a degraded mode=2C slower than its expected performance. We found that a=
+ll major hardware components can exhibit fail-slow faults.
+
+These faults may be comparatively rare=2C but they can trigger chains of c=
+ascading events=2C resulting visible failures some distance from the origi=
+nal cause. Perhaps because of this=2C and because the partial failures are=
+ often deliberately masked in the hardware without enough metrics to surfa=
+ce them=2C troubleshooting fail-slow hardware based incidents can be very=
+ time-consuming:
+
+The fail-slow hardware incidents in our report took hours or even months t=
+o detect (pinpoint). More specifically=2C 1% of the cases are detected in=
+ minutes=2C 13% in hours=2C 13% in days=2C 11% in weeks=2C and 17% in mont=
+hs (and unknown time in 45%).
+
+One of the conclusions is that many modern deployed systems do not anticip=
+ate this failure mode. The authors offer a set of suggestions to hardware=
+ vendors=2C operators=2C and systems designers to improve the state of aff=
+airs.
+
+
+** Guidelines for vendors
+------------------------------------------------------------
+* Instead of implicitly masking errors whenever possible=2C consider throw=
+ing explicit error signals when error rates far exceed the expected rate.
+* Expose device-level performance statistics at fine enough granularity to=
+ be able to pinpoint device degradation. (The information from S.M.A.R.T.=
+ (https://en.m.wikipedia.org/wiki/S.M.A.R.T.) was deemed insufficient to a=
+ct upon).
+
+
+** Guidelines for operators
+------------------------------------------------------------
+* Enable online (in-situ) diagnosis=2C since many problems cannot be repro=
+duced offline (back in the office).
+* Monitor all hardware components.
+* Capture full-stack performance data and use statistical approaches to pi=
+npoint and isolate root causes.
+
+
+** Guidelines for system designers
+------------------------------------------------------------
+* Make implicit error masking explicit (this is the software equivalent of=
+ the advice given above to hardware vendors). =E2=80=9CSoftware systems sh=
+ould not just silently work around fail-slow hardware=2C but need to expos=
+e enough information to help troubleshooting.=E2=80=9D
+* Consider converting fail-slow faults to fail-stop. One example given is=
+ skipping a caching layer altogether when SSDs are misbehaving. Another ex=
+ample is to fail-stop after sufficient recurrence of fail-slow incidents (=
+e.g.=2C tripping a circuit breaker after too many retries). Doing this req=
+uires an ability to shut-off devices at a fine-grained level.
+* Use fault-injection to explore fail-slow scenarios:
+
+=2E.. we strongly believe that injecting root causes reported in this paper=
+ will reveal many flaws in existing systems. Furthermore=2C all forms of f=
+ail-slow hardware such as slow NIC=E2=80=99s=2C switches=2C disks=2C SSD=
+=2C NVDIMM=2C and CPUs need to be exercised as they lead to differrent sym=
+ptoms. The challenge is then to build future systems that enable various f=
+ail-slow behaviors to be injected easily.
+
+Let=E2=80=99s now take a look at some of the characteristics and causes of=
+ fail-slow incidents.
+
+
+** Root causes
+------------------------------------------------------------
+
+There can be a variety of root causes =E2=80=94 these can be internal to t=
+he hardware component (for example=2C device wear or firmware issues)=2C o=
+r external (for example=2C configuration=2C environment=2C temperature or=
+ power issues).
+
+Section 4 in the paper describes the myriad ways that SSDs=2C Disks=2C Mem=
+ory=2C and Network components can suffer from internal failures. And even=
+ when a component would otherwise function just fine=2C section 5 catalogu=
+es a long list of external factors that have been known to cause partial f=
+ailures:
+* Temperature: clogged air filters=2C cold-air-under-floor systems=2C brok=
+en fans=2C buggy fan firmware=2C poor assembly/design such that heat-sinks=
+ are ineffective. For example=2C =E2=80=9Cthere was a case where a fan in=
+ a compute node stopped working=2C and to compensate this failing fan=2C f=
+ans in other compute nods started to operate at their maximal speed=2C whi=
+ch then generated heavy noise and vibration that degraded the disk perform=
+ance.=E2=80=9D
+* Power: reduced power can easily trigger fail-slow hardware faults. Cause=
+s include insufficient capacitors=2C PCU firmware bugs=2C fail-partial pow=
+er supplies=2C power hungry neighbours (drawing too much power under perio=
+ds of heavy load)=2C and faulty motherboard sensors.
+* Enviroment: altitude (failure to provide enough cooling for high altitud=
+e)=2C cosmic events=2C loose interconnects=2C vibrations (e.g. from fans).
+* Configuration errors due to buggy BIOS firmware and simple human mistake=
+s (e.g.=2C in mapping PCIe cards to slots).
+
+
+** Fault conversion
+------------------------------------------------------------
+
+Fail-stops in some components can cause others to exhibit fail-slow behavi=
+our:
+
+For example=2C a dead power supply throttled the CPUs by 50% as the backup=
+ supply did not deliver enough power; a single bad disk exhausted the enti=
+re RAID card=E2=80=99s performance; and a vendor=E2=80=99s buggy firmware=
+ made a batch of SSDs stop for seconds=2C disabling the flash cache layer=
+ and making the entire storage stack slow.
+
+Likewise frequent transient failures can result in fail-slow behaviour due=
+ to the overheads of error masking (retries=2C repairs=2C etc..). When err=
+ors ceases to be rare=2C the masking overhead becomes the normal case perf=
+ormance.
+
+Partial internal failures whereby only some part of the device is unusable=
+ can also lead to fail-slow behaviour.
+
+
+** Symptoms
+------------------------------------------------------------
+
+Fail-slow conditions can manifest in several different ways.
+
+The slowdown may be permanent=2C or the device may fluctuate between norma=
+l and degraded performance. Some parts of the device may continue to offer=
+ full performance while others are degraded=2C and in other situations a d=
+evice may periodically reboot itself=2C leading to periods of complete una=
+vailability.
+
+
+** Cascading failures
+------------------------------------------------------------
+
+=2E..between the actual root cause and the hardware=E2=80=99s fail-slow symp=
+tom=2C there is a chain of cascading root causes... the fail-slow symptom=
+ then creates cascading impacts to the high-level software stack=2C and po=
+tentially to the entire cluster.
+
+We=E2=80=99ve already seen the example of the failing fan leading to a cas=
+cade of events ending in degraded disk performance. Another example is a f=
+aulty sensor in a motherboard reporting a false value to the OS=2C thus ma=
+king the CPUs run slower in energy saving mode. Fail-slow hardware problem=
+s can cascade into the software stack - for example=2C in an HBase deploym=
+ent a memory card at 25% of normal speed caused backlogs=2C out-of-memory=
+ errors=2C and crashes.
+
+
+** The last word
+------------------------------------------------------------
+
+The paper is packed with anecdotes that I didn=E2=80=99t have space to cov=
+er here. It=E2=80=99s well worth a read to get a finer appreciation of the=
+ kinds of hazards that await when building and operating systems at scale.
+
+We believe fail-slow hardware is a fundamentally harder problem to solve [=
+than fail-stop]. It is very hard to distinguish such cases from ones that=
+ are caused by software performance issues. It is also evident that many m=
+odern=2C advanced deployed systems do not anticipate this failure mode. We=
+ hope that our study can influence vendors=2C operators=2C and system-desi=
+gners to treat fail-slow hardware as a separate class of failures and star=
+t addressing them more robustly in future system.
+
+http://twitter.com/intent/tweet?text=3DFail-slow%20at%20scale%3A%20evidenc=
+e%20of%20hardware%20performance%20faults%20in%20large%20production%20syste=
+ms: http%3A%2F%2Fblog.acolyer.org%2F2018%2F02%2F26%2Ffail-slow-at-scale-ev=
+idence-of-hardware-performance-faults-in-large-production-systems Tweet (h=
+ttp://twitter.com/intent/tweet?text=3DFail-slow%20at%20scale%3A%20evidence=
+%20of%20hardware%20performance%20faults%20in%20large%20production%20system=
+s: http%3A%2F%2Fblog.acolyer.org%2F2018%2F02%2F26%2Ffail-slow-at-scale-evi=
+dence-of-hardware-performance-faults-in-large-production-systems)
+This email was brought to you by #themorningpaper (http://blog.acolyer.org=
+) : an interesting/influential/important paper from the world of CS every=
+ weekday morning=2C as selected by Adrian Colyer
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Copyright =C2=A9 2018 One L and a Y Ltd=2C All rights reserved.
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.
+
+Our mailing address is:
+One L and a Y Ltd
+Unit 5755
+PO Box 6945
+London=2C England W1A 6US
+United Kingdom
+** unsubscribe from this list (https://acolyer.us9.list-manage.com/unsubsc=
+ribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3D053204=
+2f2b)
+** update subscription preferences (https://acolyer.us9.list-manage.com/pr=
+ofile?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b)
+--_----------=_MCPart_173331774
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or=
+g/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+    <head>
+    =09<!-- NAME: 1 COLUMN -->
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+UTF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1.0">
+        <title>The Morning Paper: Fail-slow at scale - evidence of hardwar=
+e performance faults in large production systems</title>
+
+    <style type=3D"text/css">
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100% !important;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100% !important;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09p{
+=09=09=09margin:1em 0;
+=09=09=09padding:0;
+=09=09}
+=09=09a{
+=09=09=09word-wrap:break-word;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass span=2C.ExternalC=
+lass font=2C.ExternalClass td=2C.ExternalClass div{
+=09=09=09line-height:100%;
+=09=09}
+=09=09table=2Ctd{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09#templatePreheader=2C#templateHeader=2C#templateBody=2C#templateFoot=
+er{
+=09=09=09min-width:100%;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:20px;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#F2F2F2;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09#templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:40px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-1px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#404040 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.75px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.5px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#808080 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent=2C.preheaderContainer .mcnTextCo=
+ntent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.footerContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[id=3DbodyCell]{
+=09=09=09padding:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3Dmcpreview-image-uploader]{
+=09=09=09width:100% !important;
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09img[class=3DmcnImage]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnImageGroupContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupContent]{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupBlockInner]{
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-top:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09tbody[class=3DmcnImageGroupBlockOuter]{
+=09=09=09padding-bottom:9px !important;
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionTopContent]=2Ctable[class=3DmcnCaptionBott=
+omContent]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftTextContentContainer]=2Ctable[class=3D=
+mcnCaptionRightTextContentContainer]=2Ctable[class=3DmcnCaptionLeftImageC=
+ontentContainer]=2Ctable[class=3DmcnCaptionRightImageContentContainer]=2C=
+table[class=3DmcnImageCardLeftTextContentContainer]=2Ctable[class=3DmcnI=
+mageCardRightTextContentContainer]=2C.mcnImageCardLeftImageContentContaine=
+r=2C.mcnImageCardRightImageContentContainer{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftContentOuter] td[class=3DmcnTextConten=
+t]=2Ctable[class=3DmcnCaptionRightContentOuter] td[class=3DmcnTextConten=
+t]{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnCaptionBlockInner] table[class=3DmcnCaptionTopConten=
+t]:last-child td[class=3DmcnTextContent]=2C.mcnImageCardTopImageContent=
+=2C.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnBoxedTextContentColumn]{
+=09=09=09padding-left:18px !important;
+=09=09=09padding-right:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnTextContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplateContainer]=2Ctable[id=3DtemplatePreheader]=2Cta=
+ble[id=3DtemplateHeader]=2Ctable[id=3DtemplateBody]=2Ctable[id=3Dtempla=
+teFooter]{
+=09=09=09max-width:600px !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:24px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextCont=
+ent]=2Ctd[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextConten=
+t] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplatePreheader]{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DpreheaderContainer] td[class=3DmcnTextContent]=2Ctd[cl=
+ass=3DpreheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DheaderContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DbodyContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DbodyContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DfooterContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] a[class=3DutilityLink]{
+=09=09=09display:block !important;
+=09=09}
+
+}</style></head>
+    <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=
+=3D"0" offset=3D"0" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;background-color: #F2F2F2;height: 100% !=
+important;width: 100% !important;">
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;backg=
+round-color: #F2F2F2;height: 100% !important;width: 100% !important;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;margin: 0;padding: 20px;border-top: 0;h=
+eight: 100% !important;width: 100% !important;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600" id=3D"templateContainer" style=3D"border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;border: 0;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN PREHEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templatePreheader" style=3D"border-=
+collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-=
+color: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                        =09<td valign=3D"top" class=3D"pre=
+headerContainer" style=3D"padding-top: 9px;mso-table-lspace: 0pt;mso-table=
+-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"390" style=3D"width:390px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 390px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            Sometimes doing better at masking failures act=
+ually makes things worse...
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"210" style=3D"width:210px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 210px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <a href=3D"http://mailchi.mp/onelanday/the-mor=
+ning-paper-fail-slow-at-scale-evidence-of-hardware-performance-faults-in-l=
+arge-production-systems?e=3D1c7444593b" target=3D"_blank" style=3D"word-wrap=
+: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #606060;font-weight: normal;text-decoration: underline;">View this ema=
+il in your browser</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN HEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateHeader" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock"=
+ style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;=
+mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <a href=3D"https://acolyer.us9.list-manage.com=
+/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3D52950bd402&e=3D1c7444593b=
+" target=3D"_blank" style=3D"word-wrap: break-word;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text=
+-decoration: underline;">This paper write-up is also available online at T=
+he Morning Paper.</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END HEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN BODY // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateBody" style=3D"border-colla=
+pse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-color=
+: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock" st=
+yle=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso=
+-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <style type=3D"text/css">blockquote {
+    display: block;
+    padding: 20px 20px 10px 45px;
+    margin: 20px 0px;
+    font-style: italic;
+    font-size: 14px;
+    color: #141310;
+    background: url("blog.acolyer.org/wp-content/themes/pub/vigilance/imag=
+es/blockquote.gif") no-repeat scroll left top #E7E6E2;
+}
+</style>
+<h1 style=3D"margin: 0;padding: 0;display: block;font-family: Helvetica;fo=
+nt-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;lette=
+r-spacing: -1px;text-align: left;color: #606060 !important;">the morning p=
+aper</h1>
+
+<h2 id=3D"fail-slow-at-scale-evidence-of-hardware-performance-faults-in-la=
+rge-production-systems" style=3D"margin: 0;padding: 0;display: block;font-=
+family: Helvetica;font-size: 26px;font-style: normal;font-weight: bold;lin=
+e-height: 125%;letter-spacing: -.75px;text-align: left;color: #404040 !imp=
+ortant;">Fail-slow at scale: evidence of hardware performance faults in la=
+rge production systems</h2>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><a href=3D"https://acolyer.us9.list-=
+manage.com/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3D315f3ea936&e=3D=
+1c7444593b" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text-decorat=
+ion: underline;">Fail-slow at scale: evidence of hardware performance faul=
+ts in large production systems</a> Gunawi et al.=2C <em>FAST=E2=80=9918</e=
+m></p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The first thing that strikes you abo=
+ut this paper is the long list of authors from multiple different establis=
+hments. That=E2=80=99s because it=E2=80=99s actually a study of 101 differ=
+ent <em>fail-slow</em> hardware incidents collected across large-scale clu=
+ster deployments in 12 different institutions.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Last year we looked at =E2=80=98<a h=
+ref=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6afbe9e5d4=
+3111fef4d4&id=3D4548759553&e=3D1c7444593b" style=3D"word-wrap: break-word=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;=
+font-weight: normal;text-decoration: underline;">Gray failure: the Achille=
+s=E2=80=99 heel of cloud-scale systems</a>=2C=E2=80=99 in which partial fa=
+ilures and system components running in degraded mode were revealed to be=
+ involved in many production incidents=2C and difficult to detect and diag=
+nose with today=E2=80=99s systems. In =E2=80=98Fail-slow at scale=E2=80=99=
+ we have a catalog of ways in which hardware has been shown to run in degr=
+aded mode=2C causing all sorts of problems. Fail-slow hardware=2C like <a=
+ href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6afbe9e5=
+d43111fef4d4&id=3Dc1ddff3fac&e=3D1c7444593b" style=3D"word-wrap: break-wo=
+rd;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6D=
+D;font-weight: normal;text-decoration: underline;">file system faults</a>=
+ and <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6=
+afbe9e5d43111fef4d4&id=3D87d94ce90e&e=3D1c7444593b" style=3D"word-wrap: b=
+reak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #6DC6DD;font-weight: normal;text-decoration: underline;">network partitio=
+ns</a>=2C should be added to the list of things that occur much more frequ=
+ently than we=E2=80=99d like to think=2C and cause a lot of damage when th=
+ey do occur.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">This paper highlights an under-studi=
+ed =E2=80=9Cnew=E2=80=9D failure type: fail-slow hardware=2C hardware that=
+ is still running and functional but in a degraded mode=2C slower than its=
+ expected performance. We found that all major hardware components can exh=
+ibit fail-slow faults.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">These faults may be comparatively ra=
+re=2C but they can trigger chains of cascading events=2C resulting visible=
+ failures some distance from the original cause. Perhaps because of this=
+=2C and because the partial failures are often deliberately masked in the=
+ hardware without enough metrics to surface them=2C troubleshooting fail-s=
+low hardware based incidents can be very time-consuming:</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The fail-slow hardware incidents in=
+ our report took hours or even months to detect (pinpoint). More specifica=
+lly=2C 1% of the cases are detected in minutes=2C 13% in hours=2C 13% in d=
+ays=2C 11% in weeks=2C and 17% in months (and unknown time in 45%).</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">One of the conclusions is that many=
+ modern deployed systems do not anticipate this failure mode. The authors=
+ offer a set of suggestions to hardware vendors=2C operators=2C and system=
+s designers to improve the state of affairs.</p>
+<h3 id=3D"guidelines-for-vendors" style=3D"margin: 0;padding: 0;display: b=
+lock;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight=
+: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #60=
+6060 !important;">Guidelines for vendors</h3>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">I=
+nstead of implicitly masking errors whenever possible=2C consider throwing=
+ explicit error signals when error rates far exceed the expected rate.</li=
+>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">E=
+xpose device-level performance statistics at fine enough granularity to be=
+ able to pinpoint device degradation. (The information from <a href=3D"htt=
+ps://acolyer.us9.list-manage.com/track/click?u=3D4188b6afbe9e5d43111fef4d4=
+&id=3D544d2df2a0&e=3D1c7444593b" style=3D"word-wrap: break-word;-ms-text-=
+size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weigh=
+t: normal;text-decoration: underline;">S.M.A.R.T.</a> was deemed insuffici=
+ent to act upon).</li>
+</ul>
+<h3 id=3D"guidelines-for-operators" style=3D"margin: 0;padding: 0;display:=
+ block;font-family: Helvetica;font-size: 18px;font-style: normal;font-weig=
+ht: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #=
+606060 !important;">Guidelines for operators</h3>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">E=
+nable online (in-situ) diagnosis=2C since many problems cannot be reproduc=
+ed offline (back in the office).</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">M=
+onitor <em>all</em> hardware components.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">C=
+apture full-stack performance data and use statistical approaches to pinpo=
+int and isolate root causes.</li>
+</ul>
+<h3 id=3D"guidelines-for-system-designers" style=3D"margin: 0;padding: 0;d=
+isplay: block;font-family: Helvetica;font-size: 18px;font-style: normal;fo=
+nt-weight: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;c=
+olor: #606060 !important;">Guidelines for system designers</h3>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">M=
+ake implicit error masking explicit (this is the software equivalent of th=
+e advice given above to hardware vendors). =E2=80=9C<em>Software systems s=
+hould not just silently work around fail-slow hardware=2C but need to expo=
+se enough information to help troubleshooting</em>.=E2=80=9D</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">C=
+onsider converting fail-slow faults to fail-stop. One example given is ski=
+pping a caching layer altogether when SSDs are misbehaving. Another exampl=
+e is to fail-stop after sufficient recurrence of fail-slow incidents (e.g.=
+=2C tripping a circuit breaker after too many retries). Doing this require=
+s an ability to shut-off devices at a fine-grained level.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">U=
+se fault-injection to explore fail-slow scenarios:</li>
+</ul>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">... we strongly believe that injecti=
+ng root causes reported in this paper will reveal many flaws in existing s=
+ystems. Furthermore=2C all forms of fail-slow hardware such as slow NIC=E2=
+=80=99s=2C switches=2C disks=2C SSD=2C NVDIMM=2C and CPUs need to be exerc=
+ised as they lead to differrent symptoms. The challenge is then to build f=
+uture systems that enable various fail-slow behaviors to be injected easil=
+y.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Let=E2=80=99s now take a look at som=
+e of the characteristics and causes of fail-slow incidents.</p>
+<h3 id=3D"root-causes" style=3D"margin: 0;padding: 0;display: block;font-f=
+amily: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;line=
+-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !impor=
+tant;">Root causes</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">There can be a variety of root cause=
+s =E2=80=94 these can be internal to the hardware component (for example=
+=2C device wear or firmware issues)=2C or external (for example=2C configu=
+ration=2C environment=2C temperature or power issues).</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/fail-slow-tab=
+le-3.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;=
+-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Section 4 in the paper describes the=
+ myriad ways that SSDs=2C Disks=2C Memory=2C and Network components can su=
+ffer from internal failures. And even when a component would otherwise fun=
+ction just fine=2C section 5 catalogues a long list of external factors th=
+at have been known to cause partial failures:</p>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+strong>Temperature</strong>: clogged air filters=2C cold-air-under-floor s=
+ystems=2C broken fans=2C buggy fan firmware=2C poor assembly/design such t=
+hat heat-sinks are ineffective. For example=2C =E2=80=9C<em>there was a ca=
+se where a fan in a compute node stopped working=2C and to compensate this=
+ failing fan=2C fans in other compute nods started to operate at their max=
+imal speed=2C which then generated heavy noise and vibration that degraded=
+ the disk performance</em>.=E2=80=9D</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+strong>Power</strong>: reduced power can easily trigger fail-slow hardware=
+ faults. Causes include insufficient capacitors=2C PCU firmware bugs=2C fa=
+il-partial power supplies=2C power hungry neighbours (drawing too much pow=
+er under periods of heavy load)=2C and faulty motherboard sensors.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+strong>Enviroment</strong>: altitude (failure to provide enough cooling fo=
+r high altitude)=2C cosmic events=2C loose interconnects=2C vibrations (e.=
+g. from fans).</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+strong>Configuration</strong> errors due to buggy BIOS firmware and simple=
+ human mistakes (e.g.=2C in mapping PCIe cards to slots).</li>
+</ul>
+<h3 id=3D"fault-conversion" style=3D"margin: 0;padding: 0;display: block;f=
+ont-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bold=
+;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !=
+important;">Fault conversion</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Fail-stops in some components can ca=
+use others to exhibit fail-slow behaviour:</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">For example=2C a dead power supply t=
+hrottled the CPUs by 50% as the backup supply did not deliver enough power=
+; a single bad disk exhausted the entire RAID card=E2=80=99s performance;=
+ and a vendor=E2=80=99s buggy firmware made a batch of SSDs stop for secon=
+ds=2C disabling the flash cache layer and making the entire storage stack=
+ slow.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Likewise frequent transient failures=
+ can result in fail-slow behaviour due to the overheads of error masking (=
+retries=2C repairs=2C etc..). When errors ceases to be rare=2C the masking=
+ overhead becomes the normal case performance.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><em>Partial</em> internal failures w=
+hereby only some part of the device is unusable can also lead to fail-slow=
+ behaviour.</p>
+<h3 id=3D"symptoms" style=3D"margin: 0;padding: 0;display: block;font-fami=
+ly: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;line-he=
+ight: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !importan=
+t;">Symptoms</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Fail-slow conditions can manifest in=
+ several different ways.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/fail-slow-fig=
+-1.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;-m=
+s-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The slowdown may be permanent=2C or=
+ the device may fluctuate between normal and degraded performance. Some pa=
+rts of the device may continue to offer full performance while others are=
+ degraded=2C and in other situations a device may periodically reboot itse=
+lf=2C leading to periods of complete unavailability.</p>
+<h3 id=3D"cascading-failures" style=3D"margin: 0;padding: 0;display: block=
+;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bo=
+ld;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060=
+ !important;">Cascading failures</h3>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">...between the actual root cause and=
+ the hardware=E2=80=99s fail-slow symptom=2C there is a chain of cascading=
+ root causes... the fail-slow symptom then creates cascading impacts to th=
+e high-level software stack=2C and potentially to the entire cluster.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We=E2=80=99ve already seen the examp=
+le of the failing fan leading to a cascade of events ending in degraded di=
+sk performance. Another example is a faulty sensor in a motherboard report=
+ing a false value to the OS=2C thus making the CPUs run slower in energy s=
+aving mode. Fail-slow hardware problems can cascade into the software stac=
+k - for example=2C in an HBase deployment a memory card at 25% of normal s=
+peed caused backlogs=2C out-of-memory errors=2C and crashes.</p>
+<h3 id=3D"the-last-word" style=3D"margin: 0;padding: 0;display: block;font=
+-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;li=
+ne-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !imp=
+ortant;">The last word</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The paper is packed with anecdotes t=
+hat I didn=E2=80=99t have space to cover here. It=E2=80=99s well worth a r=
+ead to get a finer appreciation of the kinds of hazards that await when bu=
+ilding and operating systems at scale.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We believe fail-slow hardware is a f=
+undamentally harder problem to solve [than fail-stop]. It is very hard to=
+ distinguish such cases from ones that are caused by software performance=
+ issues. It is also evident that many modern=2C advanced deployed systems=
+ do not anticipate this failure mode. We hope that our study can influence=
+ vendors=2C operators=2C and system-designers to treat fail-slow hardware=
+ as a separate class of failures and start addressing them more robustly i=
+n future system.</p>
+</blockquote>
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnShareBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnShareBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;" class=3D"mcnShareBlockInner">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" class=3D"mcnShareContentContainer" style=3D"min-width: 10=
+0%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"left" style=3D"padding-top: 0;padding-left: 9px;paddi=
+ng-bottom: 0;padding-right: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"min-width: 100%;background-color: #FAFAFA=
+;border: 1px solid #EEEEEE;border-collapse: collapse;mso-table-lspace: 0pt=
+;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;" class=3D"mcnShareContent">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" class=3D"mcnShareCon=
+tentItemContainer" style=3D"padding-top: 9px;padding-right: 9px;padding-le=
+ft: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" style=3D=
+"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"left" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 0;padding-bottom: 9px;mso-table-lspace: 0pt;mso-table-r=
+space: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cla=
+ss=3D"mcnShareContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;background-color: #FAFAFA;border: 1px=
+ solid #CCCCCC;border-radius: 5px;mso-table-lspace: 0pt;mso-table-rspace:=
+ 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3D9c0525bade&e=3D1c7444593b" target=3D"_blank" style=
+=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/icons/social-bloc=
+k-v2/color-twitter-48.png" style=3D"display: block;border: 0;outline: none=
+;text-decoration: none;-ms-interpolation-mode: bicubic;" height=3D"24" wid=
+th=3D"24" class=3D""></a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3Deca1853b98&e=3D1c7444593b" target=3D"" style=3D"co=
+lor: #505050;font-family: Arial;font-size: 12px;font-weight: normal;line-h=
+eight: 100%;text-align: center;text-decoration: none;word-wrap: break-word=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Tweet</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnBoxedTextBlockInner" style=3D"m=
+so-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table border=3D"0" cellspacing=3D"0" class=3D=
+"mcnTextContentContainer" width=3D"100%" style=3D"min-width: 100% !importa=
+nt;background-color: #EBEBEB;border: 1px solid #999999;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+                                <tbody><tr>
+                                    <td valign=3D"top" class=3D"mcnTextCon=
+tent" style=3D"padding: 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;fo=
+nt-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
+                                        This email was brought to you by <=
+a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6afbe9e=
+5d43111fef4d4&id=3D72bdad1ae2&e=3D1c7444593b" target=3D"_blank" style=3D"=
+word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #6DC6DD;font-weight: normal;text-decoration: underline;">#the=
+morningpaper</a>: an interesting/influential/important paper from the worl=
+d of CS every weekday morning=2C as selected by Adrian Colyer
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN FOOTER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateFooter" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"padding-bottom: 9px;mso-table-lspace: 0pt;mso-tabl=
+e-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" cla=
+ss=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso=
+-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <em>Copyright =C2=A9 2018 One L and a Y Ltd=2C=
+ All rights reserved.</em><br>
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.<br>
+<br>
+<strong>Our mailing address is:</strong><br>
+<div class=3D"vcard"><span class=3D"org fn">One L and a Y Ltd</span><div c=
+lass=3D"adr"><div class=3D"street-address">Unit 5755</div><div class=3D"ex=
+tended-address">PO Box 6945</div><span class=3D"locality">London</span>=2C=
+ <span class=3D"region">England</span>  <span class=3D"postal-code">W1A 6U=
+S</span> <div class=3D"country-name">United Kingdom</div></div><br><a href=
+=3D"//acolyer.us9.list-manage.com/vcard?u=3D4188b6afbe9e5d43111fef4d4&id=
+=3Dde5773de0c" class=3D"hcard-download">Add us to your address book</a></d=
+iv>
+<br>
+<br>
+<a class=3D"utilityLink" href=3D"https://acolyer.us9.list-manage.com/unsub=
+scribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3D0532=
+042f2b" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-=
+text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration:=
+ underline;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp; <a class=3D"=
+utilityLink" href=3D"https://acolyer.us9.list-manage.com/profile?u=3D4188b=
+6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b" style=3D"word-wrap: bre=
+ak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #=
+606060;font-weight: normal;text-decoration: underline;">update subscriptio=
+n preferences</a>&nbsp;<br>
+<br>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://acolyer.us9.list-manage.com/track/open.php?u=3D418=
+8b6afbe9e5d43111fef4d4&id=3D0532042f2b&e=3D1c7444593b" height=3D"1" width=
+=3D"1"></body>
+</html>
+--_----------=_MCPart_173331774--

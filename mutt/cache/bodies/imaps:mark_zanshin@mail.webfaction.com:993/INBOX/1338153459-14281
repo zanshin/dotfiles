@@ -1,0 +1,83 @@
+Return-Path: <mhn@ksu.edu>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx9.webfaction.com (mail9.webfaction.com [185.20.49.164])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id B152418F7A632F
+	for <mark_zanshin@mailbox20.webfaction.com>; Sat,  3 Mar 2018 18:12:18 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx9.webfaction.com (Postfix) with ESMTP id AF15F20144499
+	for <mark_zanshin@mailbox20.webfaction.com>; Sat,  3 Mar 2018 18:12:18 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.101
+X-Spam-Level:
+X-Spam-Status: No, score=-0.101 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	RCVD_IN_DNSWL_NONE=-0.0001, SPF_HELO_PASS=-0.001, SPF_PASS=-0.001,
+	URIBL_BLOCKED=0.001] autolearn=no autolearn_force=no
+Received: from mx9.webfaction.com ([127.0.0.1])
+	by localhost (mail9.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id qJM0wWO1rbrD
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Sat,  3 Mar 2018 18:12:09 +0000 (UTC)
+Received: from NAM02-CY1-obe.outbound.protection.outlook.com (mail-cys01nam02on0075.outbound.protection.outlook.com [104.47.37.75])
+	by mx9.webfaction.com (Postfix) with ESMTPS id C87E92000CEE9
+	for <mark@zanshin.net>; Sat,  3 Mar 2018 18:11:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ksu.edu; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=oIM2KOutit8eORREbvDD2Gidg4+0ueXyuLHM/Kd9CqA=;
+ b=jPJZd/F3+cuZsbSJbtWI3x/JNFRXkCcw7kuWLdnCovGGdL9k9DDMjVLbyK+7g65vAuUQds4VZvgzA+8cAKbsRlQZy7uoKqFxE0sVL1YOiKg7x1WTc+j1Zi5EYBCOcBu5USd6EJcXtwDX5qwgQchzWKXIU/fRiCEKu2aYMaxtD44=
+Received: from CY4PR05MB3511.namprd05.prod.outlook.com (10.171.247.20) by
+ CY4PR05MB2997.namprd05.prod.outlook.com (10.169.184.18) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.567.5; Sat, 3 Mar 2018 18:11:41 +0000
+Received: from CY4PR05MB3511.namprd05.prod.outlook.com ([10.171.247.20]) by
+ CY4PR05MB3511.namprd05.prod.outlook.com ([10.171.247.20]) with mapi id
+ 15.20.0567.008; Sat, 3 Mar 2018 18:11:41 +0000
+From: Mark Nichols <mhn@ksu.edu>
+To: "Mark H. Nichols" <mark@zanshin.net>
+Subject: SmallData | Blog | Setting up a mail server and client on Ubuntu
+ using postfix and mutt
+Thread-Topic: SmallData | Blog | Setting up a mail server and client on Ubuntu
+ using postfix and mutt
+Thread-Index: AQHTsxsUhAdVTfuIt0CXtuSKXYNaUQ==
+Date: Sat, 3 Mar 2018 18:11:40 +0000
+Message-ID: <AF9A1A31-34F4-44AC-9160-81F8A8B2BF6C@ksu.edu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-originating-ip: [68.102.23.189]
+x-ms-publictraffictype: Email
+x-microsoft-exchange-diagnostics: 1;CY4PR05MB2997;20:wPGcXcF0yjBRcEkFZNKl39wjL5D4pF0Oa2xtyEvu7cTGrhiS5vwLptmzoYlPSJVK2ZcItQYnOdrnVQFo/sTDdU1wseVk5g/d/fClGYcjzhligUSq1vY6zzkmq8f14uOrjnbGQHkbnYbJ785VitPt/u37W8e7VtXdCa8rxAQ0Too=
+x-ms-exchange-antispam-srfa-diagnostics: SSOS;
+x-ms-office365-filtering-correlation-id: 0819a88c-8130-4e83-f830-08d5813236d2
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:(7020095)(4652020)(8989060)(4534165)(4627221)(201703031133081)(201702281549075)(8990040)(5600026)(4604075)(3008032)(2017052603307)(7153060)(7193020);SRVR:CY4PR05MB2997;
+x-ms-traffictypediagnostic: CY4PR05MB2997:
+authentication-results: spf=none (sender IP is ) smtp.mailfrom=mhn@ksu.edu; 
+x-microsoft-antispam-prvs: <CY4PR05MB299700F5ED693FB5635A55D0A6C40@CY4PR05MB2997.namprd05.prod.outlook.com>
+x-exchange-antispam-report-test: UriScan:(158342451672863);
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(6040501)(2401047)(5005006)(8121501046)(93006095)(93001095)(3002001)(10201501046)(3231220)(944501244)(6041288)(201703131423095)(201702281529075)(201702281528075)(20161123555045)(201703061421075)(201703061406153)(20161123564045)(20161123558120)(20161123562045)(20161123560045)(6072148)(201708071742011);SRVR:CY4PR05MB2997;BCL:0;PCL:0;RULEID:;SRVR:CY4PR05MB2997;
+x-forefront-prvs: 0600F93FE1
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(39380400002)(396003)(376002)(366004)(346002)(39860400002)(189003)(199004)(8676002)(81166006)(105586002)(8936002)(81156014)(97736004)(2900100001)(83716003)(36756003)(68736007)(966005)(3280700002)(478600001)(6116002)(3846002)(75432002)(6512007)(86362001)(106356001)(6486002)(6436002)(6916009)(9886003)(5003630100001)(6306002)(186003)(558084003)(25786009)(82746002)(305945005)(7736002)(66066001)(26005)(2906002)(786003)(316002)(14454004)(5660300001)(3660700001)(99286004)(53936002)(6506007)(33656002)(102836004)(88552002)(77096007)(42262002);DIR:OUT;SFP:1101;SCL:1;SRVR:CY4PR05MB2997;H:CY4PR05MB3511.namprd05.prod.outlook.com;FPR:;SPF:None;PTR:InfoNoRecords;MX:1;A:1;LANG:en;
+received-spf: None (protection.outlook.com: ksu.edu does not designate
+ permitted sender hosts)
+x-microsoft-antispam-message-info: hXweUVh6T15icY76Bw56OHVFBaO9RrpRqCLuudKk3IR6DUNIVUrcz0D6SQyBQCgEeaN0hQ2ygdQyB1Pxjj70L7Z8vSRAk/Jby5KjBkcDzzvZoOqfUglWYAM+vNW46dvB4DQ8cry1gUw85Jv7DD3R3gDG3IW6Ip3kuaFIVUdPIcg=
+spamdiagnosticoutput: 1:99
+spamdiagnosticmetadata: NSPM
+Content-Type: text/plain; charset="us-ascii"
+Content-ID: <BF8E239F5BF3CA4BA94BC30B336EE154@KSUemailProd.onmicrosoft.com>
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: ksu.edu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0819a88c-8130-4e83-f830-08d5813236d2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Mar 2018 18:11:41.0116
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: d9a2fa71-d67d-4cb6-b541-06ccaa8013fb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR05MB2997
+
+
+https://smalldata.tech/blog/2016/08/03/ubuntu-postfix-mutt-gmail
+
+
+Sent from my iPad

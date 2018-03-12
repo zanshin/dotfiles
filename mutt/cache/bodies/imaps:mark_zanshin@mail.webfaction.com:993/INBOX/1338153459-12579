@@ -1,0 +1,131 @@
+Return-Path: <mhn@ksu.edu>
+X-Original-To: mark_zanshin@mailbox8.webfaction.com
+Delivered-To: mark_zanshin@mailbox8.webfaction.com
+Received: from mx7.webfaction.com (mail7.webfaction.com [75.126.113.165])
+	by mailbox8.webfaction.com (Postfix) with ESMTP id 4B05380F46
+	for <mark_zanshin@mailbox8.webfaction.com>; Tue, 28 Mar 2017 13:36:49 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx7.webfaction.com (Postfix) with ESMTP id 2A6BE9903C2
+	for <mark_zanshin@mailbox8.webfaction.com>; Tue, 28 Mar 2017 13:36:49 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 0.502
+X-Spam-Level: 
+X-Spam-Status: No, score=0.502 tagged_above=-999 required=3
+	tests=[HTML_MESSAGE=0.001, T_DKIM_INVALID=0.5, URIBL_BLOCKED=0.001]
+Received: from mx7.webfaction.com ([127.0.0.1])
+	by localhost (mail7.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id Zd2OqiPO7sKQ for <mark_zanshin@mailbox8.webfaction.com>;
+	Tue, 28 Mar 2017 13:36:48 +0000 (UTC)
+Received: from NAM01-BN3-obe.outbound.protection.outlook.com (mail-bn3nam01on0075.outbound.protection.outlook.com [104.47.33.75])
+	by mx7.webfaction.com (Postfix) with ESMTP id 5A5699903C5
+	for <mark@zanshin.net>; Tue, 28 Mar 2017 13:36:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ksu.edu; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=KLVn2m3pGroGtPUp33OzjimZmSXVfyQGkLBEu6oyVYg=;
+ b=NU5gQqLlX0monenJ9fSvB9USlvV3xUqNY+jzOub9fuAXWIagW6fWunsdSuNAcgwun013HIQa90KXS2mz0wY3xflR8uHG9pZf28BHMEdgp2lxRDlEJiah78TOxHOQJVr/uJi4mgk3DcaXHxYpolIESv7+TUg9P3lr5cwsVb2arvM=
+Received: from SN2PR05MB2717.namprd05.prod.outlook.com (10.167.14.136) by
+ SN2PR05MB2718.namprd05.prod.outlook.com (10.167.19.17) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id
+ 15.1.1005.2; Tue, 28 Mar 2017 13:36:45 +0000
+Received: from SN2PR05MB2717.namprd05.prod.outlook.com ([10.167.14.136]) by
+ SN2PR05MB2717.namprd05.prod.outlook.com ([10.167.14.136]) with mapi id
+ 15.01.1005.010; Tue, 28 Mar 2017 13:36:45 +0000
+From: Mark Nichols <mhn@ksu.edu>
+To: Mark Nichols <mark@zanshin.net>
+Subject: 8 Things Top Practicers Do Differently | The Creativity Post
+Thread-Topic: 8 Things Top Practicers Do Differently | The Creativity Post
+Thread-Index: AQHSp8hXPL+EoxWa4kGJaTFW4/NQQA==
+Date: Tue, 28 Mar 2017 13:36:45 +0000
+Message-ID: <F3DB6FB8-8EAA-4138-8C04-E92B731AE910@ksu.edu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: zanshin.net; dkim=none (message not signed)
+ header.d=none;zanshin.net; dmarc=none action=none header.from=ksu.edu;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [129.130.48.15]
+x-microsoft-exchange-diagnostics: 1;SN2PR05MB2718;7:udlBVbkeNeL1lVzzhnf0oOxgzREMf/4FGISndgaRmQORnQxgQiqCBptFPhFyUEEgX4GCPZxDWHXiSlAeYEjRiWIgE+eSE/WK+VgquFJZVIl4dgeiBjQzYdvGXEKQRVohah46+SAJTWETRza30LR5DLSKi1fmYYxwBNyi+IJZMKc1RF5Q0Dlc2ffJ/lu+1DoJnuxNT6CbHtagNqc2nxYtCOk0BUvthWtcuYfSo2ImWFe3yjZU0i84FsL9oPZK5r4ZmweBHDGC86Qjk1VTEunfP4vL+JmUxtVnmKeUujYQzmfW/lXqNeeyDfX7BSS51ELzr2st+INPku8Pf8XFSo21Fw==;20:+XmmtodLh3HAUQHKzl6BGRByLbgdbGzQ8CeLkpmzLzJYpAg2zD+Xd4jCFvbP56/1TnJftJ5pW9zqEMq3s3zmsnDbMBv0wW8ekRdGspBAWEx3hz2Iw2WYxXeQs41qrcrVtrHTWuy/wmPNC3hj/gZzJXTMy1XudVA/i1yuiu3uAEI=
+x-ms-office365-filtering-correlation-id: 23df0893-5942-45fd-1667-08d475df7a55
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:(22001)(2017030254075)(201703131423061)(201703031133067)(201702281549061);SRVR:SN2PR05MB2718;
+x-microsoft-antispam-prvs: <SN2PR05MB2718CE0106AE17B15F8CB53DA6320@SN2PR05MB2718.namprd05.prod.outlook.com>
+x-exchange-antispam-report-test: UriScan:;
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(6040436)(601004)(2401047)(8121501046)(5005006)(10201501046)(3002001)(6041248)(20161123564025)(20161123562025)(201703131423061)(201702281528061)(201702281529061)(201703061421061)(201703061406061)(20161123555025)(20161123558025)(20161123560025)(6072148);SRVR:SN2PR05MB2718;BCL:0;PCL:0;RULEID:;SRVR:SN2PR05MB2718;
+x-forefront-prvs: 0260457E99
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(39850400002)(39840400002)(39860400002)(39450400003)(39400400002)(39410400002)(122556002)(75432002)(33656002)(8936002)(3846002)(54356999)(6116002)(102836003)(50986999)(7736002)(7906003)(77096006)(6916009)(19273905006)(36756003)(558084003)(606005)(6436002)(6506006)(6486002)(53936002)(966004)(99286003)(236005)(189998001)(54896002)(6306002)(6512007)(66066001)(2900100001)(38730400002)(110136004)(53376002)(3660700001)(81166006)(88552002)(83716003)(86362001)(8676002)(25786009)(82746002)(2906002)(5660300001)(3280700002)(42262002);DIR:OUT;SFP:1101;SCL:1;SRVR:SN2PR05MB2718;H:SN2PR05MB2717.namprd05.prod.outlook.com;FPR:;SPF:None;MLV:sfv;LANG:en;
+spamdiagnosticoutput: 1:99
+spamdiagnosticmetadata: NSPM
+Content-Type: multipart/alternative;
+	boundary="_000_F3DB6FB88EAA41388C04E92B731AE910ksuedu_"
+MIME-Version: 1.0
+X-OriginatorOrg: ksu.edu
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Mar 2017 13:36:45.5514
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: d9a2fa71-d67d-4cb6-b541-06ccaa8013fb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN2PR05MB2718
+
+--_000_F3DB6FB88EAA41388C04E92B731AE910ksuedu_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+DQpodHRwOi8vd3d3LmNyZWF0aXZpdHlwb3N0LmNvbS9wc3ljaG9sb2d5LzhfdGhpbmdzX3RvcF9w
+cmFjdGljZXJzX2RvX2RpZmZlcmVudGx5DQoNCg0K4oCUDQpNYXJrIE5pY2hvbHMNCldlYiBTeXN0
+ZW1zIEVuZ2luZWVyDQpPZmZpY2Ugb2YgTWVkaWF0ZWQgRWR1Y2F0aW9uDQo0dGggRmxvb3IgVW5n
+ZXIgQ29tcGxleA0KNzg1LjUzMi4zNDcwDQpmaW5nZXJwcmludCA6OiAyOTdGIDVGRDQgMDI3NSBE
+MkU1IDQ4RTkgRjgzNCA2Q0NGIDE1NjggNTM0NCA1MjAwDQpjdXJsL3JhdyA6OiBrZXliYXNlLmlv
+L3phbnNoaW4va2V5LmFzYzxodHRwOi8va2V5YmFzZS5pby96YW5zaGluL2tleS5hc2M+DQrigJQN
+Cg0KDQoNCg==
+
+--_000_F3DB6FB88EAA41388C04E92B731AE910ksuedu_
+Content-Type: text/html; charset="utf-8"
+Content-ID: <B66DA5F498DBB541879A03C2928C9DD2@namprd05.prod.outlook.com>
+Content-Transfer-Encoding: base64
+
+PGh0bWw+DQo8aGVhZD4NCjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0i
+dGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04Ij4NCjwvaGVhZD4NCjxib2R5IHN0eWxlPSJ3b3JkLXdy
+YXA6IGJyZWFrLXdvcmQ7IC13ZWJraXQtbmJzcC1tb2RlOiBzcGFjZTsgLXdlYmtpdC1saW5lLWJy
+ZWFrOiBhZnRlci13aGl0ZS1zcGFjZTsiIGNsYXNzPSIiPg0KPGRpdiBjbGFzcz0iQXBwbGUtTWFp
+bC1VUkxTaGFyZVVzZXJDb250ZW50VG9wQ2xhc3MiPjxiciBjbGFzcz0iIj4NCjwvZGl2Pg0KPGRp
+diBjbGFzcz0iQXBwbGUtTWFpbC1VUkxTaGFyZVdyYXBwZXJDbGFzcyIgc3R5bGU9InBvc2l0aW9u
+OiByZWxhdGl2ZSAhaW1wb3J0YW50OyI+DQo8YmxvY2txdW90ZSB0eXBlPSJjaXRlIiBzdHlsZT0i
+Ym9yZGVyLWxlZnQtc3R5bGU6IG5vbmU7IGNvbG9yOiBpbmhlcml0OyBwYWRkaW5nOiBpbmhlcml0
+OyBtYXJnaW46IGluaGVyaXQ7IiBjbGFzcz0iIj4NCjxhIGhyZWY9Imh0dHA6Ly93d3cuY3JlYXRp
+dml0eXBvc3QuY29tL3BzeWNob2xvZ3kvOF90aGluZ3NfdG9wX3ByYWN0aWNlcnNfZG9fZGlmZmVy
+ZW50bHkiIGNsYXNzPSIiPmh0dHA6Ly93d3cuY3JlYXRpdml0eXBvc3QuY29tL3BzeWNob2xvZ3kv
+OF90aGluZ3NfdG9wX3ByYWN0aWNlcnNfZG9fZGlmZmVyZW50bHk8L2E+PGJyIGNsYXNzPSIiPg0K
+PC9ibG9ja3F1b3RlPg0KPC9kaXY+DQo8YnIgY2xhc3M9IiI+DQo8YnIgY2xhc3M9IiI+DQo8ZGl2
+IGNsYXNzPSIiPg0KPGRpdiBzdHlsZT0iY29sb3I6IHJnYigwLCAwLCAwKTsgbGV0dGVyLXNwYWNp
+bmc6IG5vcm1hbDsgb3JwaGFuczogYXV0bzsgdGV4dC1hbGlnbjogc3RhcnQ7IHRleHQtaW5kZW50
+OiAwcHg7IHRleHQtdHJhbnNmb3JtOiBub25lOyB3aGl0ZS1zcGFjZTogbm9ybWFsOyB3aWRvd3M6
+IGF1dG87IHdvcmQtc3BhY2luZzogMHB4OyAtd2Via2l0LXRleHQtc3Ryb2tlLXdpZHRoOiAwcHg7
+IHdvcmQtd3JhcDogYnJlYWstd29yZDsgLXdlYmtpdC1uYnNwLW1vZGU6IHNwYWNlOyAtd2Via2l0
+LWxpbmUtYnJlYWs6IGFmdGVyLXdoaXRlLXNwYWNlOyIgY2xhc3M9IiI+DQo8ZGl2IHN0eWxlPSJj
+b2xvcjogcmdiKDAsIDAsIDApOyBsZXR0ZXItc3BhY2luZzogbm9ybWFsOyBvcnBoYW5zOiBhdXRv
+OyB0ZXh0LWFsaWduOiBzdGFydDsgdGV4dC1pbmRlbnQ6IDBweDsgdGV4dC10cmFuc2Zvcm06IG5v
+bmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdpZG93czogYXV0bzsgd29yZC1zcGFjaW5nOiAwcHg7
+IC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyAt
+d2Via2l0LW5ic3AtbW9kZTogc3BhY2U7IC13ZWJraXQtbGluZS1icmVhazogYWZ0ZXItd2hpdGUt
+c3BhY2U7IiBjbGFzcz0iIj4NCuKAlDxiciBjbGFzcz0iIj4NCk1hcmsgTmljaG9sczxiciBjbGFz
+cz0iIj4NCldlYiBTeXN0ZW1zIEVuZ2luZWVyPGJyIGNsYXNzPSIiPg0KT2ZmaWNlIG9mIE1lZGlh
+dGVkIEVkdWNhdGlvbjxiciBjbGFzcz0iIj4NCjR0aCBGbG9vciBVbmdlciBDb21wbGV4PGJyIGNs
+YXNzPSIiPg0KNzg1LjUzMi4zNDcwPGJyIGNsYXNzPSIiPg0KZmluZ2VycHJpbnQgOjogMjk3RiA1
+RkQ0IDAyNzUmbmJzcDtEMkU1IDQ4RTkgRjgzNCA2Q0NGIDE1NjggNTM0NCZuYnNwOzUyMDA8YnIg
+Y2xhc3M9IiI+DQpjdXJsL3JhdyA6OiZuYnNwOzxhIGhyZWY9Imh0dHA6Ly9rZXliYXNlLmlvL3ph
+bnNoaW4va2V5LmFzYyIgY2xhc3M9IiI+a2V5YmFzZS5pby96YW5zaGluL2tleS5hc2M8L2E+Jm5i
+c3A7Jm5ic3A7ICZuYnNwOzwvZGl2Pg0KPGRpdiBzdHlsZT0iY29sb3I6IHJnYigwLCAwLCAwKTsg
+bGV0dGVyLXNwYWNpbmc6IG5vcm1hbDsgb3JwaGFuczogYXV0bzsgdGV4dC1hbGlnbjogc3RhcnQ7
+IHRleHQtaW5kZW50OiAwcHg7IHRleHQtdHJhbnNmb3JtOiBub25lOyB3aGl0ZS1zcGFjZTogbm9y
+bWFsOyB3aWRvd3M6IGF1dG87IHdvcmQtc3BhY2luZzogMHB4OyAtd2Via2l0LXRleHQtc3Ryb2tl
+LXdpZHRoOiAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsgLXdlYmtpdC1uYnNwLW1vZGU6IHNw
+YWNlOyAtd2Via2l0LWxpbmUtYnJlYWs6IGFmdGVyLXdoaXRlLXNwYWNlOyIgY2xhc3M9IiI+DQri
+gJQ8L2Rpdj4NCjxkaXYgc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMCk7IGxldHRlci1zcGFjaW5n
+OiBub3JtYWw7IG9ycGhhbnM6IGF1dG87IHRleHQtYWxpZ246IHN0YXJ0OyB0ZXh0LWluZGVudDog
+MHB4OyB0ZXh0LXRyYW5zZm9ybTogbm9uZTsgd2hpdGUtc3BhY2U6IG5vcm1hbDsgd2lkb3dzOiBh
+dXRvOyB3b3JkLXNwYWNpbmc6IDBweDsgLXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMHB4OyB3
+b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IC13ZWJraXQtbmJzcC1tb2RlOiBzcGFjZTsgLXdlYmtpdC1s
+aW5lLWJyZWFrOiBhZnRlci13aGl0ZS1zcGFjZTsiIGNsYXNzPSIiPg0KPGJyIGNsYXNzPSIiPg0K
+PGJyIGNsYXNzPSIiPg0KPC9kaXY+DQo8L2Rpdj4NCjwvZGl2Pg0KPGJyIGNsYXNzPSIiPg0KPC9i
+b2R5Pg0KPC9odG1sPg0K
+
+--_000_F3DB6FB88EAA41388C04E92B731AE910ksuedu_--

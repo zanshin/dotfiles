@@ -1,0 +1,186 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.148.68 with SMTP id i4csp515687qvi;
+        Fri, 2 Mar 2018 22:18:00 -0800 (PST)
+X-Received: by 10.31.181.213 with SMTP id e204mr5225124vkf.122.1520057879983;
+        Fri, 02 Mar 2018 22:17:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520057879; cv=none;
+        d=google.com; s=arc-20160816;
+        b=vGqjX5je8lfLsfX9J+RnoUM8VDTvQErw/tfJM29mJxRlDbWp+HDbxB+xtMXAJxGn35
+         s2A4GUtVH68X3HMaQJ8NAGMKzm3Wz22A0doGkCywrSWOa59iReW5fogJ433f3wM+lDdy
+         /bP3020gBbCK+Xup5AnbuMGcAxvlaP6XxDcrHpUW5fDN2mK6U6g67J7dDoUkj0XYYTbD
+         G/GErw4IdPLaemdNXeBXUS5QaLTBw7Vl8e/iP/5C/rRWCXVlAbNPXbSWY4fzqRW0mFoR
+         V6ITxIjpppkXUJk2qYQ5M8ftnRpGyyGkQXQKtB8IwxWQVw4lnYj1GqmOhQBXlD7ClURw
+         10sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:references:in-reply-to:mime-version
+         :dkim-signature:arc-authentication-results;
+        bh=ZiPrNiZsUiPZCvFZxtlbQvDv5y2cg16Bqp0muuEQKUg=;
+        b=E9XEp2DaXJW2jcxB3CoyGP1LkkX+RuiGPps975V87E/Ouw3k74fYv4o5Icydh5q84t
+         7oWiawC8RlssvErg7+kVUOnvpx+opKyKQHjYEykkV4aiAQJ8mXakhO3CiZrCKs9xeSfD
+         xuzC4oqIAmfUPbGfh5Tb7Qa/B0lwx6ZE8e1OOsxVqKe0YzGz3g9ZrjIGJs+ow4nAjZHc
+         DRUdbynRvBZhX97oTG2lcXLJBEsNy8mcCmTMRtCgivl0HQESie/7/LZMN+q3DUHb5lLV
+         VZsqPbnvcifwE/n8mWQ1jbuF5jG2Ws3L4wec0CafTSTpBCfoVUnKAaNrPHU8J8c4MtsA
+         kjpA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=TlentK3N;
+       spf=pass (google.com: domain of tiergartenster@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=tiergartenster@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <tiergartenster@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id p132sor145930vkd.278.2018.03.02.22.17.59
+        for <mark.nichols@gmail.com>
+        (Google Transport Security);
+        Fri, 02 Mar 2018 22:17:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of tiergartenster@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=TlentK3N;
+       spf=pass (google.com: domain of tiergartenster@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=tiergartenster@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:in-reply-to:references:from:date:message-id:subject:to;
+        bh=ZiPrNiZsUiPZCvFZxtlbQvDv5y2cg16Bqp0muuEQKUg=;
+        b=TlentK3NrF1rZ/PxHqLme0qgMbETKutMlkyCyvWSoK8OWMIDZ60BQ1xFsbDEQC74S9
+         s2JkVcoPJS4wRflHUJ46jY9J8bVkdcAXmXWbHzkVweVyUyQgxIwMi5AAip9D2MUOVMQx
+         7DA99t1JaaSTvniy8+JsYzWYh3FPmK/bxIlbev+jWu13frLfwDriOdPOU33OSfWWiryf
+         g+kc5iMbo7bqRViE20FhkeStCsFP6Xet5pUK0572Zbk3pK9Uk3uu7piCLQ7BwWSRGAdV
+         erh2CxOSYoJ0kpPOnM5Akq2SuPEa7rE/E/fbwF/Wj29TgbW2sHHJTn9fnQZskbPeKYWY
+         4gGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+         :message-id:subject:to;
+        bh=ZiPrNiZsUiPZCvFZxtlbQvDv5y2cg16Bqp0muuEQKUg=;
+        b=HFWea8CgfCUcnfCErWPUPUuS2aIjlmlD7RvN6YuP0hqFIKgZ8dpBM4ke1cUTrHsFc+
+         ASSti5WsZDkkEOozLHc9BZRIMaobderzj8a8nduAFxRQqz6oBjTvqLvF3ZidMBZKorwr
+         0Sak7HlP0S6Rcfpski58iXyp6Jl7ei3az45nzqxodZ4wfBZ7J2wWOSkntOBRyJO6lnDo
+         5+L8whPiM/HGWLGoqWZQX7L7QYEzx31iv45FImbMZhElOSYNcUTZLBAfG+MVOB5yti5Q
+         LoxyDvPPbJ0JHL1sKSKDd1wyR1OFz1pDxW2bQi9Bo0K8OfYsLJq47y7jp173sBHVyqdS
+         ATCw==
+X-Gm-Message-State: APf1xPCvWmTxRzAsPnii/jAqEkXBx9akzoX6litiVLc0mbkEuC50UlFu
+	tdD5En5JaC3Tzv8bGyE7j92iLHkb/xAlAOPw198=
+X-Google-Smtp-Source: AG47ELsSqf0F+TrAnT79xQ2nxyBuf/Fui0z5TpCzbA7u/wSp3pejW6eOJJZ2jF+agPYUonx8y+COcKkpTaD/0GrJCAE=
+X-Received: by 10.31.200.66 with SMTP id y63mr5009351vkf.99.1520057879545;
+ Fri, 02 Mar 2018 22:17:59 -0800 (PST)
+MIME-Version: 1.0
+Received: by 10.176.67.2 with HTTP; Fri, 2 Mar 2018 22:17:59 -0800 (PST)
+In-Reply-To: <CC2A6462-51BC-4488-BCE6-9D4D961D62D1@gmail.com>
+References: <CC2A6462-51BC-4488-BCE6-9D4D961D62D1@gmail.com>
+From: Vera <tiergartenster@gmail.com>
+Date: Sat, 3 Mar 2018 00:17:59 -0600
+Message-ID: <CAOEWDfsfHCJaURmrM8kh0crY56stkrBqghm2zFccOD5gcj0ZXA@mail.gmail.com>
+Subject: Re: iPhone 5 batteries and GPS
+To: Mark Nichols <mark.nichols@gmail.com>
+Content-Type: multipart/alternative; boundary="001a114ddbe4f2ce0605667c0d05"
+
+--001a114ddbe4f2ce0605667c0d05
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Mark, you ROCK!! Thank you :)
+
+On 2 March 2018 at 23:21, Mark Nichols <mark.nichols@gmail.com> wrote:
+
+> Hi Vera,
+>
+> Sibylle told me that you had a concern about the battery in your phone,
+> and about GPS usage.
+>
+> GPS uses a little bit of data, but not enough to matter. Please feel free
+> to use it. :)
+>
+> The battery in your iPhone is now almost exactly 4 years old. We got that
+> phone in March of 2014. I=E2=80=99m not surprised that you are seeing its=
+ charge
+> not last as long. Cellphone batteries get old and tired and eventually ne=
+ed
+> to be replaced.
+>
+> Apple charges $79 to replace a battery. You can mail them the phone and
+> wait a week while they replace the batter and mail it back. Or you can ta=
+ke
+> it to an Apple Store. (Your nearest Apple Store is in Wayzata - a suburb =
+of
+> Minneapolis.) Or you can take it to an Apple Authorized Service center.
+>
+> As it happens Paul Bunyan is an Apple service center. :)
+>
+> I recommend calling them on Monday to find out what they charge to replac=
+e
+> the battery in an iPhone 5. It may be that they will have to order a
+> battery for your phone before they can replace it, so calling ahead will
+> save you a trip. Hopefully they won=E2=80=99t charge much (any) more than=
+ Apple
+> does for the replacement service.
+>
+> It is possible to order a battery, and a couple little teeny-tiny
+> screwdrivers and replace it yourself. But I think I=E2=80=99d save that a=
+s a last
+> resort. :)
+>
+> Here=E2=80=99s the link to the Paul Bunyan page about Apple service.
+>
+> http://www.paulbunyan.net/computer-service/index.html
+>
+> Let me know if you have any questions.
+>
+> Love,
+> Mark
+>
+>
+>
+
+--001a114ddbe4f2ce0605667c0d05
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Mark, you ROCK!! Thank you :)<br></div><div class=3D"gmail=
+_extra"><br><div class=3D"gmail_quote">On 2 March 2018 at 23:21, Mark Nicho=
+ls <span dir=3D"ltr">&lt;<a href=3D"mailto:mark.nichols@gmail.com" target=
+=3D"_blank">mark.nichols@gmail.com</a>&gt;</span> wrote:<br><blockquote cla=
+ss=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;pa=
+dding-left:1ex">Hi Vera,<br>
+<br>
+Sibylle told me that you had a concern about the battery in your phone, and=
+ about GPS usage.<br>
+<br>
+GPS uses a little bit of data, but not enough to matter. Please feel free t=
+o use it. :)<br>
+<br>
+The battery in your iPhone is now almost exactly 4 years old. We got that p=
+hone in March of 2014. I=E2=80=99m not surprised that you are seeing its ch=
+arge not last as long. Cellphone batteries get old and tired and eventually=
+ need to be replaced.<br>
+<br>
+Apple charges $79 to replace a battery. You can mail them the phone and wai=
+t a week while they replace the batter and mail it back. Or you can take it=
+ to an Apple Store. (Your nearest Apple Store is in Wayzata - a suburb of M=
+inneapolis.) Or you can take it to an Apple Authorized Service center.<br>
+<br>
+As it happens Paul Bunyan is an Apple service center. :)<br>
+<br>
+I recommend calling them on Monday to find out what they charge to replace =
+the battery in an iPhone 5. It may be that they will have to order a batter=
+y for your phone before they can replace it, so calling ahead will save you=
+ a trip. Hopefully they won=E2=80=99t charge much (any) more than Apple doe=
+s for the replacement service.<br>
+<br>
+It is possible to order a battery, and a couple little teeny-tiny screwdriv=
+ers and replace it yourself. But I think I=E2=80=99d save that as a last re=
+sort. :)<br>
+<br>
+Here=E2=80=99s the link to the Paul Bunyan page about Apple service.<br>
+<br>
+<a href=3D"http://www.paulbunyan.net/computer-service/index.html" rel=3D"no=
+referrer" target=3D"_blank">http://www.paulbunyan.net/<wbr>computer-service=
+/index.html</a><br>
+<br>
+Let me know if you have any questions.<br>
+<br>
+Love,<br>
+Mark<br>
+<br>
+<br>
+</blockquote></div><br></div>
+
+--001a114ddbe4f2ce0605667c0d05--

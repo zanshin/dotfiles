@@ -1,0 +1,438 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp726001qtm;
+        Sat, 3 Mar 2018 07:00:43 -0800 (PST)
+X-Google-Smtp-Source: AG47ELu0GdevYzWCSGu6TMISGgztY35oCHYTViorDrjNoz60JUe7NhLFzZVrS5/Lvkwz0zYAtP9b
+X-Received: by 10.36.70.210 with SMTP id j201mr7017118itb.8.1520089243743;
+        Sat, 03 Mar 2018 07:00:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520089243; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0CWypAo9L1wubugz12fAzfqKbGgFubXGOvH99TYDSKRpE2rWWr1R7yX1SwcIIU1eRe
+         AOHbRUgoLg2Kq7EPrjxG9Ay4yS6hkUFk1ebCHlT1E9gXLi45haaNgquKkIg88VKNPbNF
+         KK/ujL7Ld/YZgIthryn6J9Tdhim1pqrqPQMDbf51oPjebkEg+kv78aadqa1/9ujDzRsN
+         DgjllbkiorYb+tIH2OyL7vfF5E8L96MpCoKGpnzAx3UtDsqiod8wN8+x/7pZPvZOJ11f
+         BLT3Xn06JAjqhA15CmEOJCKuwr0HdTIiyEdwLNrfDZMtKMAWmhsk/xybuNukteUhv6QY
+         QuIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:message-id:to:from:date:sender:dkim-signature
+         :dkim-signature:arc-authentication-results;
+        bh=sPv+5cQnFOA6Kl2mJzNg9ZcBBzW7VqbbLewmc+QuXPE=;
+        b=awpsEDMllEAMfINA/yVPlsXTJ1PyRTcAYyuB/dnkJeXlgvJPj7l+ZOBkLcEGRVZppB
+         PYJ6tfGAMaUvRB6M/LeZZCZvRopqLmOD8k6bVob/CnR+Aqpnsdfg6x4adiZApjAaq7cI
+         zn7NyCAL9UnSmLa0xbI/5UnZ7rdiMffQa3LWC0WncH9A3GfmE2iTkNT6uIW9wrjrffCc
+         lcTe7YKWSHL42GBo0O8gzL93/B8v/yUWkNsMC7++4qkoWomF9bVB0s4s/1GPxiNMGGIT
+         De6fXnQaIo2UH4g3A1AQUc5BAvFA5od0pGnT0HEL11Fp4KHtXlWCt+7H1xgkCnVRQxLt
+         cdeg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@morningreader.com header.s=mailo header.b=X4JVLaid;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=NxVonFMo;
+       spf=pass (google.com: domain of bounce+93e532.92c37-code.prole=gmail.com@morningreader.com designates 198.61.254.18 as permitted sender) smtp.mailfrom=bounce+93e532.92c37-code.prole=gmail.com@morningreader.com
+Return-Path: <bounce+93e532.92c37-code.prole=gmail.com@morningreader.com>
+Received: from so254-18.mailgun.net (so254-18.mailgun.net. [198.61.254.18])
+        by mx.google.com with UTF8SMTPS id 96si6122785ioq.154.2018.03.03.07.00.43
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 03 Mar 2018 07:00:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+93e532.92c37-code.prole=gmail.com@morningreader.com designates 198.61.254.18 as permitted sender) client-ip=198.61.254.18;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@morningreader.com header.s=mailo header.b=X4JVLaid;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=NxVonFMo;
+       spf=pass (google.com: domain of bounce+93e532.92c37-code.prole=gmail.com@morningreader.com designates 198.61.254.18 as permitted sender) smtp.mailfrom=bounce+93e532.92c37-code.prole=gmail.com@morningreader.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=morningreader.com; q=dns/txt;
+ s=mailo; t=1520089243; h=Content-Type: Mime-Version: Subject:
+ Message-Id: To: From: Date: Sender: X-Feedback-Id;
+ bh=sPv+5cQnFOA6Kl2mJzNg9ZcBBzW7VqbbLewmc+QuXPE=; b=X4JVLaid374Mu8h7BU10YoMWRiDN+hnt30flGYL6sLqjoGeMh8vvZAZ83zh2j9JSgKVS1iV+
+ lhjgY4DinqHtasTnX38E5UaIX6CI1WtQiIGh+yWJFWfU5z5UiLwkr9pQioEw9FMnZM7nuRRL
+ gQiNkCIEOEK5uJY0//y5sbFrpB0=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1520089243; h=Content-Type: Mime-Version: Subject: Message-Id: To:
+ From: Date: Sender: X-Feedback-Id;
+ bh=sPv+5cQnFOA6Kl2mJzNg9ZcBBzW7VqbbLewmc+QuXPE=; b=NxVonFMoE4WT1zXM8qPjbAsvqeGGqBlQEFVSlQMH+Tzc+rah0IO0wu8N97UeDyVKEdzh1Cgm
+ MCXTp00wlz/ci0XvYxwp+1xwofCOSQUzasrJhLl72liGVv1+171rlOOTVZ6fFJpjT6X8n3nF
+ QB/G0329G9nfcxro2bHCeecuP4E=
+X-Feedback-Id: 5717a60b4cd30028b9e9352a:mailgun
+X-Mailgun-Sid: WyJhYWQ2MCIsICJjb2RlLnByb2xlQGdtYWlsLmNvbSIsICI5MmMzNyJd
+X-Mailgun-Sending-Ip: 198.61.254.18
+Sender: hello@morningreader.com
+Received: from ca0721635da8 (ec2-54-83-127-167.compute-1.amazonaws.com
+ [54.83.127.167]) by mxa.mailgun.org with ESMTP id
+ 5a9ab89b.7f16dc0b45a8-smtp-out-n02; Sat, 03 Mar 2018 15:00:43 -0000 (UTC)
+Date: Sat, 3 Mar 2018 15:00:42 +0000 (UTC)
+From: Morning Reader <hello@morningreader.com>
+To: "code.prole@gmail.com" <code.prole@gmail.com>
+Message-Id: <1134618087.3355.1520089242922.JavaMail.root@ca0721635da8>
+Subject: =?UTF-8?Q?Technology_News_=E2=80=93_Mar_03,_2018?=
+Mime-Version: 1.0
+Content-Type: multipart/mixed; boundary="----=_Part_3354_1444288195.1520089242919"
+
+------=_Part_3354_1444288195.1520089242919
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" style=3D"font-family: 'Helveti=
+ca Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-=
+height: 1.6; margin: 0; padding: 0;">
+<head>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width" />
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8" />
+<title>Really Simple HTML Email Template</title>
+
+
+</head>
+=20
+<body bgcolor=3D"#f6f6f6" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; -webki=
+t-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% =
+!important; height: 100%; color: #333; background-color: #f6f6f6; margin: 0=
+; padding: 0;">
+
+
+
+
+
+<!-- body -->
+<table class=3D"body-wrap" style=3D"font-family: 'Helvetica Neue', 'Helveti=
+ca', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; width=
+: 100%; margin: 0; padding: 10px;">
+	<tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial,=
+ sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
+		<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;"></=
+td>
+		<td class=3D"container" bgcolor=3D"#FFFFFF" style=3D"font-family: 'Helvet=
+ica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line=
+-height: 1.6; display: block !important; max-width: 600px !important; clear=
+: both !important; border-radius: 5px !important; margin: 0 auto; padding: =
+0; border: 1px solid #f0f0f0;">
+
+			<!-- content -->
+			<div class=3D"content" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; max-wi=
+dth: 600px; display: block; margin: 0 auto; padding: 20px;">
+			<table style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, A=
+rial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: 0=
+; padding: 0;">
+				<tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ari=
+al, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
+					<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ar=
+ial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;"=
+>
+						<center style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetic=
+a, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding=
+: 0;">
+							<div id=3D"header" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; text-a=
+lign: center; margin: 0; padding: 5px 0 15px;" align=3D"center">
+								<img src=3D"http://morningreader.com/public/images/mr-logo-email.pn=
+g" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, s=
+ans-serif; font-size: 100%; line-height: 1.6; max-width: 100%; margin: 0; p=
+adding: 0;" width=3D"40" />
+								<h1 style=3D"font-family: 'Helvetica Neue', Helvetica, Arial, 'Luci=
+da Grande', sans-serif; font-size: 24px; line-height: 1.2; font-weight: bol=
+d; margin: 15px 0 10px; padding: 0;">Morning Reader</h1>
+								<p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 16px; line-height: 1.6; font-weight: normal; =
+margin: 0 0 10px; padding: 0;">Curated technology news, daily in your inbox=
+.</p>
+							</div>
+						</center>
+
+
+
+=09
+		<!--<h2>Technology</h2>-->
+		=20
+		=09
+				<ul class=3D"mr-list" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 25px; font-=
+weight: normal; list-style-type: none; margin: 0; padding: 14px 0 0;">
+			=09
+					=20
+					=09
+							<li style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; list-style-position: =
+inside; margin: 0 0 0 5px; padding: 10px 0;">
+								<a target=3D"_blank" href=3D"http://email.morningreader.com/c/eJwdj=
+01uxSAMhE-T7ED8Psgii266qNRDOOC8oJI4AtK-3L60kmVrPNJovjhPKmg3pllKbR7SC--41tZy=
+aZUQflJGTUrxD_iGT0iZF6I2GBFAOCUf2kbw4zYvzkYrvZtWMS3eCDTeu6DMAsYZiNOY5621sw7=
+6bVDvfaDUhmE7UgAeaO-fdKxUdmiJDvZvUabn3Q0lpO9H6L6wbVjw2tmaXlhZxZLoqgxDTmdFtm=
+b4YW2DxgJdObIFGb7OTKlhFzeD42ZfKfagscyBIvKzUMbO89z_4HqTX4FHViI" style=3D"fon=
+t-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font=
+-size: 16px; line-height: 1.6; color: #333; text-decoration: none !importan=
+t; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-colo=
+r: #ddd; margin: 0; padding: 0;">Ethereum fixes serious =E2=80=9Ceclipse=E2=
+=80=9D flaw that could be exploited by any kid</a>
+								<span class=3D"sub-line" style=3D"font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;=
+ display: block; color: #aaa; margin: 0; padding: 0px 0 0;"><a target=3D"_b=
+lank" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 12px; line-height: 1.6; color: #aaa; text-decorati=
+on: none !important; border-bottom-width: 1px; border-bottom-color: #ccc; m=
+argin: 0; padding: 0; border: none;" href=3D"http://email.morningreader.com=
+/c/eJwdj01uxSAMhE-T7ED8Psgii266qNRDOOC8oJI4AtK-3L60kmVrPNJovjhPKmg3pllKbR7S=
+C--41tZyaZUQflJGTUrxD_iGT0iZF6I2GBFAOCUf2kbw4zYvzkYrvZtWMS3eCDTeu6DMAsYZiNO=
+Y5621sw76bVDvfaDUhmE7UgAeaO-fdKxUdmiJDvZvUabn3Q0lpO9H6L6wbVjw2tmaXlhZxZLoqg=
+xDTmdFtmb4YW2DxgJdObIFGb7OTKlhFzeD42ZfKfagscyBIvKzUMbO89z_4HqTX4FHViI">arst=
+echnica.com</a></span>
+							</li>
+					=09
+				=09
+			=09
+					=20
+					=09
+							<li style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; list-style-position: =
+inside; margin: 0 0 0 5px; padding: 10px 0;">
+								<a target=3D"_blank" href=3D"http://email.morningreader.com/c/eJw1T=
+8tuxCAM_JrkBsIQAhxy6KWHSv0Iy9AkKhsQsJvfr_dQyZqH7LE0cQuajJvPDcAsK3jlnTTGWglW=
+K-WDXnTQWn7hC7_xzLKVMqZFESqnYTU2op-PbQWL1rkUCT0loB8IagXkFw5gIT3n7Rij9sl8TPq=
+T575vedUmS9vZ9UTjLFdnuRccHa_YS0S2WoFnUuYNwGB9sBAWZ1lTedTnSE2MhHQw3-c4xFXE_6=
+ILOjD_dvGsgnJ68Qll7J1LPETNeM1toxKTrK3kxLX2x7sjx_8Ao1lWXQ" style=3D"font-fam=
+ily: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size=
+: 16px; line-height: 1.6; color: #333; text-decoration: none !important; bo=
+rder-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #d=
+dd; margin: 0; padding: 0;">Computer Teacher In Ghana Has No Computers So H=
+e Draws Microsoft Word On The Blackboard</a>
+								<span class=3D"sub-line" style=3D"font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;=
+ display: block; color: #aaa; margin: 0; padding: 0px 0 0;"><a target=3D"_b=
+lank" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 12px; line-height: 1.6; color: #aaa; text-decorati=
+on: none !important; border-bottom-width: 1px; border-bottom-color: #ccc; m=
+argin: 0; padding: 0; border: none;" href=3D"http://email.morningreader.com=
+/c/eJw1T8tuxCAM_JrkBsIQAhxy6KWHSv0Iy9AkKhsQsJvfr_dQyZqH7LE0cQuajJvPDcAsK3jl=
+nTTGWglWK-WDXnTQWn7hC7_xzLKVMqZFESqnYTU2op-PbQWL1rkUCT0loB8IagXkFw5gIT3n7Ri=
+j9sl8TPqT575vedUmS9vZ9UTjLFdnuRccHa_YS0S2WoFnUuYNwGB9sBAWZ1lTedTnSE2MhHQw3-=
+c4xFXE_6ILOjD_dvGsgnJ68Qll7J1LPETNeM1toxKTrK3kxLX2x7sjx_8Ao1lWXQ">npr.org</=
+a></span>
+							</li>
+					=09
+				=09
+			=09
+					=20
+					=09
+							<li style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; list-style-position: =
+inside; margin: 0 0 0 5px; padding: 10px 0;">
+								<a target=3D"_blank" href=3D"http://email.morningreader.com/c/eJwVj=
+sFuwyAQRL_GvoGWXWPwgUMvOUTqR6wBx07sLnJo_fsl0mie5jCaSWHCSK7fgjE0jMaDd5rIWm0s=
+AvgJB5wQ9Z3_-Ju3XZ8itRsgMjg0I9nEvl-DS4u1AGnwmEamxGAiWE7OzAthpn4Pa63l3dFXh7e=
+mqYo9OOooR0sIxjcAfQybrXKpKur5e5TGomRRV54LP_Jb1WurNZ9q4ZhnkZfayio_ubX6M0RJWZ=
+dT9txOPo7P4zbxD4NpRLQ" style=3D"font-family: 'Helvetica Neue', 'Helvetica',=
+ Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #3=
+33; text-decoration: none !important; border-bottom-width: 1px; border-bott=
+om-style: solid; border-bottom-color: #ddd; margin: 0; padding: 0;">iOS Tip=
+: How to jump to the top of webpages, Twitter, Facebook, and apps with iPho=
+ne</a>
+								<span class=3D"sub-line" style=3D"font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;=
+ display: block; color: #aaa; margin: 0; padding: 0px 0 0;"><a target=3D"_b=
+lank" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 12px; line-height: 1.6; color: #aaa; text-decorati=
+on: none !important; border-bottom-width: 1px; border-bottom-color: #ccc; m=
+argin: 0; padding: 0; border: none;" href=3D"http://email.morningreader.com=
+/c/eJwVjsFuwyAQRL_GvoGWXWPwgUMvOUTqR6wBx07sLnJo_fsl0mie5jCaSWHCSK7fgjE0jMaD=
+d5rIWm0sAvgJB5wQ9Z3_-Ju3XZ8itRsgMjg0I9nEvl-DS4u1AGnwmEamxGAiWE7OzAthpn4Pa63=
+l3dFXh7emqYo9OOooR0sIxjcAfQybrXKpKur5e5TGomRRV54LP_Jb1WurNZ9q4ZhnkZfayio_ub=
+X6M0RJWZdT9txOPo7P4zbxD4NpRLQ">9to5mac.com</a></span>
+							</li>
+					=09
+				=09
+			=09
+					=20
+					=09
+							<li style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; list-style-position: =
+inside; margin: 0 0 0 5px; padding: 10px 0;">
+								<a target=3D"_blank" href=3D"http://email.morningreader.com/c/eJwVj=
+smKwzAQRL_GvklIrcXSwYdc5jCQj1C0RGLsKGhJyN9PB4pXUHRTFXYLXmxr2TkXUnPDzEaFUIpy=
+BYwZCxIsAP11L3d15aCt1rFI5h3bgGuhgjNr3pUTW5Q2JSEN1zHqJA0kocGleLNGrseex3j2RVw=
+W-EGN6LNv8-Ez9fXEABg3aEx8AYizDNLHDB_Sc313giDn9JmEVl7lcSepNjJvsRH045Pwevq_jp=
+9r230NkT5bPSJuvZ_f4VjzD8SFR-Q" style=3D"font-family: 'Helvetica Neue', 'Hel=
+vetica', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; c=
+olor: #333; text-decoration: none !important; border-bottom-width: 1px; bor=
+der-bottom-style: solid; border-bottom-color: #ddd; margin: 0; padding: 0;"=
+>MIT study shows how much driving for Uber or Lyft sucks</a>
+								<span class=3D"sub-line" style=3D"font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;=
+ display: block; color: #aaa; margin: 0; padding: 0px 0 0;"><a target=3D"_b=
+lank" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 12px; line-height: 1.6; color: #aaa; text-decorati=
+on: none !important; border-bottom-width: 1px; border-bottom-color: #ccc; m=
+argin: 0; padding: 0; border: none;" href=3D"http://email.morningreader.com=
+/c/eJwVjsmKwzAQRL_GvklIrcXSwYdc5jCQj1C0RGLsKGhJyN9PB4pXUHRTFXYLXmxr2TkXUnPD=
+zEaFUIpyBYwZCxIsAP11L3d15aCt1rFI5h3bgGuhgjNr3pUTW5Q2JSEN1zHqJA0kocGleLNGrse=
+ex3j2RVwW-EGN6LNv8-Ez9fXEABg3aEx8AYizDNLHDB_Sc313giDn9JmEVl7lcSepNjJvsRH045=
+Pwevq_jp9r230NkT5bPSJuvZ_f4VjzD8SFR-Q">techcrunch.com</a></span>
+							</li>
+					=09
+				=09
+			=09
+					=20
+					=09
+							<li style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; list-style-position: =
+inside; margin: 0 0 0 5px; padding: 10px 0;">
+								<a target=3D"_blank" href=3D"http://email.morningreader.com/c/eJw1j=
+sEKgzAQRL9Gbw3JrtHkkEMvPRT6EctmjYIa0VChX9_0UBhm4B2GF4MHxqGdgzHY9cZpNyhEa5Wx=
+oLXz0IEHUE9604vmRR05l6bTTHoA06ON5NopWBQeoxcW6SJrtM5Y53sBHplcT-0SplL2s8F7A4-=
+a67qUbIlikqI4rxWBNq6Oxn-lnNMiN1rpk7fbJmepsD0C5yhqP_IiVSStP6v68AX80Ts2" styl=
+e=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-ser=
+if; font-size: 16px; line-height: 1.6; color: #333; text-decoration: none !=
+important; border-bottom-width: 1px; border-bottom-style: solid; border-bot=
+tom-color: #ddd; margin: 0; padding: 0;">Google tiff brings an end to Amazo=
+n selling Nest products</a>
+								<span class=3D"sub-line" style=3D"font-family: 'Helvetica Neue', 'H=
+elvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6;=
+ display: block; color: #aaa; margin: 0; padding: 0px 0 0;"><a target=3D"_b=
+lank" style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 12px; line-height: 1.6; color: #aaa; text-decorati=
+on: none !important; border-bottom-width: 1px; border-bottom-color: #ccc; m=
+argin: 0; padding: 0; border: none;" href=3D"http://email.morningreader.com=
+/c/eJw1jsEKgzAQRL9Gbw3JrtHkkEMvPRT6EctmjYIa0VChX9_0UBhm4B2GF4MHxqGdgzHY9cZp=
+NyhEa5WxoLXz0IEHUE9604vmRR05l6bTTHoA06ON5NopWBQeoxcW6SJrtM5Y53sBHplcT-0SplL=
+2s8F7A4-a67qUbIlikqI4rxWBNq6Oxn-lnNMiN1rpk7fbJmepsD0C5yhqP_IiVSStP6v68AX80T=
+s2">engadget.com</a></span>
+							</li>
+					=09
+				=09
+			=09
+				</ul>
+		=09
+	=09
+=09
+
+
+
+
+<div id=3D"sponsor" style=3D"font-family: 'Helvetica Neue', 'Helvetica', He=
+lvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; p=
+adding: 0;">
+	<p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, =
+sans-serif; font-size: 13px !important; line-height: 1.6; font-weight: norm=
+al; color: #777; margin: 20px 5px; padding: 0;">
+		Sponsored by=20
+		<a href=3D"http://email.morningreader.com/c/eJwVjUEKwyAQAF8Tj-LuqrsePPSSQ=
+6GPsCpNIMGgad7fFOY2MFNiwEys1ghA1oMYYU3knAaHxkhAiwFRP9OVXmnddG_tnKzJyTCCJ1eS=
+qCWSULaFAat37-KZC3vyGStBJZGqtric5zEmekw434xvv4bObVc95laqPnrb6h3-7P_LLX40-Sv=
+Q" target=3D"_blank" style=3D"color:#777;text-decoration:none;border-bottom=
+-width:1px;border-bottom-color:#ccc;border-bottom-style:solid;margin:0;padd=
+ing:0">Survs</a>.
+		Create online surveys with your team, get valuable feedback.
+	</p>
+</div>
+
+
+
+
+						<center style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetic=
+a, Arial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding=
+: 0;">
+							<p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, A=
+rial, sans-serif; font-size: 16px; line-height: 1.6; font-weight: normal; m=
+argin: 0 0 10px; padding: 0;"><a href=3D"http://email.morningreader.com/c/e=
+JwVjbsKwzAMAL8mHo0lvwcPXToU-hHCcpNAEgVj-v114aa74bhkrDaqvQBYFyCZFLW13mvwaEzK=
+6DAj6hd96U37obvIWJypZCJCsJ4pqa1AzgkyfVKtwC5kQwzEhlPjAA5QHWUb417sY8Hn5JR-7df=
+aG3Hruso53ZBb9VKFm767HG1e1vO_nPkHqZUwxQ" class=3D"btn-primary" style=3D"fon=
+t-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font=
+-size: 100%; line-height: 1.6; text-align: center; cursor: pointer; display=
+: inline-block; border-radius: 5px; border-bottom-width: 1px; border-bottom=
+-style: solid; border-bottom-color: #D6E1EC; text-decoration: none !importa=
+nt; color: #336699; font-weight: normal; background-color: #EEF2F5; margin:=
+ 25px 0 10px; padding: 10px 20px;">Read more</a></p>
+						</center>
+					</td>
+				</tr>
+			</table>
+			</div>
+			<!-- /content -->
+								=09
+		</td>
+		<td></td>
+	</tr>
+</table>
+<!-- /body -->
+
+
+
+<!-- footer -->
+<table class=3D"footer-wrap" style=3D"font-family: 'Helvetica Neue', 'Helve=
+tica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; wid=
+th: 100%; clear: both !important; margin: 0; padding: 0 10px;">
+	<tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial,=
+ sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;">
+		<td style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial=
+, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;"></=
+td>
+		<td class=3D"container" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; displa=
+y: block !important; max-width: 600px !important; clear: both !important; b=
+order-radius: 5px !important; margin: 0 auto; padding: 0;">
+		=09
+			<!-- content -->
+			<div class=3D"content" style=3D"font-family: 'Helvetica Neue', 'Helvetic=
+a', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; max-wi=
+dth: 600px; display: block; margin: 0 auto; padding: 10px 0 30px;">
+				<table style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; width: 100%; margin: =
+0; padding: 0;">
+					<tr style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Ar=
+ial, sans-serif; font-size: 100%; line-height: 1.6; margin: 0; padding: 0;"=
+>
+						<td align=3D"center" align=3D"center" style=3D"font-family: 'Helvetic=
+a Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-h=
+eight: 1.6; margin: 0; padding: 0;">
+							<p style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, A=
+rial, sans-serif; font-size: 12px; line-height: 1.6; color: #666; font-weig=
+ht: normal; margin: 0 0 10px; padding: 0;">
+
+								<a  style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica,=
+ Arial, sans-serif; font-size: 100%; line-height: 1.6; color: #999; margin:=
+ 0; padding: 0;" href=3D"http://email.morningreader.com/c/eJwdjUsKwyAUAE8Tl=
+6Lv-V246KaLQg_x_DQRTAxWev6mhVkNA5ODh4SW1SAlKiOdcJYjas2lBiGcBwUegD_oQ0-qjY_e=
+56JEImFBGtSZHNuCTRl9eRE4jEZ6XaLVKQqjs8lkvGItbHOe7wVvC9wv9j6OeqyjUC6Dp77_Xay=
+tsBFSz4Wfo7dyndb9t72KL5FuMpw">iOS</a>&nbsp;&nbsp;&nbsp;
+								<a style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; color: #999; margin: =
+0; padding: 0;" href=3D"http://email.morningreader.com/c/eJwdjUsKwyAUAE8Tl6=
+Lv-V246KaLQg_x_DQRTAxWev6mhVkNA5ODh4SW1SAlKiOdcJYjas2lBiGcBwUegD_oQ0-qjY_e5=
+6JEImFBGtSZHNuCTRl9eRE4jEZ6XaLVKQqjs8lkvGItbHOe7wVvC9wv9j6OeqyjUC6Dp77_Xayt=
+sBFSz4Wfo7dyndb9t72KL5FuMpw">Android</a>&nbsp;&nbsp;&nbsp;
+								<a style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; color: #999; margin: =
+0; padding: 0;" href=3D"http://email.morningreader.com/c/eJwVjTEOwyAQBF9jSs=
+QdYKCgSJMiUh5xgbONZAeLoOT7wdJWsyNNjgGTdqJEAG1m8Mo7qbW1Eiwq5QMaDIjyQV96Utllq=
+7VPRiVSDmHWNpMXW2Sy3jCAWeBlluv1ELIiN4wEvIg9br2fn0nfJryPHbW9y3ttTJmbTPUYrP9K=
+79xEi6lmlmerO4_UelzdofwBv00zHA">Twitter</a>&nbsp;&nbsp;&nbsp;
+								<a style=3D"font-family: 'Helvetica Neue', 'Helvetica', Helvetica, =
+Arial, sans-serif; font-size: 100%; line-height: 1.6; color: #999; margin: =
+0; padding: 0;" href=3D"http://email.morningreader.com/c/eJwVjruOwyAQRb_G7o=
+yG4V1QpEmxUj5igEliyTYWJpvfX1a6zbnF0SkxYFZuXqOUSlvpwTuhlDFCGgTwATUGRPFDv_Sgd=
+ROt1j5pyAQOpVWmkJ_fEUAVQxJ1yiE5Ll575xXoYt2TvbLzFt-9n5O6TXgf22s71uPVmAo3kes-=
+voO_18a9cxvwOa5PunJbEw9KTsPTSLcwsF40Ai5EYJZifSBHNlg0c4u5FhZnqxuPwtf-nzvUf_B=
+GQio">Unsubscribe</a>
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div><!-- /content -->
+			=09
+		</td>
+		<td></td>
+	</tr>
+</table>
+<!-- /footer -->
+
+
+
+
+
+
+<img width=3D"1px" height=3D"1px" alt=3D"" src=3D"http://email.morningreade=
+r.com/o/eJwVzMsNAiEQANBq5Ejmw8DMgQZMLIKFUTfZDYYY61cLeG9Uo84l7BWRU0YFLZFZJKI=
+QgBolMqJ4bZ92a_sR15zvS4LeoBBmltE0PGu2O4LTphkygKMntNSVxa1sQ0pYtc_h8bXm4T_-OP=
+9Xn-cXNgcjEw"></body>
+</html>
+------=_Part_3354_1444288195.1520089242919--

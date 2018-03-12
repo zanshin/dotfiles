@@ -1,0 +1,396 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.148.68 with SMTP id i4csp2466511qvi;
+        Mon, 5 Mar 2018 13:32:24 -0800 (PST)
+X-Google-Smtp-Source: AG47ELttskUS+wf3imWa5eB+v1DPz2FtzE29sciHz2BgtG3Dy3u4I94xOf8k2qubleUhD6InmWZZ
+X-Received: by 10.157.3.6 with SMTP id 6mr10857182otv.39.1520285544874;
+        Mon, 05 Mar 2018 13:32:24 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520285544; cv=none;
+        d=google.com; s=arc-20160816;
+        b=xF1sY9kj2vbumitb0nVPvHtzwsMfqtKBGt7K+b2W85N51QF+2A/tNeQbJIr6pK5+JG
+         wk2+pDYuqAfDRURgc9JAxrRGQaheEHQEfZiR9saILtCXD0ArTL2Z3MtwlXDwJfNXqlss
+         +WwsSgP+ZGHaVv/cg/9AEI3KZez/MDqFd4NohHKNxssJu/3aaGyecmC3+zF/K5xs4+iR
+         WETeojJC9yzt5L/ZhscIYpYsz3j5is+MtXdLdZp4o7xTzuS6pr0OW016EWcIz1Y3t/jS
+         CUmkqghkEZaVNokTq+VHasJe87I/AeNjL5p89rED3Ya5JXnaEQJbDUWJmfwb3S7ffULB
+         4NKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:content-transfer-encoding:subject:to:from
+         :mime-version:dkim-signature:domainkey-signature
+         :arc-authentication-results;
+        bh=CiJ6+fEspcTOnp6Eq9pSB8P+ysK/GcDbBea9TQrIAY8=;
+        b=vPuHJ+C9qgx1Kj4oBOJ1Fl3b4WIzniRhawHRbDcZDewkS3G4iSChl3GyMTrGpgLnMa
+         B+4iLQRO4nISdE/DkdjXj2CMk4K8NPWuOhjt1dXCpDThWQAd1EP/CDSNpT2fQD7wNSpA
+         0TcPqwnmTa7gn9cFPbw1cJn3KZSN0Jr8aLcFuKn9VTcSOrr3FbwVjsBNzJ3tADP0LpAG
+         gaEV6OX3k14wST4M/tP2AclvnHZSGM5y3aUQW1OYR87SqFkiosn/n/qT+W0MdJx9kCnU
+         QXsJGUEnN6fpF36pypkygBH5F6/S+CPPGW9RtAq1mbMBhiahDUU4XbRmSgfwyjwt6+8n
+         TpUQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gpicrm.com header.s=sm header.b=OPlm7S7I;
+       spf=pass (google.com: domain of postmaster@gpicrm.com designates 207.186.149.28 as permitted sender) smtp.mailfrom=postmaster@gpicrm.com
+Return-Path: <postmaster@gpicrm.com>
+Received: from mail28.cdkcrm.com (mail28.cdkcrm.com. [207.186.149.28])
+        by mx.google.com with ESMTP id t21si3874351oie.7.2018.03.05.13.32.24
+        for <mark.nichols@gmail.com>;
+        Mon, 05 Mar 2018 13:32:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of postmaster@gpicrm.com designates 207.186.149.28 as permitted sender) client-ip=207.186.149.28;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gpicrm.com header.s=sm header.b=OPlm7S7I;
+       spf=pass (google.com: domain of postmaster@gpicrm.com designates 207.186.149.28 as permitted sender) smtp.mailfrom=postmaster@gpicrm.com
+Received: from gpicrm.com ([207.186.1.151])
+	by mail28.cdkcrm.com (-); Mon, 05 Mar 2018 21:32:24 +0000
+X-VirtualServer: Tier_1, mail28.cdkcrm.com, 100.81.192.13
+X-SMHeaderMap: mid="X-MailingID"
+X-Destination-ID: mark.nichols@gmail.com
+X-SMFBL: bWFyay5uaWNob2xzQGdtYWlsLmNvbQ==
+X-VirtualServerGroup: Tier_1
+DomainKey-Signature: a=rsa-sha1;
+ c=nofws;
+ s=sm;
+ d=gpicrm.com;
+ q=dns;
+ b=ctrcaYbrq04bvN8Cnjuboo75hpTQDHzImQNaPwSXwWU5SII0+Z32EK1h+VPOtPQbj60nJPNjMIcfs9eebIawgzdXsajVKElm8ZmY9zKrB/Cz0n+XoRoeuvBxL7MWdOto8tOCeuroh6Bbh7WaX2Rz8x8/e/cX933rL5fqyxNC16Q=
+DKIM-Signature: v=1; a=rsa-sha1; c=simple; d=gpicrm.com; s=sm;
+	i=@gpicrm.com; h=Return-Path:MIME-Version:From:To:Subject:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:
+	X-MailingID; bh=ySuPKlISiCLqnSaaRgc/U9xSMZA=; b=OPlm7S7IdTFJvrpP
+	qd9bFyiZ5hXprtQbmYSlm56pTYlIfD1rl+FdJz70lBWjGQtkq4j+qQ+YRp/whO++
+	l2FPYDbpG0ACMai3bh7CYKYbfdcxW0dtDYqIqhBcmryn36z7QbzAo2JtJLCy7z9Y
+	L14HZo53aViEsTQ2Z/yLSu6K5Jo=
+Return-Path: BMW MINI Baron<baronbmwmini@gpicrm.com>
+MIME-Version: 1.0
+From: BMW MINI Baron<baronbmwmini@gpicrm.com>
+To: mark.nichols@gmail.com
+Subject: MINI Lifestyle Boutique coupon offer
+Content-Type: text/html
+Content-Transfer-Encoding: quoted-printable
+Date: Mon, 5 Mar 2018 15:32:24 -0600
+Message-ID: <1012497462656249991318@FOV500776W>
+X-MailingID: 1382::1F45B69F-653D-4A5B-953E-34C7BB5DB697__2807::1382::1,::-99::0000
+
+<table id=3D"preheader-table" style=3D"display: none;" cellspacing=3D"0" ce=
+llpadding=3D"0" width=3D"600" border=3D"0">    <tbody>        <tr>         =
+   <td id=3D"preheader-table-cell" style=3D"width: 600px;"></td>        </t=
+r>    </tbody></table><!-- End Hidden Preheader ||| --><!-- /// Begin Email=
+ Container Table --><table id=3D"container-table" style=3D"background-color=
+: #0b1826;" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" border=3D"0"=
+>    <tbody>        <tr>            <td id=3D"container-table-cell" style=
+=3D"vertical-align: top; padding-bottom: 0px; padding-top: 0px; padding-lef=
+t: 0px; margin: 0px auto; padding-right: 0px;" valign=3D"top" align=3D"cent=
+er"><!-- /// Begin Outer Content Wrapper Table -->            <table id=3D"=
+outer-content-wrapper-table" style=3D"background-color: #a7a7a7;" cellspaci=
+ng=3D"0" cellpadding=3D"0" width=3D"602" border=3D"0">                <tbod=
+y>                    <tr>                        <td id=3D"outer-content-w=
+rapper-table-cell" style=3D"width: 600px; padding-bottom: 1px; padding-top:=
+ 1px; padding-left: 1px; padding-right: 1px;"><!-- /// Begin Inner Content =
+Wrapper Table -->                        <table id=3D"inner-content-wrapper=
+-table" style=3D"background-color: #ffffff;" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"600" border=3D"0">                            <tbody>      =
+                          <tr>                                    <td id=3D=
+"inner-content-wrapper-table-cell" style=3D"width: 600px;"><!-- /// Begin I=
+nner Content Wrapper Table --><!-- /// Begin Email Header Table -->        =
+                            <table id=3D"header-table" style=3D"background-=
+color: #000;" cellspacing=3D"0" cellpadding=3D"0" width=3D"600" border=3D"0=
+">                                        <tbody>                          =
+                  <tr>                                                <td i=
+d=3D"header-table-cell" style=3D"width: 600px;"><!-- ||| Begin Module: Hero=
+ Image -->                                                <table id=3D"hero=
+-image-table" cellspacing=3D"0" cellpadding=3D"0" width=3D"600" border=3D"0=
+">                                                    <tbody>              =
+                                          <tr>                             =
+                               <td id=3D"hero-image-table-cell" style=3D"wi=
+dth: 600px;"><a href=3D"https://www.shopminiusa.com/HOME/=3FCenterId=3D3101=
+501"><img width=3D"600" style=3D"font-size: 13px; max-width: 600px;  font-f=
+amily: arial, helvetica, sans-serif;   color: #666666;  display: block; max=
+-height: 600px;border: medium none;" alt=3D"Baron MINI" src=3D"http://www.a=
+uto1mail.com/templates/20180302_ks51/images/banner.png" width=3D"600" /> </=
+a></td>                                                        </tr>       =
+                                             </tbody>                      =
+                          </table>                                         =
+       <!-- End Module: Hero Image ||| --><!--                       <table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" id=3D"booke=
+nd-alpha-table">                                                         <t=
+body>                                                            <tr>      =
+                                                         <td width=3D"60"><=
+/td>                                                               <td heig=
+ht=3D"4" width=3D"60" style=3D"height: 4px; width: 60px;"></td>            =
+                                                   <td width=3D"480"></td> =
+                                                           </tr>           =
+                                              </tbody>                     =
+                                 </table>--></td>                          =
+                  </tr>                                        </tbody>    =
+                                </table>                                   =
+ <!-- End Email Header Table \\\ --><!-- /// Begin Email Body Table -->    =
+                                <table id=3D"body-table" style=3D"backgroun=
+d-color: #ffffff;" cellspacing=3D"0" cellpadding=3D"0" width=3D"600" border=
+=3D"0">                                        <tbody>                     =
+                       <tr>                                                =
+<td id=3D"body-table-cell" style=3D"width: 600px;"><!-- ||| Begin Module: P=
+rimary Headline -->                                                <table c=
+lass=3D"primary-headline-table" cellspacing=3D"0" cellpadding=3D"0" width=
+=3D"600" border=3D"0">                                                    <=
+tbody>                                                        <tr>         =
+                                                   <td style=3D"width: 80px=
+;"></td>                                                            <td cla=
+ss=3D"primary-headline-table-cell-bottom" style=3D"font-size: 14px; font-fa=
+mily: arial, helvetica, sans-serif; width: 600px; color: #333333; padding-b=
+ottom: 10px; text-align: center; padding-top: 20px; line-height: 22px;">The=
+ MINI Lifestyle collection takes MINI design beyond the road, with modern a=
+pparel, travel accessories, and more. We invite you to come see our new MIN=
+I Lifestyle Boutique and the opportunity to save 15% off any lifestyle or a=
+ccessory purchase in store or online with the PROMO code <b>SHOP15</b>. <br=
+ />                                                            <br />      =
+                                                      <a href=3D"https://ww=
+w.shopminiusa.com/HOME/=3FCenterId=3D3101501" target=3D"_blank"><img width=
+=3D"600" style=3D"max-width: 600px;  height: auto;  width: 100%;border: 0px=
+ solid;" alt=3D"Specials" src=3D"http://www.auto1mail.com/templates/2018030=
+2_ks51/images/coupon.png" width=3D"600" /></a><br />                       =
+                                     <br />                                =
+                            <strong>Baron MINI</strong><br />              =
+                                              9000 Shawnee Mission Pkwy<br =
+/>                                                            Merriam, KS 6=
+6202<br />                                                            <a hr=
+ef=3D"tel:855-894-4936">855-894-4936 </a></td>                             =
+                               <td style=3D"width: 60px;"></td>            =
+                                            </tr>                          =
+                          </tbody>                                         =
+       </table>                                                <!--        =
+                                                 End Module: Primary Headli=
+ne ||| --><!-- ||| Begin Module: Event Details - One Location -->          =
+                                      <table class=3D"one-location-event-de=
+tails-table" style=3D"background-color: #f0f0f0;" cellspacing=3D"0" cellpad=
+ding=3D"0" width=3D"600" border=3D"0">                                     =
+               <tbody>                                                     =
+   <tr>                                                            <td clas=
+s=3D"one-location-event-details-table-cell" style=3D"width: 600px; padding-=
+bottom: 5px; padding-top: 5px;">                                           =
+                 <table cellspacing=3D"0" cellpadding=3D"0" width=3D"600" b=
+order=3D"0">                                                               =
+ <tbody>                                                                   =
+ <tr>                                                                      =
+  <td class=3D"one-location-event-date" style=3D"width: 218px; vertical-ali=
+gn: top;" valign=3D"top"><!-- ||| Begin Module: Event Date -->             =
+                                                           <table cellspaci=
+ng=3D"0" cellpadding=3D"0" width=3D"218" border=3D"0">                     =
+                                                       <tbody>             =
+                                                                   <tr>    =
+                                                                           =
+     <td style=3D"width: 84px;"></td>                                      =
+                                              <td style=3D"width: 50px; pad=
+ding-bottom: 3px; padding-top: 4px;"><a href=3D"https://www.google.com/maps=
+/place/Baron+MINI/@39.015841,-94.691344,15z/data=3D!4m5!3m4!1s0x0:0xa518783=
+cad476048!8m2!3d39.015841!4d-94.691344" title=3D"Directions" style=3D"text-=
+decoration: none; display: inline;" target=3D"_blank"><img width=3D"50" alt=
+=3D"" style=3D"max-width: 50px;border: medium none;" src=3D"http://www.auto=
+1mail.com/templates/icons/MINI/location.png" width=3D"50" /> </a></td>     =
+                                                                           =
+    <td style=3D"width: 84px;"></td>                                       =
+                                         </tr>                             =
+                                               </tbody>                    =
+                                                    </table>               =
+                                                         <table cellspacing=
+=3D"0" cellpadding=3D"0" width=3D"218" border=3D"0">                       =
+                                                     <tbody>               =
+                                                                 <tr>      =
+                                                                           =
+   <td style=3D"font-size: 14px; font-family: arial, helvetica, sans-serif;=
+ width: 218px; vertical-align: middle; color: #666666; padding-bottom: 10px=
+; text-align: center; padding-top: 15px; line-height: 20px;" valign=3D"midd=
+le" align=3D"center"><a href=3D"https://www.google.com/maps/place/Baron+MIN=
+I/@39.015841,-94.691344,15z/data=3D!4m5!3m4!1s0x0:0xa518783cad476048!8m2!3d=
+39.015841!4d-94.691344" title=3D"MINI" style=3D"text-decoration: underline =
+!important; font-weight: bold !important; color: #666666 !important;" targe=
+t=3D"_blank">Directions</a> </td>                                          =
+                                      </tr>                                =
+                                            </tbody>                       =
+                                                 </table>                  =
+                                                      <!-- End Module: Even=
+t Date ||| --></td>                                                        =
+                <td class=3D"one-location-hide" style=3D"width: 2px; backgr=
+ound-color: #ffffff;"></td>                                                =
+                        <td class=3D"one-location-event-time" style=3D"widt=
+h: 160px; vertical-align: top;" valign=3D"top"><!-- ||| Begin Module: Event=
+ Time -->                                                                  =
+      <table cellspacing=3D"0" cellpadding=3D"0" width=3D"160" border=3D"0"=
+>                                                                          =
+  <tbody>                                                                  =
+              <tr>                                                         =
+                           <td style=3D"width: 55px;"></td>                =
+                                                                    <td sty=
+le=3D"width: 50px; padding-bottom: 5px; padding-top: 5px;"><a href=3D"http:=
+//www.baronmini.com/" title=3D"website" style=3D"text-decoration: none; dis=
+play: inline;" target=3D"_blank"><img width=3D"50" alt=3D"" style=3D"max-wi=
+dth: 50px;border: medium none;" src=3D"http://www.auto1mail.com/templates/i=
+cons/MINI/home.png" width=3D"50" /> </a></td>                              =
+                                                      <td style=3D"width: 5=
+5px;"></td>                                                                =
+                </tr>                                                      =
+                      </tbody>                                             =
+                           </table>                                        =
+                                <table cellspacing=3D"0" cellpadding=3D"0" =
+width=3D"160" border=3D"0">                                                =
+                            <tbody>                                        =
+                                        <tr>                               =
+                                                     <td style=3D"font-size=
+: 14px; font-family: arial, helvetica, sans-serif; width: 160px; vertical-a=
+lign: middle; color: #666666; padding-bottom: 10px; text-align: center; pad=
+ding-top: 15px; line-height: 20px;" valign=3D"middle" align=3D"center"><a h=
+ref=3D"http://www.baronmini.com/" title=3D"MINI" style=3D"text-decoration: =
+underline !important; font-weight: bold !important; color: #666666 !importa=
+nt;" target=3D"_blank">Homepage</a> </td>                                  =
+                                              </tr>                        =
+                                                    </tbody>               =
+                                                         </table>          =
+                                                              <!-- End Modu=
+le: Event Time ||| --></td>                                                =
+                        <td class=3D"one-location-hide" style=3D"width: 2px=
+; background-color: #ffffff;"></td>                                        =
+                                <td class=3D"one-location-event-address" st=
+yle=3D"width: 218px; vertical-align: top;" valign=3D"top"><!-- ||| Begin Mo=
+dule: Event Address -->                                                    =
+                    <table cellspacing=3D"0" cellpadding=3D"0" width=3D"218=
+" border=3D"0">                                                            =
+                <tbody>                                                    =
+                            <tr>                                           =
+                                         <td style=3D"width: 55px;"></td>  =
+                                                                           =
+       <td style=3D"width: 50px; padding-bottom: 4px; padding-top: 4px;"><a=
+ href=3D"http://consumer.xtime.eu/scheduling/=3FwebKey=3DbaronMINI" title=
+=3D"Service" style=3D"text-decoration: none; display: inline;" target=3D"_b=
+lank"><img width=3D"50" alt=3D"" style=3D"max-width: 50px;border: medium no=
+ne;" src=3D"http://www.auto1mail.com/templates/icons/MINI/service.png" widt=
+h=3D"50" /> </a></td>                                                      =
+                              <td style=3D"width: 55px;"></td>             =
+                                                                   </tr>   =
+                                                                         </=
+tbody>                                                                     =
+   </table>                                                                =
+        <table cellspacing=3D"0" cellpadding=3D"0" width=3D"218" border=3D"=
+0">                                                                        =
+    <tbody>                                                                =
+                <tr>                                                       =
+                             <td style=3D"font-size: 14px; font-family: ari=
+al, helvetica, sans-serif; width: 218px; vertical-align: middle; color: #66=
+6666; padding-bottom: 10px; text-align: center; padding-top: 15px; line-hei=
+ght: 20px;" valign=3D"middle" align=3D"center"><a href=3D"http://consumer.x=
+time.eu/scheduling/=3FwebKey=3DbaronMINI" style=3D"text-decoration: underli=
+ne !important; font-weight: bold !important; color: #666666 !important;" ta=
+rget=3D"_blank">Schedule Service</a> </td>                                 =
+                                               </tr>                       =
+                                                     </tbody>              =
+                                                          </table>         =
+                                                               <!-- End Mod=
+ule: Event Address ||| --></td>                                            =
+                        </tr>                                              =
+                  </tbody>                                                 =
+           </table>                                                        =
+    </td>                                                        </tr>     =
+                                               </tbody>                    =
+                            </table>                                       =
+         <!-- End Module: Article ||| --></td>                             =
+               </tr>                                        </tbody>       =
+                             </table>                                    <!=
+-- End Email Body Table \\\ --><!-- /// Begin Email Footer Table -->       =
+                             <table id=3D"footer-table" style=3D"background=
+-color: #999999;" cellspacing=3D"0" cellpadding=3D"0" width=3D"600" border=
+=3D"0">                                        <tbody>                     =
+                       <tr>                                                =
+<td id=3D"footer-table-cell" style=3D"width: 600px;"><!-- ||| Begin Module:=
+ Legalese -->                                                <table id=3D"l=
+egalese-table" cellspacing=3D"0" cellpadding=3D"0" width=3D"600" border=3D"=
+0">                                                    <tbody>             =
+                                           <tr>                            =
+                                <td id=3D"legalese-table-cell-1" style=3D"w=
+idth: 60px;"></td>                                                         =
+   <td id=3D"legalese-table-cell-2" style=3D"border-top: 0px solid; width: =
+480px;">                                                            <table =
+id=3D"wordmark-can-spam-table" cellspacing=3D"0" cellpadding=3D"0" width=3D=
+"480" border=3D"0">                                                        =
+        <tbody>                                                            =
+        <tr>                                                               =
+         <td id=3D"can-spam-table-cell" style=3D"font-size: 10px; font-fami=
+ly: arial, helvetica, sans-serif; width: 420px; vertical-align: middle; col=
+or: #000; text-align: right; line-height: 15px; background-color: #999999;"=
+ valign=3D"middle">                                                        =
+                <table>                                                    =
+                        <tbody>                                            =
+                                    <tr>                                   =
+                                                 <td><a href=3D"https://www=
+.facebook.com/BaronMINI/" title=3D"facebook" style=3D"text-decoration: none=
+; display: inline;" target=3D"_blank"><img width=3D"50" alt=3D"" style=3D"m=
+ax-width: 50px;border: medium none;" src=3D"http://www.auto1mail.com/templa=
+tes/icons/MINI/facebook.png" width=3D"50" /> </a></td>                     =
+                                                               <td><a href=
+=3D"https://twitter.com/Baron_MINI" title=3D"twitter" style=3D"text-decorat=
+ion: none; display: inline;" target=3D"_blank"><img width=3D"50" alt=3D"" s=
+tyle=3D"max-width: 50px;border: medium none;" src=3D"http://www.auto1mail.c=
+om/templates/icons/MINI/twitter.png" width=3D"50" /> </a></td>             =
+                                                                       <td>=
+<a href=3D"https://www.youtube.com/channel/UCHVbv5p7pKopl1AAsrUQ9MA" title=
+=3D"youtube" style=3D"text-decoration: none; display: inline;" target=3D"_b=
+lank"><img width=3D"50" alt=3D"" style=3D"max-width: 50px;border: medium no=
+ne;" src=3D"http://www.auto1mail.com/templates/icons/MINI/youtube.png" widt=
+h=3D"50" /> </a></td>                                                      =
+                              <td><a href=3D"http://gubagootracking.com/v2/=
+modules/chat/standalone.php=3Faccount_id=3D102290&toolbar_id=3D1" title=3D"=
+chat" style=3D"text-decoration: none; display: inline;" target=3D"_blank"><=
+img width=3D"55" alt=3D"" style=3D"max-width: 55px;border: medium none;" sr=
+c=3D"http://www.auto1mail.com/templates/icons/chat/chat.png" width=3D"55" /=
+> </a></td>                                                                =
+                </tr>                                                      =
+                      </tbody>                                             =
+                           </table>                                        =
+                                </td>                                      =
+                              </tr>                                        =
+                        </tbody>                                           =
+                 </table>                                                  =
+          </td>                                                            =
+<td id=3D"legalese-table-cell-3" style=3D"width: 60px;"></td>              =
+                                          </tr>                            =
+                        </tbody>                                           =
+     </table>                                                <!-- End Modul=
+e: Legalese ||| -->                                                <table i=
+d=3D"bookend-omega-table" cellspacing=3D"0" cellpadding=3D"0" width=3D"600"=
+ border=3D"0">                                                    <tbody>  =
+                                                      <tr>                 =
+                                           <td style=3D"font-family: gill s=
+ans', 'gill sans mt', 'myriad pro', 'dejavu sans condensed', helvetica, ari=
+al, sans-serif; font-size:9px; padding:0 30px 0 30px;; width: 480px;">     =
+                                                       <p style=3D"font-siz=
+e: 10px; font-family: arial, sans-serif; color: #e7f5f5; padding-bottom: 0p=
+x; padding-top: 0px; padding-left: 65px; padding-right: 30px;">*See dealer =
+for full details. Offer ends 3/30/18.<br />                                =
+                            <br />                                         =
+                   <a href=3D"http://www.auto1mail.com/templates/20180302_k=
+s51/20180302_ks51.html" style=3D"color: #fff;" target=3D"_blank">View this =
+message online</a>.<br />                                                  =
+          <br />                                                           =
+ </p>                                                            </td>     =
+                                                   </tr>                   =
+                                 </tbody>                                  =
+              </table>                                                </td>=
+                                            </tr>                          =
+              </tbody>                                    </table>         =
+                           <!-- End Email Footer Table \\\ --></td>        =
+                        </tr>                            </tbody>          =
+              </table>                        <!-- End Inner Content Wrappe=
+r Table \\\ --></td>                    </tr>                </tbody>      =
+      </table>            <!-- End Outer Content Wrapper Table \\\ --></td>=
+        </tr>    </tbody></table><img src=3D"http://dt.admission.net/retarg=
+eting/pixel.gif=3Fsitetype=3Ddealer&uidindex=3Dem&uid=3Dcaeafe68be7b1f4b15f=
+cde4bff4f04678068f63a&context=3Dhttp://www.baronauto.com MINI Lifestyle Bou=
+tique coupon offer" > <P><FONT color=3Dgray size=3D2 face=3D"'Verdana'">Ple=
+ase <A id=3DhtmAUnsubscribeLinkHTML href=3D"http://webmail.cdkcrm.com/track=
+=3Ftype=3Dunsubscribe&enid=3DbWFpbGluZ2lkPTFGNDVCNjlGLTY1M0QtNEE1Qi05NTNFLT=
+M0QzdCQjVEQjY5N19fMjgwNyZtZXNzYWdlaWQ9JmRhdGFiYXNlaWQ9MTM4MiZzZXJpYWw9MTM4M=
+iZlbWFpbGlkPW1hcmsubmljaG9sc0BnbWFpbC5jb20mdXNlcmlkPS05OSY=3D&&&http://webm=
+ail.cdkcrm.com/adp_strongmail_unsubscribe_landing_page.htm" target=3D_blank=
+>unsubscribe </A>i</FONT><FONT color=3Dblack><FONT face=3D"'Verdana'"><FONT=
+ size=3D2><FONT color=3Dgray>f you no longer wish to receive emails from Ba=
+ron BMW MINI.</FONT>&nbsp;</FONT></FONT><A id=3DhtmAPrivacyLinkHTML href=3D=
+"http://www.baronbmw.com/privacy.htm" target=3D_blank><FONT size=3D2 face=
+=3D"'Verdana'">View privacy policy</FONT></A><FONT size=3D2 face=3D"'Verdan=
+a'">.</FONT></FONT></P><IMG SRC=3D"http://webmail.cdkcrm.com/track=3Ftype=
+=3Dopen&enid=3DbWFpbGluZ2lkPTFGNDVCNjlGLTY1M0QtNEE1Qi05NTNFLTM0QzdCQjVEQjY5=
+N19fMjgwNyZtZXNzYWdlaWQ9MSwmZGF0YWJhc2VpZD0xMzgyJnNlcmlhbD0xMzgyJmVtYWlsaWQ=
+9bWFyay5uaWNob2xzQGdtYWlsLmNvbSZ1c2VyaWQ9LTk5JmV4dHJhPQ=3D=3D&&&" WIDTH=3D1=
+ HEIGHT=3D1 BORDER=3D0>
+

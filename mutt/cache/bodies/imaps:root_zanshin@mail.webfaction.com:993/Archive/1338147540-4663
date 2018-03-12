@@ -1,0 +1,31 @@
+Return-Path: <mark@zanshin.net>
+X-Original-To: root_zanshin@mailbox20.webfaction.com
+Delivered-To: root_zanshin@mailbox20.webfaction.com
+Received: from mx7.webfaction.com (mail7.webfaction.com [185.20.49.162])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id D9BEF1B58546D1
+	for <root_zanshin@mailbox20.webfaction.com>; Sun,  4 Mar 2018 15:43:04 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx7.webfaction.com (Postfix) with ESMTP id D74DC2009DEB2
+	for <root_zanshin@mailbox20.webfaction.com>; Sun,  4 Mar 2018 15:43:04 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 1.207
+X-Spam-Level: *
+X-Spam-Status: No, score=1.207 tagged_above=-999 required=3
+	tests=[MISSING_HEADERS=1.207] autolearn=no autolearn_force=no
+Received: from mx7.webfaction.com ([127.0.0.1])
+	by localhost (mail7.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id FV1XK4bR8trK
+	for <root_zanshin@mailbox20.webfaction.com>;
+	Sun,  4 Mar 2018 15:42:58 +0000 (UTC)
+Received: from smtp.webfaction.com (mail6.webfaction.com [31.170.123.134])
+	by mx7.webfaction.com (Postfix) with ESMTPS id F180F2009E0B2
+	for <root@zanshin.net>; Sun,  4 Mar 2018 15:42:58 +0000 (UTC)
+Received: from localhost (ip68-102-23-189.ks.ok.cox.net [68.102.23.189])
+	by smtp.webfaction.com (Postfix) with ESMTPSA id 749A3610FD81F
+	for <root@zanshin.net>; Sun,  4 Mar 2018 15:42:58 +0000 (UTC)
+From: mark@zanshin.net
+Date: Sun, 04 Mar 2018 09:42:56 -0600
+Subject: Test Mail
+Message-Id: <20180304154258.749A3610FD81F@smtp.webfaction.com>
+
+This is a test mail

@@ -1,0 +1,120 @@
+Return-Path: <bounce+36b684.947b4-mark=zanshin.net@mg.gitlab.com>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 6113518066987D
+	for <mark_zanshin@mailbox20.webfaction.com>; Sun,  4 Mar 2018 17:58:11 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id 5D87820267DDB
+	for <mark_zanshin@mailbox20.webfaction.com>; Sun,  4 Mar 2018 17:58:11 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.11
+X-Spam-Level:
+X-Spam-Status: No, score=-0.11 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HTML_MESSAGE=0.001, RCVD_IN_MSPIKE_H2=-0.001, SPF_PASS=-0.001,
+	T_RP_MATCHES_RCVD=-0.01, URIBL_BLOCKED=0.001]
+	autolearn=unavailable autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id NIjOxElnBgbY
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Sun,  4 Mar 2018 17:58:02 +0000 (UTC)
+Received: from do158-143.mg.gitlab.com (do158-143.mg.gitlab.com [192.237.158.143])
+	by mx8.webfaction.com (Postfix) with ESMTPS id 9CC40200B2417
+	for <mark@zanshin.net>; Sun,  4 Mar 2018 17:57:12 +0000 (UTC)
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg.gitlab.com; q=dns/txt;
+ s=mailo; t=1520186231; h=List-Unsubscribe: Content-Transfer-Encoding:
+ Content-Type: Mime-Version: Subject: References: In-Reply-To:
+ Message-ID: To: Reply-To: From: Date: Sender;
+ bh=xncEi+9RIbzw+W4MMKO7Eok+J6ZBfF2XRNnGhFw+5k0=; b=Y3+1SL0vrSVcdTcc4RiHPsQ7vAnTrjrJZXUqjS9YIVMiwn/gDWtJ4oKzwj8tRJVJYKSl8VRT
+ IHGoDLjWjXiPNvMF3IWKRhK+HJTZzjAHT1HwXmrm/WzqT1PoupZHz5zLBW1VciudwQdA2q3U
+ +SxcgbshPiJ/vtzZ9251VoT9xlQ=
+X-Mailgun-Sid: WyJlOGZhMyIsICJtYXJrQHphbnNoaW4ubmV0IiwgIjk0N2I0Il0=
+X-Mailgun-Sending-Ip: 192.237.158.143
+Sender: gitlab@mg.gitlab.com
+Received: from mg.gitlab.com (Unknown [52.179.178.202])
+ by mxa.mailgun.org with ESMTP id 5a9c3377.7f2ccd0631f0-smtp-out-n02;
+ Sun, 04 Mar 2018 17:57:11 -0000 (UTC)
+Date: Sun, 04 Mar 2018 17:57:11 +0000
+From: George Nachman <gitlab@mg.gitlab.com>
+Reply-To: George Nachman / iterm2 <incoming+83288a0c77a0023a37de901367382bbd@gitlab.com>
+To: mark@zanshin.net
+Message-ID: <note_61568071@gitlab.com>
+In-Reply-To: <issue_9472262@gitlab.com>
+References: <issue_9472262@gitlab.com>
+ <reply-83288a0c77a0023a37de901367382bbd@gitlab.com>
+Subject: Re: iterm2 | New Window keyboard command doesn't work under macOS
+ full screen (#6546)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a9c33777bd8f_aba3fbea60c96e018794d3";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-GitLab-Project: iterm2
+X-GitLab-Project-Id: 252461
+X-GitLab-Project-Path: gnachman/iterm2
+List-Unsubscribe: <https://gitlab.com/sent_notifications/83288a0c77a0023a37de901367382bbd/unsubscribe?force=true>,<mailto:incoming+83288a0c77a0023a37de901367382bbd+unsubscribe@gitlab.com>
+X-GitLab-Issue-ID: 9472262
+X-GitLab-Reply-Key: 83288a0c77a0023a37de901367382bbd
+Auto-Submitted: auto-generated
+X-Auto-Response-Suppress: All
+
+
+----==_mimepart_5a9c33777bd8f_aba3fbea60c96e018794d3
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+That problem has been fixed for quite a while; I recommend updating to a more recent version. Staying on the same nightly build version for 8 months is fraught with peril :)
+
+---
+Reply to this email directly or view it on GitLab: https://gitlab.com/gnachman/iterm2/issues/6546#note_61568071
+You're receiving this email because of your account on gitlab.com.
+
+----==_mimepart_5a9c33777bd8f_aba3fbea60c96e018794d3
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>
+GitLab
+</title>
+
+
+<style>img {
+max-width: 100%; height: auto;
+}
+</style>
+</head>
+<body>
+<div class="content">
+<div>
+<p dir="auto">That problem has been fixed for quite a while; I recommend updating to a more recent version. Staying on the same nightly build version for 8 months is fraught with peril :)</p>
+</div>
+
+
+</div>
+<div class="footer" style="margin-top: 10px;">
+<p style="font-size: small; color: #777;">
+—
+<br>
+Reply to this email directly or
+<a href="https://gitlab.com/gnachman/iterm2/issues/6546#note_61568071">view it on GitLab</a>.
+<br>
+You're receiving this email because of your account on gitlab.com.
+If you'd like to receive fewer emails, you can
+<a href="https://gitlab.com/sent_notifications/83288a0c77a0023a37de901367382bbd/unsubscribe">unsubscribe</a>
+from this thread or
+adjust your notification settings.
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"EmailMessage","action":{"@type":"ViewAction","name":"View Issue","url":"https://gitlab.com/gnachman/iterm2/issues/6546#note_61568071"}}</script>
+</p>
+</div>
+</body>
+</html>
+
+----==_mimepart_5a9c33777bd8f_aba3fbea60c96e018794d3--

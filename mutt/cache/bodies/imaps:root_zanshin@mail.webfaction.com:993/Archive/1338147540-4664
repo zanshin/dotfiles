@@ -1,0 +1,53 @@
+Return-Path: <mark@zanshin.net>
+X-Original-To: root_zanshin@mailbox20.webfaction.com
+Delivered-To: root_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 272E41AF03278B
+	for <root_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 05:20:50 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id 21C012034E094
+	for <root_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 05:20:50 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 0.001
+X-Spam-Level:
+X-Spam-Status: No, score=0.001 tagged_above=-999 required=3
+	tests=[URIBL_BLOCKED=0.001] autolearn=no autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id apv7-0bgAaf6
+	for <root_zanshin@mailbox20.webfaction.com>;
+	Tue,  6 Mar 2018 05:20:42 +0000 (UTC)
+Received: from smtp.webfaction.com (mail6.webfaction.com [31.170.123.134])
+	by mx8.webfaction.com (Postfix) with ESMTPS id 2772B2030EC51
+	for <root@zanshin.net>; Tue,  6 Mar 2018 05:20:01 +0000 (UTC)
+Received: from fermata (ip68-102-23-189.ks.ok.cox.net [68.102.23.189])
+	by smtp.webfaction.com (Postfix) with ESMTPSA id A25CE600407DA
+	for <root@zanshin.net>; Tue,  6 Mar 2018 05:20:00 +0000 (UTC)
+Date: Mon, 5 Mar 2018 23:19:58 -0600
+From: mark nichols <mark@zanshin.net>
+To: mark nichols <root@zanshin.net>
+Subject: Re: Root sending mail
+Message-ID: <20180306051957.r6sgbcfauzcf56yc@fermata>
+Reply-To: mark nichols <mark@zanshin.net>
+References: <20180306045551.x6pkhnfjx4ybcuaa@fermata>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20180306045551.x6pkhnfjx4ybcuaa@fermata>
+Errors-To: mark@zanshin.net
+User-Agent: NeoMutt/20170609 (1.8.3)
+
+On 03.05.18, mark nichols wrote:
+>Test of root@zanshin.net send email.
+
+Test of reply now that smtp password is encoded
+>
+>--
+>Mark Nichols
+>gpgkey: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
+>curl: https://keybase.io/zanshin/key.asc
+
+--
+Mark Nichols
+gpgkey: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
+curl: https://keybase.io/zanshin/key.asc

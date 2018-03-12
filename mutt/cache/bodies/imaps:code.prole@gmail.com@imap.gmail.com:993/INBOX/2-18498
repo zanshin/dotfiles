@@ -1,0 +1,1744 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp4682150qtm;
+        Tue, 6 Mar 2018 22:02:07 -0800 (PST)
+X-Google-Smtp-Source: AG47ELupW14K6vnLWg1NFx23+kC0aXNkOg9xfG5WCuswrCWCEtlrizhFiEnI3InV2DMEtWnxwo1c
+X-Received: by 10.55.43.68 with SMTP id r65mr31697029qkh.117.1520402527328;
+        Tue, 06 Mar 2018 22:02:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520402527; cv=none;
+        d=google.com; s=arc-20160816;
+        b=0YE/0TJj1l6SqulYJZqqp4Ygen0S6yqL/6LHFa+XxSCe7fytG/ENkndUj8bZKBMG7I
+         yjnWOqWp+7gbYZ/hxdnuPbYk6EpAgGu0n6cZmu1rHFeSKuTteoZRACORcCvqY7k2Xd7A
+         E2H0A9YEgkZu64Rb0pcvX3mdjiWV3uW4+4tu/dCmXK+7WElnRgmGO++wCoUqF3SOYHm9
+         sAGS8DS3kvCi2BO8+DATqLOt8MWLQrwnAaez7mkqaHxOdqptbK2zvnuELlblsb8hTK90
+         OqUJvXlUnr0sjPIAdOyg/NM6smEN0/CwDIlOsIniUSKdeMWav6WU0WUsvaADH3ylSZmC
+         EvkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:list-id:feedback-id:message-id:date
+         :to:reply-to:from:subject:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=pGI8UgIdMQ2xKWR3ovH/iot3oLStqWeCf6Ms/6GP7WE=;
+        b=O1FintI86VLrGTRO+oVlDatzbPZxOr09/sr1f77ux63/VGvlehPAFiKTaYd5EzMhDI
+         H8CqmpKv/Gh82G1WMH4ajkv7mx/xkXIZMfwMBEcfPlaVd+qOlF7vChNeG0I85MYGPJEr
+         oWB+iJdW/2dNfK/9f4bNQ46qXbqUkG8ZiY4ycAeOGV+QWReDNAlVRcwllinHC1LHIoSg
+         XPvf1Umjl6KtZZUWVkognxhkU4b5I4ARvPH5/cv1jAIlnlPfVQ6T62YgViKSuSdhWxFn
+         53jlD86KSAPM4yi01ZkaZJGGXuHWMfCenlBoX/Z9pEAJ+JgxDDtLaGrLLtpb66SnyyJv
+         zSJA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=L1UwAei4;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=UfwRJh1m;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470345-code.prole=gmail.com@mail86.suw91.mcdlv.net designates 198.2.184.86 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470345-code.prole=gmail.com@mail86.suw91.mcdlv.net
+Return-Path: <bounce-mc.us9_35713533.1470345-code.prole=gmail.com@mail86.suw91.mcdlv.net>
+Received: from mail86.suw91.mcdlv.net (mail86.suw91.mcdlv.net. [198.2.184.86])
+        by mx.google.com with ESMTPS id x64si7697076qtd.166.2018.03.06.22.02.07
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 06 Mar 2018 22:02:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_35713533.1470345-code.prole=gmail.com@mail86.suw91.mcdlv.net designates 198.2.184.86 as permitted sender) client-ip=198.2.184.86;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=L1UwAei4;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=UfwRJh1m;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470345-code.prole=gmail.com@mail86.suw91.mcdlv.net designates 198.2.184.86 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470345-code.prole=gmail.com@mail86.suw91.mcdlv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=onelanday.co.uk;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=the-morning-paper@onelanday.co.uk;
+ bh=pGI8UgIdMQ2xKWR3ovH/iot3oLStqWeCf6Ms/6GP7WE=;
+ b=L1UwAei4EY2NGF3iK8YVLThuqgCf9+BUxozwT+BfBBZWk+hq0BVUCYf2kCrX0FDv1g8GH7CFJy1j
+   PxEcx+MXWF+ujr5LR5ORaDsNqMxj9YsGqlhmXj22PxN9OPAocIi/waszOWi0cOclhcKl7IV0czU8
+   YeofdCm88tbSHLlo0eI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=pGI8UgIdMQ2xKWR3ovH/iot3oLStqWeCf6Ms/6GP7WE=;
+ b=UfwRJh1mzx8TxBLUFXrS6KWfSk+SiSFT0iAi5XlYzugjRgVIA6K2gEQYGyz2WGnW7ohlBL/IyTdX
+   57WOQTm5lyMHN6xetgEgTLn7/TtjtSRfu5yPUbHkQ477I+dtF9qUx1ByYt+UWhmcsnBwmOJL5h7K
+   mPkTPyDsokmsDcpwpAQ=
+Received: from (127.0.0.1) by mail86.suw91.mcdlv.net id hju05u2ddl4k for <code.prole@gmail.com>; Wed, 7 Mar 2018 06:01:02 +0000 (envelope-from <bounce-mc.us9_35713533.1470345-code.prole=gmail.com@mail86.suw91.mcdlv.net>)
+Subject: =?utf-8?Q?The=20Morning=20Paper=3A=20Investigating=20ad=20transparency=20mechanisms=20in=20social=20media=20=2D=20a=20case=20study=20of=20Facebook=27s=20explanations?=
+From: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+Reply-To: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+To: <code.prole@gmail.com>
+Date: Wed, 7 Mar 2018 06:01:02 +0000
+Message-ID: <4188b6afbe9e5d43111fef4d4.1c7444593b.20180307060018.cbaff3290b.be97e12b@mail86.suw91.mcdlv.net>
+X-Mailer: MailChimp Mailer - **CIDcbaff3290b1c7444593b**
+X-Campaign: mailchimp4188b6afbe9e5d43111fef4d4.cbaff3290b
+X-campaignid: mailchimp4188b6afbe9e5d43111fef4d4.cbaff3290b
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=4188b6afbe9e5d43111fef4d4&id=cbaff3290b&e=1c7444593b
+X-MC-User: 4188b6afbe9e5d43111fef4d4
+Feedback-ID: 35713533:35713533.1470345:us9:mc
+List-ID: 4188b6afbe9e5d43111fef4d4mc list <4188b6afbe9e5d43111fef4d4.597133.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://acolyer.us9.list-manage.com/unsubscribe?u=4188b6afbe9e5d43111fef4d4&id=de5773de0c&e=1c7444593b&c=cbaff3290b>, <mailto:unsubscribe-mc.us9_4188b6afbe9e5d43111fef4d4.cbaff3290b-1c7444593b@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1304819445"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1304819445
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+The "explanations" that seem designed to explain as little as possible...
+View this email in your browser (http://mailchi.mp/onelanday/the-morning-p=
+aper-investigating-ad-transparency-mechanisms-in-social-media-a-case-study=
+-of-facebooks-explanations?e=3D1c7444593b)
+This paper write-up is also available online at The Morning Paper. (http:/=
+/blog.acolyer.org/2018/03/07/investigating-ad-transparency-mechanisms-in-s=
+ocial-media-a-case-study-of-facebooks-explanations)
+
+
+** the morning paper
+------------------------------------------------------------
+
+
+** Investigating ad transparency mechanisms in social media: a case study=
+ of Facebook=E2=80=99s explanations
+------------------------------------------------------------
+
+Investigating ad transparency mechanisms in social media: a case study of=
+ Facebook=E2=80=99s explanations (https://www.ndss-symposium.org/wp-conten=
+t/uploads/sites/25/2018/02/ndss2018_10-1_Andreou_paper.pdf) Andreou et al.=
+=2C NDSS=E2=80=9918
+
+Let me start out by saying that I think it=E2=80=99s good Facebook are mak=
+ing an effort to provide more transparency to advertising. It=E2=80=99s go=
+od that Twitter announced (https://www.buzzfeed.com/alexkantrowitz/where-i=
+s-twitters-promised-ad-transparency-center?utm_term=3D.ltzY0GYOb#.lxLwk3w7=
+6) they will do something similar too. It=E2=80=99s a shame though that in=
+ Twitter=E2=80=99s case they don=E2=80=99t seem to have followed through b=
+y actually releasing anything (it=E2=80=99s possible I=E2=80=99m wrong on=
+ this and missed the release - let me know if so!). And as today=E2=80=99s=
+ paper choice reveals=2C it=E2=80=99s a shame that in Facebook=E2=80=99s i=
+mplementation they seem to be making some choices that considerably mask t=
+he truth=2C making the explanations provided significantly less useful tha=
+n they otherwise could be.
+
+I particularly like the experiment setup in the paper. If you=E2=80=99re g=
+oing to assess advertisement explanations=2C then ideally you need to comp=
+are the explanation given to the ground truth (i.e.=2C the targeting attri=
+butes that were actually used). Unfortunately the ground truth is an unkno=
+wn of course... unless you also happen to be the advertiser!
+
+For our experiments=2C we develop a browser extension that collects the ad=
+s users receive every time they browse Facebook=2C their respective explan=
+ations=2C and the attributes listed on the Ad Preferences Page; we then us=
+e controlled experiments where we create our own ad campaigns and target t=
+he users that installed our extension.
+
+26=2C173 unique ads and explanations are collected from 35 users spread ac=
+ross three countries in Europe as well as the U.S.. Then the team ran 135=
+ different ad campaigns gathering 254 explanations for their own ads. Comp=
+ared to Facebook=E2=80=99s scale of course=2C that=E2=80=99s tiny. However=
+=2C as the authors point out: =E2=80=9Cwhile proving that explanations alw=
+ays satisfy certain properties is likely impossible even with a much large=
+r user base=2C proving that explanations fail to satisfy certain propertie=
+s only requires one example.=E2=80=9D. (Strictly=2C the authors should add=
+ the word =E2=80=9Csometimes=E2=80=9D to that last clause=2C as in =E2=80=
+=98explanations sometimes fail...=E2=80=99).
+
+When examining ad explanations provided by Facebook=2C the key finding is=
+ that explanations are often incomplete=2C and sometimes misleading. Suppo=
+se that an advertiser uses several attributes for targeting=2C the explana=
+tions will include at most one of those attributes. If you were going to p=
+ick just one attribute of course=2C then the one with the most explanatory=
+ power would probably be the one with the smallest population (i.e.=2C few=
+er Facebook users with that attribute). But Facebook=E2=80=99s explanation=
+s appear to show only the most prevalent attribute (e.g.=2C =E2=80=98peopl=
+e in the millennials audience=E2=80=99). This makes the explanations incom=
+plete in a very unhelpful way.
+
+The way Facebook=E2=80=99s ad explanations appear to be built =E2=80=94 sh=
+owing only the most prevalent attribute =E2=80=94 may allow malicious adve=
+rtisers to easily obfuscate ad explanations from ad campaigns that are dis=
+criminatory or that target privacy-sensitive attributes.
+
+Explanations can be misleading in the sense that they sometimes suggest at=
+tributes never specified by the advertiser =E2=80=9Cmay=E2=80=9D have been=
+ selected. This part of the explanation always contains age=2C location=2C=
+ and gender information regardless of what the advertiser actually specifi=
+ed.
+
+Of course there=E2=80=99s a trade-off here since advertisers don=E2=80=99t=
+ necessarily want their competitors to know what mechanisms they=E2=80=99r=
+e using for targeting=2C so some obfuscation is to be expected. Just perha=
+ps not this much.
+
+Let=E2=80=99s take a quick look at the advertising mechanisms in play on F=
+acebook before diving into the results in a little more detail.
+
+
+** Advertising on Facebook
+------------------------------------------------------------
+
+There are three components involved in determining whether or not you see=
+ a given ad on Facebook:
+1. The data (profile) that Facebook has assembled on you. This combines in=
+formation collected about you online with information bought offline from=
+ data brokers. The result is a set of targeting attributes that advertiser=
+s can use to target you.
+2. The audience selection process by which an advertiser expresses who sho=
+uld receive their ads. A set of targeting attributes collectively specify=
+ an audience. When creating a campaign=2C advertisers also specify whether=
+ they want to optimise for =E2=80=98reach=E2=80=99 or for =E2=80=98convers=
+ions=E2=80=99. Put more crudely=2C do you want to maximise impressions=2C=
+ or clicks?
+3. The run-time ad matching process that takes place whenever someone is e=
+ligible to see an ad. It compares all the relevant ad campaigns and their=
+ bids and runs an auction to determine what ads are selected.
+
+This paper focuses on parts (1) and (2) - what data Facebook has about you=
+=2C and what attributes advertisers are using to build audiences. One spec=
+ial kind of audience is the custom audience.
+
+In brief=2C custom audiences allow advertisers to upload a list of PII =E2=
+=80=94 including email addresses=2C or phone numbers=2C or names along wit=
+h ZIP codes =E2=80=94 of users they wish to reach on Facebook. Facebook th=
+en creates an audience containing only the users who match the uploaded PI=
+I.
+
+As of the time of this research=2C Facebook were offering 1=2C420 unique t=
+argeting attributes across the 10 different countries studied (U.S.=2C U.K=
+=2E=2C France=2C Germany=2C Australia=2C South Korea=2C Japan=2C Canada=2C a=
+nd India). By careful construction of audiences=2C they also obtained the=
+ corresponding audience reach estimate (i.e.=2C number of matching users)=
+ for each attribute.
+
+In the U.S.=2C Facebook currently works with four data brokers: Epsilon=2C=
+ DLX=2C Experian=2C and Acxiom. Almost all the data brokers have data abou=
+t the majority of Facebook users.
+
+(Enlarge (https://adriancolyer.files.wordpress.com/2018/03/facebook-ads-ta=
+ble-ii.jpeg) )
+
+
+** Ad explanations
+------------------------------------------------------------
+
+A Facebook ad explanation has two parts. The first part starts with =E2=80=
+=9COne reason you=E2=80=99re seeing this ad ...=E2=80=9D or =E2=80=9CYou=
+=E2=80=99re seeing this ad because ... =E2=80=9C and the second part start=
+s with =E2=80=9CThere may be other reasons you=E2=80=99re seeing this ad .=
+=2E.=E2=80=9D.
+
+The first part of the ad explanations varies greatly across all of the ad=
+ explanations we observed... we can group (the first part of) explanation=
+ based on their underlying pattern and attribute type. Table II shows the=
+ different explanation types we identified together with typical examples=
+ for each type; overall we observed 10 different structures for the first=
+ part of the explanations.
+
+(Enlarge (https://adriancolyer.files.wordpress.com/2018/03/facebook-ads-ta=
+ble-iii.jpeg) )
+
+Comparing the explanations to the targeting of the ads placed by the resea=
+rchers reveals the following:
+* Ad explanations are personalised to the Facebook user (two different use=
+rs seeing the same ad may see different explanations)
+* Ad explanations are incomplete - only one of the targeting attributes wa=
+s ever shown in an explanation=2C even when users had all of the targeting=
+ attributes used.
+* The ordering of attributes chosen by the advertiser does not affect the=
+ explanations
+* When choosing which attribute to use in the explanation=2C the most comm=
+on one always appears to be used.
+* Moreover=2C when targeting attributes belong to different categories=2C=
+ then the selection of the chosen attribute for the explanation follows th=
+e following order: Demographic=2C then Interest=2C then PII-based=2C and f=
+inally Behaviour based. I.e.=2C you=E2=80=99ll only see a behaviour-based=
+ attribute in an explanation if there are no demographic=2C interest=2C or=
+ PII-based attributes in the targeting list.
+
+=2E.. our results suggest that whenever the advertiser uses one demographic-=
+based attribute in addition to other attributes in its targeting=2C the de=
+mographic-based attribute will be the one in the explanation. If this is i=
+n fact the case=2C this choice is potentially impactful to users as previo=
+us research shows that users often consider behavior attributes more sensi=
+tive than the demographic ones.
+
+* In the second part of explanations=2C attributes are included that were=
+ potentially never specified in the targeting=2C e.g.=2C location-based at=
+tributes.
+* When advertisers use data-broker provided targeting attributes=2C the ac=
+tual targeted attributed is not provided=2C instead the user is told they=
+ were part of an audience based on data provided by a specific data broker=
+=2E
+* When advertisers use custom audiences=2C the explanations are generic ph=
+rases such as =E2=80=9Cyou=E2=80=99re on their customer list.=E2=80=9D
+
+Unfortunately=2C Facebook does not reveal to the user which PII the advert=
+iser provided (e.g.=2C their email address=2C phone number=2C etc.). Yet a=
+gain=2C we find that the explanations provided by Facebook are incomplete;=
+ this issue is especially acute when the advertisers are targeting users d=
+irectly with their PII.
+
+
+** Data explanations
+------------------------------------------------------------
+
+Facebook shows you the advertising attributes it has inferred about you on=
+ your Ad Preferences Page.
+
+The team crawled the information on the Ad Preferences Page on a daily bas=
+is for each of 35 monitoring users=2C for a five month period.
+
+We find that the number of reported attributes varies widely by user=2C ra=
+nging from 4 to 893 attributes=2C with an average of 247 and a median of 1=
+53. Across all users=2C we find that most reported attributes were interes=
+t-based (93%)=2C followed by behavior-based (5%) and demographic-based (2%=
+).
+
+The inferred attributes do change over time - an average over 4.3% of a us=
+er=E2=80=99s attributes change per day.
+
+There are five distinct patterns of explanations for inferred data attribu=
+tes:
+
+While the vast majority of interest explanations are due to liked pages an=
+d clicks (for example)=2C Facebook does not specify which page or ad led t=
+o the interest attribute. No data broker attributes appear in the Ad Prefe=
+rences Page (or any other place).
+
+According to a statement by a Facebook representative=2C the absence of da=
+ta broker attributes from the Ad Preferences Page is a deliberate choice=
+=2C motivated by the fact that the data was not collected by Facebook.
+
+With the forthcoming GDPR legislation=2C my interpretation is that you sho=
+uld be able to obtain this information on request. See for example the ICO=
+ explanations on the right to be informed (%20https://ico.org.uk/for-organ=
+isations/guide-to-the-general-data-protection-regulation-gdpr/individual-r=
+ights/right-to-be-informed/) and the right of access (https://ico.org.uk/f=
+or-organisations/guide-to-the-general-data-protection-regulation-gdpr/indi=
+vidual-rights/right-of-access/) .
+
+
+** AdAnalyst
+------------------------------------------------------------
+
+Facebook=E2=80=99s explanations only provide a partial view of its adverti=
+sing mechanisms. To move towards greater transparency we built a tool=2C A=
+dAnalyst=2C that works on top of Facebook and provides explanations with s=
+ome of the missing properties. AdAnalyst keeps track of historical data ab=
+out ads and explanations to provide users with a temporal view; and it pro=
+vides a wider perspective by aggregating data across users. The tool can b=
+e downloaded and installed from http://adanalyst.mpi-sws.org. We hope that=
+ AdAnalyst will help increase the transparency of Facebook advertising and=
+ that it will allow users to detect malicious and deceptive advertising.
+
+http://twitter.com/intent/tweet?text=3DInvestigating%20ad%20transparency%2=
+0mechanisms%20in%20social%20media%3A%20a%20case%20study%20of%20Facebook's%=
+20explanations: http%3A%2F%2Fblog.acolyer.org%2F2018%2F03%2F07%2Finvestiga=
+ting-ad-transparency-mechanisms-in-social-media-a-case-study-of-facebooks-=
+explanations Tweet (http://twitter.com/intent/tweet?text=3DInvestigating%2=
+0ad%20transparency%20mechanisms%20in%20social%20media%3A%20a%20case%20stud=
+y%20of%20Facebook's%20explanations: http%3A%2F%2Fblog.acolyer.org%2F2018%2=
+F03%2F07%2Finvestigating-ad-transparency-mechanisms-in-social-media-a-case=
+-study-of-facebooks-explanations)
+This email was brought to you by #themorningpaper (http://blog.acolyer.org=
+) : an interesting/influential/important paper from the world of CS every=
+ weekday morning=2C as selected by Adrian Colyer
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Copyright =C2=A9 2018 One L and a Y Ltd=2C All rights reserved.
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.
+
+Our mailing address is:
+One L and a Y Ltd
+Unit 5755
+PO Box 6945
+London=2C England W1A 6US
+United Kingdom
+** unsubscribe from this list (https://acolyer.us9.list-manage.com/unsubsc=
+ribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3Dcbaff3=
+290b)
+** update subscription preferences (https://acolyer.us9.list-manage.com/pr=
+ofile?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b)
+--_----------=_MCPart_1304819445
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or=
+g/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+    <head>
+    =09<!-- NAME: 1 COLUMN -->
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+UTF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1.0">
+        <title>The Morning Paper: Investigating ad transparency mechanisms=
+ in social media - a case study of Facebook's explanations</title>
+
+    <style type=3D"text/css">
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100% !important;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100% !important;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09p{
+=09=09=09margin:1em 0;
+=09=09=09padding:0;
+=09=09}
+=09=09a{
+=09=09=09word-wrap:break-word;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass span=2C.ExternalC=
+lass font=2C.ExternalClass td=2C.ExternalClass div{
+=09=09=09line-height:100%;
+=09=09}
+=09=09table=2Ctd{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09#templatePreheader=2C#templateHeader=2C#templateBody=2C#templateFoot=
+er{
+=09=09=09min-width:100%;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:20px;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#F2F2F2;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09#templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:40px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-1px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#404040 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.75px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.5px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#808080 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent=2C.preheaderContainer .mcnTextCo=
+ntent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.footerContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[id=3DbodyCell]{
+=09=09=09padding:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3Dmcpreview-image-uploader]{
+=09=09=09width:100% !important;
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09img[class=3DmcnImage]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnImageGroupContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupContent]{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupBlockInner]{
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-top:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09tbody[class=3DmcnImageGroupBlockOuter]{
+=09=09=09padding-bottom:9px !important;
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionTopContent]=2Ctable[class=3DmcnCaptionBott=
+omContent]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftTextContentContainer]=2Ctable[class=3D=
+mcnCaptionRightTextContentContainer]=2Ctable[class=3DmcnCaptionLeftImageC=
+ontentContainer]=2Ctable[class=3DmcnCaptionRightImageContentContainer]=2C=
+table[class=3DmcnImageCardLeftTextContentContainer]=2Ctable[class=3DmcnI=
+mageCardRightTextContentContainer]=2C.mcnImageCardLeftImageContentContaine=
+r=2C.mcnImageCardRightImageContentContainer{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftContentOuter] td[class=3DmcnTextConten=
+t]=2Ctable[class=3DmcnCaptionRightContentOuter] td[class=3DmcnTextConten=
+t]{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnCaptionBlockInner] table[class=3DmcnCaptionTopConten=
+t]:last-child td[class=3DmcnTextContent]=2C.mcnImageCardTopImageContent=
+=2C.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnBoxedTextContentColumn]{
+=09=09=09padding-left:18px !important;
+=09=09=09padding-right:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnTextContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplateContainer]=2Ctable[id=3DtemplatePreheader]=2Cta=
+ble[id=3DtemplateHeader]=2Ctable[id=3DtemplateBody]=2Ctable[id=3Dtempla=
+teFooter]{
+=09=09=09max-width:600px !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:24px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextCont=
+ent]=2Ctd[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextConten=
+t] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplatePreheader]{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DpreheaderContainer] td[class=3DmcnTextContent]=2Ctd[cl=
+ass=3DpreheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DheaderContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DbodyContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DbodyContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DfooterContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] a[class=3DutilityLink]{
+=09=09=09display:block !important;
+=09=09}
+
+}</style></head>
+    <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=
+=3D"0" offset=3D"0" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;background-color: #F2F2F2;height: 100% !=
+important;width: 100% !important;">
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;backg=
+round-color: #F2F2F2;height: 100% !important;width: 100% !important;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;margin: 0;padding: 20px;border-top: 0;h=
+eight: 100% !important;width: 100% !important;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600" id=3D"templateContainer" style=3D"border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;border: 0;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN PREHEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templatePreheader" style=3D"border-=
+collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-=
+color: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                        =09<td valign=3D"top" class=3D"pre=
+headerContainer" style=3D"padding-top: 9px;mso-table-lspace: 0pt;mso-table=
+-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"390" style=3D"width:390px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 390px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            The "explanations" that seem designed to expla=
+in as little as possible...
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"210" style=3D"width:210px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 210px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <a href=3D"http://mailchi.mp/onelanday/the-mor=
+ning-paper-investigating-ad-transparency-mechanisms-in-social-media-a-case=
+-study-of-facebooks-explanations?e=3D1c7444593b" target=3D"_blank" style=3D"=
+word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #606060;font-weight: normal;text-decoration: underline;">View=
+ this email in your browser</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN HEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateHeader" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock"=
+ style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;=
+mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <a href=3D"http://blog.acolyer.org/2018/03/07/=
+investigating-ad-transparency-mechanisms-in-social-media-a-case-study-of-f=
+acebooks-explanations" target=3D"_blank" style=3D"word-wrap: break-word;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;fon=
+t-weight: normal;text-decoration: underline;">This paper write-up is also=
+ available online at The Morning Paper.</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END HEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN BODY // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateBody" style=3D"border-colla=
+pse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-color=
+: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock" st=
+yle=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso=
+-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <style type=3D"text/css">blockquote {
+    display: block;
+    padding: 20px 20px 10px 45px;
+    margin: 20px 0px;
+    font-style: italic;
+    font-size: 14px;
+    color: #141310;
+    background: url("blog.acolyer.org/wp-content/themes/pub/vigilance/imag=
+es/blockquote.gif") no-repeat scroll left top #E7E6E2;
+}
+</style>
+<h1 style=3D"margin: 0;padding: 0;display: block;font-family: Helvetica;fo=
+nt-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;lette=
+r-spacing: -1px;text-align: left;color: #606060 !important;">the morning p=
+aper</h1>
+
+<h2 id=3D"investigating-ad-transparency-mechanisms-in-social-media-a-case-=
+study-of-facebooks-explanations" style=3D"margin: 0;padding: 0;display: bl=
+ock;font-family: Helvetica;font-size: 26px;font-style: normal;font-weight:=
+ bold;line-height: 125%;letter-spacing: -.75px;text-align: left;color: #40=
+4040 !important;">Investigating ad transparency mechanisms in social media=
+: a case study of Facebook=E2=80=99s explanations</h2>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><a href=3D"https://www.ndss-symposiu=
+m.org/wp-content/uploads/sites/25/2018/02/ndss2018_10-1_Andreou_paper.pdf"=
+ style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-si=
+ze-adjust: 100%;color: #6DC6DD;font-weight: normal;text-decoration: underl=
+ine;">Investigating ad transparency mechanisms in social media: a case stu=
+dy of Facebook=E2=80=99s explanations</a> Andreou et al.=2C <em>NDSS=E2=80=
+=9918</em></p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Let me start out by saying that I th=
+ink it=E2=80=99s good Facebook are making an effort to provide more transp=
+arency to advertising. It=E2=80=99s good that <a href=3D"https://www.buzzf=
+eed.com/alexkantrowitz/where-is-twitters-promised-ad-transparency-center?u=
+tm_term=3D.ltzY0GYOb#.lxLwk3w76" style=3D"word-wrap: break-word;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weight=
+: normal;text-decoration: underline;">Twitter announced</a> they will do s=
+omething similar too. It=E2=80=99s a shame though that in Twitter=E2=80=99=
+s case they don=E2=80=99t seem to have followed through by actually releas=
+ing anything (it=E2=80=99s possible I=E2=80=99m wrong on this and missed t=
+he release - let me know if so!). And as today=E2=80=99s paper choice reve=
+als=2C it=E2=80=99s a shame that in Facebook=E2=80=99s implementation they=
+ seem to be making some choices that considerably mask the truth=2C making=
+ the explanations provided significantly less useful than they otherwise c=
+ould be.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">I particularly like the experiment s=
+etup in the paper. If you=E2=80=99re going to assess advertisement explana=
+tions=2C then ideally you need to compare the explanation given to the gro=
+und truth (i.e.=2C the targeting attributes that were actually used). Unfo=
+rtunately the ground truth is an unknown of course... unless you <em>also<=
+/em> happen to be the advertiser!</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">For our experiments=2C we develop a=
+ browser extension that collects the ads users receive every time they bro=
+wse Facebook=2C their respective explanations=2C and the attributes listed=
+ on the Ad Preferences Page; we then use controlled experiments where we c=
+reate our own ad campaigns and target the users that installed our extensi=
+on.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">26=2C173 unique ads and explanations=
+ are collected from 35 users spread across three countries in Europe as we=
+ll as the U.S.. Then the team ran 135 different ad campaigns gathering 254=
+ explanations for their own ads. Compared to Facebook=E2=80=99s scale of c=
+ourse=2C that=E2=80=99s tiny. However=2C as the authors point out: =E2=80=
+=9C<em>while proving that explanations <strong>always</strong> satisfy cer=
+tain properties is likely impossible even with a much larger user base=2C=
+ proving that explanations fail to satisfy certain properties only require=
+s one example.</em>=E2=80=9D. (Strictly=2C the authors should add the word=
+ =E2=80=9Csometimes=E2=80=9D to that last clause=2C as in =E2=80=98explana=
+tions <em>sometimes</em> fail...=E2=80=99).</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">When examining ad explanations provi=
+ded by Facebook=2C the key finding is that explanations are often <em>inco=
+mplete</em>=2C and sometimes <em>misleading</em>. Suppose that an advertis=
+er uses several attributes for targeting=2C the explanations will include=
+ <em>at most one</em> of those attributes. If you were going to pick just=
+ one attribute of course=2C then the one with the most explanatory power w=
+ould probably be the one with the smallest population (i.e.=2C fewer Faceb=
+ook users with that attribute). But Facebook=E2=80=99s explanations appear=
+ to show only the <em>most prevalent attribute</em> (e.g.=2C =E2=80=98peop=
+le in the millennials audience=E2=80=99). This makes the explanations inco=
+mplete in a very unhelpful way.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The way Facebook=E2=80=99s ad explan=
+ations appear to be built =E2=80=94 showing only the most prevalent attrib=
+ute =E2=80=94 may allow malicious advertisers to easily obfuscate ad expla=
+nations from ad campaigns that are discriminatory or that target privacy-s=
+ensitive attributes.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Explanations can be misleading in th=
+e sense that they sometimes suggest attributes never specified by the adve=
+rtiser =E2=80=9Cmay=E2=80=9D have been selected. This part of the explanat=
+ion always contains age=2C location=2C and gender information regardless o=
+f what the advertiser actually specified.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Of course there=E2=80=99s a trade-of=
+f here since advertisers don=E2=80=99t necessarily want their competitors=
+ to know what mechanisms they=E2=80=99re using for targeting=2C so some ob=
+fuscation is to be expected. Just perhaps not this much.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Let=E2=80=99s take a quick look at t=
+he advertising mechanisms in play on Facebook before diving into the resul=
+ts in a little more detail.</p>
+<h3 id=3D"advertising-on-facebook" style=3D"margin: 0;padding: 0;display:=
+ block;font-family: Helvetica;font-size: 18px;font-style: normal;font-weig=
+ht: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #=
+606060 !important;">Advertising on Facebook</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">There are three components involved=
+ in determining whether or not you see a given ad on Facebook:</p>
+<ol style=3D"list-style-type: decimal">
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he data (profile) that Facebook has assembled on you. This combines inform=
+ation collected about you online with information bought offline from data=
+ brokers. The result is a set of targeting attributes that advertisers can=
+ use to target you.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he audience selection process by which an advertiser expresses who should=
+ receive their ads. A set of targeting attributes collectively specify an=
+ <em>audience</em>. When creating a campaign=2C advertisers also specify w=
+hether they want to optimise for =E2=80=98reach=E2=80=99 or for =E2=80=98c=
+onversions=E2=80=99. Put more crudely=2C do you want to maximise impressio=
+ns=2C or clicks?</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he run-time ad matching process that takes place whenever someone is eligi=
+ble to see an ad. It compares all the relevant ad campaigns and their bids=
+ and runs an auction to determine what ads are selected.</li>
+</ol>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">This paper focuses on parts (1) and=
+ (2) - what data Facebook has about you=2C and what attributes advertisers=
+ are using to build audiences. One special kind of audience is the <em>cus=
+tom audience</em>.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">In brief=2C custom audiences allow a=
+dvertisers to upload a list of PII =E2=80=94 including email addresses=2C=
+ or phone numbers=2C or names along with ZIP codes =E2=80=94 of users they=
+ wish to reach on Facebook. Facebook then creates an audience containing o=
+nly the users who match the uploaded PII.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">As of the time of this research=2C F=
+acebook were offering 1=2C420 unique targeting attributes across the 10 di=
+fferent countries studied (U.S.=2C U.K.=2C France=2C Germany=2C Australia=
+=2C South Korea=2C Japan=2C Canada=2C and India). By careful construction=
+ of audiences=2C they also obtained the corresponding audience reach estim=
+ate (i.e.=2C number of matching users) for each attribute.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">In the U.S.=2C Facebook currently wo=
+rks with four data brokers: Epsilon=2C DLX=2C Experian=2C and Acxiom. Almo=
+st all the data brokers have data about the majority of Facebook users.</p=
+>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><img src=3D"https://adriancolyer.fil=
+es.wordpress.com/2018/03/facebook-ads-table-ii.jpeg?w=3D640" style=3D"bord=
+er: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;=
+height: auto !important;"> (<a href=3D"https://adriancolyer.files.wordpres=
+s.com/2018/03/facebook-ads-table-ii.jpeg" style=3D"word-wrap: break-word;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;fo=
+nt-weight: normal;text-decoration: underline;">Enlarge</a>)</p>
+<h3 id=3D"ad-explanations" style=3D"margin: 0;padding: 0;display: block;fo=
+nt-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;=
+line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !i=
+mportant;">Ad explanations</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">A Facebook ad explanation has two pa=
+rts. The first part starts with =E2=80=9COne reason you=E2=80=99re seeing=
+ this ad ...=E2=80=9D or =E2=80=9CYou=E2=80=99re seeing this ad because ..=
+=2E =E2=80=9C and the second part starts with =E2=80=9CThere may be other re=
+asons you=E2=80=99re seeing this ad ...=E2=80=9D.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The first part of the ad explanation=
+s varies greatly across all of the ad explanations we observed... we can g=
+roup (the first part of) explanation based on their underlying pattern and=
+ attribute type. Table II shows the different explanation types we identif=
+ied together with typical examples for each type; overall we observed 10 d=
+ifferent structures for the first part of the explanations.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><img src=3D"https://adriancolyer.fil=
+es.wordpress.com/2018/03/facebook-ads-table-iii.jpeg?w=3D640" style=3D"bor=
+der: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic=
+;height: auto !important;"> (<a href=3D"https://adriancolyer.files.wordpre=
+ss.com/2018/03/facebook-ads-table-iii.jpeg" style=3D"word-wrap: break-word=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;=
+font-weight: normal;text-decoration: underline;">Enlarge</a>)</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Comparing the explanations to the ta=
+rgeting of the ads placed by the researchers reveals the following:</p>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">A=
+d explanations are personalised to the Facebook user (two different users=
+ seeing the same ad may see different explanations)</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">A=
+d explanations are incomplete - only one of the targeting attributes was e=
+ver shown in an explanation=2C even when users had all of the targeting at=
+tributes used.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he ordering of attributes chosen by the advertiser does not affect the exp=
+lanations</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">W=
+hen choosing which attribute to use in the explanation=2C the most common=
+ one always appears to be used.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">M=
+oreover=2C when targeting attributes belong to different categories=2C the=
+n the selection of the chosen attribute for the explanation follows the fo=
+llowing order: Demographic=2C then Interest=2C then PII-based=2C and final=
+ly Behaviour based. I.e.=2C you=E2=80=99ll only see a behaviour-based attr=
+ibute in an explanation if there are no demographic=2C interest=2C or PII-=
+based attributes in the targeting list.</li>
+</ul>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">... our results suggest that wheneve=
+r the advertiser uses one demographic-based attribute in addition to other=
+ attributes in its targeting=2C the demographic-based attribute will be th=
+e one in the explanation. If this is in fact the case=2C this choice is po=
+tentially impactful to users as previous research shows that users often c=
+onsider behavior attributes more sensitive than the demographic ones.</p>
+</blockquote>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">I=
+n the second part of explanations=2C attributes are included that were pot=
+entially never specified in the targeting=2C e.g.=2C location-based attrib=
+utes.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">W=
+hen advertisers use data-broker provided targeting attributes=2C the actua=
+l targeted attributed is not provided=2C instead the user is told they wer=
+e part of an audience based on data provided by a specific data broker.</l=
+i>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">W=
+hen advertisers use custom audiences=2C the explanations are generic phras=
+es such as =E2=80=9Cyou=E2=80=99re on their customer list.=E2=80=9D</li>
+</ul>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Unfortunately=2C Facebook does not r=
+eveal to the user which PII the advertiser provided (e.g.=2C their email a=
+ddress=2C phone number=2C etc.). Yet again=2C we find that the explanation=
+s provided by Facebook are incomplete; this issue is especially acute when=
+ the advertisers are targeting users directly with their PII.</p>
+</blockquote>
+<h3 id=3D"data-explanations" style=3D"margin: 0;padding: 0;display: block;=
+font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bol=
+d;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060=
+ !important;">Data explanations</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Facebook shows you the advertising a=
+ttributes it has inferred about you on your Ad Preferences Page.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/03/facebook-ads-=
+fig-3.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none=
+;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The team crawled the information on=
+ the Ad Preferences Page on a daily basis for each of 35 monitoring users=
+=2C for a five month period.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We find that the number of reported=
+ attributes varies widely by user=2C ranging from 4 to 893 attributes=2C w=
+ith an average of 247 and a median of 153. Across all users=2C we find tha=
+t most reported attributes were interest-based (93%)=2C followed by behavi=
+or-based (5%) and demographic-based (2%).</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The inferred attributes do change ov=
+er time - an average over 4.3% of a user=E2=80=99s attributes change per d=
+ay.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">There are five distinct patterns of=
+ explanations for inferred data attributes:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/03/facebook-ads-=
+table-v.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: no=
+ne;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">While the vast majority of interest=
+ explanations are due to liked pages and clicks (for example)=2C Facebook=
+ does not specify <em>which</em> page or ad led to the interest attribute.=
+ No data broker attributes appear in the Ad Preferences Page (or any other=
+ place).</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">According to a statement by a Facebo=
+ok representative=2C the absence of data broker attributes from the Ad Pre=
+ferences Page is a deliberate choice=2C motivated by the fact that the dat=
+a was not collected by Facebook.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">With the forthcoming GDPR legislatio=
+n=2C my interpretation is that you should be able to obtain this informati=
+on on request. See for example the ICO explanations on the <a href=3D"%20h=
+ttps://ico.org.uk/for-organisations/guide-to-the-general-data-protection-r=
+egulation-gdpr/individual-rights/right-to-be-informed/" style=3D"word-wrap=
+: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #6DC6DD;font-weight: normal;text-decoration: underline;">right to be i=
+nformed</a> and the <a href=3D"https://ico.org.uk/for-organisations/guide-=
+to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-=
+access/" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text-decoration=
+: underline;">right of access</a>.</p>
+<h3 id=3D"adanalyst" style=3D"margin: 0;padding: 0;display: block;font-fam=
+ily: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;line-h=
+eight: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !importa=
+nt;">AdAnalyst</h3>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Facebook=E2=80=99s explanations only=
+ provide a partial view of its advertising mechanisms. To move towards gre=
+ater transparency we built a tool=2C AdAnalyst=2C that works on top of Fac=
+ebook and provides explanations with some of the missing properties. AdAna=
+lyst keeps track of historical data about ads and explanations to provide=
+ users with a temporal view; and it provides a wider perspective by aggreg=
+ating data across users. The tool can be downloaded and installed from <a=
+ href=3D"http://adanalyst.mpi-sws.org" class=3D"uri" style=3D"word-wrap: b=
+reak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #6DC6DD;font-weight: normal;text-decoration: underline;">http://adanalyst=
+=2Empi-sws.org</a>. We hope that AdAnalyst will help increase the transparen=
+cy of Facebook advertising and that it will allow users to detect maliciou=
+s and deceptive advertising.</p>
+</blockquote>
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnShareBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnShareBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;" class=3D"mcnShareBlockInner">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" class=3D"mcnShareContentContainer" style=3D"min-width: 10=
+0%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"left" style=3D"padding-top: 0;padding-left: 9px;paddi=
+ng-bottom: 0;padding-right: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"min-width: 100%;background-color: #FAFAFA=
+;border: 1px solid #EEEEEE;border-collapse: collapse;mso-table-lspace: 0pt=
+;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;" class=3D"mcnShareContent">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" class=3D"mcnShareCon=
+tentItemContainer" style=3D"padding-top: 9px;padding-right: 9px;padding-le=
+ft: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" style=3D=
+"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"left" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 0;padding-bottom: 9px;mso-table-lspace: 0pt;mso-table-r=
+space: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cla=
+ss=3D"mcnShareContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;background-color: #FAFAFA;border: 1px=
+ solid #CCCCCC;border-top-left-radius: 5px;border-top-right-radius: 5px;bo=
+rder-bottom-right-radius: 5px;border-bottom-left-radius: 5px;mso-table-lsp=
+ace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"http://twitter.com/intent/tweet?text=3DInvestigating%20ad%20=
+transparency%20mechanisms%20in%20social%20media%3A%20a%20case%20study%20of=
+%20Facebook's%20explanations: http%3A%2F%2Fblog.acolyer.org%2F2018%2F03%2F=
+07%2Finvestigating-ad-transparency-mechanisms-in-social-media-a-case-study=
+-of-facebooks-explanations" target=3D"_blank" style=3D"word-wrap: break-wo=
+rd;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><img src=3D=
+"https://cdn-images.mailchimp.com/icons/social-block-v2/color-twitter-48.p=
+ng" style=3D"display: block;border: 0;outline: none;text-decoration: none;=
+-ms-interpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></=
+a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"http://twitter.com/intent/tweet?text=3DInvestigating%20ad%20=
+transparency%20mechanisms%20in%20social%20media%3A%20a%20case%20study%20of=
+%20Facebook's%20explanations: http%3A%2F%2Fblog.acolyer.org%2F2018%2F03%2F=
+07%2Finvestigating-ad-transparency-mechanisms-in-social-media-a-case-study=
+-of-facebooks-explanations" target=3D"" style=3D"color: #505050;font-famil=
+y: Arial;font-size: 12px;font-weight: normal;line-height: 100%;text-align:=
+ center;text-decoration: none;word-wrap: break-word;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">Tweet</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnBoxedTextBlockInner" style=3D"m=
+so-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table border=3D"0" cellspacing=3D"0" class=3D=
+"mcnTextContentContainer" width=3D"100%" style=3D"min-width: 100% !importa=
+nt;background-color: #EBEBEB;border: 1px solid #999999;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+                                <tbody><tr>
+                                    <td valign=3D"top" class=3D"mcnTextCon=
+tent" style=3D"padding: 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;fo=
+nt-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
+                                        This email was brought to you by <=
+a href=3D"http://blog.acolyer.org" target=3D"_blank" style=3D"word-wrap: b=
+reak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #6DC6DD;font-weight: normal;text-decoration: underline;">#themorningpaper=
+</a>: an interesting/influential/important paper from the world of CS ever=
+y weekday morning=2C as selected by Adrian Colyer
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN FOOTER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateFooter" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"padding-bottom: 9px;mso-table-lspace: 0pt;mso-tabl=
+e-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" cla=
+ss=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso=
+-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <em>Copyright =C2=A9 2018 One L and a Y Ltd=2C=
+ All rights reserved.</em><br>
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.<br>
+<br>
+<strong>Our mailing address is:</strong><br>
+<div class=3D"vcard"><span class=3D"org fn">One L and a Y Ltd</span><div c=
+lass=3D"adr"><div class=3D"street-address">Unit 5755</div><div class=3D"ex=
+tended-address">PO Box 6945</div><span class=3D"locality">London</span>=2C=
+ <span class=3D"region">England</span>  <span class=3D"postal-code">W1A 6U=
+S</span> <div class=3D"country-name">United Kingdom</div></div><br><a href=
+=3D"//acolyer.us9.list-manage.com/vcard?u=3D4188b6afbe9e5d43111fef4d4&id=
+=3Dde5773de0c" class=3D"hcard-download">Add us to your address book</a></d=
+iv>
+<br>
+<br>
+<a class=3D"utilityLink" href=3D"https://acolyer.us9.list-manage.com/unsub=
+scribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3Dcbaf=
+f3290b" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-=
+text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration:=
+ underline;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp; <a class=3D"=
+utilityLink" href=3D"https://acolyer.us9.list-manage.com/profile?u=3D4188b=
+6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b" style=3D"word-wrap: bre=
+ak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #=
+606060;font-weight: normal;text-decoration: underline;">update subscriptio=
+n preferences</a>&nbsp;<br>
+<br>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://acolyer.us9.list-manage.com/track/open.php?u=3D418=
+8b6afbe9e5d43111fef4d4&id=3Dcbaff3290b&e=3D1c7444593b" height=3D"1" width=
+=3D"1"></body>
+</html>
+--_----------=_MCPart_1304819445--

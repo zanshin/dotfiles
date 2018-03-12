@@ -1,0 +1,1901 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp4361714qtm;
+        Mon, 26 Feb 2018 11:45:39 -0800 (PST)
+X-Google-Smtp-Source: AH8x224gXxVw++39i8KKfxzMjv1ZTr9uvlehNui8vtSKet5JmaSSpZ70nqhV+6qkM74m2v0oNnMU
+X-Received: by 10.129.105.198 with SMTP id e189mr7722399ywc.364.1519674339587;
+        Mon, 26 Feb 2018 11:45:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1519674339; cv=none;
+        d=google.com; s=arc-20160816;
+        b=gsY9n8KbQzXkVQ/7RmlwfIghpOyTh0Df7w7KFQpUS5D+ayXOa97N4pMvyqMgyaCCSi
+         vP/iyk2IRmsrvsNgoamxmGcvvw08UF2ciykClCiwrdf0Rq3Ah/ZrRLEMzWrbhQ8Q7icm
+         5J89omb78CUxLnZVPuY23C7mts0CPH31I9hVO0q5sDTwG4choUhIKiv4CgtSX5PSLj3g
+         WJhzkYDyZDfXTkwDk3ywE1dr6zHZ629WIY9GiT0/ZGu13k7gwfJpzsN/NoNFEzHm9tJC
+         ZjxiPPDmACUPGLwNyUwcbFEKYc+nHMhTF66XGIBO5pDVWI3uWc/ZlJW0u/QQ00hWYOYj
+         xVbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:precedence:list-id:feedback-id
+         :message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature:arc-authentication-results;
+        bh=ppRfz1ZTxE47py+KKyb9la4DQAGssZQEkP0asoi+eik=;
+        b=njsZQYSjo6KhnGWdbwcy+gODIbwWjWgRpKMOf1hgP0EHRsXFsGk70CON8ca73vtqBz
+         90Nwa58jqgbrhzzfUe3ZFkSUREtAhGskVn2j89Wv/1etzengWqRBpacehccLUZ7npNNK
+         GTx9SmutnKDt8onBa3Uyn5loxF0F2K9W1RxUIqTbOwWIydLr1Nf+Y3uwfdoOIGH9ahuV
+         ASTI3GrnWw9AlxYAmGYIFvpJenrof+3fpnpmb2ziJdqatXn8WRbBVJaGAR3C/E9c92RF
+         xeYVE1KOOhDbmObjBq0l3HNprlWsPMMbw5HIlPmsUJI72sRY0ObqYeLUU2zYY/ghNivh
+         6ySw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@danielmiessler.com header.s=k1 header.b=1znaiEf3;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=b9drbHnQ;
+       spf=pass (google.com: domain of bounce-mc.us8_31276059.2667045-code.prole=gmail.com@mail12.atl31.mcdlv.net designates 205.201.134.12 as permitted sender) smtp.mailfrom=bounce-mc.us8_31276059.2667045-code.prole=gmail.com@mail12.atl31.mcdlv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=danielmiessler.com
+Return-Path: <bounce-mc.us8_31276059.2667045-code.prole=gmail.com@mail12.atl31.mcdlv.net>
+Received: from mail12.atl31.mcdlv.net (mail12.atl31.mcdlv.net. [205.201.134.12])
+        by mx.google.com with ESMTPS id x128-v6si1626866ybc.786.2018.02.26.11.45.39
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 26 Feb 2018 11:45:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us8_31276059.2667045-code.prole=gmail.com@mail12.atl31.mcdlv.net designates 205.201.134.12 as permitted sender) client-ip=205.201.134.12;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@danielmiessler.com header.s=k1 header.b=1znaiEf3;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=b9drbHnQ;
+       spf=pass (google.com: domain of bounce-mc.us8_31276059.2667045-code.prole=gmail.com@mail12.atl31.mcdlv.net designates 205.201.134.12 as permitted sender) smtp.mailfrom=bounce-mc.us8_31276059.2667045-code.prole=gmail.com@mail12.atl31.mcdlv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=danielmiessler.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=danielmiessler.com;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=daniel@danielmiessler.com;
+ bh=ppRfz1ZTxE47py+KKyb9la4DQAGssZQEkP0asoi+eik=;
+ b=1znaiEf3aScyzOjBgAU71t2ILJfEQuHn+KYLlT21o2JGtpLWfJImGmUhWq0JQVILUBgCndSKhY85
+   8JqdQP6idRwLTzC5cuVB2NMOCTRAOjk+6T9ZTs50xPYf/b4+Td3klvMPO6D5fHrRZJr5nrZxVXe/
+   6PGKboklWg5h3g9gW7c=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=ppRfz1ZTxE47py+KKyb9la4DQAGssZQEkP0asoi+eik=;
+ b=b9drbHnQ5CDZ2oReHlrmeMeZ6g+C5TXYhjd16aHk0duev3ncE5wqgx+c2bIxqq6YxPufxCbNps4y
+   UbDia4Jnafyn9ZAb/VVT3jYpw6+Xw9XSRfemrCq2X+qL54O2CIDHbFlNWGj0mUJblN7fzA5wu7er
+   5ESFBYDlAMKDn+3OGa4=
+Received: from (127.0.0.1) by mail12.atl31.mcdlv.net id hihhu62akec5 for <code.prole@gmail.com>; Mon, 26 Feb 2018 19:44:17 +0000 (envelope-from <bounce-mc.us8_31276059.2667045-code.prole=gmail.com@mail12.atl31.mcdlv.net>)
+Subject: =?utf-8?Q?Daniel=27s=20Unsupervised=20Learning=20Newsletter=3A=20No.=20114?=
+From: =?utf-8?Q?Daniel=20Miessler?= <daniel@danielmiessler.com>
+Reply-To:  <us8-f5b102dc8b-84bb50f396@conversation01.mailchimpapp.com>
+To: <code.prole@gmail.com>
+Date: Mon, 26 Feb 2018 19:44:17 +0000
+Message-ID: <6a9e465ab1570df8aaecb2292.895c2ab2be.20180226194342.f9c87f977d.e0fc22f6@mail12.atl31.mcdlv.net>
+X-Mailer: MailChimp Mailer - **CIDf9c87f977d895c2ab2be**
+X-Campaign: mailchimp6a9e465ab1570df8aaecb2292.f9c87f977d
+X-campaignid: mailchimp6a9e465ab1570df8aaecb2292.f9c87f977d
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=6a9e465ab1570df8aaecb2292&id=f9c87f977d&e=895c2ab2be
+X-MC-User: 6a9e465ab1570df8aaecb2292
+Feedback-ID: 31276059:31276059.2667045:us8:mc
+List-ID: 6a9e465ab1570df8aaecb2292mc list <6a9e465ab1570df8aaecb2292.406733.list-id.mcsv.net>
+Precedence: bulk
+X-Auto-Response-Suppress: OOF, AutoReply
+X-Accounttype: pd
+List-Unsubscribe: <https://danielmiessler.us8.list-manage.com/unsubscribe?u=6a9e465ab1570df8aaecb2292&id=49fdb7d723&e=895c2ab2be&c=f9c87f977d>, <mailto:unsubscribe-mc.us8_6a9e465ab1570df8aaecb2292.f9c87f977d-895c2ab2be@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1184475221"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1184475221
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df=
+8aaecb2292&id=3D90552d42b0&e=3D895c2ab2be
+Curation and analysis of the most interesting stories in security=2C techn=
+ology=2C and humans.
+Security News
+
+FireEye did a writeup on a North Korean hacking group they're calling APT3=
+7=2C or Reaper. Link (https://danielmiessler.us8.list-manage.com/track/cli=
+ck?u=3D6a9e465ab1570df8aaecb2292&id=3De7dfd0b44e&e=3D895c2ab2be)
+
+Russia evidently hacked the Olympics in retaliation for anti-doping penalt=
+ies=2C and tried to make it look like the North Koreans did it. Link (http=
+s://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aae=
+cb2292&id=3D5fd23ff7b0&e=3D895c2ab2be)
+
+The FTC is warning people to do their homework before using a VPN applicat=
+ion. Link (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e=
+465ab1570df8aaecb2292&id=3D14ad2326da&e=3D895c2ab2be)
+
+Japan is buying at least 20 more F-35A stealth fighters from the U.S. Link=
+ (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570=
+df8aaecb2292&id=3D19d7703e7a&e=3D895c2ab2be)
+
+PhishMe has been sold to an equity consortium for $400 million=2C now call=
+ed Cofense. Link (https://danielmiessler.us8.list-manage.com/track/click?u=
+=3D6a9e465ab1570df8aaecb2292&id=3De82c342deb&e=3D895c2ab2be)
+
+Voice cloning continues to improve=2C and it likely won't be long before w=
+e can make anyone say anything (assuming we have enough voice samples). Li=
+nk (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab15=
+70df8aaecb2292&id=3Ddec8d46729&e=3D895c2ab2be)
+
+Patching: Intel Spectre 2 Microcode Updates (https://danielmiessler.us8.li=
+st-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D9857f468da&e=
+=3D895c2ab2be) =2C Trend Micro Email Encryption Gateway (https://dan=
+ielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&=
+id=3De227ccd11d&e=3D895c2ab2be)
+
+Technology News
+
+Google is now able to go from heavily pixelated images to an actual image=
+ of someone=2C using Neural Networks. Link (https://danielmiessler.us8.lis=
+t-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Daee17f7319&e=
+=3D895c2ab2be)
+
+Kylie Jenner tweeted out that she didn't use Snap anymore and the stock im=
+mediately lost 1.3 billion dollars in value. That's what I call an influen=
+cer. Link (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e=
+465ab1570df8aaecb2292&id=3D0963056da9&e=3D895c2ab2be)
+
+Airlines are looking to implement something called Dynamic Pricing=2C wher=
+e they use information they have on you to customize the price you get off=
+ered for a given ticket. Link (https://danielmiessler.us8.list-manage.com/=
+track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D44ec8ddec4&e=3D=
+895c2ab2be)
+
+Human News
+
+Largest study of its kind finds that alcohol use is the biggest risk facto=
+r for dementia. Link (https://danielmiessler.us8.list-manage.com/track/cli=
+ck?u=3D6a9e465ab1570df8aaecb2292&id=3D5e784393d8&e=3D895c2ab2be)
+
+An amateur astronomer from Argentina became the first human in history to=
+ witness the first stages of a supernova. Link (https://danielmiessler.us8=
+=2Elist-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D2baa35cf4b=
+&e=3D895c2ab2be)
+
+We're getting better at predicting intelligence=2C common diseases=2C and=
+ other things from DNA tests. Link (https://danielmiessler.us8.list-manage=
+=2Ecom/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Db76ccbb7b9&e=3D=
+895c2ab2be)
+
+Google's new AI algorithm predicts heart disease by looking at your eyes.=
+ Link (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465a=
+b1570df8aaecb2292&id=3D8a6ea9a9f8&e=3D895c2ab2be)
+
+A new study has shown that people with higher testosterone (as measured by=
+ facial width) make worse investors. Link (https://danielmiessler.us8.list=
+-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D570d3388a8&e=3D=
+895c2ab2be)
+
+China is looking to remove the term limit for Xi Jinping=2C potentially al=
+lowing him to stay in power for a very long time. Link (https://danielmies=
+sler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D1b=
+e96fddd5&e=3D895c2ab2be)
+
+Universities are being separated into winners and losers=2C and the losers=
+ are struggling to survive. Link (https://danielmiessler.us8.list-manage.c=
+om/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Db1dee50077&e=3D=
+895c2ab2be)
+
+Rural kids aren't going to college nearly as often as suburban or urban ki=
+ds. Link (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e4=
+65ab1570df8aaecb2292&id=3D494eb78d71&e=3D895c2ab2be)
+
+More evidence that exercise helps the memory grow stronger. Link (https://=
+danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb22=
+92&id=3D59a5a9ae6d&e=3D895c2ab2be)
+
+Ideas=2C Trends=2C & Analysis
+
+Mark Cuban thinks that in 10 years a degree in philosophy will be more use=
+ful than a degree in computer science. I think he's overstating his case=
+=2C but that the main point is sound. Basically=2C finding answers will ge=
+t a lot easier to do with AI=2C and figuring out what questions to ask wil=
+l be the new frontier. Link (https://danielmiessler.us8.list-manage.com/tr=
+ack/click?u=3D6a9e465ab1570df8aaecb2292&id=3D5337c3c5fb&e=3D=
+895c2ab2be)
+
+Discovery
+
+Passenger Name Records (PNRs) are six digit codes (or barcodes) used by ai=
+rlines and hotels that have tons of information about us=2C and are remark=
+ably easy to get access to. Link (https://danielmiessler.us8.list-manage.c=
+om/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D3b5fde5633&e=3D=
+895c2ab2be)
+
+OWASP Automated Threat Handbook Link (https://danielmiessler.us8.list-mana=
+ge.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D9fcb84d268&e=3D=
+895c2ab2be)
+
+An insane Reddit thread on evidence for potential links between Russia and=
+ Facebook. Link (https://danielmiessler.us8.list-manage.com/track/click?u=
+=3D6a9e465ab1570df8aaecb2292&id=3D3ce98cac65&e=3D895c2ab2be)
+
+AWSBucketDump =E2=80=94 Looks for interesting files in S3 buckets. Link (h=
+ttps://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8=
+aaecb2292&id=3D3bf4268c2b&e=3D895c2ab2be)
+
+CloudMapper =E2=80=94 Creates network diagrams of AWS environments. Link (=
+https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df=
+8aaecb2292&id=3Db647f6a66b&e=3D895c2ab2be)
+
+Data & Statistics
+
+To be part of the top 1%=2C you need adjusted gross income of $480=2C930.=
+ Link (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465a=
+b1570df8aaecb2292&id=3D1388899834&e=3D895c2ab2be)
+
+Amazon is now worth more than 2.5 Walmarts. Link (https://danielmiessler.u=
+s8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D6438ec21=
+8b&e=3D895c2ab2be)
+
+Notes
+
+Thank you so much for all the feedback on the subscription model. I receiv=
+ed lots of emails with tons of good ideas=2C and this is what I'm going wi=
+th: 1) lowering the price to $5/month=2C and adding an annual option for $=
+50/year (two months free)=2C and 2) providing the same content less often=
+ for free for non-members. Members will also have the ability to submit AM=
+A questions and a number of other perks=2C but the main one will be gettin=
+g the newsletter every week vs. every two weeks. Basically=2C a lot of peo=
+ple mentioned that Netflix is only $10=2C and I realized that the other gu=
+y I subscribe to for $10 does his thing as a full-time job. So I think $5=
+ is more fair=2C with the option to pay for the whole year with a discount=
+=2E If you think I've made some grave error in this model=2C feel free to le=
+t me know (mailto:daniel@danielmiessler.com) . Thank you!
+
+I'm almost done with The Master Algorithm=2C by Pedro Domingos=2C and it c=
+ontinues to be spectacular. It's opened so many other areas of learning fo=
+r me on the topic of machine learning. The single biggest takeaway? There=
+ are many approaches to solving these problems=2C and it's likely that suc=
+cess with realworld problems will require using multiple approaches simult=
+aneously=2C rather than a single one beating out the others. Link (https:/=
+/danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2=
+292&id=3Db4e51b4b62&e=3D895c2ab2be)
+
+These are the machine learning videos I was telling you about last week. L=
+ink (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1=
+570df8aaecb2292&id=3D6436fc0fe4&e=3D895c2ab2be)
+
+There are fewer stories this week for a number of reasons: 1) news was lig=
+ht this week=2C 2) people are asking for fewer links=2C and 3) (most impor=
+tantly)=2C I got the flu yesterday and I can barely move right now.
+
+Sorry about the number of broken links in the last newsletter. It'll happe=
+n from time to time=2C but that was too many.
+
+I have a ton of new ideas to write essays on and put in the Ideas section=
+=2C but I'm currently too sick to write them. Hopefully next week!
+
+Recommendations
+
+If you need a VPN=2C instead of paying for a service where other people co=
+ntrol the infrastructure=2C just get a cheap VPS and install this on it. I=
+t's one command and it will give you a decent VPN that's compatible with m=
+ost OSs.  Link (https://danielmiessler.us8.list-manage.com/track/click?u=
+=3D6a9e465ab1570df8aaecb2292&id=3De2ab520432&e=3D895c2ab2be)
+
+Aphorism
+
+=E2=80=9CAttempt the impossible in order to improve your work=E2=80=9D.
+
+~ Bette Davis
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+No sponsors and no ads=2C so it's all you=E2=80=A6
+
+I spend between 5 and 20 hours on the show every week=2C and if you get va=
+lue from it=2C please consider becoming a supporting member for just $5/mo=
+nth.
+
+Members get the newsletter every week and can submit AMA questions=2C whil=
+e free subscribers get the newsletter twice a month.
+
+
+** Begin Membership ($5/month (https://danielmiessler.us8.list-manage.com/=
+track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D46582a7456&e=3D=
+895c2ab2be)
+)
+
+** Annual Membership ($50/year) (2 months free) (https://danielmiessler.us=
+8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Dae6bc4433=
+2&e=3D895c2ab2be)
+
+Thank you=2C
+
+** (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab15=
+70df8aaecb2292&id=3Dba4326dc61&e=3D895c2ab2be http%3A%2F%2Fmailchi.m=
+p%2Fdanielmiessler%2Funsupervised-learning-114)
+** Tweet (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e4=
+65ab1570df8aaecb2292&id=3Db17e6c24b4&e=3D895c2ab2be http%3A%2F%2Fmai=
+lchi.mp%2Fdanielmiessler%2Funsupervised-learning-114)
+** (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab15=
+70df8aaecb2292&id=3Da2065baca3&e=3D895c2ab2be)
+** Post (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e46=
+5ab1570df8aaecb2292&id=3D5642e24429&e=3D895c2ab2be)
+** (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab15=
+70df8aaecb2292&id=3D76e9442107&e=3D895c2ab2be)
+** Share (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e4=
+65ab1570df8aaecb2292&id=3Dce8ff3f538&e=3D895c2ab2be)
+** Email a friend about Unsupervised Learning. (mailto%3A%3F%26cc%3Ddaniel=
+%40danielmiessler.com%3B%26subject%3DYou%20Would%20Love%20This%20Newslette=
+r%26body%3DI%20get%20an%20email%20newsletter%20every%20week%20called%20Uns=
+upervised%20Learning%2C%20by%20Daniel%20Miessler%2C%20and%20I%20am%20prett=
+y%20sure%20you%E2%80%99ll%20love%20it%20as%20well.%20%0D%0A%0D%0AYou%20can=
+%20subscribe%20to%20the%20podcast%20or%20newsletter%20here%3A%0D%0A%0D%0Ah=
+ttps%3A%2F%2Fdanielmiessler.com%2Fpodcast)
+** .. (mailto%3A%3F%26cc%3Ddaniel%40danielmiessler.com%3B%26subject%3DYou%=
+20Would%20Love%20This%20Newsletter%26body%3DI%20get%20an%20email%20newslet=
+ter%20every%20week%20called%20Unsupervised%20Learning%2C%20by%20Daniel%20M=
+iessler%2C%20and%20I%20am%20pretty%20sure%20you%E2%80%99ll%20love%20it%20a=
+s%20well.%20%0D%0A%0D%0AYou%20can%20subscribe%20to%20the%20podcast%20or%20=
+newsletter%20here%3A%0D%0A%0D%0Ahttps%3A%2F%2Fdanielmiessler.com%2Fpodcast=
+)
+
+** M (https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab=
+1570df8aaecb2292&id=3D445b35d13a&e=3D895c2ab2be)
+** ANAGE YOUR SUBSCRIPTION (https://danielmiessler.us8.list-manage.com/tra=
+ck/click?u=3D6a9e465ab1570df8aaecb2292&id=3Da22084c9a3&e=3D=
+895c2ab2be)
+
+: :
+
+Copyright =C2=A9 2018 Daniel Miessler=2C all rights reserved.
+
+Click ** here (https://danielmiessler.us8.list-manage.com/unsubscribe?u=3D=
+6a9e465ab1570df8aaecb2292&id=3D49fdb7d723&e=3D895c2ab2be&c=3Df9c87f977d)
+to stop receiving the Unsupervised Learning Newsletter.
+--_----------=_MCPart_1184475221
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+=09<head>
+=09=09<!-- NAME: 1 COLUMN -->
+=09=09<!--[if gte mso 15]>
+=09=09<xml>
+=09=09=09<o:OfficeDocumentSettings>
+=09=09=09<o:AllowPNG/>
+=09=09=09<o:PixelsPerInch>96</o:PixelsPerInch>
+=09=09=09</o:OfficeDocumentSettings>
+=09=09</xml>
+=09=09<![endif]-->
+=09=09<meta charset=3D"UTF-8">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1">
+=09=09<title>Daniel's Unsupervised Learning Newsletter: No. 114</title>
+
+    <style type=3D"text/css">
+=09=09p{
+=09=09=09margin:10px 0;
+=09=09=09padding:0;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09display:block;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09height:auto;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100%;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100%;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cblockquote{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09a[href^=3Dtel]=2Ca[href^=3Dsms]{
+=09=09=09color:inherit;
+=09=09=09cursor:default;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cbody=2Ctable=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass td=2C.ExternalCla=
+ss div=2C.ExternalClass span=2C.ExternalClass font{
+=09=09=09line-height:100%;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09=09font-size:inherit !important;
+=09=09=09font-family:inherit !important;
+=09=09=09font-weight:inherit !important;
+=09=09=09line-height:inherit !important;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:10px;
+=09=09}
+=09=09.templateContainer{
+=09=09=09max-width:600px !important;
+=09=09}
+=09=09a.mcnButton{
+=09=09=09display:block;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent{
+=09=09=09word-break:break-word;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09.mcnDividerBlock{
+=09=09=09table-layout:fixed !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#ffffff;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09.templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#202020;
+=09=09=09font-family:'Noticia Text'=2C Georgia=2C 'Times New Roman'=2C ser=
+if;
+=09=09=09font-size:12px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:22px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:20px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#ffffff;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:9px;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templatePreheader .mcnTextContent=2C#templatePreheader .mcnTextCont=
+ent p{
+=09=09=09color:#656565;
+=09=09=09font-family:'Roboto'=2C 'Helvetica Neue'=2C Helvetica=2C Arial=2C=
+ sans-serif;
+=09=09=09font-size:13px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader .mcnTextContent a=2C#templatePreheader .mcnTextCo=
+ntent p a{
+=09=09=09color:#656565;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#fdfdfd;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:9px;
+=09=09=09padding-bottom:0;
+=09=09}
+=09=09#templateHeader .mcnTextContent=2C#templateHeader .mcnTextContent p{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateHeader .mcnTextContent a=2C#templateHeader .mcnTextContent=
+ p a{
+=09=09=09color:#030303;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#ffffff;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:0;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templateBody .mcnTextContent=2C#templateBody .mcnTextContent p{
+=09=09=09color:#000000;
+=09=09=09font-family:'Noticia Text'=2C Georgia=2C 'Times New Roman'=2C ser=
+if;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateBody .mcnTextContent a=2C#templateBody .mcnTextContent p a{
+=09=09=09color:#355679;
+=09=09=09font-weight:bold;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#ffffff;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:9px;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templateFooter .mcnTextContent=2C#templateFooter .mcnTextContent p{
+=09=09=09color:#656565;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:12px;
+=09=09=09line-height:150%;
+=09=09=09text-align:center;
+=09=09}
+=09=09#templateFooter .mcnTextContent a=2C#templateFooter .mcnTextContent=
+ p a{
+=09=09=09color:#656565;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (min-width:768px){
+=09=09.templateContainer{
+=09=09=09width:600px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#bodyCell{
+=09=09=09padding-top:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImage{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCartContainer=2C.mcnCaptionTopContent=2C.mcnRecContentContainer=
+=2C.mcnCaptionBottomContent=2C.mcnTextContentContainer=2C.mcnBoxedTextCont=
+entContainer=2C.mcnImageGroupContentContainer=2C.mcnCaptionLeftTextContent=
+Container=2C.mcnCaptionRightTextContentContainer=2C.mcnCaptionLeftImageCon=
+tentContainer=2C.mcnCaptionRightImageContentContainer=2C.mcnImageCardLeftT=
+extContentContainer=2C.mcnImageCardRightTextContentContainer=2C.mcnImageCa=
+rdLeftImageContentContainer=2C.mcnImageCardRightImageContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupContent{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCaptionLeftContentOuter .mcnTextContent=2C.mcnCaptionRightConten=
+tOuter .mcnTextContent{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardTopImageContent=2C.mcnCaptionBottomContent:last-child .=
+mcnCaptionBottomImageContent=2C.mcnCaptionBlockInner .mcnCaptionTopContent=
+:last-child .mcnTextContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardBottomImageContent{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockInner{
+=09=09=09padding-top:0 !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockOuter{
+=09=09=09padding-top:9px !important;
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnTextContent=2C.mcnBoxedTextContentColumn{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardLeftImageContent=2C.mcnImageCardRightImageContent{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcpreview-image-uploader{
+=09=09=09display:none !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:22px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer .mcnTextContent=2C.mcnBoxedTextContent=
+Container .mcnTextContent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templatePreheader{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templatePreheader .mcnTextContent=2C#templatePreheader .mcnTextCont=
+ent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateHeader .mcnTextContent=2C#templateHeader .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateBody .mcnTextContent=2C#templateBody .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateFooter .mcnTextContent=2C#templateFooter .mcnTextContent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}</style><!--[if !mso]><!--><link href=3D"https://fonts.googleapis.com/cs=
+s?family=3DLato:400=2C400i=2C700=2C700i|Lora:400=2C400i=2C700=2C700i|Notic=
+ia+Text:400=2C400i=2C700=2C700i|Open+Sans:400=2C400i=2C700=2C700i|Playfair=
++Display:400=2C400i=2C700=2C700i" rel=3D"stylesheet"><!--<![endif]--></he=
+ad>
+    <body style=3D"height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-=
+size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #ffffff=
+;">
+=09=09<!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;pad=
+ding: 0;width: 100%;background-color: #ffffff;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;height: 100%;margin: 0;padding: 10px;width: 100%;bord=
+er-top: 0;">
+                        <!-- BEGIN TEMPLATE // -->
+=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+=09=09=09=09=09=09<table align=3D"center" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+=09=09=09=09=09=09<tr>
+=09=09=09=09=09=09<td align=3D"center" valign=3D"top" width=3D"600" style=
+=3D"width:600px;">
+=09=09=09=09=09=09<![endif]-->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"templateContainer" style=3D"border-collapse=
+: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;border: 0;max-width: 600px !importa=
+nt;">
+                            <tr>
+                                <td valign=3D"top" id=3D"templatePreheader=
+" style=3D"background:#ffffff none no-repeat center/cover;mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;ba=
+ckground-color: #ffffff;background-image: none;background-repeat: no-repea=
+t;background-position: center;background-size: cover;border-top: 0;border-=
+bottom: 0;padding-top: 9px;padding-bottom: 9px;"><table border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnImageBlock" styl=
+e=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-t=
+able-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 0px;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" c=
+lass=3D"mcnImageBlockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" s=
+tyle=3D"padding-right: 0px;padding-left: 0px;padding-top: 0;padding-bottom=
+: 0;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+
+                                    <a href=3D"https://danielmiessler.us8.=
+list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Deba99ec96b&=
+e=3D895c2ab2be" title=3D"" class=3D"" target=3D"_blank" style=3D"mso-line=
+-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;">
+                                        <img align=3D"center" alt=3D"Unsup=
+ervised Learning" src=3D"https://gallery.mailchimp.com/6a9e465ab1570df8aae=
+cb2292/images/0ce0b68c-e8c1-4a95-9aab-e0e8f9d9e022.png" width=3D"450" styl=
+e=3D"max-width: 450px;padding-bottom: 0;display: inline !important;vertica=
+l-align: bottom;border: 0;height: auto;outline: none;text-decoration: none=
+;-ms-interpolation-mode: bicubic;" class=3D"mcnImage">
+                                    </a>
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateHeader" s=
+tyle=3D"background:#fdfdfd none no-repeat center/cover;mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backg=
+round-color: #fdfdfd;background-image: none;background-repeat: no-repeat;b=
+ackground-position: center;background-size: cover;border-top: 0;border-bot=
+tom: 0;padding-top: 9px;padding-bottom: 0;"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock" style=3D"m=
+in-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-r=
+space: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-family: Lora=2C Georgia=2C &quot;Times New=
+ Roman&quot;=2C serif;font-size: 15px;font-style: normal;font-weight: norm=
+al;line-height: 100%;text-align: left;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word=
+;color: #202020;">
+
+                            <div style=3D"text-align: center;"><br>
+<span style=3D"font-size:18px"><span style=3D"font-family:playfair display=
+=2Cgeorgia=2Ctimes new roman=2Cserif">Curation and analysis of the most in=
+teresting stories&nbsp;in&nbsp;security=2C technology=2C and&nbsp;humans.<=
+/span></span></div>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helve=
+tica;font-size: 16px;line-height: 150%;text-align: left;">
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateBody" sty=
+le=3D"background:#ffffff none no-repeat center/cover;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backgro=
+und-color: #ffffff;background-image: none;background-repeat: no-repeat;bac=
+kground-position: center;background-size: cover;border-top: 0;border-botto=
+m: 0;padding-top: 0;padding-bottom: 9px;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock" style=3D"mi=
+n-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rs=
+pace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-size: 16px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-=
+word;color: #000000;font-family: 'Noticia Text'=2C Georgia=2C 'Times New R=
+oman'=2C serif;line-height: 150%;text-align: left;">
+
+                            <br>
+<strong><font face=3D"open sans=2C helvetica neue=2C helvetica=2C arial=2C=
+ sans-serif">Security News</font></strong><br>
+<br>
+<br>
+FireEye did a writeup on a North Korean hacking group they're calling APT3=
+7=2C or Reaper. <a href=3D"https://danielmiessler.us8.list-manage.com/trac=
+k/click?u=3D6a9e465ab1570df8aaecb2292&id=3D5eacd9528b&e=3D895c2ab2be" tar=
+get=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weight: bold;tex=
+t-decoration: underline;">Link</a><br>
+<br>
+Russia evidently hacked the Olympics in retaliation for anti-doping penalt=
+ies=2C and tried to make it look like the North Koreans did it. <a href=3D=
+"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570d=
+f8aaecb2292&id=3D728a5f932c&e=3D895c2ab2be" target=3D"_blank" style=3D"ms=
+o-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-a=
+djust: 100%;color: #355679;font-weight: bold;text-decoration: underline;">=
+Link</a><br>
+<br>
+The FTC is warning people to do their homework before using a VPN applicat=
+ion. <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=
+=3D6a9e465ab1570df8aaecb2292&id=3D47ab8f79d3&e=3D895c2ab2be" target=3D"_b=
+lank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;color: #355679;font-weight: bold;text-decorat=
+ion: underline;">Link</a><br>
+<br>
+Japan is buying at least 20 more F-35A stealth fighters from the U.S. <a h=
+ref=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465a=
+b1570df8aaecb2292&id=3Dbe3a88be3f&e=3D895c2ab2be" target=3D"_blank" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;color: #355679;font-weight: bold;text-decoration: underl=
+ine;">Link</a><br>
+<br>
+PhishMe has been sold to an equity consortium for $400 million=2C now call=
+ed Cofense. <a href=3D"https://danielmiessler.us8.list-manage.com/track/cl=
+ick?u=3D6a9e465ab1570df8aaecb2292&id=3Dd050a59689&e=3D895c2ab2be" target=
+=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;color: #355679;font-weight: bold;text-d=
+ecoration: underline;">Link</a><br>
+<br>
+Voice cloning continues to improve=2C and it likely won't be long before w=
+e can make anyone say anything (assuming we have enough voice samples). <a=
+ href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e46=
+5ab1570df8aaecb2292&id=3D9ff2f6b762&e=3D895c2ab2be" target=3D"_blank" sty=
+le=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;color: #355679;font-weight: bold;text-decoration: unde=
+rline;">Link</a><br>
+<br>
+Patching: <a href=3D"https://danielmiessler.us8.list-manage.com/track/clic=
+k?u=3D6a9e465ab1570df8aaecb2292&id=3Dcf46fc947d&e=3D895c2ab2be" target=3D=
+"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #355679;font-weight: bold;text-deco=
+ration: underline;">Intel Spectre 2 Microcode Updates</a>=2C&nbsp;<a href=
+=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab15=
+70df8aaecb2292&id=3D989ac074c7&e=3D895c2ab2be" target=3D"_blank" style=3D=
+"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;color: #355679;font-weight: bold;text-decoration: underline=
+;">Trend Micro Email Encryption Gateway</a><br>
+<br>
+<br>
+<strong><span style=3D"font-family:open sans=2Chelvetica neue=2Chelvetica=
+=2Carial=2Csans-serif">Technology News</span></strong><br>
+<br>
+<br>
+Google is now able to go from heavily pixelated images to an actual image=
+ of someone=2C using Neural Networks.&nbsp;<a href=3D"https://danielmiessl=
+er.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D0ccf=
+a964ab&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: e=
+xactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #3=
+55679;font-weight: bold;text-decoration: underline;">Link</a><br>
+<br>
+Kylie Jenner tweeted out that she didn't use Snap anymore and the stock im=
+mediately lost 1.3 billion dollars in value. That's what I call an influen=
+cer.&nbsp;<a href=3D"https://danielmiessler.us8.list-manage.com/track/clic=
+k?u=3D6a9e465ab1570df8aaecb2292&id=3D26509df1b3&e=3D895c2ab2be" target=3D=
+"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #355679;font-weight: bold;text-deco=
+ration: underline;">Link</a><br>
+<br>
+Airlines are looking to implement something called Dynamic Pricing=2C wher=
+e they use information they have on you to customize the price you get off=
+ered for a given ticket. <a href=3D"https://danielmiessler.us8.list-manage=
+=2Ecom/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Da77396bf9f&e=3D=
+895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weight:=
+ bold;text-decoration: underline;">Link</a><br>
+<br>
+<br>
+<strong><span style=3D"font-family:open sans=2Chelvetica neue=2Chelvetica=
+=2Carial=2Csans-serif">Human News</span></strong><br>
+<br>
+<br>
+Largest study of its kind finds that alcohol use is the biggest risk facto=
+r for dementia. <a href=3D"https://danielmiessler.us8.list-manage.com/trac=
+k/click?u=3D6a9e465ab1570df8aaecb2292&id=3D34e828d479&e=3D895c2ab2be" tar=
+get=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weight: bold;tex=
+t-decoration: underline;">Link</a><br>
+<br>
+An amateur astronomer from Argentina became the first human in history to=
+ witness the first stages of a supernova. <a href=3D"https://danielmiessle=
+r.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D11fd9=
+71913&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #35=
+5679;font-weight: bold;text-decoration: underline;">Link</a><br>
+<br>
+We're getting better at predicting intelligence=2C common diseases=2C and=
+ other things from DNA tests. <a href=3D"https://danielmiessler.us8.list-m=
+anage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D978d3c5e76&e=3D=
+895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-we=
+ight: bold;text-decoration: underline;">Link</a><br>
+<br>
+Google's new AI algorithm predicts heart disease by looking at your eyes.=
+ <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9=
+e465ab1570df8aaecb2292&id=3Dd660e081d4&e=3D895c2ab2be" target=3D"_blank"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;color: #355679;font-weight: bold;text-decoration:=
+ underline;">Link</a><br>
+<br>
+A new study has shown that people with higher testosterone (as measured by=
+ facial width) make worse investors. <a href=3D"https://danielmiessler.us8=
+=2Elist-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D91a7d1cb56=
+&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exactly=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #355679;=
+font-weight: bold;text-decoration: underline;">Link</a><br>
+<br>
+China is looking to remove the term limit for Xi Jinping=2C potentially al=
+lowing him to stay in power for a very long time. <a href=3D"https://danie=
+lmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=
+=3D89b912082e&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;co=
+lor: #355679;font-weight: bold;text-decoration: underline;">Link</a><br>
+<br>
+Universities are being separated into winners and losers=2C and the losers=
+ are struggling to survive. <a href=3D"https://danielmiessler.us8.list-man=
+age.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D79bb487bb1&e=3D=
+895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weig=
+ht: bold;text-decoration: underline;">Link</a><br>
+<br>
+Rural kids aren't going to college nearly as often as suburban or urban ki=
+ds. <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D=
+6a9e465ab1570df8aaecb2292&id=3Db5ab8c76bb&e=3D895c2ab2be" target=3D"_blan=
+k" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;color: #355679;font-weight: bold;text-decoration=
+: underline;">Link</a><br>
+<br>
+More evidence that exercise helps the memory grow stronger. <a href=3D"htt=
+ps://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aa=
+ecb2292&id=3Da2098aaa40&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-li=
+ne-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%;color: #355679;font-weight: bold;text-decoration: underline;">Link=
+</a><br>
+<br>
+<br>
+<strong><span style=3D"font-family:open sans=2Chelvetica neue=2Chelvetica=
+=2Carial=2Csans-serif">Ideas=2C Trends=2C &amp; Analysis</span></strong><b=
+r>
+<br>
+<br>
+Mark Cuban thinks that in 10 years a degree in philosophy will be more use=
+ful than a degree in computer science. I think he's overstating his case=
+=2C but that the main point is sound. Basically=2C finding answers will ge=
+t a lot easier to do with AI=2C and figuring out what questions to ask wil=
+l be the new frontier. <a href=3D"https://danielmiessler.us8.list-manage.c=
+om/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D4bd536d73b&e=3D=
+895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size=
+-adjust: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weight: b=
+old;text-decoration: underline;">Link</a><br>
+<br>
+<br>
+<strong><span style=3D"font-family:open sans=2Chelvetica neue=2Chelvetica=
+=2Carial=2Csans-serif">Discovery</span></strong><br>
+<br>
+<br>
+Passenger Name Records (PNRs) are six digit codes (or barcodes) used by ai=
+rlines and hotels that have tons of information about us=2C and are remark=
+ably easy to get access to. <a href=3D"https://danielmiessler.us8.list-man=
+age.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Db6d670e105&e=3D=
+895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weig=
+ht: bold;text-decoration: underline;">Link</a><br>
+<br>
+OWASP Automated Threat Handbook <a href=3D"https://danielmiessler.us8.list=
+-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D4a96b17861&e=3D=
+895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-=
+weight: bold;text-decoration: underline;">Link</a><br>
+<br>
+An <em>insane</em> Reddit thread on evidence for potential links between R=
+ussia and Facebook. <a href=3D"https://danielmiessler.us8.list-manage.com/=
+track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D0d2e1c5d91&e=3D895c2ab2be"=
+ target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weight: bold=
+;text-decoration: underline;">Link</a><br>
+<br>
+AWSBucketDump =E2=80=94 Looks for interesting files in S3 buckets. <a href=
+=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab15=
+70df8aaecb2292&id=3D1c004007ce&e=3D895c2ab2be" target=3D"_blank" style=3D=
+"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;color: #355679;font-weight: bold;text-decoration: underline=
+;">Link</a><br>
+<br>
+CloudMapper =E2=80=94 Creates network diagrams of AWS environments. <a hre=
+f=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e465ab1=
+570df8aaecb2292&id=3D94ff6fd1b4&e=3D895c2ab2be" target=3D"_blank" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;color: #355679;font-weight: bold;text-decoration: underl=
+ine;">Link</a><br>
+<br>
+<br>
+<strong><span style=3D"font-family:open sans=2Chelvetica neue=2Chelvetica=
+=2Carial=2Csans-serif">Data &amp; Statistics</span></strong><br>
+<br>
+<br>
+To be part of the top 1%=2C you need adjusted gross income of $480=2C930.=
+ <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9=
+e465ab1570df8aaecb2292&id=3D9aca934817&e=3D895c2ab2be" target=3D"_blank"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;color: #355679;font-weight: bold;text-decoration:=
+ underline;">Link</a><br>
+<br>
+Amazon is now worth more than 2.5 Walmarts. <a href=3D"https://danielmiess=
+ler.us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Da81=
+237d69c&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #355679;font-weight: bold;text-decoration: underline;">Link</a><br>
+<br>
+<br>
+<font face=3D"open sans=2C helvetica neue=2C helvetica=2C arial=2C sans-se=
+rif"><strong>Notes</strong></font><br>
+<br>
+<br>
+<strong>Thank you so much for all the feedback on the subscription model</=
+strong>. I received lots of emails with tons of good ideas=2C and this is=
+ what I'm going with: <span style=3D"color:#008000">1) lowering the price=
+ to $5/month=2C and adding an annual option for $50/year (two months free)=
+=2C and 2) providing the same content less often for free for non-members<=
+/span>. Members will also have the ability to submit AMA questions and a n=
+umber of other perks=2C but the main one will be <em>getting the newslette=
+r every week vs. every two weeks</em>. Basically=2C a lot of people mentio=
+ned that Netflix is only $10=2C and I realized that the other guy I subscr=
+ibe to for $10 does his thing as a full-time job. So I think $5 is more fa=
+ir=2C with the option to pay for the whole year with a discount. If you th=
+ink I've made some grave error in this model=2C feel free to <a href=3D"ma=
+ilto:daniel@danielmiessler.com" target=3D"_blank" style=3D"mso-line-height=
+-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;c=
+olor: #355679;font-weight: bold;text-decoration: underline;">let me know</=
+a>. Thank you!<br>
+<br>
+I'm almost done with&nbsp;<em>The Master Algorithm</em>=2C by Pedro Doming=
+os=2C and it continues to be spectacular. It's opened so many other areas=
+ of learning for me on the topic of machine learning. The single biggest t=
+akeaway? There are many approaches to solving these problems=2C and it's l=
+ikely that success with realworld problems will require using multiple app=
+roaches simultaneously=2C rather than a single one beating out the others.=
+&nbsp;<a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=
+=3D6a9e465ab1570df8aaecb2292&id=3D3731052585&e=3D895c2ab2be" target=3D"_b=
+lank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;color: #355679;font-weight: bold;text-decorat=
+ion: underline;">Link</a><br>
+<br>
+These are the machine learning videos I was telling you about last week. <=
+a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6a9e4=
+65ab1570df8aaecb2292&id=3D9f2ae8186f&e=3D895c2ab2be" target=3D"_blank" st=
+yle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #355679;font-weight: bold;text-decoration: und=
+erline;">Link</a><br>
+<br>
+There are fewer stories this week for a number of reasons: 1) news was lig=
+ht this week=2C 2) people are asking for fewer links=2C and 3) (most impor=
+tantly)=2C I got the flu yesterday and I can barely move right now.<br>
+<br>
+Sorry about the number of broken links in the last newsletter. It'll happe=
+n from time to time=2C but that was too many.<br>
+<br>
+I have a ton of new ideas to write essays on and put in the Ideas section=
+=2C but I'm currently too sick to write them. Hopefully next week!<br>
+<br>
+<br>
+<span style=3D"font-family:open sans=2Chelvetica neue=2Chelvetica=2Carial=
+=2Csans-serif"><strong>Recommendations</strong></span><br>
+<br>
+<br>
+If you need a VPN=2C instead of paying for a service where other people co=
+ntrol the infrastructure=2C just get a cheap VPS and install this on it. I=
+t's one command and it will give you a decent VPN that's compatible with m=
+ost OSs. &nbsp;<a href=3D"https://danielmiessler.us8.list-manage.com/track=
+/click?u=3D6a9e465ab1570df8aaecb2292&id=3Df0ff2d634e&e=3D895c2ab2be" targ=
+et=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;color: #355679;font-weight: bold;text=
+-decoration: underline;">Link</a><br>
+<br>
+<br>
+<strong><span style=3D"font-family:open sans=2Chelvetica neue=2Chelvetica=
+=2Carial=2Csans-serif">Aphorism</span></strong><br>
+<br>
+<br>
+=E2=80=9CAttempt the impossible in order to improve your work=E2=80=9D.<br=
+>
+<br>
+~ Bette Davis<br>
+&nbsp;
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateFooter" s=
+tyle=3D"background:#ffffff none no-repeat center/cover;mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backg=
+round-color: #ffffff;background-image: none;background-repeat: no-repeat;b=
+ackground-position: center;background-size: cover;border-top: 0;border-bot=
+tom: 0;padding-top: 9px;padding-bottom: 9px;"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnDividerBlock" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op-width: 1px;border-top-style: solid;border-top-color: #EAEAEA;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #656565;font-family: Helve=
+tica;font-size: 12px;line-height: 150%;text-align: center;">
+
+                            <table align=3D"left" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"mcnTextContentContainer" style=3D"max-wi=
+dth: 100%;min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;=
+mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;" width=3D"100%">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td class=3D"mcnTextContent" style=3D"padding: 0px 18px 9px;word-=
+break: break-word;line-height: 150%;text-align: center;mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color=
+: #656565;font-family: Helvetica;font-size: 12px;" valign=3D"top">
+=09=09=09<p style=3D"color: #656565;text-align: center;margin: 10px 0px;pa=
+dding: 0px;line-height: 150%;mso-line-height-rule: exactly;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;font-family: Helvetica;font-siz=
+e: 12px;"><font face=3D"lato=2C helvetica neue=2C helvetica=2C arial=2C sa=
+ns-serif" size=3D"5">No sponsors and no ads=2C so it's all you=E2=80=A6</f=
+ont><br>
+=09=09=09&nbsp;</p>
+
+=09=09=09<p style=3D"margin: 10px 0px;padding: 0px;line-height: 150%;text-=
+align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;color: #656565;font-family: Helvetica;font-size:=
+ 12px;"><span style=3D"color: #656565;font-size: 15px;"><span style=3D"fon=
+t-family:lato=2Chelvetica neue=2Chelvetica=2Carial=2Csans-serif">I spend b=
+etween 5 and 20 hours on the show every week=2C and if you get value from=
+ it=2C please consider becoming a supporting member for just </span></span=
+><strong><span style=3D"font-size:15px"><span style=3D"font-family:lato=2C=
+helvetica neue=2Chelvetica=2Carial=2Csans-serif">$5/month</span></span></s=
+trong><span style=3D"color: #656565;font-size: 15px;"><span style=3D"font-=
+family:lato=2Chelvetica neue=2Chelvetica=2Carial=2Csans-serif">. </span></=
+span></p>
+
+=09=09=09<p style=3D"margin: 10px 0px;padding: 0px;line-height: 150%;text-=
+align: left;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;color: #656565;font-family: Helvetica;font-size:=
+ 12px;"><font color=3D"#656565" face=3D"lato=2C helvetica neue=2C helvetic=
+a=2C arial=2C sans-serif"><span style=3D"font-size:15px"><em>Members get t=
+he&nbsp;newsletter every week and can submit AMA questions</em>=2C while f=
+ree subscribers get the newsletter twice a month.</span></font></p>
+
+=09=09=09<p style=3D"margin: 10px 0px;padding: 0px;line-height: 150%;text-=
+align: center;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-we=
+bkit-text-size-adjust: 100%;color: #656565;font-family: Helvetica;font-siz=
+e: 12px;">&nbsp;</p>
+
+=09=09=09<div style=3D"font-family: Helvetica; font-size: 12px; margin: 10=
+px 0px; padding: 0px; line-height: 150%; text-align: center;"><span style=
+=3D"font-family:lora=2Cgeorgia=2Ctimes new roman=2Cserif"><span style=3D"f=
+ont-size:18px"><a href=3D"https://danielmiessler.us8.list-manage.com/track=
+/click?u=3D6a9e465ab1570df8aaecb2292&id=3D448182be7f&e=3D895c2ab2be" targ=
+et=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;color: #656565;font-weight: normal;te=
+xt-decoration: underline;"><span style=3D"color:#008000">Begin Membership=
+ ($5/month</span></a><span style=3D"color:#008000">)</span></span></span><=
+br>
+=09=09=09<br>
+=09=09=09<span style=3D"font-size:16px"><a href=3D"https://danielmiessler.=
+us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3Dc02930d=
+77f&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exac=
+tly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6565=
+65;font-weight: normal;text-decoration: underline;"><span style=3D"color:#=
+008000"><span style=3D"font-family:lora=2Cgeorgia=2Ctimes new roman=2Cseri=
+f">Annual Membership ($50/year) (2 months free)</span></span></a></span></=
+div>
+
+=09=09=09<p style=3D"color: #656565;font-family: Helvetica;font-size: 12px=
+;margin: 10px 0px;padding: 0px;line-height: 150%;text-align: left;mso-line=
+-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;"><br>
+=09=09=09<span style=3D"font-size:15px"><span style=3D"font-family:lato=2C=
+helvetica neue=2Chelvetica=2Carial=2Csans-serif"><em>Thank you</em>=2C</sp=
+an></span></p>
+
+=09=09=09<p style=3D"color: #656565;font-family: Helvetica;font-size: 12px=
+;margin: 10px 0px;padding: 0px;line-height: 150%;text-align: center;mso-li=
+ne-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%;"><br>
+=09=09=09<img data-file-id=3D"3319889" height=3D"73" src=3D"https://galler=
+y.mailchimp.com/6a9e465ab1570df8aaecb2292/images/9a793cba-7d63-4d07-947e-8=
+d933a99d7d6.png" style=3D"border: 0px;width: 124px;height: 73px;margin: 0p=
+x;float: left;outline: none;text-decoration: none;-ms-interpolation-mode:=
+ bicubic;" width=3D"124"></p>
+=09=09=09</td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op-width: 1px;border-top-style: solid;border-top-color: #EAEAEA;border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnShareBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnShareBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" c=
+lass=3D"mcnShareBlockInner">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" class=3D"mcnShareContentContainer" style=3D"min-width: 10=
+0%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"center" style=3D"padding-top: 0;padding-left: 9px;pad=
+ding-bottom: 0;padding-right: 9px;mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-collapse: collap=
+se;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;=
+-webkit-text-size-adjust: 100%;" class=3D"mcnShareContent">
+                <tbody><tr>
+                    <td align=3D"center" valign=3D"top" class=3D"mcnShareC=
+ontentItemContainer" style=3D"padding-top: 9px;padding-right: 9px;padding-=
+left: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+                        <table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspa=
+ce: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" style=3D=
+"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 9px;padding-bottom: 9px;mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnSha=
+reContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;border-top-left-radius: 3px;border-top=
+-right-radius: 3px;border-bottom-right-radius: 3px;border-bottom-left-radi=
+us: 3px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6=
+a9e465ab1570df8aaecb2292&id=3D14cf1fe7c2&e=3D895c2ab2be" target=3D"_blank=
+" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/ic=
+ons/social-block-v2/outline-dark-twitter-48.png" style=3D"display: block;b=
+order: 0;height: auto;outline: none;text-decoration: none;-ms-interpolatio=
+n-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6=
+a9e465ab1570df8aaecb2292&id=3Da88c9d2736&e=3D895c2ab2be" target=3D"" styl=
+e=3D"color: #202020;font-family: Arial;font-size: 12px;font-weight: normal=
+;line-height: normal;text-align: center;text-decoration: none;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">Tweet</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 9px;padding-bottom: 9px;mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnSha=
+reContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;border-top-left-radius: 3px;border-top=
+-right-radius: 3px;border-bottom-right-radius: 3px;border-bottom-left-radi=
+us: 3px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6=
+a9e465ab1570df8aaecb2292&id=3D8eafb04cff&e=3D895c2ab2be" target=3D"_blank=
+" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/ic=
+ons/social-block-v2/outline-dark-facebook-48.png" style=3D"display: block;=
+border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolati=
+on-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6=
+a9e465ab1570df8aaecb2292&id=3Defe8d21e23&e=3D895c2ab2be" target=3D"" styl=
+e=3D"color: #202020;font-family: Arial;font-size: 12px;font-weight: normal=
+;line-height: normal;text-align: center;text-decoration: none;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">Post</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 0;padding-bottom: 9px;mso-line-height-rule: exactly;-ms=
+-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnShare=
+ContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;border-top-left-radius: 3px;border-top=
+-right-radius: 3px;border-bottom-right-radius: 3px;border-bottom-left-radi=
+us: 3px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6=
+a9e465ab1570df8aaecb2292&id=3D7995d2df30&e=3D895c2ab2be" target=3D"_blank=
+" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/ic=
+ons/social-block-v2/outline-dark-linkedin-48.png" style=3D"display: block;=
+border: 0;height: auto;outline: none;text-decoration: none;-ms-interpolati=
+on-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://danielmiessler.us8.list-manage.com/track/click?u=3D6=
+a9e465ab1570df8aaecb2292&id=3Dcfb5247a29&e=3D895c2ab2be" target=3D"" styl=
+e=3D"color: #202020;font-family: Arial;font-size: 12px;font-weight: normal=
+;line-height: normal;text-align: center;text-decoration: none;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">Share</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;text-align: left;mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break=
+-word;color: #656565;font-family: Helvetica;font-size: 12px;line-height: 1=
+50%;">
+
+                            <div style=3D"text-align: center;"><span style=
+=3D"font-size:14px"><span style=3D"font-family:lato=2Chelvetica neue=2Chel=
+vetica=2Carial=2Csans-serif"><a href=3D"mailto%3A%3F%26cc%3Ddaniel%40danie=
+lmiessler.com%3B%26subject%3DYou%20Would%20Love%20This%20Newsletter%26body=
+%3DI%20get%20an%20email%20newsletter%20every%20week%20called%20Unsupervise=
+d%20Learning%2C%20by%20Daniel%20Miessler%2C%20and%20I%20am%20pretty%20sure=
+%20you%E2%80%99ll%20love%20it%20as%20well.%20%0D%0A%0D%0AYou%20can%20subsc=
+ribe%20to%20the%20podcast%20or%20newsletter%20here%3A%0D%0A%0D%0Ahttps%3A%=
+2F%2Fdanielmiessler.com%2Fpodcast" style=3D"mso-line-height-rule: exactly;=
+-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #656565;f=
+ont-weight: normal;text-decoration: underline;"><span style=3D"color:#8080=
+80">Email a friend about Unsupervised Learning.</span></a></span><a href=
+=3D"mailto%3A%3F%26cc%3Ddaniel%40danielmiessler.com%3B%26subject%3DYou%20W=
+ould%20Love%20This%20Newsletter%26body%3DI%20get%20an%20email%20newsletter=
+%20every%20week%20called%20Unsupervised%20Learning%2C%20by%20Daniel%20Mies=
+sler%2C%20and%20I%20am%20pretty%20sure%20you%E2%80%99ll%20love%20it%20as%2=
+0well.%20%0D%0A%0D%0AYou%20can%20subscribe%20to%20the%20podcast%20or%20new=
+sletter%20here%3A%0D%0A%0D%0Ahttps%3A%2F%2Fdanielmiessler.com%2Fpodcast" s=
+tyle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;color: #656565;font-weight: normal;text-decoration:=
+ underline;"><span style=3D"color:#808080"><span style=3D"font-family:lato=
+=2Chelvetica neue=2Chelvetica=2Carial=2Csans-serif">..</span></span></a></=
+span><br>
+<br>
+<span style=3D"font-size:12px"><span style=3D"font-family:lato=2Chelvetica=
+ neue=2Chelvetica=2Carial=2Csans-serif"><a href=3D"https://danielmiessler.=
+us8.list-manage.com/track/click?u=3D6a9e465ab1570df8aaecb2292&id=3De3f7359=
+809&e=3D895c2ab2be" target=3D"_blank" style=3D"mso-line-height-rule: exac=
+tly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #6565=
+65;font-weight: normal;text-decoration: underline;"><span style=3D"color:#=
+808080">M</span></a><a href=3D"https://danielmiessler.us8.list-manage.com/=
+track/click?u=3D6a9e465ab1570df8aaecb2292&id=3D8ca708a448&e=3D895c2ab2be"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;color: #656565;font-weight: normal;text-decoration=
+: underline;"><span style=3D"color:#808080">ANAGE YOUR SUBSCRIPTION</span>=
+</a></span></span><br>
+<br>
+: :<br>
+<br>
+<span style=3D"color:#A9A9A9"><span style=3D"font-size:12px"><em>Copyright=
+ =C2=A9 2018&nbsp;Daniel Miessler=2C all rights reserved.</em></span></spa=
+n><br>
+<br>
+<font color=3D"#a9a9a9"><span style=3D"font-size:11px">Click <a href=3D"ht=
+tps://danielmiessler.us8.list-manage.com/unsubscribe?u=3D6a9e465ab1570df8a=
+aecb2292&id=3D49fdb7d723&e=3D895c2ab2be&c=3Df9c87f977d" target=3D"_blank" st=
+yle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #656565;font-weight: normal;text-decoration: u=
+nderline;">here</a> to stop receiving the Unsupervised Learning Newsletter=
+=2E</span></font></div>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                        </table>
+=09=09=09=09=09=09<!--[if (gte mso 9)|(IE)]>
+=09=09=09=09=09=09</td>
+=09=09=09=09=09=09</tr>
+=09=09=09=09=09=09</table>
+=09=09=09=09=09=09<![endif]-->
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://danielmiessler.us8.list-manage.com/track/open.php?=
+u=3D6a9e465ab1570df8aaecb2292&id=3Df9c87f977d&e=3D895c2ab2be" height=3D"1=
+" width=3D"1"></body>
+</html>
+--_----------=_MCPart_1184475221--

@@ -1,0 +1,102 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.149.131 with SMTP id s3csp984897qvs;
+        Thu, 25 Jan 2018 06:16:48 -0800 (PST)
+X-Google-Smtp-Source: AH8x224arqEoKWs+b2EMYAUPqxldGMTMEBsFfRD5F3G5DhaCkxuaxkDIsHpCLmsCZdzpbGdkMq0L
+X-Received: by 10.237.60.145 with SMTP id d17mr16827135qtf.319.1516889808743;
+        Thu, 25 Jan 2018 06:16:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1516889808; cv=none;
+        d=google.com; s=arc-20160816;
+        b=RwdmBk3Qu22NKRYDt5l+SPSVIQmqY7xFviqHORjrNtjOLm6ebYAefcbOEip2MBGj8u
+         8psrzQyp6nfhrm6kHtXyW86R1uQjYy/mTuOK/w9S+mP/hGATAF+aJJrIXkIUqpGv2UX+
+         wOLmSVTaIWvYy7mDPh+9SV68FIpsypSXFVYSw/+CMiSCk7Cyt6ZKNYo8urZsxHJ283s/
+         goAkwPlh1QLsxF1044TyOI+rcgODQR09c9+lLBDPM9P5a7mVoddBgYf2Kl4r6fe6ssZg
+         zElmFW+SFlQEX4KGG9Ul1Uuos7L0enlNvQL25no6hAo3ud583Hmj37U0wL/TLslyISVx
+         eaog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=4YEmDq7lGSNQtLz7O6yceG131PyMmlWSO/UfQIlf0YE=;
+        b=CrAac2+MqPk0/Ti5ftCuSD4w+5LT0y5WWR4l7gnAjXIgj6WkCx1HfA5tbXLWe7xntZ
+         geRSgu0+F3oDuljn/2jBkEDGGZ7dxSduK5mrEewghBDPK8OsT13VcGDujzMXdRBn0BBe
+         hVqAuTKNlTiScZmh3xNihUmR1GFFxF2eMHfZ7FR2Ew7qiaHETTHh8FxfSbCukpovK1Ds
+         +AkA9oq/oXAaBMXRXdfcOLE1xzJFrlvIWigbYAj8VKRkVIyy0q43YuwSXITQbpNE/j97
+         EvvSdH4Ala0AhJ7M8Bel99uVPiWw/RJ1Mbcrkec5BcdY0lLh9ONlyeGoLHw4BNlFwuCu
+         60cA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@icloud.com header.s=04042017 header.b=BrpYTJVa;
+       spf=pass (google.com: domain of bassetboyjim@icloud.com designates 17.164.199.65 as permitted sender) smtp.mailfrom=bassetboyjim@icloud.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=icloud.com
+Return-Path: <bassetboyjim@icloud.com>
+Received: from st13p35im-asmtp002.me.com (st13p35im-asmtp002.me.com. [17.164.199.65])
+        by mx.google.com with ESMTPS id 19si1652933qkf.97.2018.01.25.06.16.48
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 25 Jan 2018 06:16:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of bassetboyjim@icloud.com designates 17.164.199.65 as permitted sender) client-ip=17.164.199.65;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@icloud.com header.s=04042017 header.b=BrpYTJVa;
+       spf=pass (google.com: domain of bassetboyjim@icloud.com designates 17.164.199.65 as permitted sender) smtp.mailfrom=bassetboyjim@icloud.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=icloud.com
+Received: from process-dkim-sign-daemon.st13p35im-asmtp002.me.com by
+ st13p35im-asmtp002.me.com
+ (Oracle Communications Messaging Server 8.0.1.2.20170607 64bit (built Jun  7
+ 2017)) id <0P3400C006GGIP00@st13p35im-asmtp002.me.com>; Thu,
+ 25 Jan 2018 14:16:34 +0000 (GMT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com;	s=04042017;
+ t=1516889794;	bh=4YEmDq7lGSNQtLz7O6yceG131PyMmlWSO/UfQIlf0YE=;
+	h=Content-type:MIME-version:Subject:From:Date:Message-id:To;
+	b=BrpYTJVagB1PEney8neJFNwOWfmqW5wtv+zonz0BiJD+chfeHtj/yN2dNDvT6Km4a
+ Q0SjPlf51PVsiFYJgyyD01DC3brHL/yO7FCjb2Jx9ooK6DAh1njySifKFGLcl+sBI1
+ f2iy7goSyAFZckV3EqoZVp06AIOEZhnN2YXi9cut+XpZpzS82Zm36M4qfU+zscuwpK
+ 8hXuiVIuBZMLe4VyBgVurbQTWFaUqgJGVpbCBBIhIAy7Gl72XmzIDQ3xKMUTxtQwmD
+ kyq0Ab19i6gRiWxKHTs3tqbTLAGJQd4jmxpQYOvbK7q1i0l9qj+Mi5ysI3VvNg6YnS
+ ycNES7mFJw+jw==
+Received: from icloud.com ([127.0.0.1]) by st13p35im-asmtp002.me.com
+ (Oracle Communications Messaging Server 8.0.1.2.20170607 64bit (built Jun  7
+ 2017)) with ESMTPSA id <0P3400ES97NHWQ40@st13p35im-asmtp002.me.com>; Thu,
+ 25 Jan 2018 14:16:31 +0000 (GMT)
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10432:,,
+ definitions=2018-01-25_05:,, signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ clxscore=1011 suspectscore=2 malwarescore=0 phishscore=0 adultscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.0.1-1707230000 definitions=main-1801250194
+Content-type: text/plain; charset=utf-8
+MIME-version: 1.0 (Mac OS X Mail 11.2 \(3445.5.20\))
+Subject: Re: Chicago in May
+From: James Carter <bassetboyjim@icloud.com>
+In-reply-to: <FAFCD456-E6D3-40D0-BA14-84E19F450BA7@gmail.com>
+Date: Thu, 25 Jan 2018 08:16:29 -0600
+Cc: Jim Carter <bassetboyjim@icloud.com>, BF <chiniceguy67@gmail.com>
+Content-transfer-encoding: quoted-printable
+Message-id: <51BDB511-B4BE-49F3-A5D8-A2C08349AA25@icloud.com>
+References: <FAFCD456-E6D3-40D0-BA14-84E19F450BA7@gmail.com>
+To: Mark Nichols <mark.nichols@gmail.com>
+X-Mailer: Apple Mail (2.3445.5.20)
+
+Absolutely!  And we definitely want you to have you up to our place one =
+night for dinner.  Not sure if you know - but we bought a building and =
+have moved into it.  We=E2=80=99re landlords! (yikes!).
+
+Let=E2=80=99s catch up a week or two before, but I=E2=80=99ll put it on =
+our calendar right now.
+
+Jim C
+
+
+> On Jan 25, 2018, at 7:03 AM, Mark Nichols <mark.nichols@gmail.com> =
+wrote:
+>=20
+> Hi Jim and Jim,
+>=20
+> I=E2=80=99m going to be attending a conference May 23-25 at the Hyatt =
+Regency on Wacker. Sibylle is going to come with me, in part to renew =
+her passport at the German consulate in Chicago and in part to do a =
+little shopping.
+>=20
+> We=E2=80=99ll be flying into O=E2=80=99Hare Tuesday evening, and =
+returning to Manhattan on Saturday right after noon. Are you guys going =
+to be around that week? If so, we=E2=80=99d love to catch up with you.
+>=20
+> =E2=80=94 Mark
+

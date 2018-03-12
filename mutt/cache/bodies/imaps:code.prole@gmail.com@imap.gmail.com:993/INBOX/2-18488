@@ -1,0 +1,214 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp1485224qtm;
+        Sun, 4 Mar 2018 03:07:47 -0800 (PST)
+X-Google-Smtp-Source: AG47ELt2hDGt+ACpw3cU++Zp3qnd8TklnEyW+ORaS1M7iSAWTMfFp3kiE/SHygULKIocVRiGBR7K
+X-Received: by 2002:a25:3389:: with SMTP id z131-v6mr2362459ybz.414.1520161667268;
+        Sun, 04 Mar 2018 03:07:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520161667; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Opa4bKGf2IcoUrxf8dYSw7quwXwMg+aPye72Q+f1XV1BlRR83i+lvE13vBICuV3p6G
+         XmCbsF3fKVlY6mv2SWLfXOdQsMMgpJC4re4XSjnOhjzhl/QjpMedVDPP1qTxPy5NQucW
+         GJjr3lpTA98XUPqvCDYrZDOgaRVSTD3YWhBVquYBubGPc1cwoggLQnjZKhig2UnO7G+6
+         sZSpfo+LakGokENwrwq/rJ1NYhcetI5A7wWnJuvUHzsRaRMroYdC+q2hlPxgQPLCrvaU
+         MLnpiJoL5RaczAqgnPE7LQCkIp3oZHu0peca0kHGePuq3HveAuE473BPR91ncOKAGN0N
+         dnlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:sender:list-unsubscribe:precedence
+         :list-id:feedback-id:message-id:date:to:reply-to:from:subject
+         :dkim-signature:dkim-signature:arc-authentication-results;
+        bh=MwGNPMIV9KrA4e7yF7z2rQEhiAzSG5V4YkGNDhk9ljI=;
+        b=YacjwiwFpJAlhYRVyZDAWGYfHvUwf2gkkT8kkKP00hS+j4mLLosklzLOjvZ/2BM4iH
+         gjsIw1NnxrYPjnYizlpUJkOkTwKJp/MPLRjvrK0W3p4oaS5xwJZhOaDzVzdLS2PXR+Cs
+         j3wFNLP/AGTeMNZtKOHXf7aLX1jJPO6bnT5tD2FzGsaVge1DnwwhUKbtyyPImTcdkJfs
+         grVwHFhV+GDEYhzTKKym8psK5mJDEoXyBW0Z2Grceaon4AbC0y9AsL6b/eb29ZHpOhHt
+         1W/SabTg9PySy1cTjoqsJfh1if3/Ps3gJh9Gh8kcYI6PiLBjloIlMV2by98jd4iC3CUC
+         Fkbw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mail99.sea31.mcsv.net header.s=k1 header.b=F5W5W9Mp;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=a69a23BM;
+       spf=pass (google.com: domain of bounce-mc.us2_2809746.1298033-code.prole=gmail.com@mail99.sea31.mcsv.net designates 148.105.11.99 as permitted sender) smtp.mailfrom=bounce-mc.us2_2809746.1298033-code.prole=gmail.com@mail99.sea31.mcsv.net
+Return-Path: <bounce-mc.us2_2809746.1298033-code.prole=gmail.com@mail99.sea31.mcsv.net>
+Received: from mail99.sea31.mcsv.net (mail99.sea31.mcsv.net. [148.105.11.99])
+        by mx.google.com with ESMTPS id g203-v6si1752588ybb.830.2018.03.04.03.07.46
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Mar 2018 03:07:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us2_2809746.1298033-code.prole=gmail.com@mail99.sea31.mcsv.net designates 148.105.11.99 as permitted sender) client-ip=148.105.11.99;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mail99.sea31.mcsv.net header.s=k1 header.b=F5W5W9Mp;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=a69a23BM;
+       spf=pass (google.com: domain of bounce-mc.us2_2809746.1298033-code.prole=gmail.com@mail99.sea31.mcsv.net designates 148.105.11.99 as permitted sender) smtp.mailfrom=bounce-mc.us2_2809746.1298033-code.prole=gmail.com@mail99.sea31.mcsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=mail99.sea31.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:Sender:
+ Content-Type:Content-Transfer-Encoding;
+ i=gareth=3Dmorethanseven.net@mail99.sea31.mcsv.net;
+ bh=MwGNPMIV9KrA4e7yF7z2rQEhiAzSG5V4YkGNDhk9ljI=;
+ b=F5W5W9MpWIY3ZMDfUZtrNnFGvoiB4X80b7otVAnNiECota8LTepjJced74ENCrAsIXP47lEu6rGW
+   gCP/dXWHplw8reRI3yAtQ5ekN8NqKfSpuowOCFxZNhQbc7t3M2bpaZ1yYlDF9dYSxf75Q1qcHst/
+   3G4Zy3aGjG7uHRNwC/w=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Sender:Content-Type:Content-Transfer-Encoding;
+ bh=MwGNPMIV9KrA4e7yF7z2rQEhiAzSG5V4YkGNDhk9ljI=;
+ b=a69a23BMFeYWf4tEMW0wIeOtGuIXdofNB8qtXYESuTbQW0MJI6i8+4YSti0GdAl/7B16YzE7mKVc
+   ZNFZgIbBVE47ypY+C5oMvZz8edEHPKRO2IdWhaD2025XVtXFBd0HovjI0PWn9fAxGPS9ZuFOjmOY
+   fPTghW3FPMt552xnhEY=
+Received: from (127.0.0.1) by mail99.sea31.mcsv.net id hjf9o62akec4 for <code.prole@gmail.com>; Sun, 4 Mar 2018 11:04:34 +0000 (envelope-from <bounce-mc.us2_2809746.1298033-code.prole=gmail.com@mail99.sea31.mcsv.net>)
+Subject: =?utf-8?Q?Devops=20Weekly=20#375?=
+From: =?utf-8?Q?Devops=20Weekly?= <gareth@morethanseven.net>
+Reply-To:  <us2-33741cb112-171801e088@conversation01.mailchimpapp.com>
+To: <code.prole@gmail.com>
+Date: Sun, 4 Mar 2018 11:04:34 +0000
+Message-ID: <b6635e37e35fa5eff0c2a947a.5753ae50b0.20180304110405.ce6164e631.3203a2f4@mail99.sea31.mcsv.net>
+X-Mailer: MailChimp Mailer - **CIDce6164e6315753ae50b0**
+X-Campaign: mailchimpb6635e37e35fa5eff0c2a947a.ce6164e631
+X-campaignid: mailchimpb6635e37e35fa5eff0c2a947a.ce6164e631
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=b6635e37e35fa5eff0c2a947a&id=ce6164e631&e=5753ae50b0
+X-MC-User: b6635e37e35fa5eff0c2a947a
+Feedback-ID: 2809746:2809746.1298033:us2:mc
+List-ID: b6635e37e35fa5eff0c2a947amc list <b6635e37e35fa5eff0c2a947a.336169.list-id.mcsv.net>
+Precedence: bulk
+X-Auto-Response-Suppress: OOF, AutoReply
+X-Accounttype: pd
+List-Unsubscribe: <https://devopsweekly.us2.list-manage.com/unsubscribe?u=b6635e37e35fa5eff0c2a947a&id=a63f24d068&e=5753ae50b0&c=ce6164e631>, <mailto:unsubscribe-mc.us2_b6635e37e35fa5eff0c2a947a.ce6164e631-5753ae50b0@mailin.mcsv.net?subject=unsubscribe>
+Sender: "Devops Weekly" <gareth=morethanseven.net@mail99.sea31.mcsv.net>
+x-mcda: FALSE
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+DEVOPS WEEKLY
+ISSUE #375 - 4th March 2018
+
+Application deployment=2C and building abstractions for developers managin=
+g applications=2C appears to be a theme at the moment - with several relat=
+ed posts this week. Plus interesting thoughts on operations for serverless=
+=2C configuring Jenkins and the business case for adopting devops practice=
+s.
+
+
+Sponsor
+=3D=3D=3D=3D=3D=3D
+
+Your monitoring tools need to make sense in your DevOps environment. Make=
+ sure you're monitoring your infrastructure and code with end-to-end visib=
+ility.
+
+http://try.victorops.com/DevOpsWeekly/Monitoring
+
+
+News
+=3D=3D=3D=3D
+
+A good post on the future of the operations role when adopting serverless=
+=2C looking at the changing skills and responsibilities.
+
+https://www.serverlessops.io/blog/serverless-ops-what-do-we-do-when-the-se=
+rver-goes-away
+
+
+A look at the evolution of systems management=2C from manual configuration=
+ through various flavours of configuration management=2C along with some p=
+redictions about what might be next.
+
+http://www.xkyle.com/the-evolution-of-distributed-systems-management/
+
+
+Taking full advantage of adopting cloud infrastructure requires an underst=
+anding of the economics and incentives involved. This post does a good job=
+ of looking at those=2C in pursuit of increased team autonomy.
+
+https://blogg.bekk.no/the-effects-of-public-cloud-on-team-autonomy-f5b1d22=
+cef87
+
+
+A reminder that when building the case for adopting devops to focus on the=
+ business benefits and transformation=2C rather than the technology.
+
+https://opensource.com/article/18/2/how-build-business-case-devops-transfo=
+rmation
+
+
+An upcoming book is looking at the relationship between devops and site re=
+liability engineering=2C and looking for as much input from the community=
+ as possible. If you have thoughts consider submitting.
+
+https://lemurbook.com/devops-and-sre-contribution/
+
+
+A post on building an application deployment workflow using Kubernetes and=
+ GitLab.
+
+https://blog.opendigerati.com/deploy-your-applications-to-kubernetes-using=
+-gitlab-ci-and-k8s-deploy-helper-1-0-0-32b8a080bd08
+
+
+Configuring Jenkins=2C especially when you have a large number of plugins=
+=2C can involve lots of manual work. This post introduces a new Jenkins pl=
+ugin which supports more of a configuration as code approach.
+
+https://www.praqma.com/stories/jenkins-configuration-as-code/
+
+
+A look at how developers work at various companies; which languages are co=
+mmon=2C how they communicate=2C how review and testing work=2C what the de=
+velopment lifecycle involves.
+
+https://increment.com/development/what-its-like-to-be-a-developer-at/
+
+
+A solid argument why organisations should provide a self-service platform=
+ for internal developers to deploy applications to=2C looking specifically=
+ at Kubernetes and Deis Workflow.
+
+https://medium.com/@anubhavmishra/why-all-companies-should-have-a-heroku-l=
+ike-platform-for-their-developers-ee96a6fc6bc0
+
+
+CNCF - Cloud Native Computing Foundation
+=3D=3D=3D=3D
+
+Free Webinar - Building Serverless Application Pipelines
+March 6=2C Online
+
+Join us to learn about several application use-cases that are driving the=
+ serverless movement how they can be developed and deployed on top of Kube=
+rnetes using an open source serverless solution called kubeless.
+
+https://goo.gl/H6vgnz
+
+
+Tools
+=3D=3D=3D=3D=3D
+
+Skipper is an HTTP router and reverse proxy for service composition. It pr=
+ovides modern features like circuit breakers as well as a plugin model. It=
+ also comes with a first-class Kubernetes ingress controller.
+
+https://github.com/zalando/skipper
+
+
+
+Your monitoring tools need to make sense in your DevOps environment. Make=
+ sure you're monitoring your infrastructure and code with end-to-end visib=
+ility.
+
+http://try.victorops.com/DevOpsWeekly/Monitoring
+
+
+
+If you received this email directly then you're already signed up=2C thank=
+s! If however someone forwarded this email to you and you'd like to get it=
+ each week then you can subscribe at http://devopsweekly.com
+
+--
+
+You opted in for Devops Weekly at http://devopsweekly.com
+
+You can always unsubscribe by visiting https://devopsweekly.us2.list-manag=
+e.com/unsubscribe?u=3Db6635e37e35fa5eff0c2a947a&id=3Da63f24d068&e=3D=
+5753ae50b0&c=3Dce6164e631
+
+If you have other queries you can contact the list maintainer at gareth@mo=
+rethanseven.net
+
+Our mailing address is 43 Gwydir Street=2C Cambridge=2C UK=2C CB1 2LG

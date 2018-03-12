@@ -1,0 +1,111 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.174.74 with SMTP id z10csp960313qvc;
+        Fri, 1 Dec 2017 08:28:25 -0800 (PST)
+X-Google-Smtp-Source: AGs4zMYPdbcMJHy2YPZ8wstwIR8SjZIj1r0ybIkBxotytCewWXMPpRUI3JLXOu9+rFCBZTTBmc7l
+X-Received: by 10.98.127.149 with SMTP id a143mr11070262pfd.65.1512145705840;
+        Fri, 01 Dec 2017 08:28:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1512145705; cv=none;
+        d=google.com; s=arc-20160816;
+        b=J9PGE/B6GCkn6HPtX3yPoQ+VoXOOgQtnPgMwfVvP9I6kBiUxpjFZNwarQ13QXTO6F2
+         aJ+oU4ThSlKCZeilA/NXJn5rJ9qc7SFC1z/0Uj7MCE7gru98PuQ7CW+Xp23pRXRrdriU
+         vEvbkJG26OB9XxoURytCcU4yV/yuGBZ/D36qVTqu5eDwjNVs6bQnKKdT9nMv+mXvZ/0H
+         97jFUoGVy7WvgjAMaa9lnO0XP23V0Ir2ITO9nYGfK3sFNkIAX3gUM8OvQSQ+fsOlDudu
+         smJLWi5LacfLZ5pT5e1c7SgsnhnPETt5Y4UWa0xJHdS6MbJPI2TX3XztrZYCoQ082EmD
+         S66Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:subject:from:to:reply-to:message-id
+         :content-transfer-encoding:date:sender:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=+qnOQtlzh8tZrD1kA6xv3wlh8EdDLATro/lxZ6TbYAQ=;
+        b=xiDcAcqHaRnkD6mMs+TC1zfv0Qwzju0HMuWaW0bnlrurlgjLQc35eEGc5UbC/Ypiop
+         GryPXjtqu1O5LtTkI6UWbwVfALpmFHEueVRWts/AYF1BB7aL5MPF/Lali2Z+wbLFh0Vy
+         VJzhp1FPUdU/NVIiK+nlg1tL208HP4OLUm9BfZ+YEtt0pYC3JA58SxZNMfOItAkdJ1d0
+         ypsVgShksSGZhybgoe/J2TabKuCVLB0HvvtezMrMLbojPajVNMNq/4aJnxFPO1PYaQ14
+         HFIbKUISGJzk+L0ssTACTcPgiZD2v6BzS/nFCqzwS1CEd2NIcSfc2p/ZJHH/SaKpYKmb
+         5IUg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@trycelery.com header.s=pic header.b=nin/Lbe5;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=JQFRQvx7;
+       spf=pass (google.com: domain of bounce+5bb21e.f341-mark.nichols=gmail.com@trycelery.com designates 184.173.105.230 as permitted sender) smtp.mailfrom=bounce+5bb21e.f341-mark.nichols=gmail.com@trycelery.com
+Return-Path: <bounce+5bb21e.f341-mark.nichols=gmail.com@trycelery.com>
+Received: from p230.mailgun.us (p230.mailgun.us. [184.173.105.230])
+        by mx.google.com with UTF8SMTPS id y7si5245075plh.9.2017.12.01.08.28.24
+        for <mark.nichols@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 01 Dec 2017 08:28:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+5bb21e.f341-mark.nichols=gmail.com@trycelery.com designates 184.173.105.230 as permitted sender) client-ip=184.173.105.230;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@trycelery.com header.s=pic header.b=nin/Lbe5;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=JQFRQvx7;
+       spf=pass (google.com: domain of bounce+5bb21e.f341-mark.nichols=gmail.com@trycelery.com designates 184.173.105.230 as permitted sender) smtp.mailfrom=bounce+5bb21e.f341-mark.nichols=gmail.com@trycelery.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=trycelery.com; q=dns/txt;
+ s=pic; t=1512145704; h=Mime-Version: Content-Type: Subject: From: To:
+ Reply-To: Message-Id: Content-Transfer-Encoding: Date: Sender:
+ X-Feedback-Id; bh=+qnOQtlzh8tZrD1kA6xv3wlh8EdDLATro/lxZ6TbYAQ=; b=nin/Lbe5eife3gnUy6Wrt9kENgFKttNeBR3E0Z3bXga/7ewRNN285SCCkiMPPtpNHXYbDwkx
+ 56xLbBiPI7pkhVquoiE+AEkTpCrynP39j4KRGYYq0EygsWIbUt1akHWbdm43DqevSGsmSLJJ
+ 3XzkT7OO//sPUM3prSEbncYbB0w=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1512145704; h=Mime-Version: Content-Type: Subject: From: To:
+ Reply-To: Message-Id: Content-Transfer-Encoding: Date: Sender:
+ X-Feedback-Id; bh=+qnOQtlzh8tZrD1kA6xv3wlh8EdDLATro/lxZ6TbYAQ=; b=JQFRQvx7yOck46tmcvSaXDMrFhanzzlx2MT3JGfNqLa5/RgJaEGbuf9rAMEDJd0+Jt4LnY6U
+ I9PRGIc5s0uIB2WMQhaGgoCTST+FqAcI0heEicIjYOKt2mQoVlc5UGeGc3Q5K08xFvNaf1nQ
+ Svsy4y5iepd2P428k5tbXD7cSRg=
+X-Feedback-Id: 5129ae4bfea3982220000411:mailgun
+Sender: orders=berkeleybreathed.com@trycelery.com
+Date: Fri, 01 Dec 2017 16:28:24 +0000
+X-Mailgun-Sending-Ip: 184.173.105.230
+X-Mailgun-Sid: WyJiZWU1OSIsICJtYXJrLm5pY2hvbHNAZ21haWwuY29tIiwgImYzNDEiXQ==
+Content-Transfer-Encoding: 7bit
+Received: by luna.mailgun.net with HTTP; Fri, 01 Dec 2017 16:28:24 +0000
+Message-Id: <20171201162824.58965.65B3C2A88914EC65@mail.trycelery.com>
+Reply-To: "Berkeley Breathed"<orders@berkeleybreathed.com>
+To: mark.nichols@gmail.com
+From: Berkeley Breathed <orders@berkeleybreathed.com>
+Subject: Thanks for your order! (#102899591)
+Content-Type: text/html; charset="ascii"
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  Thank you for placing your order! Please review your order details for accuracy.<br>
+
+  <br>
+  <b>Order Details</b><br>
+
+
+    <br>
+    Shipping Address:<br>
+    &nbsp;&nbsp;Mark Nichols<br>
+    
+    &nbsp;&nbsp;1009 Laussac Dr<br>
+    
+    &nbsp;&nbsp;Manhattan KS 66503<br>
+    &nbsp;&nbsp;United States<br>
+    &nbsp;&nbsp;785-236-8181<br>
+
+  <br>
+  Line Items:<br>
+    &nbsp;&nbsp;1x Opus Plush for $36.00 each<br>
+    
+
+
+
+  <br>
+  Subtotal: $36.00<br>
+  Taxes: $0.00<br>
+  Shipping: $10.00<br>
+  Total: $46.00<br>
+  ---<br>
+  Total Paid: $0.00<br>
+  Balance Due: $46.00<br>
+
+
+  <br>
+  Update your shipping address or payment information in <a href="https://dashboard.trycelery.com/status?number=102899591&email=mark.nichols%40gmail.com">Order Lookup</a>.<br>
+  <br>
+  You can email us at <a href="mailto:orders@berkeleybreathed.com">orders@berkeleybreathed.com</a>.
+</body>
+</html>

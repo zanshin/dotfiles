@@ -1,0 +1,369 @@
+Return-Path: <bounce-287489_HTML-1291123075-103129782-132689-181@bounce.mailer.atlassian.com>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 9FC761B295CAC4
+	for <mark_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 18:18:39 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id 9DB12203CF4C7
+	for <mark_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 18:18:39 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 0.22
+X-Spam-Level:
+X-Spam-Status: No, score=0.22 tagged_above=-999 required=3
+	tests=[HEADER_FROM_DIFFERENT_DOMAINS=0.249, HTML_MESSAGE=0.001,
+	RCVD_IN_DNSWL_NONE=-0.0001, RCVD_IN_MSPIKE_H4=-0.01,
+	RCVD_IN_MSPIKE_WL=-0.01, SPF_PASS=-0.001, T_RP_MATCHES_RCVD=-0.01,
+	URIBL_BLOCKED=0.001] autolearn=no autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id L2GmbrbK9ZZk
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Tue,  6 Mar 2018 18:18:39 +0000 (UTC)
+Received: from mta.mailer.atlassian.com (mta.mailer.atlassian.com [66.231.88.91])
+	by mx8.webfaction.com (Postfix) with ESMTPS id 0641A203716EC
+	for <mark@zanshin.net>; Tue,  6 Mar 2018 18:17:54 +0000 (UTC)
+Received: by mta.mailer.atlassian.com id hjrdl6163hse for <mark@zanshin.net>; Tue, 6 Mar 2018 12:17:54 -0600 (envelope-from <bounce-287489_HTML-1291123075-103129782-132689-181@bounce.mailer.atlassian.com>)
+From: "Atlassian Bitbucket" <noreply@mailer.bitbucket.org>
+To: <mark@zanshin.net>
+Subject: Your code in Bitbucket Cloud will never look the same again
+Date: Tue, 06 Mar 2018 12:17:35 -0600
+List-Unsubscribe: <mailto:leave-fca5167872600c741a4c342838-fe0015727c65057f76147770-fe2e157076650674721c72-fec2157377620c74-ff65157874@leave.mailer.atlassian.com>
+MIME-Version: 1.0
+Reply-To: "Atlassian Bitbucket" <reply-fe2e157076650674721c72-287489_HTML-1291123075-132689-181@mailer.atlassian.com>
+List-ID: <132689.xt.local>
+X-CSA-Complaints: whitelistcomplaints@eco.de
+x-job: 132689_103129782
+Message-ID: <fa2067e0-af1e-427f-a8e3-0d1fc5c52055@xtinmta101.xt.local>
+Content-Type: multipart/alternative;
+	boundary="rzgkwtr0yp5R=_?:"
+
+This is a multi-part message in MIME format.
+
+--rzgkwtr0yp5R=_?:
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Atlassian 
+
+Come see our brand new source view 
+
+Your code in Bitbucket will never look the same again
+
+We'd like to share with you some exciting, new changes to the source browsing experience in Bitbucket Cloud. Here’s what you can look forward to seeing:
+
+- New sidebar
+Get a quick glance of all details in context from the cards in the sidebar. We currently include repository and file details, but look out for cards with build statuses, pull request updates, and more in the future.
+
+- Quicker performance
+The source view now operates as a single page application, resulting in a snappier code browsing experience. No more waiting for a full page load when you navigate to a new file or switch between views.
+
+- More effective browsing
+Source files are now the first thing you see when landing in a repository. This updated view includes a cleaner experience for moving between files and directories.
+
+To see your code in a whole new way, enable New source browser experience from your Bitbucket Labs. As you try it out, click Give feedback from the new sidebar to share your thoughts on the experience.
+
+Enable from Bitbucket Labs
+
+>> http://click.mailer.atlassian.com/?qs=ed621f391cbd22db1e9ae029d8579e42e05f8e5e869387e4c726c50461194d04ffa3e32f6c02a5c23c456901c43668a2f0f5cdcddcbe413a 
+
+Note: You’re currently unable to see Pipelines build updates or use third-party apps from the source view. We’re working to get these up-to-speed as soon as possible.
+
+
+
+
+_ _ _ _ _ _ _ _ Atlassian
+
+Read in browser - http://view.mailer.atlassian.com/?qs=5ed9558b530bd66b123f461e20d710a316c91455399b3c82214e2fc65b6348840127a8b14dce6f48137f891c13a995c33dc75f1f06c8548dc5e4c86229e7fc4d12147f13106d493465d6fe7dfbca3ec46b8d19ddf63dcd61 
+
+Unsubscribe - http://click.mailer.atlassian.com/?qs=ed621f391cbd22db50cc73074b2de136155c0dbfa99bd5c2fa482f8838f0bdd232542ad6a7879c1a96e634c55de6636d88b3651bb7023857 Source View INACTIVE 201-250_EML-2861&103129782 
+
+Privacy Policy - http://click.mailer.atlassian.com/?qs=ed621f391cbd22dbf9cebe66bb0e6d0c5ff6c54550a5efcfb66fc51ab6772198c1f824bd89a1fdbca317558cde9485d0077298691bbf8a37
+
+Contact us - http://click.mailer.atlassian.com/?qs=ed621f391cbd22dba0544565b29106ea2af203a1098335a99abc38cf9c609da3e7c3edffa8bb69141eb8bb6f4e9dce3b7904ffd74e7b14a3
+	
+Read our Blog - http://click.mailer.atlassian.com/?qs=ed621f391cbd22db3e5a027843753e9e28cb48d810d481604e1898006d5177c9b29c646e44f7e8decad347557d96f793424e90f90837dbd7
+
+Facebook - http://click.mailer.atlassian.com/?qs=ed621f391cbd22db7ce460593ccb9f9f4b7d4c9c64408b5fa978e00b126cca24fb74ca328347f71a2e350f4eeed87c9419bf8e52b147bee2 
+  
+LinkedIn - http://click.mailer.atlassian.com/?qs=ed621f391cbd22db28eb92fa0c161236e8ba42294f0ae1e45e87bf98dbc27943ebdbe72710e93c52279d3dad03670084cdf61f113fc4b230
+   
+Twitter - http://click.mailer.atlassian.com/?qs=ed621f391cbd22db028934502c55fa887d35ae9c4c1f7f1fb353f1bcdf5f08c8aea0d7604d099ea9ebd7ecd0b9b8b150a3883b8a1db33869
+
+Copyright 2018 Atlassian Pty Ltd. All rights reserved. We are located at 341 George Street, Sydney, NSW, 2000, Australia
+
+
+--rzgkwtr0yp5R=_?:
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+	<!--[if !mso]><!-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!--<![endif]-->
+	<title>Atlassian</title>
+	
+	<style type="text/css">
+	
+	/* RESET STYLES */
+	table{border-collapse:collapse;}
+	img, a img{border:0; height:auto; outline:none; text-decoration:none;}
+	body{height:100% !important; margin:0 auto !important; padding:0; width:100% !important;}
+
+	/* CLIENT-SPECIFIC STYLES */
+	img{-ms-interpolation-mode: bicubic;}
+	/* Force IE to smoothly render resized images. */
+	
+	#outlook a{padding:0;}
+	/* Force Outlook 2007 and up to provide a "view in browser" message. */
+	
+	table{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+	/* Remove spacing between tables in Outlook 2007 and up. */
+
+	.ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+	/* Force Outlook.com to display emails at full width. */
+	
+	p, a, td{mso-line-height-rule:exactly;}
+	/* Force Outlook to render line heights as they're originally set. */
+	
+	p, a, td, body, table{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;}
+	/* Prevent Windows- and Webkit-based mobile platforms from changing declared text sizes. */
+
+	.ExternalClass, .ExternalClass p, .ExternalClass td, .ExternalClass div, .ExternalClass span, .ExternalClass font{line-height:100%;}
+	/* Force Outlook.com to display line heights normally. */
+
+	a[x-apple-data-detectors] {color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important;}
+	/* attempt to control apple deata detection */
+
+	/* TEMPLATE STYLES */
+	@media screen and (max-width:480px){
+    	.mw100{max-width:100% !important;}
+		.mw95{max-width:95% !important;}
+		.mw50{max-width:50% !important;}
+		.w100{width:100% !important;}
+		.w96{width:96% !important;}
+		.mblpdrm-r{padding-right:0 !important;}
+		.mblpdrm-l{padding-left:0 !important;}
+	}
+	
+	</style>
+	
+	<!--[if gte mso 9]><xml>
+		<o:OfficeDocumentSettings>
+		<o:AllowPNG/>
+		<o:PixelsPerInch>96</o:PixelsPerInch>
+		</o:OfficeDocumentSettings>
+		</xml><![endif]-->
+
+</head>
+<body style="margin:0; padding:0; background-color:#ffffff;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Come see our brand new source view</div>
+
+<table align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%; Margin:0 auto;background-color:#ffffff;">
+<tr>
+<td style="font-size:0;">&nbsp;</td>
+<td align="center" valign="top" style="width:580px;">
+    <table align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%;" class="w96">
+	<!-- start logo -->
+	<tr>
+    <td align="center">
+        <table align="center" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+        <tr>
+        <td align="center" style="padding:40px 0;border-bottom:1px solid #cccccc;">
+        <a href="http://click.mailer.atlassian.com/?qs=aafbb27afe090e9c17d38072da39e2fa8a55dc3269025bd5a400c29f933c07e16f44c22174138964cee10b78eb2a70b44f30d7f1e94f5451"  style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#253858;text-decoration:none;">
+	    <img src="http://image.mailer.atlassian.com/lib/fec2157377620c74/m/7/Bitbucket-logo-rebrand.png" alt="Atlassian Bitbucket" title="Atlassian" border="0" width="220" style="display:block;outline:0;padding:0;border:0;width:220px;height:auto;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size: 12px;color:#253858;"/></a>
+        </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+    <!-- end logo -->
+    <!-- start main hero -->
+    <tr>
+    <td align="center">
+        <table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+		<!-- start headline -->
+        <tr>
+        <td align="center">
+            <table cellpadding="0" cellspacing="0" border="0" style="width:100%;" class="w95">
+            <tr>
+            <td style="padding-top:40px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-weight:bold;font-size:24px;line-height:30px;color:#253858;text-align:center;">
+	        <a href="http://click.mailer.atlassian.com/?qs=aafbb27afe090e9cd2da5f05fa112817b6dbd34f4de44363644021cc687279a53559d1c4bb5dd509e0dbb5cb98d4af6fdc36582a2a74cf51" style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:24px;line-height: 30px;color:#253858;text-decoration:none;" >
+            Come see our brand new source view</a>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        <!-- end headline -->
+        <!-- start image -->
+        <tr>
+        <td align="center" style="padding-top:40px;">
+        <a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692d29946f02374ca2c2d9e37658959c0928576d8991648de2ad6aa4a5cda73cdc5cbd7cac24fe0efbe4f438b19aa48f6c49"  style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#253858;text-decoration:none;" alias="image">
+	    <img src="http://image.mailer.atlassian.com/lib/fec2157377620c74/m/8/new_source.png" alt="Your code in Bitbucket Cloud will never look the same again" title="Your code in Bitbucket Cloud will never look the same again" border="0" width="580" style="display:block;outline:0;padding:0;border:0;width:100%;height:auto;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:12px;color:#253858;border: 1px solid #f5f5f5;" /></a>
+        </td>
+        </tr>
+        <!-- end image -->
+        <!-- start subhead -->
+        <tr>
+        <td style="padding-top:40px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:20px;line-height:26px;color:#42526E;text-align:center;">
+        Your code in Bitbucket will never look the same again
+        </td>
+        </tr>
+        <!-- end subhead -->
+        <!-- start copy -->
+        <tr>
+        <td style="padding-top:20px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+		We'd like to share with you some exciting, new changes to the source browsing experience in Bitbucket Cloud. Here’s what you can look forward to seeing:
+        </td>
+        </tr>
+        <!-- end copy -->
+        <!-- start bullet -->
+        <tr>
+        <td align="center" style="padding-top:20px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="width:95%;">
+            <!-- -->
+            <tr>
+            <td valign="top" style="width:20px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+            &bull;
+            </td>
+            <td valign="top" style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+            <strong>New sidebar &ndash;</strong>
+            Get a quick glance of all details in context from the cards in the sidebar. We currently include repository and file details, but look out for cards with build statuses, pull request updates, and more in the future.
+            </td>
+            </tr>
+            <!-- -->
+            <tr>
+            <td colspan="2" height="10" style="height:10px;line-height:10px;font-size:0;">
+            &nbsp;
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" style="width:20px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+            &bull;
+            </td>
+            <td valign="top" style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+			<strong>Quicker performance &ndash;</strong>
+			The source view now operates as a single page application, resulting in a snappier code browsing experience. No more waiting for a full page load when you navigate to a new file or switch between views.
+            </td>
+            </tr>
+            <!-- -->
+            <tr>
+            <td colspan="2" height="10" style="height:10px;line-height:10px;font-size:0;">
+            &nbsp;
+            </td>
+            </tr>
+            <tr>
+            <td valign="top" style="width:20px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+            &bull;
+            </td>
+            <td valign="top" style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+			<strong>More effective browsing &ndash;</strong>
+			Source files are now the first thing you see when landing in a repository. This updated view includes a cleaner experience for moving between files and directories.
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        <!-- end bullet table -->
+        <!-- start copy -->
+        <tr>
+        <td style="padding-top:20px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+		To see your code in a whole new way, enable <strong>New source browser experience</strong> from your Bitbucket <strong>Labs.</strong> As you try it out, click <strong>Give feedback</strong> from the new sidebar to share your thoughts on the experience.
+        </td>
+        </tr>
+        <!-- end copy -->
+        <!-- satrt cta 1 -->
+        <tr>
+        <td align="center" style="padding-top:40px;padding-bottom:40px;">
+            <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+            <td align="center" style="border-radius:3px;background-color:#0052CC;">
+                <a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692df858347144e5774f6bbd4e8ab43e54d8e7f88a5fa45a481047f4c2e1e7233b04f7f5ea6566c443592d7567260f200889"  style="display:inline-block;border:1px solid #0052CC;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#ffffff;text-decoration:none;border-radius: 3px; padding:15px 40px;"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->Enable from Bitbucket Labs<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--></a>
+            </td>
+            </tr>
+            </table>
+        </td>
+        </tr>
+        <!-- end cta 1 -->
+        <!-- start copy -->
+        <tr>
+        <td style="padding-top:20px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;line-height:22px;color:#42526E;text-align:left;">
+		<strong>Note:</strong> You’re currently unable to see Pipelines build updates or use third-party apps from the source view. We’re working to get these up-to-speed as soon as possible.
+        </td>
+        </tr>
+        <!-- end copy -->
+        </table>
+    </td>
+    </tr>
+    <!-- end main hero -->
+	<!-- start footer 2018 -->
+	<tr>
+	<td align="center" style="padding-top:40px;padding-bottom:40px;">
+		<!-- -->
+		<table cellpadding="0" cellspacing="0" border="0" style="width:100%;">
+		<tr>
+		<td style="border-top:1px solid #cccccc;padding-top:40px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:13px;line-height:19px;color:#707070;text-align:center;">
+		<!-- unsub -->
+		<a href="http://view.mailer.atlassian.com/?qs=5ed9558b530bd66b123f461e20d710a316c91455399b3c82214e2fc65b6348840127a8b14dce6f48137f891c13a995c33dc75f1f06c8548dc5e4c86229e7fc4d12147f13106d49345d9633e1bee3ca7b1ac368b066d5e3cf"  style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:13px;color:#707070;text-decoration:none;">Read in browser</a> &bull;
+		
+		<a href='https://comms.atlassian.io/unsubscribe.html?1291123075&f52a969882bdef78741efb13a0fc9b21&287489&Product Announcements List&2062638&2018-03-06_Bitbucket Source View INACTIVE 201-250_EML-2861&103129782' target=_blank style='font-family:Helvetica, Arial, Verdana, sans-serif;font-size:13px;color:#707070;text-decoration:none;' >Unsubscribe</a> &bull;
+		<!-- provacy policy -->
+		<a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692d7eafe405215f5912d5592a143ed1ba645e01d8dfc07978b6ae7684203f0dab2394f02e779a73cad2746904e0ee9ad36b"  style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:13px;color:#707070;text-decoration:none;">Privacy policy</a> &bull;
+		<!-- contact us -->
+		<a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692df9b06f1ccdd647c0b8250097333570febbb79dd3e20365c82941bad888e2394f0d850444a59c06172605fa054b1962bc"  style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:13px;color:#707070;text-decoration:none;">Contact us</a> &bull;
+		<!-- blog -->
+		<a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692dbc27f530936d63a6d08efac3776b93d7429140f870d71b11d9da551538387b7b9f03d46d21ed493f86cef66110427144"  style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:13px;color:#707070;text-decoration:none;">Read our blog</a>
+		</td>
+		</tr>
+		<!-- facebook -->
+		<tr>
+		<td align="center" style="padding-top:10px; display:block;">
+		<a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692d9c3727ce704bc4e3eebd32e8a18103227555e442c74dd05f104cb7dd0b03107c3133450c9815c0ee1f053206058968ea"  alt="Facebook" style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;text-decoration:none;">
+		<img src="http://image.mailer.atlassian.com/lib/fec2157377620c74/m/8/Facebookx2.png" alt="Facebook" align="center" title="Facebook" border="0" width="25" style="line-height: 0px; outline:0;padding:0;border:0;width:25px;height:auto;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;" /></a>  &nbsp; 
+		<!-- linkedin -->
+		<a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692dd2a76e8df9f2700a59504a43323849478e60dd71beacaddcca179fc4d2ff8d9fb33e585e683699cbd1a87f06dc77742e"  alt="LinkedIn" style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;text-decoration:none;">
+		<img src="http://image.mailer.atlassian.com/lib/fec2157377620c74/m/8/LinkedInx2.png" alt="LinkedIn" align="center" title="LinkedIn" border="0" width="25" style="outline:0;padding:0;border:0;width:25px;height:auto;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;" /></a> &nbsp; 
+		<!-- twitter -->
+		<a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692d32cf2378584f394bb5bf3db78273979f486aaa6e1be00359a489fd1354063870c4adc8fe4bf6c7b58c0e19aa5b8ae211"  alt="Twitter" style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;text-decoration:none;">
+		<img src="http://image.mailer.atlassian.com/lib/fec2157377620c74/m/8/Twitterx2.png" alt="Twitter" align="center" title="Twitter" border="0" width="25" style="outline:0;padding:0;border:0;width:25px;height:auto;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;" /></a>
+		</td>
+		</tr>
+		<!-- copyright -->
+		<tr>
+		<td align="center" style="padding-top:10px;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:13px;line-height:19px;color:#707070;text-align:center;">
+		Copyright 2018 Atlassian Pty Ltd. All rights reserved. We are located at 341 George Street, Sydney, NSW, 2000, Australia
+		</td>
+		<tr>
+		<!-- atlassian closer :) -->
+		<td align="center" style="padding-top:20px;">
+		<a href="http://click.mailer.atlassian.com/?qs=4b92013b573a692da07c84583e80130e9455d06c85f18681484bf86a169bbba8f2d0f35232ec844e9754197f2bcb108b2216841a2a8b981b"  style="font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;text-decoration:none;"><img src="http://image.mailer.atlassian.com/lib/fec2157377620c74/m/7/Atlassian-logo-rebrand-main.png" width="116" border="0" alt="" title="" style="display:block;outline:0;padding:0;border:0;width:116px;height:auto;font-family:'Helvetica neue', Helvetica, Arial, Verdana, sans-serif;font-size:16px;color:#205081;" />
+<img src="http://click.mailer.atlassian.com/open.aspx?ffcb10-fe2e157076650674721c72-fdc51572746301797d1d707460-fec2157377620c74-feb9167872600c74-fe0015727c65057f76147770-ff65157874&d=10075" width="1" height="1"></a>
+		</td>
+		</tr>
+		</table>
+	</td>
+	</tr>
+	<!-- end footer 2018 -->
+    </table>
+</td>
+<td style="font-size:0;">&nbsp;</td>
+</tr>
+</table>
+
+</body>
+</html>
+
+--rzgkwtr0yp5R=_?:--
+

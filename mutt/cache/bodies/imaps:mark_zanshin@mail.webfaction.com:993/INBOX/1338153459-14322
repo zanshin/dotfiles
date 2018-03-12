@@ -1,0 +1,148 @@
+Return-Path: <mhn@ksu.edu>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id AC965181612DB9
+	for <mark_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 18:50:32 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id A98AF2026DF7D
+	for <mark_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 18:50:32 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.1
+X-Spam-Level:
+X-Spam-Status: No, score=-0.1 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HTML_MESSAGE=0.001, RCVD_IN_DNSWL_NONE=-0.0001, SPF_HELO_PASS=-0.001,
+	SPF_PASS=-0.001, URIBL_BLOCKED=0.001] autolearn=no autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id F48bHdEPHenb
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Tue,  6 Mar 2018 18:50:23 +0000 (UTC)
+Received: from NAM02-CY1-obe.outbound.protection.outlook.com (mail-cys01nam02on0075.outbound.protection.outlook.com [104.47.37.75])
+	by mx8.webfaction.com (Postfix) with ESMTPS id B6A672026CBF5
+	for <mark@zanshin.net>; Tue,  6 Mar 2018 18:50:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ksu.edu; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version;
+ bh=23TgQ/3PPcJDoXn6MmkVdo962Ho0i6nclczWet9rZQU=;
+ b=qIDQ6ZlhXRX3mDHMnyQOwiw+tM3TMoE5g6tN5OYVIaN9dvslFJRTyatiYvd/ZrPZeoqzakUdYaLihbVJPGkVeFn8WkDACgqA1yARaKGczU9gbGR/qpyv650EMIr9jGeH+1gdmUZxzV56K2UIRBa8OJmeEgUAAJdhOiwDYs0hGos=
+Received: from CY4PR05MB3511.namprd05.prod.outlook.com (10.171.247.20) by
+ CY4PR05MB3030.namprd05.prod.outlook.com (10.169.184.139) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.567.5; Tue, 6 Mar 2018 18:50:20 +0000
+Received: from CY4PR05MB3511.namprd05.prod.outlook.com ([10.171.247.20]) by
+ CY4PR05MB3511.namprd05.prod.outlook.com ([10.171.247.20]) with mapi id
+ 15.20.0567.011; Tue, 6 Mar 2018 18:50:20 +0000
+From: Mark Nichols <mhn@ksu.edu>
+To: Mark Nichols <mark@zanshin.net>
+Subject: mutt video
+Thread-Topic: mutt video
+Thread-Index: AQHTtXv6Q7HqXt92EESDTVT6lf3qeQ==
+Date: Tue, 6 Mar 2018 18:50:20 +0000
+Message-ID: <0665D0F5-663E-477D-AF83-46D71B3B742D@ksu.edu>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: spf=none (sender IP is ) smtp.mailfrom=mhn@ksu.edu; 
+x-originating-ip: [129.130.48.92]
+x-ms-publictraffictype: Email
+x-microsoft-exchange-diagnostics: 1;CY4PR05MB3030;7:+IJ9+a/2KMt1TGYCnr/URPQJho55PwnH0iuo/ZZbxbDpJAW8Sh24glaPtlw9k0f4F959Bok7g/zoGIYf1Zth2tNVornAiGSZoYMxrbLLMuMEYglHMALmKNrlpAc3oJnRedN/6wFGMM9+0n7SubS6ED7ghGcJkpM8RRF2uSoUJ1OQWAZxnCtTbnoVUybsdJiT2xG/NwNFV8pr69o7EyVTj/nect++s/I2RM2T6Bae2NLuKPS8+8uHMu1FX8kX/Chl;20:6lRZXfLplBnprHwCkhX6tJ8SzYA2wcPzX0K+Y/hG1/7aPr6irpqTrMCEyEzncwPnC6ej9W9xYCCbJUIF9eWNRFQXMbSlUIJ4RfsATx9xnaCRMVxdDz3d7YbssbBRzEAjo63Vl4Z1Ziir57otDP7MuuQx/iOr4+wLdZ9Wtr3lJsE=
+x-ms-exchange-antispam-srfa-diagnostics: SSOS;
+x-ms-office365-filtering-correlation-id: 3bb15bfd-7222-493b-ebc7-08d583931cb8
+x-microsoft-antispam: UriScan:;BCL:0;PCL:0;RULEID:(7020095)(4652020)(8989060)(5600026)(4604075)(3008032)(4534165)(4627221)(201703031133081)(201702281549075)(8990040)(2017052603328)(7153060)(7193020);SRVR:CY4PR05MB3030;
+x-ms-traffictypediagnostic: CY4PR05MB3030:
+x-microsoft-antispam-prvs: <CY4PR05MB30302AA427B3A0840EA6415AA6D90@CY4PR05MB3030.namprd05.prod.outlook.com>
+x-exchange-antispam-report-test: UriScan:(158342451672863)(254730959083279)(91638250987450);
+x-exchange-antispam-report-cfa-test: BCL:0;PCL:0;RULEID:(6040501)(2401047)(5005006)(8121501046)(3002001)(3231220)(944501244)(52105095)(10201501046)(93006095)(93001095)(6041288)(20161123558120)(20161123562045)(20161123564045)(20161123560045)(201703131423095)(201702281529075)(201702281528075)(20161123555045)(201703061421075)(201703061406153)(6072148)(201708071742011);SRVR:CY4PR05MB3030;BCL:0;PCL:0;RULEID:;SRVR:CY4PR05MB3030;
+x-forefront-prvs: 06036BD506
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(346002)(366004)(396003)(376002)(39380400002)(39860400002)(199004)(189003)(6916009)(82746002)(25786009)(53936002)(6436002)(786003)(2900100001)(19273905006)(6306002)(54896002)(551544002)(83716003)(3660700001)(236005)(221733001)(6512007)(316002)(36756003)(86362001)(2906002)(7736002)(99286004)(97736004)(106356001)(105586002)(88552002)(6116002)(33656002)(3846002)(3280700002)(66066001)(3480700004)(6506007)(5660300001)(6486002)(14454004)(68736007)(26005)(966005)(606006)(77096007)(53376002)(8676002)(59450400001)(81166006)(75432002)(478600001)(7116003)(81156014)(102836004)(8936002)(186003)(42262002);DIR:OUT;SFP:1101;SCL:1;SRVR:CY4PR05MB3030;H:CY4PR05MB3511.namprd05.prod.outlook.com;FPR:;SPF:None;PTR:InfoNoRecords;A:1;MX:1;LANG:en;
+received-spf: None (protection.outlook.com: ksu.edu does not designate
+ permitted sender hosts)
+x-microsoft-antispam-message-info: +ImBy0nyGWy+17MsttUZuW2ExYSPa/i7Qtvkklzk96xLGaL+TfHkZWCmbJvh+tc8mp1NPVuLRYRZBLYxl4z1glsER5uhzdtKwxFc+eV9x748/W6AweS4VPls5wYwEP7kRVl+5WYutX70nSX+2hG4wYFFh9Zj2Rnjm3ZXlxr28uCOjFfV9curhXD5KSIc4TRlDxCAyEKCU0+6GtJbsUpHceYM2U+zOSsEMrj0dETSqjfvTblJzEabYCpBsr/fegEPqfcKJPp2N/xfqicnnditQdGHZrxuB4wnR1Nh713PmlNVNh7klNL0YIyLu2LUnnp4gYkBJuflIKFvj0pyLokEWw==
+spamdiagnosticoutput: 1:99
+spamdiagnosticmetadata: NSPM
+Content-Type: multipart/alternative;
+	boundary="_000_0665D0F5663E477DAF8346D71B3B742Dksuedu_"
+MIME-Version: 1.0
+X-OriginatorOrg: ksu.edu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3bb15bfd-7222-493b-ebc7-08d583931cb8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Mar 2018 18:50:20.7034
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: d9a2fa71-d67d-4cb6-b541-06ccaa8013fb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR05MB3030
+
+--_000_0665D0F5663E477DAF8346D71B3B742Dksuedu_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj05emZmVVFzYnhnRQ0KDQrigJQNCk1hcmsg
+TmljaG9scw0KU3lzdGVtcyBFbmdpbmVlciB8IEVudGVycHJpc2UgU2VydmVyIFRlY2hub2xvZ2ll
+cw0KS2Fuc2FzIFN0YXRlIFVuaXZlcnNpdHkgfCBVbmdlciBDb21wbGV4IFN1aXRlIDQwMSB8IDc4
+NS41MzIuMzQ3MA0KDQpncGdrZXk6IDI5N0YgNUZENCAwMjc1IEQyRTUgNDhFOSAgRjgzNCA2Q0NG
+IDE1NjggNTM0NCA1MjAwDQpjdXJsL3Jhdzoga2V5YmFzZS5pby96YW5zaGluL2tleS5hc2M8aHR0
+cDovL2tleWJhc2UuaW8vemFuc2hpbi9rZXkuYXNjPg0K4oCUDQoNCkstU3RhdGUgd2lsbCBORVZF
+UiBhc2sgZm9yIHlvdXIgcGFzc3dvcmQgaW4gYW4gZW1haWwuDQpMZWdpdGltYXRlIGJ1c2luZXNz
+ZXMgd2lsbCBORVZFUiBhc2sgZm9yIGFjY291bnQgdmVyaWZpY2F0aW9uIGJ5IGVtYWlsLg0KUHJv
+dGVjdCBwZXJzb25hbCBpbmZvcm1hdGlvbi4gVGhlIGlkZW50aXR5IHNhdmVkIGNvdWxkIGJlIHlv
+dXIgb3duLg0KDQrigJQNCg0K
+
+--_000_0665D0F5663E477DAF8346D71B3B742Dksuedu_
+Content-Type: text/html; charset="utf-8"
+Content-ID: <E76F2707C67D9B4DAFF94C8D9EF363AB@namprd05.prod.outlook.com>
+Content-Transfer-Encoding: base64
+
+PGh0bWw+DQo8aGVhZD4NCjxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0i
+dGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04Ij4NCjwvaGVhZD4NCjxib2R5IHN0eWxlPSJ3b3JkLXdy
+YXA6IGJyZWFrLXdvcmQ7IC13ZWJraXQtbmJzcC1tb2RlOiBzcGFjZTsgbGluZS1icmVhazogYWZ0
+ZXItd2hpdGUtc3BhY2U7IiBjbGFzcz0iIj4NCjxhIGhyZWY9Imh0dHBzOi8vd3d3LnlvdXR1YmUu
+Y29tL3dhdGNoP3Y9OXpmZlVRc2J4Z0UiIGNsYXNzPSIiPmh0dHBzOi8vd3d3LnlvdXR1YmUuY29t
+L3dhdGNoP3Y9OXpmZlVRc2J4Z0U8L2E+DQo8ZGl2IGNsYXNzPSIiPjxiciBjbGFzcz0iIj4NCjxk
+aXYgY2xhc3M9IiI+DQo8ZGl2IGRpcj0iYXV0byIgc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMCk7
+IGxldHRlci1zcGFjaW5nOiBub3JtYWw7IHRleHQtYWxpZ246IHN0YXJ0OyB0ZXh0LWluZGVudDog
+MHB4OyB0ZXh0LXRyYW5zZm9ybTogbm9uZTsgd2hpdGUtc3BhY2U6IG5vcm1hbDsgd29yZC1zcGFj
+aW5nOiAwcHg7IC13ZWJraXQtdGV4dC1zdHJva2Utd2lkdGg6IDBweDsgd29yZC13cmFwOiBicmVh
+ay13b3JkOyAtd2Via2l0LW5ic3AtbW9kZTogc3BhY2U7IGxpbmUtYnJlYWs6IGFmdGVyLXdoaXRl
+LXNwYWNlOyIgY2xhc3M9IiI+DQo8ZGl2IHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDApOyBsZXR0
+ZXItc3BhY2luZzogbm9ybWFsOyB0ZXh0LWFsaWduOiBzdGFydDsgdGV4dC1pbmRlbnQ6IDBweDsg
+dGV4dC10cmFuc2Zvcm06IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdvcmQtc3BhY2luZzog
+MHB4OyAtd2Via2l0LXRleHQtc3Ryb2tlLXdpZHRoOiAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29y
+ZDsgLXdlYmtpdC1uYnNwLW1vZGU6IHNwYWNlOyBsaW5lLWJyZWFrOiBhZnRlci13aGl0ZS1zcGFj
+ZTsiIGNsYXNzPSIiPg0KPGRpdiBzdHlsZT0iY29sb3I6IHJnYigwLCAwLCAwKTsgbGV0dGVyLXNw
+YWNpbmc6IG5vcm1hbDsgdGV4dC1hbGlnbjogc3RhcnQ7IHRleHQtaW5kZW50OiAwcHg7IHRleHQt
+dHJhbnNmb3JtOiBub25lOyB3aGl0ZS1zcGFjZTogbm9ybWFsOyB3b3JkLXNwYWNpbmc6IDBweDsg
+LXdlYmtpdC10ZXh0LXN0cm9rZS13aWR0aDogMHB4OyB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7IC13
+ZWJraXQtbmJzcC1tb2RlOiBzcGFjZTsgbGluZS1icmVhazogYWZ0ZXItd2hpdGUtc3BhY2U7IiBj
+bGFzcz0iIj4NCjxkaXYgc3R5bGU9ImNvbG9yOiByZ2IoMCwgMCwgMCk7IGxldHRlci1zcGFjaW5n
+OiBub3JtYWw7IHRleHQtYWxpZ246IHN0YXJ0OyB0ZXh0LWluZGVudDogMHB4OyB0ZXh0LXRyYW5z
+Zm9ybTogbm9uZTsgd2hpdGUtc3BhY2U6IG5vcm1hbDsgd29yZC1zcGFjaW5nOiAwcHg7IC13ZWJr
+aXQtdGV4dC1zdHJva2Utd2lkdGg6IDBweDsgd29yZC13cmFwOiBicmVhay13b3JkOyAtd2Via2l0
+LW5ic3AtbW9kZTogc3BhY2U7IGxpbmUtYnJlYWs6IGFmdGVyLXdoaXRlLXNwYWNlOyIgY2xhc3M9
+IiI+DQo8ZGl2IHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDApOyBsZXR0ZXItc3BhY2luZzogbm9y
+bWFsOyB0ZXh0LWFsaWduOiBzdGFydDsgdGV4dC1pbmRlbnQ6IDBweDsgdGV4dC10cmFuc2Zvcm06
+IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdvcmQtc3BhY2luZzogMHB4OyAtd2Via2l0LXRl
+eHQtc3Ryb2tlLXdpZHRoOiAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsgLXdlYmtpdC1uYnNw
+LW1vZGU6IHNwYWNlOyBsaW5lLWJyZWFrOiBhZnRlci13aGl0ZS1zcGFjZTsiIGNsYXNzPSIiPg0K
+4oCUPC9kaXY+DQo8ZGl2IHN0eWxlPSJjb2xvcjogcmdiKDAsIDAsIDApOyBsZXR0ZXItc3BhY2lu
+Zzogbm9ybWFsOyB0ZXh0LWFsaWduOiBzdGFydDsgdGV4dC1pbmRlbnQ6IDBweDsgdGV4dC10cmFu
+c2Zvcm06IG5vbmU7IHdoaXRlLXNwYWNlOiBub3JtYWw7IHdvcmQtc3BhY2luZzogMHB4OyAtd2Vi
+a2l0LXRleHQtc3Ryb2tlLXdpZHRoOiAwcHg7IHdvcmQtd3JhcDogYnJlYWstd29yZDsgLXdlYmtp
+dC1uYnNwLW1vZGU6IHNwYWNlOyBsaW5lLWJyZWFrOiBhZnRlci13aGl0ZS1zcGFjZTsiIGNsYXNz
+PSIiPg0KTWFyayBOaWNob2xzPGJyIGNsYXNzPSIiPg0KU3lzdGVtcyBFbmdpbmVlciB8IEVudGVy
+cHJpc2UmbmJzcDtTZXJ2ZXIgVGVjaG5vbG9naWVzPGJyIGNsYXNzPSIiPg0KS2Fuc2FzIFN0YXRl
+IFVuaXZlcnNpdHkgfCBVbmdlciZuYnNwO0NvbXBsZXggU3VpdGUgNDAxIHwmbmJzcDs3ODUuNTMy
+LjM0NzA8YnIgY2xhc3M9IiI+DQo8YnIgY2xhc3M9IiI+DQpncGdrZXk6IDI5N0YgNUZENCAwMjc1
+IEQyRTUmbmJzcDs0OEU5ICZuYnNwO0Y4MzQgNkNDRiAxNTY4IDUzNDQmbmJzcDs1MjAwPGJyIGNs
+YXNzPSIiPg0KY3VybC9yYXc6Jm5ic3A7PGEgaHJlZj0iaHR0cDovL2tleWJhc2UuaW8vemFuc2hp
+bi9rZXkuYXNjIiBjbGFzcz0iIj5rZXliYXNlLmlvL3phbnNoaW4va2V5LmFzYzwvYT48YnIgY2xh
+c3M9IiI+DQrigJQ8YnIgY2xhc3M9IiI+DQo8YnIgY2xhc3M9IiI+DQpLLVN0YXRlIHdpbGwgTkVW
+RVIgYXNrIGZvciB5b3VyJm5ic3A7cGFzc3dvcmQgaW4gYW4gZW1haWwuPGJyIGNsYXNzPSIiPg0K
+TGVnaXRpbWF0ZSBidXNpbmVzc2VzIHdpbGwgTkVWRVImbmJzcDthc2sgZm9yIGFjY291bnQgdmVy
+aWZpY2F0aW9uIGJ5Jm5ic3A7ZW1haWwuPGJyIGNsYXNzPSIiPg0KUHJvdGVjdCBwZXJzb25hbCBp
+bmZvcm1hdGlvbi4mbmJzcDtUaGUgaWRlbnRpdHkgc2F2ZWQgY291bGQgYmUgeW91ciZuYnNwO293
+bi48YnIgY2xhc3M9IiI+DQo8YnIgY2xhc3M9IiI+DQrigJQmbmJzcDs8L2Rpdj4NCjwvZGl2Pg0K
+PC9kaXY+DQo8L2Rpdj4NCjwvZGl2Pg0KPC9kaXY+DQo8YnIgY2xhc3M9IiI+DQo8L2Rpdj4NCjwv
+Ym9keT4NCjwvaHRtbD4NCg==
+
+--_000_0665D0F5663E477DAF8346D71B3B742Dksuedu_--

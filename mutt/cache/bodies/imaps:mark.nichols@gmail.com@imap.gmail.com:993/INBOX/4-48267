@@ -1,0 +1,126 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.149.131 with SMTP id s3csp437194qvs;
+        Tue, 30 Jan 2018 20:25:54 -0800 (PST)
+X-Received: by 10.200.65.82 with SMTP id e18mr5283314qtm.4.1517372754364;
+        Tue, 30 Jan 2018 20:25:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1517372754; cv=none;
+        d=google.com; s=arc-20160816;
+        b=JaDgYEgolLlMJjNHPjoftWMKNhbtvB43ApMXBnJlZ+scb2oci8/VyOTm16dDd/sPRm
+         1Zrgey5I6lcXdBtN++vabutN9Hp6oJyEQntGc8YGapCZUWKbWZOu4PBYaCWjnZ2zU8Vt
+         VDvkv08tBTjfKQcPCJS9w3RUT4tPX/tXIjr+wddfSDshj4k2Yi2JiM4LHhBhJTmUr168
+         DWEXXx29waI5v4tIToUxbD/4H282OhulWBFOicOEJDb4LNA970vak0iTHUlRM8x38Bnt
+         +owM0bvaTTYI1N5kvBJFk/IJf00WMCo0escIIgazZ43ScdnLQKB2bTg1OvafGh+PhJ0o
+         drsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:date:mime-version:dkim-signature
+         :arc-authentication-results;
+        bh=j6BGd86gzrSszyrXU7xEDJ2fG9w68KE9XtkINtjmL9s=;
+        b=0NwdIa6UrhQ0RsSIwAGZmqDvBDXkeLF5AavNgk6b9W+FrGQNsJBovRC5xjE/0fxG1M
+         lyYo8BirRcMo+lQ2qstgr5sFnR7oVFUzLenJPr6NzTpj1ezqB6NB36STJnT75E473AMw
+         kjFkUX+/Vfo02bHGSwX4jEma/V91A2NvW1dhpYRpy75nPrrZaeF3iwHRuIwOoVEdv1ob
+         8L5CIxQtIk7/HGsdhlSs07lIiNDCj93vHYtLIk5iXDtyC2r9BMCRsv11gkw66iEsc2kF
+         sHBTbz0Y9JGaWJ6U8+SGo3yC46ZHmdqw4I21bKyIu4Pf3fkctP+qxz5x/f2IXN3CjMCa
+         o3zg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ICIDcK9t;
+       spf=pass (google.com: domain of 3ukvxwh0kahsokzsenqlmnshehbzshnmr-mnqdokxfnnfkd.bnl@chime-notifications.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3UkVxWh0KAHsOkZsenqlMnshehbZshnmr-mnqdokxfnnfkd.bnl@chime-notifications.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3UkVxWh0KAHsOkZsenqlMnshehbZshnmr-mnqdokxfnnfkd.bnl@chime-notifications.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id o67sor512498qkl.8.2018.01.30.20.25.54
+        for <mark.nichols@gmail.com>
+        (Google Transport Security);
+        Tue, 30 Jan 2018 20:25:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3ukvxwh0kahsokzsenqlmnshehbzshnmr-mnqdokxfnnfkd.bnl@chime-notifications.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ICIDcK9t;
+       spf=pass (google.com: domain of 3ukvxwh0kahsokzsenqlmnshehbzshnmr-mnqdokxfnnfkd.bnl@chime-notifications.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3UkVxWh0KAHsOkZsenqlMnshehbZshnmr-mnqdokxfnnfkd.bnl@chime-notifications.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:date:message-id:subject:from:to;
+        bh=j6BGd86gzrSszyrXU7xEDJ2fG9w68KE9XtkINtjmL9s=;
+        b=ICIDcK9tabXld0orSbS4BV6W9hUYkXeH5KdUu0WU2kOvhy0wj2+In9f7gDCm8k3s29
+         /ci1UranB2yOADPZ25TST6vG6BuxLThaDzymMMLgitpiRW+Li+STiD+/jKgi04R7yjX5
+         WIAfEWJE6Dh6gdZjn2Vo3NncWqIfzmIvqbgycVzZQHwyCrCcaZ9x4O9s3gbBsiQ7/B35
+         BFlu2uNS0Pgzp7PB+NgiCWaNYb7k6SKj0wkw/tMgYhfRQ68F2chRjpBewmrc/030ajz6
+         Vk+WROuDdlEmTUcB4zYQHN8YpxTRJb59PJoa2NurAptOEz7RDUdeebpK+YJyTNQxxkJj
+         o7zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:date:message-id:subject:from:to;
+        bh=j6BGd86gzrSszyrXU7xEDJ2fG9w68KE9XtkINtjmL9s=;
+        b=F3H8B4WIRjSauNy/UMu1D0N6hw6fFULia+TAEp8VRRZPzCyMdkt3PuwcxyyPC3zqSr
+         8ilyljh8lCT5vgQXQWAjo0Yey28X627ip7yULq2TyZ8XshVleVrE02lsTSeDIJ2gKZPt
+         DwXUrDItk0owyODoW57lQzVpHoGsfhBfLtzvf28fyPPzSEFsivMEm/BNlNujoCQrvyMa
+         WgPo52P5wnbGp0+dLYVb+TgkRMFSXdy03Oh1uFd6Tji6KpjKDg6rVhq6SydIRfmzUGyY
+         m762yty3cynKyoIW0IgPmjLUn9dKBWmslAriqaxRL8NnFlbSkOkQZe1lFaupO4RSHvGr
+         UuvQ==
+X-Gm-Message-State: AKwxytdqWQhn03MNDj56NfOMMZfYMSrnVHX6BfERnWtlKPdkGVwTFEox
+	0zFH+RhE5GdkVx6iuhame+ro+EgG
+X-Google-Smtp-Source: AH8x224LDunnPeWnReexNqQn1N5nPXBSKsBIvzGP1hAbTEAsJplXhGlMGtXsjlXeUaCiJbbUFCuPDY/oQizzJRwhLgXY
+MIME-Version: 1.0
+X-Received: by 10.55.58.201 with SMTP id h192mr20376400qka.37.1517372754216;
+ Tue, 30 Jan 2018 20:25:54 -0800 (PST)
+Date: Tue, 30 Jan 2018 20:25:54 -0800
+X-Notifications: 6c4e1f6432000000
+Message-ID: <ipNftfYb8TDt61dQMzJjkA.0@notifications.google.com>
+Subject: Your Google Developers Console project is scheduled for deletion
+From: Platform Notifications <PlatformNotifications-noreply@google.com>
+To: mark.nichols@gmail.com
+Content-Type: multipart/alternative; boundary="001a114a14ca01cebc05640ae0f9"
+
+--001a114a14ca01cebc05640ae0f9
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+UHJvamVjdCBTaHV0ZG93biBBbm5vdW5jZW1lbnQNCg0KDQpZb3VyIEdvb2dsZSBDbG91ZCBQbGF0
+Zm9ybSBwcm9qZWN0IGFwaS1wcm9qZWN0LTgwMDYyNDU5MDQzNSB3YXMgc2h1dCBkb3duICANCm9u
+IFdlZG5lc2RheSwgSmFudWFyeSAzMSwgMjAxOCA0OjI1OjQ5IEFNIFVUQy4NCg0KSWYgeW91IHRh
+a2Ugbm8gYWN0aW9uLCBhZnRlciBGcmlkYXksIE1hcmNoIDIsIDIwMTggNDoyNTo0OSBBTSBVVEMs
+IHlvdSB3aWxsICANCmJlIHVuYWJsZSB0byByZWNvdmVyIHRoaXMgcHJvamVjdC4gSWYgdGhpcyB3
+YXMgdW5pbnRlbnRpb25hbCwgdmlzaXQgdGhpcyAgDQpVUkwgYmVmb3JlIEZyaWRheSwgTWFyY2gg
+MiwgMjAxOCA0OjI1OjQ5IEFNIFVUQyB0byBjYW5jZWwgdGhlIHByb2plY3QgIA0Kc2h1dGRvd246
+DQoNCmh0dHBzOi8vY29uc29sZS5kZXZlbG9wZXJzLmdvb2dsZS5jb20vcHJvamVjdD9wZW5kaW5n
+RGVsZXRpb249dHJ1ZSZvcmdhbml6YXRpb25JZD0wDQoNCklmIHlvdSBoYXZlIGFueSBxdWVzdGlv
+bnMsIHBsZWFzZSB2aXNpdCB0aGUgRGV2ZWxvcGVycyBDb25zb2xlIEhlbHAgYXQgdGhpcyAgDQpV
+UkwsIG9yIGNvbnRhY3Qgc3VwcG9ydDoNCg0KaHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20v
+Y29uc29sZS9oZWxwL25ldy8NCg0KVGhhbmtzLA0KVGhlIEdvb2dsZSBEZXZlbG9wZXJzIENvbnNv
+bGUgVGVhbQ0KDQoNCsKpIDIwMTYgR29vZ2xlIEluYy4gMTYwMCBBbXBoaXRoZWF0cmUgUGFya3dh
+eSwgTW91bnRhaW4gVmlldywgQ0EgOTQwNDMNCg0KWW91IGhhdmUgcmVjZWl2ZWQgdGhpcyBtYW5k
+YXRvcnkgZW1haWwgc2VydmljZSBhbm5vdW5jZW1lbnQgdG8gdXBkYXRlIHlvdSAgDQphYm91dCBp
+bXBvcnRhbnQgY2hhbmdlcyB0byB5b3VyIEdvb2dsZSBEZXZlbG9wZXJzIENvbnNvbGUgcHJvZHVj
+dCBvciAgDQphY2NvdW50Lg0KDQoNCg==
+--001a114a14ca01cebc05640ae0f9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+  <div style=3D"color:#333;margin:0px;width:600px;height:720px;font-family:=
+Arial, sans-serif;line-height:140%;padding:0 30px;max-width:600px;margin:au=
+to">    <p>      <img style=3D"padding:10px;height:54px;width:150px" src=3D=
+"http://www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x5=
+4dp.png">    </p>    <p style=3D"color:#DD4B39;padding:10px;padding-bottom:=
+0px">      <strong>Project Shutdown Announcement</strong>    </p>    <hr st=
+yle=3D"width:600px;border:1px solid #ebebeb">    <p style=3D"width:580px;fo=
+nt-size:13px;margin-left:10px">      Your Google Cloud Platform project api=
+-project-800624590435 was shut down on Wednesday, January 31, 2018 4:25:49 =
+AM UTC.    </p>    <p style=3D"width:580px;font-size:13px;margin-left:10px"=
+>      If you take no action, after Friday, March 2, 2018 4:25:49 AM UTC, y=
+ou will be unable to recover this      project. If this was unintentional, =
+visit this URL before Friday, March 2, 2018 4:25:49 AM UTC to cancel      t=
+he project shutdown:    </p>    <p style=3D"width:580px;font-size:13px;marg=
+in-left:10px">      https://console.developers.google.com/project?pendingDe=
+letion=3Dtrue&amp;organizationId=3D0    </p>    <p style=3D"width:580px;fon=
+t-size:13px;margin-left:10px">      If you have any questions, please visit=
+ the Developers Console Help at this URL, or contact      support:    </p> =
+   <p style=3D"width:580px;font-size:13px;margin-left:10px">      https://d=
+evelopers.google.com/console/help/new/    </p>    <p style=3D"width:580px;f=
+ont-size:13px;margin-left:10px">      Thanks,<br>      The Google Developer=
+s Console Team    </p>    <div style=3D"height:65px;background-color:#f5f5f=
+5;padding:10px;color:#666;font-size:11px;line-height:120%;width:580px">    =
+  <p>        &copy; 2016 Google Inc.  1600 Amphitheatre Parkway, Mountain V=
+iew, CA 94043      </p>      <p>        You have received this mandatory em=
+ail service announcement to update you about important        changes to yo=
+ur Google Developers Console product or account.      </p>    </div>  </div=
+>
+--001a114a14ca01cebc05640ae0f9--

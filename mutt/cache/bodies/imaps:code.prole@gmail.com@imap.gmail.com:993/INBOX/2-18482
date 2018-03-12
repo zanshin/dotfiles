@@ -1,0 +1,1525 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp8572916qtm;
+        Thu, 1 Mar 2018 22:15:47 -0800 (PST)
+X-Google-Smtp-Source: AG47ELsbN53fmBMYKMWCVqpKgn6RoJZBoON5w395H9ykxcW+QUUFRcyuZC+o6RCsUEOmao0m+LMs
+X-Received: by 2002:a25:b34d:: with SMTP id k13-v6mr3054301ybg.187.1519971347897;
+        Thu, 01 Mar 2018 22:15:47 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1519971347; cv=none;
+        d=google.com; s=arc-20160816;
+        b=eN+OkwRn1cNn27EGHtMhoNRIaey8z3MTPWMpsivhxIN+/0BL7NhAsZQ4fNSW0HM0Tm
+         ZGFUdWX9YN632UDL4eZOWvkahwZEkHB9ZFaT/BJjmzCAJMGRW0s0H8NqZc3tFcxpcZPF
+         yAMxh8XT0jme/PHwtBHbHVUZAq62gfiPBVGZyCsDFAPmp+J8bzv4I0ZJRtomaIOxJCAi
+         sJGA/p3Kkjd5Q24141lH8Q/RBeyE4QWE8+mZJIp5aaRwIhTM9zcRkC8exJiuM6Ne8xeK
+         VK9F99fg22T9CkLQy+TFEzRt3wa3HWttftgu92A602z0GyFBHv/x8ZXqPB1mQrJe76Fv
+         VwDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:list-id:feedback-id:message-id:date
+         :to:reply-to:from:subject:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=LTJT3y/npgx2j073mQAxPTWkl+mTEy60ltq2mVPcOU0=;
+        b=FC6ZA1mWXSSbSCSA6M+BYCc/H/go3uw2z/+XH9kiEoQqxFgEWEHH8uGPujDfoY/pRD
+         Va16tgAfFgob+ShgRQdRbpnuCJTXutOX5hUFxFBWHyuv1J+lBuUBEu9Fy0E/EHlQNiE4
+         gb96xx3xlUtumTbpHefHYYL+WkxHwkikAlr63+t6gL8djIJMTJm1QaFOtCmG6ZpGUuMJ
+         euB0P7CdRFwFSm46CdcNJi+8pRINjPETmUnrTIF++88rELz98JwZmwAfkWjtXxTjjRZ2
+         9RRpAv2p0vfdfkMCKmXaA8GWigAGGHrccIPNLJz6ndqpL4HHICnxnqabRXUZ7j645aDh
+         yFyA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=wHBGgLCI;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=PQKsKlEx;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470333-code.prole=gmail.com@mail32.sea91.rsgsv.net designates 148.105.15.32 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470333-code.prole=gmail.com@mail32.sea91.rsgsv.net
+Return-Path: <bounce-mc.us9_35713533.1470333-code.prole=gmail.com@mail32.sea91.rsgsv.net>
+Received: from mail32.sea91.rsgsv.net (mail32.sea91.rsgsv.net. [148.105.15.32])
+        by mx.google.com with ESMTPS id 66-v6si955749ybn.223.2018.03.01.22.15.47
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 01 Mar 2018 22:15:47 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_35713533.1470333-code.prole=gmail.com@mail32.sea91.rsgsv.net designates 148.105.15.32 as permitted sender) client-ip=148.105.15.32;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=wHBGgLCI;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=PQKsKlEx;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470333-code.prole=gmail.com@mail32.sea91.rsgsv.net designates 148.105.15.32 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470333-code.prole=gmail.com@mail32.sea91.rsgsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=onelanday.co.uk;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=the-morning-paper@onelanday.co.uk;
+ bh=LTJT3y/npgx2j073mQAxPTWkl+mTEy60ltq2mVPcOU0=;
+ b=wHBGgLCIHVsfSaFBeZdv8YNae+LyKt5jsIWzOAdUFbmolrpIFcONnwyvZzyidEI0+XijhieWBw5N
+   bixZW83h0NI5I+hRqeEFImJAq/dmhSChoqW8bH6zLoOLipLJDxXfeXwG5jLj947PFs8ZedkXkypH
+   qvm0WplETan6gmh9mfM=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=LTJT3y/npgx2j073mQAxPTWkl+mTEy60ltq2mVPcOU0=;
+ b=PQKsKlExKsPe7qIO1r9vMFgR0MfnhzDVsugqHDiBs8uQPPZqRXdjshUBY6c5mDEI1nVbG1ukVweg
+   B91NZLQhY9hZWvC70HMONZoR9JUfIKepL+m4D1Kh4S8uuhihyrByS9I0oA/ikWfK94PgSJGPZUG2
+   JsMou845mDgmnDZoCXk=
+Received: from (127.0.0.1) by mail32.sea91.rsgsv.net id hj3m162ddl43 for <code.prole@gmail.com>; Fri, 2 Mar 2018 06:15:35 +0000 (envelope-from <bounce-mc.us9_35713533.1470333-code.prole=gmail.com@mail32.sea91.rsgsv.net>)
+Subject: =?utf-8?Q?The=20Morning=20Paper=3A=20Towards=20web=2Dbased=20delta=20synchronization=20for=20cloud=20storage=20systems?=
+From: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+Reply-To: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+To: <code.prole@gmail.com>
+Date: Fri, 2 Mar 2018 06:15:35 +0000
+Message-ID: <4188b6afbe9e5d43111fef4d4.1c7444593b.20180302061449.d79ff2cbfa.44ff9d0d@mail32.sea91.rsgsv.net>
+X-Mailer: MailChimp Mailer - **CIDd79ff2cbfa1c7444593b**
+X-Campaign: mailchimp4188b6afbe9e5d43111fef4d4.d79ff2cbfa
+X-campaignid: mailchimp4188b6afbe9e5d43111fef4d4.d79ff2cbfa
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=4188b6afbe9e5d43111fef4d4&id=d79ff2cbfa&e=1c7444593b
+X-MC-User: 4188b6afbe9e5d43111fef4d4
+Feedback-ID: 35713533:35713533.1470333:us9:mc
+List-ID: 4188b6afbe9e5d43111fef4d4mc list <4188b6afbe9e5d43111fef4d4.597133.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://acolyer.us9.list-manage.com/unsubscribe?u=4188b6afbe9e5d43111fef4d4&id=de5773de0c&e=1c7444593b&c=d79ff2cbfa>, <mailto:unsubscribe-mc.us9_4188b6afbe9e5d43111fef4d4.d79ff2cbfa-1c7444593b@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_665458607"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_665458607
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Making rsync work in web browsers...
+View this email in your browser (http://mailchi.mp/onelanday/the-morning-p=
+aper-towards-web-based-delta-synchronization-for-cloud-storage-systems?e=
+=3D1c7444593b)
+This paper write-up is also available online at The Morning Paper. (http:/=
+/blog.acolyer.org/2018/03/02/towards-web-based-delta-synchronization-for-c=
+loud-storage-systems)
+
+
+** the morning paper
+------------------------------------------------------------
+
+
+** Towards web-based delta synchronization for cloud storage systems
+------------------------------------------------------------
+
+Towards web-based delta synchronization for cloud storage systems (https:/=
+/www.usenix.org/conference/fast18/presentation/xiao) Xiao et al.=2C FAST=
+=E2=80=9918
+
+If you use Dropbox (or an equivalent service) to synchronise file between=
+ your Mac or PC and the cloud=2C then it uses an efficient delta-sync (rsy=
+nc) protocol to only upload the parts of a file that have changed. If you=
+ use a web interface to synchronise the same files though=2C the entire fi=
+le will be uploaded. This situation seems to hold across a wide range of p=
+opular services:
+
+Given the universal presence of the web browser=2C why can=E2=80=99t we ha=
+ve efficient delta syncing for web clients? That=E2=80=99s the question Xi=
+ao et al. set out to investigate: they built an rsync implementation for t=
+he web=2C and found out it performed terribly. Having tried everything to=
+ improve the performance within the original rsync design parameters=2C th=
+en they resorted to a redesign which moved more of the heavy lifting back=
+ to the server-side.
+
+The resulting solution=2C WebR2sync+=2C outpaces WebRsync by an order of m=
+agnitude=2C and is able to simultaneously support 6800-8500 web clients=E2=
+=80=99 delta sync using a standard VM server instance based on a Dropbox-l=
+ike system architecture.
+
+
+** Porting rsync to WebRsync
+------------------------------------------------------------
+
+The starting point in the journey was simply to implement rsync for the we=
+b...
+
+To understand the fundamental obstacles of web-based delta sync=2C we impl=
+ement a delta sync solution=2C WebRsync=2C using state-of-the-art web tech=
+niques including JavaScript=2C WebSocket=2C and HTML5 File APIs. WebRsync=
+ implements the algorithm of rsync=2C the de facto delta sync protocol for=
+ PC clients=2C and works with all modern web browsers that support HTML5.
+
+Following rsync=2C the design looks like this:
+* The client initiates a request for file synchronisation
+* The server executes fixed-size chunk segmentation and fingerprinting ope=
+rations=2C returning a checksum list to the client.
+* The client performs chunk search and comparison operations on the file u=
+sing the checksum list.
+* The result is a set of matching tokens (overlap between the stored file=
+ and the client=E2=80=99s version) and literal bytes representing the nove=
+l parts in the client version.
+* The matching tokens and literal bytes are sent to the server for process=
+ing.
+* The server returns an acknowledgement to the client to complete the proc=
+ess.
+
+The bad news is that WebRsync is 16-35x slower than rsync on the exact sam=
+e file edits.
+
+Comparing rsync and WebRsync=2C it=E2=80=99s clear that most of the WebRsy=
+nc overhead is on the client side.
+
+During the WebRsync process=2C the browser would also frequently stall and=
+ stop becoming responsive.
+
+
+** Improving WebRSync
+------------------------------------------------------------
+
+To isolate performance issues to the JavaScript VM=2C the authors rebuilt=
+ the client side of WebRsync using the Chrome native client support and C+=
++. It=E2=80=99s much faster:
+
+Unfortunately=2C this solution requires the user to download and install a=
+ plug-in=2C which impairs the usability and pervasiveness of the solution.
+
+A second experiment uses web workers to do the heavy lifting in the backgr=
+ound. This solves the browser hanging issues=2C but doesn=E2=80=99t meanin=
+gfully reduce the overall sync time or CPU usage.
+
+
+** Version 2: WebR2sync+
+------------------------------------------------------------
+
+The core idea in WebR2sync is to move the search and comparison operations=
+ from the client to the server=2C swapping roles. The client generates a c=
+hecksum list and sends it to the server=2C and the server does the generat=
+ion of matching tokens. Literal bytes are still generated by the client th=
+ough.
+
+While WebR2sync significantly cuts the computation burden on the web clien=
+t=2C it brings considerable computation overhead to the server side. To th=
+is end=2C we make two additional efforts to optimize the server-side compu=
+tational overhead.
+
+The first optimisation exploits the fact that most edits coalesce in a sma=
+ll number of areas in a file:
+
+Full rsync (and WebRsync) uses a 3-level chunk searching scheme starting w=
+ith a 16-bit hash code indexing into 32-bit rolling checksums=2C and final=
+ly to a 128-bit MD5 checksum. In WebR2sync+=2C when the i-th chunk has bee=
+n shown to match=2C the assumption is made that the i+1-th chunk is likely=
+ to match also and the MD5 checksums are directly compared. =E2=80=9CIf th=
+e two chunks are identical=2C we simply move forward to the next chunk; ot=
+herwise=2C we return to the regular 3-level chunk searching scheme.=E2=80=
+=9D
+
+The second optimisation is based on the observation that a full cryptograp=
+hic hash is overkill for file chunk comparisons. The overhead of MD5 is ar=
+ound 5-6 cycles per byte=2C whereas SipHash has a computation overhead of=
+ around 1.13 cycles per byte with an acceptably low collision probability.
+
+Replacing MD5 with SipHash reduces computation complexity by almost 5x. As=
+ a fail-safe mechanism in case of hash collisions=2C WebRsync+ also uses a=
+ lightweight full content hash check. If this check fails then the sync wi=
+ll be re-started using MD5 chunk fingerprinting instead.
+
+
+** Evaluation
+------------------------------------------------------------
+
+The client side of WebR2sync+ is 1700 lines of JavaScript. The server side=
+ is based on node.js (about 500 loc) and a set of C processing modules (a=
+ further 1000 loc).
+
+Comparing the red and green (bottom two) lines in the charts below=2C you=
+ can see that WebR2sync+ has sync times approaching those of rsync:
+
+Client-side CPU utilisation is even lower than rsync (due to the swapping=
+ of roles):
+
+Looking at server-side utilisation=2C vanilla Web2Rsync (without the =E2=
+=80=98+=E2=80=99 optimisations) consumes the most CPU. But with the two se=
+rver-side optimisations in place=2C Web2Rsync+ actually has even lower ser=
+ver-side resource consumption than rsync.
+
+Given this lower utilisation=2C Web2Rsync+ can support more concurrent cli=
+ents:
+http://twitter.com/intent/tweet?text=3DTowards%20web-based%20delta%20synch=
+ronization%20for%20cloud%20storage%20systems: http%3A%2F%2Fblog.acolyer.or=
+g%2F2018%2F03%2F02%2Ftowards-web-based-delta-synchronization-for-cloud-sto=
+rage-systems Tweet (http://twitter.com/intent/tweet?text=3DTowards%20web-b=
+ased%20delta%20synchronization%20for%20cloud%20storage%20systems: http%3A%=
+2F%2Fblog.acolyer.org%2F2018%2F03%2F02%2Ftowards-web-based-delta-synchroni=
+zation-for-cloud-storage-systems)
+This email was brought to you by #themorningpaper (http://blog.acolyer.org=
+) : an interesting/influential/important paper from the world of CS every=
+ weekday morning=2C as selected by Adrian Colyer
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Copyright =C2=A9 2018 One L and a Y Ltd=2C All rights reserved.
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.
+
+Our mailing address is:
+One L and a Y Ltd
+Unit 5755
+PO Box 6945
+London=2C England W1A 6US
+United Kingdom
+** unsubscribe from this list (https://acolyer.us9.list-manage.com/unsubsc=
+ribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3Dd79ff2=
+cbfa)
+** update subscription preferences (https://acolyer.us9.list-manage.com/pr=
+ofile?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b)
+--_----------=_MCPart_665458607
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or=
+g/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+    <head>
+    =09<!-- NAME: 1 COLUMN -->
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+UTF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1.0">
+        <title>The Morning Paper: Towards web-based delta synchronization=
+ for cloud storage systems</title>
+
+    <style type=3D"text/css">
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100% !important;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100% !important;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09p{
+=09=09=09margin:1em 0;
+=09=09=09padding:0;
+=09=09}
+=09=09a{
+=09=09=09word-wrap:break-word;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass span=2C.ExternalC=
+lass font=2C.ExternalClass td=2C.ExternalClass div{
+=09=09=09line-height:100%;
+=09=09}
+=09=09table=2Ctd{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09#templatePreheader=2C#templateHeader=2C#templateBody=2C#templateFoot=
+er{
+=09=09=09min-width:100%;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:20px;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#F2F2F2;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09#templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:40px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-1px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#404040 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.75px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.5px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#808080 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent=2C.preheaderContainer .mcnTextCo=
+ntent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.footerContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[id=3DbodyCell]{
+=09=09=09padding:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3Dmcpreview-image-uploader]{
+=09=09=09width:100% !important;
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09img[class=3DmcnImage]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnImageGroupContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupContent]{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupBlockInner]{
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-top:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09tbody[class=3DmcnImageGroupBlockOuter]{
+=09=09=09padding-bottom:9px !important;
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionTopContent]=2Ctable[class=3DmcnCaptionBott=
+omContent]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftTextContentContainer]=2Ctable[class=3D=
+mcnCaptionRightTextContentContainer]=2Ctable[class=3DmcnCaptionLeftImageC=
+ontentContainer]=2Ctable[class=3DmcnCaptionRightImageContentContainer]=2C=
+table[class=3DmcnImageCardLeftTextContentContainer]=2Ctable[class=3DmcnI=
+mageCardRightTextContentContainer]=2C.mcnImageCardLeftImageContentContaine=
+r=2C.mcnImageCardRightImageContentContainer{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftContentOuter] td[class=3DmcnTextConten=
+t]=2Ctable[class=3DmcnCaptionRightContentOuter] td[class=3DmcnTextConten=
+t]{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnCaptionBlockInner] table[class=3DmcnCaptionTopConten=
+t]:last-child td[class=3DmcnTextContent]=2C.mcnImageCardTopImageContent=
+=2C.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnBoxedTextContentColumn]{
+=09=09=09padding-left:18px !important;
+=09=09=09padding-right:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnTextContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplateContainer]=2Ctable[id=3DtemplatePreheader]=2Cta=
+ble[id=3DtemplateHeader]=2Ctable[id=3DtemplateBody]=2Ctable[id=3Dtempla=
+teFooter]{
+=09=09=09max-width:600px !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:24px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextCont=
+ent]=2Ctd[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextConten=
+t] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplatePreheader]{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DpreheaderContainer] td[class=3DmcnTextContent]=2Ctd[cl=
+ass=3DpreheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DheaderContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DbodyContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DbodyContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DfooterContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] a[class=3DutilityLink]{
+=09=09=09display:block !important;
+=09=09}
+
+}</style></head>
+    <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=
+=3D"0" offset=3D"0" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;background-color: #F2F2F2;height: 100% !=
+important;width: 100% !important;">
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;backg=
+round-color: #F2F2F2;height: 100% !important;width: 100% !important;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;margin: 0;padding: 20px;border-top: 0;h=
+eight: 100% !important;width: 100% !important;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600" id=3D"templateContainer" style=3D"border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;border: 0;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN PREHEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templatePreheader" style=3D"border-=
+collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-=
+color: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                        =09<td valign=3D"top" class=3D"pre=
+headerContainer" style=3D"padding-top: 9px;mso-table-lspace: 0pt;mso-table=
+-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"390" style=3D"width:390px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 390px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            Making rsync work in web browsers...
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"210" style=3D"width:210px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 210px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <a href=3D"http://mailchi.mp/onelanday/the-mor=
+ning-paper-towards-web-based-delta-synchronization-for-cloud-storage-syste=
+ms?e=3D1c7444593b" target=3D"_blank" style=3D"word-wrap: break-word;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-weig=
+ht: normal;text-decoration: underline;">View this email in your browser</a=
+>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN HEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateHeader" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock"=
+ style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;=
+mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <a href=3D"https://acolyer.us9.list-manage.com=
+/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3D5bb572eca4&e=3D1c7444593b=
+" target=3D"_blank" style=3D"word-wrap: break-word;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text=
+-decoration: underline;">This paper write-up is also available online at T=
+he Morning Paper.</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END HEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN BODY // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateBody" style=3D"border-colla=
+pse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-color=
+: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock" st=
+yle=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso=
+-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <style type=3D"text/css">blockquote {
+    display: block;
+    padding: 20px 20px 10px 45px;
+    margin: 20px 0px;
+    font-style: italic;
+    font-size: 14px;
+    color: #141310;
+    background: url("blog.acolyer.org/wp-content/themes/pub/vigilance/imag=
+es/blockquote.gif") no-repeat scroll left top #E7E6E2;
+}
+</style>
+<h1 style=3D"margin: 0;padding: 0;display: block;font-family: Helvetica;fo=
+nt-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;lette=
+r-spacing: -1px;text-align: left;color: #606060 !important;">the morning p=
+aper</h1>
+
+<h2 id=3D"towards-web-based-delta-synchronization-for-cloud-storage-system=
+s" style=3D"margin: 0;padding: 0;display: block;font-family: Helvetica;fon=
+t-size: 26px;font-style: normal;font-weight: bold;line-height: 125%;letter=
+-spacing: -.75px;text-align: left;color: #404040 !important;">Towards web-=
+based delta synchronization for cloud storage systems</h2>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><a href=3D"https://acolyer.us9.list-=
+manage.com/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3D1367ebff86&e=3D=
+1c7444593b" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text-decorat=
+ion: underline;">Towards web-based delta synchronization for cloud storage=
+ systems</a> Xiao et al.=2C <em>FAST=E2=80=9918</em></p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">If you use Dropbox (or an equivalent=
+ service) to synchronise file between your Mac or PC and the cloud=2C then=
+ it uses an efficient delta-sync (rsync) protocol to only upload the parts=
+ of a file that have changed. If you use a web interface to synchronise th=
+e same files though=2C the entire file will be uploaded. This situation se=
+ems to hold across a wide range of popular services:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-tabl=
+e-1.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;-=
+ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Given the universal presence of the=
+ web browser=2C why can=E2=80=99t we have efficient delta syncing for web=
+ clients? That=E2=80=99s the question Xiao et al. set out to investigate:=
+ they built an rsync implementation for the web=2C and found out it perfor=
+med terribly. Having tried everything to improve the performance within th=
+e original rsync design parameters=2C then they resorted to a redesign whi=
+ch moved more of the heavy lifting back to the server-side.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The resulting solution=2C WebR2sync+=
+=2C outpaces WebRsync by an order of magnitude=2C and is able to simultane=
+ously support 6800-8500 web clients=E2=80=99 delta sync using a standard V=
+M server instance based on a Dropbox-like system architecture.</p>
+</blockquote>
+<h3 id=3D"porting-rsync-to-webrsync" style=3D"margin: 0;padding: 0;display=
+: block;font-family: Helvetica;font-size: 18px;font-style: normal;font-wei=
+ght: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;color:=
+ #606060 !important;">Porting rsync to WebRsync</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The starting point in the journey wa=
+s simply to implement rsync for the web...</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">To understand the fundamental obstac=
+les of web-based delta sync=2C we implement a delta sync solution=2C WebRs=
+ync=2C using state-of-the-art web techniques including JavaScript=2C WebSo=
+cket=2C and HTML5 File APIs. WebRsync implements the algorithm of rsync=2C=
+ the de facto delta sync protocol for PC clients=2C and works with all mod=
+ern web browsers that support HTML5.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Following rsync=2C the design looks=
+ like this:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+1.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;-ms=
+-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he client initiates a request for file synchronisation</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he server executes fixed-size chunk segmentation and fingerprinting operat=
+ions=2C returning a checksum list to the client.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he client performs chunk search and comparison operations on the file usin=
+g the checksum list.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he result is a set of matching tokens (overlap between the stored file and=
+ the client=E2=80=99s version) and literal bytes representing the novel pa=
+rts in the client version.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he matching tokens and literal bytes are sent to the server for processing=
+=2E</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he server returns an acknowledgement to the client to complete the process=
+=2E</li>
+</ul>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The bad news is that WebRsync is 16-=
+35x slower than rsync on the exact same file edits.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+2.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoration: none;-ms=
+-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Comparing rsync and WebRsync=2C it=
+=E2=80=99s clear that most of the WebRsync overhead is on the client side.=
+</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+3.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoration: none;-ms=
+-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">During the WebRsync process=2C the b=
+rowser would also frequently stall and stop becoming responsive.</p>
+<h3 id=3D"improving-webrsync" style=3D"margin: 0;padding: 0;display: block=
+;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bo=
+ld;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060=
+ !important;">Improving WebRSync</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">To isolate performance issues to the=
+ JavaScript VM=2C the authors rebuilt the client side of WebRsync using th=
+e Chrome native client support and C++. It=E2=80=99s much faster:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+5.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoration: none;-ms=
+-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Unfortunately=2C this solution requi=
+res the user to download and install a plug-in=2C which impairs the usabil=
+ity and pervasiveness of the solution.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">A second experiment uses <em>web wor=
+kers</em> to do the heavy lifting in the background. This solves the brows=
+er hanging issues=2C but doesn=E2=80=99t meaningfully reduce the overall s=
+ync time or CPU usage.</p>
+<h3 id=3D"version-2-webr2sync" style=3D"margin: 0;padding: 0;display: bloc=
+k;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: b=
+old;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #60606=
+0 !important;">Version 2: WebR2sync+</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The core idea in WebR2sync is to mov=
+e the search and comparison operations from the client to the server=2C sw=
+apping roles. The <em>client</em> generates a checksum list and sends it t=
+o the server=2C and the server does the generation of matching tokens. Lit=
+eral bytes are still generated by the client though.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+10.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;-m=
+s-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">While WebR2sync significantly cuts t=
+he computation burden on the web client=2C it brings considerable computat=
+ion overhead to the server side. To this end=2C we make two additional eff=
+orts to optimize the server-side computational overhead.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The first optimisation exploits the=
+ fact that most edits coalesce in a small number of areas in a file:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+12.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;-m=
+s-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Full rsync (and WebRsync) uses a 3-l=
+evel chunk searching scheme starting with a 16-bit hash code indexing into=
+ 32-bit rolling checksums=2C and finally to a 128-bit MD5 checksum. In Web=
+R2sync+=2C when the i-th chunk has been shown to match=2C the assumption i=
+s made that the i+1-th chunk is likely to match also and the MD5 checksums=
+ are directly compared. =E2=80=9C<em>If the two chunks are identical=2C we=
+ simply move forward to the next chunk; otherwise=2C we return to the regu=
+lar 3-level chunk searching scheme</em>.=E2=80=9D</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The second optimisation is based on=
+ the observation that a full cryptographic hash is overkill for file chunk=
+ comparisons. The overhead of MD5 is around 5-6 cycles per byte=2C whereas=
+ SipHash has a computation overhead of around 1.13 cycles per byte with an=
+ acceptably low collision probability.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-tabl=
+e-2.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;-=
+ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Replacing MD5 with SipHash reduces c=
+omputation complexity by almost 5x. As a fail-safe mechanism in case of ha=
+sh collisions=2C WebRsync+ also uses a lightweight full content hash check=
+=2E If this check fails then the sync will be re-started using MD5 chunk fin=
+gerprinting instead.</p>
+<h3 id=3D"evaluation" style=3D"margin: 0;padding: 0;display: block;font-fa=
+mily: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;line-=
+height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !import=
+ant;">Evaluation</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The client side of WebR2sync+ is 170=
+0 lines of JavaScript. The server side is based on node.js (about 500 loc)=
+ and a set of C processing modules (a further 1000 loc).</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Comparing the red and green (bottom=
+ two) lines in the charts below=2C you can see that WebR2sync+ has sync ti=
+mes approaching those of rsync:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+16.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoration: none;-m=
+s-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Client-side CPU utilisation is even=
+ lower than rsync (due to the swapping of roles):</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+18.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoration: none;-m=
+s-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Looking at server-side utilisation=
+=2C vanilla Web2Rsync (without the =E2=80=98+=E2=80=99 optimisations) cons=
+umes the most CPU. But with the two server-side optimisations in place=2C=
+ Web2Rsync+ actually has even lower server-side resource consumption than=
+ rsync.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+19.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoration: none;-m=
+s-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Given this lower utilisation=2C Web2=
+Rsync+ can support more concurrent clients:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/webrsync-fig-=
+22.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none;-m=
+s-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnShareBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnShareBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;" class=3D"mcnShareBlockInner">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" class=3D"mcnShareContentContainer" style=3D"min-width: 10=
+0%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"left" style=3D"padding-top: 0;padding-left: 9px;paddi=
+ng-bottom: 0;padding-right: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"min-width: 100%;background-color: #FAFAFA=
+;border: 1px solid #EEEEEE;border-collapse: collapse;mso-table-lspace: 0pt=
+;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;" class=3D"mcnShareContent">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" class=3D"mcnShareCon=
+tentItemContainer" style=3D"padding-top: 9px;padding-right: 9px;padding-le=
+ft: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" style=3D=
+"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"left" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 0;padding-bottom: 9px;mso-table-lspace: 0pt;mso-table-r=
+space: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cla=
+ss=3D"mcnShareContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;background-color: #FAFAFA;border: 1px=
+ solid #CCCCCC;border-radius: 5px;mso-table-lspace: 0pt;mso-table-rspace:=
+ 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3D5c75302c01&e=3D1c7444593b" target=3D"_blank" style=
+=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/icons/social-bloc=
+k-v2/color-twitter-48.png" style=3D"display: block;border: 0;outline: none=
+;text-decoration: none;-ms-interpolation-mode: bicubic;" height=3D"24" wid=
+th=3D"24" class=3D""></a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3D78f886aecc&e=3D1c7444593b" target=3D"" style=3D"co=
+lor: #505050;font-family: Arial;font-size: 12px;font-weight: normal;line-h=
+eight: 100%;text-align: center;text-decoration: none;word-wrap: break-word=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Tweet</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnBoxedTextBlockInner" style=3D"m=
+so-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table border=3D"0" cellspacing=3D"0" class=3D=
+"mcnTextContentContainer" width=3D"100%" style=3D"min-width: 100% !importa=
+nt;background-color: #EBEBEB;border: 1px solid #999999;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+                                <tbody><tr>
+                                    <td valign=3D"top" class=3D"mcnTextCon=
+tent" style=3D"padding: 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;fo=
+nt-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
+                                        This email was brought to you by <=
+a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6afbe9e=
+5d43111fef4d4&id=3Df1fd952bb3&e=3D1c7444593b" target=3D"_blank" style=3D"=
+word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #6DC6DD;font-weight: normal;text-decoration: underline;">#the=
+morningpaper</a>: an interesting/influential/important paper from the worl=
+d of CS every weekday morning=2C as selected by Adrian Colyer
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN FOOTER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateFooter" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"padding-bottom: 9px;mso-table-lspace: 0pt;mso-tabl=
+e-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" cla=
+ss=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso=
+-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <em>Copyright =C2=A9 2018 One L and a Y Ltd=2C=
+ All rights reserved.</em><br>
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.<br>
+<br>
+<strong>Our mailing address is:</strong><br>
+<div class=3D"vcard"><span class=3D"org fn">One L and a Y Ltd</span><div c=
+lass=3D"adr"><div class=3D"street-address">Unit 5755</div><div class=3D"ex=
+tended-address">PO Box 6945</div><span class=3D"locality">London</span>=2C=
+ <span class=3D"region">England</span>  <span class=3D"postal-code">W1A 6U=
+S</span> <div class=3D"country-name">United Kingdom</div></div><br><a href=
+=3D"//acolyer.us9.list-manage.com/vcard?u=3D4188b6afbe9e5d43111fef4d4&id=
+=3Dde5773de0c" class=3D"hcard-download">Add us to your address book</a></d=
+iv>
+<br>
+<br>
+<a class=3D"utilityLink" href=3D"https://acolyer.us9.list-manage.com/unsub=
+scribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3Dd79f=
+f2cbfa" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-=
+text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration:=
+ underline;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp; <a class=3D"=
+utilityLink" href=3D"https://acolyer.us9.list-manage.com/profile?u=3D4188b=
+6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b" style=3D"word-wrap: bre=
+ak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #=
+606060;font-weight: normal;text-decoration: underline;">update subscriptio=
+n preferences</a>&nbsp;<br>
+<br>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://acolyer.us9.list-manage.com/track/open.php?u=3D418=
+8b6afbe9e5d43111fef4d4&id=3Dd79ff2cbfa&e=3D1c7444593b" height=3D"1" width=
+=3D"1"></body>
+</html>
+--_----------=_MCPart_665458607--

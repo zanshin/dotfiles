@@ -1,0 +1,1855 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp2963670qtm;
+        Mon, 19 Feb 2018 22:18:31 -0800 (PST)
+X-Google-Smtp-Source: AH8x224G13EwPIJ5SVPN0O+qoVayZ2i71uDbDgh+BqhwW5P2MLP6mF4of9uEzYUygBuS0eCrjaMz
+X-Received: by 10.37.211.71 with SMTP id e68mr9448553ybf.103.1519107511782;
+        Mon, 19 Feb 2018 22:18:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1519107511; cv=none;
+        d=google.com; s=arc-20160816;
+        b=am/hqBLPJdlpL177FZqW9HqTvImLVaBd9ivo9oN2ZrMbUq1Sd2rWWDNAepi+VM5HXz
+         caSlhuE7tNikgoXGj1MWf78tRo+dAg01Nqb5JbRqkkHndqeorx6gFBTTQ5zqdHFSpFpS
+         FNCGlMStzXhSvbH9fuTzPCxc/c61sHtb5awp2FPG8O3RhhfD02gV28TYshCFtGUhX9mm
+         JMTkZo3ObNKAKKlzTlS+lad6TZW/92Z8EY8vsYiOGRy3ipxY1iVQOFi6yO/WEPrGd7Fv
+         kqBaKza/7oGbVtHOXhofT7P6jD5DacgKrwN9Eg9XdtLKclUvA7Zyza6d9LLRwC3vp2IF
+         JSYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:list-id:feedback-id:message-id:date
+         :to:reply-to:from:subject:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=rS5cYhdpHzlKQAp2cl0HVhk9F4VTp36EZvnQ0CVVFkg=;
+        b=Mloz16oHgMh5lJZZ/b+N96dbFJriy3M9FtNUWh4MGcScOoWHrGbZrx914ILPWwFA1G
+         MYFTnrbqQgjZh/KUfIlqCFl/m0246V32K2f/p7WP7tZ3W60l+vqzgRt0+bHEkedVgw/b
+         rUSwJhZa34rQ8H8JJWjr8qR2iTYCKJ5tj4Aq8PbyjOCMcPG1mEjtkRCKCRrjADoHNMYx
+         rLnld2DyAan5veD7HT7gt4o0bYj9dMBkf/niBxlfg61iaExJWsnI+nQlyA5Vv/wSDV9L
+         7Rnw5GsfknjDrNU9dnxI8w3JLbeE70g2FXyMWNPuKBq8VCl4gUomNUb0OYE4GsYDcLCc
+         yDrQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=Egtwmphc;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=C/btEEUM;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470301-code.prole=gmail.com@mail171.sea81.mcsv.net designates 148.105.14.171 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470301-code.prole=gmail.com@mail171.sea81.mcsv.net
+Return-Path: <bounce-mc.us9_35713533.1470301-code.prole=gmail.com@mail171.sea81.mcsv.net>
+Received: from mail171.sea81.mcsv.net (mail171.sea81.mcsv.net. [148.105.14.171])
+        by mx.google.com with ESMTPS id d20si1326376ywh.606.2018.02.19.22.18.31
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 19 Feb 2018 22:18:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_35713533.1470301-code.prole=gmail.com@mail171.sea81.mcsv.net designates 148.105.14.171 as permitted sender) client-ip=148.105.14.171;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=Egtwmphc;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=C/btEEUM;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470301-code.prole=gmail.com@mail171.sea81.mcsv.net designates 148.105.14.171 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470301-code.prole=gmail.com@mail171.sea81.mcsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=onelanday.co.uk;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=the-morning-paper@onelanday.co.uk;
+ bh=rS5cYhdpHzlKQAp2cl0HVhk9F4VTp36EZvnQ0CVVFkg=;
+ b=EgtwmphcGARTgL/9/ui8dKoK48K13RNlhn8OTgvajAxUpsTPqQucmBaWFyY9+l/XkP3idCoi9vdk
+   mae5/hSThFL5Fvwides4NQHUgXmaKUo5zWLRHicYVPkviL+WLicELooH3CfHqxP4LzOpDXNDA0G0
+   dgI+PohAAML9bqgmuwM=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=rS5cYhdpHzlKQAp2cl0HVhk9F4VTp36EZvnQ0CVVFkg=;
+ b=C/btEEUMuZ7KgExVhelm0qHtt/6WAMTuJ+X24Asun7K1LPpApny7tL0b3+chPIxe3DH0hIMVO1Gj
+   NApd7BY6+Jfpjtck3nWDrN/oaaF7G8woNZBTn5Y7v5Ki0M31QfLfajRlly6czaJEeRFSx8YmdEcF
+   UKgjpZXYRN8qT3T5HWw=
+Received: from (127.0.0.1) by mail171.sea81.mcsv.net id hheure2ddl4m for <code.prole@gmail.com>; Tue, 20 Feb 2018 06:16:11 +0000 (envelope-from <bounce-mc.us9_35713533.1470301-code.prole=gmail.com@mail171.sea81.mcsv.net>)
+Subject: =?utf-8?Q?The=20Morning=20Paper=3A=20Putting=20data=20in=20the=20driver=27s=20seat=20=2D=20optimising=20earnings=20for=20on=2Ddemand=20ride=20hailing?=
+From: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+Reply-To: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+To: <code.prole@gmail.com>
+Date: Tue, 20 Feb 2018 06:16:11 +0000
+Message-ID: <4188b6afbe9e5d43111fef4d4.1c7444593b.20180220061514.42bbdb1fd8.704f8a2f@mail171.sea81.mcsv.net>
+X-Mailer: MailChimp Mailer - **CID42bbdb1fd81c7444593b**
+X-Campaign: mailchimp4188b6afbe9e5d43111fef4d4.42bbdb1fd8
+X-campaignid: mailchimp4188b6afbe9e5d43111fef4d4.42bbdb1fd8
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=4188b6afbe9e5d43111fef4d4&id=42bbdb1fd8&e=1c7444593b
+X-MC-User: 4188b6afbe9e5d43111fef4d4
+Feedback-ID: 35713533:35713533.1470301:us9:mc
+List-ID: 4188b6afbe9e5d43111fef4d4mc list <4188b6afbe9e5d43111fef4d4.597133.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://acolyer.us9.list-manage.com/unsubscribe?u=4188b6afbe9e5d43111fef4d4&id=de5773de0c&e=1c7444593b&c=42bbdb1fd8>, <mailto:unsubscribe-mc.us9_4188b6afbe9e5d43111fef4d4.42bbdb1fd8-1c7444593b@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1233817807"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1233817807
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+Data driven strategies for Uber drivers to increase their earnings.
+View this email in your browser (http://mailchi.mp/onelanday/the-morning-p=
+aper-putting-data-in-the-drivers-seat-optimising-earnings-for-on-demand-ri=
+de-hailing?e=3D1c7444593b)
+This paper write-up is also available online at The Morning Paper. (http:/=
+/blog.acolyer.org/2018/02/20/putting-data-in-the-drivers-seat-optimising-e=
+arnings-for-on-demand-ride-hailing)
+
+
+** the morning paper
+------------------------------------------------------------
+
+
+** Putting data in the driver=E2=80=99s seat: optimising earnings for on-d=
+emand ride hailing
+------------------------------------------------------------
+
+Putting data in the driver=E2=80=99s seat: optimising earnings for on-dema=
+nd ride hailing (https://dl.acm.org/citation.cfm?id=3D3159721) Chaudhari e=
+t al.=2C WSDM=E2=80=9918
+
+(The link above is to the ACM Digital Library official version=2C which ma=
+y not grant you access when clicked in your email client=2C but should do=
+ if you visit via the blog itself.)
+
+There is something deeply rooted in the British psyche about routing for t=
+he underdog. I hope you enjoy this paper as much as I did!
+
+The likes of Uber have plenty of technology at their disposal to optimise=
+ their businesses=2C but what about the individual drivers trying to make=
+ a living on their platforms? What strategy should a driver follow to maxi=
+mise their earnings? Is it worth chasing surge pricing for example? Chaudh=
+ari et al. bring some computer science to the aid of the driver=2C showing=
+ optimal strategies that can increase a driver=E2=80=99s earnings by up to=
+ 50%!
+
+Our first key takeaway is that a naive driver=2C armed with no data=2C and=
+ driving a 9-5 random walk schedule=2C is leaving roughly a 50% pay rise o=
+n the table by not driving more strategically. In contrast=2C a data-savvy=
+ driver armed with good historical data can build a forecast and optimal c=
+ontingency driving plans with relatively little computational overhead usi=
+ng our dynamic programming algorithms=2C that have provable resilience to=
+ uncertainty.
+
+(In the naive random walk schedule=2C a driver goes to locations dictated=
+ exclusively by the passengers picked up=2C and then waits in the current=
+ zone for the next passenger pick-up).
+
+=2E.. the challenge of how to maximise one=E2=80=99s individual earnings as=
+ a driver for a ride-hailing platform like Uber or Lyft is a pressing ques=
+tion that millions of entrepreneurs across the world now face. Anecdotally=
+=2C many drivers spend a great deal of time strategizing about where and w=
+hen to drive. However=2C drivers today are self-taught=2C using heuristics=
+ of their own devising or learning from one another=2C and employ relative=
+ly simple dashboards such as SherpaShare.
+
+The basic structure of the paper is as follows. First the authors set up a=
+ model of the problem space assuming that we have perfect information abou=
+t journey times and rewards etc..=2C and then they show optimal driver str=
+ategies under that model. Then uncertainty is introduced=2C and we see tha=
+t the strategies are robust to noise. Using a dataset combining NYC taxi r=
+ides with Uber API data for pricing=2C simulations of the various strategi=
+es are then performed=2C with some very illuminating findings. Let=E2=80=
+=99s dive in!
+
+
+** Modelling the problem in a world of perfect information
+------------------------------------------------------------
+
+Cities are divided into non-overlapping zones=2C and there are edges betwe=
+en zones. We need to know three basic things:
+1. If I=E2=80=99m in zone i =2C what=E2=80=99s the probability of picking=
+ up a passenger that wants to go to zone j ? This information is captured=
+ in a transition matrix=2C F. The entry f(i=2Ci) represents the probabilit=
+y of a driver not finding a passenger in zone i at a given time step.
+2. How long will it take me to travel from zone i to zone j ? This informa=
+tion is captured in a travel time matrix=2C T.
+3. What is the driver=E2=80=99s net reward (earnings - costs) for taking a=
+ passenger from zone i to zone j ? This information is captured in a rewar=
+ds matrix=2C R.
+
+Each of the above three matrices are time-dependent=2C i.e.=2C their entri=
+es could change throughout the day.
+
+Drivers have a home zone from which they start their shift=2C and to which=
+ they return at the end of a shift. Whenever a driver is faced with a deci=
+sion=2C there are three basic actions they can take:
+* a_0 Get Passenger: wait for a passenger in the current zone
+* a_1 Go Home: log out of the ride service=2C relocate to the home zone if=
+ needed=2C and stop working
+* a_2(j) Relocate: relocate to city zone j (without taking a passenger).
+
+Drivers have a maximum work budget of B time units.
+
+A driver policy \pi is a sequence of time and location dependent actions t=
+aken by a driver at different steps of the strategy. (Aside: this would al=
+so be a really interesting setup for a reinforcement learning agent).
+
+Given the above=2C we can calculate the expected earnings of a driver taki=
+ng a given action at a given time.
+
+Let E(i=2Ct=2Ca) be the expected earnings for taking action a at time t wh=
+en in zone i . Then the total expected earnings for a driver following pol=
+icy \pi is determined is:
+
+\displaystyle \mathcal{E}(\pi=2C \mathbf{F}=2C\mathbf{T}=2C\mathbf{R}=2CB)=
+ =3D \sum\limits_{(\hat{i}=2C \hat{t}=2C \hat{a}) \in \pi} E(\hat{i}=2C\ha=
+t{t}=2C\hat{a})
+
+And finally we can state the Max Earnings problem: Given sets of time-evol=
+ving F=2C T=2C and R=2C as well as the driver=E2=80=99s budget B=2C find a=
+ \pi^* such that:
+
+\displaystyle \pi^* =3D \underset{\pi \in \Pi}{\arg \max}\ \mathcal{E}(\pi=
+=2C\mathbf{F}=2C\mathbf{T}=2C\mathbf{R}=2CB)
+
+
+** Driver strategies
+------------------------------------------------------------
+
+A fully flexible driver=2C with complete freedom to choose their work sche=
+dule as well as to relocate to different zones has the most potential to m=
+aximise their income. Such a driver is said to follow a flexible relocatio=
+n strategy. And it turns out we can find a solution to the Max Earnings pr=
+oblem for a driver following this strategy in O(n^2 N B) time (where N is=
+ the time horizon over which we want to optimise earnings=2C e.g. B=3D8 an=
+d N=3D24 for optimising 8 hours of work within a day). The solution is a d=
+ynamic programming recurrence - do your next driver a favour and scribble=
+ this on the back of a napkin for them ;) :
+
+In this equation=2C i_0 is the driver=E2=80=99s home zone=2C \Phi(i=2Cb=2C=
+t) is the total expected future earnings of a driver in zone i at time t w=
+ith b budgeted time units remaining in their shift=2C and \mathbf{v}(i=2Cb=
+=2Ct) is the vector of these cumulative earnings across different time zon=
+es j when a driver waits for a passenger in the current zone i at time t w=
+ith b time units remaining.
+
+According to driver preference=2C we might impose further restrictions on=
+ driver actions:
+* In a naive strategy=2C a driver performs a random walk over the city on=
+ weekdays from 9am-5pm=2C with locations dictated by passengers picked up=
+ and no relocations.
+* In the relocation strategy=2C a driver in a given zone can choose to eit=
+her wait for a passenger or relocate (but not change working times).
+* In the flexible strategy a driver in a given zone can choose to either w=
+ait for a passenger or go home (pause working) =E2=80=94 but not relocate.=
+ This strategy also naturally incorporates a common driver behaviour of wo=
+rking until a desired target earning has been reached=2C it will compute a=
+ schedule that minimises the (total) work time needed to reach a desired t=
+arget earning.
+
+Solving Max Earnings for the naive=2C the relocation=2C and the flexible s=
+trategies can be done by streamlined versions of the dynamic programming p=
+roblem presented above; the details are omitted due to space constraints.
+
+
+** What happens when we don=E2=80=99t have perfect information?
+------------------------------------------------------------
+
+It is possible to model the effects of noise in the information by conside=
+ring a set of matrices within a certain input uncertainty threshold of the=
+ true matrix values. From this it is possible to compute the worst-case to=
+tal expected earnings for a driver. The Robust Earnings problem finds the=
+ policy that leads to the minimum worst case.
+
+=2E.. we can show (details omitted due to space constraints) that this probl=
+em can be solved by enhancing the total expected future earnings associate=
+d with Get Passenger in the dynamic programming routines with an optimizat=
+ion problem. We use an off-the-shelf minimizer...
+
+(An extended version of the paper without the space constraints would be n=
+ice to see!).
+
+
+** Experimental results
+------------------------------------------------------------
+
+So now to the fun stuff...
+
+The dataset for the experiments is based on the NYC taxi dataset with data=
+ on over 200=2C000 taxi rides per day in 2015-16=2C enriched with data fro=
+m the Uber API to give price estimates for the rides. Data from the Uber A=
+PI was collected to recreate rides that occurred in the original dataset f=
+rom October 2015 to March 2016.
+
+
+** The best options for fully flexible drivers
+------------------------------------------------------------
+
+The following chart shows the daily drivers earnings that would have been=
+ obtained following different strategies.
+
+The median earning of a driver following the naive strategy on a Sunday is=
+ $104 while that of a driver following flexible-relocation is $ 177=2C rep=
+resenting a 70% increase in median earnings. Averaged over all days of the=
+ week=2C this results in a 47% increase in median earnings per work day wh=
+en following the flexible-relocation strategy.
+
+Smart relocations through the day help a driver avoid becoming trapped in=
+ low-earning neighbourhoods. This turns out to beneficial even though it c=
+osts money to change zones when not carrying a passenger.
+
+Uber=E2=80=99s surge pricing incentivises drivers to drive during peak hou=
+rs in order to efficiently match demand with supply (and also has a demand=
+-reducing effect from a passenger perspective). Should drivers chase surge=
+s?
+
+The following chart compares a =E2=80=98no surge=E2=80=99 baseline with th=
+e surge multiplier taken out of the equation=2C a =E2=80=98surge=E2=80=99=
+ case in which the surge multiplier is used when calculating earnings=2C a=
+ a =E2=80=98surge chasing=E2=80=99 case in which a driver in a non-surging=
+ zone always relocates to the zone with the highest surge multiplier withi=
+n a 10-minute drive radius.
+
+We observe that blind =E2=80=9Csurge chasing=E2=80=9D leads to lower earni=
+ngs irrespective of the strategy being followed... =E2=80=9Csurge chasing=
+=E2=80=9D consistently fails to provide any tangible benefits as compared=
+ to following the pre-determined strategy. We conclude that actively and b=
+lindly chasing the surge is an ill-advised strategy and may lead to losses=
+=2E
+
+
+** When is relocation most effective
+------------------------------------------------------------
+
+A comparison of the simulated behaviour of drivers following the flexible=
+ and flexible-relocation strategies highlights the times when relocation i=
+s most effective.
+
+Here we can see (through the increased number of drivers choosing to drive=
+ then) that relocation is most effective in the evening hours.
+
+
+** The impact of flexible working hours
+------------------------------------------------------------
+
+A comparison of the simulated behaviour of drivers following the relocatio=
+n and flexible-relocation strategies highlights the differences in working=
+ zones when a driver is free to chose their own hours.
+
+Without flexible relocation drivers mostly chose to serve the centre of Ma=
+nhattan. With flexible hours=2C there is no clear most-preferred relocatio=
+n zone.
+
+
+** Strategy robustness in the face of noise
+------------------------------------------------------------
+
+=2E..all strategies remain resilient to a wide range of additional uncertain=
+ty=2C and we find that the relocation=2C flexible=2C and flexible-relocati=
+on strategies are most tolerant to uncertainty in the input-transition mat=
+rices. Interestingly=2C even with 99% uncertainty=2C the flexible-relocati=
+on strategy significantly outperforms the naive strategy with no uncertain=
+ty.
+
+Being strategic using historical data can significantly improve driver ear=
+nings.
+http://twitter.com/intent/tweet?text=3DPutting%20data%20in%20the%20driver'=
+s%20seat%3A%20optimising%20earnings%20for%20on-demand%20ride%20hailing: ht=
+tp%3A%2F%2Fblog.acolyer.org%2F2018%2F02%2F20%2Fputting-data-in-the-drivers=
+-seat-optimising-earnings-for-on-demand-ride-hailing Tweet (http://twitter=
+=2Ecom/intent/tweet?text=3DPutting%20data%20in%20the%20driver's%20seat%3A%20=
+optimising%20earnings%20for%20on-demand%20ride%20hailing: http%3A%2F%2Fblo=
+g.acolyer.org%2F2018%2F02%2F20%2Fputting-data-in-the-drivers-seat-optimisi=
+ng-earnings-for-on-demand-ride-hailing)
+This email was brought to you by #themorningpaper (http://blog.acolyer.org=
+) : an interesting/influential/important paper from the world of CS every=
+ weekday morning=2C as selected by Adrian Colyer
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Copyright =C2=A9 2018 One L and a Y Ltd=2C All rights reserved.
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.
+
+Our mailing address is:
+One L and a Y Ltd
+Unit 5755
+PO Box 6945
+London=2C England W1A 6US
+United Kingdom
+** unsubscribe from this list (https://acolyer.us9.list-manage.com/unsubsc=
+ribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3D42bbdb=
+1fd8)
+** update subscription preferences (https://acolyer.us9.list-manage.com/pr=
+ofile?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b)
+--_----------=_MCPart_1233817807
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or=
+g/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+    <head>
+    =09<!-- NAME: 1 COLUMN -->
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+UTF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1.0">
+        <title>The Morning Paper: Putting data in the driver's seat - opti=
+mising earnings for on-demand ride hailing</title>
+
+    <style type=3D"text/css">
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100% !important;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100% !important;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09p{
+=09=09=09margin:1em 0;
+=09=09=09padding:0;
+=09=09}
+=09=09a{
+=09=09=09word-wrap:break-word;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass span=2C.ExternalC=
+lass font=2C.ExternalClass td=2C.ExternalClass div{
+=09=09=09line-height:100%;
+=09=09}
+=09=09table=2Ctd{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09#templatePreheader=2C#templateHeader=2C#templateBody=2C#templateFoot=
+er{
+=09=09=09min-width:100%;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:20px;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#F2F2F2;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09#templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:40px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-1px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#404040 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.75px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.5px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#808080 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent=2C.preheaderContainer .mcnTextCo=
+ntent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.footerContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[id=3DbodyCell]{
+=09=09=09padding:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3Dmcpreview-image-uploader]{
+=09=09=09width:100% !important;
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09img[class=3DmcnImage]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnImageGroupContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupContent]{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupBlockInner]{
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-top:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09tbody[class=3DmcnImageGroupBlockOuter]{
+=09=09=09padding-bottom:9px !important;
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionTopContent]=2Ctable[class=3DmcnCaptionBott=
+omContent]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftTextContentContainer]=2Ctable[class=3D=
+mcnCaptionRightTextContentContainer]=2Ctable[class=3DmcnCaptionLeftImageC=
+ontentContainer]=2Ctable[class=3DmcnCaptionRightImageContentContainer]=2C=
+table[class=3DmcnImageCardLeftTextContentContainer]=2Ctable[class=3DmcnI=
+mageCardRightTextContentContainer]=2C.mcnImageCardLeftImageContentContaine=
+r=2C.mcnImageCardRightImageContentContainer{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftContentOuter] td[class=3DmcnTextConten=
+t]=2Ctable[class=3DmcnCaptionRightContentOuter] td[class=3DmcnTextConten=
+t]{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnCaptionBlockInner] table[class=3DmcnCaptionTopConten=
+t]:last-child td[class=3DmcnTextContent]=2C.mcnImageCardTopImageContent=
+=2C.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnBoxedTextContentColumn]{
+=09=09=09padding-left:18px !important;
+=09=09=09padding-right:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnTextContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplateContainer]=2Ctable[id=3DtemplatePreheader]=2Cta=
+ble[id=3DtemplateHeader]=2Ctable[id=3DtemplateBody]=2Ctable[id=3Dtempla=
+teFooter]{
+=09=09=09max-width:600px !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:24px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextCont=
+ent]=2Ctd[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextConten=
+t] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplatePreheader]{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DpreheaderContainer] td[class=3DmcnTextContent]=2Ctd[cl=
+ass=3DpreheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DheaderContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DbodyContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DbodyContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DfooterContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] a[class=3DutilityLink]{
+=09=09=09display:block !important;
+=09=09}
+
+}</style></head>
+    <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=
+=3D"0" offset=3D"0" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;background-color: #F2F2F2;height: 100% !=
+important;width: 100% !important;">
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;backg=
+round-color: #F2F2F2;height: 100% !important;width: 100% !important;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;margin: 0;padding: 20px;border-top: 0;h=
+eight: 100% !important;width: 100% !important;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600" id=3D"templateContainer" style=3D"border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;border: 0;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN PREHEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templatePreheader" style=3D"border-=
+collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-=
+color: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                        =09<td valign=3D"top" class=3D"pre=
+headerContainer" style=3D"padding-top: 9px;mso-table-lspace: 0pt;mso-table=
+-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"390" style=3D"width:390px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 390px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            Data driven strategies for Uber drivers to inc=
+rease their earnings.
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"210" style=3D"width:210px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 210px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <a href=3D"http://mailchi.mp/onelanday/the-mor=
+ning-paper-putting-data-in-the-drivers-seat-optimising-earnings-for-on-dem=
+and-ride-hailing?e=3D1c7444593b" target=3D"_blank" style=3D"word-wrap: break=
+-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #60=
+6060;font-weight: normal;text-decoration: underline;">View this email in y=
+our browser</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN HEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateHeader" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock"=
+ style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;=
+mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <a href=3D"https://acolyer.us9.list-manage.com=
+/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3Db79ccd1808&e=3D1c7444593b=
+" target=3D"_blank" style=3D"word-wrap: break-word;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text=
+-decoration: underline;">This paper write-up is also available online at T=
+he Morning Paper.</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END HEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN BODY // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateBody" style=3D"border-colla=
+pse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-color=
+: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock" st=
+yle=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso=
+-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <style type=3D"text/css">blockquote {
+    display: block;
+    padding: 20px 20px 10px 45px;
+    margin: 20px 0px;
+    font-style: italic;
+    font-size: 14px;
+    color: #141310;
+    background: url("blog.acolyer.org/wp-content/themes/pub/vigilance/imag=
+es/blockquote.gif") no-repeat scroll left top #E7E6E2;
+}
+</style>
+<h1 style=3D"margin: 0;padding: 0;display: block;font-family: Helvetica;fo=
+nt-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;lette=
+r-spacing: -1px;text-align: left;color: #606060 !important;">the morning p=
+aper</h1>
+
+<h2 id=3D"putting-data-in-the-drivers-seat-optimising-earnings-for-on-dema=
+nd-ride-hailing" style=3D"margin: 0;padding: 0;display: block;font-family:=
+ Helvetica;font-size: 26px;font-style: normal;font-weight: bold;line-heigh=
+t: 125%;letter-spacing: -.75px;text-align: left;color: #404040 !important;=
+">Putting data in the driver=E2=80=99s seat: optimising earnings for on-de=
+mand ride hailing</h2>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><a href=3D"https://acolyer.us9.list-=
+manage.com/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3D94f74959de&e=3D=
+1c7444593b" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text-decorat=
+ion: underline;">Putting data in the driver=E2=80=99s seat: optimising ear=
+nings for on-demand ride hailing</a> Chaudhari et al.=2C <em>WSDM=E2=80=99=
+18</em></p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">(<em>The link above is to the ACM Di=
+gital Library official version=2C which may not grant you access when clic=
+ked in your email client=2C but should do if you visit via the blog itself=
+=2E</em>)</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">There is something deeply rooted in=
+ the British psyche about routing for the underdog. I hope you enjoy this=
+ paper as much as I did!</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The likes of Uber have plenty of tec=
+hnology at their disposal to optimise their businesses=2C but what about t=
+he individual drivers trying to make a living on their platforms? What str=
+ategy should a driver follow to maximise their earnings? Is it worth chasi=
+ng surge pricing for example? Chaudhari et al. bring some computer science=
+ to the aid of the driver=2C showing optimal strategies that can increase=
+ a driver=E2=80=99s earnings by up to 50%!</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Our first key takeaway is that a nai=
+ve driver=2C armed with no data=2C and driving a 9-5 random walk schedule=
+=2C is leaving roughly a 50% pay rise on the table by not driving more str=
+ategically. In contrast=2C a data-savvy driver armed with good historical=
+ data can build a forecast and optimal contingency driving plans with rela=
+tively little computational overhead using our dynamic programming algorit=
+hms=2C that have provable resilience to uncertainty.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">(In the naive random walk schedule=
+=2C a driver goes to locations dictated exclusively by the passengers pick=
+ed up=2C and then waits in the current zone for the next passenger pick-up=
+).</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">... the challenge of how to maximise=
+ one=E2=80=99s individual earnings as a driver for a ride-hailing platform=
+ like Uber or Lyft is a pressing question that millions of entrepreneurs a=
+cross the world now face. Anecdotally=2C many drivers spend a great deal o=
+f time strategizing about where and when to drive. However=2C drivers toda=
+y are self-taught=2C using heuristics of their own devising or learning fr=
+om one another=2C and employ relatively simple dashboards such as SherpaSh=
+are.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The basic structure of the paper is=
+ as follows. First the authors set up a model of the problem space assumin=
+g that we have perfect information about journey times and rewards etc..=
+=2C and then they show optimal driver strategies under that model. Then un=
+certainty is introduced=2C and we see that the strategies are robust to no=
+ise. Using a dataset combining NYC taxi rides with Uber API data for prici=
+ng=2C simulations of the various strategies are then performed=2C with som=
+e very illuminating findings. Let=E2=80=99s dive in!</p>
+<h3 id=3D"modelling-the-problem-in-a-world-of-perfect-information" style=
+=3D"margin: 0;padding: 0;display: block;font-family: Helvetica;font-size:=
+ 18px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacin=
+g: -.5px;text-align: left;color: #606060 !important;">Modelling the proble=
+m in a world of perfect information</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Cities are divided into non-overlapp=
+ing zones=2C and there are edges between zones. We need to know three basi=
+c things:</p>
+<ol style=3D"list-style-type: decimal">
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">I=
+f I=E2=80=99m in zone <img style=3D"vertical-align: middle;border: 0;outli=
+ne: none;text-decoration: none;-ms-interpolation-mode: bicubic;height: aut=
+o !important;" src=3D"https://latex.codecogs.com/png.latex?i" alt=3D"i" ti=
+tle=3D"i">=2C what=E2=80=99s the probability of picking up a passenger tha=
+t wants to go to zone <img style=3D"vertical-align: middle;border: 0;outli=
+ne: none;text-decoration: none;-ms-interpolation-mode: bicubic;height: aut=
+o !important;" src=3D"https://latex.codecogs.com/png.latex?j" alt=3D"j" ti=
+tle=3D"j">? This information is captured in a <strong>transition matrix</s=
+trong>=2C F. The entry <img style=3D"vertical-align: middle;border: 0;outl=
+ine: none;text-decoration: none;-ms-interpolation-mode: bicubic;height: au=
+to !important;" src=3D"https://latex.codecogs.com/png.latex?f%28i%2Ci%29"=
+ alt=3D"f(i=2Ci)" title=3D"f(i=2Ci)"> represents the probability of a driv=
+er <em>not</em> finding a passenger in zone <img style=3D"vertical-align:=
+ middle;border: 0;outline: none;text-decoration: none;-ms-interpolation-mo=
+de: bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/pn=
+g.latex?i" alt=3D"i" title=3D"i"> at a given time step.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">H=
+ow long will it take me to travel from zone <img style=3D"vertical-align:=
+ middle;border: 0;outline: none;text-decoration: none;-ms-interpolation-mo=
+de: bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/pn=
+g.latex?i" alt=3D"i" title=3D"i"> to zone <img style=3D"vertical-align: mi=
+ddle;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode:=
+ bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.l=
+atex?j" alt=3D"j" title=3D"j">? This information is captured in a <strong>=
+travel time matrix</strong>=2C T.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">W=
+hat is the driver=E2=80=99s net reward (earnings - costs) for taking a pas=
+senger from zone <img style=3D"vertical-align: middle;border: 0;outline: n=
+one;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !im=
+portant;" src=3D"https://latex.codecogs.com/png.latex?i" alt=3D"i" title=
+=3D"i"> to zone <img style=3D"vertical-align: middle;border: 0;outline: no=
+ne;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !imp=
+ortant;" src=3D"https://latex.codecogs.com/png.latex?j" alt=3D"j" title=3D=
+"j">? This information is captured in a <strong>rewards matrix</strong>=2C=
+ R.</li>
+</ol>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Each of the above three matrices are=
+ time-dependent=2C i.e.=2C their entries could change throughout the day.<=
+/p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Drivers have a <strong>home zone</st=
+rong> from which they start their shift=2C and to which they return at the=
+ end of a shift. Whenever a driver is faced with a decision=2C there are t=
+hree basic actions they can take:</p>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+img style=3D"vertical-align: middle;border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"h=
+ttps://latex.codecogs.com/png.latex?a_0" alt=3D"a_0" title=3D"a_0"> <em>Ge=
+t Passenger</em>: wait for a passenger in the current zone<br>
+</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+img style=3D"vertical-align: middle;border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"h=
+ttps://latex.codecogs.com/png.latex?a_1" alt=3D"a_1" title=3D"a_1"> <em>Go=
+ Home</em>: log out of the ride service=2C relocate to the home zone if ne=
+eded=2C and stop working</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+img style=3D"vertical-align: middle;border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"h=
+ttps://latex.codecogs.com/png.latex?a_2%28j%29" alt=3D"a_2(j)" title=3D"a_=
+2(j)"> <em>Relocate</em>: relocate to city zone <img style=3D"vertical-ali=
+gn: middle;border: 0;outline: none;text-decoration: none;-ms-interpolation=
+-mode: bicubic;height: auto !important;" src=3D"https://latex.codecogs.com=
+/png.latex?j" alt=3D"j" title=3D"j"> (without taking a passenger).</li>
+</ul>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Drivers have a maximum work budget o=
+f <em>B</em> time units.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">A <strong>driver policy</strong> <im=
+g style=3D"vertical-align: middle;border: 0;outline: none;text-decoration:=
+ none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"htt=
+ps://latex.codecogs.com/png.latex?%5Cpi" alt=3D"\pi" title=3D"\pi"> is a s=
+equence of time and location dependent actions taken by a driver at differ=
+ent steps of the strategy. (<em>Aside: this would also be a really interes=
+ting setup for a reinforcement learning agent</em>).</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Given the above=2C we can calculate=
+ the <em>expected earnings</em> of a driver taking a given action at a giv=
+en time.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Let <img style=3D"vertical-align: mi=
+ddle;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode:=
+ bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.l=
+atex?E%28i%2Ct%2Ca%29" alt=3D"E(i=2Ct=2Ca)" title=3D"E(i=2Ct=2Ca)"> be the=
+ expected earnings for taking action <img style=3D"vertical-align: middle;=
+border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicu=
+bic;height: auto !important;" src=3D"https://latex.codecogs.com/png.latex?=
+a" alt=3D"a" title=3D"a"> at time <img style=3D"vertical-align: middle;bor=
+der: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic=
+;height: auto !important;" src=3D"https://latex.codecogs.com/png.latex?t"=
+ alt=3D"t" title=3D"t"> when in zone <img style=3D"vertical-align: middle;=
+border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bicu=
+bic;height: auto !important;" src=3D"https://latex.codecogs.com/png.latex?=
+i" alt=3D"i" title=3D"i">. Then the <em>total expected earnings</em> for a=
+ driver following policy <img style=3D"vertical-align: middle;border: 0;ou=
+tline: none;text-decoration: none;-ms-interpolation-mode: bicubic;height:=
+ auto !important;" src=3D"https://latex.codecogs.com/png.latex?%5Cpi" alt=
+=3D"\pi" title=3D"\pi"> is determined is:</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><img style=3D"vertical-align: middle=
+;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bic=
+ubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.latex=
+?%5Cdisplaystyle%20%5Cmathcal%7BE%7D%28%5Cpi%2C%20%5Cmathbf%7BF%7D%2C%5Cma=
+thbf%7BT%7D%2C%5Cmathbf%7BR%7D%2CB%29%20%3D%20%5Csum%5Climits_%7B%28%5Chat=
+%7Bi%7D%2C%20%5Chat%7Bt%7D%2C%20%5Chat%7Ba%7D%29%20%5Cin%20%5Cpi%7D%20E%28=
+%5Chat%7Bi%7D%2C%5Chat%7Bt%7D%2C%5Chat%7Ba%7D%29" alt=3D"\displaystyle \ma=
+thcal{E}(\pi=2C \mathbf{F}=2C\mathbf{T}=2C\mathbf{R}=2CB) =3D \sum\limits_=
+{(\hat{i}=2C \hat{t}=2C \hat{a}) \in \pi} E(\hat{i}=2C\hat{t}=2C\hat{a})"=
+ title=3D"\displaystyle \mathcal{E}(\pi=2C \mathbf{F}=2C\mathbf{T}=2C\math=
+bf{R}=2CB) =3D \sum\limits_{(\hat{i}=2C \hat{t}=2C \hat{a}) \in \pi} E(\ha=
+t{i}=2C\hat{t}=2C\hat{a})"></p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">And finally we can state the <em>Max=
+ Earnings</em> problem: <em>Given sets of time-evolving F=2C T=2C and R=2C=
+ as well as the driver=E2=80=99s budget B=2C find a <img style=3D"vertical=
+-align: middle;border: 0;outline: none;text-decoration: none;-ms-interpola=
+tion-mode: bicubic;height: auto !important;" src=3D"https://latex.codecogs=
+=2Ecom/png.latex?%5Cpi%5E%2A" alt=3D"\pi^*" title=3D"\pi^*"> such that:&nbsp=
+;</em></p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><img style=3D"vertical-align: middle=
+;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bic=
+ubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.latex=
+?%5Cdisplaystyle%20%5Cpi%5E%2A%20%3D%20%5Cunderset%7B%5Cpi%20%5Cin%20%5CPi=
+%7D%7B%5Carg%20%5Cmax%7D%5C%20%5Cmathcal%7BE%7D%28%5Cpi%2C%5Cmathbf%7BF%7D=
+%2C%5Cmathbf%7BT%7D%2C%5Cmathbf%7BR%7D%2CB%29" alt=3D"\displaystyle \pi^*=
+ =3D \underset{\pi \in \Pi}{\arg \max}\ \mathcal{E}(\pi=2C\mathbf{F}=2C\ma=
+thbf{T}=2C\mathbf{R}=2CB)" title=3D"\displaystyle \pi^* =3D \underset{\pi=
+ \in \Pi}{\arg \max}\ \mathcal{E}(\pi=2C\mathbf{F}=2C\mathbf{T}=2C\mathbf{=
+R}=2CB)"></p>
+<h3 id=3D"driver-strategies" style=3D"margin: 0;padding: 0;display: block;=
+font-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bol=
+d;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060=
+ !important;">Driver strategies</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">A fully flexible driver=2C with comp=
+lete freedom to choose their work schedule as well as to relocate to diffe=
+rent zones has the most potential to maximise their income. Such a driver=
+ is said to follow a <em>flexible relocation strategy</em>. And it turns o=
+ut we can find a solution to the Max Earnings problem for a driver followi=
+ng this strategy in <img style=3D"vertical-align: middle;border: 0;outline=
+: none;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto=
+ !important;" src=3D"https://latex.codecogs.com/png.latex?O%28n%5E2%20N%20=
+B%29" alt=3D"O(n^2 N B)" title=3D"O(n^2 N B)"> time (where <em>N</em> is t=
+he time horizon over which we want to optimise earnings=2C e.g. B=3D8 and=
+ N=3D24 for optimising 8 hours of work within a day). The solution is a dy=
+namic programming recurrence - do your next driver a favour and scribble t=
+his on the back of a napkin for them ;) :</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/data-in-drive=
+r-seat-eqn-6.jpeg?w=3D520" style=3D"border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">In this equation=2C <img style=3D"ve=
+rtical-align: middle;border: 0;outline: none;text-decoration: none;-ms-int=
+erpolation-mode: bicubic;height: auto !important;" src=3D"https://latex.co=
+decogs.com/png.latex?i_0" alt=3D"i_0" title=3D"i_0"> is the driver=E2=80=
+=99s home zone=2C <img style=3D"vertical-align: middle;border: 0;outline:=
+ none;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !=
+important;" src=3D"https://latex.codecogs.com/png.latex?%5CPhi%28i%2Cb%2Ct=
+%29" alt=3D"\Phi(i=2Cb=2Ct)" title=3D"\Phi(i=2Cb=2Ct)"> is the <em>total e=
+xpected future earnings</em> of a driver in zone <em>i</em> at time <em>t<=
+/em> with <em>b</em> budgeted time units remaining in their shift=2C and <=
+img style=3D"vertical-align: middle;border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"h=
+ttps://latex.codecogs.com/png.latex?%5Cmathbf%7Bv%7D%28i%2Cb%2Ct%29" alt=
+=3D"\mathbf{v}(i=2Cb=2Ct)" title=3D"\mathbf{v}(i=2Cb=2Ct)"> is the vector=
+ of these cumulative earnings across different time zones <em>j</em> when=
+ a driver waits for a passenger in the current zone <em>i</em> at time <em=
+>t</em> with <em>b</em> time units remaining.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">According to driver preference=2C we=
+ might impose further restrictions on driver actions:</p>
+<ul>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">I=
+n a <em>naive</em> strategy=2C a driver performs a random walk over the ci=
+ty on weekdays from 9am-5pm=2C with locations dictated by passengers picke=
+d up and no relocations.</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">I=
+n the <em>relocation</em> strategy=2C a driver in a given zone can choose=
+ to either wait for a passenger or relocate (but not change working times)=
+=2E</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">I=
+n the <em>flexible</em> strategy a driver in a given zone can choose to ei=
+ther wait for a passenger or go home (pause working) =E2=80=94 but not rel=
+ocate. This strategy also naturally incorporates a common driver behaviour=
+ of working until a desired target earning has been reached=2C it will com=
+pute a schedule that minimises the (total) work time needed to reach a des=
+ired target earning.</li>
+</ul>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Solving Max Earnings for the naive=
+=2C the relocation=2C and the flexible strategies can be done by streamlin=
+ed versions of the dynamic programming problem presented above; the detail=
+s are omitted due to space constraints.</p>
+</blockquote>
+<h3 id=3D"what-happens-when-we-dont-have-perfect-information" style=3D"mar=
+gin: 0;padding: 0;display: block;font-family: Helvetica;font-size: 18px;fo=
+nt-style: normal;font-weight: bold;line-height: 125%;letter-spacing: -.5px=
+;text-align: left;color: #606060 !important;">What happens when we don=E2=
+=80=99t have perfect information?</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">It is possible to model the effects=
+ of noise in the information by considering a set of matrices within a cer=
+tain input uncertainty threshold of the true matrix values. From this it i=
+s possible to compute the <em>worst-case total expected earnings</em> for=
+ a driver. The <em>Robust Earnings</em> problem finds the policy that lead=
+s to the minimum worst case.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">... we can show (details omitted due=
+ to space constraints) that this problem can be solved by enhancing the to=
+tal expected future earnings associated with Get Passenger in the dynamic=
+ programming routines with an optimization problem. We use an off-the-shel=
+f minimizer...</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">(An extended version of the paper wi=
+thout the space constraints would be nice to see!).</p>
+<h3 id=3D"experimental-results" style=3D"margin: 0;padding: 0;display: blo=
+ck;font-family: Helvetica;font-size: 18px;font-style: normal;font-weight:=
+ bold;line-height: 125%;letter-spacing: -.5px;text-align: left;color: #606=
+060 !important;">Experimental results</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">So now to the fun stuff...</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The dataset for the experiments is b=
+ased on the NYC taxi dataset with data on over 200=2C000 taxi rides per da=
+y in 2015-16=2C enriched with data from the Uber API to give price estimat=
+es for the rides. Data from the Uber API was collected to recreate rides t=
+hat occurred in the original dataset from October 2015 to March 2016.</p>
+<h4 id=3D"the-best-options-for-fully-flexible-drivers" style=3D"margin: 0;=
+padding: 0;display: block;font-family: Helvetica;font-size: 16px;font-styl=
+e: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-=
+align: left;color: #808080 !important;">The best options for fully flexibl=
+e drivers</h4>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The following chart shows the daily=
+ drivers earnings that would have been obtained following different strate=
+gies.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/data-in-drive=
+r-seat-fig-2.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The median earning of a driver follo=
+wing the naive strategy on a Sunday is $104 while that of a driver followi=
+ng flexible-relocation is $ 177=2C representing a 70% increase in median e=
+arnings. Averaged over all days of the week=2C this results in a 47% incre=
+ase in median earnings per work day when following the flexible-relocation=
+ strategy.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Smart relocations through the day he=
+lp a driver avoid becoming trapped in low-earning neighbourhoods. This tur=
+ns out to beneficial even though it costs money to change zones when not c=
+arrying a passenger.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Uber=E2=80=99s surge pricing incenti=
+vises drivers to drive during peak hours in order to efficiently match dem=
+and with supply (and also has a demand-reducing effect from a passenger pe=
+rspective). Should drivers chase surges?</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">The following chart compares a =E2=
+=80=98no surge=E2=80=99 baseline with the surge multiplier taken out of th=
+e equation=2C a =E2=80=98surge=E2=80=99 case in which the surge multiplier=
+ is used when calculating earnings=2C a a =E2=80=98surge chasing=E2=80=99=
+ case in which a driver in a non-surging zone always relocates to the zone=
+ with the highest surge multiplier within a 10-minute drive radius.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/data-in-drive=
+r-seat-fig-6.jpeg?w=3D520" style=3D"border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We observe that blind =E2=80=9Csurge=
+ chasing=E2=80=9D leads to lower earnings irrespective of the strategy bei=
+ng followed... =E2=80=9Csurge chasing=E2=80=9D consistently fails to provi=
+de any tangible benefits as compared to following the pre-determined strat=
+egy. We conclude that actively and blindly chasing the surge is an ill-adv=
+ised strategy and may lead to losses.</p>
+</blockquote>
+<h4 id=3D"when-is-relocation-most-effective" style=3D"margin: 0;padding: 0=
+;display: block;font-family: Helvetica;font-size: 16px;font-style: normal;=
+font-weight: bold;line-height: 125%;letter-spacing: normal;text-align: lef=
+t;color: #808080 !important;">When is relocation most effective</h4>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">A comparison of the simulated behavi=
+our of drivers following the <em>flexible</em> and <em>flexible-relocation=
+</em> strategies highlights the times when relocation is most effective.</=
+p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/data-in-drive=
+r-seat-fig-4.jpeg?w=3D520" style=3D"border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Here we can see (through the increas=
+ed number of drivers choosing to drive then) that relocation is most effec=
+tive in the evening hours.</p>
+<h4 id=3D"the-impact-of-flexible-working-hours" style=3D"margin: 0;padding=
+: 0;display: block;font-family: Helvetica;font-size: 16px;font-style: norm=
+al;font-weight: bold;line-height: 125%;letter-spacing: normal;text-align:=
+ left;color: #808080 !important;">The impact of flexible working hours</h4=
+>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">A comparison of the simulated behavi=
+our of drivers following the <em>relocation</em> and <em>flexible-relocati=
+on</em> strategies highlights the differences in working zones when a driv=
+er is free to chose their own hours.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/data-in-drive=
+r-seat-fig-3.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Without flexible relocation drivers=
+ mostly chose to serve the centre of Manhattan. With flexible hours=2C the=
+re is no clear most-preferred relocation zone.</p>
+<h4 id=3D"strategy-robustness-in-the-face-of-noise" style=3D"margin: 0;pad=
+ding: 0;display: block;font-family: Helvetica;font-size: 16px;font-style:=
+ normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-al=
+ign: left;color: #808080 !important;">Strategy robustness in the face of n=
+oise</h4>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">...all strategies remain resilient t=
+o a wide range of additional uncertainty=2C and we find that the relocatio=
+n=2C flexible=2C and flexible-relocation strategies are most tolerant to u=
+ncertainty in the input-transition matrices. Interestingly=2C even with 99=
+% uncertainty=2C the flexible-relocation strategy significantly outperform=
+s the naive strategy with no uncertainty.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Being strategic using historical dat=
+a can significantly improve driver earnings.</p>
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnShareBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnShareBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;" class=3D"mcnShareBlockInner">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" class=3D"mcnShareContentContainer" style=3D"min-width: 10=
+0%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"left" style=3D"padding-top: 0;padding-left: 9px;paddi=
+ng-bottom: 0;padding-right: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"min-width: 100%;background-color: #FAFAFA=
+;border: 1px solid #EEEEEE;border-collapse: collapse;mso-table-lspace: 0pt=
+;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;" class=3D"mcnShareContent">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" class=3D"mcnShareCon=
+tentItemContainer" style=3D"padding-top: 9px;padding-right: 9px;padding-le=
+ft: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" style=3D=
+"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"left" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 0;padding-bottom: 9px;mso-table-lspace: 0pt;mso-table-r=
+space: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cla=
+ss=3D"mcnShareContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;background-color: #FAFAFA;border: 1px=
+ solid #CCCCCC;border-radius: 5px;mso-table-lspace: 0pt;mso-table-rspace:=
+ 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3Dcf19230194&e=3D1c7444593b" target=3D"_blank" style=
+=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/icons/social-bloc=
+k-v2/color-twitter-48.png" style=3D"display: block;border: 0;outline: none=
+;text-decoration: none;-ms-interpolation-mode: bicubic;" height=3D"24" wid=
+th=3D"24" class=3D""></a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3D217b35932c&e=3D1c7444593b" target=3D"" style=3D"co=
+lor: #505050;font-family: Arial;font-size: 12px;font-weight: normal;line-h=
+eight: 100%;text-align: center;text-decoration: none;word-wrap: break-word=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Tweet</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnBoxedTextBlockInner" style=3D"m=
+so-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table border=3D"0" cellspacing=3D"0" class=3D=
+"mcnTextContentContainer" width=3D"100%" style=3D"min-width: 100% !importa=
+nt;background-color: #EBEBEB;border: 1px solid #999999;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+                                <tbody><tr>
+                                    <td valign=3D"top" class=3D"mcnTextCon=
+tent" style=3D"padding: 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;fo=
+nt-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
+                                        This email was brought to you by <=
+a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6afbe9e=
+5d43111fef4d4&id=3Db9a36ad77e&e=3D1c7444593b" target=3D"_blank" style=3D"=
+word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #6DC6DD;font-weight: normal;text-decoration: underline;">#the=
+morningpaper</a>: an interesting/influential/important paper from the worl=
+d of CS every weekday morning=2C as selected by Adrian Colyer
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN FOOTER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateFooter" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"padding-bottom: 9px;mso-table-lspace: 0pt;mso-tabl=
+e-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" cla=
+ss=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso=
+-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <em>Copyright =C2=A9 2018 One L and a Y Ltd=2C=
+ All rights reserved.</em><br>
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.<br>
+<br>
+<strong>Our mailing address is:</strong><br>
+<div class=3D"vcard"><span class=3D"org fn">One L and a Y Ltd</span><div c=
+lass=3D"adr"><div class=3D"street-address">Unit 5755</div><div class=3D"ex=
+tended-address">PO Box 6945</div><span class=3D"locality">London</span>=2C=
+ <span class=3D"region">England</span>  <span class=3D"postal-code">W1A 6U=
+S</span> <div class=3D"country-name">United Kingdom</div></div><br><a href=
+=3D"//acolyer.us9.list-manage.com/vcard?u=3D4188b6afbe9e5d43111fef4d4&id=
+=3Dde5773de0c" class=3D"hcard-download">Add us to your address book</a></d=
+iv>
+<br>
+<br>
+<a class=3D"utilityLink" href=3D"https://acolyer.us9.list-manage.com/unsub=
+scribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3D42bb=
+db1fd8" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-=
+text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration:=
+ underline;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp; <a class=3D"=
+utilityLink" href=3D"https://acolyer.us9.list-manage.com/profile?u=3D4188b=
+6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b" style=3D"word-wrap: bre=
+ak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #=
+606060;font-weight: normal;text-decoration: underline;">update subscriptio=
+n preferences</a>&nbsp;<br>
+<br>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://acolyer.us9.list-manage.com/track/open.php?u=3D418=
+8b6afbe9e5d43111fef4d4&id=3D42bbdb1fd8&e=3D1c7444593b" height=3D"1" width=
+=3D"1"></body>
+</html>
+--_----------=_MCPart_1233817807--

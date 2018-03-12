@@ -1,0 +1,43 @@
+Return-Path: <root@zanshin.net>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx9.webfaction.com (mail9.webfaction.com [185.20.49.164])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 822D41AF032773
+	for <mark_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 05:16:04 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx9.webfaction.com (Postfix) with ESMTP id 8019920206878
+	for <mark_zanshin@mailbox20.webfaction.com>; Tue,  6 Mar 2018 05:16:04 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 0.001
+X-Spam-Level:
+X-Spam-Status: No, score=0.001 tagged_above=-999 required=3
+	tests=[URIBL_BLOCKED=0.001] autolearn=no autolearn_force=no
+Received: from mx9.webfaction.com ([127.0.0.1])
+	by localhost (mail9.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id BJFgLvF8KHJj
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Tue,  6 Mar 2018 05:15:57 +0000 (UTC)
+Received: from smtp.webfaction.com (mail6.webfaction.com [31.170.123.134])
+	by mx9.webfaction.com (Postfix) with ESMTPS id 393DA201BA48A
+	for <mark@zanshin.net>; Tue,  6 Mar 2018 05:15:57 +0000 (UTC)
+Received: from fermata (ip68-102-23-189.ks.ok.cox.net [68.102.23.189])
+	by smtp.webfaction.com (Postfix) with ESMTPSA id 93B5C60ABA7D8
+	for <mark@zanshin.net>; Tue,  6 Mar 2018 05:15:56 +0000 (UTC)
+Date: Mon, 5 Mar 2018 23:15:33 -0600
+From: mark nichols <root@zanshin.net>
+To: mark@zanshin.net
+Subject: Root sending mail
+Message-ID: <20180306045551.x6pkhnfjx4ybcuaa@fermata>
+Reply-To: mark nichols <root@zanshin.net>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+Errors-To: root@zanshin.net
+User-Agent: NeoMutt/20170609 (1.8.3)
+
+Test of root@zanshin.net send email.
+
+--
+Mark Nichols
+gpgkey: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
+curl: https://keybase.io/zanshin/key.asc

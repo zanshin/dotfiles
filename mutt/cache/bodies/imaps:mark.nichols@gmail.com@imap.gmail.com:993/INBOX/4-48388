@@ -1,0 +1,307 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.148.68 with SMTP id i4csp1265931qvi;
+        Sat, 24 Feb 2018 14:58:15 -0800 (PST)
+X-Google-Smtp-Source: AH8x226y5MRqRsGYQ+4CoEqutPKU8iBYHSkRgFr8Zt6b6gT4gvN1Nu9ri5Vjj8T5Hn7hIA8KLpsB
+X-Received: by 10.223.173.131 with SMTP id w3mr5657008wrc.195.1519513095282;
+        Sat, 24 Feb 2018 14:58:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1519513095; cv=none;
+        d=google.com; s=arc-20160816;
+        b=timnZ/H5Vaa8hMa84U3d6XmaAwCLfWwf+z+Qi5KigpsYE6cXgy9I60mau8+UjxeE3Q
+         QbOlNtZOwzb8mr0fCRivUAuyurpUlkbYXnx487lwYYC36PmvYqXWCvek11I/SDZnFCLm
+         8mN6laIQtgjmmRTHqMoDSd5K37J18x4wWb/A3B+GamhkULpol4n1R4PcUKY6u+0m3Q6g
+         eDufz4MbvT3XtJuDyN5Z1sxXkMoI+S7oladCND7H5M7ofMNXr9VMATdtxlsalRcIjr+c
+         xDNJdwqDF59vmo8QHrydXfWn1x5uu4/DSpKK6kv0Q+bbqtRrczI+iKEwHB0JA/itiPNl
+         Ix9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:references:message-id:cc:date:in-reply-to:from:subject
+         :mime-version:arc-authentication-results;
+        bh=zuLOG2UyJu9Gfw9WnLR1gaXl4+3hJeXyL5WbaYZ5TxQ=;
+        b=OzlWqifC+3gewaYF18rzRkzBvF/PYwUOFn7dg8PQjPTxNTmj0ABYI6xjVYRdCmIe8C
+         HZaYuWRcsHn0JS1jeg/CeJV6D8nUpBaO9iLJJhpH/XfLRg0CptJytz25vUCqdyurFlvC
+         lJ/1iPPT8dXH50z184Z81vZzRFC9vVStRTl7sOpno+ZUgTkvI006JlScp1aywGEa2onl
+         juR8RuXRCy3I8RUGCJBDx1lUt2yCSQDz7Te7WknFig5XsoDq1Q1Wdjvb5KEtk3LhKg9r
+         m0fSXmxuh6XwDB9jfF+NS+OH9c09PXCfep5oFo1mPtmI3cjdRnZBkHwBIXQ1oxIANQS5
+         K6Xw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=neutral (google.com: 31.170.123.134 is neither permitted nor denied by best guess record for domain of piano@sibyllekuder.com) smtp.mailfrom=piano@sibyllekuder.com
+Return-Path: <piano@sibyllekuder.com>
+Received: from smtp.webfaction.com (mail6.webfaction.com. [31.170.123.134])
+        by mx.google.com with ESMTPS id z62si259278wmc.205.2018.02.24.14.58.14
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 24 Feb 2018 14:58:15 -0800 (PST)
+Received-SPF: neutral (google.com: 31.170.123.134 is neither permitted nor denied by best guess record for domain of piano@sibyllekuder.com) client-ip=31.170.123.134;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 31.170.123.134 is neither permitted nor denied by best guess record for domain of piano@sibyllekuder.com) smtp.mailfrom=piano@sibyllekuder.com
+Received: from [192.168.1.7] (ip68-102-23-189.ks.ok.cox.net [68.102.23.189])
+	by smtp.webfaction.com (Postfix) with ESMTPSA id C7A3060FC48F5;
+	Sat, 24 Feb 2018 22:58:13 +0000 (UTC)
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_226D0F6B-8319-4B17-83FE-F6A4BC734ACF"
+Mime-Version: 1.0 (Mac OS X Mail 11.2 \(3445.5.20\))
+Subject: Re: MAMTA Account
+From: Sibylle Kuder <piano@sibyllekuder.com>
+In-Reply-To: <46DCEA3B-5D06-47DA-ACFD-D71FAB84F239@sibyllekuder.com>
+Date: Sat, 24 Feb 2018 16:58:10 -0600
+Cc: "Mark H. Nichols" <mark.nichols@gmail.com>
+Message-Id: <E4ED1A33-BA23-42B7-B169-E6D735AB85BB@sibyllekuder.com>
+References: <CAEwuU7+ROmkCO==p-hn7tcor1t9ZNWZLGkQkPOZQX9=qHEOe=w@mail.gmail.com>
+ <46DCEA3B-5D06-47DA-ACFD-D71FAB84F239@sibyllekuder.com>
+To: Cheryl Savage <cssavage@gmail.com>
+X-Mailer: Apple Mail (2.3445.5.20)
+
+
+--Apple-Mail=_226D0F6B-8319-4B17-83FE-F6A4BC734ACF
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+edited:=20
+
+> On Feb 24, 2018, at 4:24 PM, Sibylle Kuder <piano@sibyllekuder.com> =
+wrote:
+>=20
+> Cheryl,=20
+>=20
+> Before I take myself off the admin page, I looked up a couple of =
+things on the dashboard that may be hard to find unless you are used to =
+working with wordpress:=20
+>=20
+> To edit the =E2=80=9CNews=E2=80=9D sidebar: hover over Appearance, =
+then click on Widgets where you can edit the sidebar.=20
+>=20
+> To edit =E2=80=9CFind a Teacher=E2=80=9D hover over Tools, then click =
+on Little Black Book to edit names and info.=20
+>=20
+> To edit =E2=80=9COfficers=E2=80=9D hover over TOOLS THEN CLICK ON =
+WP-Table Reloaded where you find two tables: Officers and Chairs, and =
+Past Presidents.=20
+>=20
+> For the =E2=80=9CContact=E2=80=9D page you will need to change the =
+email address (at the moment it=E2=80=99s mine, so all communication via =
+=E2=80=9CContact=E2=80=9D comes to me and I share it with the group =
+then).  Hover over Plugins and select Clean-Contact to edit.=20
+>=20
+> Let me know if there is anything else you may have questions about.
+>=20
+> Thank you,
+> Sibylle=20
+>=20
+>=20
+>> Begin forwarded message:
+>>=20
+>> From: Cheryl Savage <cssavage@gmail.com <mailto:cssavage@gmail.com>>
+>> Subject: Re: MAMTA Account
+>> Date: February 24, 2018 at 2:51:32 PM CST
+>> To: Mark Nichols <mark.nichols@gmail.com =
+<mailto:mark.nichols@gmail.com>>
+>> Cc: Sibylle Kuder <piano@sibyllekuder.com =
+<mailto:piano@sibyllekuder.com>>
+>>=20
+>> Mark,=20
+>>=20
+>> Thank you for your help! I have logged into the site and have changed =
+my password.=20
+>>=20
+>> I don't think I have any other questions at this time, but I will let =
+you know if I do. I'll be sure to be in touch when transferring =
+ownership of the domain name, and perhaps even when we switch hosting =
+sites (just to make sure everything transfers smoothly). I appreciate =
+you sharing the costs; that will give me a good idea of what to expect!=20=
+
+>>=20
+>> Thanks,=20
+>> Cheryl=20
+>>=20
+>> On Fri, Feb 23, 2018 at 8:46 PM, Mark Nichols <mark.nichols@gmail.com =
+<mailto:mark.nichols@gmail.com>> wrote:
+>> Hi Cheryl,
+>>=20
+>> I created an account on the MAMTA website administration page for =
+you. The account name is =E2=80=9Ccheryl=E2=80=9D and the initial =
+password is "fully-diminished-7th=E2=80=9D. I suggest that you change =
+that password the first time you sign in.
+>>=20
+>> The URL to access the administration section of the site is
+>>=20
+>> https://manhattanareamusicteachers.org/wp-admin =
+<https://manhattanareamusicteachers.org/>=20
+>>=20
+>> I believe that WordPress sends an email to new account holders so you =
+may already have some of this information.
+>>=20
+>> Please let me or Sibylle know when you=E2=80=99ve had a chance to =
+sign in and reset your password. At that time we=E2=80=99ll remove =
+Sibylle=E2=80=99s account, and you can reset the =E2=80=9Cadmin=E2=80=9D =
+account to have a password and email of your choosing.
+>>=20
+>> The annual domain registration is $12.48, and is due every October. =
+The hosting plan I have costs $102 per year. When MAMTA is ready to =
+transfer ownership of the domain, Sibylle or I will have to approve the =
+transfer (as a preventative measure against the domain being taken or or =
+stolen).=20
+>>=20
+>> Let me know if you have any questions.
+>> =E2=80=94 Mark
+>>=20
+>>=20
+>=20
+
+
+--Apple-Mail=_226D0F6B-8319-4B17-83FE-F6A4BC734ACF
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" class=3D""><font=
+ face=3D"AvenirNext-Regular" class=3D"">edited:&nbsp;<br =
+class=3D""></font><div><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font><blockquote type=3D"cite" class=3D""><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">On Feb 24, 2018, =
+at 4:24 PM, Sibylle Kuder &lt;<a href=3D"mailto:piano@sibyllekuder.com" =
+class=3D"">piano@sibyllekuder.com</a>&gt; wrote:</font></div><font =
+face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D"Apple-interchange-newline"></font><div class=3D""><meta =
+http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" =
+class=3D""><div style=3D"word-wrap: break-word; -webkit-nbsp-mode: =
+space; line-break: after-white-space;" class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D"">Cheryl,&nbsp;</font><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D"">Before I take myself off the admin page, I looked up a couple =
+of things on the dashboard that may be hard to find unless you are used =
+to working with wordpress:&nbsp;</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">To edit the =
+=E2=80=9CNews=E2=80=9D sidebar: hover over Appearance, then click on =
+Widgets where you can edit the sidebar.&nbsp;</font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font></div><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D"">To edit =E2=80=9CFind a Teacher=E2=80=9D hover over Tools, =
+then click on Little Black Book to edit names and =
+info.&nbsp;</font></div><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D""><br class=3D""></font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D"">To edit =E2=80=9COfficers=E2=80=9D =
+hover over <b class=3D""><font color=3D"#ff2600" class=3D"">TOOLS THEN =
+CLICK ON</font></b> WP-Table Reloaded where you find two tables: =
+Officers and Chairs, and Past Presidents.&nbsp;</font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font></div><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D"">For the =E2=80=9CContact=E2=80=9D page you will need to =
+change the email address (at the moment it=E2=80=99s mine, so all =
+communication via =E2=80=9CContact=E2=80=9D comes to me and I share it =
+with the group then). &nbsp;Hover over Plugins and select Clean-Contact =
+to edit.&nbsp;</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">Let me know if =
+there is anything else you may have questions about.</font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font></div><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D"">Thank you,</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D"">Sibylle&nbsp;</font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font></div><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D""><br class=3D""></font><div class=3D""><blockquote type=3D"cite"=
+ class=3D""><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D"">Begin forwarded message:</font></div><font =
+face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D"Apple-interchange-newline"></font><div style=3D"margin-top: =
+0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;" =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><span =
+class=3D""><b class=3D"">From: </b></span><span class=3D"">Cheryl Savage =
+&lt;<a href=3D"mailto:cssavage@gmail.com" =
+class=3D"">cssavage@gmail.com</a>&gt;<br =
+class=3D""></span></font></div><div style=3D"margin-top: 0px; =
+margin-right: 0px; margin-bottom: 0px; margin-left: 0px;" class=3D""><font=
+ face=3D"AvenirNext-Regular" class=3D""><span class=3D""><b =
+class=3D"">Subject: </b></span><span class=3D""><b class=3D"">Re: MAMTA =
+Account</b><br class=3D""></span></font></div><div style=3D"margin-top: =
+0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px;" =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><span =
+class=3D""><b class=3D"">Date: </b></span><span class=3D"">February 24, =
+2018 at 2:51:32 PM CST<br class=3D""></span></font></div><div =
+style=3D"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; =
+margin-left: 0px;" class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D""><span class=3D""><b class=3D"">To: </b></span><span =
+class=3D"">Mark Nichols &lt;<a href=3D"mailto:mark.nichols@gmail.com" =
+class=3D"">mark.nichols@gmail.com</a>&gt;<br =
+class=3D""></span></font></div><div style=3D"margin-top: 0px; =
+margin-right: 0px; margin-bottom: 0px; margin-left: 0px;" class=3D""><font=
+ face=3D"AvenirNext-Regular" class=3D""><span class=3D""><b class=3D"">Cc:=
+ </b></span><span class=3D"">Sibylle Kuder &lt;<a =
+href=3D"mailto:piano@sibyllekuder.com" =
+class=3D"">piano@sibyllekuder.com</a>&gt;<br =
+class=3D""></span></font></div><font face=3D"AvenirNext-Regular" =
+class=3D""><br class=3D""></font><div class=3D""><div dir=3D"ltr" =
+class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D"">Mark,&nbsp;</font><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">Thank you for =
+your help! I have logged into the site and have changed my =
+password.&nbsp;</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">I don't think I =
+have any other questions at this time, but I will let you know if I do. =
+I'll be sure to be in touch when transferring ownership of the domain =
+name, and perhaps even when we switch hosting sites (just to make sure =
+everything transfers smoothly). I appreciate you sharing the costs; that =
+will give me a good idea of what to expect!&nbsp;</font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font></div><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D"">Thanks,&nbsp;</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D"">Cheryl&nbsp;</font></div></div><div=
+ class=3D"gmail_extra"><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font><div class=3D"gmail_quote"><font =
+face=3D"AvenirNext-Regular" class=3D"">On Fri, Feb 23, 2018 at 8:46 PM, =
+Mark Nichols <span dir=3D"ltr" class=3D"">&lt;<a =
+href=3D"mailto:mark.nichols@gmail.com" target=3D"_blank" =
+class=3D"">mark.nichols@gmail.com</a>&gt;</span> wrote:<br =
+class=3D""></font><blockquote class=3D"gmail_quote" style=3D"margin:0 0 =
+0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div =
+style=3D"word-wrap:break-word;line-break:after-white-space" =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">Hi =
+Cheryl,</font><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D""><br class=3D""></font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D"">I created an account on the MAMTA =
+website administration page for you. The account name is =E2=80=9Ccheryl=E2=
+=80=9D and the initial password is "fully-diminished-7th=E2=80=9D. I =
+suggest that you change that password the first time you sign =
+in.</font></div><div class=3D""><font face=3D"AvenirNext-Regular" =
+class=3D""><br class=3D""></font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D"">The URL to access the =
+administration section of the site is</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D""><a =
+href=3D"https://manhattanareamusicteachers.org/" target=3D"_blank" =
+class=3D"">https://<wbr class=3D"">manhattanareamusicteachers.<wbr =
+class=3D"">org/wp-admin</a>&nbsp;</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">I believe that =
+WordPress sends an email to new account holders so you may already have =
+some of this information.</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">Please let me or =
+Sibylle know when you=E2=80=99ve had a chance to sign in and reset your =
+password. At that time we=E2=80=99ll remove Sibylle=E2=80=99s account, =
+and you can reset the =E2=80=9Cadmin=E2=80=9D account to have a password =
+and email of your choosing.</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">The annual =
+domain registration is $12.48, and is due every October. The hosting =
+plan I have costs $102 per year. When MAMTA is ready to transfer =
+ownership of the domain, Sibylle or I will have to approve the transfer =
+(as a preventative measure against the domain being taken or or =
+stolen).&nbsp;</font></div><div class=3D""><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div><div =
+class=3D""><font face=3D"AvenirNext-Regular" class=3D"">Let me know if =
+you have any questions.</font></div><span class=3D"HOEnZb"><font =
+color=3D"#888888" class=3D"" face=3D"AvenirNext-Regular"><div =
+class=3D"">=E2=80=94 Mark</div><div class=3D""><br =
+class=3D""></div></font></span></div></blockquote></div><font =
+face=3D"AvenirNext-Regular" class=3D""><br class=3D""></font></div>
+</div></blockquote></div><font face=3D"AvenirNext-Regular" class=3D""><br =
+class=3D""></font></div></div></div></div></blockquote></div><br =
+class=3D""></body></html>=
+
+--Apple-Mail=_226D0F6B-8319-4B17-83FE-F6A4BC734ACF--

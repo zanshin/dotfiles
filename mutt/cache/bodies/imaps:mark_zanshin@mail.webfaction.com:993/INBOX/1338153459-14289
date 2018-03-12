@@ -1,0 +1,120 @@
+Return-Path: <bounces+848413-2ea5-mark=zanshin.net@sgmail.github.com>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx9.webfaction.com (mail9.webfaction.com [185.20.49.164])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 90914182BB6795
+	for <mark_zanshin@mailbox20.webfaction.com>; Mon,  5 Mar 2018 09:26:31 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx9.webfaction.com (Postfix) with ESMTP id 8A086201F628B
+	for <mark_zanshin@mailbox20.webfaction.com>; Mon,  5 Mar 2018 09:26:31 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 0.617
+X-Spam-Level:
+X-Spam-Status: No, score=0.617 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HTML_IMAGE_ONLY_28=0.726, HTML_MESSAGE=0.001,
+	RCVD_IN_DNSWL_NONE=-0.0001, SPF_PASS=-0.001, T_RP_MATCHES_RCVD=-0.01,
+	URIBL_BLOCKED=0.001] autolearn=no autolearn_force=no
+Received: from mx9.webfaction.com ([127.0.0.1])
+	by localhost (mail9.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 9XsAx77tG0wf
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Mon,  5 Mar 2018 09:26:22 +0000 (UTC)
+Received: from o11.sgmail.github.com (o11.sgmail.github.com [167.89.101.202])
+	by mx9.webfaction.com (Postfix) with ESMTPS id 4E44D20144498
+	for <mark@zanshin.net>; Mon,  5 Mar 2018 09:26:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=github.com; 
+	h=from:reply-to:to:cc:subject:mime-version:content-type:content-transfer-encoding:list-id:list-archive:list-post:list-unsubscribe; 
+	s=s20150108; bh=KJjrwDEbW9gi0pN4+C9+UkiHyw8=; b=ftH8KMKIMPkdCt0K
+	l2hwVapQ16XJ4uFmTh5Qc+atwP3B8dWEQ01EvcJ5nKPP1NAJlLK9VbZZ++hS84Rj
+	Py3keu+KRrkoT4DlgmdxmfcHbk08Qqq/waenUduhw4z34EM+bzQWB8gbUlhIoM5T
+	xxZn5G3aIZGhLvU6POOWC5eRsLA=
+Received: by filter0254p1las1.sendgrid.net with SMTP id filter0254p1las1-20509-5A9D0D31-18
+        2018-03-05 09:26:09.723736749 +0000 UTC
+Received: from github-smtp2b-ext-cp1-prd.iad.github.net (github-smtp2b-ext-cp1-prd.iad.github.net [192.30.253.17])
+	by ismtpd0010p1iad1.sendgrid.net (SG) with ESMTP id O5ZU_ev9RG-6ztP7b168zQ
+	for <mark@zanshin.net>; Mon, 05 Mar 2018 09:26:09.585 +0000 (UTC)
+Date: Mon, 05 Mar 2018 09:26:09 +0000 (UTC)
+From: Joshua Crewe <notifications@github.com>
+Reply-To: zanshin/zanshin <reply+000113bae51ba2d243c4fde80c680e818c3d068a678f4c4992cf0000000116b4cf3092a169ce120396b8@reply.github.com>
+To: zanshin/zanshin <zanshin@noreply.github.com>
+Cc: Subscribed <subscribed@noreply.github.com>
+Message-ID: <zanshin/zanshin/issues/13@github.com>
+Subject: [zanshin/zanshin] RSS feed has stopped. (#13)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a9d0d30e4cdb_8f753f9b827e2f2c77097";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Precedence: list
+X-GitHub-Sender: JoshuaCrewe
+X-GitHub-Recipient: zanshin
+X-GitHub-Reason: subscribed
+List-ID: zanshin/zanshin <zanshin.zanshin.github.com>
+List-Archive: https://github.com/zanshin/zanshin
+List-Post: <mailto:reply+000113bae51ba2d243c4fde80c680e818c3d068a678f4c4992cf0000000116b4cf3092a169ce120396b8@reply.github.com>
+List-Unsubscribe: <mailto:unsub+000113bae51ba2d243c4fde80c680e818c3d068a678f4c4992cf0000000116b4cf3092a169ce120396b8@reply.github.com>,
+ <https://github.com/notifications/unsubscribe/AAETuoMwc5ZzAZ-cwGXvAK7SbwWlY7nNks5tbQSwgaJpZM4Sb9bL>
+X-Auto-Response-Suppress: All
+X-GitHub-Recipient-Address: mark@zanshin.net
+X-SG-EID: Zyvt5lPypCldyxMQ4gWD7NPdnY7cLa5Ol8LOxxkZhbE+J0pATuKmET8u15FuqdlgcH/pVEwsfJABqH
+ qymoNSIjPStnLwMgp5AhaNuQJi/N2Y18WVK1nsnyVNQAbYGDJlyCwRiCWZjX/SXGNApzr3YHkn0mDn
+ PP8at93P5UNv/poZf96kSiyJ2nPLSkaUu8tzD7gzoGbqYuLQCGRufraTFhqd8Cb3AaWumi2c/kIWF8
+ E=
+
+----==_mimepart_5a9d0d30e4cdb_8f753f9b827e2f2c77097
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+How does it feel to know that someone has noticed your RSS feed has stopped working ?
+
+I use a small an [app](https://github.com/FraGag/feeds-to-pocket) to parse and RSS feed and push new feeds to my pocket. It kicked up an error a little while ago : 
+```
+downloading https://zanshin.net/atom.xml
+failed to parse feed at https://zanshin.net/atom.xml as either RSS or Atom:
+  could not parse input as either Atom or RSS:
+    parsing as Atom failed with:
+      Error while escaping character at range 30..37: Cannot find ';' after '&'
+    parsing as RSS failed with:
+      the input did not begin with an rss tag
+```
+
+Basically [https://zanshin.net/atom.xml](https://zanshin.net/atom.xml) is blank. 
+
+Cheers!
+
+
+-- 
+You are receiving this because you are subscribed to this thread.
+Reply to this email directly or view it on GitHub:
+https://github.com/zanshin/zanshin/issues/13
+----==_mimepart_5a9d0d30e4cdb_8f753f9b827e2f2c77097
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>How does it feel to know that someone has noticed your RSS feed has stopped working ?</p>
+<p>I use a small an <a href="https://github.com/FraGag/feeds-to-pocket">app</a> to parse and RSS feed and push new feeds to my pocket. It kicked up an error a little while ago :</p>
+<pre><code>downloading https://zanshin.net/atom.xml
+failed to parse feed at https://zanshin.net/atom.xml as either RSS or Atom:
+  could not parse input as either Atom or RSS:
+    parsing as Atom failed with:
+      Error while escaping character at range 30..37: Cannot find ';' after '&amp;'
+    parsing as RSS failed with:
+      the input did not begin with an rss tag
+</code></pre>
+<p>Basically <a href="https://zanshin.net/atom.xml" rel="nofollow">https://zanshin.net/atom.xml</a> is blank.</p>
+<p>Cheers!</p>
+
+<p style="font-size:small;-webkit-text-size-adjust:none;color:#666;">&mdash;<br />You are receiving this because you are subscribed to this thread.<br />Reply to this email directly, <a href="https://github.com/zanshin/zanshin/issues/13">view it on GitHub</a>, or <a href="https://github.com/notifications/unsubscribe-auth/AAETumgJs2htaAyVbnA-8HfyZhQrtN_eks5tbQSwgaJpZM4Sb9bL">mute the thread</a>.<img alt="" height="1" src="https://github.com/notifications/beacon/AAETutN0pa0_sncHUvH7tlijboeZQYV3ks5tbQSwgaJpZM4Sb9bL.gif" width="1" /></p>
+<div itemscope itemtype="http://schema.org/EmailMessage">
+<div itemprop="action" itemscope itemtype="http://schema.org/ViewAction">
+  <link itemprop="url" href="https://github.com/zanshin/zanshin/issues/13"></link>
+  <meta itemprop="name" content="View Issue"></meta>
+</div>
+<meta itemprop="description" content="View this Issue on GitHub"></meta>
+</div>
+
+<script type="application/json" data-scope="inboxmarkup">{"api_version":"1.0","publisher":{"api_key":"05dde50f1d1a384dd78767c55493e4bb","name":"GitHub"},"entity":{"external_key":"github/zanshin/zanshin","title":"zanshin/zanshin","subtitle":"GitHub repository","main_image_url":"https://cloud.githubusercontent.com/assets/143418/17495839/a5054eac-5d88-11e6-95fc-7290892c7bb5.png","avatar_image_url":"https://cloud.githubusercontent.com/assets/143418/15842166/7c72db34-2c0b-11e6-9aed-b52498112777.png","action":{"name":"Open in GitHub","url":"https://github.com/zanshin/zanshin"}},"updates":{"snippets":[{"icon":"DESCRIPTION","message":"RSS feed has stopped. (#13)"}],"action":{"name":"View Issue","url":"https://github.com/zanshin/zanshin/issues/13"}}}</script>
+----==_mimepart_5a9d0d30e4cdb_8f753f9b827e2f2c77097--

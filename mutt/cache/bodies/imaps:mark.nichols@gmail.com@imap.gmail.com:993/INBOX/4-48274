@@ -1,0 +1,72 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.149.131 with SMTP id s3csp1755279qvs;
+        Wed, 31 Jan 2018 20:30:48 -0800 (PST)
+X-Google-Smtp-Source: AH8x226NzMF2tFH+PH1oHFHvAkn840yAFW90sSCH/yLKSBPdiZBFBZ8a/Fhw3Ba/u70nILAZ4zZh
+X-Received: by 10.107.62.198 with SMTP id l189mr36675582ioa.231.1517459448923;
+        Wed, 31 Jan 2018 20:30:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1517459448; cv=none;
+        d=google.com; s=arc-20160816;
+        b=pCPpoxh7+JXbQZJVif1JxvCF6bIbGCXoeQlANb6VpxbCFtz1z84ckM91fhlK7GQclw
+         uxZx4AULrXaZlvoGj2Iilh0RS3APpp1Ds9BiWxmk2hDK+aJYXnIPdLnSRkhbM0/Sq+za
+         gbP+wbvnKL7pefQ8VyHkXOhU4fcg/swBwnX3Z4lD7Od5njfjY0LxzCmBnCRQYCb0ROhM
+         sXPbnv7Jeq/VfBDd2x7T/06k9oWifRUNs/H9lP0WUSgN4iJd4Lhq7u2HAwu2vtZ88t3I
+         yCAYOAdB7ePfzVqHRUq/j+H7X3DMQG2gzgxmwyqXrfAVuP9NoqIpnX5hJnIt999Rb2+k
+         mN+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=date:message-id:subject:to:from:mime-version
+         :arc-authentication-results;
+        bh=BHVnZWOpoAOUilIgOasGfUcFchVVoBRuWjc5hrxoBeA=;
+        b=mdXEaFsk2JxPaCgIwUXNzI3ZADertHAgAsxyt5m4dzwmrbDqSjOHI4pT6MIiZ0mSkl
+         0Or10iNauORK7T2K2wt2ya1waWN+jwjqO2zNkdTdS5KZDjgODUL5wUZnog7ZvFQYk6XE
+         QWGQQtezcq5Hx3HPiPR74uZOHAtYGavJ1jDPG7ovcnMCGkmXuZVlFdhzTWrdTZ5S48Ks
+         YM5YQmxP3RpSozCSrJMMi6tKGN7UHSPS4xAv5CNVdBS+Ec2422+lPXn+z0aTaclAtbQn
+         v4MZK+gu403PGFQjEf+3ABpGnqRTnAroxQwz3sGceqSmwj4Ceas9dMfv1RxOj3NxOxHD
+         gH/w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of le@landsend.com designates 64.73.15.13 as permitted sender) smtp.mailfrom=le@landsend.com
+Return-Path: <le@landsend.com>
+Received: from leusav02.landsend.com (leusav02.landsend.com. [64.73.15.13])
+        by mx.google.com with ESMTPS id p36si903411ioo.210.2018.01.31.20.30.48
+        for <mark.nichols@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 31 Jan 2018 20:30:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of le@landsend.com designates 64.73.15.13 as permitted sender) client-ip=64.73.15.13;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of le@landsend.com designates 64.73.15.13 as permitted sender) smtp.mailfrom=le@landsend.com
+Received: from leuspx22.landsend.com (leuspx22.leinternal.com [172.30.66.126]) by leusav02.landsend.com with ESMTP id mjm2E39NNzhdP6FX for <mark.nichols@gmail.com>; Wed, 31 Jan 2018 22:30:48 -0600 (CST)
+Received: by leuspx22.landsend.com (Postfix, from userid 251)
+	id 0476E39A; Wed, 31 Jan 2018 22:30:48 -0600 (CST)
+Mime-Version: 1.0
+Content-type: text/html; charset="iso-8859-1"
+From: Lands' End <websiteinquiry@landsend.com>
+To: mark.nichols@gmail.com
+Subject: Lands' End Account Update
+Message-Id: <20180201043048.0476E39A@leuspx22.landsend.com>
+Date: Wed, 31 Jan 2018 22:30:48 -0600 (CST)
+X-Virus-Scanned: by bsmtpd at landsend.com
+
+<img src="https://www.landsend.com/global_nav/images/system-emails/le-logo.gif" width="200px">
+<br>
+<br>
+
+<span style="font-size: 14pt; color: rgb(0, 51, 102); font-weight: bold;">ABOUT YOUR REQUEST</span>
+<br>
+<br>
+We're sorry, we are unable to send you the requested password reset instructions due to one of the following reasons:
+<br><br>
+You may not have a Lands' End Personal Shopping Account
+<br><br>
+<a href="https://www.landsend.com/co/account/register">Create an account now</a>
+<br><br>
+OR
+<br><br>
+If you have more than one email address, your Lands' End Personal Shopping Account may have a different email address associated with it. You may wish to try logging in again with that different email address.
+<br><br>
+<p>If you did not request to reset your password or if you have questions about your account, please call 1.800.963.4816.</p>
+<p><b>***Please do not reply to this message***</b><br>
+This message is automatically generated.</p>
+<br>
+<p>Lands&rsquo; End<br>
+1 Lands&rsquo; End Lane<br>
+Dodgeville, WI 53595</p>
+<br>

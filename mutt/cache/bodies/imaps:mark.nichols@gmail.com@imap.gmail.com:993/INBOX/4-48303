@@ -1,0 +1,609 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.149.131 with SMTP id s3csp1135423qvs;
+        Wed, 7 Feb 2018 10:33:56 -0800 (PST)
+X-Google-Smtp-Source: AH8x224OPbzh/LJ9iYKWXo4df/ZOf+CChcBABCgOTwToSJaUb2uQbhkImPRSHYRBe9WgpPcAewHX
+X-Received: by 10.36.237.130 with SMTP id r124mr9636217ith.45.1518028436910;
+        Wed, 07 Feb 2018 10:33:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1518028436; cv=none;
+        d=google.com; s=arc-20160816;
+        b=OKR6JQhCcPv3G2FaZuB+Zm2gXpXsMmbGFJOyd1jSdIaLqyXhvyE2xx7vaRYQsHzGoy
+         8Gz9ll/7ZbL9sALPlNwiQi24D5AzRhYgxy7xn/YLeUEBER4uSMHuEoqARHQnvjkQCJV4
+         ehwWYQ8d48P264VtTPzSOnfXLq/SIlPcpe44l2MlcPvRd6BplDcRV3Z9AsMmo2c9rv3d
+         6H7X0LIcoX2A1meA8zjjrptpHLHJfY1V0a0ZYJPwL3U6o5KbkPwht18ik0zRWofsnGvv
+         JrOkq0foE68SyjPEauL1h1pvx7zIZTEeE/Duq1Rm+Q939a5eXGDNDe2YChbknvF03a+0
+         R5oA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:feedback-id:message-id:list-id:reply-to
+         :mime-version:list-unsubscribe:date:subject:to:from
+         :domainkey-signature:dkim-signature:arc-authentication-results;
+        bh=RDCzyn9ewyHNVc6bKvS3anJyCJrExlkvfvaP7PGAYxc=;
+        b=GwQNQPJgUDAwnVuDO96YKrKa2x77qoB4h7NtPu2eI3X02mNoDxIwcmzPivAallczw9
+         y1fUl8qm9p68E7uOv5uhl5ObndWKx5Z+F7Jo014dzoYBAqCJ5WCfsXw+aEyRzA6QFW2s
+         TEZHmHLPwFZFwP3SE/fFmpNY+y7YXMMH+euAVUbhQnz4tEVBJgqJE6DFellDQSZKasLD
+         1Db60iidavKwFT5ztkvrvJFF5/Tx21KGoKT+m73yCtSk6DOFi77pyddYfnoyY4k/BS8b
+         SXon+tjp1iJ1IM65VWWK6oIMyvzyTS8Ql0R/c0KLpwSErYI0xK14JGKZEgbsDZEcpOpb
+         eWdA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass (test mode) header.i=@mail.americanfunds.com header.s=200608 header.b=rxDynv/X;
+       spf=pass (google.com: domain of bounce-31996630_html-539279635-78624907-10895433-117@bounce.mail.americanfunds.com designates 66.231.86.126 as permitted sender) smtp.mailfrom=bounce-31996630_HTML-539279635-78624907-10895433-117@bounce.mail.americanfunds.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=americanfunds.com
+Return-Path: <bounce-31996630_HTML-539279635-78624907-10895433-117@bounce.mail.americanfunds.com>
+Received: from mta.comm.capgroup.com (mta.comm.capgroup.com. [66.231.86.126])
+        by mx.google.com with ESMTPS id 15si1951171itg.134.2018.02.07.10.33.56
+        for <mark.nichols@gmail.com>
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Wed, 07 Feb 2018 10:33:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-31996630_html-539279635-78624907-10895433-117@bounce.mail.americanfunds.com designates 66.231.86.126 as permitted sender) client-ip=66.231.86.126;
+Authentication-Results: mx.google.com;
+       dkim=pass (test mode) header.i=@mail.americanfunds.com header.s=200608 header.b=rxDynv/X;
+       spf=pass (google.com: domain of bounce-31996630_html-539279635-78624907-10895433-117@bounce.mail.americanfunds.com designates 66.231.86.126 as permitted sender) smtp.mailfrom=bounce-31996630_HTML-539279635-78624907-10895433-117@bounce.mail.americanfunds.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=americanfunds.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=200608; d=mail.americanfunds.com;
+ h=From:To:Subject:Date:List-Unsubscribe:MIME-Version:Reply-To:List-ID:Message-ID:Content-Type:Content-Transfer-Encoding; i=email@mail.americanfunds.com;
+ bh=59yDJQnRnYrlQ5X+xs+7SUsgnyc=;
+ b=rxDynv/XN4sSQg85g76BGe/09WH6ibuFXWxFnK92WdWz+wwhZCE0Tp5+D+XrOYOpJQtpzNO1e1NO
+   uBQ2OKWvF6L0xsJFUdbVgM4K3HnckrdC7VB2MOyWoQsCHet/1VnFumBnC7NfFhH21DSU61coRbCO
+   81+Hf50H4eSJ+gz+4+Y=
+DomainKey-Signature: a=rsa-sha1; c=nofws; q=dns; s=200608; d=mail.americanfunds.com;
+ b=GDKVUmevbXpU9Qjo4ECQ9WjmKMELmJwnp06N+k+QiK7QSsIjn22Sy+fL5d7bxr7R79yTR0Tn6qIr
+   G+vmbNDacRxBx0ORGM1eTS7Qwg6jCKXf7S0bKLWL2JKtlBmVMa/lPQMYhGuFvYyRsp9wWHPas6Tx
+   F3QrcH4WiZO0F8fTqzA=;
+Received: by mta.comm.capgroup.com id hfd398163hso for <mark.nichols@gmail.com>; Wed, 7 Feb 2018 12:33:36 -0600 (envelope-from <bounce-31996630_HTML-539279635-78624907-10895433-117@bounce.mail.americanfunds.com>)
+From: "American Funds" <email@mail.americanfunds.com>
+To: <mark.nichols@gmail.com>
+Subject: Simplify Filing Your Taxes With Our Resources
+Date: Wed, 07 Feb 2018 12:33:36 -0600
+List-Unsubscribe: <mailto:leave-fc4617717c6d027b76141f2d205921-fe1e11737c660374731775-fe541378736600747513-fe5e15707d6d01797617-ff66157172@leave.mail.americanfunds.com>
+MIME-Version: 1.0
+Reply-To: "American Funds" <reply-fe541378736600747513-31996630_HTML-539279635-10895433-117@mail.americanfunds.com>
+List-ID: <10765366.xt.local>
+X-CSA-Complaints: whitelistcomplaints@eco.de
+x-job: 10895433_78624907
+Message-ID: <774291aa-7efa-4967-ad63-0a30abd17050@xtinmta4184.xt.local>
+Feedback-ID: 10895433:78624907:66.231.86.126:sfmktgcld
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" name="viewport">
+<meta name="viewport" content="width=device-width">
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<title>Capital Group</title>
+<!--Leave Spaces 1019 characters for iOS Buffering-->
+                                                                                                            
+                                                                                                              
+                                                                                     
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                          
+<!--Leave Spaces 1019 characters for iOS Buffering-->
+<style type="text/css">
+.ExternalClass { width:100%; }
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+table td { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;  }
+h1, h2, h3, h4, h5, h6 { font-size: inherit; padding: 0; margin: 0; color: black; line-height: 100%; }
+sup { line-height: .8em !important; } 
+
+.applelinks a { text-decoration: none; color: inherit !important; }
+a { color: #1D5799; text-decoration: none; }
+a:link { color: inherit; text-decoration: none; }
+a:visited { color: inherit; text-decoration: none; }
+
+body {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	-webkit-text-size-adjust:none;
+	-ms-text-size-adjust: none;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	padding: 0;
+	}
+	
+
+@media only screen and (max-width: 320px) {
+*[class~=w100m],  *[class~=column50], { width: 100% !important;}
+*[class~=w90m] { width: 90% !important;}
+*[class~=expandm] { width: 100% !important; display: block !important; }
+*[class~=resizem] { max-width: 100%; height: auto; width: auto\9 /* ie8 */  !important; }
+*[class~=hidem] { display: none !important; }
+*[class~=h1m] { font-size: 18px !important;}
+*[class~=h2m] { font-size: 16px !important;}
+*[class~=height0m] { height: 0 !important; }
+*[class~=vbottomm] { vertical-align: bottom !important; }
+*[class~=borderl0m] { border-left: 0px !important; }
+
+*[class~=amfundslogo] { max-width: 100% !important; height: auto !important; }
+*[class~=capgrouplogo] { max-width: 100% !important; height: auto !important; }
+
+*[class~=centerm] { text-align: center !important; }
+*[class~=leftm] { text-align: left !important; }
+*[class~=nopadtm] { padding-top: 0px !important; }
+*[class~=padt5m] { padding-top: 5px !important; }
+*[class~=padt10m] { padding-top: 10px !important; }
+*[class~=padt20m] { padding-top: 20px !important; }
+*[class~=padb10m] { padding-bottom: 10px !important;}
+*[class~=padb20m] { padding-bottom: 20px !important;}
+*[class~=padrl10m] { padding-right: 10px !important;}
+*[class~=Virginia529logo] { width: 90%; height: auto; width: auto\9 /* ie8 */  !important;}
+*[class~=button] { width: 100% !important; }
+}
+
+
+@media only screen and (max-width: 480px) {
+*[class~=w100m], *[class~=column75], *[class~=column50], *[class~=column33], *[class~=column25] { width: 100% !important;}
+*[class~=w100z] { width: 100% !important;}
+*[class~=column33] { width: 100% !important;}
+*[class~=h1m] { font-size: 20px !important;}
+*[class~=center] { text-align: center !important; }
+*[class~=column50z] { width: 100% !important;}
+*[class~=hidem] { display: none !important; }
+*[class~=button] { width: 100% !important; }
+*[class~=centerm] { text-align: center !important; }
+*[class~=hidem] { display: none !important; }
+}
+
+
+@media only screen and (max-width: 666px) {
+*[class~=w100] { width: 100% !important;}
+*[class~=w90] { width: 90% !important;}
+*[class~=minwidth] { min-width: 100% !important;}
+*[class~=hide] { display: none !important; }
+*[class~=resize] { max-width: 100%; height: auto; width: auto\9 /* ie8 */  !important; }
+*[class~=resize] img { max-width: 100%; height: auto; width: auto\9 /* ie8 */  !important; }
+*[class~=resize2] { width: 100%; height: auto; width: auto\9 /* ie8 */  !important; }
+*[class~=expand] { width: 100% !important; display: block !important; }
+*[class~=height0] { height: 0 !important; }
+*[class~=column75] { width: 75%;}
+*[class~=column50] { width: 50%;}
+*[class~=column33] { width: 33%;}
+
+
+*[class~=nopadt] { padding-top: 0px !important; }
+*[class~=padt5] { padding-top: 5px !important; }
+*[class~=padt10] { padding-top: 10px !important; }
+*[class~=padt20] { padding-top: 20px !important; }
+*[class~=padb10] { padding-bottom: 10px !important;}
+*[class~=padb20] { padding-bottom: 20px !important;}
+*[class~=padrl10m] { padding-right: 20px !important;}
+*[class~=button] { width: 100% !important;}
+
+}
+</style>
+
+<!--[if gte mso 9]>
+<style type="text/css">
+body {
+	margin: 0 !important;
+    padding: 0 !important;
+    }
+    
+table,td,div,p {
+	font-family: Arial, sans-serif;
+    line-height: normal;
+    }
+</style>
+<![endif]-->
+<!--[if lte mso 7]>
+<style type="text/css">
+body {
+	margin: 0 !important;
+    padding: 0 !important;
+    }
+    
+table,td,div,p {
+	font-family: Arial, sans-serif;
+    line-height: normal;
+    }
+</style>
+<![endif]-->
+
+
+
+</head>
+
+<body style="-webkit-text-size-adjust: none;-ms-text-size-adjust: none; margin: 0; padding: 0; width: 100%; background-color: #f2f2f2;"><style type="text/css">
+div.preheader 
+{ display: none !important; } 
+</style>
+<div class="preheader" style="font-size: 1px; display: none !important;">Find Tax Forms, Schedules, Worksheets and More at Our Tax Center</div>
+<!-- HIDDEN AMPSCRIPT START -->
+<!--[if !mso]><!-- -->
+<div style="display: none; font-size: 0; max-height: 0;width: 0; mso-hide: all; overflow: hidden; visibility: hidden;"	>
+<span style="display: none; font-size: 0; max-height: 0;width: 0; mso-hide: all; overflow: hidden; visibility: hidden;">
+
+</span>
+</div>
+<!--<![endif]-->
+<!-- HIDDEN AMPSCRIPT  END -->
+<img src="https://pixel.inbox.exacttarget.com/pixel.gif?r=ebb76b185be8ce329942d4aec60b71d2f3dae50f&c=78624907" height="1" width="1">
+
+<!-- PREHEADER START -->
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="table-layout: fixed;">
+    <tr align="center">
+      <td class="minwidth hidem" align="center" style="min-width: 666px; background-color:#f2f2f2; padding-top: 5px; padding-bottom: 5px;">
+      	<table class="w100" align="center" width="666" border="0" cellspacing="0" cellpadding="0">
+    <tr align="center">
+      <td align="center">
+      	<table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+    <tr align="center">
+    
+    	<!-- ***PREHEADER COPY START*** -->
+      <td style="font-family: AvenirNext-Bold, Arial, sans-serif; color: white; font-size: 11px; text-align: right;"><a href="http://view.mail.americanfunds.com/?qs=cc9b67687ee2c0eb4b39172132e4882625f4c343eb57ee4595038e4edec82d99b14644ce5ca2229cc73c8cc2bf1675db5673804dad0811508d2e340f3f7e69a647aa5afbd50468ac937f8821b5b93b7f5e2e9f9f1135631a"  style="color: black; text-decoration: none;">View this email as a webpage</a></td>
+      	<!-- ***PREHEADER COPY END*** -->
+        
+  </tr>
+</table>
+      </td>
+  </tr>
+</table>
+      </td>
+  </tr>
+</table>
+<!-- PREHEADER END -->
+
+<!-- HEADER START -->
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr align="center">
+      <td align="center" style="background-color: #f2f2f2;">
+      	<table class="w100" align="center" width="666" border="0" cellspacing="0" cellpadding="0">
+    <tr align="center">
+      <td align="center">
+      	<table class="w100m" align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+            <tr align="center">
+      <td align="center">
+      	<table width="100%" border="0" cellspacing="0" cellpadding="0">              
+    <tr>
+      <td align="center" style="background-color: white; padding-bottom: 10px;">
+      	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<!-- ADD HEADER MODULES HERE START, NO TABLES! START -->  
+
+<!-- ///AF HEADER LOGO MODULE START/// --> 
+    <tr>
+      <td class="padt5m" align="center" style="padding-top: 25px;">
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            
+            <!-- ***AMERICAN FUNDS LOGO START*** -->
+            <td align="left" valign="top"><img src="http://image.mail.americanfunds.com/lib/fe5f157072620c7f7316/m/2/AF-mobile-US-2x.jpg" alt="American Funds From Capital Group" height="36" width="252" style="display: block; border: 0; color: #333333; font-size: 18px; font-weight: bold; font-family: sans-serif;" class="amfundslogo"/></td>
+            <!-- ***AMERICAN FUNDS LOGO END*** -->
+            
+           
+                        <!-- ***HEADLINE COPY END*** -->
+                        
+                        </tr>
+                      
+  </table>
+                    </td>
+                  </tr>
+  </table>
+              </td>
+            </tr>
+  </table>
+        </td>
+    </tr>
+    <!-- ///AF HEADER LOGO MODULE END/// -->
+
+
+
+
+<!-- ADD HEADER MODULES HERE END, NO TABLES! END -->
+</table>
+      </td>
+    </tr>   
+</table>
+      </td>
+  </tr>
+</table>
+
+<!-- HEADER END -->
+
+<!-- EMAIL BODY START -->
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr align="center">
+      <td align="center" style="background-color: #f2f2f2;">
+      <table class="w100" align="center" width="666" border="0" cellspacing="0" cellpadding="0">
+    <tr align="center">
+      <td align="center">
+      	<table class="w100m" align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+    <tr align="center">
+      <td align="center">
+      	<table width="100%" border="0" cellspacing="0" cellpadding="0">              
+    <tr>
+      <td align="center" style="background-color: white; padding-bottom: 20px;">
+      	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<!-- ADD BODY MODULES IN HERE START, NO TABLES! START -->    
+    
+
+    
+<!-- ///large image with citation notes MODULE START/// -->
+    <tr>
+    	<td class="padt10m" align="center" style="padding-top: 10px;">
+        	<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">       
+    <tr>
+      
+        <!-- ***IMAGE START*** -->
+      <td align="center"><a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f1e9df75ff2182b8abce7491aafc2c6c16c9c23c73c891465e93cb1f14bbe4308cfbb629c5ebd87a7b069e73068c1d745c"  target="_blank"><img src="http://image.mail.americanfunds.com/lib/fe5e15707d6d01797617/m/1/201801-csc-taxctr-h_1100x275.jpg" width="550" height="137" alt="Your One Stop for Tax Reporting Resources" style="display: block; border: 0; background-color: #1D5799;" class="resize"/></a></td>
+      	<!-- ***IMAGE END*** -->
+      
+    </tr>
+    
+    
+</table>
+        </td>  
+    </tr>
+    <!-- ///large image with citation notes MODULE END/// -->    
+    
+   
+    <!-- ///COPY only MODULE START/// -->
+    <tr>
+    	<td class="padt10m" align="center" style="padding-top: 12px;">
+        	<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">       
+            <tr>
+         <!-- ***COPY START*** -->
+      <td class="" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 17px; line-height: 1.2em; color: #333333; text-align: left; font-weight: normal; padding-bottom: 5px;">
+      Be sure to check out our <a style="color:#1d5799; text-decoration:none; font-weight:bold;" href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f1d16d83ba1447953351062720f305a88da283eee281420039cc8239f716b1769a52229011500d14d28eee0c1ed954b7b8" target="_blank"  >Tax Center</a> before filing your taxes this year. You'll find all the resources you need for annual tax reporting, including:
+      </td>
+      	<!-- ***COPY END*** -->
+       </tr>
+</table>
+        </td>  
+    </tr>
+       
+       
+                                <!--BULLETS BEGIN -->
+                                <tr>
+    	<td style="padding-top: 5px;">
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="" align="center" style="padding-top: 0px;">
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">       
+   
+                            <tr>
+                                <td align="left" valign="top" style="padding-left:0px; padding-bottom:10px;" class="bulletpad">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%">	                                 	
+                                        <tr>
+                                            <td>
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td width="11" valign="top" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 17px; line-height: 1.3em; color: #333333; font-weight: bold;">&bull;</td>
+                                                        <td valign="top" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 17px; line-height: 1.3em; color: #333333; text-align: left; padding-bottom: 10px;"><strong>Tax Forms</strong><br />
+See which forms you'll receive and when; many are already available online.
+ </td>
+                                                    </tr>    
+                                                    <tr>
+                                                        <td width="11" valign="top" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 17px; line-height: 1.3em; color: #333333; font-weight: bold;">&bull;</td>
+                                                        <td valign="top" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 17px; line-height: 1.3em; color: #333333; text-align: left; padding-bottom: 10px;"><strong>Help Importing Tax Information</strong><br />
+Access quick instructions and FAQs for importing information to TurboTax<sup>&reg;</sup> or H&R&nbsp;Block<sup>&reg;</sup>.
+ </td>
+                                                    </tr>    
+                                                    <tr>
+                                                        <td width="11" valign="top" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 17px; line-height: 1.3em; color: #333333; font-weight: bold;">&bull;</td>
+                                                        <td valign="top" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 17px; line-height: 1.3em; color: #333333; text-align: left; padding-bottom: 0px;"><strong>Capital Gains, Dividends and Return of Capital</strong><br />
+Find out which funds paid year-end distributions.
+ </td>
+                                                    </tr>    
+                                                    
+                                                </table>
+                                            </td>
+                                        </tr>
+                                   
+                                    </table>
+                                </td>
+                            </tr>
+                            
+          
+  </table>
+        </td>  
+    </tr>
+        
+    
+</table>
+      
+      </td>
+    </tr>
+                            <!--BULLETS END -->
+                            
+           <!-- BUTTON ROW START -->
+   <tr>
+    	<td style="">
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="" align="center" style="padding-top: 0px;">
+        <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">       
+   
+             
+    <tr>
+    	<td align="left" class="padt10m" style="padding-top: 18px; padding-bottom:20px;">
+        	<table width="200" class="button" border="0" cellpadding="0" cellspacing="0" >
+    <tr>
+    
+    	<!-- ***BUTTON COPY START*** -->
+      <td align="center" height="35" style="background-color: #33aee5; font-family: AvenirNext-Bold, Arial, sans-serif; font-size: 14px; color: white; text-align: center; font-weight: bold;"><a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f160aa2a705d6e738fbd2bda713aee1fa9a724306b2df883ad56d2a12d6f3f2fabb55bfc49b5502d4a0363564a75e8cc75"  style="display: block; width: 100%; padding-top: 10px; padding-bottom: 10px; color: white; text-decoration: none; line-height: 1.3em;" target="_blank">LEARN MORE</a></td>
+      	<!-- ***BUTTON COPY END*** -->
+        
+    </tr>
+        
+</table>
+        </td>
+    </tr>
+  
+          
+  </table>
+        </td>  
+    </tr>
+        
+    
+</table>
+      
+      </td>
+    </tr>
+    <!-- BUTTON ROW END -->
+       
+<!-- ///SOCIAL MODULE START/// -->
+    <tr>
+    	<td style="padding-top: 20px;">
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center">
+        	<table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td valign="top">
+      
+      	<table class="column50" width="150" border="0" align="left" cellpadding="0" cellspacing="0">
+    <tr>
+    	<td>
+        	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+    
+    	<!-- ***IMAGE START*** -->
+      <td class="hide" align="left">&nbsp;</td>
+      	<!-- ***IMAGE END*** -->
+        
+    </tr>
+    
+   
+    
+</table>
+        </td>
+    </tr>
+</table>
+
+		<!--[if mso]></td><td valign="top"><![endif]-->
+
+		<table class="column50 " width="386" border="0" align="right" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="right" style="padding-bottom: 10px;">
+      	<table class="w100m" width="90%" border="0" align="right" cellpadding="0" cellspacing="0">   
+        	<tr>
+            	<td class="hide" width="170" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 16px; line-height: 1.3em; color: #868686; text-align: right;"><strong>Follow Us</strong></td>
+   <td class="centerm" style="font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 14px; line-height: 1.3em; color: #333333; text-align: right;"><a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f1090dad4d8089b8c02d778e697bf2247b03bb428abd46df2a80c50f51cef37860d213beb5d0148273c6931b28615def94"  target="_blank"><img src="http://image.mail.americanfunds.com/lib/fe5f157072620c7f7316/m/1/facebook-blue_35x35.jpg" width="35" height="35" border="0" alt="facebook"></a>&nbsp;&nbsp;<a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f1013e8543331e0aa48cc528b9ab4acf0b9f498033181f230b5b1ef4444127ec63e244cb6819b8492c2c1427de04c866a3"  target="_blank"><img src="http://image.mail.americanfunds.com/lib/fe5f157072620c7f7316/m/1/twitter-blue_35x35.jpg" width="35" height="35" border="0" alt="twitter"></a>&nbsp;&nbsp;
+<a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f12db977d2709d091bd08f6affcdc2a15eebbefbd9d3059d2640e1ebacbf6fbb52c62e53f9ce80b7a8ff3660b9e51df735"  target="_blank"><img src="http://image.mail.americanfunds.com/lib/fe5f157072620c7f7316/m/1/youtube-blue_35x35.jpg" width="35" height="35" border="0" alt="youtube"></a>&nbsp;&nbsp;<a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f1655fe1616b614098b4ffc4cb399c6543b5968bf1a6bb8da953a3f3cdce2f88d8e31b538f747b090552eb1e8ca8a454ff"  target="_blank"><img src="http://image.mail.americanfunds.com/lib/fe5f157072620c7f7316/m/1/linkedin-blue_35x35.jpg" width="35" height="35" border="0" alt="linkedin"></a>
+</td>
+    </tr>
+    
+</table>
+      </td>
+    </tr>
+</table>
+      
+      </td>
+    </tr>
+</table>
+        </td>
+    </tr>
+</table>
+        </td>
+    </tr> 
+<!-- ///SOCIAL MODULE END/// -->
+       
+    <!-- ///COPY only MODULE END/// -->
+</table>
+      
+      </td>
+    </tr>
+    
+</table>
+        </td>
+    </tr>
+</table>
+        </td>
+    </tr>
+    <!-- ///image left copy with bullets and dl button right MODULE END/// -->
+    
+    
+    
+    
+    
+    
+<!-- ADD BODY MODULES IN HERE END, NO TABLES! END -->  
+   
+</table>
+      </td>
+  </tr>
+</table>
+<!-- EMAIL BODY END -->
+
+
+
+<!-- FOOTER START -->
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr align="center">
+      <td class="nopadtm" align="center" style="background-color: #f2f2f2; padding-bottom: 20px;">
+      	<table class="w100" align="center" width="666" border="0" cellspacing="0" cellpadding="0">
+    <tr align="center">
+      <td align="center">
+      	<table align="center" width="90%" border="0" cellspacing="0" cellpadding="0">
+    <tr align="center">
+      <td align="center">
+      	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<!-- ADD FOOTER MODULES IN HERE START, NO TABLES! START --> 
+
+
+ 
+<!-- Hedge CG Version -->
+
+        <tr>
+
+      
+     <!-- ***FOOTER DISCLAIMER COPY START*** -->
+      <td style="padding-top: 20px; font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 12px; line-height: 1.3em; color: #666666; text-align: left; font-weight: bold;">Investments are not FDIC-insured, nor are they deposits of or guaranteed by a bank or any other entity, so they may lose value.</td>
+      <!-- ***FOOTER DISCLAIMER COPY END*** -->
+    </tr>
+    <tr>
+      
+      <!-- ***FOOTER DISCLAIMER COPY START*** -->
+      <td style="padding-top: 10px; font-family: AvenirNext-Regular, Arial, sans-serif; font-size: 12px; line-height: 1.3em; color: #666666; text-align: left; "><strong>Investors should carefully consider investment objectives, risks, charges and expenses. This and other important information is contained in the fund prospectuses and summary prospectuses, which can be obtained from a financial professional and on <a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f1220be41be69352df43252839959edb1425b9a95340532f835d79b5ec649b0136a2a4aa6e75f9bcfc976c06400817dbdf" style="color: #1d5799; text-decoration: none; font-weight:bold;" target="_blank" >americanfunds.com</a> and should be read carefully before investing.</strong>
+</td>
+      <!-- ***FOOTER DISCLAIMER COPY END*** -->
+      
+    </tr>
+    
+       
+<!-- Hedge CG Version -->
+
+    <!-- FOOTER EXISTING W OPTOUT START -->
+<tr><td style="font-family: Avenir Next, Arial, sans-serif; font-size: 11px; color: #666666; text-align: left;">&nbsp;</td></tr>
+    <tr>
+
+    
+    	<!-- ***FOOTER DISCLAIMER COPY START*** -->
+      <td style="padding-top: 20px; border-top: 1px solid #dddddd; font-family: Avenir Next, Arial, sans-serif; font-size: 11px; color: #666666; text-align: left;">If you no longer wish to receive promotional communications from American Funds, you may <a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f1f597a5d3b6ee9fa08e8a29c2c38d0bb4832fd0f1403cbf3cda9962bdb564f6cd14d27184dde74c15dbd43284aa07d7a50073f258dcb52153" ><span style="color: #1D5799;"><b>unsubscribe</b></span></a> at any time.<br />
+        <br />        All American Funds trademarks referenced are registered trademarks owned by American Funds Distributors, Inc. or an affiliated company.<br />
+        <br />
+        &copy; 2018 American Funds Distributors, Inc.<br />
+        6455 Irvine Center Drive, Irvine, CA 92618 USA &nbsp;|&nbsp; <a href="http://click.mail.americanfunds.com/?qs=2bc4114722cd27f17966f31cacbc464e163ccb04f1dca1fd22e58d6f01cb3041d9025a6439db8bdfd71de8d0d0ac14094a7aedc674ff2a99"  style="text-decoration: none;"><span style="color: #1D5799; font-weight: bold;">PRIVACY</span></a></td>
+      	<!-- ***FOOTER DISCLAIMER COPY END*** -->
+    </tr>    
+
+    <!-- FOOTER EXISTING W OPTOUT END -->
+    
+<!-- ADD FOOTER MODULES IN HERE END, NO TABLES! END -->
+</table>
+      </td>
+  </tr>
+</table>
+      </td>
+  </tr>
+</table>
+      </td>
+  </tr>
+</table>
+<!-- FOOTER END -->
+<img src="http://click.mail.americanfunds.com/open.aspx?ffcb10-fe541378736600747513-fdbe1572766500757010787c60-fe5e15707d6d01797617-fe5a17717c6d027b7614-fe1e11737c660374731775-ff66157172" width="1" height="1">
+<style data-ignore-inlining>@media print{ #_t { background-image: url('https://m2hi9iz7.emltrk.com/m2hi9iz7?p&d=mark.nichols@gmail.com');}} div.OutlookMessageHeader {background-image:url('https://m2hi9iz7.emltrk.com/m2hi9iz7?f&d=mark.nichols@gmail.com')} table.moz-email-headers-table {background-image:url('https://m2hi9iz7.emltrk.com/m2hi9iz7?f&d=mark.nichols@gmail.com')} blockquote #_t {background-image:url('https://m2hi9iz7.emltrk.com/m2hi9iz7?f&d=mark.nichols@gmail.com')} #MailContainerBody #_t {background-image:url('https://m2hi9iz7.emltrk.com/m2hi9iz7?f&d=mark.nichols@gmail.com')}</style><div id="_t"></div>
+<img src="https://m2hi9iz7.emltrk.com/m2hi9iz7?d=mark.nichols@gmail.com" width="1" height="1" border="0" alt="" />
+</body>
+</html>
+
+
+

@@ -1,0 +1,67 @@
+Return-Path: <bounces+848413-a4d5-root=zanshin.net@sgmail.github.com>
+X-Original-To: root_zanshin@mailbox20.webfaction.com
+Delivered-To: root_zanshin@mailbox20.webfaction.com
+Received: from mx9.webfaction.com (mail9.webfaction.com [185.20.49.164])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id 950CE1B9258681
+	for <root_zanshin@mailbox20.webfaction.com>; Tue, 27 Feb 2018 14:33:36 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx9.webfaction.com (Postfix) with ESMTP id 92135200B86AF
+	for <root_zanshin@mailbox20.webfaction.com>; Tue, 27 Feb 2018 14:33:36 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.11
+X-Spam-Level:
+X-Spam-Status: No, score=-0.11 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	SPF_PASS=-0.001, T_RP_MATCHES_RCVD=-0.01, URIBL_BLOCKED=0.001]
+	autolearn=unavailable autolearn_force=no
+Received: from mx9.webfaction.com ([127.0.0.1])
+	by localhost (mail9.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id mTYyy1zio-W2
+	for <root_zanshin@mailbox20.webfaction.com>;
+	Tue, 27 Feb 2018 14:33:33 +0000 (UTC)
+Received: from o3.sgmail.github.com (o3.sgmail.github.com [192.254.112.98])
+	by mx9.webfaction.com (Postfix) with ESMTPS id B71BC200B7E89
+	for <root@zanshin.net>; Tue, 27 Feb 2018 14:33:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=github.com; 
+	h=from:to:subject:mime-version:content-type:content-transfer-encoding; 
+	s=s20150108; bh=y9RLDNxsg0Lqu5xj4jQoQXRl+yo=; b=T5Y/o53gjhHJeQTV
+	VTp+72mIqQ4a+45XfjaKs4BmZsSAwOp0vfWKN3nLx23MHUryyuU1P/n37PzA84iM
+	9Nav69xu6r5//34xxU7i5u10YBly563ia1hO9NpTqsYbvj46e8mOZD6C/QgGCT6B
+	n+Va+rVBDU5P+AvoxVI3AGPohmw=
+Received: by filter0468p1las1.sendgrid.net with SMTP id filter0468p1las1-23167-5A956C3B-15
+        2018-02-27 14:33:31.402464327 +0000 UTC
+Received: from github-smtp2a-ext-cp1-prd.iad.github.net (github-smtp2a-ext-cp1-prd.iad.github.net [192.30.253.16])
+	by ismtpd0010p1iad1.sendgrid.net (SG) with ESMTP id 5vJjudPyQmedM6aQLIRg-w
+	Tue, 27 Feb 2018 14:33:31.107 +0000 (UTC)
+Date: Tue, 27 Feb 2018 14:33:31 +0000 (UTC)
+From: GitHub <support@github.com>
+To: Mark Nichols <mark.nichols@gmail.com>, 
+ Mark Nichols <root@zanshin.net>, 
+ Mark Nichols <mhn@ksu.edu>, 
+ Mark Nichols <code.prole@gmail.com>, 
+ Mark Nichols <mark@zanshin.net>
+Message-ID: <5a956c3b3986_1a2ae5a5398f043011b@unicorn-957551113-sndzd.mail>
+Subject: [GitHub] A third-party OAuth application has been added to your
+ account
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Auto-Response-Suppress: All
+categories: account-security,new-oauth-authorization
+X-SG-EID: lYC1edN+jsZmu6W/n8HBxlWb6coZCBt2t/B0ia5oyZ6cbNsBe220aFjJVQgBl6tMNkPeo+pRARloMu
+ azpj8VRqjGO+1LrXT62RjYzMGfynpWaz2Kl/lj6dRn5iSWJrfxDQm/xxmAEfAZYdInotAwS6NZWttY
+ TGsTcQmjrNKu3fffWcmZrekG7Jr4WgYSwy2KyE3FW8pmD48CoyjauelU3Q==
+X-SG-ID: HjuyJHjWedrv+ZABmVoKqJUGcbnIrpG8Dl8TZw63o/tYHvHAZuj7fE3sBkCPSNz92pSnrCLqO00MaT
+ UToqoVhg==
+
+Hey zanshin!
+
+A third-party OAuth application (GitLab.com) with user:email scope was recently authorized to access your account. Visit https://github.com/settings/connections/applications/bbe1fe17fd3206756805 for more information.
+
+To see this and other security events for your account, visit https://github.com/settings/security.
+
+If you run into problems, please contact support by visiting https://github.com/contact or replying to this email.
+
+Thanks,
+Your friends at GitHub

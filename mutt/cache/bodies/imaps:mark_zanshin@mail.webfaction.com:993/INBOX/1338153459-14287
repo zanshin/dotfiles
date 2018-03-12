@@ -1,0 +1,121 @@
+Return-Path: <bounce+36b684.947b4-mark=zanshin.net@mg.gitlab.com>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id D906B18066987D
+	for <mark_zanshin@mailbox20.webfaction.com>; Sun,  4 Mar 2018 17:58:13 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id D69032026CBD0
+	for <mark_zanshin@mailbox20.webfaction.com>; Sun,  4 Mar 2018 17:58:13 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.11
+X-Spam-Level:
+X-Spam-Status: No, score=-0.11 tagged_above=-999 required=3
+	tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+	HTML_MESSAGE=0.001, RCVD_IN_MSPIKE_H2=-0.001, SPF_PASS=-0.001,
+	T_RP_MATCHES_RCVD=-0.01, URIBL_BLOCKED=0.001]
+	autolearn=unavailable autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id zm-HRo3rABvL
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Sun,  4 Mar 2018 17:58:04 +0000 (UTC)
+Received: from do158-143.mg.gitlab.com (do158-143.mg.gitlab.com [192.237.158.143])
+	by mx8.webfaction.com (Postfix) with ESMTPS id 81FE5200E8092
+	for <mark@zanshin.net>; Sun,  4 Mar 2018 17:57:14 +0000 (UTC)
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg.gitlab.com; q=dns/txt;
+ s=mailo; t=1520186234; h=List-Unsubscribe: Content-Transfer-Encoding:
+ Content-Type: Mime-Version: Subject: References: In-Reply-To:
+ Message-ID: To: Reply-To: From: Date: Sender;
+ bh=pPJTlzXhecZmFrjaorqYjzH2zXd0g598hLMIUBMFW+Y=; b=OSIOV27O3iAEv3cSzWQca38dnKu4gHD0034YZ9ogbTF3/jcXl4ocfleaOeztgR9u0oMM16mN
+ tOq7040hF5WXKXiVwyJK/Muq8eyFv213zk8s9CjWX7paKaI/B1BwNz/exG80iF5JpMYUjxQZ
+ UsyICvJ3k9muR7RqOiX72d9F3xk=
+X-Mailgun-Sid: WyJlOGZhMyIsICJtYXJrQHphbnNoaW4ubmV0IiwgIjk0N2I0Il0=
+X-Mailgun-Sending-Ip: 192.237.158.143
+Sender: gitlab@mg.gitlab.com
+Received: from mg.gitlab.com (Unknown [52.179.178.202])
+ by mxa.mailgun.org with ESMTP id 5a9c337a.7efe4c20fab0-smtp-out-n03;
+ Sun, 04 Mar 2018 17:57:14 -0000 (UTC)
+Date: Sun, 04 Mar 2018 17:57:13 +0000
+From: George Nachman <gitlab@mg.gitlab.com>
+Reply-To: George Nachman / iterm2 <incoming+868b777fac8e6b1722290d800f59827b@gitlab.com>
+To: mark@zanshin.net
+Message-ID: <1cbd7a0b7b770b9888468b4623dde926@gitlab.com>
+In-Reply-To: <issue_9472262@gitlab.com>
+References: <issue_9472262@gitlab.com>
+ <reply-868b777fac8e6b1722290d800f59827b@gitlab.com>
+Subject: Re: iterm2 | New Window keyboard command doesn't work under macOS
+ full screen (#6546)
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5a9c3379d3c5c_12d063fd6d48b81bc20569a7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-GitLab-Project: iterm2
+X-GitLab-Project-Id: 252461
+X-GitLab-Project-Path: gnachman/iterm2
+List-Unsubscribe: <https://gitlab.com/sent_notifications/868b777fac8e6b1722290d800f59827b/unsubscribe?force=true>,<mailto:incoming+868b777fac8e6b1722290d800f59827b+unsubscribe@gitlab.com>
+X-GitLab-NotificationReason: 
+X-GitLab-Issue-ID: 9472262
+X-GitLab-Reply-Key: 868b777fac8e6b1722290d800f59827b
+Auto-Submitted: auto-generated
+X-Auto-Response-Suppress: All
+
+
+----==_mimepart_5a9c3379d3c5c_12d063fd6d48b81bc20569a7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Issue was closed by George Nachman
+Issue #6546: https://gitlab.com/gnachman/iterm2/issues/6546
+
+---
+Reply to this email directly or view it on GitLab: https://gitlab.com/gnachman/iterm2/issues/6546
+You're receiving this email because of your account on gitlab.com.
+
+----==_mimepart_5a9c3379d3c5c_12d063fd6d48b81bc20569a7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>
+GitLab
+</title>
+
+
+<style>img {
+max-width: 100%; height: auto;
+}
+</style>
+</head>
+<body>
+<div class="content">
+<p>
+Issue was closed by George Nachman
+</p>
+
+</div>
+<div class="footer" style="margin-top: 10px;">
+<p style="font-size: small; color: #777;">
+—
+<br>
+Reply to this email directly or
+<a href="https://gitlab.com/gnachman/iterm2/issues/6546">view it on GitLab</a>.
+<br>
+You're receiving this email because of your account on gitlab.com.
+If you'd like to receive fewer emails, you can
+<a href="https://gitlab.com/sent_notifications/868b777fac8e6b1722290d800f59827b/unsubscribe">unsubscribe</a>
+from this thread or
+adjust your notification settings.
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"EmailMessage","action":{"@type":"ViewAction","name":"View Issue","url":"https://gitlab.com/gnachman/iterm2/issues/6546"}}</script>
+</p>
+</div>
+</body>
+</html>
+
+----==_mimepart_5a9c3379d3c5c_12d063fd6d48b81bc20569a7--

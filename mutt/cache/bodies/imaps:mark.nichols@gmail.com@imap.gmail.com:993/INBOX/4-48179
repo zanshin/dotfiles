@@ -1,0 +1,87 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.174.74 with SMTP id z10csp919042qvc;
+        Thu, 11 Jan 2018 05:54:15 -0800 (PST)
+X-Google-Smtp-Source: ACJfBovR28XEma1cbeDdlAoZqljdVEyH+jFn5dQatdOHDYgrEuLAqJEr1eceZCEFoItOle0cTTFl
+X-Received: by 10.28.140.67 with SMTP id o64mr1332786wmd.137.1515678855776;
+        Thu, 11 Jan 2018 05:54:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1515678855; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QFGGLV5Y760DbcxuHuiauTXtcdWTIawZy8Zy8RG9HENG9L6CELZrc5giCIS1iXk5C/
+         muY55v+4D90WGvEhUquT+ziOgQrtpKUEbqH4I+L5XHh/HkXBHheDwDGD1YQt5CafThwf
+         llNR9q7/GrqTxGvMMI5+db/2EVJlVXE9umVwWVTKoNbymvTN7tyVe3iDQcrFp+MYWE4j
+         0VGhfGcYnG2ronWZ0qn9HrULjhxg47qYmwRY+0s6M6uOX4BYQ/7i99AVn45579eh1h56
+         wWtem8E1VRN2MK6b/9Vvl/w/MMyf/GZFZDhZn5X7zE/HTJkh9zDjKgGhfM+0C42E5Hf0
+         jL/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:mime-version:from:date:list-id:subject:to
+         :arc-authentication-results;
+        bh=RSrY8zAdAlXKiusEoqwSShTtQyewfQYfzLdGzjvqOoA=;
+        b=AI6HkAbvSmohkR+ZNcaEFrnkHjYJqvbd0BE1ty0i/47hWvEHXBx2VFLzWhznn6tVTp
+         v8PAjNahx3CwfrUQezuyrpUAmmqEBHdpH/YZ5gbD/B10OFsQlwzRyU/4faNGagWuUqai
+         RrM9rHOQsgtQegsUzmJi/PXR8aaNc26rZ30KKfvZqmTh1Pf8bCOHHWxQeIREdilDq8wo
+         N3JcVWvgbtllqzrZX5z1WvA2zGKA02+4t1qRelC171tFijPz/N/fVnTMkDhvWxrt4KD4
+         nWKu8o5LxywBF/Euw4Sry9rcy8jftZoDgZ39PxbTn1B1HmnHER1UKHp/Mcw23kFsto4L
+         YLwA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=neutral (google.com: 88.198.169.86 is neither permitted nor denied by best guess record for domain of wiki@bash-hackers.org) smtp.mailfrom=wiki@bash-hackers.org
+Return-Path: <wiki@bash-hackers.org>
+Received: from mx0.linux-mitterteich.de (mx0.linux-mitterteich.de. [88.198.169.86])
+        by mx.google.com with ESMTPS id s30si2883664wra.369.2018.01.11.05.54.15
+        for <mark.nichols@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 11 Jan 2018 05:54:15 -0800 (PST)
+Received-SPF: neutral (google.com: 88.198.169.86 is neither permitted nor denied by best guess record for domain of wiki@bash-hackers.org) client-ip=88.198.169.86;
+Authentication-Results: mx.google.com;
+       spf=neutral (google.com: 88.198.169.86 is neither permitted nor denied by best guess record for domain of wiki@bash-hackers.org) smtp.mailfrom=wiki@bash-hackers.org
+Received: from s-lin-sja-web-001.sja.internal (s-lin-sja-web-001.sja.internal [192.168.201.1])
+	by s-lin-gen-mta-001 (Postfix) with ESMTP id 34AD01FB29
+	for <mark.nichols@gmail.com>; Thu, 11 Jan 2018 14:54:15 +0100 (CET)
+Received: by s-lin-sja-web-001.sja.internal (Postfix, from userid 48)
+	id 28DB3E1570; Thu, 11 Jan 2018 14:54:15 +0100 (CET)
+To: Mark Nichols <mark.nichols@gmail.com>
+Subject: [Bash Hackers Wiki] Your DokuWiki password
+X-PHP-Originating-Script: 48:Mailer.class.php
+X-Mailer: DokuWiki
+X-Dokuwiki-Title: Bash Hackers Wiki
+X-Dokuwiki-Server: wiki.bash-hackers.org
+X-Auto-Response-Suppress: OOF
+List-Id: Bash Hackers Wiki <wiki.bash-hackers.org>
+Date: Thu, 11 Jan 2018 14:54:15 +0100
+From: wiki@bash-hackers.org
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+  boundary="__________da3334fde88896ad57f45ed15fd334beXX"
+Message-Id: <20180111135415.28DB3E1570@s-lin-sja-web-001.sja.internal>
+
+This is a multi-part message in MIME format.
+--__________da3334fde88896ad57f45ed15fd334beXX
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+SGkgTWFyayBOaWNob2xzIQoKSGVyZSBpcyB5b3VyIHVzZXJkYXRhIGZvciBCYXNoIEhhY2tl
+cnMgV2lraSBhdCBodHRwOi8vd2lraS5iYXNoLWhhY2tlcnMub3JnLwoKTG9naW4gICAgOiB6
+YW5zaGluClBhc3N3b3JkIDogbG9tcGVrdGFiMjUqCgotLSAKVGhpcyBtYWlsIHdhcyBnZW5l
+cmF0ZWQgYnkgRG9rdVdpa2kgYXQKaHR0cDovL3dpa2kuYmFzaC1oYWNrZXJzLm9yZy8K
+--__________da3334fde88896ad57f45ed15fd334beXX
+Content-Type: multipart/related;
+  boundary="__________da3334fde88896ad57f45ed15fd334be";
+  type="text/html"
+
+--__________da3334fde88896ad57f45ed15fd334be
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+CjxoZWFkPgogICAgPHRpdGxlPkJhc2ggSGFja2VycyBXaWtpPC90aXRsZT4KICAg
+IDxtZXRhIGh0dHAtZXF1aXY9IkNvbnRlbnQtVHlwZSIgY29udGVudD0idGV4dC9odG1sOyBj
+aGFyc2V0PXV0Zi04Ij4KPC9oZWFkPgo8Ym9keT4KCkhpIE1hcmsgTmljaG9scyE8YnIgLz4K
+PGJyIC8+CkhlcmUgaXMgeW91ciB1c2VyZGF0YSBmb3IgQmFzaCBIYWNrZXJzIFdpa2kgYXQg
+PGEgaHJlZj0iaHR0cDovL3dpa2kuYmFzaC1oYWNrZXJzLm9yZy8iPmh0dHA6Ly93aWtpLmJh
+c2gtaGFja2Vycy5vcmcvPC9hPjxiciAvPgo8YnIgLz4KTG9naW4gICAgOiB6YW5zaGluPGJy
+IC8+ClBhc3N3b3JkIDogbG9tcGVrdGFiMjUqPGJyIC8+CgoKPGJyIC8+PGhyIC8+CjxzbWFs
+bD5UaGlzIG1haWwgd2FzIGdlbmVyYXRlZCBieSBEb2t1V2lraSBhdDxiciAvPjxhIGhyZWY9
+Imh0dHA6Ly93aWtpLmJhc2gtaGFja2Vycy5vcmcvIj5odHRwOi8vd2lraS5iYXNoLWhhY2tl
+cnMub3JnLzwvYT48L3NtYWxsPgo8L2JvZHk+CjwvaHRtbD4K
+
+--__________da3334fde88896ad57f45ed15fd334be--
+--__________da3334fde88896ad57f45ed15fd334beXX--
+

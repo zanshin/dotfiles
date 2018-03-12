@@ -1,0 +1,54 @@
+Return-Path: <mark@zanshin.net>
+X-Original-To: mark_zanshin@mailbox20.webfaction.com
+Delivered-To: mark_zanshin@mailbox20.webfaction.com
+Received: from mx8.webfaction.com (mail8.webfaction.com [185.20.49.163])
+	by mailbox20.webfaction.com (Postfix) with ESMTP id EE11618080D576
+	for <mark_zanshin@mailbox20.webfaction.com>; Fri, 10 Nov 2017 16:30:05 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx8.webfaction.com (Postfix) with ESMTP id EBC962039ABF4
+	for <mark_zanshin@mailbox20.webfaction.com>; Fri, 10 Nov 2017 16:30:05 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: -0.018
+X-Spam-Level:
+X-Spam-Status: No, score=-0.018 tagged_above=-999 required=3
+	tests=[HTML_MESSAGE=0.001, RCVD_IN_MSPIKE_H3=-0.01,
+	RCVD_IN_MSPIKE_WL=-0.01, TVD_SPACE_RATIO=0.001]
+	autolearn=no autolearn_force=no
+Received: from mx8.webfaction.com ([127.0.0.1])
+	by localhost (mail8.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id DnWnrsA1jj8G
+	for <mark_zanshin@mailbox20.webfaction.com>;
+	Fri, 10 Nov 2017 16:30:05 +0000 (UTC)
+Received: from smtp.webfaction.com (mail6.webfaction.com [31.170.123.134])
+	by mx8.webfaction.com (Postfix) with ESMTPS id C514A200C2871
+	for <mark@zanshin.net>; Fri, 10 Nov 2017 16:30:05 +0000 (UTC)
+Received: from ksu-wireless-15-12.campus.ksu.edu (ip-18-96.net.ksu.edu [129.130.18.96])
+	by smtp.webfaction.com (Postfix) with ESMTPSA id A4130604316A5
+	for <mark@zanshin.net>; Fri, 10 Nov 2017 16:29:50 +0000 (UTC)
+From: Mark Nichols <mark@zanshin.net>
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_36C7193E-0CDC-4F8D-A6B9-B03954889215"
+Mime-Version: 1.0 (Mac OS X Mail 11.1 \(3445.4.7\))
+Subject: sshfs
+Message-Id: <70B51D35-1DAD-49C2-A26A-45DDECD2380D@zanshin.net>
+Date: Fri, 10 Nov 2017 10:29:58 -0600
+To: "Mark H. Nichols" <mark@zanshin.net>
+X-Mailer: Apple Mail (2.3445.4.7)
+
+
+--Apple-Mail=_36C7193E-0CDC-4F8D-A6B9-B03954889215
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=us-ascii
+
+https://twitter.com/climagic/status/929022501543297025 =
+<https://twitter.com/climagic/status/929022501543297025>=20
+
+--Apple-Mail=_36C7193E-0CDC-4F8D-A6B9-B03954889215
+Content-Transfer-Encoding: 7bit
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=us-ascii"></head><body style="word-wrap: break-word; -webkit-nbsp-mode: space; line-break: after-white-space;" class=""><a href="https://twitter.com/climagic/status/929022501543297025" class="">https://twitter.com/climagic/status/929022501543297025</a>
+<br class=""></body></html>
+--Apple-Mail=_36C7193E-0CDC-4F8D-A6B9-B03954889215--

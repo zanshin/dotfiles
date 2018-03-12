@@ -1,0 +1,18 @@
+# Account Settings ------------------------------
+
+set from      = "mark.nichols@gmail.com"
+set sendmail  = "/usr/bin/msmtp -a marknichols"
+
+# Default inbox.
+set spoolfile = "+marknichols/INBOX"
+
+# Other special folders.
+set mbox      = "+marknichols/archive"
+set postponed = "+marknichols/drafts"
+set record    = "+marknichols/sent"
+
+color status green default
+set my_acct   = "mark.nichols"
+
+unmailboxes *
+mailboxes =marknichols/INBOX =marknichols/archive =marknichols/drafts =marknichols/sent

@@ -1,0 +1,1353 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.149.131 with SMTP id s3csp1053224qvs;
+        Tue, 30 Jan 2018 11:00:12 -0800 (PST)
+X-Received: by 10.107.180.207 with SMTP id d198mr32116174iof.187.1517338812918;
+        Tue, 30 Jan 2018 11:00:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1517338812; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ZNjQFDZpCLHmz44M3MW2wweWShtht6Q/DS7ANUgAysOgwh1XLIhre8bHfl1BWghbc8
+         gp8ftUraa8R9UQ/ErxLkL1bvZJ4jniOkOOoiBRqFRmx7hh+Bnyb574BOkw7eqQtYnkfC
+         APCJaY3j4zuzl+Hp318S7Zd/+QbMbczWdMbrqDB9vzU5ioNDdeU5HJivoWVwaUqPvVCe
+         htqkaZHvSbxzAiDEzQk8RcWbwaQ39BVzcOE2//Rx5Vq7SqxzPjOLoCDe64bQ64xXg6ok
+         lmy1LnD7Ixumt+F959UnuX1hXFWUCYWyUH3YThtdz/g7qkr/bN5dmFGdkTy2RnU715H+
+         EidQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :dkim-signature:arc-authentication-results;
+        bh=HpZFbeMQgMEb6dkC4Rp6nP0XuwKKej6eeSlWuK9T7s8=;
+        b=grlVS0Ld5N6QdFD3rFuKBokuP1jNTNErJjVPa/jptXkgdL7VmkCuPhUG5HsQYi4fet
+         wLPCjdD9s+Rydwy6R5g5HTw8R1E8JnqKiUB+jGg6CqYR9Uj6JQ0vjrZE3aJkZ8j5gmUe
+         d2e06nKevni/WQilnTGVcSsmWV+IQAqUvgu82crW7f9rrTuHRcLmAuLbpbmTB2dKuLqj
+         CxCspdzREZyMsiXB5s859LWrG0sKOsNEfpYXMVOSoD3+2XgLfxvqsCsz97/jba6FA+hj
+         k6Fc+KyIrPu8IRnzbJAsEEeUvnwg3dKR5PGSR97B8ur0642BFlDtRCNuNB33qLd0Feed
+         gFdg==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=iSYV5QpO;
+       spf=pass (google.com: domain of 3vmbwwhukankhgjp8ug5oajmh-ijm9kgtbjjbg9.7jh@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3vMBwWhUKANkhGJP8uG5OAJMH-IJM9KGTBJJBG9.7JH@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3vMBwWhUKANkhGJP8uG5OAJMH-IJM9KGTBJJBG9.7JH@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id u63sor6357820ioe.102.2018.01.30.11.00.12
+        for <mark.nichols@gmail.com>
+        (Google Transport Security);
+        Tue, 30 Jan 2018 11:00:12 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3vmbwwhukankhgjp8ug5oajmh-ijm9kgtbjjbg9.7jh@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=iSYV5QpO;
+       spf=pass (google.com: domain of 3vmbwwhukankhgjp8ug5oajmh-ijm9kgtbjjbg9.7jh@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3vMBwWhUKANkhGJP8uG5OAJMH-IJM9KGTBJJBG9.7JH@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20161025;
+        h=mime-version:date:reply-to:feedback-id:message-id:subject:from:to;
+        bh=HpZFbeMQgMEb6dkC4Rp6nP0XuwKKej6eeSlWuK9T7s8=;
+        b=iSYV5QpON1arHzMZLrYCyuu168IwZcKHiw7eQKEk9iawYm9lbQPqYV64UMxbuyREGZ
+         wxupF0Fne9TjNCl5QmvPNY3KXvrhs+d6M/YJrFPFw1xBXSe3DtvhusdNZFqD6xwSZIL+
+         lA8Vi4Jz/0J//g3YvolCv9F2JsdiUOEUp3i9ZNWlUITo/+kFW0F8aTNj97EkAp1fkxQg
+         QPFVB63NfWbixJk9SYgrNucz3GujtxQcP7QE0kiYKmSJws2lTi6MuKm3mFNSjidgqQCc
+         tJMyOMkzV2Wx2RLwrQBQZ4Hr6jAaomqFbpDqsBo1SSdkUoead0l58JmpS1uVcf5uwLWe
+         zv7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:date:reply-to:feedback-id
+         :message-id:subject:from:to;
+        bh=HpZFbeMQgMEb6dkC4Rp6nP0XuwKKej6eeSlWuK9T7s8=;
+        b=IYwmEHZnKBitKdLvKuGJ9iEykHj2mcH7tkBWqXSHb6hQnT0FhZ3KCsDRtg4SrgqGon
+         Rnv5tRpI7Y58pNOtkcSLVIKQuS4k88IAoJrbHwXQCetVQpg30ZdWkQfJHA9tPuelVMU8
+         XNH8v/2bAuV8PWj8m2ZMg3hQtXZYzg9mg0kddNO1hQntwV6a4/dlEvnLK3CeVsCAJX69
+         bx4dckuzACVK1IOkHZZMNleESXgDZn+v5WzR2DGVv0Qavz/8Ze0QvzikO/a5Hgx0OB61
+         RTaKSB8iXb40FZNlvO8cPu3iiuOjIh3gMK+hN96OJyb1LiWK2r5Adi5Jkm+w31pX9zlh
+         vRUw==
+X-Gm-Message-State: AKwxyteCaEhjWVc6FLDc5nlK+XsbcBRbvz3BXgDeMISfKHUMY12Tsyjw
+	a360laZnT8BpoGI=
+X-Google-Smtp-Source: AH8x227lJZ0LNtjxHZRzOjEMef7/Pm+dgHnoH+i+KJUQfv4dW9HpY09kfmcazupvKmPMVrCdJdErp2E=
+MIME-Version: 1.0
+X-Received: by 10.107.200.148 with SMTP id y142mr1128508iof.6.1517338812547;
+ Tue, 30 Jan 2018 11:00:12 -0800 (PST)
+Date: Tue, 30 Jan 2018 11:00:12 -0800
+Reply-To: Google Cloud Platform <CloudPlatform-noreply@google.com>
+X-Google-Id: 192256
+Feedback-ID: Len:D302018:C10029158:gamma
+X-Notifications: GAMMA:<d054928f837f889f.1517338812160.100237474.10029158.en.f42e11e0a62cf5d4@google.com>
+Message-ID: <d054928f837f889f.1517338812160.100237474.10029158.en.f42e11e0a62cf5d4@google.com>
+Subject: Welcome to the Google Cloud Platform free trial
+From: Google Cloud Platform <CloudPlatform-noreply@google.com>
+To: mark.nichols@gmail.com
+Content-Type: multipart/alternative; boundary="94eb2c0b9a14ed031f056402f874"
+
+--94eb2c0b9a14ed031f056402f874
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+R29vZ2xlIENsb3VkIFBsYXRmb3JtDQoNCk1ZIENPTlNPTEUgIA0KPGh0dHBzOi8vd3d3Lmdvb2ds
+ZS5jb20vYXBwc2VydmUvbWt0L3AvQUZPbTB1SEtWM0tuVE9pV2pNcGQ5MzE5UUpvOWtCbXRsdGJ2
+VTI5aFZ1OTFkNk9TSnNMRkVra1p4ZTRKOWJuUmEtMVB1YlJNVWFGdGF3Y0J4dV9Pd044Vkw2Slhn
+WVplazFjbzlWajNwYXdncS1VRWg4THFQM19Keno4TG0xLU9hUmROQVZPZ3BtWlJWYXgxOEdBYjBK
+bU9COTY2U1pOcnB6VmZicEd2NGZ1SW55N2ZtQWwzX3pvLVFQRXdQbWgtS3otOGFsNEhkZlhHY0x4
+WDJnZTYtM0k1d2dZOFpha1k+DQoNCldlbGNvbWUgdG8gR0NQLg0KDQpDb25ncmF0dWxhdGlvbnMg
+b24gc3RhcnRpbmcgeW91ciBmcmVlIHRyaWFsLiBDb21wbGV0ZSB5b3VyIHByb2ZpbGUgdG8gZ2V0
+ICANCnVwIGFuZCBydW5uaW5nLg0KDQpDT01QTEVURSBNWSBQUk9GSUxFICANCjxodHRwczovL3d3
+dy5nb29nbGUuY29tL2FwcHNlcnZlL21rdC9wL0FGT20wdUdQS3dtV19QV0d1UEFlOV9XejdBRmZw
+RHBKMGIxMzFnSHoxeEpSSnVVajZPcWtnM1F0X05DVXBBQTYzY1l6bmRiVXRlQmVBd0lmc0plQ3Zq
+UHdicHFaUnpxeVVhZ2NjWHV2NUVwaTI3ancyMm52Q0lPTkZzaGZ6WGV6a084U3dqWHp4OVhUeFRt
+TDJIbjF5YzVZM1o0bz4NCg0KWU9VUiBHQ1AgRlJFRSBUUklBTA0KDQpXZWxjb21lIHRvIHRoZSBH
+b29nbGUgQ2xvdWQgUGxhdGZvcm0gKEdDUCkgZnJlZSB0cmlhbC4gWW91IG5vdyBoYXZlIDEyICAN
+Cm1vbnRocyBhbmQgVVNEJDMwMCBpbiBjcmVkaXQgdG8gc3BlbmQuIFRvIGdldCBzdGFydGVkLCBw
+bGVhc2UgYW5zd2VyIGEgZmV3ICANCnF1aWNrIHF1ZXN0aW9ucyBhYm91dCB5b3VyIGdvYWxzIGFu
+ZCBpbnRlcmVzdHMuDQoNCkJhc2VkIG9uIHlvdXIgYW5zd2Vycywgd2XigJlsbCBzZW5kIHJlbGV2
+YW50IHJlc291cmNlcyB0byBoZWxwIHlvdSBnZXQgdGhlICANCm1vc3Qgb3V0IG9mIEdDUC4gQmUg
+c3VyZSB0byBjaGVjayB5b3VyIGNvbW11bmljYXRpb24gcHJlZmVyZW5jZXMgIA0KPGh0dHBzOi8v
+d3d3Lmdvb2dsZS5jb20vYXBwc2VydmUvbWt0L3AvQUZPbTB1SEFGWHVTWVZaM2FtT0pVY0dLWFJt
+TVNXVUdqX2ZZb2pkYVlfNG52NU1kVzNJMC1NQ3ZLa0NpNGNXS3JZaWNtb1Bua01McWYwQWdXT3hV
+ZVZseFNoWHc5QldTVE9jYnV2b0hBd25wTUI3cFVhbjVGYUNlNTlDS0oySjhGNVZ6TEMyOTJ4MENY
+WTExZ3k4NXZDNC1RZlhxejJHenR3dU0tVXdCNGxhR2hrdmpqOUg3cktXakp1MjhVcno5Mno4ZlNL
+dHd4dVBRV0tWcjlWVmcwTXdoQTc3a3hPTWNKUjAxT0l6bXRPYWM2RFA0cTN1cVFRSV9US29uanVp
+dHdHbUs5UlktdVRKb3UwRllxVWZtNXFaR0t4Q1lvZz4gIA0Kc28geW91IGNhbiByZWNlaXZlIHRo
+ZXNlIGVtYWlscy4NCg0KSWYgeW914oCZZCBsaWtlIHRvIHN0YXJ0IGV4cGxvcmluZyBub3csIHRh
+a2UgYSBsb29rIGF0IG91ciByZWNvbW1lbmRhdGlvbnMgIA0KZm9yIGdldHRpbmcgc3RhcnRlZCAg
+DQo8aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9hcHBzZXJ2ZS9ta3QvcC9BRk9tMHVGbllxcTB0NGw2
+ZUdHSllsMXlZTU9BbFJGWHY4NENXbDhiQm5Pc09jbmRWQ1FiZkFrYm1pMlhQUmJtQVdsVkVic1dW
+b0ZEOWk3YWZwZUNuUlczUDZIOWhkWjF2ZW1DNkl6dUF5cU5yXzBOLUMwMWFVbEUzSzVzVDNxTEhX
+M2J4MUFYbTFDb1Fwb0dvOHV4a2xtcmZxWHBYcmIxcDdXOXk1TXAwTjFRWUFJQ0dwY25UeW13WlJY
+VC1jcVdfMXVfdk1OSnV0ZjhpUmNoTk05WGtJZWhzQ3d6SUU5dEFDZllwSlBVY0xiWj4sICANCm9y
+IHlvdSBjYW4gZ28gc3RyYWlnaHQgaW50byB5b3VyIEdDUCBjb25zb2xlICANCjxodHRwczovL3d3
+dy5nb29nbGUuY29tL2FwcHNlcnZlL21rdC9wL0FGT20wdUU2ZzNBRkM3amE5NENjbktTT29LS3Q0
+TFBuT21nT3RqV0Jvdk1qQXcyY3haTDN2Uk1PYmF0UDJFeVlIejhzUTBMZVNrNUV6d21TM0FsMHBj
+UVFqRERmVkhjckpLQnZrRTJDTGhMVzlWZ201eUdfLVZfbnpfejc5dWp3Z3ZSeVVfb2h2b1FMdjhh
+dzl5TU9QNnBoTDJIV3BZQWNoNXN6eGRYUThKSDdTVkk0RXItOW10dmdpcmd4QlN1c0hGcHZ4X1lW
+VV9XOENuaE51OUNaVkVoSEtMNjNRcUphNFBKVS1WdkJsMExGQ1BnTWIwUW51ZUp0Pi4NCg0KV2Ug
+bG9vayBmb3J3YXJkIHRvIGhlbHBpbmcgeW91IGJ1aWxkIHdoYXTigJlzIG5leHQuDQoNCkNPTVBM
+RVRFIE1ZIFBST0ZJTEUgIA0KPGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYXBwc2VydmUvbWt0L3Av
+QUZPbTB1Rk1va2I2eDk1RGhMazZQRDhWYV9jUVNTLUhqcFNmbmVUX2NOLU5HSTdvT0h2TGJDVkcy
+THhXMVRmTkNudkxydzljODJCbG1xS1QwT2pxVERVREFQZkxMVmZsS29OYzlqcUk0UmtEUkkxQ0R0
+LXVDUS1ja0NSZTZSWWFlR0VLd2tCR3NwbG41bXpRclhfc2s1aGtINTcyPg0KDQpTZWUgeW91IGlu
+IHRoZSBjbG91ZCwNClRoZSBHb29nbGUgQ2xvdWQgUGxhdGZvcm0gVGVhbQ0KDQpGT1JVTVMgIA0K
+PGh0dHA6Ly93d3cuZ29vZ2xlLmNvbS9hcHBzZXJ2ZS9ta3QvcC9BRk9tMHVIam9sdWM1aWpLc18z
+bEhrUm8ydUdCUnB0Z1pDbXg3MWdyVHVoaVVUMnQzMmMyTTRjckFaZ2U3NnVHU3VYcFJaWm1Wb0Mz
+cEpEVmVRaE0yazViUVhBQUc4U1EyZ1QzN042c19aZ0ZqVng4YjJjQllMR2Q0Mko4SG1aTDJDa3JU
+RkpQSHI0X0ZvVWppR21QeGZUd1BBPg0KDQpTVVBQT1JUICANCjxodHRwczovL3d3dy5nb29nbGUu
+Y29tL2FwcHNlcnZlL21rdC9wL0FGT20wdUVISUxrT3lyNENhZllJaXVsZlB1dUpIdW8ydVp5OUd2
+NU5sWkFRUTFNMzNDUVh1SzVtc0EzRnpUeDhZYkMzREVaRmM2dUlRTHNlNXFEMkFrSVVzbnplMXhH
+LXlLMkxnX0FCQl82TUFUZVVLcVpfc2ZaRGJuM3phM0ZTdDVzVHN4UktOU3VncXN3QTJKLVpSamRE
+VVRuN2Jxbm91eTUyVFkwQmlpTXZiaTBzQng2VDlsSHpLU1JUbUVoeDUzQ3Q5WkY1U0wwU2hRVEVK
+SG1MT0U0ZWVSU1oxdFRtPg0KDQpGQVEgIA0KPGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYXBwc2Vy
+dmUvbWt0L3AvQUZPbTB1SEI4bzROMVkwem1mazJDbWZPSEp4QzdNZGR4UU41cUp0dE1oUVFjeHQ5
+d1NLbVh3SE10SjlPdjNCbmNVLVZJT0dSTUYxMEl1dS02YkV1Sk4tRnNVbGRhSHlLM1otcWJTMzRv
+MWplZmpmckNwV2JVZmsyYVZuRm5HVmlhMjFjcXctVHpoemJITTRNMDlzZlRudkM4cXluSXZmLThQ
+bUFjQXdGNVFmekdZbVhLNDB4cnpQMkxIeTh4WHJBUC1NTC1ILWotNVkzYkY0dXZEWk01NnAyZ3A5
+cHJxQkx2RFlRT1lGcVNlTmpObm9UOEQ0ams5ZFpwdHlpSFhxVU9GVWVmNzA+DQoNCkRPQ1VNRU5U
+QVRJT04gIA0KPGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYXBwc2VydmUvbWt0L3AvQUZPbTB1R1A5
+RjNqQXVXNk1lbzhEdUZCN041eFFEaWJ1N0E2cXdSSmFzcWp3YkdRX1ZQQ19fejlwcGhHMmVQMnd1
+dWNLUGdldVU4OEU2cl9ybnd6ZzExczhqemZNRlJ1U041dnM0WkJ3NWxUUDUtWmd5azFvWWcxRFRK
+WTZoenNycmllZi1jNGZPM1UwOV9xaU5QLUVZVE9fb0ZMbWJvMEs2eGthSUFHQ3F1NGZiaGJSTzRP
+X2ExckFKSzlrZ2s0TDk2VTFpalYtNnNTN1g4dXktd05XVldEaHM1Sj4NCg0KVFVUT1JJQUxTICAN
+CjxodHRwczovL3d3dy5nb29nbGUuY29tL2FwcHNlcnZlL21rdC9wL0FGT20wdUhoNFF6cW1oZ1J0
+VlVSM1ZQWFppNDJlWHo0cDBNb0Jmcl9wenpYUjVhN0w1SEpRV2FRd3hVajZrZ0NtWi10ZTVFWlZz
+TXZhQ3kzN2hlUDJzeXlNQXMzcWE5WHBfbXF3eEsyTTluRXpoelp0VG1QSkVEYWNkUGlDQkEwV19W
+djE0T2M2S1BjYWltM3lCUE94Nk9DTFUyT1J5UkRiT3otb1RrSVh1MjQ5TEhYRmJ0elkxWGI2eHFv
+NmxMZkdBd3VaVndUY3cyRGZvdU13X1Y1ZjhlZm9ZRXljTjROWVNyWlVadVFZS3FBYmRNPg0KDQpH
+b29nbGUNCg0KwqkgMjAxOCBHb29nbGUgTExDIDE2MDAgQW1waGl0aGVhdHJlIFBhcmt3YXksIE1v
+dW50YWluIFZpZXcsIENBIDk0MDQzDQpUaGlzIGVtYWlsIHdhcyBzZW50IHRvIG1hcmsubmljaG9s
+c0BnbWFpbC5jb20gYmVjYXVzZSB5b3Ugc2lnbmVkIHVwIGZvciBhICANCkdvb2dsZSBDbG91ZCBQ
+bGF0Zm9ybSBmcmVlIHRyaWFsLg0KDQpHKyAgDQo8aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9hcHBz
+ZXJ2ZS9ta3QvcC9BRk9tMHVIZFg3ZmZKWEFoaVdnME81b0JMUFFuNXlnVFpEUjV3MlVQRDRURHNr
+TVJiOWo0WEM2NzRXZXhQX0E2TUJId2ItLVJzS0p1Ujh1MnZlNjFWSWhHT0w5S01CNGV6SG8wajVy
+Y3VOT2Y+DQoNCkJsb2dnZXIgIA0KPGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYXBwc2VydmUvbWt0
+L3AvQUZPbTB1RnQtbTIycjYxT0tJWXNPLUp1b3N1N1lJQ0hfV0VqVHg2ejZpMzFMQjZyU1M5bV9t
+Q2ZoeXpWR2hMUWI3NEpRMUpGdkNrSG5mUHRyeG9QN1dyU3ZaTGYxU2Q3N0tma0x0clFUSDhiNG9t
+eWpnPg0KDQpHaXRIdWIgIA0KPGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYXBwc2VydmUvbWt0L3Av
+QUZPbTB1RnYzUm5vcGVmOGNWZ016cWFYT2YyekRLYmg3VTNTVTBGTlVlVWMzS19SVVpkQXZremU4
+WkcxOHhGWUZFZGxmU3l1ZVVHOUd1dWNqYXVudGhaeUJmVnBjS0JzWGtnOC13NXJJeFl2MVY4aj4N
+Cg0KTGlua2VkSW4gIA0KPGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYXBwc2VydmUvbWt0L3AvQUZP
+bTB1RXp0eVlUd29DekphTDZxLUh3dlRoNW5QVEFGUTRlbHFKaG43Qlh5VEhWbWhBd2Fwdk1Fczhl
+RkVKZ3h5YUZ0WWo5VEREZ0FKY2xlalRJRXJTSjh3d21jUUlTZnJGQzZYWm5XM0Z0WlVGYzA4bTNM
+b0VDNENiQT4NCg0KVHdpdHRlciAgDQo8aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9hcHBzZXJ2ZS9t
+a3QvcC9BRk9tMHVFVkNjeVJLMWZGb3ZjaEk0YUtLQ1ZtS2JyWW4tRGRtODA5TzNNcVhqWldOaXV2
+RGNNUzlCYTdUaFJfYzd0bkxLUzJ2U21rYXpYbTVNcXpEVVpyd2ZyT3BlMnlrd29FZ2p6Yj4NCg0K
+RmFjZWJvb2sgIA0KPGh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vYXBwc2VydmUvbWt0L3AvQUZPbTB1
+R2NjblhULUdiMmRENk5adm9wdXQzbnZFaWNQaF8wdkpMd1FpdUJYc3h4anlwU3hZcFBDN3pySG1y
+TE9IbDVjRmFMekdpaDZnaFB0RmZTVWFUSWxCcUtJTW5jcXZpU0xTMm01a1JqVjIxNDhRPg0K
+--94eb2c0b9a14ed031f056402f874
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+=20
+=20
+
+
+
+
+
+
+
+=20
+
+=20
+=20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=20
+
+
+
+ =20
+ =20
+ =20
+ =20
+ =20
+=20
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www=
+.w3.org/TR/html4/loose.dtd">=20
+<html dir=3D"">
+    <head>
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DU=
+TF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width,initial-sca=
+le=3D1,user-scalable=3Dyes">
+        <title></title>
+        <style> =20
+          .appleLinksWhite a {color: #898989 !important; text-decoration: n=
+one !important; cursor: default !important; pointer-events: none !important=
+;  }
+        =20
+        </style>   =20
+    </head>=20
+    <body dir=3D"" style=3D"-ms-text-size-adjust:100%; -webkit-text-size-ad=
+just:100%; background:#fafafa; font-family:Arial; font-weight:normal; margi=
+n:0; padding:0; width:100%" width=3D"100%">
+     <img height=3D"1" src=3D"https://www.google.com/appserve/mkt/img/AFOm0=
+uGKMtP-WG4Hbv_zuHNvtbXaH6biPEDRN30qVSbhIBQ9.gif" width=3D"3">
+  <div style=3D"height:0px; font-size:0px; max-height:0px; min-height: 0px;=
+ line-height:0px; width: 100%; color: #fff; display:none;">Tell us about yo=
+ur goals with GCP.</div>  =20
+<table class=3D"outer_wrapper" width=3D"100%" align=3D"center" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" style=3D"-premailer-cellpadding:0; -p=
+remailer-cellspacing:0; background:#fafafa; border-collapse:collapse; font-=
+family:Arial, sans-serif; font-weight:normal; margin:0; mso-table-lspace:0;=
+ mso-table-rspace:0; padding:0; width:100%">
+ <tr><td class=3D"outer_wrapper_td" style=3D"border-collapse:collapse">
+<table class=3D"inner_wrapper" align=3D"center" width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" style=3D"-premailer-cellpadding:0; -p=
+remailer-cellspacing:0; border-collapse:collapse; font-family:Arial, sans-s=
+erif; font-weight:normal; margin:0 auto; max-width:600px; mso-table-lspace:=
+0; mso-table-rspace:0; width:100%">=20
+ <!--[if (gte mso 9)|(IE)]>
+ <table class=3D"inner_wrapper" align=3D"center" width=3D"600" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0"  >=20
+<![endif]-->
+   <tr><td style=3D"border-collapse:collapse">
+=20
+ <table class=3D"outer" align=3D"center" style=3D"-premailer-cellpadding:0;=
+ -premailer-cellspacing:0; border-collapse:collapse; font-family:Roboto, ar=
+ial; font-weight:normal; margin:0 auto; max-width:600px; mso-table-lspace:0=
+; mso-table-rspace:0; width:100%" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%">
+            <tr>
+              <td class=3D"two-column logo_holder_container" style=3D"borde=
+r-collapse:collapse; font-size:0; padding:32px 5px 28px 5px; text-align:cen=
+ter" align=3D"center">
+                <!--[if (gte mso 9)|(IE)]>
+                <table width=3D"100%">
+                <tr>
+                <td width=3D"50%" valign=3D"top">
+                <![endif]-->
+                <div class=3D"column" style=3D"display:inline-block; float:=
+left; max-width:290px; vertical-align:top; width:100%" valign=3D"top" width=
+=3D"100%">
+                      <table width=3D"100%" style=3D"-premailer-cellpadding=
+:0; -premailer-cellspacing:0; border-collapse:collapse; font-family:Roboto,=
+ arial; font-weight:normal; mso-table-lspace:0; mso-table-rspace:0" cellpad=
+ding=3D"0" cellspacing=3D"0">
+                              <tr>
+                                  <td class=3D"inner" style=3D"border-colla=
+pse:collapse; font-size:15px; padding:2px 0 0 0">
+                                      <table width=3D"100%" class=3D"logo_h=
+older flexible" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"-=
+premailer-cellpadding:0; -premailer-cellspacing:0; border-collapse:collapse=
+; font-family:roboto, arial; font-weight:500; mso-table-lspace:0; mso-table=
+-rspace:0; width:100%">
+                                          <tr>=20
+                                            <td style=3D"border-collapse:co=
+llapse; text-align:left;">
+                                               <img src=3D"http://services.=
+google.com/fh/files/emails/gcp_new_logo.png" width=3D"271" alt=3D"Google Cl=
+oud Platform" style=3D"-ms-interpolation-mode:bicubic; height:auto; outline=
+:none; text-decoration:none" height=3D"auto">
+                                            </td>
+                                          </tr> =20
+                                      </table>
+                                  </td>
+                              </tr>
+                      </table>
+               </div>
+                <!--[if (gte mso 9)|(IE)]>
+                </td><td width=3D"50%" valign=3D"top">
+                <![endif]-->
+               <div class=3D"column" id=3D"columndiv" style=3D"display:inli=
+ne-block; float:right; max-width:290px; vertical-align:top; width:100%" val=
+ign=3D"top" width=3D"100%">
+                    <table width=3D"100%" style=3D"-premailer-cellpadding:0=
+; -premailer-cellspacing:0; border-collapse:collapse; font-family:Roboto, a=
+rial; font-weight:normal; mso-table-lspace:0; mso-table-rspace:0" cellpaddi=
+ng=3D"0" cellspacing=3D"0">
+                      <tr>
+                        <td class=3D"inner" style=3D"border-collapse:collap=
+se; font-size:15px; padding:10px 0 0 0">
+                            <table width=3D"100%" class=3D"logo_right_holde=
+r " cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"-premailer-ce=
+llpadding:0; -premailer-cellspacing:0; border-collapse:collapse; font-famil=
+y:roboto, arial; font-weight:500; mso-table-lspace:0; mso-table-rspace:0; w=
+idth:100%"> =20
+                                 <tr>=20
+                                    <td class=3D"logo_right_holder_td" styl=
+e=3D"border-collapse:collapse; padding-right:0; padding-top:0">   =20
+                                      <table class=3D"logo_right_holder_inn=
+er flexible" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"100%=
+" style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border-colla=
+pse:collapse; font-family:roboto, arial; font-weight:500; mso-table-lspace:=
+0; mso-table-rspace:0; width:100%">   =20
+                                        <tr> =20
+                                            <td class=3D"logo_right_holder_=
+inner_td" width=3D"100%" style=3D"border-collapse:collapse; color:#90a4ae; =
+font-family:Roboto, arial; font-size:15px; font-weight:bold; line-height:16=
+px; text-align:right" align=3D"right">
+                                            <a target=3D'_blank' href=3D"ht=
+tps://www.google.com/appserve/mkt/p/AFOm0uHKV3KnTOiWjMpd9319QJo9kBmtltbvU29=
+hVu91d6OSJsLFEkkZxe4J9bnRa-1PubRMUaFtawcBxu_OwN8VL6JXgYZek1co9Vj3pawgq-UEh8=
+LqP3_Jzz8Lm1-OaRdNAVOgpmZRVax18GAb0JmOB966SZNrpzVfbpGv4fuIny7fmAl3_zo-QPEwP=
+mh-Kz-8al4HdfXGcLxX2ge6-3I5wgY8ZakY" style=3D"color:#2979ff; font-family:Ro=
+boto, arial; font-size:14px; font-weight:500; line-height:16px; text-decora=
+tion:none" target=3D"_blank" class=3D"console_text">MY CONSOLE</a>=20
+                                           =20
+                                            </td>
+                                        </tr>
+                                      </table>
+                                   </td>
+                                 </tr>
+                               </table>
+                        </td>
+                      </tr>
+                    </table>
+                </div>
+                <!--[if (gte mso 9)|(IE)]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+            </td>
+        </tr>
+        </table>=20
+ <table class=3D"content_wrapper " bgcolor=3D"#ffffff" align=3D"center" cel=
+lspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"-premailer-cellpaddi=
+ng:0; -premailer-cellspacing:0; border-collapse:collapse; border-left:1px s=
+olid #dddddd; border-right:1px solid #dddddd; border-top:1px solid #dddddd;=
+ font-family:Arial, sans-serif; font-weight:normal; max-width:600px; mso-ta=
+ble-lspace:0; mso-table-rspace:0; width:100%; -khtml-border-radius:5px 5px =
+0 0; -moz-border-radius:5px 5px 0 0; -ms-border-radius:5px 5px 0 0; -o-bord=
+er-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; background-color:=
+ #ffffff;" width=3D"100%">=20
+ <tr><td class=3D"" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=
+=3D"border-collapse:collapse; -premailer-cellpadding:0; -premailer-cellspac=
+ing:0;">
+
+ <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" sty=
+le=3D"background:#001b41; -premailer-cellpadding:0; -premailer-cellspacing:=
+0; cellpadding:0;cellspacing:0; border-collapse:collapse; border-spacing:0;=
+ mso-table-lspace:0; mso-table-rspace:0; width:100%; max-width:600px; text-=
+align: center; " background=3D"#001b41">
+ <tbody>
+ <tr cellspacing=3D"0" cellpadding=3D"0" border=3D"0" style=3D"cellspacing:=
+0; cellpadding:0; border-collapse:collapse; border-spacing:0;margin:0; padd=
+ing:0;">=20
+ <td cellspacing=3D"0" cellpadding=3D"0" border=3D"0" bgcolor=3D"#001b41" c=
+lass=3D"banner_container flexible" height=3D"auto" style=3D"background:#001=
+b41 url(http://services.google.com/fh/files/emails/gcp_ft_welcome_feb.png);=
+ background-position:top center; background-repeat:repeat-x; width:100%; he=
+ight:auto; cellspacing:0; cellpadding:0; border-collapse:collapse; border-s=
+pacing:0; " background=3D"http://services.google.com/fh/files/emails/gcp_ft=
+_welcome_feb.png" width=3D"100%" valign=3D"top">=20
+=20
+ <!--[if mso]>
+ <table background=3D"http://services.google.com/fh/files/emails/gcp_ft_wel=
+come_feb.png" bgcolor=3D"#001b41" style=3D" cellspacing:0; cellpadding:0; b=
+order-collapse:collapse; border-spacing:0;" width=3D"600" height=3D"404" ce=
+llpadding=3D"0" border=3D"0" cellspacing=3D"0" >=20
+ <tr>
+ <td background=3D"http://services.google.com/fh/files/emails/gcp_ft_welcom=
+e_feb.png" bgcolor=3D"#001b41" width=3D"600" height=3D"404" valign=3D"top">=
+=20
+ <![endif]-->=20
+=20
+ <!--[if gte mso 9]>
+ <v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"=
+false" style=3D"width:600px;height:404px;">=20
+ <v:fill type=3D"tile" src=3D"http://services.google.com/fh/files/emails/gc=
+p_ft_welcome_feb.png" color=3D"#001b41" />
+ <v:textbox inset=3D"0,0,0,0">=20
+ <div>
+ <![endif]-->
+=20
+<table align=3D"center" style=3D"-premailer-cellpadding:0; -premailer-cells=
+pacing:0; border-collapse:collapse; font-family:Arial, sans-serif; font-wei=
+ght:normal; margin:auto; max-width:600px; mso-table-lspace:0; mso-table-rsp=
+ace:0; width:100%" class=3D"holder_wrap_inner flexible" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" width=3D"100%">
+  <tr>
+    <td class=3D"banner_text_2" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" style=3D"border-collapse:collapse; -premailer-cellpadding:0; -premai=
+ler-cellspacing:0; color:#ffffff; font-family:Roboto, arial; font-size:34px=
+; font-weight:normal; line-height:40px; padding:56px 20px 13px 20px;text-al=
+ign:center" align=3D"center">Welcome to GCP.</td>
+  </tr>
+  <tr>
+      <td class=3D"banner_text_1" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0" style=3D"border-collapse:collapse; -premailer-cellpadding:0; -prema=
+iler-cellspacing:0; color:#ffffff; font-family:Roboto, arial; font-size:16p=
+x; font-weight:normal; line-height:24px; padding:3px 20px 17px 20px; paddin=
+g-left:32px; padding-right:32px; text-align:center" align=3D"center">Congra=
+tulations on starting your free trial. Complete your profile to get up and =
+running.</td>
+  </tr>
+  <tr>
+    <!--[if mso]>
+     <td align=3D"center" class=3D"banner_btn"  cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0" style=3D"border-collapse:collapse; -premailer-cellpad=
+ding:0; -premailer-cellspacing:0; padding-bottom:154px; padding-top:15px;">
+ <![endif]-->
+ <!--[if !mso]> <!---->
+     <td align=3D"center" class=3D"banner_btn"  cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0" style=3D"border-collapse:collapse; -premailer-cellpad=
+ding:0; -premailer-cellspacing:0; padding-bottom:150px; padding-top:15px;">
+ <!-- <![endif]-->
+=09
+ <table class=3D"gcp_cta_btn_table" style=3D"margin: auto; -moz-border-radi=
+us:3px; -premailer-cellpadding:0; -premailer-cellspacing:0; -webkit-border-=
+radius:3px; border-collapse:collapse; border-radius:3px; box-shadow:0 3px 5=
+px -2px rgba(0, 0, 0, 0.5); color:#ffffff; font-family:Arial, sans-serif; f=
+ont-weight:normal; mso-table-lspace:0; mso-table-rspace:0;" height=3D"42" a=
+lign=3D"center" bgcolor=3D"#ffffff" cellpadding=3D"0" cellspacing=3D"0">=20
+=20
+<tr>=20
+ <td style=3D"border-collapse:collapse">=20
+ <a class=3D"gcp_cta_btn" style=3D"-khtml-border-radius:2px; -moz-border-ra=
+dius:3px; -moz-border-radius-bottomleft:3px; -moz-border-radius-bottomright=
+:0; -moz-border-radius-topleft:3px; -moz-border-radius-topright:0; -ms-bord=
+er-radius:2px; -o-border-radius:2px; -webkit-border-bottom-left-radius:3px;=
+ -webkit-border-bottom-right-radius:0; -webkit-border-radius:3px; -webkit-b=
+order-top-left-radius:3px; -webkit-border-top-right-radius:0; background-co=
+lor:#ffffff; border-bottom-left-radius:3px; border-bottom-right-radius:0; b=
+order-color:#ffffff; border-radius:3px; border-style:solid; border-top-left=
+-radius:3px; border-top-right-radius:0; border-width:9px 0px 5px 17px; colo=
+r:#2979ff; display:inline-block; font-family:Roboto, Arial; font-size:14px;=
+ font-weight:500; line-height:18px; margin:0; mso-hide:all; text-align:cent=
+er; text-decoration:none" target=3D"_blank" target=3D'_blank' href=3D"https=
+://www.google.com/appserve/mkt/p/AFOm0uGPKwmW_PWGuPAe9_Wz7AFfpDpJ0b131gHz1x=
+JRJuUj6Oqkg3Qt_NCUpAA63cYzndbUteBeAwIfsJeCvjPwbpqZRzqyUagccXuv5Epi27jw22nvC=
+IONFshfzXezkO8SwjXzx9XTxTmL2Hn1yc5Y3Z4o" bgcolor=3D"#ffffff" align=3D"cente=
+r">
+ <span align=3D"center" style=3D"-webkit-text-size-adjust: none; display: b=
+lock;"><img src=3D"https://services.google.com/fh/files/emails/inactive3_bu=
+tton.png" style=3D"-ms-interpolation-mode:bicubic; border:none; outline:non=
+e; text-decoration:none; width: 23px; height: 21px;" width=3D"23" height=3D=
+"21" ></span>=20
+ </a>=20
+ </td>=20
+ <td style=3D"border-collapse:collapse">=20
+ <a class=3D"gcp_cta_btn" style=3D"-khtml-border-radius:2px; -moz-border-ra=
+dius:3px; -moz-border-radius-bottomleft:0; -moz-border-radius-bottomright:3=
+px; -moz-border-radius-topleft:0; -moz-border-radius-topright:3px; -ms-bord=
+er-radius:2px; -o-border-radius:2px; -webkit-border-bottom-left-radius:0; -=
+webkit-border-bottom-right-radius:3px; -webkit-border-radius:3px; -webkit-b=
+order-top-left-radius:0; -webkit-border-top-right-radius:3px; background-co=
+lor:#ffffff; border-bottom-left-radius:0; border-bottom-right-radius:3px; b=
+order-color:#ffffff; border-radius:3px; border-style:solid; border-top-left=
+-radius:0; border-top-right-radius:3px; border-width:10px 17px 10px 10px; c=
+olor:#2979ff; display:inline-block; font-family:Roboto, Arial; font-size:14=
+px; font-weight:500; line-height:18px; margin:0; mso-hide:all; text-align:c=
+enter; text-decoration:none" target=3D"_blank" target=3D'_blank' href=3D"ht=
+tps://www.google.com/appserve/mkt/p/AFOm0uGPKwmW_PWGuPAe9_Wz7AFfpDpJ0b131gH=
+z1xJRJuUj6Oqkg3Qt_NCUpAA63cYzndbUteBeAwIfsJeCvjPwbpqZRzqyUagccXuv5Epi27jw22=
+nvCIONFshfzXezkO8SwjXzx9XTxTmL2Hn1yc5Y3Z4o" bgcolor=3D"#ffffff" align=3D"ce=
+nter">
+ <span align=3D"center" style=3D"-webkit-text-size-adjust: none; display: b=
+lock;padding-left:6px;padding-right:6px; ">COMPLETE MY PROFILE</span>=20
+ </a>=20
+ </td>=20
+ </tr>=20
+=20
+</table>
+    </td>
+  </tr>
+<tr style=3D" vertical-align:bottom;height:24px;max-height:24px;" >=20
+ <td valign=3D"bottom" align=3D"center" padding=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"display:block; border-collapse:collapse;white-space=
+:nowrap;margin:0px;padding:0px;vertical-align:bottom;height:24px; text-alig=
+n: center;">=20
+ <img src=3D"http://services.google.com/fh/files/emails/gcp_global_banner_s=
+hape.png" style=3D"outline:none;text-decoration:none;min-height:26px;paddin=
+g-top:0px;padding-bottom:0px;margin:auto;display:block;" align=3D"center" v=
+align=3D"bottom">=20
+ </td>
+</tr>=20
+</table>
+<!--[if gte mso 9]>
+ </div>
+=20
+ </v:textbox>
+ </v:rect>
+=20
+ </td>
+ </tr>
+ </table>
+ <![endif]-->
+
+ </td>
+ </tr>
+ </table>
+=20
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" styl=
+e=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; background-color:#=
+ffffff; border-collapse:collapse; font-family:Arial, sans-serif; font-weigh=
+t:normal; mso-table-lspace:0; mso-table-rspace:0" bgcolor=3D"#ffffff">
+<tr>
+ <td class=3D"start" style=3D"border-collapse:collapse; color:#b0bec5; font=
+-family:Roboto, arial; font-size:16px; font-weight:normal; line-height:28px=
+; text-align:center; " align=3D"center">
+ <img src=3D"http://services.google.com/fh/files/emails/gcp_global_banner_i=
+con_hexagon_drak_blue.png" width=3D"28" height=3D"25" style=3D"width: 28px;=
+ height: 25px; " >
+ </td>
+</tr>
+<tr>
+ <td class=3D"start" style=3D"border-collapse:collapse; color:#0143A3; font=
+-family:Roboto, arial; font-size:16px; font-weight:normal; line-height:24px=
+; text-align:center; padding-top: 12px; " align=3D"center">YOUR GCP FREE TR=
+IAL</td>
+</tr>
+ =20
+<tr><td class=3D"para_hdr1" style=3D"border-collapse:collapse; color:#455a6=
+4; font-family:Roboto, arial; font-size:14px; font-weight:normal; line-heig=
+ht:24px; padding-top:25px; padding-bottom:9px;padding-left:40px;padding-rig=
+ht:40px;" >Welcome to the Google Cloud Platform (GCP) free trial. You now h=
+ave 12 months and USD$300 in credit to spend. To get started, please answer=
+ a few quick questions about your goals and interests.</td></tr>
+<tr><td class=3D"para_hdr2" style=3D"border-collapse:collapse; color:#455a6=
+4; font-family:Roboto, arial; font-size:14px; font-weight:normal; line-heig=
+ht:24px; padding-top:8px; padding-bottom:7px;padding-left:40px;padding-righ=
+t:40px;" >Based on your answers, we=E2=80=99ll send relevant resources to h=
+elp you get the most out of GCP. Be sure to check your <a href=3D"https://w=
+ww.google.com/appserve/mkt/p/AFOm0uHAFXuSYVZ3amOJUcGKXRmMSWUGj_fYojdaY_4nv5=
+MdW3I0-MCvKkCi4cWKrYicmoPnkMLqf0AgWOxUeVlxShXw9BWSTOcbuvoHAwnpMB7pUan5FaCe5=
+9CKJ2J8F5VzLC292x0CXY11gy85vC4-QfXqz2GztwuM-UwB4laGhkvjj9H7rKWjJu28Urz92z8f=
+SKtwxuPQWKVr9VVg0MwhA77kxOMcJR01OIzmtOac6DP4q3uqQQI_TKonjuitwGmK9RY-uTJou0F=
+YqUfm5qZGKxCYog" style=3D"color:#2979ff; font-size:14px;line-height:16px;te=
+xt-decoration:none;white-space:nowrap;font-weight: 500;" target=3D"_blank">=
+communication preferences</a> so you can receive these emails.</td></tr>
+<tr><td class=3D"para_hdr3" style=3D"border-collapse:collapse; color:#455a6=
+4; font-family:Roboto, arial; font-size:14px; font-weight:normal; line-heig=
+ht:24px; padding-top:9px; padding-bottom:34px;padding-left:40px;padding-rig=
+ht:40px;" >If you=E2=80=99d like to start exploring now, take a look at our=
+ recommendations for <a href=3D"https://www.google.com/appserve/mkt/p/AFOm0=
+uFnYqq0t4l6eGGJYl1yYMOAlRFXv84CWl8bBnOsOcndVCQbfAkbmi2XPRbmAWlVEbsWVoFD9i7a=
+fpeCnRW3P6H9hdZ1vemC6IzuAyqNr_0N-C01aUlE3K5sT3qLHW3bx1AXm1CoQpoGo8uxklmrfqX=
+pXrb1p7W9y5Mp0N1QYAICGpcnTymwZRXT-cqW_1u_vMNJutf8iRchNM9XkIehsCwzIE9tACfYpJ=
+PUcLbZ" style=3D"color:#2979ff; font-size:14px;line-height:16px;text-decora=
+tion:none;white-space:nowrap;font-weight: 500;" target=3D"_blank">getting s=
+tarted</a>, or you can go straight into your <a href=3D"https://www.google.=
+com/appserve/mkt/p/AFOm0uE6g3AFC7ja94CcnKSOoKKt4LPnOmgOtjWBovMjAw2cxZL3vRMO=
+batP2EyYHz8sQ0LeSk5EzwmS3Al0pcQQjDDfVHcrJKBvkE2CLhLW9Vgm5yG_-V_nz_z79ujwgvR=
+yU_ohvoQLv8aw9yMOP6phL2HWpYAch5szxdXQ8JH7SVI4Er-9mtvgirgxBSusHFpvx_YVU_W8Cn=
+hNu9CZVEhHKL63QqJa4PJU-VvBl0LFCPgMb0QnueJt" style=3D"color:#2979ff; font-si=
+ze:14px;line-height:16px;text-decoration:none;white-space:nowrap;font-weigh=
+t: 500;" target=3D"_blank">GCP console</a>.</td></tr>
+  </table>
+ <table class=3D"border" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" a=
+lign=3D"center" width=3D"600" style=3D"-moz-border-radius:0px; -premailer-c=
+ellpadding:0; -premailer-cellspacing:0; -webkit-border-radius:0px; border-c=
+ollapse:initial; border-radius:0px; font-family:Arial, sans-serif; font-wei=
+ght:normal; mso-table-lspace:0; mso-table-rspace:0;width:100%; ">
+ <tr><td align=3D"center"style=3D"border-collapse:initial; background-color=
+:#ffffff; font-family:Roboto, arial; font-size:1px; font-weight:normal; lin=
+e-height:1px; padding-left:40px; padding-top: 0px;padding-bottom:0px;paddin=
+g-right:40px; ">
+ <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" w=
+idth=3D"100%" style=3D"-moz-border-radius:0px; -premailer-cellpadding:0; -p=
+remailer-cellspacing:0; -webkit-border-radius:0px; border-collapse:initial;=
+ border-radius:0px; font-family:Arial, sans-serif; font-weight:normal; mso-=
+table-lspace:0; mso-table-rspace:0;width:100% ">
+ <tr><td align=3D"center" style=3D"border-collapse:initial; background-colo=
+r:#f7f7f7; font-family:Roboto, arial; font-size:1px; font-weight:normal; li=
+ne-height:1px; height:2px; " >&nbsp;</td></tr>
+ </table>
+ </td>
+ </tr>=20
+ </table>=20
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" styl=
+e=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; background-color:#=
+ffffff; border-collapse:collapse; font-family:Arial, sans-serif; font-weigh=
+t:normal; mso-table-lspace:0; mso-table-rspace:0" bgcolor=3D"#ffffff">
+<tr><td align=3D"center" class=3D"para_hdr3" style=3D"text-align:center; bo=
+rder-collapse:collapse; color:#455a64; font-family:Roboto, arial; font-size=
+:14px; font-weight:normal; line-height:24px; padding-top:31px; padding-bott=
+om:29px;padding-left:40px;padding-right:40px;" >We look forward to helping =
+you build what=E2=80=99s next.</td></tr> =20
+</table>
+
+ <table class=3D"gcp_cta_btn_table" style=3D"margin: auto; -moz-border-radi=
+us:3px; -premailer-cellpadding:0; -premailer-cellspacing:0; -webkit-border-=
+radius:3px; border-collapse:collapse; border-radius:3px; box-shadow:0 3px 5=
+px -2px rgba(0, 0, 0, 0.5); color:#2979ff; font-family:Arial, sans-serif; f=
+ont-weight:normal; mso-table-lspace:0; mso-table-rspace:0;" height=3D"42" a=
+lign=3D"center" bgcolor=3D"#2979ff" cellpadding=3D"0" cellspacing=3D"0">=20
+=20
+<tr>=20
+ <td style=3D"border-collapse:collapse">=20
+ <a class=3D"gcp_cta_btn" style=3D"-khtml-border-radius:2px; -moz-border-ra=
+dius:3px; -moz-border-radius-bottomleft:3px; -moz-border-radius-bottomright=
+:0; -moz-border-radius-topleft:3px; -moz-border-radius-topright:0; -ms-bord=
+er-radius:2px; -o-border-radius:2px; -webkit-border-bottom-left-radius:3px;=
+ -webkit-border-bottom-right-radius:0; -webkit-border-radius:3px; -webkit-b=
+order-top-left-radius:3px; -webkit-border-top-right-radius:0; background-co=
+lor:#2979ff; border-bottom-left-radius:3px; border-bottom-right-radius:0; b=
+order-color:#2979ff; border-radius:3px; border-style:solid; border-top-left=
+-radius:3px; border-top-right-radius:0; border-width:9px 0px 5px 17px; colo=
+r:#ffffff; display:inline-block; font-family:Roboto, Arial; font-size:14px;=
+ font-weight:500; line-height:18px; margin:0; mso-hide:all; text-align:cent=
+er; text-decoration:none" target=3D"_blank" target=3D'_blank' href=3D"https=
+://www.google.com/appserve/mkt/p/AFOm0uFMokb6x95DhLk6PD8Va_cQSS-HjpSfneT_cN=
+-NGI7oOHvLbCVG2LxW1TfNCnvLrw9c82BlmqKT0OjqTDUDAPfLLVflKoNc9jqI4RkDRI1CDt-uC=
+Q-ckCRe6RYaeGEKwkBGspln5mzQrX_sk5hkH572" bgcolor=3D"#2979ff" align=3D"cente=
+r">
+ <span align=3D"center" style=3D"-webkit-text-size-adjust: none; display: b=
+lock;"><img src=3D"http://services.google.com/fh/files/emails/gcp_cta_icon.=
+png" style=3D"-ms-interpolation-mode:bicubic; border:none; outline:none; te=
+xt-decoration:none; width: 23px; height: 21px;" width=3D"23" height=3D"21" =
+></span>=20
+ </a>=20
+ </td>=20
+ <td style=3D"border-collapse:collapse">=20
+ <a class=3D"gcp_cta_btn" style=3D"-khtml-border-radius:2px; -moz-border-ra=
+dius:3px; -moz-border-radius-bottomleft:0; -moz-border-radius-bottomright:3=
+px; -moz-border-radius-topleft:0; -moz-border-radius-topright:3px; -ms-bord=
+er-radius:2px; -o-border-radius:2px; -webkit-border-bottom-left-radius:0; -=
+webkit-border-bottom-right-radius:3px; -webkit-border-radius:3px; -webkit-b=
+order-top-left-radius:0; -webkit-border-top-right-radius:3px; background-co=
+lor:#2979ff; border-bottom-left-radius:0; border-bottom-right-radius:3px; b=
+order-color:#2979ff; border-radius:3px; border-style:solid; border-top-left=
+-radius:0; border-top-right-radius:3px; border-width:10px 17px 10px 10px; c=
+olor:#ffffff; display:inline-block; font-family:Roboto, Arial; font-size:14=
+px; font-weight:500; line-height:18px; margin:0; mso-hide:all; text-align:c=
+enter; text-decoration:none" target=3D"_blank" target=3D'_blank' href=3D"ht=
+tps://www.google.com/appserve/mkt/p/AFOm0uFMokb6x95DhLk6PD8Va_cQSS-HjpSfneT=
+_cN-NGI7oOHvLbCVG2LxW1TfNCnvLrw9c82BlmqKT0OjqTDUDAPfLLVflKoNc9jqI4RkDRI1CDt=
+-uCQ-ckCRe6RYaeGEKwkBGspln5mzQrX_sk5hkH572" bgcolor=3D"#2979ff" align=3D"ce=
+nter">
+ <span align=3D"center" style=3D"-webkit-text-size-adjust: none; display: b=
+lock;padding-left:6px;padding-right:6px; ">COMPLETE MY PROFILE</span>=20
+ </a>=20
+ </td>=20
+ </tr>=20
+=20
+</table>
+ <table style=3D"margin: auto; -moz-border-radius:3px; -premailer-cellpaddi=
+ng:0; -premailer-cellspacing:0; -webkit-border-radius:3px; border-collapse:=
+collapse; mso-table-lspace:0; mso-table-rspace:0; height: 35px; width: 100%=
+;" height=3D"35" align=3D"center" width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0">=20
+=20
+<tr>=20
+ <td style=3D"border-collapse:collapse; height: 35px" height=3D"35">=20
+ &nbsp;
+ </td>=20
+=20
+</tr>=20
+=20
+</table>
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" clas=
+s=3D"signoff" style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; =
+border-collapse:collapse; font-family:Arial, sans-serif; font-weight:normal=
+; mso-table-lspace:0; mso-table-rspace:0">
+ <tr>
+ <td width=3D"100%" class=3D"close" style=3D"border-bottom:1px solid #efefe=
+f; border-collapse:collapse; padding-left:40px; padding-top:19px; width:100=
+%;padding-right:22px;">
+ <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" class=3D"signoff" =
+style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border-collaps=
+e:collapse; font-family:Arial, sans-serif; font-weight:normal; mso-table-ls=
+pace:0; mso-table-rspace:0">
+ <tr>
+ <td class=3D"signoff1" style=3D"border-collapse:collapse; color:#455a64; f=
+ont-family:Roboto, arial; font-size:14px; font-weight:normal; line-height:2=
+4px; padding-bottom:7px; padding-top:14px">See you in the cloud,</td>
+ </tr>
+ <tr>
+ <td class=3D"signoff2" style=3D"border-collapse:collapse; color:#455a64; f=
+ont-family:Roboto, arial; font-size:16px; font-weight:500; line-height:24px=
+; padding-bottom:34px;white-space: nowrap;">The Google Cloud Platform Team<=
+/td>
+ </tr>
+ </table>
+ </td>
+ </tr>
+</table>
+ </td></tr>
+ </table>=20
+=20
+<table class=3D"bottom_link_container" align=3D"center" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" style=3D"-premailer-cellpadding:0; -premailer=
+-cellspacing:0; background:#ffffff; border-bottom:1px solid #dddddd; border=
+-collapse:collapse; border-left:1px solid #dddddd; border-right:1px solid #=
+dddddd; border-top:1px solid #dddddd; font-family:Roboto, arial; font-weigh=
+t:normal; margin:0 auto; max-width:600px; mso-table-lspace:0; mso-table-rsp=
+ace:0; width:100%" width=3D"100%">
+    <tbody><tr>
+        <td style=3D"border-collapse:collapse">
+
+            <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0" style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border=
+-collapse:collapse; font-family:Roboto, arial; font-weight:normal; mso-tabl=
+e-lspace:0; mso-table-rspace:0">
+            <!--[if (gte mso 9)|(IE)]>
+            <tr><td width=3D"600">
+            <table width=3D"600" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" >
+            <![endif]-->
+                <tbody><tr>
+                    <td class=3D"text_wrapper_inner_td" style=3D"-khtml-bor=
+der-radius:0 0 5px 5px; -moz-border-radius:0 0 5px 5px; -webkit-border-radi=
+us:0 0 5px 5px; border-collapse:collapse; border-radius:0 0 5px 5px; color:=
+#455a64; font-family:Roboto, arial; font-size:14px; line-height:24px; paddi=
+ng-bottom:0;">
+                        <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border-=
+collapse:collapse; border-radius:0 0 5px 5px; font-family:Roboto, arial; fo=
+nt-weight:normal; mso-table-lspace:0; mso-table-rspace:0; width: 100%; " wi=
+dth=3D"100%" align=3D"left">
+                            <tbody><tr>
+                                <td style=3D"border-collapse:collapse; widt=
+h: 100%;" width=3D"100%">
+                                    <table class=3D"bottom_link_container_i=
+nner_table" width=3D"100%" style=3D"-premailer-cellpadding:0; -premailer-ce=
+llspacing:0; border-collapse:collapse; font-family:Roboto, arial; font-weig=
+ht:normal; max-width:600px; mso-table-lspace:0; mso-table-rspace:0; width:1=
+00%" cellpadding=3D"0" cellspacing=3D"0">
+
+                                        <tbody><tr>
+                                            <td class=3D"four-column" style=
+=3D"border-collapse:collapse;font-size:0;padding: 10px 30px;text-align:left=
+;padding-right: 0px;" align=3D"left">
+
+											<!--[if (gte mso 9)|(IE)]> 		=09
+												<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0" >
+												  <tr>
+													<td width=3D"200" style=3D"width: 200px;" >
+												<![endif]-->
+
+                                                <table class=3D"column1" st=
+yle=3D"-premailer-cellpadding:0;-premailer-cellspacing:0;border-collapse:co=
+llapse;display:inline-block;font-family:Roboto, arial;font-weight:normal;ms=
+o-table-lspace:0;mso-table-rspace:0;text-align:left;vertical-align:top;widt=
+h:210px;" cellpadding=3D"0" cellspacing=3D"0" align=3D"left" valign=3D"top"=
+ width=3D"100%">
+                                                    <tbody><tr>
+                                                        <td class=3D"inner"=
+ style=3D"border-collapse:collapse;">
+
+
+
+
+
+                                                            <table class=3D=
+"column1" style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; bord=
+er-collapse:collapse; display:inline-block; font-family:Roboto, arial; font=
+-weight:normal; max-width:100px; mso-table-lspace:0; mso-table-rspace:0; te=
+xt-align:left; vertical-align:top; width:100%" cellpadding=3D"0" cellspacin=
+g=3D"0" align=3D"left" valign=3D"top" width=3D"100%">
+                                                                <tbody><tr>
+                                                                    <td cla=
+ss=3D"inner" style=3D"border-collapse:collapse; font-size:15px;padding-righ=
+t:0px;">
+                                                                        <ta=
+ble class=3D"contents" align=3D"left" style=3D"-premailer-cellpadding:0; -p=
+remailer-cellspacing:0; border-collapse:collapse; font-family:Roboto, arial=
+; font-size:14px; font-weight:normal; mso-table-lspace:0; mso-table-rspace:=
+0; text-align:left; width:100%" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%">
+                                                                           =
+ <tbody><tr>
+
+                                                                           =
+     <td class=3D"text" height=3D"49" valign=3D"middle" style=3D"border-col=
+lapse:collapse; color:#b0bec5; font-family:Roboto, arial; font-size:14px; f=
+ont-weight:500; line-height:26px; padding-right:12px; text-align:left; widt=
+h:14px;padding-left:0px;" align=3D"left" width=3D"14">
+                                                                           =
+         <a target=3D'_blank' href=3D"http://www.google.com/appserve/mkt/p/=
+AFOm0uHjoluc5ijKs_3lHkRo2uGBRptgZCmx71grTuhiUT2t32c2M4crAZge76uGSuXpRZZmVoC=
+3pJDVeQhM2k5bQXAAG8SQ2gT37N6s_ZgFjVx8b2cBYLGd42J8HmZL2CkrTFJPHr4_FoUjiGmPxf=
+TwPA" target=3D"_blank" style=3D"color:#b0bec5; font-family:Roboto, arial; =
+font-size:14px; font-weight:500; line-height:26px; text-align:left; text-de=
+coration:none" class=3D"bottom_link_text bottom_link_text_mbl" align=3D"lef=
+t"><img src=3D"https://services.google.com/fh/files/emails/gcp_ic_forum.png=
+" valign=3D"middle" width=3D"16" border=3D"0" alt=3D"Forums" style=3D"-ms-i=
+nterpolation-mode:bicubic; height:auto; outline:none; text-decoration:none;=
+vertical-align:middle;" height=3D"auto">
+                                                                           =
+         </a>
+                                                                           =
+     </td>
+
+
+                                                                           =
+     <td class=3D"text" width=3D"74" height=3D"49" valign=3D"middle" style=
+=3D"border-collapse:collapse; color:#b0bec5; font-family:Roboto, arial; fon=
+t-size:14px; font-weight:500; line-height:26px; text-align:left;width:74px;=
+" align=3D"left">
+                                                                           =
+         <a target=3D'_blank' href=3D"http://www.google.com/appserve/mkt/p/=
+AFOm0uHjoluc5ijKs_3lHkRo2uGBRptgZCmx71grTuhiUT2t32c2M4crAZge76uGSuXpRZZmVoC=
+3pJDVeQhM2k5bQXAAG8SQ2gT37N6s_ZgFjVx8b2cBYLGd42J8HmZL2CkrTFJPHr4_FoUjiGmPxf=
+TwPA" target=3D"_blank" style=3D"color:#b0bec5; font-family:Roboto, arial; =
+font-size:14px; font-weight:500; line-height:26px; text-align:left; text-de=
+coration:none;white-space:nowrap;" class=3D"bottom_link_text bottom_link_te=
+xt_mbl" align=3D"left">FORUMS</a>
+                                                                           =
+     </td>
+                                                                           =
+ </tr>
+                                                                        </t=
+body></table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table=
+>
+
+
+                                                        </td>
+                                                        <td class=3D"inner"=
+ style=3D"border-collapse:collapse;">
+
+                                                            <table class=3D=
+"column2" align=3D"left" style=3D"-premailer-cellpadding:0; -premailer-cell=
+spacing:0; border-collapse:collapse; display:inline-block; font-family:Robo=
+to, arial; font-weight:normal; max-width:142px; mso-table-lspace:0; mso-tab=
+le-rspace:0; text-align:left; vertical-align:top; width:100%" cellpadding=
+=3D"0" cellspacing=3D"0" valign=3D"top" width=3D"100%">
+                                                                <tbody><tr>
+                                                                    <td cla=
+ss=3D"inner" style=3D"border-collapse:collapse; font-size:15px; padding-lef=
+t: 0px;">
+                                                                        <ta=
+ble class=3D"contents" align=3D"left" style=3D"-premailer-cellpadding:0; -p=
+remailer-cellspacing:0; border-collapse:collapse; font-family:Roboto, arial=
+; font-size:14px; font-weight:normal; mso-table-lspace:0; mso-table-rspace:=
+0; text-align:left; width:100%" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%">
+                                                                           =
+ <tbody><tr>
+
+                                                                           =
+     <td class=3D"text" height=3D"49" valign=3D"middle" style=3D"border-col=
+lapse:collapse; color:#b0bec5; font-family:Roboto, arial; font-size:14px; f=
+ont-weight:500; line-height:26px; padding-right:12px; text-align:left; widt=
+h:12px" align=3D"left" width=3D"12">
+                                                                           =
+         <a target=3D'_blank' href=3D"https://www.google.com/appserve/mkt/p=
+/AFOm0uEHILkOyr4CafYIiulfPuuJHuo2uZy9Gv5NlZAQQ1M33CQXuK5msA3FzTx8YbC3DEZFc6=
+uIQLse5qD2AkIUsnze1xG-yK2Lg_ABB_6MATeUKqZ_sfZDbn3za3FSt5sTsxRKNSugqswA2J-ZR=
+jdDUTn7bqnouy52TY0BiiMvbi0sBx6T9lHzKSRTmEhx53Ct9ZF5SL0ShQTEJHmLOE4eeRSZ1tTm=
+" target=3D"_blank" style=3D"color:#b0bec5; font-family:Roboto, arial; font=
+-size:14px; font-weight:500; line-height:26px; text-align:left; text-decora=
+tion:none" class=3D"bottom_link_text bottom_link_text_mbl" align=3D"left"><=
+img src=3D"http://services.google.com/fh/files/emails/gcp_free_trail_forum_=
+new.png" valign=3D"middle" border=3D"0" width=3D"16" alt=3D"Support" style=
+=3D"-ms-interpolation-mode:bicubic; height:auto; outline:none; text-decorat=
+ion:none; vertical-align:middle;" height=3D"auto">
+                                                                           =
+         </a>
+                                                                           =
+     </td>
+
+                                                                           =
+     <td class=3D"text" width=3D"90" height=3D"49" valign=3D"middle" style=
+=3D"border-collapse:collapse; color:#b0bec5; font-family:Roboto, arial; fon=
+t-size:14px; font-weight:500; line-height:26px; text-align:left;width:82px;=
+" align=3D"left">
+                                                                           =
+         <a target=3D'_blank' href=3D"https://www.google.com/appserve/mkt/p=
+/AFOm0uEHILkOyr4CafYIiulfPuuJHuo2uZy9Gv5NlZAQQ1M33CQXuK5msA3FzTx8YbC3DEZFc6=
+uIQLse5qD2AkIUsnze1xG-yK2Lg_ABB_6MATeUKqZ_sfZDbn3za3FSt5sTsxRKNSugqswA2J-ZR=
+jdDUTn7bqnouy52TY0BiiMvbi0sBx6T9lHzKSRTmEhx53Ct9ZF5SL0ShQTEJHmLOE4eeRSZ1tTm=
+" target=3D"_blank" style=3D"color:#b0bec5; font-family:Roboto, arial; font=
+-size:14px; font-weight:500; line-height:26px; text-align:left; text-decora=
+tion:none;vertical-align: middle;" class=3D"bottom_link_text bottom_link_te=
+xt_mbl" align=3D"left">SUPPORT</a>
+                                                                           =
+     </td>
+                                                                           =
+ </tr>
+                                                                        </t=
+body></table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table=
+>
+
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+
+												<!--[if (gte mso 9)|(IE)]> =09
+													</td>
+													<td width=3D"231" style=3D"width: 231px;"  >
+												<![endif]-->
+
+                                                <table class=3D"column1" st=
+yle=3D"-premailer-cellpadding:0;-premailer-cellspacing:0;border-collapse:co=
+llapse;display:inline-block;font-family:Roboto, arial;font-weight:normal;ma=
+x-width: 231px;mso-table-lspace:0;mso-table-rspace:0;text-align:left;vertic=
+al-align:top;width:100%;" cellpadding=3D"0" cellspacing=3D"0" align=3D"left=
+" valign=3D"top" width=3D"100%">
+                                                    <tbody><tr>
+                                                        <td class=3D"inner"=
+ width=3D"72" style=3D"border-collapse:collapse; width: 72px;">
+
+
+
+                                                            <table class=3D=
+"column3" align=3D"left" style=3D"-premailer-cellpadding:0; -premailer-cell=
+spacing:0; border-collapse:collapse; display:inline-block; font-family:Robo=
+to, arial; font-weight:normal; max-width:72px; mso-table-lspace:0; mso-tabl=
+e-rspace:0; text-align:left; vertical-align:top; width:100%" cellpadding=3D=
+"0" cellspacing=3D"0" valign=3D"top" width=3D"100%">
+                                                                <tbody><tr>
+                                                                    <td cla=
+ss=3D"inner" style=3D"border-collapse:collapse; font-size:15px;   padding-r=
+ight: 0px;">
+                                                                        <ta=
+ble class=3D"contents" align=3D"left" style=3D"-premailer-cellpadding:0; -p=
+remailer-cellspacing:0; border-collapse:collapse; font-family:Roboto, arial=
+; font-size:14px; font-weight:normal; mso-table-lspace:0; mso-table-rspace:=
+0; text-align:left; width:100%" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%">
+                                                                           =
+ <tbody><tr>
+
+                                                                           =
+     <td class=3D"text" height=3D"49" valign=3D"middle" style=3D"border-col=
+lapse:collapse; color:#b0bec5; font-family:Roboto, arial; font-size:14px; f=
+ont-weight:500; line-height:26px; padding-right:12px; text-align:left; widt=
+h:16px" align=3D"left" width=3D"16">
+                                                                           =
+         <a target=3D'_blank' href=3D"https://www.google.com/appserve/mkt/p=
+/AFOm0uHB8o4N1Y0zmfk2CmfOHJxC7MddxQN5qJttMhQQcxt9wSKmXwHMtJ9Ov3BncU-VIOGRMF=
+10Iuu-6bEuJN-FsUldaHyK3Z-qbS34o1jefjfrCpWbUfk2aVnFnGVia21cqw-TzhzbHM4M09sfT=
+nvC8qynIvf-8PmAcAwF5QfzGYmXK40xrzP2LHy8xXrAP-ML-H-j-5Y3bF4uvDZM56p2gp9prqBL=
+vDYQOYFqSeNjNnoT8D4jk9dZptyiHXqUOFUef70" target=3D"_blank" style=3D"color:#=
+b0bec5; font-family:Roboto, arial; font-size:14px; font-weight:500; line-he=
+ight:26px; text-align:left; text-decoration:none" class=3D"bottom_link_text=
+ bottom_link_text_mbl" align=3D"left"><img src=3D"http://services.google.co=
+m/fh/files/emails/gcp_free_trail_ques_new.png" valign=3D"middle" width=3D"1=
+4" alt=3D"FAQ" border=3D"0" style=3D"-ms-interpolation-mode:bicubic; height=
+:auto; outline:none; text-decoration:none;vertical-align:middle;" height=3D=
+"auto">
+                                                                           =
+         </a>
+                                                                           =
+     </td>
+
+                                                                           =
+     <td class=3D"text" width=3D"74" height=3D"49" valign=3D"middle" style=
+=3D"border-collapse:collapse; color:#b0bec5; font-family:Roboto, arial; fon=
+t-size:14px; font-weight:500; line-height:26px; text-align:left; padding-ri=
+ght:0px;" align=3D"left">
+                                                                           =
+         <a target=3D'_blank' href=3D"https://www.google.com/appserve/mkt/p=
+/AFOm0uHB8o4N1Y0zmfk2CmfOHJxC7MddxQN5qJttMhQQcxt9wSKmXwHMtJ9Ov3BncU-VIOGRMF=
+10Iuu-6bEuJN-FsUldaHyK3Z-qbS34o1jefjfrCpWbUfk2aVnFnGVia21cqw-TzhzbHM4M09sfT=
+nvC8qynIvf-8PmAcAwF5QfzGYmXK40xrzP2LHy8xXrAP-ML-H-j-5Y3bF4uvDZM56p2gp9prqBL=
+vDYQOYFqSeNjNnoT8D4jk9dZptyiHXqUOFUef70" target=3D"_blank" style=3D"color:#=
+b0bec5; font-family:Roboto, arial; font-size:14px; font-weight:500; line-he=
+ight:26px; text-align:left; text-decoration:none;vertical-align: middle;" c=
+lass=3D"bottom_link_text bottom_link_text_mbl" align=3D"left">FAQ</a>
+                                                                           =
+     </td>
+                                                                           =
+ </tr>
+                                                                        </t=
+body></table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table=
+>
+
+                                                        </td>
+                                                        <td class=3D"inner"=
+ width=3D"156" style=3D"border-collapse:collapse; width: 156px">
+                                                            <table class=3D=
+"column4" align=3D"left" style=3D"-premailer-cellpadding:0; -premailer-cell=
+spacing:0; border-collapse:collapse; display:inline-block; font-family:Robo=
+to, arial; font-weight:normal; max-width:150px; mso-table-lspace:0; mso-tab=
+le-rspace:0; text-align:left; vertical-align:top; width:100%;overflow:visib=
+le;" cellpadding=3D"0" cellspacing=3D"0" valign=3D"top" width=3D"100%">
+                                                                <tbody><tr>
+                                                                    <td cla=
+ss=3D"inner" style=3D"border-collapse:collapse; font-size:15px;    padding-=
+right: 0px; ">
+
+                                                                           =
+ <table class=3D"contents" align=3D"left" style=3D"-premailer-cellpadding:0=
+; -premailer-cellspacing:0; border-collapse:collapse; font-family:Roboto, a=
+rial; font-size:14px; font-weight:normal; mso-table-lspace:0; mso-table-rsp=
+ace:0; text-align:left; width:100%" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%">
+                                                                           =
+     <tbody><tr>
+                                                                           =
+         <td class=3D"text" height=3D"49" valign=3D"middle" style=3D"border=
+-collapse:collapse; color:#b0bec5; font-family:Roboto, arial; font-size:14p=
+x; font-weight:500; line-height:26px; padding-right:12px; text-align:left; =
+width:14px" align=3D"left" width=3D"14">
+                                                                           =
+             <a target=3D'_blank' href=3D"https://www.google.com/appserve/m=
+kt/p/AFOm0uGP9F3jAuW6Meo8DuFB7N5xQDibu7A6qwRJasqjwbGQ_VPC__z9pphG2eP2wuucKP=
+geuU88E6r_rnwzg11s8jzfMFRuSN5vs4ZBw5lTP5-Zgyk1oYg1DTJY6hzsrrief-c4fO3U09_qi=
+NP-EYTO_oFLmbo0K6xkaIAGCqu4fbhbRO4O_a1rAJK9kgk4L96U1ijV-6sS7X8uy-wNWVWDhs5J=
+" target=3D"_blank" style=3D"color:#b0bec5; font-family:Roboto, arial; font=
+-size:14px; font-weight:500; line-height:26px; text-align:left; text-decora=
+tion:none" class=3D"bottom_link_text bottom_link_text_mbl" align=3D"left"> =
+<img src=3D"https://services.google.com/fh/files/emails/gcp_free_trail_decs=
+_new.png" valign=3D"middle" border=3D"0" width=3D"12" alt=3D"Documentation"=
+ style=3D"-ms-interpolation-mode:bicubic; height:auto; outline:none; text-d=
+ecoration:none;vertical-align:middle;" height=3D"auto">
+                                                                           =
+             </a>
+                                                                           =
+         </td>
+
+                                                                           =
+         <td class=3D"text" width=3D"115" height=3D"49" valign=3D"middle" s=
+tyle=3D"border-collapse:collapse; color:#b0bec5; font-family:Roboto, arial;=
+ font-size:14px; font-weight:500; line-height:26px; width:115px; text-align=
+:left; white-space: nowrap; " align=3D"left">
+                                                                           =
+             <a target=3D'_blank' href=3D"https://www.google.com/appserve/m=
+kt/p/AFOm0uGP9F3jAuW6Meo8DuFB7N5xQDibu7A6qwRJasqjwbGQ_VPC__z9pphG2eP2wuucKP=
+geuU88E6r_rnwzg11s8jzfMFRuSN5vs4ZBw5lTP5-Zgyk1oYg1DTJY6hzsrrief-c4fO3U09_qi=
+NP-EYTO_oFLmbo0K6xkaIAGCqu4fbhbRO4O_a1rAJK9kgk4L96U1ijV-6sS7X8uy-wNWVWDhs5J=
+" target=3D"_blank" style=3D"color:#b0bec5; font-family:Roboto, arial; font=
+-size:14px; font-weight:500; line-height:26px; text-align:left; text-decora=
+tion:none; white-space:nowrap;vertical-align: middle;" class=3D"bottom_link=
+_text bottom_link_text_mbl" align=3D"left">DOCUMENTATION</a>
+                                                                           =
+         </td>
+
+                                                                           =
+ </tr></tbody></table>
+                                                                           =
+ </td></tr><tr>
+
+                                                                   =20
+                                                                    </tr>
+                                                            </tbody></table=
+>
+
+                                                        </td>
+
+
+													   =20
+												  </tr>
+                                                </tbody></table>
+<!--[if (gte mso 9)|(IE)]> =09
+													</td>
+													<td width=3D"100" style=3D"width: 100px;"  >
+												<![endif]-->
+<table class=3D"column1" style=3D"-premailer-cellpadding:0;-premailer-cells=
+pacing:0;border-collapse:collapse;display:inline-block;font-family:Roboto, =
+arial;font-weight:normal;max-width: 127px;mso-table-lspace:0;mso-table-rspa=
+ce:0;text-align:left;vertical-align:top;width:100%;" cellpadding=3D"0" cell=
+spacing=3D"0" align=3D"left" valign=3D"top" width=3D"100%">
+                                                    <tbody><tr>
+                                                        <td class=3D"inner"=
+ style=3D"border-collapse:collapse;">
+
+
+
+
+
+                                                            <table class=3D=
+"column1" style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; bord=
+er-collapse:collapse; display:inline-block; font-family:Roboto, arial; font=
+-weight:normal; max-width:136px; mso-table-lspace:0; mso-table-rspace:0; te=
+xt-align:left; vertical-align:top; width:100%" cellpadding=3D"0" cellspacin=
+g=3D"0" align=3D"left" valign=3D"top" width=3D"100%">
+                                                                <tbody><tr>
+                                                                    <td cla=
+ss=3D"inner" style=3D"border-collapse:collapse; font-size:15px; ">
+                                                                        <ta=
+ble class=3D"contents" align=3D"left" style=3D"-premailer-cellpadding:0; -p=
+remailer-cellspacing:0; border-collapse:collapse; font-family:Roboto, arial=
+; font-size:14px; font-weight:normal; mso-table-lspace:0; mso-table-rspace:=
+0; text-align:left; width:100%" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%">
+                                                                           =
+ <tbody><tr>
+
+                                                                           =
+     <td class=3D"text" height=3D"49" valign=3D"middle" style=3D"border-col=
+lapse:collapse; color:#b0bec5; font-family:Roboto, arial; font-size:14px; f=
+ont-weight:500; line-height:26px; padding-right:12px; text-align:left; widt=
+h:16px" align=3D"left" width=3D"16">
+                                                                           =
+         <a target=3D'_blank' href=3D"https://www.google.com/appserve/mkt/p=
+/AFOm0uHh4QzqmhgRtVUR3VPXZi42eXz4p0MoBfr_pzzXR5a7L5HJQWaQwxUj6kgCmZ-te5EZVs=
+MvaCy37heP2syyMAs3qa9Xp_mqwxK2M9nEzhzZtTmPJEDacdPiCBA0W_Vv14Oc6KPcaim3yBPOx=
+6OCLU2ORyRDbOz-oTkIXu249LHXFbtzY1Xb6xqo6lLfGAwuZVwTcw2DfouMw_V5f8efoYEycN4N=
+YSrZUZuQYKqAbdM" target=3D"_blank" style=3D"color:#b0bec5; font-family:Robo=
+to, arial; font-size:14px; font-weight:500; line-height:26px; text-align:le=
+ft; text-decoration:none" class=3D"bottom_link_text bottom_link_text_mbl" a=
+lign=3D"left"> <img src=3D"http://services.google.com/fh/files/emails/gcp_f=
+ooter_tutorial.png" valign=3D"middle" border=3D"0" width=3D"16" alt=3D"Tuto=
+rials" style=3D"-ms-interpolation-mode:bicubic; height:auto; outline:none; =
+text-decoration:none;vertical-align:middle;" height=3D"auto">
+                                                                           =
+             </a>
+                                                                           =
+     </td>
+
+
+                                                                           =
+     <td class=3D"text" width=3D"45" height=3D"49" valign=3D"middle" style=
+=3D"border-collapse:collapse; color:#b0bec5; font-family:Roboto, arial; fon=
+t-size:14px; font-weight:500; line-height:26px; text-align:left; padding-ri=
+ght:10px;" align=3D"left">
+                                                                           =
+         <a target=3D'_blank' href=3D"https://www.google.com/appserve/mkt/p=
+/AFOm0uHh4QzqmhgRtVUR3VPXZi42eXz4p0MoBfr_pzzXR5a7L5HJQWaQwxUj6kgCmZ-te5EZVs=
+MvaCy37heP2syyMAs3qa9Xp_mqwxK2M9nEzhzZtTmPJEDacdPiCBA0W_Vv14Oc6KPcaim3yBPOx=
+6OCLU2ORyRDbOz-oTkIXu249LHXFbtzY1Xb6xqo6lLfGAwuZVwTcw2DfouMw_V5f8efoYEycN4N=
+YSrZUZuQYKqAbdM" target=3D"_blank" style=3D"color:#b0bec5; font-family:Robo=
+to, arial; font-size:14px; font-weight:500; line-height:26px; text-align:le=
+ft; text-decoration:none; white-space:nowrap;vertical-align: middle;" class=
+=3D"bottom_link_text bottom_link_text_mbl" align=3D"left">TUTORIALS</a>
+                                                                           =
+     </td>
+                                                                           =
+ </tr>
+                                                                        </t=
+body></table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody></table=
+>
+
+
+                                                        </td>
+                                                       =20
+                                                    </tr>
+                                                </tbody></table>
+
+
+												<!--[if (gte mso 9)|(IE)]> =09
+													</td>												  </tr>
+												</table>
+												<![endif]-->
+
+
+                                            </td></tr>
+
+                                    </tbody></table>
+                                </td>
+                                </tr>
+
+                        </tbody></table>
+                    </td>
+                    </tr>
+                        <!--[if (gte mso 9)|(IE)]>
+							</table>
+            </td></tr>
+            <![endif]-->
+            </tbody></table>
+
+
+        </td>
+        </tr>
+</tbody></table>=20
+            </td></tr>
+          =20
+
+<tr>
+<td style=3D"border-collapse:collapse">
+                <table width=3D"100%" align=3D"center" cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" style=3D"-premailer-cellpadding:0; -premailer-=
+cellspacing:0; border-collapse:collapse; font-family:Arial, sans-serif; fon=
+t-weight:normal; margin:0 auto; max-width:600px; mso-table-lspace:0; mso-ta=
+ble-rspace:0; width:100%">=20
+                                   =20
+                   <tr>
+                     <td class=3D"footer_wrapper_td" style=3D"border-collap=
+se:collapse; color:#757575; font-family:Roboto, arial; font-size:12px; line=
+-height:16px; padding:36px 40px 0 40px; text-align:center; " align=3D"cente=
+r">=20
+                       <img src=3D"http://services.google.com/fh/files/emai=
+ls/gcp_newsletter_email_cloud_footer_logo_new.png" alt=3D"Google" width=3D"=
+77" style=3D"-ms-interpolation-mode:bicubic; outline:none; text-decoration:=
+none">
+                      </td>
+                    </tr>
+                   <tr>
+                     <td class=3D"footer_wrapper_td" style=3D"border-collap=
+se:collapse; color:#757575; font-family:Roboto, arial; font-size:12px; line=
+-height:16px; padding:27px 40px 20px 40px; padding-top:10px; text-align:cen=
+ter; word-break: break-word;" align=3D"center">=20
+                            =C2=A9 2018 Google LLC 1600 Amphitheatre Parkwa=
+y, Mountain View, CA 94043
+                            <br/>
+                            <br/>=20
+                            This email was sent to mark.nichols@gmail.com b=
+ecause you signed up for a Google Cloud Platform free trial.
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class=3D"social_icons_container flexible" style=
+=3D"border-collapse:collapse; padding:15px 0 22px 0; width:100%" width=3D"1=
+00%">=20
+                        <table class=3D"social_icons_container_inner" cells=
+pacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"274" align=3D"center" =
+style=3D"-premailer-cellpadding:0; -premailer-cellspacing:0; border-collaps=
+e:collapse; font-family:Arial, sans-serif; font-weight:normal; margin:0 aut=
+o; mso-table-lspace:0; mso-table-rspace:0">=20
+                          <tr>
+                            <td width=3D"33" class=3D"social_icons_containe=
+r_inner" style=3D"border-collapse:collapse; margin:0 auto"><a target=3D'_bl=
+ank' href=3D"https://www.google.com/appserve/mkt/p/AFOm0uHdX7ffJXAhiWg0O5oB=
+LPQn5ygTZDR5w2UPD4TDskMRb9j4XC674WexP_A6MBHwb--RsKJuR8u2ve61VIhGOL9KMB4ezHo=
+0j5rcuNOf" target=3D"_blank"><img src=3D"http://services.google.com/fh/file=
+s/emails/gcp_newsletter_email_gplus_new.png" alt=3D"G+" width=3D"33" style=
+=3D"-ms-interpolation-mode:bicubic; border:none; outline:none; text-decorat=
+ion:none"></a></td>
+                             <td width=3D"16" style=3D"border-collapse:coll=
+apse">&nbsp; &nbsp;</td>
+                            <td width=3D"33" class=3D"social_icons_containe=
+r_inner" style=3D"border-collapse:collapse; margin:0 auto"><a target=3D'_bl=
+ank' href=3D"https://www.google.com/appserve/mkt/p/AFOm0uFt-m22r61OKIYsO-Ju=
+osu7YICH_WEjTx6z6i31LB6rSS9m_mCfhyzVGhLQb74JQ1JFvCkHnfPtrxoP7WrSvZLf1Sd77Kf=
+kLtrQTH8b4omyjg" target=3D"_blank"><img src=3D"http://services.google.com/f=
+h/files/emails/gcp_newsletter_email_blogger_new.png" alt=3D"Blogger" width=
+=3D"33" style=3D"-ms-interpolation-mode:bicubic; border:none; outline:none;=
+ text-decoration:none"></a></td>=20
+                             <td width=3D"16" style=3D"border-collapse:coll=
+apse">&nbsp; &nbsp;</td>
+                            <td width=3D"33" class=3D"social_icons_containe=
+r_inner" style=3D"border-collapse:collapse; margin:0 auto"><a target=3D'_bl=
+ank' href=3D"https://www.google.com/appserve/mkt/p/AFOm0uFv3Rnopef8cVgMzqaX=
+Of2zDKbh7U3SU0FNUeUc3K_RUZdAvkze8ZG18xFYFEdlfSyueUG9GuucjaunthZyBfVpcKBsXkg=
+8-w5rIxYv1V8j" target=3D"_blank"><img src=3D"https://services.google.com/fh=
+/files/emails/gcp_newsletter_email_github_new.png" alt=3D"GitHub" width=3D"=
+33" style=3D"-ms-interpolation-mode:bicubic; border:none; outline:none; tex=
+t-decoration:none"></a></td>
+                             <td width=3D"16" style=3D"border-collapse:coll=
+apse">&nbsp; &nbsp;</td>
+                            <td width=3D"33" class=3D"social_icons_containe=
+r_inner" style=3D"border-collapse:collapse; margin:0 auto"><a target=3D'_bl=
+ank' href=3D"https://www.google.com/appserve/mkt/p/AFOm0uEztyYTwoCzJaL6q-Hw=
+vTh5nPTAFQ4elqJhn7BXyTHVmhAwapvMEs8eFEJgxyaFtYj9TDDgAJclejTIErSJ8wwmcQISfrF=
+C6XZnW3FtZUFc08m3LoEC4CbA" target=3D"_blank"><img src=3D"http://services.go=
+ogle.com/fh/files/emails/gcp_newsletter_email_linkedin_new.png" alt=3D"Link=
+edIn" width=3D"33" style=3D"-ms-interpolation-mode:bicubic; border:none; ou=
+tline:none; text-decoration:none"></a></td>
+                             <td width=3D"16" style=3D"border-collapse:coll=
+apse">&nbsp; &nbsp;</td>
+                             <td width=3D"33" class=3D"social_icons_contain=
+er_inner" style=3D"border-collapse:collapse; margin:0 auto"><a target=3D'_b=
+lank' href=3D"https://www.google.com/appserve/mkt/p/AFOm0uEVCcyRK1fFovchI4a=
+KKCVmKbrYn-Ddm809O3MqXjZWNiuvDcMS9Ba7ThR_c7tnLKS2vSmkazXm5MqzDUZrwfrOpe2ykw=
+oEgjzb" target=3D"_blank"><img src=3D"http://services.google.com/fh/files/e=
+mails/gcp_newsletter_email_twitter_new.png" alt=3D"Twitter" width=3D"33" st=
+yle=3D"-ms-interpolation-mode:bicubic; border:none; outline:none; text-deco=
+ration:none"></a></td>
+							 <td width=3D"16" style=3D"border-collapse:collapse">&nbsp; &nbsp;</=
+td>
+							 <td width=3D"33" class=3D"social_icons_container_inner" style=3D"bo=
+rder-collapse:collapse; margin:0 auto"><a target=3D'_blank' href=3D"https:/=
+/www.google.com/appserve/mkt/p/AFOm0uGccnXT-Gb2dD6NZvoput3nvEicPh_0vJLwQiuB=
+XsxxjypSxYpPC7zrHmrLOHl5cFaLzGih6ghPtFfSUaTIlBqKIMncqviSLS2m5kRjV2148Q" tar=
+get=3D"_blank"><img src=3D"http://services.google.com/fh/files/emails/gcp_f=
+acebook_icon.png" alt=3D"Facebook" width=3D"32" style=3D"-ms-interpolation-=
+mode:bicubic; border:none; outline:none; text-decoration:none"></a></td>
+                          =20
+                          </tr>
+                        </table>
+                       </td>
+                    </tr>
+                </table>
+         </td> </tr>
+
+
+
+
+         </table>
+       </td></tr>
+      </table> =20
+
+   =20
+<div itemprop=3D"action" itemscope itemtype=3D"http://schema.org/ViewAction=
+">
+        <link itemprop=3D"url" href=3D"https://www.google.com/appserve/mkt/=
+p/AFOm0uFMKPTwVL6p25eMxdaz4FDf-kWXnuiQfjXrP6ZhsBoRgu8B-asfG17htb39xoZ-AIAf4=
+7kYExvs7QBHAGVkg-D2sAOu3Gx7BFrNanRQEtyHaKYR7Qvy_jluSvWeRrBxI0C9kPtW_pig_hfq=
+dz4fVdHz2eXg3EP6uu7COHZ2JmYiPIStiJ06Imsu-tJAv_Jefv4CY1bhoib9dv5cOE3nA477aTZ=
+TZOYKKV-N">
+        <meta itemprop=3D"name" content=3D"Go to my console">
+     </div>
+       <meta itemprop=3D"description" content=3D"Go to my console">
+</div>
+   </body>
+</html> 
+--94eb2c0b9a14ed031f056402f874--

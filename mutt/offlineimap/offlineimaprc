@@ -1,0 +1,116 @@
+# vim: ft=rc:
+
+[general]
+# ui = ttyui
+# ui = quiet
+# ui = blinkenlights
+ui = basic
+# accounts = mark,root,codeprole,marknichols
+accounts = mark
+pythonfile = ~/.mutt/offlineimap.py
+
+
+[Account mark]
+localrepository = mark-Local
+remoterepository = mark-Remote
+
+[Repository mark-Local]
+type = Maildir
+localfolders = ~/.mail/mark
+
+[Repository mark-Remote]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 3
+type = IMAP
+remoteuser = mark_zanshin
+remotehost = mail.webfaction.com
+remoteport = 993
+ssl = yes
+# remotepasseval = mailpassword("mark")
+remotepasseval = "huby-ko-mark-ze-spaj"
+realdelete = no
+
+[Account root]
+localrepository = root-Local
+remoterepository = root-Remote
+
+[Repository root-Local]
+type = Maildir
+localfolders = ~/.mail/root
+
+[Repository root-Remote]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 3
+type = IMAP
+remoteuser = root_zanshin
+remotehost = mail.webfaction.com
+remoteport = 993
+ssl = yes
+remotepasseval = mailpassword("root")
+realdelete = no
+
+[Account marknichols]
+localrepository = marknichols-Local
+remoterepository = marknichols-Remote
+# status_backend = sqlite
+
+[Repository marknichols-Local]
+type = Maildir
+localfolders = ~/.mail/marknichols
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                           }.get(folder, folder)
+
+[Repository marknichols-Remote]
+maxconnections = 1
+type = Gmail
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteuser = mark.nichols@gmail.com
+remotepasseval = mailpassword("mark.nichols")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
+
+[Account codeprole]
+localrepository = codeprole-Local
+remoterepository = codeprole-Remote
+# status_backend = sqlite
+
+[Repository codeprole-Local]
+type = Maildir
+localfolders = ~/.mail/codeprole
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                           }.get(folder, folder)
+
+[Repository codeprole-Remote]
+maxconnections = 1
+type = Gmail
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteuser = code.prole@gmail.com
+remotepasseval = mailpassword("codeprole")
+realdelete = no
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                           }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]

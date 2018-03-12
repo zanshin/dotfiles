@@ -1,0 +1,1760 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp8976873qtm;
+        Fri, 2 Mar 2018 06:24:15 -0800 (PST)
+X-Google-Smtp-Source: AG47ELt8dGIJUNwClf5WGz1KG1n+cE/dEIn7wLRZW/JO+s/lNH2rt0PiFXzEBcH89cmfgRKlDhrt
+X-Received: by 10.13.208.2 with SMTP id s2mr3737904ywd.119.1520000655698;
+        Fri, 02 Mar 2018 06:24:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1520000655; cv=none;
+        d=google.com; s=arc-20160816;
+        b=sffuyGeGShO3XqINhnK0QAgq+E8hyGU5449DDgJpt9eJIvZ36WgaPW5NM6W4ru/QCI
+         HPfcRkZiwq/JK9GmGrzAhdGO6hJ0KGYQRW70Zd6GSK3VDhXEbqaF7p7SvOYtesCNop+o
+         Tt1q15PRsSXkXLDStzvxVy8I9e1G3P+nB4+Bzek/VLFas7rhHpLcoAq2Hmo+aTqSPGj1
+         YOIHR1GSzm/ixTUcbYb9WZ4Pv7RxDtF954U6vgyq0yh+UzaLuLQJ9WPhEjDfgmRDWHn2
+         NtIU/C6tOXYVEBB1l3KkqvXRMXb5FwUJ07FQDfYjEetBHox8ObWf+1EX/I5RNz3EWKVx
+         biVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:list-id:feedback-id:message-id:date
+         :to:reply-to:from:subject:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=D6MiSrCvDZpCzNYNnSVOGjQTwIGChmIHlCwj0XK9DuI=;
+        b=OVrkdXk1x3bEjDZmJRYjw5S3ujdSpw3DKbJPLs64Od72mCUItkB3Obc6+6HV6WvjWN
+         tJNuJfFUBacnpDeagWMXMo0+9aE0RD9IhpWOm4/O54Hlesmcv1qjOjl5pXtAHjVwpQeh
+         JiwahP8T2i78ME7rwxi+vHm5cqbTn/lgonzilNgOS0kXAxoUAmkAp4XNsdxWNjD7EWBP
+         g+DxBWz90c6CyKR6HMEYZaiIyfaVsKlGfAx9ur9qzSQtlzbEdqwUkEiWhpARwLPxwAj2
+         PoSeSnKgAQDD3qJHwQ3h6xFBlD4EjAmQW6eq2nQagoFx+FWzkQKaprwN5IxaUEvdvgw/
+         Lf+A==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hackernewsletter.com header.s=k1 header.b=y22um3ZK;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=SFuseplG;
+       spf=pass (google.com: domain of bounce-mc.us1_1832689.2559433-code.prole=gmail.com@mail194.sea81.mcsv.net designates 148.105.14.194 as permitted sender) smtp.mailfrom=bounce-mc.us1_1832689.2559433-code.prole=gmail.com@mail194.sea81.mcsv.net
+Return-Path: <bounce-mc.us1_1832689.2559433-code.prole=gmail.com@mail194.sea81.mcsv.net>
+Received: from mail194.sea81.mcsv.net (mail194.sea81.mcsv.net. [148.105.14.194])
+        by mx.google.com with ESMTPS id j69si1082890ywb.578.2018.03.02.06.24.15
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 02 Mar 2018 06:24:15 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us1_1832689.2559433-code.prole=gmail.com@mail194.sea81.mcsv.net designates 148.105.14.194 as permitted sender) client-ip=148.105.14.194;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hackernewsletter.com header.s=k1 header.b=y22um3ZK;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=SFuseplG;
+       spf=pass (google.com: domain of bounce-mc.us1_1832689.2559433-code.prole=gmail.com@mail194.sea81.mcsv.net designates 148.105.14.194 as permitted sender) smtp.mailfrom=bounce-mc.us1_1832689.2559433-code.prole=gmail.com@mail194.sea81.mcsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=hackernewsletter.com;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=kale@hackernewsletter.com;
+ bh=D6MiSrCvDZpCzNYNnSVOGjQTwIGChmIHlCwj0XK9DuI=;
+ b=y22um3ZKEqYiJoblQBjo3Nun4DRAuXZZwfvj9g2Ls23VQhCwGm1nwIb3J5CvG2dlNGdzf7woCYVH
+   qyEghmJfAZQu0L86KwtRH40ZtmmZWiPKn8R+AVgjoT9ZRwWzGCEpk1z2M+r98AQMtFcobTv+11pE
+   xsuQrJ+eIj+4whzEiDI=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=D6MiSrCvDZpCzNYNnSVOGjQTwIGChmIHlCwj0XK9DuI=;
+ b=SFuseplGkyeckN9spjVHWM7W6Jq3UZIKdpR6bWPDUMlHyJTtsOvC/cK0OtadTuc2vuphbzLDWbhG
+   pNsK6wMPnqOwjUQj/mHv/K+jhYXIZJzuMGgJ4Ji1RmBWZahv2r+GWeG4D0Caa1Kj16W2PgDCikGV
+   0fat1RpO2KSC/k7Yq9s=
+Received: from (127.0.0.1) by mail194.sea81.mcsv.net id hj5f8u2ddl4d for <code.prole@gmail.com>; Fri, 2 Mar 2018 14:22:39 +0000 (envelope-from <bounce-mc.us1_1832689.2559433-code.prole=gmail.com@mail194.sea81.mcsv.net>)
+Subject: =?utf-8?Q?Hacker=20Newsletter=20#392?=
+From: =?utf-8?Q?Hacker=20Newsletter?= <kale@hackernewsletter.com>
+Reply-To: =?utf-8?Q?Hacker=20Newsletter?= <kale@hackernewsletter.com>
+To: <code.prole@gmail.com>
+Date: Fri, 2 Mar 2018 14:22:39 +0000
+Message-ID: <faa8eb4ef3a111cef92c4f3d4.76fb7a1a34.20180302142142.7f606bd1d1.9149185d@mail194.sea81.mcsv.net>
+X-Mailer: MailChimp Mailer - **CID7f606bd1d176fb7a1a34**
+X-Campaign: mailchimpfaa8eb4ef3a111cef92c4f3d4.7f606bd1d1
+X-campaignid: mailchimpfaa8eb4ef3a111cef92c4f3d4.7f606bd1d1
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=faa8eb4ef3a111cef92c4f3d4&id=7f606bd1d1&e=76fb7a1a34
+X-MC-User: faa8eb4ef3a111cef92c4f3d4
+Feedback-ID: 1832689:1832689.2559433:us1:mc
+List-ID: faa8eb4ef3a111cef92c4f3d4mc list <faa8eb4ef3a111cef92c4f3d4.583821.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://hackernewsletter.us1.list-manage.com/unsubscribe?u=faa8eb4ef3a111cef92c4f3d4&id=e505c88a2e&e=76fb7a1a34&c=7f606bd1d1>, <mailto:unsubscribe-mc.us1_faa8eb4ef3a111cef92c4f3d4.7f606bd1d1-76fb7a1a34@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_503896485"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_503896485
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+When someone shows you who they are=2C believe them the first time. //Maya=
+ Angelou
+
+
+** hackernewsletter (https://hackernewsletter.us1.list-manage.com/track/cl=
+ick?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D7c63e14bd0&e=3D76fb7a1a34)
+------------------------------------------------------------
+Issue #392 // March 02=2C 2018 // View in your browser (http://mailchi.mp/=
+hackernewsletter/392?e=3D76fb7a1a34)
+
+
+** #Favorites
+------------------------------------------------------------
+------------------------------------------------------------
+
+Datadog - Real-time monitoring and alerting for your entire stack (https:/=
+/hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c=
+4f3d4&id=3D3278c20262&e=3D76fb7a1a34)
+//datadog sponsored
+
+Why I Quit Google to Work for Myself (https://hackernewsletter.us1.list-ma=
+nage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db79dd1dc75&e=3D=
+76fb7a1a34)
+//mtlynch comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/=
+track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De36b78cb5a&e=3D=
+76fb7a1a34)
+
+Machine Learning Crash Course (https://hackernewsletter.us1.list-manage.co=
+m/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db9158b07a8&e=3D=
+76fb7a1a34)
+//google comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/t=
+rack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dc6637c452f&e=3D=
+76fb7a1a34)
+
+Growing a company that sells miniature construction supplies to $17k a mon=
+th (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef=
+3a111cef92c4f3d4&id=3Dbd0d9a315e&e=3D76fb7a1a34)
+//starterstory comments=E2=86=92 (https://hackernewsletter.us1.list-manage=
+=2Ecom/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D205c596255&e=3D=
+76fb7a1a34)
+
+Pricing low-touch SaaS (https://hackernewsletter.us1.list-manage.com/track=
+/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De629419188&e=3D76fb7a1a34)
+//stripe comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/t=
+rack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D9b3c1e90a9&e=3D=
+76fb7a1a34)
+
+How GDPR Will Change The Way You Develop (https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D269dc7601b&e=
+=3D76fb7a1a34)
+//smashingmagazine comments=E2=86=92 (https://hackernewsletter.us1.list-ma=
+nage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D960588a637&e=3D=
+76fb7a1a34)
+
+Lost Art of Bending Over: How Other Cultures Spare Their Spines (https://h=
+ackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f=
+3d4&id=3D39e38c723c&e=3D76fb7a1a34)
+//npr comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/trac=
+k/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D87628fd307&e=3D76fb7a1a34=
+)
+
+Spotify Form F-1 (https://hackernewsletter.us1.list-manage.com/track/click=
+?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D653a11524d&e=3D76fb7a1a34)
+//sec comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/trac=
+k/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db6b9a0194f&e=3D76fb7a1a34=
+)
+
+An intro to Pen Plotters (https://hackernewsletter.us1.list-manage.com/tra=
+ck/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D014067238d&e=3D=
+76fb7a1a34)
+//tobiastoft comments=E2=86=92 (https://hackernewsletter.us1.list-manage.c=
+om/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D3fcc21d84e&e=3D=
+76fb7a1a34)
+
+AMP: the missing controversy (https://hackernewsletter.us1.list-manage.com=
+/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De63c7b40e2&e=3D=
+76fb7a1a34)
+//ferdychristant comments=E2=86=92 (https://hackernewsletter.us1.list-mana=
+ge.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D25c94ad398&e=3D=
+76fb7a1a34)
+
+In-Space Manufacturing Is About to Get a Big Test (https://hackernewslette=
+r.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db194e=
+2eee9&e=3D76fb7a1a34)
+//space comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/tr=
+ack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D0001e98335&e=3D=
+76fb7a1a34)
+
+Hacker News's Undocumented Features and Behaviors (https://hackernewslette=
+r.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6b1c0=
+3b518&e=3D76fb7a1a34)
+//github comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/t=
+rack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D06212ed6d0&e=3D=
+76fb7a1a34)
+
+
+** #Ask HN
+------------------------------------------------------------
+------------------------------------------------------------
+
+Successful one-person online businesses? (https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D83ca1f986d&e=
+=3D76fb7a1a34)
+
+How do you overcome the problems of task switching? (https://hackernewslet=
+ter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D995=
+c743349&e=3D76fb7a1a34)
+
+How do you teach you kids about computers and coding? (https://hackernewsl=
+etter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dc=
+af974d69f&e=3D76fb7a1a34)
+
+I'm writing a book about white-collar drug use=2C including tech sector (h=
+ttps://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111=
+cef92c4f3d4&id=3D1d7835217c&e=3D76fb7a1a34)
+
+
+** #Show HN
+------------------------------------------------------------
+------------------------------------------------------------
+
+Six Degrees of Wikipedia (https://hackernewsletter.us1.list-manage.com/tra=
+ck/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd212980f8b&e=3D=
+76fb7a1a34) //sixdegreesofwikipedia comments=E2=86=92 (https://hackernewsletter.us1=
+=2Elist-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D188e24a206=
+&e=3D76fb7a1a34)
+
+Buy Me A Coffee =E2=80=93 A free=2C fast and friendly way to receive donat=
+ions (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4=
+ef3a111cef92c4f3d4&id=3D275df6cd6f&e=3D76fb7a1a34) //buymeacoffee co=
+mments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track/click?=
+u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6493b4289f&e=3D76fb7a1a34)
+
+Graphite =E2=80=93 A decentralized and encrypted Google Docs alternative (=
+https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a11=
+1cef92c4f3d4&id=3Dec92829e22&e=3D76fb7a1a34) //graphitedocs comments=
+=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfa=
+a8eb4ef3a111cef92c4f3d4&id=3D1d52d0a5dd&e=3D76fb7a1a34)
+
+Slack client for the terminal (https://hackernewsletter.us1.list-manage.co=
+m/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D10b75c3ce9&e=3D=
+76fb7a1a34) //github comments=E2=86=92 (https://hackernewsletter.us1.list-mana=
+ge.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D2e0b605d16&e=3D=
+76fb7a1a34)
+
+Jumprock.co =E2=80=93 HTML Forms for Static Sites (https://hackernewslette=
+r.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dbe0e1=
+fb922&e=3D76fb7a1a34) //jumprock comments=E2=86=92 (https://hackerne=
+wsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=
+=3D14de5297b4&e=3D76fb7a1a34)
+
+Web Scraping in Google Sheets (https://hackernewsletter.us1.list-manage.co=
+m/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Df7604a9e88&e=3D=
+76fb7a1a34) //link comments=E2=86=92 (https://hackernewsletter.us1.list-manage=
+=2Ecom/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D21e36c5e2e&e=3D=
+76fb7a1a34)
+
+Shiori =E2=80=93 Simple self hosted bookmarks manager (https://hackernewsl=
+etter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Df=
+6865d101e&e=3D76fb7a1a34) //github comments=E2=86=92 (https://hacker=
+newsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&i=
+d=3D0c6862c3fd&e=3D76fb7a1a34)
+
+Wagtail 2.0 is a big release for our Python CMS (https://hackernewsletter.=
+us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D0f5e53f=
+fc7&e=3D76fb7a1a34) //wagtail comments=E2=86=92 (https://hackernewsl=
+etter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De=
+209d7eb72&e=3D76fb7a1a34)
+
+AppGrid=2C macOS window manager with Vim=E2=80=93like hotkeys (https://hac=
+kernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d=
+4&id=3D09a0e70572&e=3D76fb7a1a34) //github comments=E2=86=92 (https:=
+//hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92=
+c4f3d4&id=3Dfe8b9eb217&e=3D76fb7a1a34)
+
+
+** #Classics
+------------------------------------------------------------
+------------------------------------------------------------
+
+Why is it hard to make friends over 30? (https://hackernewsletter.us1.list=
+-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db32f534973&e=3D=
+76fb7a1a34) //nytimes comments=E2=86=92 (https://hackernewsletter.us=
+1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D8000e0fe2=
+f&e=3D76fb7a1a34)
+
+Keep your Identity Small (https://hackernewsletter.us1.list-manage.com/tra=
+ck/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6c9f675893&e=3D=
+76fb7a1a34) //paulgraham comments=E2=86=92 (https://hackernewsletter.us1.list-manag=
+e.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D1315135923&e=3D=
+76fb7a1a34)
+
+
+** #Code
+------------------------------------------------------------
+------------------------------------------------------------
+
+How I Learned to Stop Worrying and Love the State Machine (https://hackern=
+ewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=
+=3D78e4de320a&e=3D76fb7a1a34) //raganwald comments=E2=86=92 (https:/=
+/hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c=
+4f3d4&id=3Da77e1d3bb1&e=3D76fb7a1a34)
+
+The Lost Art of the Makefile (https://hackernewsletter.us1.list-manage.com=
+/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De2b9765d2c&e=3D=
+76fb7a1a34) //olioapps comments=E2=86=92 (https://hackernewsletter.us1.list-man=
+age.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D8e30cddf13&e=3D=
+76fb7a1a34)
+
+Requests-HTML: HTML Parsing for Humans (https://hackernewsletter.us1.list-=
+manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D3b265387a8&e=3D=
+76fb7a1a34) //github comments=E2=86=92 (https://hackernewsletter.us1.=
+list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D8431e3b86a&=
+e=3D76fb7a1a34)
+
+Web application from scratch=2C part I (https://hackernewsletter.us1.list-=
+manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da1f100ef12&e=3D=
+76fb7a1a34) //defn comments=E2=86=92 (https://hackernewsletter.us1.li=
+st-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D5e067dd07e&e=
+=3D76fb7a1a34)
+
+Announcing Dart 2: Optimized for Client-Side Development (https://hackerne=
+wsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=
+=3Dd6789a1eef&e=3D76fb7a1a34) //medium comments=E2=86=92 (https://ha=
+ckernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3=
+d4&id=3D9a62300452&e=3D76fb7a1a34)
+
+
+** #Data
+------------------------------------------------------------
+------------------------------------------------------------
+
+NumPy Exercises for Data Analysis in Python (https://hackernewsletter.us1.=
+list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db53e39eff7&=
+e=3D76fb7a1a34) //machinelearningplus comments=E2=86=92 (https://hac=
+kernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d=
+4&id=3D3c875a74e5&e=3D76fb7a1a34)
+
+Propel =E2=80=93 Machine learning for Javascript (https://hackernewsletter=
+=2Eus1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D5f7676=
+3026&e=3D76fb7a1a34) //propelml comments=E2=86=92 (https://hackernew=
+sletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=
+=3D3e0ddf89e9&e=3D76fb7a1a34)
+
+NLP concepts with spaCy tutorial (https://hackernewsletter.us1.list-manage=
+=2Ecom/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D65390b0d72&e=3D=
+76fb7a1a34) //github comments=E2=86=92 (https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da1d0654ca3&e=3D=
+76fb7a1a34)
+
+A promenade of PyTorch (https://hackernewsletter.us1.list-manage.com/track=
+/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D1611ecbec5&e=3D76fb7a1a34)=
+ //goldsborough comments=E2=86=92 (https://hackernewsletter.us1.list-manag=
+e.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D5ef20f3f52&e=3D=
+76fb7a1a34)
+
+Learning by playing (https://hackernewsletter.us1.list-manage.com/track/cl=
+ick?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd9e428182f&e=3D76fb7a1a34) //=
+deepmind comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/t=
+rack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da096d8cbbe&e=3D=
+76fb7a1a34)
+
+Stanford=2C USC=2C Duke study shows AI can read contracts better than lawy=
+ers (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4e=
+f3a111cef92c4f3d4&id=3D9ce309fe12&e=3D76fb7a1a34) //mashable comment=
+s=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track/click?u=3Df=
+aa8eb4ef3a111cef92c4f3d4&id=3Db0b241b074&e=3D76fb7a1a34)
+
+
+** #Design
+------------------------------------------------------------
+------------------------------------------------------------
+
+Collection of Useful CSS Snippets (https://hackernewsletter.us1.list-manag=
+e.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D127d89e41b&e=3D=
+76fb7a1a34) //github comments=E2=86=92 (https://hackernewsletter.us1.list-=
+manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D11c6b0ad62&e=3D=
+76fb7a1a34)
+
+Tiny Art in Less Than 280 Characters (https://hackernewsletter.us1.list-ma=
+nage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D21ca5c6ef5&e=3D=
+76fb7a1a34) //fronkonstin comments=E2=86=92 (https://hackernewsletter.u=
+s1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D596fbe95=
+7e&e=3D76fb7a1a34)
+
+
+** #Learn
+------------------------------------------------------------
+------------------------------------------------------------
+
+There's a Persistent Hum in Windsor=2C Ontario=2C and No One Knows Why (ht=
+tps://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111c=
+ef92c4f3d4&id=3D8fe401ef58&e=3D76fb7a1a34) //nytimes comments=E2=86=
+=92 (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4e=
+f3a111cef92c4f3d4&id=3Dcfbabe6519&e=3D76fb7a1a34)
+
+A Simple Algorithm That Ants Use to Build Bridges (https://hackernewslette=
+r.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da0150=
+fca0d&e=3D76fb7a1a34) //quantamagazine comments=E2=86=92 (https://ha=
+ckernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3=
+d4&id=3D102168cbec&e=3D76fb7a1a34)
+
+I Built a Stable Planetary System with 416 Planets in the Habitable Zone (=
+https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a11=
+1cef92c4f3d4&id=3Dd922f6a424&e=3D76fb7a1a34) //nautil comments=E2=86=
+=92 (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4e=
+f3a111cef92c4f3d4&id=3D4a18e4e164&e=3D76fb7a1a34)
+
+Heisenbug (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfa=
+a8eb4ef3a111cef92c4f3d4&id=3Dab5e45e799&e=3D76fb7a1a34) //wikipedia=
+ comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track/cli=
+ck?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D7717da61c2&e=3D76fb7a1a34)
+
+Jevons Paradox (https://hackernewsletter.us1.list-manage.com/track/click?u=
+=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dad9640cf07&e=3D76fb7a1a34) //wikip=
+edia comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track=
+/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D636bcb09c1&e=3D76fb7a1a34)
+
+Ian Knot (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa=
+8eb4ef3a111cef92c4f3d4&id=3Def496b56b8&e=3D76fb7a1a34) //fieggen com=
+ments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track/click?u=
+=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6176da3ad6&e=3D76fb7a1a34)
+
+
+** #Watching
+------------------------------------------------------------
+------------------------------------------------------------
+
+Peace for Triple Piano (https://hackernewsletter.us1.list-manage.com/track=
+/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D8d91d698f8&e=3D76fb7a1a34)=
+ //vihart comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/=
+track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D4b04d5642a&e=3D=
+76fb7a1a34)
+
+Sneak Peek: Beyond React 16 (https://hackernewsletter.us1.list-manage.com/=
+track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D683cfb879b&e=3D=
+76fb7a1a34) //reactjs comments=E2=86=92 (https://hackernewsletter.us1.list-manag=
+e.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D4253dd7cc5&e=3D=
+76fb7a1a34)
+
+The History of .NET (https://hackernewsletter.us1.list-manage.com/track/cl=
+ick?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db423c65885&e=3D76fb7a1a34) //=
+vimeo comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/trac=
+k/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dbd87abbc7a&e=3D76fb7a1a34=
+)
+
+Traveling to all the railway stations in Great Britain (https://hackernews=
+letter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D=
+d924006a58&e=3D76fb7a1a34) //allthestations comments=E2=86=92 (https=
+://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef9=
+2c4f3d4&id=3D7d0e42ce24&e=3D76fb7a1a34)
+
+
+** #Working
+------------------------------------------------------------
+------------------------------------------------------------
+
+Ask HN: Who is hiring? (https://hackernewsletter.us1.list-manage.com/track=
+/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D31f6af1135&e=3D76fb7a1a34)=
+ //ycombinator
+
+Facebook rolls out job posts to become the blue-collar LinkedIn (https://h=
+ackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f=
+3d4&id=3Dd8fec7a9c0&e=3D76fb7a1a34) //techcrunch comments=E2=86=92 (=
+https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a11=
+1cef92c4f3d4&id=3D615930bcd2&e=3D76fb7a1a34)
+
+Let=E2=80=99s have no managers=2C instead of managers with no engineering=
+ experience (https://hackernewsletter.us1.list-manage.com/track/click?u=3D=
+faa8eb4ef3a111cef92c4f3d4&id=3D1ac519d12b&e=3D76fb7a1a34) //medium c=
+omments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track/click=
+?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De7b6d028ba&e=3D76fb7a1a34)
+
+What to care about in a job (https://hackernewsletter.us1.list-manage.com/=
+track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D0f62339f3a&e=3D=
+76fb7a1a34) //benkuhn comments=E2=86=92 (https://hackernewsletter.us1.list-manag=
+e.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D174151f141&e=3D=
+76fb7a1a34)
+
+Ask HN: Resumes that look good but professional too (https://hackernewslet=
+ter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De1a=
+010a5fd&e=3D76fb7a1a34) //ycombinator
+
+Ask HN: Who wants to be hired? (https://hackernewsletter.us1.list-manage.c=
+om/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd4af4a375d&e=3D=
+76fb7a1a34) //ycombinator
+
+Ask HN: Freelancer? Seeking freelancer? (https://hackernewsletter.us1.list=
+-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dafa8f03cc3&e=3D=
+76fb7a1a34) //ycombinator
+
+
+** #Longreads
+------------------------------------------------------------
+------------------------------------------------------------
+
+Worst Roommate Ever (https://hackernewsletter.us1.list-manage.com/track/cl=
+ick?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Df1d6aa924f&e=3D76fb7a1a34) //=
+nymag comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/trac=
+k/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Ddc329c2d35&e=3D76fb7a1a34=
+)
+
+Malta: an island of secrets and lies (https://hackernewsletter.us1.list-ma=
+nage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D52ca7a5667&e=3D=
+76fb7a1a34) //newstatesman comments=E2=86=92 (https://hackernewsletter.=
+us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd394c64=
+b05&e=3D76fb7a1a34)
+
+The dangerous downsides of perfectionism (https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D5869bdb1d3&e=
+=3D76fb7a1a34) //bbc comments=E2=86=92 (https://hackernewsletter.us1=
+=2Elist-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D76fd7f96ee=
+&e=3D76fb7a1a34)
+
+
+** #Fun
+------------------------------------------------------------
+------------------------------------------------------------
+
+Arduino OpenCat (https://hackernewsletter.us1.list-manage.com/track/click?=
+u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D448ba5c144&e=3D76fb7a1a34) //ardu=
+ino comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/track/=
+click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D69f4aa4253&e=3D76fb7a1a34)
+
+Planet Shadertoy (https://hackernewsletter.us1.list-manage.com/track/click=
+?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dc35d9d6ca3&e=3D76fb7a1a34) //sha=
+dertoy comments=E2=86=92 (https://hackernewsletter.us1.list-manage.com/tra=
+ck/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D91d8f739e5&e=3D=
+76fb7a1a34)
+
+QuickBASIC Lives on with QB64 (https://hackernewsletter.us1.list-manage.co=
+m/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Ddc9887682b&e=3D=
+76fb7a1a34) //hackaday comments=E2=86=92 (https://hackernewsletter.us1.list-ma=
+nage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De66cf4b2ad&e=3D=
+76fb7a1a34)
+
+Tinkering with electronics (https://hackernewsletter.us1.list-manage.com/t=
+rack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D33820946be&e=3D=
+76fb7a1a34) //thanassis comments=E2=86=92 (https://hackernewsletter.us1.list-mana=
+ge.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D92e4846601&e=3D=
+76fb7a1a34)
+__END__
+
+You're among 55=2C769 others who received this email because you wanted a=
+ weekly recap of the best articles from Hacker News. Published by Curpress=
+ (https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a=
+111cef92c4f3d4&id=3Db6294ddf70&e=3D76fb7a1a34) from a smallish metal=
+ box at PO BOX 2621 Decatur=2C Georgia 30031. Hacker Newsletter is not aff=
+iliated with Y Combinator in any way.
+
+You can update your email (https://hackernewsletter.us1.list-manage.com/pr=
+ofile?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De505c88a2e&e=3D76fb7a1a34) or unsub=
+scribe (https://hackernewsletter.us1.list-manage.com/unsubscribe?u=3Dfaa8e=
+b4ef3a111cef92c4f3d4&id=3De505c88a2e&e=3D76fb7a1a34&c=3D7f606bd1d1) .
+
+Not a subscriber? Subscribe at https://hackernewsletter.us1.list-manage.co=
+m/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6510f8b2cb&e=3D=
+76fb7a1a34.
+
+Email Marketing Powered by MailChimp
+http://www.mailchimp.com/monkey-rewards/?utm_source=3Dfreemium_newsletter&=
+utm_medium=3Demail&utm_campaign=3Dmonkey_rewards&aid=3Dfaa8eb4ef3a111cef92=
+c4f3d4&afl=3D1
+--_----------=_MCPart_503896485
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head><meta name=3D"twitter:image:src" content=3D"https://gallery.mailchim=
+p.com/faa8eb4ef3a111cef92c4f3d4/images/9d6a9334-af30-482f-a4e3-a6e52121c84=
+2.png"><meta name=3D"twitter:description" content=3D"A weekly newsletter o=
+f the best articles on startups=2C technology=2C programming=2C and more.=
+ All links are curated by hand from Hacker News."><meta name=3D"twitter:ti=
+tle" content=3D"Hacker Newsletter #392"><meta name=3D"twitter:card" conten=
+t=3D"summary_large_image"><meta property=3D"og:type" content=3D"article"><=
+meta property=3D"og:description" content=3D"A weekly newsletter of the bes=
+t articles on startups=2C technology=2C programming=2C and more. All links=
+ are curated by hand from Hacker News."><meta property=3D"og:image" conten=
+t=3D"https://gallery.mailchimp.com/faa8eb4ef3a111cef92c4f3d4/images/9d6a93=
+34-af30-482f-a4e3-a6e52121c842.png"><meta property=3D"og:title" content=3D=
+"Hacker Newsletter #392"><meta property=3D"og:url" content=3D"http://eepur=
+l.com/dmC3w5">
+  <title>Hacker Newsletter #392</title>
+  <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"=
+>
+  <meta name=3D"viewport" id=3D"viewport" content=3D"width=3Ddevice-width=
+=2Cminimum-scale=3D1.0=2Cmaximum-scale=3D10.0=2Cinitial-scale=3D1.0">
+  <meta name=3D"viewport" id=3D"viewport-iphone5" content=3D"initial-scale=
+=3D1.0=2Cuser-scalable=3Dno=2Cmaximum-scale=3D1" media=3D"(device-height:=
+ 568px)">
+  <style type=3D"text/css">
+    body { background: #FFF; }
+    body=2C h1=2C h2=2C h3=2C p=2C table=2C tr=2C td {
+      color: #333;
+      font-family: ubuntu=2C Helvetica=2C "Lucida Grande"=2C Arial=2C sans=
+-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .main=2C table { background-color: #FFFFFF; }
+    a { color: #1786C1; text-decoration: underline; }
+    a:hover { text-decoration: none; }
+    h1 {
+      font-size: 35px;
+      margin-bottom: 5px;
+      padding-top: 10px;
+      width: 100%;
+    }
+    h1 a { color: #333; text-decoration: none; }
+    h1 a:hover { color: #666; text-decoration: underline; }
+    h2 {
+      color: #cc0000;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+    h3 {
+      border-bottom: 1px solid #333;
+      border-top: 3px solid #333;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 22px;
+      margin: 20px 0;
+      padding: 20px 0;
+    }
+    p {
+      color: #333;
+      font-size: 16px;
+      line-height: 24px;
+      width: 500px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 22px;
+      margin: 0 0 10px 0;
+      width: 100%;
+    }
+    table=2C .main=2C #header=2C #footer { max-width: 600px; width: 100%;=
+ }
+    #header { margin-bottom: 20px; }
+    #issue {
+      color: #333;
+      font-family: ubuntu=2C Helvetica=2C "Lucida Grande"=2C Arial=2C sans=
+-serif;
+      font-size: 12px;
+      text-align: right;
+    }
+    #issue i { color: #999; font-style: normal; }
+
+    @media only screen and (max-device-width: 480px) {
+      table=2C #header=2C #content=2C #footer { padding: 0 20px !important=
+; }
+      h1 { font-size: 30px !important; }
+    }
+
+    @media only screen and (max-device-width: 679px)=2C only screen and (m=
+ax-width: 679px) {
+      .main { margin: 20px auto; width: 100%; }
+      table=2C #header=2C #content=2C #footer { padding: 0 30px; width: 10=
+0%; }
+
+      #details { padding-right: 10px; }
+    }
+
+    @media only screen and (min-width: 680px) {
+      body { background: #999 url('http://hackernewsletter.com/images/debu=
+t_dark.png') 0 0 fixed repeat !important; }
+      #details { width: 496px; }
+      .main=2C table=2C #header=2C #content=2C #footer { background: #FFF=
+ url('') 0 0 repeat; width: 600px; }
+
+      .main {
+                box-shadow: 0 0 12px rgba(0=2C 0=2C 0=2C .6);
+           -moz-box-shadow: 0 0 12px rgba(0=2C 0=2C 0=2C .6);
+        -webkit-box-shadow: 0 0 12px rgba(0=2C 0=2C 0=2C .6);
+        margin: 10px auto 40px;
+        padding: 30px 40px 10px;
+      }
+    }
+  </style>
+</head>
+<body style=3D"-webkit-text-size-adjust: none;width: 100% !important;backg=
+round-color: #FFF;background-image: none;background-repeat: repeat;backgro=
+und-position: top left;background-attachment: scroll;color: #333;font-fami=
+ly: ubuntu=2C Helvetica=2C 'Lucida Grande'=2C Arial=2C sans-serif;margin-t=
+op: 0;margin-bottom: 0;margin-right: 0;margin-left: 0;padding-top: 0;paddi=
+ng-bottom: 0;padding-right: 0;padding-left: 0;background: #FFF;margin: 0;p=
+adding: 0;"><div itemscope=3D"" itemtype=3D"http://schema.org/EmailMessage=
+"><div itemprop=3D"publisher" itemscope=3D"" itemtype=3D"http://schema.org=
+/Organization"><meta itemprop=3D"name" content=3D"Hacker Newsletter"><link=
+ itemprop=3D"url" content=3D"http://www.hackernewsletter.com"></div><div i=
+temprop=3D"about" itemscope=3D"" itemtype=3D"http://schema.org/Offer"><lin=
+k itemprop=3D"image" href=3D"https://gallery.mailchimp.com/faa8eb4ef3a111c=
+ef92c4f3d4/images/9d6a9334-af30-482f-a4e3-a6e52121c842.png"></div></div>
+  <div class=3D"main" style=3D"background-color:#FFFFFF;max-width:600px;wi=
+dth:100%;">
+
+    <table id=3D"header" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C &quot;Lucida Gra=
+nde&quot;=2C Arial=2C sans-serif;margin: 0;padding: 0;background-color: #F=
+FFFFF;max-width: 600px;width: 100%;margin-bottom: 20px;">
+      <tr style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C &quot;L=
+ucida Grande&quot;=2C Arial=2C sans-serif;margin: 0;padding: 0;">
+        <td style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C &quot=
+;Lucida Grande&quot;=2C Arial=2C sans-serif;margin: 0;padding: 0;">
+          <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Grande'=
+=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-right: 0;mar=
+gin-left: 0;padding-top: 0;padding-right: 0;padding-left: 0;color: #7B7B7B=
+;font-size: 12px;font-weight: normal;line-height: 22px;padding-bottom: 20p=
+x;margin: 0 0 10px 0;padding: 0;width: 100%;">
+            When someone shows you who they are=2C believe them the first=
+ time. //Maya Angelou
+          </p>
+        </td>
+      </tr>
+    </table>
+
+    <table id=3D"content" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Lucida Grande'=
+=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-right: 0;mar=
+gin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;padding-left=
+: 0;background-color: #FFFFFF;max-width: 600px;width: 100%;margin: 0;paddi=
+ng: 0;">
+
+      <tr style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Lucida=
+ Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-righ=
+t: 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;padd=
+ing-left: 0;margin: 0;padding: 0;">
+        <td style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Luci=
+da Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-ri=
+ght: 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;pa=
+dding-left: 0;margin: 0;padding: 0;">
+
+          <h1 style=3D"color: #333;font-family: Helvetica=2C 'Lucida Grand=
+e'=2C Arial=2C sans-serif;margin-top: 0;margin-right: 0;margin-left: 0;pad=
+ding-bottom: 0;padding-right: 0;padding-left: 0;margin-bottom: 0px;padding=
+-top: 20px;width: 100%;margin: 0;padding: 0;font-size: 35px;">
+            <a href=3D"https://hackernewsletter.us1.list-manage.com/track/=
+click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dad4cfa7af7&e=3D76fb7a1a34" style=
+=3D"color: #333;text-decoration: none;">hacker<span style=3D"color:#ff3300=
+">news</span>letter</a>
+          </h1>
+        </td>
+      </tr>
+
+      <tr style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Lucida=
+ Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-righ=
+t: 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;padd=
+ing-left: 0;margin: 0;padding: 0;">
+        <td id=3D"details" style=3D"color: #333;font-family: ubuntu=2C Hel=
+vetica=2C 'Lucida Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bott=
+om: 0;margin-right: 0;margin-left: 0;padding-top: 0;padding-bottom: 10px;p=
+adding-right: 0;padding-left: 0;margin: 0;padding: 0;">
+          <span id=3D"issue" style=3D"color:#333;font-family:ubuntu=2C Hel=
+vetica=2C 'Lucida Grande'=2C Arial=2C sans-serif;font-size:12px;text-align=
+:right;">Issue #392 <i style=3D"color:#999;font-style:normal;">//</i> Marc=
+h 02=2C 2018 <i style=3D"color:#999;font-style:normal;">//</i> <a href=3D"=
+http://mailchi.mp/hackernewsletter/392?e=3D76fb7a1a34" style=3D"color:#3B6B9=
+B;text-decoration:underline;">View in your browser</a></span>
+        </td>
+      </tr>
+
+      <tr style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Lucida=
+ Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-righ=
+t: 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;padd=
+ing-left: 0;margin: 0;padding: 0;">
+        <td style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Luci=
+da Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-ri=
+ght: 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;pa=
+dding-left: 0;margin: 0;padding: 0;">
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Fa=
+vorites</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De9252bab11&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Datadog">Datadog - Real-time monitoring and alerting for=
+ your entire stack</a><br><span style=3D"font-size: 13px; color: #777"><sp=
+an style=3D"font-size:11px;padding-right:1px;">//</span>datadog <span styl=
+e=3D"background-color: #ebebeb; padding: 3px; color: #ff3300">sponsored</s=
+pan></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D393874420a&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 1672 Comments: 109">Why I Quit Google to Work for=
+ Myself</a><br><span style=3D"font-size: 13px; color: #777"><span style=3D=
+"font-size:11px;padding-right:1px;">//</span>mtlynch <a style=3D"text-deco=
+ration: none; color: #336699;" href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D906f71a549&e=3D=
+76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span>=
+</p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D158878c8fa&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 984 Comments: 27">Machine Learning Crash Course</=
+a><br><span style=3D"font-size: 13px; color: #777"><span style=3D"font-siz=
+e:11px;padding-right:1px;">//</span>google <a style=3D"text-decoration: no=
+ne; color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/=
+track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da1c9827cce&e=3D76fb7a1a34"=
+>comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D97d3c7944b&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 735 Comments: 23">Growing a company that sells mi=
+niature construction supplies to $17k a month</a><br><span style=3D"font-s=
+ize: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">=
+//</span>starterstory <a style=3D"text-decoration: none; color: #336699;"=
+ href=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8=
+eb4ef3a111cef92c4f3d4&id=3D2c28495274&e=3D76fb7a1a34">comments<span style=
+=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De0a98ea6e8&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 647 Comments: 22">Pricing low-touch SaaS</a><br><=
+span style=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;=
+padding-right:1px;">//</span>stripe <a style=3D"text-decoration: none; col=
+or: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/track/c=
+lick?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D14be8ebbd8&e=3D76fb7a1a34">commen=
+ts<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D3b40189051&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 516 Comments: 52">How GDPR Will Change The Way Yo=
+u Develop</a><br><span style=3D"font-size: 13px; color: #777"><span style=
+=3D"font-size:11px;padding-right:1px;">//</span>smashingmagazine <a style=
+=3D"text-decoration: none; color: #336699;" href=3D"https://hackernewslett=
+er.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da744=
+58f1a2&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</spa=
+n></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D07bcb6a6bc&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 469 Comments: 28">Lost Art of Bending Over: How O=
+ther Cultures Spare Their Spines</a><br><span style=3D"font-size: 13px; co=
+lor: #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>npr=
+ <a style=3D"text-decoration: none; color: #336699;" href=3D"https://hacke=
+rnewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&=
+id=3Dadb7a6a05b&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&r=
+arr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db625894533&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 454 Comments: 35">Spotify Form F-1</a><br><span s=
+tyle=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;paddin=
+g-right:1px;">//</span>sec <a style=3D"text-decoration: none; color: #3366=
+99;" href=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3D=
+faa8eb4ef3a111cef92c4f3d4&id=3D1897fb973f&e=3D76fb7a1a34">comments<span s=
+tyle=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dfdcc3df736&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 296 Comments: 26">An intro to Pen Plotters</a><br=
+><span style=3D"font-size: 13px; color: #777"><span style=3D"font-size:11p=
+x;padding-right:1px;">//</span>tobiastoft <a style=3D"text-decoration: non=
+e; color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/t=
+rack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D1920fad4f9&e=3D76fb7a1a34">=
+comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D669dc879ba&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 245 Comments: 16">AMP: the missing controversy</a=
+><br><span style=3D"font-size: 13px; color: #777"><span style=3D"font-size=
+:11px;padding-right:1px;">//</span>ferdychristant <a style=3D"text-decorat=
+ion: none; color: #336699;" href=3D"https://hackernewsletter.us1.list-mana=
+ge.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D16f75e301d&e=3D=
+76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p=
+>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dbdf56777ef&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 107 Comments: 10">In-Space Manufacturing Is About=
+ to Get a Big Test</a><br><span style=3D"font-size: 13px; color: #777"><sp=
+an style=3D"font-size:11px;padding-right:1px;">//</span>space <a style=3D"=
+text-decoration: none; color: #336699;" href=3D"https://hackernewsletter.u=
+s1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dc24f051e=
+ad&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></=
+a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dba3ddf03c5&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline; font-siz=
+e:17px;" title=3D"Votes: 796 Comments: 57">Hacker News's Undocumented Feat=
+ures and Behaviors</a><br><span style=3D"font-size: 13px; color: #777"><sp=
+an style=3D"font-size:11px;padding-right:1px;">//</span>github <a style=3D=
+"text-decoration: none; color: #336699;" href=3D"https://hackernewsletter.=
+us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D0ea22d4=
+158&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span><=
+/a></span></p>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>As=
+k HN</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D478d8365a7&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=
+=3D"Votes: 515 Comments: 61">Successful one-person online businesses?</a><=
+/p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6032bd251b&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=
+=3D"Votes: 170 Comments: 39">How do you overcome the problems of task swit=
+ching?</a></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D1340eca395&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=
+=3D"Votes: 107 Comments: 40">How do you teach you kids about computers and=
+ coding?</a></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #363636;font-size: 16px;line-height: 22px;marg=
+in-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;m=
+argin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.lis=
+t-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De9b62da9a5&e=
+=3D76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=
+=3D"Votes: 534 Comments: 144">I'm writing a book about white-collar drug u=
+se=2C including tech sector</a></p>
+
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Sh=
+ow HN</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D67c12ed53d&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 1166 Comments: 103">Six Degrees of Wikipedia</a> <span style=3D"font-s=
+ize: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">=
+//</span>sixdegreesofwikipedia <a style=3D"text-decoration: none; color: #=
+336699;" href=3D"https://hackernewsletter.us1.list-manage.com/track/click?=
+u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dbcf34c5399&e=3D76fb7a1a34">comments<sp=
+an style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D21348e51a6&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 308 Comments: 66">Buy Me A Coffee =E2=80=93 A free=2C fast and friendl=
+y way to receive donations</a> <span style=3D"font-size: 13px; color: #777=
+"><span style=3D"font-size:11px;padding-right:1px;">//</span>buymeacoffee=
+ <a style=3D"text-decoration: none; color: #336699;" href=3D"https://hacke=
+rnewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&=
+id=3D29d4be23a6&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&r=
+arr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D76f06b7af5&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 299 Comments: 30">Graphite =E2=80=93 A decentralized and encrypted Goo=
+gle Docs alternative</a> <span style=3D"font-size: 13px; color: #777"><spa=
+n style=3D"font-size:11px;padding-right:1px;">//</span>graphitedocs <a sty=
+le=3D"text-decoration: none; color: #336699;" href=3D"https://hackernewsle=
+tter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dab=
+208cf019&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</s=
+pan></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dce7bad9df5&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 166 Comments: 20">Slack client for the terminal</a> <span style=3D"fon=
+t-size: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px=
+;">//</span>github <a style=3D"text-decoration: none; color: #336699;" hre=
+f=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4e=
+f3a111cef92c4f3d4&id=3D44985eb269&e=3D76fb7a1a34">comments<span style=3D"=
+color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D330fb5f57f&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 161 Comments: 25">Jumprock.co =E2=80=93 HTML Forms for Static Sites</a=
+> <span style=3D"font-size: 13px; color: #777"><span style=3D"font-size:11=
+px;padding-right:1px;">//</span>jumprock <a style=3D"text-decoration: none=
+; color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/tr=
+ack/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dff36a3a68b&e=3D76fb7a1a34">c=
+omments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D0730f23aeb&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 145 Comments: 12">Web Scraping in Google Sheets</a> <span style=3D"fon=
+t-size: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px=
+;">//</span>link <a style=3D"text-decoration: none; color: #336699;" href=
+=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef=
+3a111cef92c4f3d4&id=3Def2088b4be&e=3D76fb7a1a34">comments<span style=3D"c=
+olor:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dbd5c3fa108&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 105 Comments: 15">Shiori =E2=80=93 Simple self hosted bookmarks manage=
+r</a> <span style=3D"font-size: 13px; color: #777"><span style=3D"font-siz=
+e:11px;padding-right:1px;">//</span>github <a style=3D"text-decoration: no=
+ne; color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/=
+track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db7ca0d334e&e=3D76fb7a1a34"=
+>comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D3dab138492&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 68 Comments: 6">Wagtail 2.0 is a big release for our Python CMS</a> <s=
+pan style=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;p=
+adding-right:1px;">//</span>wagtail <a style=3D"text-decoration: none; col=
+or: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/track/c=
+lick?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D3fdbeae0f3&e=3D76fb7a1a34">commen=
+ts<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Defea696932&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 31 Comments: 6">AppGrid=2C macOS window manager with Vim=E2=80=93like=
+ hotkeys</a> <span style=3D"font-size: 13px; color: #777"><span style=3D"f=
+ont-size:11px;padding-right:1px;">//</span>github <a style=3D"text-decorat=
+ion: none; color: #336699;" href=3D"https://hackernewsletter.us1.list-mana=
+ge.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D47b6a62c2b&e=3D=
+76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p=
+>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Cl=
+assics</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D4a1da893ff&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 758 Comments: 106">Why is it hard to make friends over 30?</a> <span s=
+tyle=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;paddin=
+g-right:1px;">//</span>nytimes <a style=3D"text-decoration: none; color: #=
+336699;" href=3D"https://hackernewsletter.us1.list-manage.com/track/click?=
+u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dbb15611192&e=3D76fb7a1a34">comments<sp=
+an style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D07a6def21a&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 253 Comments: 40">Keep your Identity Small</a> <span style=3D"font-siz=
+e: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">//=
+</span>paulgraham <a style=3D"text-decoration: none; color: #336699;" href=
+=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef=
+3a111cef92c4f3d4&id=3Dbf77c8016b&e=3D76fb7a1a34">comments<span style=3D"c=
+olor:#ff3300;">&rarr;</span></a></span></p>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Co=
+de</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Deff0484353&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 689 Comments: 39">How I Learned to Stop Worrying and Love the State Ma=
+chine</a> <span style=3D"font-size: 13px; color: #777"><span style=3D"font=
+-size:11px;padding-right:1px;">//</span>raganwald <a style=3D"text-decorat=
+ion: none; color: #336699;" href=3D"https://hackernewsletter.us1.list-mana=
+ge.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D9a33e1b3db&e=3D=
+76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p=
+>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D712a0c0fa1&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 514 Comments: 50">The Lost Art of the Makefile</a> <span style=3D"font=
+-size: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;=
+">//</span>olioapps <a style=3D"text-decoration: none; color: #336699;" hr=
+ef=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4=
+ef3a111cef92c4f3d4&id=3D6e238a48cc&e=3D76fb7a1a34">comments<span style=3D=
+"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D7e95e8406a&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 463 Comments: 21">Requests-HTML: HTML Parsing for Humans</a> <span sty=
+le=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;padding-=
+right:1px;">//</span>github <a style=3D"text-decoration: none; color: #336=
+699;" href=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=
+=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D5cb00b5ecd&e=3D76fb7a1a34">comments<spa=
+n style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Daef1a6c126&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 369 Comments: 12">Web application from scratch=2C part I</a> <span sty=
+le=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;padding-=
+right:1px;">//</span>defn <a style=3D"text-decoration: none; color: #33669=
+9;" href=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Df=
+aa8eb4ef3a111cef92c4f3d4&id=3D8d7e8e31b9&e=3D76fb7a1a34">comments<span st=
+yle=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D9fff017b3f&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 38 Comments: 6">Announcing Dart 2: Optimized for Client-Side Developme=
+nt</a> <span style=3D"font-size: 13px; color: #777"><span style=3D"font-si=
+ze:11px;padding-right:1px;">//</span>medium <a style=3D"text-decoration: n=
+one; color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com=
+/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dfa6cda9b0a&e=3D76fb7a1a34=
+">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Da=
+ta</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd15409d8df&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 457 Comments: 12">NumPy Exercises for Data Analysis in Python</a> <spa=
+n style=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;pad=
+ding-right:1px;">//</span>machinelearningplus <a style=3D"text-decoration:=
+ none; color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.c=
+om/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D950fed2d1c&e=3D=
+76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D678ad31bac&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 297 Comments: 14">Propel =E2=80=93 Machine learning for Javascript</a>=
+ <span style=3D"font-size: 13px; color: #777"><span style=3D"font-size:11p=
+x;padding-right:1px;">//</span>propelml <a style=3D"text-decoration: none;=
+ color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/tra=
+ck/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D949059d8cd&e=3D76fb7a1a34">co=
+mments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D59ddba9b42&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 152 Comments: 8">NLP concepts with spaCy tutorial</a> <span style=3D"f=
+ont-size: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1=
+px;">//</span>github <a style=3D"text-decoration: none; color: #336699;" h=
+ref=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb=
+4ef3a111cef92c4f3d4&id=3Dbd6b126c00&e=3D76fb7a1a34">comments<span style=
+=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D14d4580981&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 150 Comments: 5">A promenade of PyTorch</a> <span style=3D"font-size:=
+ 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">//</=
+span>goldsborough <a style=3D"text-decoration: none; color: #336699;" href=
+=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef=
+3a111cef92c4f3d4&id=3D1f3d5f20ec&e=3D76fb7a1a34">comments<span style=3D"c=
+olor:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da1b49da0b4&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 113 Comments: 3">Learning by playing</a> <span style=3D"font-size: 13p=
+x; color: #777"><span style=3D"font-size:11px;padding-right:1px;">//</span=
+>deepmind <a style=3D"text-decoration: none; color: #336699;" href=3D"http=
+s://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef=
+92c4f3d4&id=3D4ebb4da469&e=3D76fb7a1a34">comments<span style=3D"color:#ff=
+3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd7c62728cb&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 97 Comments: 27">Stanford=2C USC=2C Duke study shows AI can read contr=
+acts better than lawyers</a> <span style=3D"font-size: 13px; color: #777">=
+<span style=3D"font-size:11px;padding-right:1px;">//</span>mashable <a sty=
+le=3D"text-decoration: none; color: #336699;" href=3D"https://hackernewsle=
+tter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd4=
+ce25d89f&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</s=
+pan></a></span></p>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>De=
+sign</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Df6217a3ba1&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 351 Comments: 18">Collection of Useful CSS Snippets</a> <span style=3D=
+"font-size: 13px; color: #777"><span style=3D"font-size:11px;padding-right=
+:1px;">//</span>github <a style=3D"text-decoration: none; color: #336699;"=
+ href=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8=
+eb4ef3a111cef92c4f3d4&id=3D88aa22c3be&e=3D76fb7a1a34">comments<span style=
+=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D9cb3d8e6ba&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 121 Comments: 10">Tiny Art in Less Than 280 Characters</a> <span style=
+=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;padding-ri=
+ght:1px;">//</span>fronkonstin <a style=3D"text-decoration: none; color: #=
+336699;" href=3D"https://hackernewsletter.us1.list-manage.com/track/click?=
+u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D744975adf6&e=3D76fb7a1a34">comments<sp=
+an style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Le=
+arn</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db53dcc6ab1&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 331 Comments: 65">There's a Persistent Hum in Windsor=2C Ontario=2C an=
+d No One Knows Why</a> <span style=3D"font-size: 13px; color: #777"><span=
+ style=3D"font-size:11px;padding-right:1px;">//</span>nytimes <a style=3D"=
+text-decoration: none; color: #336699;" href=3D"https://hackernewsletter.u=
+s1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da84d9581=
+d7&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></=
+a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D5e5995d801&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 287 Comments: 17">A Simple Algorithm That Ants Use to Build Bridges</a=
+> <span style=3D"font-size: 13px; color: #777"><span style=3D"font-size:11=
+px;padding-right:1px;">//</span>quantamagazine <a style=3D"text-decoration=
+: none; color: #336699;" href=3D"https://hackernewsletter.us1.list-manage.=
+com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D9d8ea6c7f6&e=3D=
+76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D3bf90c5a1f&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 164 Comments: 29">I Built a Stable Planetary System with 416 Planets i=
+n the Habitable Zone</a> <span style=3D"font-size: 13px; color: #777"><spa=
+n style=3D"font-size:11px;padding-right:1px;">//</span>nautil <a style=3D"=
+text-decoration: none; color: #336699;" href=3D"https://hackernewsletter.u=
+s1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db6c1977d=
+d7&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></=
+a></span></p>
+                 <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida G=
+rande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-rig=
+ht: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin=
+-top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;mar=
+gin: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-=
+manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db8eff7bd09&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vo=
+tes: 99 Comments: 14">Heisenbug</a> <span style=3D"font-size: 13px; color:=
+ #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>wikipedi=
+a <a style=3D"text-decoration: none; color: #336699;" href=3D"https://hack=
+ernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4=
+&id=3Dd30b2c47fd&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&=
+rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Df34000139c&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 95 Comments: 13">Jevons Paradox</a> <span style=3D"font-size: 13px; co=
+lor: #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>wiki=
+pedia <a style=3D"text-decoration: none; color: #336699;" href=3D"https://=
+hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4=
+f3d4&id=3D54c5a05d59&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300=
+;">&rarr;</span></a></span></p>
+
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D8fe3be5b5d&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 129 Comments: 14">Ian Knot</a> <span style=3D"font-size: 13px; color:=
+ #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>fieggen=
+ <a style=3D"text-decoration: none; color: #336699;" href=3D"https://hacke=
+rnewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&=
+id=3D06f7a5322c&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&r=
+arr;</span></a></span></p>
+
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Wa=
+tching</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Db1d4a69d39&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 313 Comments: 15">Peace for Triple Piano</a> <span style=3D"font-size:=
+ 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">//</=
+span>vihart <a style=3D"text-decoration: none; color: #336699;" href=3D"ht=
+tps://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111c=
+ef92c4f3d4&id=3De60f0cefd3&e=3D76fb7a1a34">comments<span style=3D"color:#=
+ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dfb689dea70&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 84 Comments: 2">Sneak Peek: Beyond React 16</a> <span style=3D"font-si=
+ze: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">/=
+/</span>reactjs <a style=3D"text-decoration: none; color: #336699;" href=
+=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef=
+3a111cef92c4f3d4&id=3Ddad784565d&e=3D76fb7a1a34">comments<span style=3D"c=
+olor:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De062c3ade7&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 71 Comments: 8">The History of .NET</a> <span style=3D"font-size: 13px=
+; color: #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>=
+vimeo <a style=3D"text-decoration: none; color: #336699;" href=3D"https://=
+hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4=
+f3d4&id=3D58945d3b1e&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300=
+;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D563ed7aca9&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 63 Comments: 7">Traveling to all the railway stations in Great Britain=
+</a> <span style=3D"font-size: 13px; color: #777"><span style=3D"font-size=
+:11px;padding-right:1px;">//</span>allthestations <a style=3D"text-decorat=
+ion: none; color: #336699;" href=3D"https://hackernewsletter.us1.list-mana=
+ge.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D304bff1bf3&e=3D=
+76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a></span></p=
+>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Wo=
+rking</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dc3841ba543&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 390 Comments: 590">Ask HN: Who is hiring?</a> <span style=3D"font-size=
+: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">//<=
+/span>ycombinator</span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D64a0f32f69&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 235 Comments: 36">Facebook rolls out job posts to become the blue-coll=
+ar LinkedIn</a> <span style=3D"font-size: 13px; color: #777"><span style=
+=3D"font-size:11px;padding-right:1px;">//</span>techcrunch <a style=3D"tex=
+t-decoration: none; color: #336699;" href=3D"https://hackernewsletter.us1.=
+list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dc96baab06c&=
+e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&rarr;</span></a><=
+/span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D00273c39e2&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 228 Comments: 53">Let=E2=80=99s have no managers=2C instead of manager=
+s with no engineering experience</a> <span style=3D"font-size: 13px; color=
+: #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>medium=
+ <a style=3D"text-decoration: none; color: #336699;" href=3D"https://hacke=
+rnewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&=
+id=3Dd09c5c8caa&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;">&r=
+arr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D05cfd0809c&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 106 Comments: 8">What to care about in a job</a> <span style=3D"font-s=
+ize: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">=
+//</span>benkuhn <a style=3D"text-decoration: none; color: #336699;" href=
+=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef=
+3a111cef92c4f3d4&id=3Dc9c37c29fe&e=3D76fb7a1a34">comments<span style=3D"c=
+olor:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D34c04d422e&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 120 Comments: 40">Ask HN: Resumes that look good but professional too<=
+/a> <span style=3D"font-size: 13px; color: #777"><span style=3D"font-size:=
+11px;padding-right:1px;">//</span>ycombinator</span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D2e33d5017b&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 22 Comments: 38">Ask HN: Who wants to be hired?</a> <span style=3D"fon=
+t-size: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px=
+;">//</span>ycombinator</span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Da5b31654b7&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 19 Comments: 39">Ask HN: Freelancer? Seeking freelancer?</a> <span sty=
+le=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;padding-=
+right:1px;">//</span>ycombinator</span></p>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Lo=
+ngreads</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6eb41ba0d3&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 407 Comments: 26">Worst Roommate Ever</a> <span style=3D"font-size: 13=
+px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">//</spa=
+n>nymag <a style=3D"text-decoration: none; color: #336699;" href=3D"https:=
+//hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92=
+c4f3d4&id=3Db9743d75bf&e=3D76fb7a1a34">comments<span style=3D"color:#ff33=
+00;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D961f193d99&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 179 Comments: 11">Malta: an island of secrets and lies</a> <span style=
+=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;padding-ri=
+ght:1px;">//</span>newstatesman <a style=3D"text-decoration: none; color:=
+ #336699;" href=3D"https://hackernewsletter.us1.list-manage.com/track/clic=
+k?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D4ae6d61488&e=3D76fb7a1a34">comments<=
+span style=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D8b27a38467&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 156 Comments: 12">The dangerous downsides of perfectionism</a> <span s=
+tyle=3D"font-size: 13px; color: #777"><span style=3D"font-size:11px;paddin=
+g-right:1px;">//</span>bbc <a style=3D"text-decoration: none; color: #3366=
+99;" href=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3D=
+faa8eb4ef3a111cef92c4f3d4&id=3D812c7649d3&e=3D76fb7a1a34">comments<span s=
+tyle=3D"color:#ff3300;">&rarr;</span></a></span></p>
+            <h2 style=3D"font-family: ubuntu=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;padding-top: 20px;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;color: #ff3300;font-size: 16px;font-weight: bold;margin-top: 20p=
+x;margin-bottom: 3px;margin-right: 0;margin-left: 0;text-transform: upperc=
+ase;margin: 20px 0 10px;padding: 0;"><span style=3D"color:#333">#</span>Fu=
+n</h2>
+
+<hr style=3D"border-style:none;margin-top:0px;margin-bottom:5px;margin-rig=
+ht:0;margin-left:0;border-top-width:1px;border-top-style:solid;border-top-=
+color:#9b9b9b;/">
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D4e36f33cb1&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 235 Comments: 6">Arduino OpenCat</a> <span style=3D"font-size: 13px; c=
+olor: #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>ard=
+uino <a style=3D"text-decoration: none; color: #336699;" href=3D"https://h=
+ackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f=
+3d4&id=3D026051340c&e=3D76fb7a1a34">comments<span style=3D"color:#ff3300;=
+">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D65991244b7&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 418 Comments: 23">Planet Shadertoy</a> <span style=3D"font-size: 13px;=
+ color: #777"><span style=3D"font-size:11px;padding-right:1px;">//</span>s=
+hadertoy <a style=3D"text-decoration: none; color: #336699;" href=3D"https=
+://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4ef3a111cef9=
+2c4f3d4&id=3D3cb2dfee1a&e=3D76fb7a1a34">comments<span style=3D"color:#ff3=
+300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3Dd25f420671&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 237 Comments: 39">QuickBASIC Lives on with QB64</a> <span style=3D"fon=
+t-size: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px=
+;">//</span>hackaday <a style=3D"text-decoration: none; color: #336699;" h=
+ref=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb=
+4ef3a111cef92c4f3d4&id=3D6dce9a9f27&e=3D76fb7a1a34">comments<span style=
+=3D"color:#ff3300;">&rarr;</span></a></span></p>
+                <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Gr=
+ande'=2C Arial=2C sans-serif;padding-top: 0;padding-bottom: 0;padding-righ=
+t: 0;padding-left: 0;color: #333;font-size: 16px;line-height: 22px;margin-=
+top: 0;margin-bottom: 10px;margin-right: 0;margin-left: 0;width: 100%;marg=
+in: 0 0 10px 0;padding: 0;"><a href=3D"https://hackernewsletter.us1.list-m=
+anage.com/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D6901e368a7&e=3D=
+76fb7a1a34" style=3D"color:#0446AB;text-decoration:underline;" title=3D"Vot=
+es: 191 Comments: 12">Tinkering with electronics</a> <span style=3D"font-s=
+ize: 13px; color: #777"><span style=3D"font-size:11px;padding-right:1px;">=
+//</span>thanassis <a style=3D"text-decoration: none; color: #336699;" hre=
+f=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=3Dfaa8eb4e=
+f3a111cef92c4f3d4&id=3D275deb734c&e=3D76fb7a1a34">comments<span style=3D"=
+color:#ff3300;">&rarr;</span></a></span></p>
+
+=09
+=09</td>
+      </tr>
+    </table>
+
+    <table id=3D"footer" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"color: #7A7A7A;font-family: ubuntu=2C Helvetica=2C 'Lucida Grand=
+e'=2C Arial=2C sans-serif;margin-top: 30px;margin-bottom: 0;margin-right:=
+ 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;paddin=
+g-left: 0;background-color: #FFFFFF;max-width: 600px;width: 100%;margin: 0=
+;padding: 0;">
+      <tr style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Lucida=
+ Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-righ=
+t: 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;padd=
+ing-left: 0;margin: 0;padding: 0;">
+        <td style=3D"color: #333;font-family: ubuntu=2C Helvetica=2C 'Luci=
+da Grande'=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-ri=
+ght: 0;margin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;pa=
+dding-left: 0;margin: 0;padding: 0;">
+          <h5 style=3D"font-family:Helvetica=2C 'Lucida Grande'=2C Arial=
+=2C sans-serif;margin-top:30px;margin-right:0;margin-left:0;padding-top:30=
+px;padding-bottom:0;padding-right:0;padding-left:0;color:#999;font-size:20=
+px;margin-bottom:5px;width:100%;">__END__</h5>
+
+          <p style=3D"font-family: ubuntu=2C Helvetica=2C 'Lucida Grande'=
+=2C Arial=2C sans-serif;margin-top: 0;margin-bottom: 0;margin-right: 0;mar=
+gin-left: 0;padding-top: 0;padding-bottom: 0;padding-right: 0;padding-left=
+: 0;color: #999;font-size: 14px;font-weight: normal;line-height: 22px;marg=
+in: 0 0 10px 0;padding: 0;width: 100%;">
+            You're among 55=2C769 others who received this email because y=
+ou wanted a weekly recap of the best articles from Hacker News. Published=
+ by <a href=3D"https://hackernewsletter.us1.list-manage.com/track/click?u=
+=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D1ab53ed835&e=3D76fb7a1a34" style=3D"col=
+or: #1786C1;text-decoration: underline;">Curpress</a> from a smallish meta=
+l box at PO BOX 2621 Decatur=2C Georgia 30031. Hacker Newsletter is not af=
+filiated with Y Combinator in any way.
+            <br><br>
+            You can <a href=3D"https://hackernewsletter.us1.list-manage.co=
+m/profile?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3De505c88a2e&e=3D76fb7a1a34" styl=
+e=3D"color:#3B6B9B;text-decoration:underline;">update your email</a> or <a=
+ href=3D"https://hackernewsletter.us1.list-manage.com/unsubscribe?u=3Dfaa8=
+eb4ef3a111cef92c4f3d4&id=3De505c88a2e&e=3D76fb7a1a34&c=3D7f606bd1d1" style=
+=3D"color:#3B6B9B;text-decoration:underline;">unsubscribe</a>.
+            <br><br>
+            Not a subscriber? Subscribe at <a style=3D"color:#8793AF;text-=
+decoration:underline;" href=3D"https://hackernewsletter.us1.list-manage.co=
+m/track/click?u=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D863f9526ec&e=3D=
+76fb7a1a34">http://hackernewsletter.com</a>.
+            <br><br>
+            <a href=3D"http://www.mailchimp.com/monkey-rewards/?utm_source=
+=3Dfreemium_newsletter&utm_medium=3Demail&utm_campaign=3Dmonkey_rewards&ai=
+d=3Dfaa8eb4ef3a111cef92c4f3d4&afl=3D1"><img src=3D"https://cdn-images.mail=
+chimp.com/monkey_rewards/MC_MonkeyReward_20.png" border=3D"0" alt=3D"Email=
+ Marketing Powered by MailChimp" title=3D"MailChimp Email Marketing" width=
+=3D"139" height=3D"54"></a>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+<img src=3D"https://hackernewsletter.us1.list-manage.com/track/open.php?u=
+=3Dfaa8eb4ef3a111cef92c4f3d4&id=3D7f606bd1d1&e=3D76fb7a1a34" height=3D"1"=
+ width=3D"1"></body>
+</html>
+--_----------=_MCPart_503896485--

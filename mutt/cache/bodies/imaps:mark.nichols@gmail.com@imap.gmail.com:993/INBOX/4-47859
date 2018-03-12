@@ -1,0 +1,392 @@
+Delivered-To: mark.nichols@gmail.com
+Received: by 10.12.174.74 with SMTP id z10csp1069472qvc;
+        Wed, 22 Nov 2017 08:16:46 -0800 (PST)
+X-Google-Smtp-Source: AGs4zMbD9G+/FklvFOmSzOHb669cULD4gvGWP11TiYI+xX8cZggUtsKAMEaqMfYYQY+vGUfiJSdm
+X-Received: by 10.237.41.37 with SMTP id s34mr257733qtd.154.1511367406147;
+        Wed, 22 Nov 2017 08:16:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1511367406; cv=none;
+        d=google.com; s=arc-20160816;
+        b=naCthL27X3jCjec2rNvLRvitsKje/Lc1cf8Sjm6+OnYIwJF4iJ6RQICxMGQd6Enh05
+         xU4dypEsDhyuR23q2giboeEmJ5o3SDT9o6uLTeEeAxs2H6wruLx5O6rl3zwIorMph4zQ
+         aSWuB/6Qb0vBHOayeVUqm9RGbe7PI0lXNvXsUkpf6OW4lNinm8UgQKXeK+VldGprC48Z
+         aQwTrStIBYNMNJcEdvCtQ20NxI0HkjNPuIjYVq7V8bANUuTteRpAdajJCWp5WKjW/hwn
+         8xtTtMCZNu5PfnRgRkINbX5wgV75Rka1Hq+X7jSnPjER1ul3oP6ZvPo0BpiiCqzddPxj
+         KmBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:content-transfer-encoding:mime-version:subject
+         :message-id:to:reply-to:from:date:sender:dkim-signature
+         :dkim-signature:arc-authentication-results;
+        bh=jsIcusP8ExXZI5qwNPFrJhJtntjQuo9CHyIREQK1wMI=;
+        b=W8xpJLVAgd68CXPs2++HZrBm+53BvsdfvG9KkMMeaAPwqSemnsxE27wEVegEogi7oF
+         JRTnY6gsUl9fIlC9eKHSUDIGO8tjBCpax20i+znUKAsxBkhKjSUKQM4vQh+c6Yf5qtAz
+         +trQYTSpdW6fx9fMZdEfVRVDcU/bennMy+/1e3COBLbaByDNjooMR7JskfvAnDY6y0B5
+         3yws+hQeuyiycKbA8v/Za/ym1o+1g7yIaY8wXYnjkH8GeJoOypemfms83jRzhveJXrYd
+         j85yKxBub985173TQvw3H6K7HjcPBi2Rhvi05kSxfzOQc4lMkCmd26KU++JPPbhknSka
+         OMOw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@talkable.com header.s=mailo header.b=GkdehOqw;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=v5GTBE5q;
+       spf=pass (google.com: domain of bounce+a7bb43.2cadf-mark.nichols=gmail.com@talkable.com designates 166.78.69.248 as permitted sender) smtp.mailfrom=bounce+a7bb43.2cadf-mark.nichols=gmail.com@talkable.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=p2p.talkable.com
+Return-Path: <bounce+a7bb43.2cadf-mark.nichols=gmail.com@talkable.com>
+Received: from mail.talkable.com (mail.talkable.com. [166.78.69.248])
+        by mx.google.com with UTF8SMTPS id 34si9655011qkw.125.2017.11.22.08.16.45
+        for <mark.nichols@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 22 Nov 2017 08:16:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce+a7bb43.2cadf-mark.nichols=gmail.com@talkable.com designates 166.78.69.248 as permitted sender) client-ip=166.78.69.248;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@talkable.com header.s=mailo header.b=GkdehOqw;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=v5GTBE5q;
+       spf=pass (google.com: domain of bounce+a7bb43.2cadf-mark.nichols=gmail.com@talkable.com designates 166.78.69.248 as permitted sender) smtp.mailfrom=bounce+a7bb43.2cadf-mark.nichols=gmail.com@talkable.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=p2p.talkable.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=talkable.com; q=dns/txt;
+ s=mailo; t=1511367405; h=List-Unsubscribe: Content-Transfer-Encoding:
+ Content-Type: Mime-Version: Subject: Message-Id: To: Reply-To: From:
+ Date: Sender: X-Feedback-Id;
+ bh=jsIcusP8ExXZI5qwNPFrJhJtntjQuo9CHyIREQK1wMI=; b=GkdehOqwdJ5magulq2dheICXR8n54MvtOL3SiLI0ZsZF7mxKRTrcZkoXDaNJ6+gyCB8HcqdL
+ RTlmYFNnLSDvBADHbvpxn/ZKrBtWjiXjQ0bD7tm3O2W54FLwdwQa2DG4OHXvd+hGiuHSOF0l
+ D93EmKo2UZ9PYv89IjAxyOvw9qE=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg;
+ t=1511367405; h=List-Unsubscribe: Content-Transfer-Encoding:
+ Content-Type: Mime-Version: Subject: Message-Id: To: Reply-To: From:
+ Date: Sender: X-Feedback-Id;
+ bh=jsIcusP8ExXZI5qwNPFrJhJtntjQuo9CHyIREQK1wMI=; b=v5GTBE5qTMGI9BH41rVh78/9pvwoGyf/7pcUVtYbZ63gFqEFEkJeTi4RCzIXFHgzwlHCsBtQ
+ mkprC/7g7/wXksNL5vNpYw90dptoL5Rn5gD2qJ1navx2Aqmz0R4vuUDwXvvwl3PWTLRxT7U3
+ 6zwwQSmnFPHDOsj6B8fV5SfYEUY=
+X-Feedback-Id: 54903bf7f3b9c405566aa8f0:mailgun
+Sender: wgac-us@p2p.talkable.com
+X-Mailgun-Sending-Ip: 166.78.69.248
+X-Mailgun-Sid: WyI0MmYyOSIsICJtYXJrLm5pY2hvbHNAZ21haWwuY29tIiwgIjJjYWRmIl0=
+Received: from p2p.talkable.com (ec2-23-21-155-129.compute-1.amazonaws.com
+ [23.21.155.129]) by mxa.mailgun.org with ESMTP id
+ 5a15a2e6.7fb8644005a8-smtp-out-n02; Wed, 22 Nov 2017 16:16:38 -0000 (UTC)
+Date: Wed, 22 Nov 2017 08:16:37 -0800
+From: Sibylle <wgac-us@p2p.talkable.com>
+Reply-To: Sibylle <sibylle.kuder@gmail.com>
+To: mark.nichols@gmail.com
+Message-Id: <16f60000-4802-433a-881c-7a1752134426@p2p.talkable.com>
+Subject: Your friend Sibylle Kuder gave you $10
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="--==_mimepart_5a15a2e51b711_3a9f3f830248b49817731e"; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+List-Unsubscribe: <mailto:mailto:u+mq6tey3bmrtcm2j5ge3gmnrqgaydaljuhaydeljugmzwcljyhaywgljxmeytonjsgeztinbsgystimdqgjyc45dbnrvwcytmmuxgg33nezud2yjwmnsdgytgmzrtizlcgvsdambxgzrdinrwmrrdsnrymq3day3fezwxgz27nfsd2mzxgm3tinrqgmtheplnmfzgwltonfrwq33momstimdhnvqws3bomnxw2jtuhusteqjgmvxhmplqojxwi5ldoruw63q@talkable.com>,
+ <http://email.p2p.talkable.com/u/eJwdzEsOgyAQANDTlJ2GzzjQBYuepBkGUCKIUdvz1_Qd4EWvmWIWxSvMKG8DOKkHMIYG5xQPlpSdtDIAGh8gd72PF9WVQk0j9yYWT8jRhJwZUpiilBYDIMbwRBdRchLtnN8lemONBZRGHL7RsY5b4aXX807nRqX-t8s_9Euk7ev3o8cPX6VvP9H2MUk>
+X-Mailgun-Tag: notifier_offers_share_via_email
+X-Mailgun-Track-Clicks: htmlonly
+X-Mailgun-Variables: {"msg_id":37374603,"env":"production"}
+
+----==_mimepart_5a15a2e51b711_3a9f3f830248b49817731e
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+*****************************************************************
+           If you don't see this email correctly, use
+          HTML-version or switch to another mail client
+*****************************************************************
+
+
+Who Gives a Crap
+
+Your friend Sibylle Kuder sent you $10
+off your first order at Who Gives a Crap. What a champ!
+
+We make forest friendly toilet paper, paper towels and tissues,
+and we donate 50% of our profits to build toilets for those in
+need. Pretty sweet, eh?
+
+Here's what
+
+Sibylle
+
+had to say: "Dear Mark, this is a
+coupon toward toilet paper.
+
+I love you :)
+
+Sibylle ".
+
+Claim your gift =
+
+( https://www.talkable.com/x/LY3cCA )
+
+PS =E2=80=94 That shirt looks great on you.
+
+You're being emailed because your friend
+sibylle.kuder@gmail.com has shared with you. You haven't been
+added to any lists. This is a one time email that won't get sent
+again unless someone else shares with you again. To prevent
+receiving emails like this
+click here =
+
+( https://www.talkable.com/public/unsubscribe/wgac-us/bWFyay5uaWNob2xzQGd=
+tYWlsLmNvbQ=3D=3D/fe04f98cc124a6a65ea3f5ba1e06054c7ef6a99b )
+.=
+
+----==_mimepart_5a15a2e51b711_3a9f3f830248b49817731e
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D"text/html; charset=3DUTF-8" http-equiv=3D"Content-Type=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+
+   =20
+
+   =20
+  <style>body {
+max-width: 480px;
+}
+img {
+border: none; display: block; line-height: 0;
+}
+@media only screen and (max-width: 479px) {
+  .main-table {
+    width: 100% !important;
+  }
+  .email-background {
+    width: 100% !important;
+  }
+  *[not-yahoo] td[class=3Dvertical-line-1] {
+    height: 30px !important;
+  }
+  *[not-yahoo] td[class=3Dvertical-line-2] {
+    height: 20px !important;
+  }
+}
+</style>
+</head>
+  <body style=3D"max-width: 480px;">
+   =20
+
+
+
+
+
+
+
+
+
+
+  <table class=3D"container-table" align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"table-layout: fixed; border-collapse: collapse; color=
+: #000001; font-family: Arial, sans-serif; text-align: center; width: 100%;=
+ margin: 0; padding: 0; border: 0;">
+    <tr>
+      <td align=3D"center" style=3D"-webkit-text-size-adjust: none;">
+        <table class=3D"main-table" align=3D"center" cellpadding=3D"0" cell=
+spacing=3D"0" style=3D"table-layout: fixed; border-collapse: collapse; text=
+-align: center; width: 480px; margin: 0; padding: 0; border: 0;" bgcolor=3D=
+"#ffffff">
+          <tr>
+            <td style=3D"-webkit-text-size-adjust: none;">
+              <img alt=3D"Who Gives a Crap" src=3D"https://d2jjzw81hqbuqv.c=
+loudfront.net/static_assets/files/134178/original/WGAC_TalkableEmails_Invit=
+e_Image.jpg" class=3D"email-background" style=3D"display: block; line-heigh=
+t: 0; border: none;">
+            </td>
+          </tr>
+          <tr>
+            <td class=3D"ie-reset" height=3D"22" style=3D"-webkit-text-size=
+-adjust: none; font-size: 1px; line-height: 1px;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style=3D"-webkit-text-size-adjust: none;">
+              <table class=3D"main-table" align=3D"center" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"table-layout: fixed; border-collapse: collapse=
+; text-align: center; width: 480px; margin: 0; padding: 0; border: 0;" bgco=
+lor=3D"#ffffff">
+                <tr>
+                  <td width=3D"5%" style=3D"-webkit-text-size-adjust: none;=
+">&nbsp;</td>
+                  <td width=3D"90%" style=3D"-webkit-text-size-adjust: none=
+;">
+                    <table align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"table-layout: fixed;">
+                      <tr>
+                        <td class=3D"header" style=3D"-webkit-text-size-adj=
+ust: none; color: #626e7b; font-family: Arial, sans-sarif; font-size: 18px;=
+ font-weight: normal; line-height: 23px;" align=3D"center">
+                          Your friend Sibylle Kuder sent you <span style=3D=
+"color: #42B8EA; -webkit-text-size-adjust: none;">$10 off</span> your first=
+ order at Who Gives a Crap. What a champ!
+<br>
+<br>
+We make forest friendly toilet paper, paper towels and tissues, and we dona=
+te 50% of our profits to build toilets for those in need. Pretty sweet, eh?
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=3D"ie-reset" height=3D"20" style=3D"-webk=
+it-text-size-adjust: none; font-size: 1px; line-height: 1px;">&nbsp;</td>
+                      </tr>
+
+                     =20
+                        <tr>
+                          <td class=3D"header" style=3D"-webkit-text-size-a=
+djust: none; color: #626e7b; font-family: Arial, sans-sarif; font-size: 18p=
+x; font-weight: normal; line-height: 23px;" align=3D"center">
+                            Here's what=20
+                           =20
+                              Sibylle
+                           =20
+                             had to say: <em style=3D"font-style: italic;">=
+"Dear Mark, this is a coupon toward toilet paper. <br>
+I love you :)<br>
+Sibylle "</em>.
+                          </td>
+                        </tr>
+                     =20
+                    </table>
+                  </td>
+                  <td width=3D"5%" style=3D"-webkit-text-size-adjust: none;=
+">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class=3D"ie-reset" height=3D"30" style=3D"-webkit-text-size=
+-adjust: none; font-size: 1px; line-height: 1px;">&nbsp;</td>
+          </tr>
+         =20
+          <tr>
+            <td style=3D"-webkit-text-size-adjust: none;">
+              <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0">
+                <tr>
+                  <td align=3D"center" style=3D"-webkit-text-size-adjust: n=
+one;">
+                    <table border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+>
+                      <tr>
+                        <td class=3D"button" align=3D"center" width=3D"280"=
+ style=3D"-webkit-text-size-adjust: none; width: 280px;" bgcolor=3D"#3fb5e6=
+">
+                          <a href=3D"http://email.p2p.talkable.com/c/eJxVTs=
+1uwyAYe5pwSwR8hI8eOFSTduoL7BRRfhpUEiKgzR5_bLdZ9sWybDvNrXGBRM1kkLRjFIryUQCYU=
+SlmRzQMZ85ACC4HQQ9-TM2kp7knP9m8kVXjbGcJeLcwOy-9YIgXVNQILi5UIZKtPpboNCCgkBRI=
+0mtrRx3gOvDPzvM8_3V267vr9gX240qK3kx5Tnu0a061X3hsJqa_7ab33GKIviw5BF_qUldT_PK=
+OZvG_KeL3tz5Kdi_bYt5_AIJVSlk" target=3D"_blank" title=3D"Claim your gift" s=
+tyle=3D"-webkit-text-size-adjust: none; width: 100%; background-color: #3fb=
+5e6; display: block; font-size: 16px; line-height: 20px; font-family: Arial=
+, sans-serif; font-weight: bold; color: #ffffff; text-decoration: none; pad=
+ding: 15px 0; border: 1px solid #3fb5e6;">
+                            Claim your gift
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td class=3D"ie-reset" height=3D"30" style=3D"-webkit-text-size=
+-adjust: none; font-size: 1px; line-height: 1px;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style=3D"-webkit-text-size-adjust: none;">
+              <table class=3D"main-table" align=3D"center" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"table-layout: fixed; border-collapse: collapse=
+; text-align: center; width: 480px; margin: 0; padding: 0; border: 0;" bgco=
+lor=3D"#ffffff">
+                <tr>
+                  <td width=3D"5%" style=3D"-webkit-text-size-adjust: none;=
+">&nbsp;</td>
+                  <td width=3D"90%" style=3D"-webkit-text-size-adjust: none=
+;">
+                    <table align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" style=3D"table-layout: fixed;">
+                      <tr>
+                        <td class=3D"header" style=3D"-webkit-text-size-adj=
+ust: none; color: #626e7b; font-family: Arial, sans-sarif; font-size: 18px;=
+ font-weight: normal; line-height: 23px;" align=3D"center">
+                          PS =E2=80=94 That shirt looks great on you.
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width=3D"5%" style=3D"-webkit-text-size-adjust: none;=
+">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr not-yahoo=3D"true">
+            <td class=3D"vertical-line-1" style=3D"line-height: 1px; font-s=
+ize: 1px; -webkit-text-size-adjust: none;" height=3D"47">&nbsp;</td>
+          </tr>
+          <tr not-yahoo=3D"true">
+            <td style=3D"line-height: 1px; font-size: 1px; -webkit-text-siz=
+e-adjust: none;">
+              <table class=3D"main-table" align=3D"center" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"border-collapse: collapse; text-align: center;=
+ width: 480px; margin: 0; padding: 0; border: 0;" bgcolor=3D"#ffffff">
+                <tr>
+                  <td width=3D"5%" style=3D"-webkit-text-size-adjust: none;=
+"></td>
+                  <td style=3D"line-height: 1px; font-size: 1px; border-top=
+-width: 1px; border-top-color: #A2A2A2; border-top-style: solid; -webkit-te=
+xt-size-adjust: none;" height=3D"15" width=3D"90%">
+                  </td>
+<td width=3D"5%" style=3D"-webkit-text-size-adjust: none;"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style=3D"-webkit-text-size-adjust: none;">
+              <table class=3D"main-table" align=3D"center" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"table-layout: fixed; border-collapse: collapse=
+; text-align: center; width: 480px; margin: 0; padding: 0; border: 0;" bgco=
+lor=3D"#ffffff">
+                <tr>
+                  <td width=3D"10%" style=3D"-webkit-text-size-adjust: none=
+;">&nbsp;</td>
+                  <td class=3D"footer" width=3D"80%" style=3D"-webkit-text-=
+size-adjust: none; color: #aaaaaa; font-family: Arial, sans-serif; font-siz=
+e: 12px; line-height: 18px;" align=3D"center">
+                    You're being emailed because your friend sibylle.kuder@=
+gmail.com has shared with you. You haven't been added to any lists. This is=
+ a one time email that won't get sent again unless someone else shares with=
+ you again. To prevent receiving emails like this
+                    <a href=3D"http://email.p2p.talkable.com/c/eJxVTztrwzAY=
+_DX25qC3nUFDoaRLCWQKncynly0iW0aSk6a_vkq3Hjccx3HcGUk0GNd6iYUTqKJjAyIdoxS6YcC=
+66wH3nGDKGBENQxvZDgXCDVSwBx2XdpZYAxfMCo2xEowD585groBrOhhCULvkafRG0p72TCDaBj=
+mXsuWGvjXkVPl4PP51VmvbVfC6in3Nu8o6eWVfyQl0t-eq1PX0hCff4XqOinz_XD5M-bqG_Lmc7=
+-rS0PcXyclZxNxx0BoTBgIEt0Bd3YYtEogz3Vsn4HhUbZILpNth9XqOIdej0wI-_D0sco3FO2_T=
+GJ2zKY95hmTHu4fRvlKtXe9yS9Hsuvi4_gJ4Umx4" style=3D"-webkit-text-size-adjust=
+: none; color: #aaaaaa;">click here</a>.
+                  </td>
+                  <td width=3D"10%" style=3D"-webkit-text-size-adjust: none=
+;">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr not-yahoo=3D"true">
+            <td class=3D"vertical-line-2" style=3D"line-height: 1px; font-s=
+ize: 1px; -webkit-text-size-adjust: none;" height=3D"50">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+
+   =20
+  <img width=3D"1px" height=3D"1px" alt=3D"" src=3D"http://email.p2p.talkab=
+le.com/o/eJwdzEsOgyAUQNHVlBkGeQg4YC3kyUdJBQxQ11_bO7453nCHPpJkZhkle6JCM04FAF=
+KtZ0cVzmrhMwjB5Uuwi1_TwPON2xkmVzM5TNAQ5Mrduq3gFq2AbWLVApjiWsKiSO67Td6AAiUkA=
+9JMxvaeSnJHPfuD7hnT-deGKXWkmEKzNcbQuu0HtmDvhDb8LhLKba5W_ceNVMsXRDE7pw"></bo=
+dy>
+</html>
+
+----==_mimepart_5a15a2e51b711_3a9f3f830248b49817731e--

@@ -1,0 +1,1724 @@
+Delivered-To: code.prole@gmail.com
+Received: by 10.200.37.50 with SMTP id 47csp365235qtm;
+        Tue, 20 Feb 2018 22:16:31 -0800 (PST)
+X-Google-Smtp-Source: AH8x227YKq5jTCwvUWiYmPLClmff9fuPQxMoPST0XTW49yY2LUDgrjSFgj1f1KWyyMm7MEYodo0O
+X-Received: by 10.129.69.23 with SMTP id s23mr1435358ywa.367.1519193791746;
+        Tue, 20 Feb 2018 22:16:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1519193791; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Hk8GV2S5SVFrUBDzq/0bxcFqWTQJbUxd6soBeMLhekafVelKRAMdBh0gIwh0l3Ez+q
+         N0n49fcbuOA9oaPY9Jydm25LAgutD2v9gFa30pDtO++DBo/bdN/nQynZUe5ACTMaR+sK
+         I4xVB++KLX0iiFZM2UQ+3NhhjrvCM3iJZm6dPlmLuamzdg6qWYwjZ1ybDvImwHvdpFyi
+         ErA77IeOQMNem/R0Sbjc92DtmJtaCx+YpdcktagY47owKoJbw7o71YrJe4Bft/KcJI9p
+         WJRoesy3gS/uPr7fX4dT6QpVmX7xK/y/3tEXDCvrcHlkV+w6amCLd0GIXWQsR0OdBt+p
+         4Vaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe:list-id:feedback-id:message-id:date
+         :to:reply-to:from:subject:dkim-signature:dkim-signature
+         :arc-authentication-results;
+        bh=CEtaHtHW7XsxjVnZqcaZxAqva9yPz6QryHcwRBB/yRk=;
+        b=o9CDByjKeC3aYv1HapYpH8BvYftiDvpZ1cVw9HJ79bwVPGgMpjTUHv3P+t3v7jX4Bq
+         0jwdh9pVQoUD6pPv6/p7W7/WM97DrMEgq3aOkNovb70UD7SToCAo2fEyMfoXbTTXUcjy
+         PQndDLbNcEYEN3WYzBJWHaL2grhikzbZQK24eyQMJDWwYBmpd+JEGMCaZtt9/qWGsz7e
+         uAXZGyQx2jAe04RtWtSSgd6cZSPkdgc8y3CnoIEPpybedM+evyGP1VDg6LAfsqSkhg7T
+         jdRpFf9CMza7IYu4vac6sxTWMlqAKzeoSmTrrmFFO6H0RK4wmkTlSW5w5eG06plZ9L8G
+         qKQQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=T210g7b6;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=n89jR5au;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470305-code.prole=gmail.com@mail223.sea81.mcsv.net designates 148.105.14.223 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470305-code.prole=gmail.com@mail223.sea81.mcsv.net
+Return-Path: <bounce-mc.us9_35713533.1470305-code.prole=gmail.com@mail223.sea81.mcsv.net>
+Received: from mail223.sea81.mcsv.net (mail223.sea81.mcsv.net. [148.105.14.223])
+        by mx.google.com with ESMTPS id u189si4809752ywd.753.2018.02.20.22.16.31
+        for <code.prole@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 20 Feb 2018 22:16:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_35713533.1470305-code.prole=gmail.com@mail223.sea81.mcsv.net designates 148.105.14.223 as permitted sender) client-ip=148.105.14.223;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@onelanday.co.uk header.s=k1 header.b=T210g7b6;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=n89jR5au;
+       spf=pass (google.com: domain of bounce-mc.us9_35713533.1470305-code.prole=gmail.com@mail223.sea81.mcsv.net designates 148.105.14.223 as permitted sender) smtp.mailfrom=bounce-mc.us9_35713533.1470305-code.prole=gmail.com@mail223.sea81.mcsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=onelanday.co.uk;
+ h=Subject:From:Reply-To:To:Date:Message-ID:List-ID:List-Unsubscribe:
+ Content-Type:MIME-Version; i=the-morning-paper@onelanday.co.uk;
+ bh=CEtaHtHW7XsxjVnZqcaZxAqva9yPz6QryHcwRBB/yRk=;
+ b=T210g7b6ljLQAL8oSVKcuWvxuFhcij62PLZnqBF+/ouBRuf9tvrEEQdo749tlbK/2Buc4uSn35EI
+   V8nQThhtWQ5CfHE/9q+1mlw3S37E4f54F5GpWoo1V86OkK4ezo7FMkuAkaGieH6fiZrkkQb3GPzY
+   RoIB0ZlHi2WW4ope8hc=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=k1; d=gmail.mcsv.net;
+ h=Subject:From:Reply-To:To:Date:Message-ID:Feedback-ID:List-ID:
+ List-Unsubscribe:Content-Type:MIME-Version;
+ bh=CEtaHtHW7XsxjVnZqcaZxAqva9yPz6QryHcwRBB/yRk=;
+ b=n89jR5auFk09yYJKuoBO4ZCHYF4/7BxfCUyAwty5ReGDyWMtH/10XsT8b8B4obWpeH/ayXJhZRvv
+   GBLqMD52Y22FBPwqjOH/PJkD1N3hDmTdZuzG9O85aFq2m4tiKYtmyNQ3j3jJjNWWl6ih9VKv34Ww
+   nvZP6MVRMbzuvP71VkY=
+Received: from (127.0.0.1) by mail223.sea81.mcsv.net id hhk7bu2ddl4l for <code.prole@gmail.com>; Wed, 21 Feb 2018 06:15:38 +0000 (envelope-from <bounce-mc.us9_35713533.1470305-code.prole=gmail.com@mail223.sea81.mcsv.net>)
+Subject: =?utf-8?Q?The=20Morning=20Paper=3A=20Can=20you=20trust=20the=20trend=3F=20Discovering=20Simpson=27s=20paradoxes=20in=20social=20data?=
+From: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+Reply-To: =?utf-8?Q?The=20Morning=20Paper?= <the-morning-paper@onelanday.co.uk>
+To: <code.prole@gmail.com>
+Date: Wed, 21 Feb 2018 06:15:38 +0000
+Message-ID: <4188b6afbe9e5d43111fef4d4.1c7444593b.20180221061451.f055e79ead.5848eedd@mail223.sea81.mcsv.net>
+X-Mailer: MailChimp Mailer - **CIDf055e79ead1c7444593b**
+X-Campaign: mailchimp4188b6afbe9e5d43111fef4d4.f055e79ead
+X-campaignid: mailchimp4188b6afbe9e5d43111fef4d4.f055e79ead
+X-Report-Abuse: Please report abuse for this campaign here: http://www.mailchimp.com/abuse/abuse.phtml?u=4188b6afbe9e5d43111fef4d4&id=f055e79ead&e=1c7444593b
+X-MC-User: 4188b6afbe9e5d43111fef4d4
+Feedback-ID: 35713533:35713533.1470305:us9:mc
+List-ID: 4188b6afbe9e5d43111fef4d4mc list <4188b6afbe9e5d43111fef4d4.597133.list-id.mcsv.net>
+X-Accounttype: pd
+List-Unsubscribe: <https://acolyer.us9.list-manage.com/unsubscribe?u=4188b6afbe9e5d43111fef4d4&id=de5773de0c&e=1c7444593b&c=f055e79ead>, <mailto:unsubscribe-mc.us9_4188b6afbe9e5d43111fef4d4.f055e79ead-1c7444593b@mailin.mcsv.net?subject=unsubscribe>
+x-mcda: FALSE
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1184802458"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1184802458
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+It's easy to draw the wrong conclusions when sub-populations have differin=
+g behaviours.
+View this email in your browser (http://mailchi.mp/onelanday/the-morning-p=
+aper-can-you-trust-the-trend-discovering-simpsons-paradoxes-in-social-data=
+?e=3D1c7444593b)
+This paper write-up is also available online at The Morning Paper. (http:/=
+/blog.acolyer.org/2018/02/21/can-you-trust-the-trend-discovering-simpsons-=
+paradoxes-in-social-data)
+
+
+** the morning paper
+------------------------------------------------------------
+
+
+** Can you trust the trend? Discovering Simpson=E2=80=99s paradoxes in soc=
+ial data
+------------------------------------------------------------
+
+Can you trust the trend? Discovering Simpson=E2=80=99s paradoxes in social=
+ data (https://arxiv.org/abs/1801.04385) Alipourfard et al.=2C WSDM=E2=80=
+=9918
+
+In =E2=80=98Same stats=2C different graphs (https://blog.acolyer.org/2017/=
+10/31/same-stats-different-graphs-generating-datasets-with-varied-appearan=
+ce-and-identical-statistics-through-simulated-annealing/) =2C=E2=80=99 we=
+ saw some compelling examples of how summary statistics can hide important=
+ underlying patterns in data. Today=E2=80=99s paper choice shows how you c=
+an detect instances of Simpson=E2=80=99s paradox=2C thus revealing the pre=
+sence of interesting subgroups=2C and hopefully avoid drawing the wrong co=
+nclusions. For the evaluation part of the work=2C the authors look at ques=
+tion-answering on Stack Exchange (Stack Overflow=2C for many readers of th=
+is blog I suspect).
+
+We investigate how Simpson=E2=80=99s paradox affects analysis of trends in=
+ social data. According to the paradox=2C the trends observed in data that=
+ has been aggregated over an entire population may be different from=2C an=
+d even opposite to=2C those of the underlying subgroups.
+
+Let=E2=80=99s jump straight to an example. In Stack Exchange someone posts=
+ a question and other users of the system post answers (ignoring the part=
+ about the question first being deemed worthy of the forum by the powers-t=
+hat-be). Users can vote for answers that they find helpful=2C and the orig=
+inal poster of the question can accept one of the answers as the best one.=
+ What factors influence whether or not a particular answer is accepted as=
+ the best one? One of the variables that has been studied here is when in=
+ a user=E2=80=99s session an answer is posted. Suppose I=E2=80=99m feeling=
+ particularly helpful today=2C and I log onto to Stack Overflow and start=
+ answering questions to the best of my ability. I answer one question=2C t=
+hen another=2C then another. Is my answer to the first question more or le=
+ss likely to be accepted as a best answer than my answer to the third ques=
+tion? If we look at the data from 9.6M Stack Exchange questions=2C we see=
+ the following trend:
+
+It seems that the more questions I=E2=80=99ve previously answered in a giv=
+en session=2C the greater the probability my next answer will be accepted=
+ as the best one! That seems a bit odd. Do question answerers get into the=
+ flow? Do they start picking =E2=80=98easier=E2=80=99 questions (for them)=
+ as the session goes on?
+
+Here=E2=80=99s another plot of exactly the same dataset=2C but with the da=
+ta disaggregated by session length. Each different coloured line represent=
+s a session of a different length (i.e.=2C sessions where the user answere=
+d only one question=2C sessions where the user answered two questions=2C a=
+nd so on).
+
+When we compare sessions of the same length=2C we clearly see exactly the=
+ opposite trend: answers later in a session tend to fare worse than earlie=
+r ones! The truth is that =E2=80=9Ceach successive answer posted during a=
+ session by a user on Stack Exchange is shorter=2C less well documented wi=
+th external links and code=2C and less likely to be accepted by the asker=
+ as the best answer.=E2=80=9D
+
+When measuring how an outcome changes as a function of an independent vari=
+able=2C the characteristics of the population over which the trend is meas=
+ured may change as a function of the independent variable due to survivor=
+ bias.
+
+To illustrate=2C here=E2=80=99s an example of that Stack Exchange data bro=
+ken down by session length. Note the massive class imbalances (many more s=
+essions of length one than length eight for example).
+
+When calculating acceptance probability for the aggregate data=2C consider=
+ the case of computing the probability that the third answer in a session=
+ is accepted as the best one. Of the 12.8M total data points=2C 9.6M of th=
+em aren=E2=80=99t eligible to contribute to this analysis (sessions of len=
+gth one or two). Thus there is a survivorship bias - when we get to the th=
+ird answer=2C the first two have already failed to be accepted=2C indicati=
+ng that perhaps the new answer is facing weaker competition. This increase=
+s the probability that the third answer will be accepted as the best. (And=
+ so on=2C as session lengths get longer and longer).
+
+=2E.. despite accumulating evidence that Simpson=E2=80=99s paradox affects i=
+nference of trends in social and behavioral data=2C researchers do not rou=
+tinely test for it in their studies.
+
+
+** Identifying Simpson=E2=80=99s paradoxes
+------------------------------------------------------------
+
+We=E2=80=99d like to know if a Simpson=E2=80=99s paradox exists so that we=
+ don=E2=80=99t draw the wrong conclusions=2C and also because it normally=
+ suggests something interesting happening in the data: subgroups of the po=
+pulation which differ in their behaviour in ways which are significant eno=
+ugh to affect aggregate trends.
+
+We propose a method to systematically uncover Simpson=E2=80=99s paradox fo=
+r trends in data.
+
+Let Y be the outcome being measured (e.g.=2C the probability than an answe=
+r is accepted as the best one)=2C and \mathbf{X} =3D \{X_1=2CX_2=2C...X_m\=
+} be the set of m independent variables or features (e.g=2C the reputation=
+ of the answering user=2C the number of answers so far=2C and so on). The=
+ method finds pairs of variables (X_p=2CX_c) such that a trend in Y as a f=
+unction of X_p disappears or reverses when the data is disaggregated by co=
+nditioning on X_c .
+
+If X_c is categorical=2C then we can simply group data by the unique value=
+s. For continuous various (or discrete variables with a very large range)=
+=2C you can bin the elements. The experiments in the paper used bins of fi=
+xed size=2C but other binning strategies are available.
+
+A trend in Y as a function of X_p can be expressed as
+
+And the reverse trend when conditioned on X_c can be expressed as:
+
+We=E2=80=99re looking for pairs where both equation (1) and (2) are true s=
+imultaneously. The process starts out by fitting linear models. Let the re=
+lationship between Y and X_p be modelled by
+
+\displaystyle \mathbb{E}[Y|X_p =3D x_p] =3D f_p(\alpha + \beta x_p)
+
+(Here \alpha is just the intercept of the regression function=2C and the t=
+rend parameter \beta quantifies the effect of X_p on Y).
+
+We can use a similar linear model (with different values of alpha and beta=
+) for the conditioned expectation:
+
+\displaystyle \mathbb{E}[Y|X_p =3D x_p=2C X_c =3D x_c] =3D f_{p=2Cc}(\alp=
+ha (x_c) + \beta (x_c) x_p)
+
+When fitting linear models f(\alpha + \beta\mathbf{X}) we have not only fi=
+tted a trend parameter \beta but also a p-value which gives the probabilit=
+y of finding an intercept \beta [ \alpha ??? ] at least as extreme as the=
+ fitted value under the null hypothesis H_0 : \beta =3D 0 . From this=2C w=
+e have three possibilities:
+
+1. \beta is not statistically different from zero
+2. \beta is statistically different from zero and positive
+3. \beta is statistically different from zero and negative
+
+By comparing the sign of \beta from the aggregated fit with the signs of t=
+he \beta s from the disaggregated fits we can test for Simpson=E2=80=99s p=
+aradox.
+
+Although [our equations] state that the signs from the disaggregated curv=
+es should all be different from the aggregrated curve=2C in practice this=
+ is too strict=2C especially as human behavioral data is noisy. Thus=2C we=
+ compare the sign of the fit to aggregated data to the simple average of t=
+he signs of fits to disaggregated data.
+
+Here=E2=80=99s the algorithm pseudocode:
+
+Using the Stack Exchange data=2C the authors used this algorithm to find s=
+everal instances of Simpson=E2=80=99s paradox:
+
+We looked at one of these earlier. Here=E2=80=99s a breakdown of the parad=
+ox regarding acceptance probability versus the total number of answers pos=
+ted by a user in their account lifetime.
+
+An analysis of the mathematical formulation of Simpson=E2=80=99s paradox p=
+resented above also reveals two necessary conditions for a paradox to aris=
+e:
+1. The distribution of the conditioning variable X_c must be dependent on=
+ X_p (i.e.=2C as X_p changes=2C so does the distribution of values of X_c=
+ ).
+2. The expectation of Y =2C conditioned on X_p =2C must not be independent=
+ of X_c . (I.e.=2C for a given value of X_p =2C as X_c changes=2C so does=
+ the expected value of Y).
+
+
+** The last word
+------------------------------------------------------------
+
+Since social data is often generated by a mixture of subgroups=2C existenc=
+e of Simpson=E2=80=99s paradox suggests that these subgroups differ system=
+atically and significantly in their behavior. By isolating important subgr=
+oups in social data=2C our method can yield insights into their behaviors.
+
+http://twitter.com/intent/tweet?text=3DCan%20you%20trust%20the%20trend%3F%=
+20Discovering%20Simpson's%20paradoxes%20in%20social%20data: http%3A%2F%2Fb=
+log.acolyer.org%2F2018%2F02%2F21%2Fcan-you-trust-the-trend-discovering-sim=
+psons-paradoxes-in-social-data Tweet (http://twitter.com/intent/tweet?text=
+=3DCan%20you%20trust%20the%20trend%3F%20Discovering%20Simpson's%20paradoxe=
+s%20in%20social%20data: http%3A%2F%2Fblog.acolyer.org%2F2018%2F02%2F21%2Fc=
+an-you-trust-the-trend-discovering-simpsons-paradoxes-in-social-data)
+This email was brought to you by #themorningpaper (http://blog.acolyer.org=
+) : an interesting/influential/important paper from the world of CS every=
+ weekday morning=2C as selected by Adrian Colyer
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+Copyright =C2=A9 2018 One L and a Y Ltd=2C All rights reserved.
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.
+
+Our mailing address is:
+One L and a Y Ltd
+Unit 5755
+PO Box 6945
+London=2C England W1A 6US
+United Kingdom
+** unsubscribe from this list (https://acolyer.us9.list-manage.com/unsubsc=
+ribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3Df055e7=
+9ead)
+** update subscription preferences (https://acolyer.us9.list-manage.com/pr=
+ofile?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b)
+--_----------=_MCPart_1184802458
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or=
+g/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+    <head>
+    =09<!-- NAME: 1 COLUMN -->
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3D=
+UTF-8">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1.0">
+        <title>The Morning Paper: Can you trust the trend? Discovering Sim=
+pson's paradoxes in social data</title>
+
+    <style type=3D"text/css">
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100% !important;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100% !important;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09p{
+=09=09=09margin:1em 0;
+=09=09=09padding:0;
+=09=09}
+=09=09a{
+=09=09=09word-wrap:break-word;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass span=2C.ExternalC=
+lass font=2C.ExternalClass td=2C.ExternalClass div{
+=09=09=09line-height:100%;
+=09=09}
+=09=09table=2Ctd{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09#templatePreheader=2C#templateHeader=2C#templateBody=2C#templateFoot=
+er{
+=09=09=09min-width:100%;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:20px;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#F2F2F2;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09#templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:40px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-1px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#404040 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.75px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#606060 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-.5px;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#808080 !important;
+=09=09=09display:block;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09margin:0;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent=2C.preheaderContainer .mcnTextCo=
+ntent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.preheaderContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:15px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a{
+=09=09=09color:#6DC6DD;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#FFFFFF;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#606060;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:11px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.footerContainer .mcnTextContent a{
+=09=09=09color:#606060;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[id=3DbodyCell]{
+=09=09=09padding:10px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnTextContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3Dmcpreview-image-uploader]{
+=09=09=09width:100% !important;
+=09=09=09display:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09img[class=3DmcnImage]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnImageGroupContentContainer]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupContent]{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageGroupBlockInner]{
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-top:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09tbody[class=3DmcnImageGroupBlockOuter]{
+=09=09=09padding-bottom:9px !important;
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionTopContent]=2Ctable[class=3DmcnCaptionBott=
+omContent]{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftTextContentContainer]=2Ctable[class=3D=
+mcnCaptionRightTextContentContainer]=2Ctable[class=3DmcnCaptionLeftImageC=
+ontentContainer]=2Ctable[class=3DmcnCaptionRightImageContentContainer]=2C=
+table[class=3DmcnImageCardLeftTextContentContainer]=2Ctable[class=3DmcnI=
+mageCardRightTextContentContainer]=2C.mcnImageCardLeftImageContentContaine=
+r=2C.mcnImageCardRightImageContentContainer{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardLeftImageContent]=2Ctd[class=3DmcnImageCard=
+RightImageContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardBottomImageContent]{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnImageCardTopImageContent]{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnCaptionLeftContentOuter] td[class=3DmcnTextConten=
+t]=2Ctable[class=3DmcnCaptionRightContentOuter] td[class=3DmcnTextConten=
+t]{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnCaptionBlockInner] table[class=3DmcnCaptionTopConten=
+t]:last-child td[class=3DmcnTextContent]=2C.mcnImageCardTopImageContent=
+=2C.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnBoxedTextContentColumn]{
+=09=09=09padding-left:18px !important;
+=09=09=09padding-right:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DmcnTextContent]{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplateContainer]=2Ctable[id=3DtemplatePreheader]=2Cta=
+ble[id=3DtemplateHeader]=2Ctable[id=3DtemplateBody]=2Ctable[id=3Dtempla=
+teFooter]{
+=09=09=09max-width:600px !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:24px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextCont=
+ent]=2Ctd[class=3DmcnBoxedTextContentContainer] td[class=3DmcnTextConten=
+t] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09table[id=3DtemplatePreheader]{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DpreheaderContainer] td[class=3DmcnTextContent]=2Ctd[cl=
+ass=3DpreheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DheaderContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DheaderContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DbodyContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DbodyContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] td[class=3DmcnTextContent]=2Ctd[class=
+=3DfooterContainer] td[class=3DmcnTextContent] p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:115% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09td[class=3DfooterContainer] a[class=3DutilityLink]{
+=09=09=09display:block !important;
+=09=09}
+
+}</style></head>
+    <body leftmargin=3D"0" marginwidth=3D"0" topmargin=3D"0" marginheight=
+=3D"0" offset=3D"0" style=3D"margin: 0;padding: 0;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;background-color: #F2F2F2;height: 100% !=
+important;width: 100% !important;">
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;backg=
+round-color: #F2F2F2;height: 100% !important;width: 100% !important;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;margin: 0;padding: 20px;border-top: 0;h=
+eight: 100% !important;width: 100% !important;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600" id=3D"templateContainer" style=3D"border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;border: 0;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN PREHEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templatePreheader" style=3D"border-=
+collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-si=
+ze-adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-=
+color: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                        =09<td valign=3D"top" class=3D"pre=
+headerContainer" style=3D"padding-top: 9px;mso-table-lspace: 0pt;mso-table=
+-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-=
+table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"390" style=3D"width:390px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 390px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            It's easy to draw the wrong conclusions when s=
+ub-populations have differing behaviours.&nbsp;
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"210" style=3D"width:210px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 210px;border-collapse: collapse;mso-table=
+-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-left: 18px;padding-bottom: 9px;padding-right: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <a href=3D"http://mailchi.mp/onelanday/the-mor=
+ning-paper-can-you-trust-the-trend-discovering-simpsons-paradoxes-in-socia=
+l-data?e=3D1c7444593b" target=3D"_blank" style=3D"word-wrap: break-word;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;font-=
+weight: normal;text-decoration: underline;">View this email in your browse=
+r</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN HEADER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateHeader" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock"=
+ style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;=
+mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <a href=3D"https://acolyer.us9.list-manage.com=
+/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3D0897fcd270&e=3D1c7444593b=
+" target=3D"_blank" style=3D"word-wrap: break-word;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text=
+-decoration: underline;">This paper write-up is also available online at T=
+he Morning Paper.</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END HEADER -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN BODY // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateBody" style=3D"border-colla=
+pse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-ad=
+just: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-color=
+: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlock" st=
+yle=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso=
+-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 15px;line-height: 150%;text-align: left;">
+
+                            <style type=3D"text/css">blockquote {
+    display: block;
+    padding: 20px 20px 10px 45px;
+    margin: 20px 0px;
+    font-style: italic;
+    font-size: 14px;
+    color: #141310;
+    background: url("blog.acolyer.org/wp-content/themes/pub/vigilance/imag=
+es/blockquote.gif") no-repeat scroll left top #E7E6E2;
+}
+</style>
+<h1 style=3D"margin: 0;padding: 0;display: block;font-family: Helvetica;fo=
+nt-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;lette=
+r-spacing: -1px;text-align: left;color: #606060 !important;">the morning p=
+aper</h1>
+
+<h2 id=3D"can-you-trust-the-trend-discovering-simpsons-paradoxes-in-social=
+-data" style=3D"margin: 0;padding: 0;display: block;font-family: Helvetica=
+;font-size: 26px;font-style: normal;font-weight: bold;line-height: 125%;le=
+tter-spacing: -.75px;text-align: left;color: #404040 !important;">Can you=
+ trust the trend? Discovering Simpson=E2=80=99s paradoxes in social data</=
+h2>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><a href=3D"https://acolyer.us9.list-=
+manage.com/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3De155b8bd1d&e=3D=
+1c7444593b" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;text-decorat=
+ion: underline;">Can you trust the trend? Discovering Simpson=E2=80=99s pa=
+radoxes in social data</a> Alipourfard et al.=2C <em>WSDM=E2=80=9918</em><=
+/p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">In =E2=80=98<a href=3D"https://acoly=
+er.us9.list-manage.com/track/click?u=3D4188b6afbe9e5d43111fef4d4&id=3Db8df=
+2dc87b&e=3D1c7444593b" style=3D"word-wrap: break-word;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;color: #6DC6DD;font-weight: normal;=
+text-decoration: underline;">Same stats=2C different graphs</a>=2C=E2=80=
+=99 we saw some compelling examples of how summary statistics can hide imp=
+ortant underlying patterns in data. Today=E2=80=99s paper choice shows how=
+ you can detect instances of Simpson=E2=80=99s paradox=2C thus revealing t=
+he presence of interesting subgroups=2C and hopefully avoid drawing the wr=
+ong conclusions. For the evaluation part of the work=2C the authors look a=
+t question-answering on Stack Exchange (Stack Overflow=2C for many readers=
+ of this blog I suspect).</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We investigate how Simpson=E2=80=99s=
+ paradox affects analysis of trends in social data. According to the parad=
+ox=2C the trends observed in data that has been aggregated over an entire=
+ population may be different from=2C and even opposite to=2C those of the=
+ underlying subgroups.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Let=E2=80=99s jump straight to an ex=
+ample. In Stack Exchange someone posts a question and other users of the s=
+ystem post answers (ignoring the part about the question first being deeme=
+d worthy of the forum by the powers-that-be). Users can <em>vote</em> for=
+ answers that they find helpful=2C and the original poster of the question=
+ can <em>accept</em> one of the answers as the best one. What factors infl=
+uence whether or not a particular answer is accepted as the best one? One=
+ of the variables that has been studied here is when in a user=E2=80=99s s=
+ession an answer is posted. Suppose I=E2=80=99m feeling particularly helpf=
+ul today=2C and I log onto to Stack Overflow and start answering questions=
+ to the best of my ability. I answer one question=2C then another=2C then=
+ another. Is my answer to the first question more or less likely to be acc=
+epted as a best answer than my answer to the third question? If we look at=
+ the data from 9.6M Stack Exchange questions=2C we see the following trend=
+:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-fig-1a.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: n=
+one;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">It seems that the more questions I=
+=E2=80=99ve previously answered in a given session=2C the greater the prob=
+ability my next answer will be accepted as the best one! That seems a bit=
+ odd. Do question answerers get into the flow? Do they start picking =E2=
+=80=98easier=E2=80=99 questions (for them) as the session goes on?</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Here=E2=80=99s another plot of exact=
+ly the same dataset=2C but with the data disaggregated by session length.=
+ Each different coloured line represents a session of a different length (=
+i.e.=2C sessions where the user answered only one question=2C sessions whe=
+re the user answered two questions=2C and so on).</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-fig-1b.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: n=
+one;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">When we compare sessions of the same=
+ length=2C we clearly see exactly the opposite trend: answers later in a s=
+ession tend to fare worse than earlier ones! The truth is that =E2=80=9C<e=
+m>each successive answer posted during a session by a user on Stack Exchan=
+ge is shorter=2C less well documented with external links and code=2C and=
+ less likely to be accepted by the asker as the best answer.</em>=E2=80=9D=
+</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">When measuring how an outcome change=
+s as a function of an independent variable=2C the characteristics of the p=
+opulation over which the trend is measured may change as a function of the=
+ independent variable due to survivor bias.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">To illustrate=2C here=E2=80=99s an e=
+xample of that Stack Exchange data broken down by session length. Note the=
+ massive class imbalances (many more sessions of length one than length ei=
+ght for example).</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-table-2.jpeg?w=3D520" style=3D"border: 0;outline: none;text-decoration:=
+ none;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">When calculating acceptance probabil=
+ity for the aggregate data=2C consider the case of computing the probabili=
+ty that the third answer in a session is accepted as the best one. Of the=
+ 12.8M total data points=2C 9.6M of them aren=E2=80=99t eligible to contri=
+bute to this analysis (sessions of length one or two). Thus there is a sur=
+vivorship bias - when we get to the third answer=2C the first two have alr=
+eady failed to be accepted=2C indicating that perhaps the new answer is fa=
+cing weaker competition. This increases the probability that the third ans=
+wer will be accepted as the best. (And so on=2C as session lengths get lon=
+ger and longer).</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">... despite accumulating evidence th=
+at Simpson=E2=80=99s paradox affects inference of trends in social and beh=
+avioral data=2C researchers do not routinely test for it in their studies.=
+</p>
+</blockquote>
+<h3 id=3D"identifying-simpsons-paradoxes" style=3D"margin: 0;padding: 0;di=
+splay: block;font-family: Helvetica;font-size: 18px;font-style: normal;fon=
+t-weight: bold;line-height: 125%;letter-spacing: -.5px;text-align: left;co=
+lor: #606060 !important;">Identifying Simpson=E2=80=99s paradoxes</h3>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We=E2=80=99d like to know if a Simps=
+on=E2=80=99s paradox exists so that we don=E2=80=99t draw the wrong conclu=
+sions=2C and also because it normally suggests something interesting happe=
+ning in the data: subgroups of the population which differ in their behavi=
+our in ways which are significant enough to affect aggregate trends.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We propose a method to systematicall=
+y uncover Simpson=E2=80=99s paradox for trends in data.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Let <em>Y</em> be the outcome being=
+ measured (e.g.=2C the probability than an answer is accepted as the best=
+ one)=2C and <img style=3D"vertical-align: middle;border: 0;outline: none;=
+text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !import=
+ant;" src=3D"https://latex.codecogs.com/png.latex?%5Cmathbf%7BX%7D%20%3D%2=
+0%5C%7BX_1%2CX_2%2C...X_m%5C%7D" alt=3D"\mathbf{X} =3D \{X_1=2CX_2=2C...X_=
+m\}" title=3D"\mathbf{X} =3D \{X_1=2CX_2=2C...X_m\}"> be the set of <em>m<=
+/em> independent variables or features (e.g=2C the reputation of the answe=
+ring user=2C the number of answers so far=2C and so on). The method finds=
+ pairs of variables <img style=3D"vertical-align: middle;border: 0;outline=
+: none;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto=
+ !important;" src=3D"https://latex.codecogs.com/png.latex?%28X_p%2CX_c%29"=
+ alt=3D"(X_p=2CX_c)" title=3D"(X_p=2CX_c)"> such that a trend in <em>Y</em=
+> as a function of <img style=3D"vertical-align: middle;border: 0;outline:=
+ none;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !=
+important;" src=3D"https://latex.codecogs.com/png.latex?X_p" alt=3D"X_p" t=
+itle=3D"X_p"> disappears or reverses when the data is disaggregated by con=
+ditioning on <img style=3D"vertical-align: middle;border: 0;outline: none;=
+text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !import=
+ant;" src=3D"https://latex.codecogs.com/png.latex?X_c" alt=3D"X_c" title=
+=3D"X_c">.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">If <img style=3D"vertical-align: mid=
+dle;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode:=
+ bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.l=
+atex?X_c" alt=3D"X_c" title=3D"X_c"> is categorical=2C then we can simply=
+ group data by the unique values. For continuous various (or discrete vari=
+ables with a very large range)=2C you can bin the elements. The experiment=
+s in the paper used bins of fixed size=2C but other binning strategies are=
+ available.</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">A trend in <em>Y</em> as a function=
+ of <img style=3D"vertical-align: middle;border: 0;outline: none;text-deco=
+ration: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=
+=3D"https://latex.codecogs.com/png.latex?X_p" alt=3D"X_p" title=3D"X_p"> c=
+an be expressed as</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-eqn-1.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: no=
+ne;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">And the reverse trend when condition=
+ed on <img style=3D"vertical-align: middle;border: 0;outline: none;text-de=
+coration: none;-ms-interpolation-mode: bicubic;height: auto !important;" s=
+rc=3D"https://latex.codecogs.com/png.latex?X_c" alt=3D"X_c" title=3D"X_c">=
+ can be expressed as:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-eqn-2.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: no=
+ne;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We=E2=80=99re looking for pairs wher=
+e both equation (1) and (2) are true simultaneously. The process starts ou=
+t by fitting linear models. Let the relationship between Y and <img style=
+=3D"vertical-align: middle;border: 0;outline: none;text-decoration: none;-=
+ms-interpolation-mode: bicubic;height: auto !important;" src=3D"https://la=
+tex.codecogs.com/png.latex?X_p" alt=3D"X_p" title=3D"X_p"> be modelled by<=
+/p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><img style=3D"vertical-align: middle=
+;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bic=
+ubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.latex=
+?%5Cdisplaystyle%20%5Cmathbb%7BE%7D%5BY%7CX_p%20%3D%20x_p%5D%20%3D%20f_p%2=
+8%5Calpha%20%2B%20%5Cbeta%20x_p%29" alt=3D"\displaystyle \mathbb{E}[Y|X_p=
+ =3D x_p] =3D f_p(\alpha + \beta x_p)" title=3D"\displaystyle \mathbb{E}[=
+Y|X_p =3D x_p] =3D f_p(\alpha + \beta x_p)"></p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">(Here <img style=3D"vertical-align:=
+ middle;border: 0;outline: none;text-decoration: none;-ms-interpolation-mo=
+de: bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/pn=
+g.latex?%5Calpha" alt=3D"\alpha" title=3D"\alpha"> is just the intercept o=
+f the regression function=2C and the trend parameter <img style=3D"vertica=
+l-align: middle;border: 0;outline: none;text-decoration: none;-ms-interpol=
+ation-mode: bicubic;height: auto !important;" src=3D"https://latex.codecog=
+s.com/png.latex?%5Cbeta" alt=3D"\beta" title=3D"\beta"> quantifies the eff=
+ect of <img style=3D"vertical-align: middle;border: 0;outline: none;text-d=
+ecoration: none;-ms-interpolation-mode: bicubic;height: auto !important;"=
+ src=3D"https://latex.codecogs.com/png.latex?X_p" alt=3D"X_p" title=3D"X_p=
+"> on <em>Y</em>).</p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We can use a similar linear model (w=
+ith different values of alpha and beta) for the conditioned expectation:</=
+p>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;"><img style=3D"vertical-align: middle=
+;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bic=
+ubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.latex=
+?%5Cdisplaystyle%20%5Cmathbb%7BE%7D%5BY%7CX_p%20%3D%20x_p%2C%20X_c%20%3D%2=
+0x_c%5D%20%3D%20f_%7Bp%2Cc%7D%28%5Calpha%20%28x_c%29%20%2B%20%5Cbeta%20%28=
+x_c%29%20x_p%29" alt=3D"\displaystyle \mathbb{E}[Y|X_p =3D x_p=2C X_c =3D=
+ x_c] =3D f_{p=2Cc}(\alpha (x_c) + \beta (x_c) x_p)" title=3D"\displaystyl=
+e \mathbb{E}[Y|X_p =3D x_p=2C X_c =3D x_c] =3D f_{p=2Cc}(\alpha (x_c) + \=
+beta (x_c) x_p)"></p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">When fitting linear models <img styl=
+e=3D"vertical-align: middle;border: 0;outline: none;text-decoration: none;=
+-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"https://l=
+atex.codecogs.com/png.latex?f%28%5Calpha%20%2B%20%5Cbeta%5Cmathbf%7BX%7D%2=
+9" alt=3D"f(\alpha + \beta\mathbf{X})" title=3D"f(\alpha + \beta\mathbf{X}=
+)"> we have not only fitted a trend parameter <img style=3D"vertical-align=
+: middle;border: 0;outline: none;text-decoration: none;-ms-interpolation-m=
+ode: bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/p=
+ng.latex?%5Cbeta" alt=3D"\beta" title=3D"\beta"> but also a p-value which=
+ gives the probability of finding an intercept <img style=3D"vertical-alig=
+n: middle;border: 0;outline: none;text-decoration: none;-ms-interpolation-=
+mode: bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/=
+png.latex?%5Cbeta" alt=3D"\beta" title=3D"\beta"> [ <img style=3D"vertica=
+l-align: middle;border: 0;outline: none;text-decoration: none;-ms-interpol=
+ation-mode: bicubic;height: auto !important;" src=3D"https://latex.codecog=
+s.com/png.latex?%5Calpha" alt=3D"\alpha" title=3D"\alpha">??? ] at least a=
+s extreme as the fitted value under the null hypothesis <img style=3D"vert=
+ical-align: middle;border: 0;outline: none;text-decoration: none;-ms-inter=
+polation-mode: bicubic;height: auto !important;" src=3D"https://latex.code=
+cogs.com/png.latex?H_0%20%3A%20%5Cbeta%20%3D%200" alt=3D"H_0 : \beta =3D 0=
+" title=3D"H_0 : \beta =3D 0">. From this=2C we have three possibilities:<=
+/p>
+</blockquote>
+<ol style=3D"list-style-type: decimal">
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+img style=3D"vertical-align: middle;border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"h=
+ttps://latex.codecogs.com/png.latex?%5Cbeta" alt=3D"\beta" title=3D"\beta"=
+> is not statistically different from zero</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+img style=3D"vertical-align: middle;border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"h=
+ttps://latex.codecogs.com/png.latex?%5Cbeta" alt=3D"\beta" title=3D"\beta"=
+> is statistically different from zero and positive</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><=
+img style=3D"vertical-align: middle;border: 0;outline: none;text-decoratio=
+n: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"h=
+ttps://latex.codecogs.com/png.latex?%5Cbeta" alt=3D"\beta" title=3D"\beta"=
+> is statistically different from zero and negative</li>
+</ol>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">By comparing the sign of <img style=
+=3D"vertical-align: middle;border: 0;outline: none;text-decoration: none;-=
+ms-interpolation-mode: bicubic;height: auto !important;" src=3D"https://la=
+tex.codecogs.com/png.latex?%5Cbeta" alt=3D"\beta" title=3D"\beta"> from th=
+e aggregated fit with the signs of the <img style=3D"vertical-align: middl=
+e;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bi=
+cubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.late=
+x?%5Cbeta" alt=3D"\beta" title=3D"\beta">s from the disaggregated fits we=
+ can test for Simpson=E2=80=99s paradox.</p>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Although [our equations] state that=
+ the signs from the disaggregated curves should all be different from the=
+ aggregrated curve=2C in practice this is too strict=2C especially as huma=
+n behavioral data is noisy. Thus=2C we compare the sign of the fit to aggr=
+egated data to the simple average of the signs of fits to disaggregated da=
+ta.</p>
+</blockquote>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Here=E2=80=99s the algorithm pseudoc=
+ode:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-alg.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration: none=
+;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Using the Stack Exchange data=2C the=
+ authors used this algorithm to find several instances of Simpson=E2=80=99=
+s paradox:</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-table-1.jpeg?w=3D480" style=3D"border: 0;outline: none;text-decoration:=
+ none;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">We looked at one of these earlier. H=
+ere=E2=80=99s a breakdown of the paradox regarding acceptance probability=
+ versus the total number of answers posted by a user in their account life=
+time.</p>
+<div class=3D"figure">
+<img src=3D"https://adriancolyer.files.wordpress.com/2018/02/simpson-trend=
+s-fig-2.jpeg?w=3D640" style=3D"border: 0;outline: none;text-decoration: no=
+ne;-ms-interpolation-mode: bicubic;height: auto !important;">
+
+</div>
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">An analysis of the mathematical form=
+ulation of Simpson=E2=80=99s paradox presented above also reveals two nece=
+ssary conditions for a paradox to arise:</p>
+<ol style=3D"list-style-type: decimal">
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he distribution of the conditioning variable <img style=3D"vertical-align:=
+ middle;border: 0;outline: none;text-decoration: none;-ms-interpolation-mo=
+de: bicubic;height: auto !important;" src=3D"https://latex.codecogs.com/pn=
+g.latex?X_c" alt=3D"X_c" title=3D"X_c"> must be dependent on <img style=3D=
+"vertical-align: middle;border: 0;outline: none;text-decoration: none;-ms-=
+interpolation-mode: bicubic;height: auto !important;" src=3D"https://latex=
+=2Ecodecogs.com/png.latex?X_p" alt=3D"X_p" title=3D"X_p"> (i.e.=2C as <img s=
+tyle=3D"vertical-align: middle;border: 0;outline: none;text-decoration: no=
+ne;-ms-interpolation-mode: bicubic;height: auto !important;" src=3D"https:=
+//latex.codecogs.com/png.latex?X_p" alt=3D"X_p" title=3D"X_p"> changes=2C=
+ so does the distribution of values of <img style=3D"vertical-align: middl=
+e;border: 0;outline: none;text-decoration: none;-ms-interpolation-mode: bi=
+cubic;height: auto !important;" src=3D"https://latex.codecogs.com/png.late=
+x?X_c" alt=3D"X_c" title=3D"X_c">).</li>
+<li style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">T=
+he expectation of <img style=3D"vertical-align: middle;border: 0;outline:=
+ none;text-decoration: none;-ms-interpolation-mode: bicubic;height: auto !=
+important;" src=3D"https://latex.codecogs.com/png.latex?Y" alt=3D"Y" title=
+=3D"Y">=2C conditioned on <img style=3D"vertical-align: middle;border: 0;o=
+utline: none;text-decoration: none;-ms-interpolation-mode: bicubic;height:=
+ auto !important;" src=3D"https://latex.codecogs.com/png.latex?X_p" alt=3D=
+"X_p" title=3D"X_p">=2C must not be independent of <img style=3D"vertical-=
+align: middle;border: 0;outline: none;text-decoration: none;-ms-interpolat=
+ion-mode: bicubic;height: auto !important;" src=3D"https://latex.codecogs.=
+com/png.latex?X_c" alt=3D"X_c" title=3D"X_c">. (I.e.=2C for a given value=
+ of <img style=3D"vertical-align: middle;border: 0;outline: none;text-deco=
+ration: none;-ms-interpolation-mode: bicubic;height: auto !important;" src=
+=3D"https://latex.codecogs.com/png.latex?X_p" alt=3D"X_p" title=3D"X_p">=
+=2C as <img style=3D"vertical-align: middle;border: 0;outline: none;text-d=
+ecoration: none;-ms-interpolation-mode: bicubic;height: auto !important;"=
+ src=3D"https://latex.codecogs.com/png.latex?X_c" alt=3D"X_c" title=3D"X_c=
+"> changes=2C so does the expected value of <em>Y</em>).</li>
+</ol>
+<h3 id=3D"the-last-word" style=3D"margin: 0;padding: 0;display: block;font=
+-family: Helvetica;font-size: 18px;font-style: normal;font-weight: bold;li=
+ne-height: 125%;letter-spacing: -.5px;text-align: left;color: #606060 !imp=
+ortant;">The last word</h3>
+<blockquote style=3D"-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;display: block;padding: 20px 20px 10px 45px;margin: 20px 0px;font-st=
+yle: italic;font-size: 14px;color: #141310;background: url(blog.acolyer.or=
+g/wp-content/themes/pub/vigilance/images/blockquote.gif) no-repeat scroll=
+ left top #E7E6E2;">
+<p style=3D"margin: 1em 0;padding: 0;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;color: #606060;font-family: Helvetica;font-size: 15px=
+;line-height: 150%;text-align: left;">Since social data is often generated=
+ by a mixture of subgroups=2C existence of Simpson=E2=80=99s paradox sugge=
+sts that these subgroups differ systematically and significantly in their=
+ behavior. By isolating important subgroups in social data=2C our method c=
+an yield insights into their behaviors.</p>
+</blockquote>
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnShareBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnShareBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;" class=3D"mcnShareBlockInner">
+                    <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" class=3D"mcnShareContentContainer" style=3D"min-width: 10=
+0%;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"left" style=3D"padding-top: 0;padding-left: 9px;paddi=
+ng-bottom: 0;padding-right: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"min-width: 100%;background-color: #FAFAFA=
+;border: 1px solid #EEEEEE;border-collapse: collapse;mso-table-lspace: 0pt=
+;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;" class=3D"mcnShareContent">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" class=3D"mcnShareCon=
+tentItemContainer" style=3D"padding-top: 9px;padding-right: 9px;padding-le=
+ft: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" style=3D=
+"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"left" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+                                        <table align=3D"left" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                            <tbody><tr>
+                                                <td valign=3D"top" style=
+=3D"padding-right: 0;padding-bottom: 9px;mso-table-lspace: 0pt;mso-table-r=
+space: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" cla=
+ss=3D"mcnShareContentItemContainer">
+                                                    <table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"" class=3D"mcnShareContentItem"=
+ style=3D"border-collapse: separate;background-color: #FAFAFA;border: 1px=
+ solid #CCCCCC;border-radius: 5px;mso-table-lspace: 0pt;mso-table-rspace:=
+ 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                        <tbody><tr>
+                                                            <td align=3D"l=
+eft" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 9px;paddin=
+g-bottom: 5px;padding-left: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0p=
+t;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                <table ali=
+gn=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"" st=
+yle=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0=
+pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <tbody=
+><tr>
+                                                                        <t=
+d align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnShareIconCon=
+tent" style=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3Da7c06cc314&e=3D1c7444593b" target=3D"_blank" style=
+=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;"><img src=3D"https://cdn-images.mailchimp.com/icons/social-bloc=
+k-v2/color-twitter-48.png" style=3D"display: block;border: 0;outline: none=
+;text-decoration: none;-ms-interpolation-mode: bicubic;" height=3D"24" wid=
+th=3D"24" class=3D""></a>
+                                                                        </=
+td>
+                                                                        <t=
+d align=3D"left" valign=3D"middle" class=3D"mcnShareTextContent" style=3D"=
+padding-left: 5px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-siz=
+e-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+   <a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6af=
+be9e5d43111fef4d4&id=3D7fc9723c92&e=3D1c7444593b" target=3D"" style=3D"co=
+lor: #505050;font-family: Arial;font-size: 12px;font-weight: normal;line-h=
+eight: 100%;text-align: center;text-decoration: none;word-wrap: break-word=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">Tweet</a>
+                                                                        </=
+td>
+                                                                    </tr>
+                                                                </tbody></=
+table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnBoxedTextBlockInner" style=3D"m=
+so-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-web=
+kit-text-size-adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;" class=3D"mcnBoxedTextContentContainer">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table border=3D"0" cellspacing=3D"0" class=3D=
+"mcnTextContentContainer" width=3D"100%" style=3D"min-width: 100% !importa=
+nt;background-color: #EBEBEB;border: 1px solid #999999;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+                                <tbody><tr>
+                                    <td valign=3D"top" class=3D"mcnTextCon=
+tent" style=3D"padding: 18px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #606060;fo=
+nt-family: Helvetica;font-size: 15px;line-height: 150%;text-align: left;">
+                                        This email was brought to you by <=
+a href=3D"https://acolyer.us9.list-manage.com/track/click?u=3D4188b6afbe9e=
+5d43111fef4d4&id=3D942bf0c8df&e=3D1c7444593b" target=3D"_blank" style=3D"=
+word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #6DC6DD;font-weight: normal;text-decoration: underline;">#the=
+morningpaper</a>: an interesting/influential/important paper from the worl=
+d of CS every weekday morning=2C as selected by Adrian Colyer
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END BODY -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;">
+                                    <!-- BEGIN FOOTER // -->
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"600" id=3D"templateFooter" style=3D"border-col=
+lapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;min-width: 100%;background-col=
+or: #FFFFFF;border-top: 0;border-bottom: 0;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"padding-bottom: 9px;mso-table-lspace: 0pt;mso-tabl=
+e-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">=
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" cla=
+ss=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso=
+-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #606060;font-family: Helvetica;font=
+-size: 11px;line-height: 125%;text-align: left;">
+
+                            <em>Copyright =C2=A9 2018 One L and a Y Ltd=2C=
+ All rights reserved.</em><br>
+ You are receiving this email because you opted into email delivery for yo=
+ur copy of The Morning Paper.<br>
+<br>
+<strong>Our mailing address is:</strong><br>
+<div class=3D"vcard"><span class=3D"org fn">One L and a Y Ltd</span><div c=
+lass=3D"adr"><div class=3D"street-address">Unit 5755</div><div class=3D"ex=
+tended-address">PO Box 6945</div><span class=3D"locality">London</span>=2C=
+ <span class=3D"region">England</span>  <span class=3D"postal-code">W1A 6U=
+S</span> <div class=3D"country-name">United Kingdom</div></div><br><a href=
+=3D"//acolyer.us9.list-manage.com/vcard?u=3D4188b6afbe9e5d43111fef4d4&id=
+=3Dde5773de0c" class=3D"hcard-download">Add us to your address book</a></d=
+iv>
+<br>
+<br>
+<a class=3D"utilityLink" href=3D"https://acolyer.us9.list-manage.com/unsub=
+scribe?u=3D4188b6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b&c=3Df055=
+e79ead" style=3D"word-wrap: break-word;-ms-text-size-adjust: 100%;-webkit-=
+text-size-adjust: 100%;color: #606060;font-weight: normal;text-decoration:=
+ underline;">unsubscribe from this list</a>&nbsp;&nbsp;&nbsp; <a class=3D"=
+utilityLink" href=3D"https://acolyer.us9.list-manage.com/profile?u=3D4188b=
+6afbe9e5d43111fef4d4&id=3Dde5773de0c&e=3D1c7444593b" style=3D"word-wrap: bre=
+ak-word;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #=
+606060;font-weight: normal;text-decoration: underline;">update subscriptio=
+n preferences</a>&nbsp;<br>
+<br>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!-- // END FOOTER -->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://acolyer.us9.list-manage.com/track/open.php?u=3D418=
+8b6afbe9e5d43111fef4d4&id=3Df055e79ead&e=3D1c7444593b" height=3D"1" width=
+=3D"1"></body>
+</html>
+--_----------=_MCPart_1184802458--

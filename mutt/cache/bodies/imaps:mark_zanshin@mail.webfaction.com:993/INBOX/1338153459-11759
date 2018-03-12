@@ -1,0 +1,71 @@
+Return-Path: <mark.nichols@gmail.com>
+X-Original-To: mark_zanshin@mailbox8.webfaction.com
+Delivered-To: mark_zanshin@mailbox8.webfaction.com
+Received: from mx9.webfaction.com (mail9.webfaction.com [108.168.242.152])
+	by mailbox8.webfaction.com (Postfix) with ESMTP id 38CE281DA8
+	for <mark_zanshin@mailbox8.webfaction.com>; Fri, 25 Nov 2016 16:27:44 +0000 (UTC)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mx9.webfaction.com (Postfix) with ESMTP id 9C0C5498807B
+	for <mark_zanshin@mailbox8.webfaction.com>; Fri, 25 Nov 2016 16:27:43 +0000 (UTC)
+X-Spam-Flag: NO
+X-Spam-Score: 0.502
+X-Spam-Level: 
+X-Spam-Status: No, score=0.502 tagged_above=-999 required=3
+	tests=[FREEMAIL_FROM=0.001, RCVD_IN_DNSWL_NONE=-0.0001,
+	T_DKIM_INVALID=0.5, URIBL_BLOCKED=0.001]
+Received: from mx9.webfaction.com ([127.0.0.1])
+	by localhost (mail9.webfaction.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id r6gQjEwJ9hsy for <mark_zanshin@mailbox8.webfaction.com>;
+	Fri, 25 Nov 2016 16:27:42 +0000 (UTC)
+Received: from mail-oi0-f54.google.com (mail-oi0-f54.google.com [209.85.218.54])
+	by mx9.webfaction.com (Postfix) with ESMTPS id D85134988040
+	for <mark@zanshin.net>; Fri, 25 Nov 2016 16:27:42 +0000 (UTC)
+Received: by mail-oi0-f54.google.com with SMTP id b126so86249900oia.2
+        for <mark@zanshin.net>; Fri, 25 Nov 2016 08:27:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=content-transfer-encoding:from:mime-version:date:subject:message-id
+         :to;
+        bh=pCZg2iwPUN2uzu8HYnJqFBNHd+NwhRkaqhyu/1Fj/3k=;
+        b=HyoJfhCDryamokZZOxeMAHusbAOJ74MOZrKD12LafQGgMSNvxwqhSLS0PBhC/LRTx2
+         fXhxvc8ougaFE7nba/HT6656E6kurLk21O3aRwLtA0EsOOUMDZllHF2wxl3MPD4v/IA3
+         7f0XZsyrgmAlU4avfHHV//kOXXZTJEj7sG16iAnQuFywp3VOMpKyHM058cvEyYyrBHFA
+         5xR5KzJzxuPLcPoTp8VUynfnWnCotRTezBxRTrS6TYFG7y8RBjYyt8aE6025l7MU2fTN
+         NRi+B6VI4iyIrFvZvOi6PffXSRTIDHN+GAIQoVw+CkHQ2berBOVQk7CnIcaBnBbKniF4
+         ciKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20130820;
+        h=x-gm-message-state:content-transfer-encoding:from:mime-version:date
+         :subject:message-id:to;
+        bh=pCZg2iwPUN2uzu8HYnJqFBNHd+NwhRkaqhyu/1Fj/3k=;
+        b=GGirI+UsrFJwNL91PoI/jK9Ek8qO8MULyvNgwWchipzxu55T0EbClDrGm8QRIy4xLB
+         xPaLnCNLBgWu/E9IGyIC6LOFbrqVkLxedC3q1otzD7Mx0sv02Smm4CXCMB5lLePUknDO
+         ZPJv58QTrdrivReQtOdpYCS095YRuE80bE6q0rx5sjzSKIaxAmZ/FnV6uX9OU9Qpst7o
+         FT02VZf3Z6/BuiBKlIpnU964MzCGSPAQEBBq7l3uZnhMJ7guFrcXQgxafcdYFq0FmbE+
+         T3yhymF0IKH/LMv4u+eAlgBze57RLzr0595wse9ND+aJtd938kk5UEzLHH3DwtMcI3dZ
+         VVSA==
+X-Gm-Message-State: AKaTC01bKDoF799n2tt2pL249xMwaC7onS/RFOKomOqkyjV+gR7xIPBMzeHjxJSGIkPeDA==
+X-Received: by 10.202.71.131 with SMTP id u125mr5112594oia.170.1480091262526;
+        Fri, 25 Nov 2016 08:27:42 -0800 (PST)
+Received: from [192.168.1.13] (ip68-102-23-189.ks.ok.cox.net. [68.102.23.189])
+        by smtp.gmail.com with ESMTPSA id w10sm13360564otb.7.2016.11.25.08.27.41
+        for <mark@zanshin.net>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 25 Nov 2016 08:27:42 -0800 (PST)
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+From: Mark Nichols <mark.nichols@gmail.com>
+Mime-Version: 1.0 (1.0)
+Date: Fri, 25 Nov 2016 10:27:41 -0600
+Subject: =?utf-8?Q?Privacy_Tools_-_Encryption_against_global_mass_surveil?=
+ =?utf-8?Q?lance_=F0=9F=94=92?=
+Message-Id: <5458DBEE-3E87-42E0-BE78-3C92EADD00C0@gmail.com>
+To: Mark Nichols <mark@zanshin.net>
+X-Mailer: iPhone Mail (14B100)
+
+
+https://www.privacytools.io/#ukusa
+
+
+--
+message by Mark, typos courtesy iOS autocorrect
