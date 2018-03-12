@@ -58,6 +58,7 @@ alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
 #alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
+alias 'previous=history | grep '
 
 # }}}
 # Mercurial (hg) {{{
@@ -142,7 +143,8 @@ alias tmux='tmux -2'
 
 # }}}
 # Mutt {{{
-alias mutt='cd ~/Desktop && mutt'
+# alias mutt='cd ~/Desktop && mutt'
+alias mutt='mutt -e "set crypt_use_gpgme=no"'
 
 # }}}
 # Vagrant {{{
