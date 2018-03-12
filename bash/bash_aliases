@@ -44,7 +44,7 @@ alias sym="ls -la | grep '\->'"
 # }}}
 # Directory shortcuts {{{
 alias omedev="cd ~/code/chef/omedev"
-alias ome="cd ~/code/chef-old/ome/chef-repo"
+alias ome="cd ~/code/chef/ome"
 alias omepci="cd ~/code/chef-old/omepci/chef-repo"
 alias omepcidev="cd ~/code/chef-old/omepcidev/chef-repo"
 alias est="cd ~/code/chef/est"
@@ -52,6 +52,7 @@ alias estdev="cd ~/code/chef/estdev"
 alias estwin="cd ~/code/chef/estwin"
 alias estwindev="cd ~/code/chef/estwindev"
 
+alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 # }}}
 # Miscellaneous {{{
 alias 'bk=cd $OLDPWD'

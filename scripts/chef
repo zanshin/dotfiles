@@ -28,11 +28,11 @@ tmux send-keys -t chef:1 'vpnon' C-m
 #
 tmux split-window -h -p 50 -t chef:2
 tmux split-window -v -p 50 -t chef:2.1
-tmux send-keys -t chef:2.1 'cd ~/code/chef/ome/chef-repo/ome_chef_data' C-m
+tmux send-keys -t chef:2.1 'cd ~/code/chef/ome/ome_chef_data' C-m
 tmux send-keys -t chef:2.1 'ls -al' C-m
-tmux send-keys -t chef:2.2 'cd ~/code/chef/ome/chef-repo/cookbooks' C-m
+tmux send-keys -t chef:2.2 'cd ~/code/chef/ome/cookbooks' C-m
 tmux send-keys -t chef:2.2 'ls -al' C-m
-tmux send-keys -t chef:2.3 'cd ~/code/chef/ome/chef-repo' C-m
+tmux send-keys -t chef:2.3 'cd ~/code/chef/ome/' C-m
 tmux send-keys -t chef:2.3 'knife status' C-m
 
 # window 3 - omedev: window for `omedev` Chef 12 organization
@@ -40,11 +40,11 @@ tmux send-keys -t chef:2.3 'knife status' C-m
 #
 tmux split-window -h -p 50 -t chef:3
 tmux split-window -v -p 50 -t chef:3.1
-tmux send-keys -t chef:3.1 'cd ~/code/chef/omedev/chef-repo/ome_chef_data' C-m
+tmux send-keys -t chef:3.1 'cd ~/code/chef/omedev/ome_chef_data' C-m
 tmux send-keys -t chef:3.1 'ls -al' C-m
-tmux send-keys -t chef:3.2 'cd ~/code/chef/omedev/chef-repo/cookbooks' C-m
+tmux send-keys -t chef:3.2 'cd ~/code/chef/omedev/cookbooks' C-m
 tmux send-keys -t chef:3.2 'ls -al' C-m
-tmux send-keys -t chef:3.3 'cd ~/code/chef/omedev/chef-repo' C-m
+tmux send-keys -t chef:3.3 'cd ~/code/chef/omedev/' C-m
 tmux send-keys -t chef:3.3 'knife status' C-m
 
 # window 4 - desktop: window for general usage
