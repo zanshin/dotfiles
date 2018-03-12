@@ -118,6 +118,9 @@ nnoremap <F10> :set relativenumber! number! number?<CR>
 set foldcolumn=3                       " room for fold markers
 set foldmethod=marker                  " use standard 3 curly braces as markers
 
+" Map Shift-Tab to za (open/close) fold
+nnoremap <s-tab> za
+
 " Change options: set $ at end of change range
 " https://www.reddit.com/r/vim/comments/3b7324/insert_dollar_sign_at_end_of_change_command/
 set cpoptions+=$
@@ -144,11 +147,11 @@ nnoremap <Right> :echo "Use l"<CR>
 nnoremap <Up> :echo "Use k"<CR>
 nnoremap <Down> :echo "Use j"<CR>
 
-" Use <C>HJKL to switch between splits
-nnoremap <C-H> <C-w>h
-nnoremap <C-J> <C-w>j
-nnoremap <C-K> <C-w>k
-nnoremap <C-L> <C-w>l
+" Use <C>hjkl to switch between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Move line(s) up or down via C-j and C-k respectively
 " Normal mode
