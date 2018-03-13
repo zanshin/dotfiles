@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-set -x
+#set -x
 
 STATE=`nmcli networking connectivity`
 
