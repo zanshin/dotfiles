@@ -1,0 +1,27 @@
+# -*- muttrc -*-
+#
+# Configure header displays.
+#
+
+# Ignore all headers
+ignore *
+
+# Then un-ignore the ones I want to see
+unignore From:
+unignore To:
+unignore Reply-To:
+unignore Mail-Followup-To:
+unignore Subject:
+unignore Date:
+unignore Organization:
+unignore Newsgroups:
+unignore CC:
+unignore BCC:
+unignore X-Mailer:
+unignore User-Agent:
+unignore X-Virus-Status:
+unignore X-Spam-Status:
+unignore X-Spam-Flag:
+
+# Now order the visable header lines
+hdr_order From: Subject: To: CC: BCC: Reply-To: Mail-Followup-To: Date: Organization: User-Agent: X-Virus-Status: X-Spam-Status: X-Spam-Flag:

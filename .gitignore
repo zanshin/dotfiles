@@ -20,3 +20,6 @@ nvim/tmp
 
 # Ignore bash_history
 bash/bash_history
+
+# Ignore mutt caches
+mutt/cache/headers

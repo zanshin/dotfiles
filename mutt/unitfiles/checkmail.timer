@@ -1,0 +1,13 @@
+[Unit]
+Description=Check mail every 5 minutes
+RefuseManualStart=no
+RefuseManualStop=no
+
+[Timer]
+Persistent=false
+OnBootSec=3min
+OnUnitActiveSec=5min
+Unit=checkmail.service
+
+[Install]
+WantedBy=default.target
