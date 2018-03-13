@@ -4,7 +4,9 @@
 
 # Theme {{{
 # source ~/.mutt/solarized_light_16.muttrc
-source ~/.mutt/themes/sjl.muttrc
+# source ~/.mutt/themes/sjl.muttrc
+source ~/.mutt/themes/mhn.muttrc
+# source ~/.mutt/themes/solarized-mod.muttrc
 
 # }}}
 # Paths {{{
@@ -59,7 +61,7 @@ set sidebar_divider_char=" | "
 set sidebar_format="%B%* %?N?%N:?%S"
 
 # color of folders with new mail
-color sidebar_new yellow default
+color sidebar_new color31 color233
 
 # }}}
 # Account Settings {{{
@@ -146,9 +148,9 @@ set sort_re                                      # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # colors for potential spam
-color index yellow default    '~h "X-Spam-Status:.*score=(2|3)\."'
-color index brightred default '~h "X-Spam-Status:.*score=(4|5)\."'
-color index magenta default   '~h "X-Spam-Status:.*score=(6|7)\."'
+color index yellow color233    '~h "X-Spam-Status:.*score=(2|3)\."'
+color index brightred color233 '~h "X-Spam-Status:.*score=(4|5)\."'
+color index magenta color233   '~h "X-Spam-Status:.*score=(6|7)\."'
 
 # }}}
 # Bindings {{{
