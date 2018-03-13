@@ -11,7 +11,7 @@ my_hdr Organization:
 # set smtp_url             = "smtp://code.prole@smtp.gmail.com:587"
 
 set hostname             = ""
-set folder               = ~/.mail
+set folder               = "~/.mail/codeprole/"
 set sendmail             = "/usr/bin/msmtp -a codeprole"
 
 set from                 = 'code.prole@gmail.com'

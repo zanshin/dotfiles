@@ -11,14 +11,14 @@ my_hdr Organization:
 # set smtp_url             = "smtp://mark_zanshin@smtp.webfaction.com:587"
 
 set hostname             = ""
-set folder               = ~/.mail
+set folder               = "~/.mail/mark"
 set from                 = 'mark@zanshin.net'
 set sendmail             = "/usr/bin/msmtp -a mark"
 
 set mbox_type            = Maildir
-set spoolfile            = +"mark/INBOX"
-set postponed            = +"mark/Drafts"
-set record               = +"mark/Sent"
+set spoolfile            = +"INBOX"
+set postponed            = +"Drafts"
+set record               = +"Sent"
 
 # unmailboxes *
 # mailboxes "+Inbox" "+Archive" "+Drafts" "+Sent" "+Junk"

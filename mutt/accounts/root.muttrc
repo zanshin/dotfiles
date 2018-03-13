@@ -11,7 +11,7 @@ my_hdr Organization:
 # set smtp_url             = "smtp://root_zanshin@smtp.webfaction.com:587"
 
 set hostname             = ""
-set folder               = ~/.mail
+set folder               = "~/.mail/root"
 set sendmail             = "/usr/bin/msmtp -a root"
 
 set from                 = 'root@zanshin.net'
