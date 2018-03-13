@@ -5,4 +5,4 @@ RefuseManualStop=yes
 
 [Service]
 Type=oneshot
-ExecStart=/home/.mutt/scripts/checkmail.sh
+ExecStart=/home/mark/.mutt/scripts/checkmail.sh
