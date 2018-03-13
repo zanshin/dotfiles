@@ -1,9 +1,8 @@
 # Service Setup
 
-Copy the `checkmail.service` file to `~/.config/systemd/user`
-Copy the `checkmail.timer` file to `~/.config/systemd/user`
+Copy the `checkmail.service` and `checkmail.timer` files to `~/.config/systemd/user`.
 
-# Starting, Stoping, Status
+# Enable, Start, Stop, Status, and List
 
     systemctl --user enable checkmail.service
     systemctl --user enable checkmail.timer
