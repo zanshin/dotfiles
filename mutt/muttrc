@@ -10,6 +10,7 @@ source ~/.mutt/themes/sjl.muttrc
 # Paths {{{
 set folder           = ~/.mail                   # mailbox location
 set alias_file       = ~/.mutt/aliases           # where to store aliases
+source ~/.mutt/aliases                           # source them too
 set header_cache     = ~/.mutt/cache/headers     # where to store headers
 set message_cachedir = ~/.mutt/cache/bodies      # where to store bodies
 set certificate_file = ~/.mutt/certificates      # where to store certs
@@ -31,7 +32,7 @@ set nobeep                                       # We don't need no beeping soft
 set noconfirmappend                              # Just append, don't hassle me
 set nomark_old                                   # Don't mark unread new messages as old
 set nomarkers                                    # Don't want any wrap markers
-set nosmart_wrap                                 # Don't want smart wrapping
+set smart_wrap                                   # Wrap on word boundaries, we're not animals
 set nostrict_threads                             # Lets have some fuzzy threading
 set pipe_decode                                  # strip headers and eval mimes when piping
 set postpone=ask-no                              # Ask about postponing
@@ -65,28 +66,40 @@ color sidebar_new yellow default
 
 # Multiple account setup.
 # Default inbox.
-set folder = ~/.mail
-set spoolfile = "+mark/INBOX"
+set folder    = "~/.mail/mark"
+set spoolfile = "~/.mail/mark/INBOX"
 
 # source `$HOME/.mutt/scripts/safesource.sh $HOME/.mutt/scripts/mailboxes.rb`
 # source ~/.mutt/mailboxes.mutt
-mailboxes +":: Inboxes ::" \
-          +"mark/INBOX" \
-          +"root/INBOX" \
-          +"marknichols/INBOX" \
-          +"codeprole/INBOX"
+mailboxes +"mark --------------------"
+mailboxes /home/mark/.mail/mark/INBOX /home/mark/.mail/mark/Archive /home/mark/.mail/mark/Drafts /home/mark/.mail/mark/Sent /home/mark/.mail/mark/sibylle /home/mark/.mail/mark/Trash /home/mark/.mail/mark/Junk
 
-mailboxes +":: mark ::"
-mailboxes `find ~/.mail/mark/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+mailboxes +"root --------------------"
+mailboxes /home/mark/.mail/root/INBOX /home/mark/.mail/root/Archive /home/mark/.mail/root/Drafts /home/mark/.mail/root/Sent /home/mark/.mail/root/Trash /home/mark/.mail/root/Junk
 
-mailboxes +":: root ::"
-mailboxes `find ~/.mail/root/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+mailboxes +"marknichols ------------"
+mailboxes /home/mark/.mail/marknichols/INBOX /home/mark/.mail/marknichols/Archive /home/mark/.mail/marknichols/Drafts /home/mark/.mail/marknichols/Sent /home/mark/.mail/marknichols/Trash
 
-mailboxes +":: mark nichols ::"
-mailboxes `find ~/.mail/marknichols/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+mailboxes +"codeprole --------------"
+mailboxes /home/mark/.mail/codeprole/INBOX /home/mark/.mail/codeprole/Archive /home/mark/.mail/codeprole/Drafts /home/mark/.mail/codeprole/Sent /home/mark/.mail/codeprole/Trash
 
-mailboxes +":: code prole ::"
-mailboxes `find ~/.mail/codeprole/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+# mailboxes +":: Inboxes ::" \
+#           +"mark/INBOX" \
+#           +"root/INBOX" \
+#           +"marknichols/INBOX" \
+#           +"codeprole/INBOX"
+
+# mailboxes +":: mark ::"
+# mailboxes `find ~/.mail/mark/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+#
+# mailboxes +":: root ::"
+# mailboxes `find ~/.mail/root/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+#
+# mailboxes +":: mark nichols ::"
+# mailboxes `find ~/.mail/marknichols/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+#
+# mailboxes +":: code prole ::"
+# mailboxes `find ~/.mail/codeprole/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
 
 # Set account specific options on folder change
 folder-hook mark/*        source ~/.mutt/accounts/mark.muttrc
@@ -227,8 +240,9 @@ macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Move current message to Archive folder
-macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+# macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 macro index .s ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
 
 # Move current message to Junk folder
 macro index S ":set confirmappend=no delete=yes\n<save-message>=Junk\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
@@ -246,10 +260,10 @@ macro index .t "l~d<1d\n"                        # Show Today's messages
 macro index .w "l~d<1w\n"                        # Show this Week's messages
 
 # Inbox macros: [m]ark, [r]oot, mark[n]ichols, [c]odeprole
-macro index,pager .m "<change-folder>=mark/INBOX"<enter>
-macro index,pager .r "<change-folder>=root/INBOX"<enter>
-macro index,pager .n "<change-folder>=marknichols/INBOX"<enter>
-macro index,pager .c "<change-folder>=codeprole/INBOX"<enter>
+macro index,pager .m "<change-folder>$HOME/.mail/mark/INBOX"<enter>
+macro index,pager .r "<change-folder>$HOME/.mail/root/INBOX"<enter>
+macro index,pager .n "<change-folder>$HOME/.mail/marknichols/INBOX"<enter>
+macro index,pager .c "<change-folder>$HOME/.mail/codeprole/INBOX"<enter>
 
 
 # }}}
