@@ -1,0 +1,8 @@
+[Unit]
+Description=Check mail via mbsync
+RefuseManualStart=no
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+ExecStart=/home/.mutt/scripts/checkmail.sh
