@@ -1,8 +1,10 @@
 #!/bin/bash
+set -euo pipefail
+set -x
 
 STATE=`nmcli networking connectivity`
 
-if [[ STATE = 'full' ]]
+if [[ $STATE = "full" ]]
 then
   /usr/bin/mbsync -a -c .mbsyncrc 2>/dev/null
   exit 0
