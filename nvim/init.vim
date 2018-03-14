@@ -343,6 +343,9 @@ if has("autocmd")
     " setup for mail
     autocmd FileType mail setlocal formatoptions+=aw
     autocmd FileType mail setlocal spell spelllang=en_us
+    autocmd FileType mail setlocal tw=0
+    autocmd FileType mail setlocal noautoindent nolist
+    autocmd FileType mail setlocal nobackup noswapfile nowritebackup
 
     " treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
