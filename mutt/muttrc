@@ -1,0 +1,323 @@
+# -*- muttrc -*-
+#
+# rc file for mutt
+
+# Theme {{{
+# source ~/.mutt/solarized_light_16.muttrc
+# source ~/.mutt/themes/sjl.muttrc
+source ~/.mutt/themes/mhn.muttrc
+# source ~/.mutt/themes/solarized-mod.muttrc
+
+# }}}
+# Paths {{{
+set folder           = ~/.mail                   # mailbox location
+set alias_file       = ~/.mutt/aliases           # where to store aliases
+source ~/.mutt/aliases                           # source them too
+set header_cache     = ~/.mutt/cache/headers     # where to store headers
+set message_cachedir = ~/.mutt/cache/bodies      # where to store bodies
+set certificate_file = ~/.mutt/certificates      # where to store certs
+set mailcap_path     = ~/.mutt/mailcap           # entries for filetypes
+set tmpdir           = ~/.mutt/temp              # where to keep temp files
+set signature        = ~/.mutt/sig               # my signature file
+
+# }}}
+# Basic settings {{{
+# set noallow_8bit                               # 8bit isn't safe via Demon ?
+set ascii_chars=yes                              # use ascii characters when displaying trees
+set charset=UTF8
+set delete                                       # don't ask, just do
+set hidden_host                                  # Hide host details
+set mail_check = 0                               # minimum time between scans
+set mbox_type = Maildir                          # mailbox type
+set move=no                                      # gmail does that
+set nobeep                                       # We don't need no beeping software
+set noconfirmappend                              # Just append, don't hassle me
+set nomark_old                                   # Don't mark unread new messages as old
+set nomarkers                                    # Don't want any wrap markers
+set smart_wrap                                   # Wrap on word boundaries, we're not animals
+set nostrict_threads                             # Lets have some fuzzy threading
+set pipe_decode                                  # strip headers and eval mimes when piping
+set postpone=ask-no                              # Ask about postponing
+set print=ask-yes                                # Ask before printing
+set print_command="enscript --font=Times-Roman10 --pretty-print"
+set quit                                         # don't ask, just do!!
+set read_inc=100                                 # Read counter ticks every 100 messages
+set thorough_search                              # strip headers and eval mimes before searching
+set timeout = 3                                  # idle time before scanning
+set wait_key = no                                # shut up, mutt
+set write_inc=100                                # Write counter ticks every 100 messages
+
+# }}}
+# Sidebar stuff {{{
+set sidebar_visible=yes
+set sidebar_width=30
+set sidebar_folder_indent=yes
+# set sidebar_sort_method="sort"
+set sidebar_short_path=yes
+set sidebar_delim_chars="/."
+set sidebar_divider_char=" | "
+# set sidebar_format="%B%* :%N"
+# set sidebar_format="%B%* %F:%N:%S"
+set sidebar_format="%B%* %?N?%N:?%S"
+
+# color of folders with new mail
+color sidebar_new color31 color233
+
+# }}}
+# Account Settings {{{
+
+# Multiple account setup.
+# Default inbox.
+set folder    = "~/.mail/mark"
+set spoolfile = "~/.mail/mark/INBOX"
+
+# source `$HOME/.mutt/scripts/safesource.sh $HOME/.mutt/scripts/mailboxes.rb`
+# source ~/.mutt/mailboxes.mutt
+mailboxes +"mark --------------------"
+mailboxes /home/mark/.mail/mark/INBOX /home/mark/.mail/mark/Archive /home/mark/.mail/mark/Drafts /home/mark/.mail/mark/Sent /home/mark/.mail/mark/sibylle /home/mark/.mail/mark/Trash /home/mark/.mail/mark/Junk
+
+mailboxes +"root --------------------"
+mailboxes /home/mark/.mail/root/INBOX /home/mark/.mail/root/Archive /home/mark/.mail/root/Drafts /home/mark/.mail/root/Sent /home/mark/.mail/root/Trash /home/mark/.mail/root/Junk
+
+mailboxes +"marknichols ------------"
+mailboxes /home/mark/.mail/marknichols/INBOX /home/mark/.mail/marknichols/Archive /home/mark/.mail/marknichols/Drafts /home/mark/.mail/marknichols/Sent /home/mark/.mail/marknichols/Trash
+
+mailboxes +"codeprole --------------"
+mailboxes /home/mark/.mail/codeprole/INBOX /home/mark/.mail/codeprole/Archive /home/mark/.mail/codeprole/Drafts /home/mark/.mail/codeprole/Sent /home/mark/.mail/codeprole/Trash
+
+# mailboxes +":: Inboxes ::" \
+#           +"mark/INBOX" \
+#           +"root/INBOX" \
+#           +"marknichols/INBOX" \
+#           +"codeprole/INBOX"
+
+# mailboxes +":: mark ::"
+# mailboxes `find ~/.mail/mark/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+#
+# mailboxes +":: root ::"
+# mailboxes `find ~/.mail/root/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+#
+# mailboxes +":: mark nichols ::"
+# mailboxes `find ~/.mail/marknichols/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+#
+# mailboxes +":: code prole ::"
+# mailboxes `find ~/.mail/codeprole/ -type d -name cur -printf '%h\t%d\n'| grep -v INBOX | sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
+
+# Set account specific options on folder change
+folder-hook mark/*        source ~/.mutt/accounts/mark.muttrc
+folder-hook root/*        source ~/.mutt/accounts/root.muttrc
+folder-hook marknichols/* source ~/.mutt/accounts/marknichols.muttrc
+folder-hook codeprole/*   source ~/.mutt/accounts/codeprole.muttrc
+
+# allow use of meta key
+set meta_key = yes
+macro index \e1 '<sync-mailbox><enter-command>source ~/.mutt/accounts/mark.muttrc<enter><change-folder>!<enter>'
+macro index \e2 '<sync-mailbox><enter-command>source ~/.mutt/accounts/root.muttrc<enter><change-folder>!<enter>'
+macro index \e3 '<sync-mailbox><enter-command>source ~/.mutt/accounts/marknichols.muttrc<enter><change-folder>!<enter>'
+macro index \e4 '<sync-mailbox><enter-command>source ~/.mutt/accounts/codeprole.muttrc<enter><change-folder>!<enter>'
+
+# }}}
+# Sidebar navigation {{{
+bind index,pager <down>    sidebar-next
+bind index,pager <up>      sidebar-prev
+bind index,pager <right>   sidebar-open
+
+# }}}
+# Pager view settings {{{
+set pager_index_lines = 20                       # number of lines to show
+set pager_context = 3                            # number of context lines to show
+set pager_stop                                   # don't go to next message automatically
+set menu_scroll                                  # scroll in menus
+set tilde                                        # show tildes like in Vim
+unset markers                                    # no ugly plus signs
+
+# What we consider to be a quote
+set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set to_chars=" +TCF "           # drop the "L"
+alternative_order text/plain text/enriched text/html
+
+# }}}
+# Index view settings {{{
+set date_format = "%m.%d.%y"
+set index_format = "[%Z] %D %-20.20F %s"         #
+set sort = threads                               # like gmail
+# set sort_aux =  reverse-last-date-received       # like gmail
+set sort_aux =  last-date-received       # like gmail
+set uncollapse_jump                              # don't collapse on an unread message
+set sort_re                                      # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# colors for potential spam
+color index yellow color233    '~h "X-Spam-Status:.*score=(2|3)\."'
+color index brightred color233 '~h "X-Spam-Status:.*score=(4|5)\."'
+color index magenta color233   '~h "X-Spam-Status:.*score=(6|7)\."'
+
+# }}}
+# Bindings {{{
+# Pager
+bind pager k  previous-line
+bind pager j  next-line
+bind pager g noop
+bind pager gg top
+bind pager G  bottom
+bind pager R  group-reply
+
+# Index
+# bind index <tab>    sync-mailbox
+bind index <tab>    imap-fetch-mail
+bind index g        noop
+bind index gg       first-entry
+bind index G        last-entry
+bind index <space>  collapse-thread
+
+# Postpone message
+bind compose p postpone-message
+bind index p recall-message
+
+# Bounce message functionality
+bind index B bounce-message     # remap bounce message functionality
+
+# Attachments
+bind attach <return> view-mailcap     # view attachment
+
+# }}}
+# SSL Hardening {{{
+set ssl_force_tls    = yes
+set ssl_starttls     = yes
+set ssl_use_sslv3    = no
+set ssl_use_tlsv1    = no
+set ssl_verify_dates = yes
+set ssl_verify_host  = yes
+# set ssl_use_sslv2=no
+# set ssl_use_tlsv1_1=no
+# set ssl_use_tlsv1_2=yes
+
+# }}}
+# Header options {{{
+source ~/.mutt/headers                           # All header settings
+
+# }}}
+# Compose View Options {{{
+set realname = "Mark Nichols"                    # who am I?
+set envelope_from                                # which from?
+set sig_dashes                                   # dashes before sig
+set signature=~/.mutt/sig
+set edit_headers                                 # show headers when composing
+set fast_reply                                   # skip to compose when replying
+set askcc                                        # ask for CC:
+set fcc_attach                                   # save attachments with the body
+set mime_forward = ask-no                        # forward attachments as attachments
+# unset mime_forward                             # forward attachments as a part of body
+set forward_format = "Fwd: %s"                   # format of subject when forwarding
+set forward_decode                               # decode when forwarding
+set attribution = "On %d, %n wrote:"             # format of quoting header
+set reply_to                                     # reply to Reply to: field
+set reverse_name                                 # reply as whoever it was to
+set include                                      # include message in reply
+set forward_quote                                # include message in forwards
+
+# set editor = "vim +:silent+?^$"                # use terminal Vim to compose email
+# set editor="nvim +9 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=0 ft=mail noautoindent' -c 'set nolist'"
+set editor="nvim +9 -c 'set ft=mail'"
+# set text_flowed = yes                            # eliminate odd line breaks
+# set editor = "vim -c 'set spell spelllang=en' -c 'setlocal fo+=aw' +:silent+?^$"
+
+# Postpone message
+bind compose p postpone-message
+bind index p recall-message
+
+# source ~/.mutt/gpg.rc           # Use GPG
+# source ~/.gnupg/gpg.conf                         # Use GPG
+
+# }}}
+# Macros {{{
+# Use . as a macro "namespace"
+bind index,pager . noop
+
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# Sane copy/move dialogs
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# Move current message to Archive folder
+# macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index .s ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
+
+# Move current message to Junk folder
+macro index S ":set confirmappend=no delete=yes\n<save-message>=Junk\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index .j ":set confirmappend=no delete=yes\n<save-message>=Junk\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+# Ctrl-r to mark all messages as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>,<enter>" "mark all messages as read"
+# macro index <esc>m "T~N<enter>;WNT~O<enter>;WO\CT~T<enter>" "mark all messages read"
+
+# Limiting macros stolen from bstinson
+# [a]ll, [u]nread (new), [t]oday, this [w]eek
+macro index .a "lall\n"                          # Clear any active limits
+macro index .u "l(~N|~O)\n"                      # Show New or Unread messages
+macro index .t "l~d<1d\n"                        # Show Today's messages
+macro index .w "l~d<1w\n"                        # Show this Week's messages
+
+# Inbox macros: [m]ark, [r]oot, mark[n]ichols, [c]odeprole
+macro index,pager .m "<change-folder>$HOME/.mail/mark/INBOX"<enter>
+macro index,pager .r "<change-folder>$HOME/.mail/root/INBOX"<enter>
+macro index,pager .n "<change-folder>$HOME/.mail/marknichols/INBOX"<enter>
+macro index,pager .c "<change-folder>$HOME/.mail/codeprole/INBOX"<enter>
+
+# Quick view for HTML formatted email
+bind index,pager V  noop                         # Unbinds V from version
+macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
+
+# }}}
+# Status Bar {{{
+set status_chars   = " *%A"
+
+## status_format - format of summary on the current folder in the index
+## meta strings:
+##  -----f-h---lmn-p-rst-v----  lower case letters (10)
+##  ------------M----------X--  upper case letters (02)
+## %d      the number of messages with the flag 'delete'  (v64)
+## %f      the full pathname of the current mailbox
+## %h      local hostname
+## %l      size (in bytes) of the current mailbox
+## %m      the number of messages in the mailbox
+## %M      the number of messages shown (i.e., which match the current limit)
+## %n      number of new messages in the mailbox
+## %p      number of postponed messages
+## %s      current sorting mode
+## %r      modified/read-only/won't-write/attach-message indicator-status_chars
+## %t      number of tagged messages
+## %v      Mutt version string
+## %>X     right justify the rest of the string and pad with "X"
+## %|X     pad to the end of the line with "X"
+##
+## %?<sequence_char>?<optional_string>? optionally print string, if>0
+##
+# set status_format = "Folder: %f : %r%n new (%m messages)%?d? (%d to delete)?%?t? (%t tagged)? %>-%?p?( %p postponed )? : "
+# set status_format="%v: (%s) [%M/%m] [flags:%?02n new?,t:%t]"
+# set status_format=" $from Messages: %M (%m) [Unread: %n] %> %r (%P) [%l] (%s/%S) (%v) "
+set status_format=" $my_acct : %m messages, %n unread  %> (%P) [%l] (%v) "
+
+# }}}
+# Uh ... {{{
+# unset ssl_ca_certificates_file
+# set ssl_usesystemcerts=no
+# set certificate_file=~/.mutt/gmailcerts
+
+# set header_cache=~/.mutt/gmailcache
+
+# Need this to not save local copies of sent mail
+# unset record
+
+# source ~/.mutt/headers          # Configure header display
+
+# Last, but not least, get mutt to display version number on startup
+# push <show-version>
+# message-hook '!(~g|~G) ~b"^-----BEGIN\ PGP\ (SIGNED\ )?MESSAGE"' "exec check-traditional-pgp"
+# auto_view text/html                       # eg with links --dump
+
+# }}}

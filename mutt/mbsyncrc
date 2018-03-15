@@ -1,0 +1,239 @@
+# Define the mark account at WebFaction
+IMAPAccount mark
+Host mail.webfaction.com
+SSLType IMAPS
+User mark_zanshin
+PassCmd "+gpg -d -q $HOME/.mutt/passwords/mark.gpg"
+Port 993
+
+IMAPStore mark-remote
+Account mark
+
+MaildirStore mark-local
+Path ~/.mail/mark/
+Inbox ~/.mail/mark/INBOX
+
+Channel mark-inbox
+Master :mark-remote:"INBOX"
+Slave :mark-local:INBOX
+
+Channel mark-drafts
+Master :mark-remote:"Drafts"
+Slave :mark-local:Drafts
+
+Channel mark-sent
+Master :mark-remote:"Sent"
+Slave :mark-local:Sent
+
+Channel mark-trash
+Master :mark-remote:"Trash"
+Slave :mark-local:Trash
+
+Channel mark-junk
+Master :mark-remote:"Junk"
+Slave :mark-local:Junk
+
+Channel mark-sibylle
+Master :mark-remote:"sibylle"
+Slave :mark-local:sibylle
+
+Channel mark-archive
+Master :mark-remote:"Archive"
+Slave :mark-local:Archive
+
+Create Both  # automatically create new mailboxes on master or slave
+SyncState *  # store sync status in relevant folder
+# Expunge Both   # delete messages on either side, if found deleted on the
+# other
+
+Group mark
+Channel mark-inbox
+Channel mark-drafts
+Channel mark-sent
+Channel mark-trash
+Channel mark-junk
+Channel mark-sibylle
+Channel mark-archive
+
+# Define the root account at WebFaction
+IMAPAccount root
+Host mail.webfaction.com
+SSLType IMAPS
+User root_zanshin
+PassCmd "+gpg -d -q $HOME/.mutt/passwords/root.gpg"
+Port 993
+
+IMAPStore root-remote
+Account root
+
+MaildirStore root-local
+Path ~/.mail/root/
+Inbox ~/.mail/root/INBOX
+
+Channel root-inbox
+Master :root-remote:"INBOX"
+Slave :root-local:INBOX
+
+Channel root-drafts
+Master :root-remote:"Drafts"
+Slave :root-local:Drafts
+
+Channel root-sent
+Master :root-remote:"Sent"
+Slave :root-local:Sent
+
+Channel root-trash
+Master :root-remote:"Trash"
+Slave :root-local:Trash
+
+Channel root-junk
+Master :root-remote:"Junk"
+Slave :root-local:Junk
+
+Channel root-archive
+Master :root-remote:"Archive"
+Slave :root-local:Archive
+
+Create Both  # automatically create new mailboxes on master or slave
+SyncState *  # store sync status in relevant folder
+# Expunge Both   # delete messages on either side, if found deleted on the
+# other
+
+Group root
+Channel root-inbox
+Channel root-drafts
+Channel root-sent
+Channel root-trash
+Channel root-junk
+Channel root-archive
+
+#Define mark.nichols account at Gmail
+IMAPAccount marknichols
+Host imap.gmail.com
+SSLType IMAPS
+User mark.nichols@gmail.com
+PassCmd "+gpg -d -q $HOME/.mutt/passwords/marknichols.gpg"
+PipelineDepth 50
+
+IMAPStore marknichols-remote
+Account marknichols
+
+MaildirStore marknichols-local
+Path ~/.mail/marknichols/
+Inbox ~/.mail/marknichols/INBOX
+Flatten .
+
+Channel marknichols-default
+Master :marknichols-remote:
+Slave :marknichols-local:
+# Exclude everything under the internal [Gmail] filder, also exclude the mapped
+# folders
+Create Slave
+Patterns * ![Gmail]* !Drafts !Sent !Trash !Archive
+Sync All
+Expunge Both
+SyncState *
+
+Channel marknichols-drafts
+Master :marknichols-remote:"[Gmail]/Drafts"
+Create Slave
+Slave :marknichols-local:Drafts
+Sync All
+Expunge Both
+SyncState *
+
+Channel marknichols-sent
+Master :marknichols-remote:"[Gmail]/Sent Mail"
+Create Slave
+Slave :marknichols-local:Sent
+Sync All
+Expunge Both
+SyncState *
+
+Channel marknichols-trash
+Master :marknichols-remote:"[Gmail]/Trash"
+Create Slave
+Slave :marknichols-local:Trash
+Sync All
+Expunge Both
+SyncState *
+
+Channel marknichols-archive
+Master :marknichols-remote:"[Gmail]/All Mail"
+Create Slave
+Slave :marknichols-local:Archive
+Sync All
+SyncState *
+
+Group marknichols
+Channel marknichols-default
+Channel marknichols-drafts
+Channel marknichols-sent
+Channel marknichols-trash
+Channel marknichols-archive
+
+# Define code.prole account at Gmail
+IMAPAccount codeprole
+Host imap.gmail.com
+SSLType IMAPS
+User code.prole@gmail.com
+PassCmd "+gpg -d -q $HOME/.mutt/passwords/codeprole.gpg"
+PipelineDepth 50
+
+IMAPStore codeprole-remote
+Account codeprole
+
+MaildirStore codeprole-local
+Path ~/.mail/codeprole/
+Inbox ~/.mail/codeprole/INBOX
+Flatten .
+
+Channel codeprole-default
+Master :codeprole-remote:
+Slave :codeprole-local:
+# Exclude everything under the internal [Gmail] filder, also exclude the mapped
+# folders
+Create Slave
+Patterns * ![Gmail]* !Drafts !Sent !Trash !Archive
+Sync All
+Expunge Both
+SyncState *
+
+Channel codeprole-drafts
+Master :codeprole-remote:"[Gmail]/Drafts"
+Create Slave
+Slave :codeprole-local:Drafts
+Sync All
+Expunge Both
+SyncState *
+
+Channel codeprole-sent
+Master :codeprole-remote:"[Gmail]/Sent"
+Create Slave
+Slave :codeprole-local:Sent
+Sync All
+Expunge Both
+SyncState *
+
+Channel codeprole-trash
+Master :codeprole-remote:"[Gmail]/Trash"
+Create Slave
+Slave :codeprole-local:Trash
+Sync All
+Expunge Both
+SyncState *
+
+Channel codeprole-archive
+Master :codeprole-remote:"[Gmail]/All Mail"
+Create Slave
+Slave :codeprole-local:Archive
+Sync All
+SyncState *
+
+Group codeprole
+Channel codeprole-default
+Channel codeprole-drafts
+Channel codeprole-sent
+Channel codeprole-trash
+Channel codeprole-archive
+
