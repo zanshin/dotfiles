@@ -61,7 +61,7 @@ set sidebar_divider_char=" | "
 set sidebar_format="%B%* %?N?%N:?%S"
 
 # color of folders with new mail
-color sidebar_new color31 color233
+color sidebar_new color33 color233
 
 # }}}
 # Account Settings {{{
