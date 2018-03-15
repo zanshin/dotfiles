@@ -226,7 +226,7 @@ set editor="nvim +9 -c 'set ft=mail'"
 bind compose p postpone-message
 bind index p recall-message
 
-# source ~/.mutt/gpg.rc           # Use GPG
+source ~/.mutt/gpg.rc           # Use GPG
 # source ~/.gnupg/gpg.conf                         # Use GPG
 
 # }}}
