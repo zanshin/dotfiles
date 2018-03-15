@@ -117,6 +117,12 @@ macro index \e3 '<sync-mailbox><enter-command>source ~/.mutt/accounts/marknichol
 macro index \e4 '<sync-mailbox><enter-command>source ~/.mutt/accounts/codeprole.muttrc<enter><change-folder>!<enter>'
 
 # }}}
+# GPG {{{
+source ~/.mutt/accounts/gpgcommon.muttrc
+source ~/.mutt/gpg.rc
+# source ~/.gnupg/gpg.conf
+
+# }}}
 # Sidebar navigation {{{
 bind index,pager <down>    sidebar-next
 bind index,pager <up>      sidebar-prev
@@ -225,9 +231,6 @@ set editor="nvim +9 -c 'set ft=mail'"
 # Postpone message
 bind compose p postpone-message
 bind index p recall-message
-
-source ~/.mutt/gpg.rc           # Use GPG
-# source ~/.gnupg/gpg.conf                         # Use GPG
 
 # }}}
 # Macros {{{
