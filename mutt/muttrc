@@ -79,10 +79,10 @@ mailboxes /home/mark/.mail/mark/INBOX /home/mark/.mail/mark/Archive /home/mark/.
 mailboxes +"root --------------------"
 mailboxes /home/mark/.mail/root/INBOX /home/mark/.mail/root/Archive /home/mark/.mail/root/Drafts /home/mark/.mail/root/Sent /home/mark/.mail/root/Trash /home/mark/.mail/root/Junk
 
-mailboxes +"marknichols ------------"
+mailboxes +"marknichols -------------"
 mailboxes /home/mark/.mail/marknichols/INBOX /home/mark/.mail/marknichols/Archive /home/mark/.mail/marknichols/Drafts /home/mark/.mail/marknichols/Sent /home/mark/.mail/marknichols/Trash
 
-mailboxes +"codeprole --------------"
+mailboxes +"codeprole ---------------"
 mailboxes /home/mark/.mail/codeprole/INBOX /home/mark/.mail/codeprole/Archive /home/mark/.mail/codeprole/Drafts /home/mark/.mail/codeprole/Sent /home/mark/.mail/codeprole/Trash
 
 # mailboxes +":: Inboxes ::" \
