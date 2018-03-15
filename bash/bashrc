@@ -40,6 +40,9 @@ export EDITOR="$VISUAL"
 export PAGER=less
 export LESS="-M -n -q -i -r"
 
+# mutt GPG tty setting
+export GPG_TTY=$(tty)
+
 # Go path
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
