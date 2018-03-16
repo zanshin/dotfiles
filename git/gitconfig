@@ -56,10 +56,6 @@
   # https://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful/15316602#15316602
   up = "!git remote update -p; git merge --ff-only @{u}"
 
-[pull]
-  # Force git pull to be fast-forward only
-  ff = only
-
 [push]
   # simple is the new default, requires > 1.7
   # default = simple
