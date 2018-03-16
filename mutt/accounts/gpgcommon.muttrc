@@ -14,14 +14,23 @@ set pgp_list_secring_command   = "gpg --no-verbose --batch --with-colons --list-
 
 unset pgp_retainable_sigs
 
-set pgp_ignore_subkeys
-set pgp_verify_sig=yes
-set pgp_create_traditional     = no
-set pgp_autosign               = yes
-set pgp_autoencrypt            = no
-set pgp_replysignencrypted
-set pgp_replyencrypt           = yes
-set pgp_replysign              = yes
+# set pgp_ignore_subkeys
+# set pgp_verify_sig=yes
+# set pgp_create_traditional     = no
+# set pgp_autosign               = no
+# set pgp_autoencrypt            = no
+# set pgp_replysignencrypted
+# set pgp_replyencrypt           = yes
+# set pgp_replysign              = yes
+
+set crypt_autosign                     # automatically sign all outgoing messages
+# set crypt_replysign                  # sign only replies to signed messages
+# set crypt_autoencrypt=yes            # automatically encrypt outgoing msgs
+# set crypt_replyencrypt=yes           # encryp only replies to signed messages
+set crypt_replysignencrypted=yes       # encrypt & sign replies to encrypted msgs
+set crypt_verify_sig=yes               # auto verify msg signature when opened
+set pgp_create_traditional = yes       # http://www.rdrop.com/docs/mutt/manual236.html#pgp_create_traditional
+
 set pgp_timeout                = 3600
 set pgp_good_sign              = "^gpg: Good signature from"
 
