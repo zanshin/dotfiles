@@ -224,7 +224,8 @@ set forward_quote                                # include message in forwards
 
 # set editor = "vim +:silent+?^$"                # use terminal Vim to compose email
 # set editor="nvim +9 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=0 ft=mail noautoindent' -c 'set nolist'"
-set editor="nvim +9 -c 'set ft=mail'"
+# set editor="nvim +\'\} -c 'set ft=mail'"
+set editor="nvim +11 -c 'set ft=mail'"
 # set text_flowed = yes                            # eliminate odd line breaks
 # set editor = "vim -c 'set spell spelllang=en' -c 'setlocal fo+=aw' +:silent+?^$"
 
