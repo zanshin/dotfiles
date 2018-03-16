@@ -16,8 +16,8 @@ set sendmail             = "/usr/bin/msmtp -a codeprole"
 
 set from                 = 'code.prole@gmail.com'
 set spoolfile            = "+INBOX"
-set postponed            = "+[Gmail]/Drafts"
-set record               = '+[Gmail]/Sent\ Mail'
+set postponed            = "+Drafts"
+set record               = '+Sent'
 
 # unmailboxes *
 # mailboxes "+Inbox" "+[Gmail]/All Mail" "+[Gmail]/Drafts" "+[Gmail]/Sent\ Mail"
@@ -29,15 +29,15 @@ set status_format=" $my_acct : %m messages, %n unread  %> (%P) [%l] (%v) "
 #######################################################
 ###  Account specific GPG
 #######################################################
-# my_hdr X-GPG-Key-Server: hkps://hkps.pool.sks-keyservers.net
-# my_hdr X-GPG-Key-FingerPrint: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344
+my_hdr X-GPG-Key-Server: hkps://hkps.pool.sks-keyservers.net
+my_hdr X-GPG-Key-FingerPrint: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
+
+send-hook code.prole@gmial.com 'set pgp_autosign; set pgp_autoencrypt'
+pgp-hook code.prole@gmail.com 53445200
 #
-# send-hook code.prole@gmial.com 'set pgp_autosign; set pgp_autoencrypt'
-# pgp-hook code.prole@gmail.com 53445200
-#
-# set pgp_encrypt_only_command="/usr/local/bin/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 2602A9FC -- -r %r -- %f"
-# set pgp_encrypt_sign_command="/usr/local/bin/pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to E316DAB9 -- -r %r -- %f"
-# set pgp_sign_as=2602A9FC
+set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 53445200 -- -r %r -- %f"
+set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 53445200 -- -r %r -- %f"
+set pgp_sign_as=53445200
 #
 #######################################################
 ###  GPG Common
