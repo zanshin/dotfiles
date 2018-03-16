@@ -1,62 +1,69 @@
 [user]
-    name = Mark Nichols
-    email = mark@zanshin.net
+  name = Mark Nichols
+  email = mark@zanshin.net
 
 [github]
-    user = zanshin
+  user = zanshin
 
 [color]
-    ui = auto
-    interactive = auto
+  ui = auto
+  interactive = auto
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-    added = green
-    changed = magenta
-    untracked = bold yellow
+  added = green
+  changed = magenta
+  untracked = bold yellow
 
 [core]
-    editor = nvim
-    autocrlf = input
-    safecrlf = warn
-    excludesfile = ~/.gitignore_global
-    quotepath = false
-  	pager = less -R
+  editor = nvim
+  autocrlf = input
+  safecrlf = warn
+  excludesfile = ~/.gitignore_global
+  quotepath = false
+	pager = less -R
 
 [diff]
-    tool = vimdiff
+  tool = vimdiff
 
 [merge]
-    # Include summaries of merged commits in newly created merge commit
-    # messages
-    log = true
-    tool = vimdiff
+  # Include summaries of merged commits in newly created merge commit
+  # messages
+  log = true
+  tool = vimdiff
 
 [alias]
-    yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
-    hist = "log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
-    ahead = "log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
-    today = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
-    # Show verbose output about tags, branches, or remotes
-    tags = tag -l
-    branches = branch -a
-    remotes = remote -v
-    up = pull --rebase --autostash origin master
+  yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
+  hist = "log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
+  ahead = "log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
+  today = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
+  # Show verbose output about tags, branches, or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  # up = pull --rebase --autostash origin master
+  # Fetch all upstream branches and clean out old origin/* branches that no longer exist upstream
+  # https://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful/15316602#15316602
+  up = "!git remote update -p; git merge --ff-only @{u}"
+
+[pull]
+  # Force git pull to be fast-forward only
+  ff = only
 
 [push]
-    # simple is the new default, requires > 1.7
-    # default = simple
-    default = matching
+  # simple is the new default, requires > 1.7
+  # default = simple
+  default = matching
 
 [http]
-	cookiefile = ~/.gitcookies
+  cookiefile = ~/.gitcookies
