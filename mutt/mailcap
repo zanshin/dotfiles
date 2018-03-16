@@ -1,20 +1,19 @@
 # Images
-# image/jpg; ~/.mutt/view_attachment.sh %s jpg
-# image/jpeg; ~/.mutt/view_attachment.sh %s jpg
-# image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
-# image/png; ~/.mutt/view_attachment.sh %s png
-# image/gif; ~/.mutt/view_attachment.sh %s gif
+# image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
+# image/jpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+# image/pjpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+# image/png; ~/.mutt/scripts/view_attachment.sh %s png
+# image/gif; ~/.mutt/scripts/view_attachment.sh %s gif
 
 # PDFs
-# application/pdf; ~/.mutt/view_attachment.sh %s pdf
+# application/pdf; ~/.mutt/scripts/view_attachment.sh %s pdf
 
 # HTML
-# text/html; ~/.mutt/view_attachment.sh %s html
-
-# Unidentified files
-# application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
-
+# text/html; ~/.mutt/scripts/view_attachment.sh %s html
 text/html;  lynx %s; nametemplate=%s.html
 text/html;  lynx -dump %s; nametemplate=%s.html; copiousoutput
+
+# Unidentified files
+application/octet-stream; ~/.mutt/scripts/view_attachment.sh %s "-"
 image/*;    /usr/bin/xdg-open %s; copiousoutput
 application/*;    /usr/bin/xdg-open %s; copiousoutput

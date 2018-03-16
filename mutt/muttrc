@@ -4,7 +4,9 @@
 
 # Theme {{{
 # source ~/.mutt/solarized_light_16.muttrc
-source ~/.mutt/themes/sjl.muttrc
+# source ~/.mutt/themes/sjl.muttrc
+source ~/.mutt/themes/mhn.muttrc
+# source ~/.mutt/themes/solarized-mod.muttrc
 
 # }}}
 # Paths {{{
@@ -59,7 +61,7 @@ set sidebar_divider_char=" | "
 set sidebar_format="%B%* %?N?%N:?%S"
 
 # color of folders with new mail
-color sidebar_new yellow default
+color sidebar_new color31 color233
 
 # }}}
 # Account Settings {{{
@@ -77,10 +79,10 @@ mailboxes /home/mark/.mail/mark/INBOX /home/mark/.mail/mark/Archive /home/mark/.
 mailboxes +"root --------------------"
 mailboxes /home/mark/.mail/root/INBOX /home/mark/.mail/root/Archive /home/mark/.mail/root/Drafts /home/mark/.mail/root/Sent /home/mark/.mail/root/Trash /home/mark/.mail/root/Junk
 
-mailboxes +"marknichols ------------"
+mailboxes +"marknichols -------------"
 mailboxes /home/mark/.mail/marknichols/INBOX /home/mark/.mail/marknichols/Archive /home/mark/.mail/marknichols/Drafts /home/mark/.mail/marknichols/Sent /home/mark/.mail/marknichols/Trash
 
-mailboxes +"codeprole --------------"
+mailboxes +"codeprole ---------------"
 mailboxes /home/mark/.mail/codeprole/INBOX /home/mark/.mail/codeprole/Archive /home/mark/.mail/codeprole/Drafts /home/mark/.mail/codeprole/Sent /home/mark/.mail/codeprole/Trash
 
 # mailboxes +":: Inboxes ::" \
@@ -146,9 +148,9 @@ set sort_re                                      # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # colors for potential spam
-color index yellow default    '~h "X-Spam-Status:.*score=(2|3)\."'
-color index brightred default '~h "X-Spam-Status:.*score=(4|5)\."'
-color index magenta default   '~h "X-Spam-Status:.*score=(6|7)\."'
+color index yellow color233    '~h "X-Spam-Status:.*score=(2|3)\."'
+color index brightred color233 '~h "X-Spam-Status:.*score=(4|5)\."'
+color index magenta color233   '~h "X-Spam-Status:.*score=(6|7)\."'
 
 # }}}
 # Bindings {{{
@@ -215,8 +217,9 @@ set include                                      # include message in reply
 set forward_quote                                # include message in forwards
 
 # set editor = "vim +:silent+?^$"                # use terminal Vim to compose email
-set editor="nvim +9 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=0 ft=mail noautoindent' -c 'set nolist' -c 'setlocal fo+=aw'"
-set text_flowed = yes                            # eliminate odd line breaks
+# set editor="nvim +9 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=0 ft=mail noautoindent' -c 'set nolist'"
+set editor="nvim +9 -c 'set ft=mail'"
+# set text_flowed = yes                            # eliminate odd line breaks
 # set editor = "vim -c 'set spell spelllang=en' -c 'setlocal fo+=aw' +:silent+?^$"
 
 # Postpone message
@@ -265,6 +268,9 @@ macro index,pager .r "<change-folder>$HOME/.mail/root/INBOX"<enter>
 macro index,pager .n "<change-folder>$HOME/.mail/marknichols/INBOX"<enter>
 macro index,pager .c "<change-folder>$HOME/.mail/codeprole/INBOX"<enter>
 
+# Quick view for HTML formatted email
+bind index,pager V  noop                         # Unbinds V from version
+macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
 
 # }}}
 # Status Bar {{{

@@ -8,6 +8,9 @@ Session.vim
 .netrwhist
 *~
 
+# Neovim
+en.utf-8.add.spl
+
 # Ignore vim/bundles, vim/tmp, and vim/autoload
 vim/bundle
 vim/tmp
