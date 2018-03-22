@@ -61,7 +61,7 @@ set sidebar_divider_char=" | "
 set sidebar_format="%B%* %?N?%N:?%S"
 
 # color of folders with new mail
-color sidebar_new color31 color233
+color sidebar_new color33 color233
 
 # }}}
 # Account Settings {{{
@@ -115,6 +115,12 @@ macro index \e1 '<sync-mailbox><enter-command>source ~/.mutt/accounts/mark.muttr
 macro index \e2 '<sync-mailbox><enter-command>source ~/.mutt/accounts/root.muttrc<enter><change-folder>!<enter>'
 macro index \e3 '<sync-mailbox><enter-command>source ~/.mutt/accounts/marknichols.muttrc<enter><change-folder>!<enter>'
 macro index \e4 '<sync-mailbox><enter-command>source ~/.mutt/accounts/codeprole.muttrc<enter><change-folder>!<enter>'
+
+# }}}
+# GPG {{{
+source ~/.mutt/accounts/gpgcommon.muttrc
+source ~/.mutt/gpg.rc
+# source ~/.gnupg/gpg.conf
 
 # }}}
 # Sidebar navigation {{{
@@ -218,16 +224,14 @@ set forward_quote                                # include message in forwards
 
 # set editor = "vim +:silent+?^$"                # use terminal Vim to compose email
 # set editor="nvim +9 -c 'set nobackup' -c 'set noswapfile' -c 'set nowritebackup' -c 'set tw=0 ft=mail noautoindent' -c 'set nolist'"
-set editor="nvim +9 -c 'set ft=mail'"
+set editor="nvim '+/^$' -c 'set nohlsearch' -c 'set ft=mail'"
+# set editor="nvim +11 -c 'set ft=mail'"
 # set text_flowed = yes                            # eliminate odd line breaks
 # set editor = "vim -c 'set spell spelllang=en' -c 'setlocal fo+=aw' +:silent+?^$"
 
 # Postpone message
 bind compose p postpone-message
 bind index p recall-message
-
-# source ~/.mutt/gpg.rc           # Use GPG
-# source ~/.gnupg/gpg.conf                         # Use GPG
 
 # }}}
 # Macros {{{

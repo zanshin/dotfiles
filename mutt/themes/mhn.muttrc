@@ -7,8 +7,8 @@ color status color172 color233
 #
 # # index stuff
 color tree color244 color233
-color indicator color253 color31
-color index color31 color233 ~N
+color indicator color253 color33
+color index color33 color233 ~N
 color index color124 color233 ~D
 #
 # # header stuff
