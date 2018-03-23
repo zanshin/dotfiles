@@ -51,6 +51,7 @@ alias est="cd ~/code/chef/est"
 alias estdev="cd ~/code/chef/estdev"
 alias estwin="cd ~/code/chef/estwin"
 alias estwindev="cd ~/code/chef/estwindev"
+alias omeaws="cd ~/code/chef/omeaws"
 
 alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 # }}}
