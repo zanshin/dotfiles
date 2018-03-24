@@ -204,10 +204,6 @@ bind index gg       first-entry
 bind index G        last-entry
 bind index <space>  collapse-thread
 
-# Postpone message
-bind compose p postpone-message
-bind index p recall-message
-
 # Bounce message functionality
 bind index B bounce-message     # remap bounce message functionality
 
@@ -258,8 +254,8 @@ set editor="nvim '+/^$' -c 'set nohlsearch' -c 'set ft=mail'"
 # set editor = "vim -c 'set spell spelllang=en' -c 'setlocal fo+=aw' +:silent+?^$"
 
 # Postpone message
-bind compose p postpone-message
-bind index p recall-message
+bind compose P postpone-message
+bind index P recall-message
 
 # }}}
 # Macros {{{
