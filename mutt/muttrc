@@ -118,9 +118,43 @@ macro index \e4 '<sync-mailbox><enter-command>source ~/.mutt/accounts/codeprole.
 
 # }}}
 # GPG {{{
-source ~/.mutt/accounts/gpgcommon.muttrc
-source ~/.mutt/gpg.rc
-# source ~/.gnupg/gpg.conf
+# Use GPGME
+set crypt_use_gpgme = yes
+
+# Sign replies to signed emails
+set crypt_replysign = yes
+
+# Encrypt replies to encrypted emails
+set crypt_replyencrypt = yes
+
+# Encrypt and sign replies to encrypted and signed email
+set crypt_replysignencrypted = yes
+
+# Attempt to verify signatures automatically
+set crypt_verify_sig = yes
+
+# Use my key for signing and encrypting
+set pgp_sign_as = 0x53445200
+
+# Automatically sign all out-going email
+set crypt_autosign = yes
+
+# GPG colors
+color body cyan default   "^gpg: Signature made.*"
+color body green default  "^gpg: Good signature from.*"
+color body yellow default "^gpg: Can't check signature.*"
+color body yellow default "^gpg: WARNING: .*"
+color body red default    "^gpg: BAD signature from.*"
+
+# Switching to GPGME and/or its supporting library
+# changed the prefixes for these strings
+color body cyan default   "^Signature made.*"
+color body green default  "^Good signature from.*"
+color body green default  "^Good signature from.*"
+color body yellow default "^Can't check signature.*"
+color body yellow default "^WARNING: .*"
+color body red default    "^BAD signature from.*"
+
 
 # }}}
 # Sidebar navigation {{{
@@ -176,10 +210,6 @@ bind index gg       first-entry
 bind index G        last-entry
 bind index <space>  collapse-thread
 
-# Postpone message
-bind compose p postpone-message
-bind index p recall-message
-
 # Bounce message functionality
 bind index B bounce-message     # remap bounce message functionality
 
@@ -230,8 +260,8 @@ set editor="nvim '+/^$' -c 'set nohlsearch' -c 'set ft=mail'"
 # set editor = "vim -c 'set spell spelllang=en' -c 'setlocal fo+=aw' +:silent+?^$"
 
 # Postpone message
-bind compose p postpone-message
-bind index p recall-message
+bind compose P postpone-message
+bind index P recall-message
 
 # }}}
 # Macros {{{

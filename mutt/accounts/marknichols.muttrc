@@ -3,44 +3,20 @@ my_hdr From: mark.nichols@gmail.com (mark nichols)
 my_hdr Reply-To: mark.nichols@gmail.com (mark nichols)
 my_hdr Errors-To: mark.nichols@gmail.com
 my_hdr Organization:
+my_hdr X-GPG-Key-Server: hkps://hkps.pool.sks-keyservers.net
+my_hdr X-GPG-Key-FingerPrint: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
 
-# set imap_user            = 'mark.nichols@gmail.com'
-# source "gpg -d -q $HOME/.mutt/passwords/marknichols.gpg |"
-# set realname             = 'Mark Nichols'
-# set folder               = "imaps://imap.gmail.com:993"
-# set smtp_url             = "smtp://mark.nichols@smtp.gmail.com:587"
-
+# Mailboxes
 set hostname             = ""
 set folder               = "~/.mail/marknichols/"
+set from                 = 'mark.nichols@gmail.com'
 set sendmail             = "/usr/bin/msmtp -a marknichols"
 
-set from                 = 'mark.nichols@gmail.com'
 set spoolfile            = "+INBOX"
 set postponed            = "+Drafts"
 set record               = '+Sent'
 
-# unmailboxes *
-# mailboxes "+Inbox" "+[Gmail]/All Mail" "+[Gmail]/Drafts" "+[Gmail]/Sent\ Mail"
-# mailboxes "+Inbox" "+Drafts" "+Sent" "+Trash" "+Archive"
-# mailboxes `find ~/.mail/marknichols/ -type d -name cur -printf '%h\t%d\n'| sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
-
+# Set my_acct and format status bar
 set my_acct              = 'mark nichols'
 set status_format=" $my_acct : %m messages, %n unread  %> (%P) [%l] (%v) "
-#######################################################
-###  Account specific GPG
-#######################################################
-my_hdr X-GPG-Key-Server: hkps://hkps.pool.sks-keyservers.net
-my_hdr X-GPG-Key-FingerPrint: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
-#
-# send-hook mark.nichols@gmial.com 'set pgp_autosign; set pgp_autoencrypt'
-send-hook mark.nichols@gmial.com 'set pgp_autosign'
-pgp-hook mark.nichols@gmail.com 53445200
-#
-set pgp_encrypt_only_command="/usr/lb/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 53445200 -- -r %r -- %f"
-set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 53445200 -- -r %r -- %f"
-set pgp_sign_as=53445200
 
-#######################################################
-###  GPG Common
-#######################################################
-# source ~/.mutt/accounts/gpgcommon.confg
