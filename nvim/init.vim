@@ -187,6 +187,11 @@ au FocusLost * :wa                     " save file when Neovim loses focus
 set hidden                             " switch bwteen buffers without saving
 
 " }}}
+" System clipboard {{{
+" map <leadr>y to be "+y
+nnoremap <leader>y "+y
+
+" }}}
 " Backups {{{
 set backup                             " enable backups
 set noswapfile                         " It's the 21st century already

@@ -45,12 +45,13 @@ alias sym="ls -la | grep '\->'"
 # Directory shortcuts {{{
 alias omedev="cd ~/code/chef/omedev"
 alias ome="cd ~/code/chef/ome"
-alias omepci="cd ~/code/chef-old/omepci/chef-repo"
-alias omepcidev="cd ~/code/chef-old/omepcidev/chef-repo"
+alias omepci="cd ~/code/chef/omepci"
+alias omepcidev="cd ~/code/chef/omepcidev"
 alias est="cd ~/code/chef/est"
 alias estdev="cd ~/code/chef/estdev"
 alias estwin="cd ~/code/chef/estwin"
 alias estwindev="cd ~/code/chef/estwindev"
+alias omeaws="cd ~/code/chef/omeaws"
 
 alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 # }}}
@@ -73,7 +74,8 @@ alias 'clone=hg clone'
 alias ga='git add'
 alias gp='git push'
 alias gl='git log'
-alias gpl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreed(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+# alias gpl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreed(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gpl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias gs='git status'
 alias gd='git diff'
 alias gm='git commit -m'
