@@ -5,6 +5,9 @@
 [github]
   user = zanshin
 
+[commit]
+  gpgsign = true
+
 [color]
   ui = auto
   interactive = auto
