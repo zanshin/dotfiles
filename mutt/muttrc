@@ -118,10 +118,6 @@ macro index \e4 '<sync-mailbox><enter-command>source ~/.mutt/accounts/codeprole.
 
 # }}}
 # GPG {{{
-# source ~/.mutt/accounts/gpgcommon.muttrc
-# source ~/.mutt/gpg.rc
-# source ~/.gnupg/gpg.conf
-
 # Use GPGME
 set crypt_use_gpgme = yes
 
@@ -149,6 +145,16 @@ color body green default  "^gpg: Good signature from.*"
 color body yellow default "^gpg: Can't check signature.*"
 color body yellow default "^gpg: WARNING: .*"
 color body red default    "^gpg: BAD signature from.*"
+
+# Switching to GPGME and/or its supporting library
+# changed the prefixes for these strings
+color body cyan default   "^Signature made.*"
+color body green default  "^Good signature from.*"
+color body green default  "^Good signature from.*"
+color body yellow default "^Can't check signature.*"
+color body yellow default "^WARNING: .*"
+color body red default    "^BAD signature from.*"
+
 
 # }}}
 # Sidebar navigation {{{
