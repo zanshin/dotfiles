@@ -3,42 +3,20 @@ my_hdr From: root@zanshin.net (mark nichols)
 my_hdr Reply-To: root@zanshin.net (mark nichols)
 my_hdr Errors-To: root@zanshin.net
 my_hdr Organization:
+my_hdr X-GPG-Key-Server: hkps://hkps.pool.sks-keyservers.net
+my_hdr X-GPG-Key-FingerPrint: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
 
-# set imap_user            = 'root_zanshin'
-# source "gpg -d -q $HOME/.mutt/passwords/root.gpg |"
-# set realname             = 'Mark Nichols'
-# set folder               = "imaps://mail.webfaction.com:993"
-# set smtp_url             = "smtp://root_zanshin@smtp.webfaction.com:587"
-
+# Mailboxes
 set hostname             = ""
 set folder               = "~/.mail/root"
+set from                 = 'root@zanshin.net'
 set sendmail             = "/usr/bin/msmtp -a root"
 
-set from                 = 'root@zanshin.net'
 set spoolfile            = "+INBOX"
 set postponed            = "+Drafts"
 set record               = '+Sent'
 
-# unmailboxes *
-# mailboxes "+Inbox" "+Archive" "+Drafts" "+Sent" "+Junk"
-# mailboxes `find ~/.mail/root/ -type d -name cur -printf '%h\t%d\n'| sort -n | tr ' ' '\\ ' | awk -F'\t' '{ ORS=" "}{ print $1 }'`
-
+# Set my_acct and format status bar
 set my_acct              = 'root'
 set status_format=" $my_acct : %m messages, %n unread  %> (%P) [%l] (%v) "
-#######################################################
-###  Account specific GPG
-#######################################################
-my_hdr X-GPG-Key-Server: hkps://hkps.pool.sks-keyservers.net
-my_hdr X-GPG-Key-FingerPrint: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
 
-send-hook root@zanshin.net 'set pgp_autosign; set pgp_autoencrypt'
-pgp-hook root@zanshin.net 53445200
-
-set pgp_encrypt_only_command="/usr/lib/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 53445200 -- -r %r -- %f"
-set pgp_encrypt_sign_command="/usr/lib/mutt/pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 53445200 -- -r %r -- %f"
-set pgp_sign_as=53445200
-
-#######################################################
-###  GPG Common
-#######################################################
-# source ~/.mutt/accounts/gpgcommon.confg
