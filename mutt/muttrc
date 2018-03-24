@@ -272,6 +272,12 @@ macro index,pager .r "<change-folder>$HOME/.mail/root/INBOX"<enter>
 macro index,pager .n "<change-folder>$HOME/.mail/marknichols/INBOX"<enter>
 macro index,pager .c "<change-folder>$HOME/.mail/codeprole/INBOX"<enter>
 
+macro index,pager .1 "<change-folder>$HOME/.mail/mark/INBOX"<enter>
+macro index,pager .2 "<change-folder>$HOME/.mail/root/INBOX"<enter>
+macro index,pager .3 "<change-folder>$HOME/.mail/marknichols/INBOX"<enter>
+macro index,pager .4 "<change-folder>$HOME/.mail/codeprole/INBOX"<enter>
+
+
 # Quick view for HTML formatted email
 bind index,pager V  noop                         # Unbinds V from version
 macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
