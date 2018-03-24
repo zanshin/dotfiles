@@ -27,7 +27,7 @@ set crypt_autosign                     # automatically sign all outgoing message
 # set crypt_replysign                  # sign only replies to signed messages
 # set crypt_autoencrypt=yes            # automatically encrypt outgoing msgs
 # set crypt_replyencrypt=yes           # encryp only replies to signed messages
-set crypt_replysignencrypted=yes       # encrypt & sign replies to encrypted msgs
+# set crypt_replysignencrypted=yes       # encrypt & sign replies to encrypted msgs
 set crypt_verify_sig=yes               # auto verify msg signature when opened
 set pgp_create_traditional = yes       # http://www.rdrop.com/docs/mutt/manual236.html#pgp_create_traditional
 

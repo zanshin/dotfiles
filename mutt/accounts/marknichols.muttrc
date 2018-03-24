@@ -32,7 +32,8 @@ set status_format=" $my_acct : %m messages, %n unread  %> (%P) [%l] (%v) "
 my_hdr X-GPG-Key-Server: hkps://hkps.pool.sks-keyservers.net
 my_hdr X-GPG-Key-FingerPrint: 297F 5FD4 0275 D2E5 48E9  F834 6CCF 1568 5344 5200
 #
-send-hook mark.nichols@gmial.com 'set pgp_autosign; set pgp_autoencrypt'
+# send-hook mark.nichols@gmial.com 'set pgp_autosign; set pgp_autoencrypt'
+send-hook mark.nichols@gmial.com 'set pgp_autosign'
 pgp-hook mark.nichols@gmail.com 53445200
 #
 set pgp_encrypt_only_command="/usr/lb/mutt/pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 53445200 -- -r %r -- %f"
