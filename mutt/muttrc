@@ -307,6 +307,10 @@ macro index,pager .2 "<change-folder>$HOME/.mail/root/INBOX"<enter>
 macro index,pager .3 "<change-folder>$HOME/.mail/marknichols/INBOX"<enter>
 macro index,pager .4 "<change-folder>$HOME/.mail/codeprole/INBOX"<enter>
 
+# Compose macro to convert Markdown to HTML
+# https://unix.stackexchange.com/questions/108485/send-email-written-in-markdown-using-mutt#108809
+macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=us-ascii\n"
+set wait_key=no
 
 # Quick view for HTML formatted email
 bind index,pager V  noop                         # Unbinds V from version
