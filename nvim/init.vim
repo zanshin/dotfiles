@@ -366,6 +366,10 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
     autocmd FileType markdown setlocal tw=100
 
+    " vim-surround for markdown
+    autocmd FileType markdown let b:surround_{char2nr('i')} = "*\r*"
+    autocmd FileType markdown let b:surround_{char2nr('b')} = "**\r**"
+
     " non Ruby files related to Ruby
     autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
     autocmd BufNewFile,BufRead Thorfile,config.ru,Vagrantfile setfiletype ruby
@@ -519,6 +523,15 @@ nnoremap <leader>i :IndentLinesToggle<CR>
 " Improve indentLine performance
 let g:indentLine_faster = 1
 let g:indentLine_setConceal = 0
+
+" }}}
+" Vim-surround {{{
+" The autocmd FileType statements that define 'i' and 'b' are in the FileType
+" section.
+" Mapping to put Markdown italics (*) characters around current word
+nnoremap <leader>mi :execute "normal \<Plug>Ysurroundiwi"<cr>
+" Mapping to put Markdown bold (**) characters around current word
+nnoremap <leader>mb :execute "normal \<Plug>Ysurroundiwb"<cr>
 
 " }}}
 " Neoterm {{{
