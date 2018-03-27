@@ -3,10 +3,7 @@
 # rc file for mutt
 
 # Theme {{{
-# source ~/.mutt/solarized_light_16.muttrc
-# source ~/.mutt/themes/sjl.muttrc
 source ~/.mutt/themes/mhn.muttrc
-# source ~/.mutt/themes/solarized-mod.muttrc
 
 # }}}
 # Paths {{{
@@ -23,7 +20,7 @@ set signature        = ~/.mutt/sig               # my signature file
 # }}}
 # Basic settings {{{
 # set noallow_8bit                               # 8bit isn't safe via Demon ?
-set ascii_chars=yes                              # use ascii characters when displaying trees
+# set ascii_chars=yes                              # use ascii characters when displaying trees
 set charset=UTF8
 set delete                                       # don't ask, just do
 set hidden_host                                  # Hide host details

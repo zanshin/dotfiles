@@ -3,11 +3,12 @@ color normal color252 color233
 color error color193 color124
 color markers color142 color233
 color tilde color142 color233
-color status color172 color233
+color status color214 color233
 #
 # # index stuff
-color tree color244 color233
-color indicator color253 color33
+# color tree color244 color233
+color tree color196 color233
+color indicator color253 color32
 color index color33 color233 ~N
 color index color124 color233 ~D
 #
