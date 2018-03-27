@@ -286,9 +286,12 @@ nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " }}}
 " Trailing whitespace {{{
-" www.bestofwim.com/tip/trailing-whitespace/
+" Do not trim whitespace from filetype mail - the trailing spaces are how
+" paragraphs are formed, along with formatoptions "w"
 function! TrimWhitespace()
+  if &ft != 'mail'
     %s/\s\+$//e
+  endif
 endfunction
 
 nnoremap <silent> <leader>tws :call TrimWhitespace()<CR>
@@ -348,7 +351,6 @@ if has("autocmd")
     " setup for mail
     autocmd FileType mail setlocal formatoptions+=aw
     autocmd FileType mail setlocal spell spelllang=en_us
-    autocmd FileType mail setlocal tw=0
     autocmd FileType mail setlocal noautoindent nolist
     autocmd FileType mail setlocal nobackup noswapfile nowritebackup
 
