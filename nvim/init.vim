@@ -438,10 +438,48 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " silent! colorscheme nova
 
 " Base16 setup
-colorscheme base16-default-dark
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
+" colorscheme base16-default-dark
+" if filereadable(expand("~/.vimrc_background"))
+"   let base16colorspace=256
+"   source ~/.vimrc_background
+" endif
+
+function s:CheckColorScheme()
+  let g:base16colorspace=256
+
+  let s:config_file = expand('~/.config/.base16')
+
+  if filereadable(s:config_file)
+    let s:config = readfile(s:config_file, '', 1)
+
+    if s:config =~ 'light'
+      execute 'set background=light'
+    else
+      execute 'set bacground=dark'
+    endif
+
+    if filereadable(expand('~/.config/nvim/plugged/base16-vim/colors/base16-' . s:config_file[1] . '.vim'))
+      execute 'color base16-' . s:config_file[01
+    else
+      echoerr 'Bad color scheme' . s:config_file[1]
+    endif
+  else
+    set background=dark
+    color base16-material-darker
+  endif
+
+  doautocmd ColorScheme
+endfunction
+
+if v:progname !=# 'vi'
+  if has('autocmd')
+    augroup MyAutocolor
+      autocmd!
+      autocmd FocusGained * call s:CheckColorScheme()
+    augroup END
+  endif
+
+  call s:CheckColorScheme()
 endif
 
 " }}}
