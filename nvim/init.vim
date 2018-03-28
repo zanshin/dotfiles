@@ -20,6 +20,7 @@ Plug 'itchyny/landscape.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'trevordmiller/nova-vim'
+Plug 'chriskempson/base16-vim'
 
 " ----- Syntax & Highlighting
 Plug 'Yggdroot/indentline'
@@ -432,9 +433,14 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 
 " }}}
 " Color scheme {{{
-set background=dark
-silent! colorscheme landscape
+" set background=dark
+colorscheme base16-default-dark
+" silent! colorscheme landscape
 " silent! colorscheme nova
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " }}}
 " Python {{{
