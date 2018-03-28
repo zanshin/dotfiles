@@ -373,7 +373,7 @@ color() {
     fi
 
     if [[ -x "$FILE" ]]; then
-      echo "$SCHEME" >! "$BASE16_CONFIG"
+      echo "$SCHEME" >| "$BASE16_CONFIG"
       "$FILE"
     else
       echo "Scheme '$SCHEME' not found in $BASE16_DIR"
@@ -393,6 +393,7 @@ color() {
     echo 'Available schemes:'
     find ~/.config/base16-shell -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
+      sort | \
       column
       ;;
 
