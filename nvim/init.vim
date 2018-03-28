@@ -434,9 +434,11 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " }}}
 " Color scheme {{{
 " set background=dark
-colorscheme base16-default-dark
 " silent! colorscheme landscape
 " silent! colorscheme nova
+
+" Base16 setup
+colorscheme base16-default-dark
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
