@@ -377,6 +377,8 @@ color() {
     if [[ -x "$FILE" ]]; then
       echo "$SCHEME" >| "$BASE16_CONFIG"
       "$FILE"
+#      sed -e 's/base16-[A-Za-z0-9]*/base16-blah/g'
+# base16-[[:alnum:]]*
       sed "s/placeholder/$NVIM/g" "$BASE16_NVIM_TEMPLATE" >| "$BASE16_NVIM"
     else
       echo "Scheme '$SCHEME' not found in $BASE16_DIR"
