@@ -1,0 +1,3 @@
+if !exists('g:colors_name') || g:colors_name != 'placeholder'
+  colorscheme placeholder
+endif

@@ -344,8 +344,8 @@ man() {
 
 BASE16_DIR=~/.config/base16-shell/scripts
 BASE16_CONFIG=~/.config/.base16
-BASE16_NVIM_TEMPLATE=~/.config/.nvim_template
-BASE16_NVIM=~/.config/.nvim_background
+BASE16_NVIM_TEMPLATE=~/.config/nvim/.nvim_template
+BASE16_NVIM=~/.config/nvim/.nvim_background
 BASE16_DEFAULT="base16-material-darker.sh"
 
 color() {
