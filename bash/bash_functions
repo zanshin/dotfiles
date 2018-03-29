@@ -344,9 +344,8 @@ man() {
 
 BASE16_DIR=~/.config/base16-shell/scripts
 BASE16_CONFIG=~/.config/.base16
-BASE16_NVIM_TEMPLATE=~/.config/nvim/.nvim_template
 BASE16_NVIM=~/.config/nvim/.nvim_background
-BASE16_DEFAULT="base16-material-darker.sh"
+BASE16_DEFAULT="base16-chalk.sh"
 
 color() {
   SCHEME="$1"
@@ -367,19 +366,15 @@ color() {
   case "$ACTION" in
   set)
     if [[ "$SCHEME" = 'default' ]]; then
-      FILE="$BASE16_DIR/base16-material-darker.sh"
-      NVIM='base16-material-darker'
+      FILE="$BASE16_DIR/$BASE16_DEFAULT"
     else
       FILE="$BASE16_DIR/base16-$SCHEME.sh"
-      NVIM="base16-$SCHEME"
     fi
 
     if [[ -x "$FILE" ]]; then
       echo "$SCHEME" >| "$BASE16_CONFIG"
       "$FILE"
-#      sed -e 's/base16-[A-Za-z0-9]*/base16-blah/g'
-# base16-[[:alnum:]]*
-      sed "s/placeholder/$NVIM/g" "$BASE16_NVIM_TEMPLATE" >| "$BASE16_NVIM"
+      sed -i -e "s/base16-[[:alnum:]]*/base16-$SCHEME/g" "$BASE16_NVIM"
     else
       echo "Scheme '$SCHEME' not found in $BASE16_DIR"
       return 1
