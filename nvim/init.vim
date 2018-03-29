@@ -442,18 +442,25 @@ function s:CheckColorScheme()
 
   colorscheme base16-default-dark
   "if filereadable(expand("~/.vimrc_background"))
-  if filereadable(expand("~/.config/.nvim_background"))
+  " if filereadable(expand("~/.config/nvim/.nvim_background"))
+  if filereadable("~/.config/nvim/.nvim_background")
     let base16colorspace=256
-    source ~/.config/.nvim_background
+    source ~/.config/nvim/.nvim_background
   endif
 endfunction
 
-if has('autocmd')
-  augroup MyAutocolor
-    autocmd!
-    autocmd FocusGained * call s:CheckColorScheme()
-  augroup END
-endif
+" if v:progname !=# 'vi'
+
+  if has('autocmd')
+    augroup MyAutocolor
+      autocmd!
+      autocmd FocusGained * call s:CheckColorScheme()
+    augroup END
+  endif
+
+"   call s:CheckColorScheme()
+
+" endif
 
 " Redraw to catch any color change
 " autocmd FocusGained * :redraw!
