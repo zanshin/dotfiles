@@ -343,8 +343,8 @@ man() {
 # set -x
 
 BASE16_DIR=~/.config/base16-shell/scripts
-BASE16_CONFIG=~/.config/.base16
-BASE16_NVIM=~/.config/nvim/.nvim_background
+BASE16_CONFIG=~/.base16
+BASE16_NVIM=~/.nvim_theme
 BASE16_DEFAULT="base16-chalk.sh"
 
 color() {
@@ -389,11 +389,12 @@ color() {
     fi
     ;;
   help)
-    echo 'color set [ocean|grayscale|material-darker|default|...]'
+    echo 'color set [chalk|flat|ocean|grayscale|material-darker|default|...]'
     echo
     echo 'Available schemes:'
     find ~/.config/base16-shell -name 'base16-*.sh' | \
       sed -E 's|.+/base16-||' | \
+      sed -E 's/.sh//' | \
       sort | \
       column
       ;;
