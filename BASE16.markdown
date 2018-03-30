@@ -29,7 +29,7 @@ Vim-Plug, that looks like this:
 
     Plug 'chriskempson/base16-vim'
 
-The payload ends up in `~/.config/nvim/plugged/base16`.
+After adding the `Plug` command, run `:PlugUpdate` to install the plugin. The payload ends up in `~/.config/nvim/plugged/base16`.
 
 **base16-shell**
 This repository provides shell scripts that execute the escape codes necessary to change the colors
@@ -45,48 +45,55 @@ the scope of this readme.
 I'm using bash version 4.4.1. Find the latest release for your operating system and install it.
 
 ## Configuration
-With the base16 components installed you can execute a color script from base16-shell to alter the
-terminal colors. You can also edit your Neovim `init.vim` and change the `colorscheme` setting to
-match.
+This base16 setup relies upon two files located in `$HOME`:
 
-Or, you can use a bash function to change the color scheme. This is advantageous in that the
-function can be run from any command prompt, with out needing the full path to the appropriate color
-shell script.
+    .base16
+    .nvim_theme
 
-The `color()` function in `bash/bash_functions` does just that. The function has several variables
-that allow for changing where components are installed, and to set a default color.
+The first holds the current color scheme for the shell, and the second holds the current color
+scheme for Neovim. Both of these are set and controlled by a bash function called `color`.
 
-This function also updates a small file that is sourced by (Neo)vim to set the colorscheme there.
-This file looks like this:
+The `color()` function in `bash/bash_functions` has four runtime options:
 
-    if !exists('g:colors_name') || g:colors_name != 'base16-chalk'
-      colorscheme base16-chalk
-    endif
+    color
+    color help
+    color default
+    color <base16-scheme>
+
+`color` by itself shows the current color scheme selected, i.e., the contents of `$HOME/.base16`.
+`color help` gives an example of running the function and lists all the currently installed themes.
+`color default` sets the active theme to my default, which is currently `chalk`. Finally, `color
+<base16-scheme>` changes the current color scheme to the input value.
+
+When the function does the switch it
+
+* Executes the base16-shell script to change the Terminal colors
+* Updates the scheme name stored in `$HOME/.base16`
+* Updates the color scheme in `$HOME/.nvim_theme`
+
+The function has several variables that can be set to where various dependencies are installed.
+
 
 **(Neo)vim configuration**
-Updating a file that is sourced to change the colorscheme in Neovim works for new sessions. If you
-want active sessions to change, the same way the terminal changes, some addition work is required.
+While it would be nice to have Neovim automatically update the color scheme in any open sessions
+when the color is changed outside of Neovim, that isn't currently functioning. The code I have
+depends upon the `FocusGained` autocommand event, which is
 
-    function s:CheckColorScheme()
+> [o]nly for the GUI version and a few console versions where this can be detected.
 
-      colorscheme base16-default-dark
-      "if filereadable(expand("~/.vimrc_background"))
-      " if filereadable(expand("~/.config/nvim/.nvim_background"))
-      if filereadable("~/.config/nvim/.nvim_background")
-        let base16colorspace=256
-        source ~/.config/nvim/.nvim_background
-      endif
-    endfunction
+Turns out iTerm2 doesn't pass that event on to either Vim or Neovim. Consequently I have a mapping
+that sources `$HOME/.nvim_theme`, and I use that file to set the color whenever Neovim is started.
 
-    if has('autocmd')
-      augroup MyAutocolor
-        autocmd!
-        autocmd FocusGained * call s:CheckColorScheme()
-      augroup END
+    if filereadable(expand("~/.nvim_theme"))
+      let base16colorspace=256
+      source ~/.nvim_theme
     endif
 
-When Neovim regains focus (`FocusGained`) it triggers the CheckColorScheme function, which set the
-colorscheme to be used.
+    nnoremap <leader>c :source ~/.nvim_theme<CR>
+
+If I want to synchronize Neovim's colorscheme with the current shell theme, a quick `<leader>c` does
+the trick.
+
 
 
 
