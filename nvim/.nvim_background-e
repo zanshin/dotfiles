@@ -1,0 +1,3 @@
+if !exists('g:colors_name') || g:colors_name != 'base16-flat-dark'
+  colorscheme base16-flat-dark
+endif
