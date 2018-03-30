@@ -20,6 +20,7 @@ vim/autoload
 nvim/autoload
 nvim/plugged
 nvim/tmp
+nvim/.nvim_background
 
 # Ignore bash_history
 bash/bash_history
