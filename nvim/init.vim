@@ -436,30 +436,32 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " set background=dark
 " silent! colorscheme landscape
 " silent! colorscheme nova
+if filereadable(expand("~/.nvim_theme"))
+  let base16colorspace=256
+  source ~/.nvim_theme
+endif
+
+nnoremap <leader>c :source ~/.nvim_theme<CR>
 
 " Base16 setup
-function s:CheckColorScheme()
-
-  colorscheme base16-default-dark
-  "if filereadable(expand("~/.vimrc_background"))
-  " if filereadable(expand("~/.config/nvim/.nvim_background"))
-  if filereadable("~/.config/nvim/.nvim_background")
-    let base16colorspace=256
-    source ~/.config/nvim/.nvim_background
-  endif
-endfunction
-
-" if v:progname !=# 'vi'
-
-  if has('autocmd')
-    augroup MyAutocolor
-      autocmd!
-      autocmd FocusGained * call s:CheckColorScheme()
-    augroup END
-  endif
-
-"   call s:CheckColorScheme()
-
+" function CheckColorScheme()
+"
+"   colorscheme base16-default-dark
+"   "if filereadable(expand("~/.vimrc_background"))
+"   if filereadable(expand("~/.config/nvim/.nvim_background"))
+"   " if filereadable("~/.config/nvim/.nvim_background")
+"     let base16colorspace=256
+"     source ~/.config/nvim/.nvim_background
+"   endif
+"   doautocmd ColorScheme
+" endfunction
+"
+" if has('autocmd')
+"   augroup MyAutocolor
+"     autocmd!
+"     autocmd FocusGained * call CheckColorScheme()
+"   augroup END
+"   call CheckColorScheme()
 " endif
 
 " Redraw to catch any color change
