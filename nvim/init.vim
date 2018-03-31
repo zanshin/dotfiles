@@ -20,6 +20,7 @@ Plug 'itchyny/landscape.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'trevordmiller/nova-vim'
+Plug 'chriskempson/base16-vim'
 
 " ----- Syntax & Highlighting
 Plug 'Yggdroot/indentline'
@@ -432,9 +433,78 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 
 " }}}
 " Color scheme {{{
-set background=dark
-silent! colorscheme landscape
+" set background=dark
+" silent! colorscheme landscape
 " silent! colorscheme nova
+if filereadable(expand("~/.nvim_theme"))
+  let base16colorspace=256
+  source ~/.nvim_theme
+endif
+
+nnoremap <leader>c :source ~/.nvim_theme<CR>
+
+" Base16 setup
+" function CheckColorScheme()
+"
+"   colorscheme base16-default-dark
+"   "if filereadable(expand("~/.vimrc_background"))
+"   if filereadable(expand("~/.config/nvim/.nvim_background"))
+"   " if filereadable("~/.config/nvim/.nvim_background")
+"     let base16colorspace=256
+"     source ~/.config/nvim/.nvim_background
+"   endif
+"   doautocmd ColorScheme
+" endfunction
+"
+" if has('autocmd')
+"   augroup MyAutocolor
+"     autocmd!
+"     autocmd FocusGained * call CheckColorScheme()
+"   augroup END
+"   call CheckColorScheme()
+" endif
+
+" Redraw to catch any color change
+" autocmd FocusGained * :redraw!
+
+" function s:CheckColorScheme()
+"   let g:base16colorspace=256
+"
+"   let s:config_file = expand('~/.config/.base16')
+"
+"   if filereadable(s:config_file)
+"     let s:config = readfile(s:config_file, '', 1)
+"
+"     if s:config =~ 'light'
+"       execute 'set background=light'
+"     else
+"       execute 'set background=dark'
+"     endif
+"
+"     if filereadable(expand('~/.config/nvim/plugged/base16-vim/colors/base16-' . s:config_file[1] . '.vim'))
+" "      execute 'color base16-' . s:config_file[1]
+"       execute 'color base16-' . readfile(expand('~/.config/.base16'))
+"     else
+"       echoerr 'Bad color scheme' . s:config_file[1]
+"     endif
+"   else
+"     set background=dark
+"     color base16-material-darker
+"   endif
+"
+"   doautocmd ColorScheme
+" endfunction
+"
+" if v:progname !=# 'vi'
+"   if has('autocmd')
+"     augroup MyAutocolor
+"       autocmd!
+"       autocmd FocusGained * call s:CheckColorScheme()
+"     augroup END
+"   endif
+"
+"   call s:CheckColorScheme()
+" endif
 
 " }}}
 " Python {{{

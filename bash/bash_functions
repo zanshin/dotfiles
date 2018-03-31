@@ -338,6 +338,75 @@ man() {
 }
 
 # }}}
+# Base16 helpers {{{
+#
+# set -x
+
+BASE16_DIR=~/.config/base16-shell/scripts
+BASE16_CONFIG=~/.base16
+BASE16_NVIM=~/.nvim_theme
+BASE16_DEFAULT="base16-chalk.sh"
+
+color() {
+  SCHEME="$1"
+
+  if [ $# -eq 0 -a -s "$BASE16_CONFIG" ]; then
+    cat ~/.config/.base16
+    return
+  fi
+
+  if [[ "$SCHEME" = 'help' ]]; then
+    ACTION='help'
+  elif [[ "$SCHEME" = 'default' ]]; then
+    ACTION='default'
+  else
+    ACTION='set'
+  fi
+
+  case "$ACTION" in
+  set)
+    if [[ "$SCHEME" = 'default' ]]; then
+      FILE="$BASE16_DIR/$BASE16_DEFAULT"
+    else
+      FILE="$BASE16_DIR/base16-$SCHEME.sh"
+    fi
+
+    if [[ -x "$FILE" ]]; then
+      echo "$SCHEME" >| "$BASE16_CONFIG"
+      "$FILE"
+      # sed -i '' -E "s/(base16-[[:alnum:]]*[-[[:alnum:]]]*)/base16-$SCHEME/g" "$BASE16_NVIM"
+      sed -i -E "s/base16-[A-Za-z0-9-]*/base16-$SCHEME/g" "$BASE16_NVIM"
+    else
+      echo "Scheme '$SCHEME' not found in $BASE16_DIR"
+      return 1
+    fi
+    ;;
+  default)
+    FILE="$BASE16_DIR/$BASE16_DEFAULT"
+    if [[ -x "$FILE" ]]; then
+      echo "$BASE16_DEFAULT" >! "$BASE16_CONFIG"
+      "$FILE"
+    fi
+    ;;
+  help)
+    echo 'color set [chalk|flat|ocean|grayscale|material-darker|default|...]'
+    echo
+    echo 'Available schemes:'
+    find ~/.config/base16-shell -name 'base16-*.sh' | \
+      sed -E 's|.+/base16-||' | \
+      sed -E 's/.sh//' | \
+      sort | \
+      column
+      ;;
+
+  *)
+    echo 'Unknown subcommand: use one of {default,set,help}'
+    ;;
+  esac
+
+}
+
+# }}}
 # Jekyll helpers {{{
 draft() {
   rake draft["$1"]
