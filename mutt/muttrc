@@ -3,7 +3,8 @@
 # rc file for mutt
 
 # Theme {{{
-source ~/.mutt/themes/mhn.muttrc
+# source ~/.mutt/themes/mhn.muttrc
+source ~/.mutt/themes/base16.muttrc
 
 # }}}
 # Paths {{{

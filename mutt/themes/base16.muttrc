@@ -1,0 +1,132 @@
+# base16-mutt: base16-shell support for mutt
+#
+# These depend on mutt compiled with s-lang, not ncurses. Check by running `mutt -v`
+# Details this configuration may be found in the mutt manual:
+# §3 Patterns <http://www.mutt.org/doc/manual/#patterns>
+# §9 Using color and mono video attributes <http://www.mutt.org/doc/manual/#color>
+
+# https://www.neomutt.org/guide/configuration.html#color
+# base00 : color00 - Default Background
+# base01 : color18 - Lighter Background (Used for status bars)
+# base02 : color19 - Selection Background
+# base03 : color08 - Comments, Invisibles, Line Highlighting
+
+# base04 : color20 - Dark Foreground (Used for status bars)
+# base05 : color07 - Default Foreground, Caret, Delimiters, Operators
+# base06 : color21 - Light Foreground (Not often used)
+# base07 : color15 - Light Background (Not often used)
+
+# base08 : color01 - Index Item: Deleted.
+# base09 : color16 - Message: URL.
+# base0A : color03 - Search Text Background. Message: Bold.
+# base0B : color02 - Message: Code. Index Item: Tagged.
+# base0C : color06 - Message: Subject, Quotes. Index Item: Trusted.
+# base0D : color04 - Message: Headings.
+# base0E : color05 - Message: Italic, Underline. Index Item: Flagged.
+# base0F : color17 - Deprecated, Opening/Closing Embedded Language Tags e.g.
+
+## Base
+color normal      color07  color00 # softer, bold
+
+## Weak
+color tilde       color08  color00  # `~` padding at the end of pager
+color attachment  color08  color00
+color tree        color08  color00  # arrow in threads
+color signature   color08  color00
+color markers     color08  color00  # `+` wrap indicator in pager
+
+## Strong
+color bold        color21  color00
+color underline   color21  color00
+
+## Highlight
+color error       color01  color00
+color message     color04  color00  # informational messages
+color search      color08  color03
+color status      color20  color19
+color indicator   color21  color19  # inverse, brighter
+
+
+# Message Index ----------------------------------------------------------------
+
+## Weak
+color index  color08  color00  "~R"        # read messages
+color index  color08  color00  "~d >45d"   # older than 45 days
+color index  color08  color00  "~v~(!~N)"  # collapsed thread with no unread
+color index  color08  color00  "~Q"        # messages that have been replied to
+
+## Strong
+color index  color21  color00  "(~U|~N|~O)"     # unread, new, old messages
+color index  color21  color00  "~v~(~U|~N|~O)"  # collapsed thread with unread
+
+## Highlight
+### Trusted
+color index  color06  color00  "~g"  # PGP signed messages
+color index  color06  color00  "~G"  # PGP encrypted messages
+### Odd
+color index  color01  color00  "~E"  # past Expires: header date
+color index  color01  color00  "~="  # duplicated
+color index  color01  color00  "~S"  # marked by Supersedes: header
+### Flagged
+color index  color05  color00  "~F"       # flagged messages
+color index  color02  color00  "~v~(~F)"  # collapsed thread with flagged inside
+
+# Selection
+color index  color02  color18   "~T"  # tagged messages
+color index  color01  color18   "~D"  # deleted messages
+
+### Message Headers ----------------------------------------------------
+
+# Base
+color hdrdefault  color07  color00
+color header      color07  color00  "^"
+# Strong
+color header      color21  color00  "^(From)"
+# Highlight
+color header      color04  color00  "^(Subject)"
+
+### Message Body -------------------------------------------------------
+# When possible, these regular expressions attempt to match http://spec.commonmark.org/
+## Weak
+# ~~~ Horizontal rules ~~~
+color body  color08  color00  "([[:space:]]*[-+=#*~_]){3,}[[:space:]]*"
+## Strong
+# *Bold* span
+color body  color03  color00  "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+# _Underline_ span
+color body  color05  color00  "(^|[[:space:][:punct:]])_[^_]+_([[:space:][:punct:]]|$)"
+# /Italic/ span (Sometimes gets directory names)
+color body  color05  color00  "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+# ATX headers
+color body  color04  color00  "^[[:space:]]{0,3}#+[[:space:]].*$"
+## Highlight
+# `Code` span
+color body  color02  color00  "(^|[[:space:][:punct:]])\`[^\`]+\`([[:space:][:punct:]]|$)"
+# Indented code block
+color body  color02  color00  "^[[:space:]]{4,}.*$"
+# URLs
+color body  color16 color00  "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+# Email addresses
+color body  color16 color00  "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+# Emoticons ;-P
+color body  black   yellow   "[;:][-o]?[})>{(<|P]"
+
+# PGP
+color body  color21  color01   "(BAD signature)"
+color body  color21  color01   "^gpg: BAD signature from.*"
+color body  color21  color04   "(Good signature)"
+color body  color21  color04   "^gpg: Good signature .*"
+color body  color04  color00  "^gpg: "
+
+
+## Quotation blocks
+color quoted   color06  color00
+color quoted1  color02  color00
+color quoted2  color03  color00
+color quoted3  color16  color00
+color quoted4  color01  color00
+color quoted5  color17  color00
+color quoted6  color05  color00
+color quoted7  color04  color00
+
+# vi: ft=muttrc
