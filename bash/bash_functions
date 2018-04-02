@@ -433,3 +433,21 @@ netwtf() {
 }
 
 # }}}
+# tmux Deployment teardown {{{
+# Take as input the name of the tmux session to end
+# Find the containing process ID, kill the session, kill the process
+clobber () {
+  SESSION="$1"
+  SESSIONPID="$(ps -ef | grep tmux | grep $1 | awk '{print $2}')"
+  PARENTPID="$(ps -o ppid= -p $SESSIONPID)"
+
+  echo "Killing tmux session '$1'"
+  echo "Which has process id '$SESSIONPID'"
+  echo "And is in iTerm2 process '$PARENTPID'"
+
+  tmux kill-session -t $SESSION
+  kill -9 "$PARENTPID"
+
+}
+
+# }}}
