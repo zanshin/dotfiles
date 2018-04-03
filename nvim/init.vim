@@ -95,7 +95,7 @@ set linebreak                          " wrap intelligently, won't insert hard l
 set wrap                               " use line wrapping ...
 set textwidth=79                       " ... at column 79
 set ruler                              " display current curson position
-set list                               " show invisible characters
+set nolist                             " show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 set showmatch                          " show matching brackets [{()}]
 if exists("&relativenumber")
