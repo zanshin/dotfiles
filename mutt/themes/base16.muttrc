@@ -129,4 +129,13 @@ color quoted5  color17  color00
 color quoted6  color05  color00
 color quoted7  color04  color00
 
+## Sidebar
+color sidebar_divider   color08 color00
+# color sidebar_flagged   red color00
+color sidebar_highlight color21 color19
+color sidebar_indicator green color19
+color sidebar_new       blue color00
+# color sidebar_spoolfile yellow color00
+
+
 # vi: ft=muttrc
