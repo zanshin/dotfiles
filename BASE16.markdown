@@ -91,6 +91,12 @@ that sources `$HOME/.nvim_theme`, and I use that file to set the color whenever 
 
     nnoremap <leader>c :source ~/.nvim_theme<CR>
 
+The file being sourced has this content:
+
+    if !exists('g:colors_name') || g:colors_name != 'base16-chalk'
+      colorscheme base16-chalk
+    endif
+
 If I want to synchronize Neovim's colorscheme with the current shell theme, a quick `<leader>c` does
 the trick.
 
