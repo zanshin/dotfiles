@@ -38,6 +38,7 @@ alias l="ls -al ${colorflag}"
 alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
 alias ls="ls ${colorflag}"
+alias l.="ls -ld .?*"
 
 alias sym="ls -la | grep '\->'"
 
