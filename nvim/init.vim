@@ -96,7 +96,7 @@ set linebreak                          " wrap intelligently, won't insert hard l
 set wrap                               " use line wrapping ...
 set textwidth=79                       " ... at column 79
 set ruler                              " display current curson position
-set list                               " show invisible characters
+set nolist                             " show invisible characters
 set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
 set showmatch                          " show matching brackets [{()}]
 if exists("&relativenumber")
@@ -437,10 +437,12 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " set background=dark
 " silent! colorscheme landscape
 " silent! colorscheme nova
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+
+" let ayucolor="light"   " for light version of theme
+" let ayucolor="mirage"  " for mirage version of theme
+let ayucolor="dark"    " for dark version of theme
+
+silent! colorscheme ayu
 
 " if filereadable(expand("~/.nvim_theme"))
 "   let base16colorspace=256

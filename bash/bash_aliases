@@ -38,6 +38,7 @@ alias l="ls -al ${colorflag}"
 alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
 alias ls="ls ${colorflag}"
+alias l.="ls -ld .?*"
 
 alias sym="ls -la | grep '\->'"
 
@@ -134,7 +135,7 @@ alias tk='tmux kill-session -t'
 
 # tmux scripts
 alias tb='~/.dotfiles/scripts/blog'
-alias td='~/.dotfiles/scripts/chef'
+alias tw='~/.dotfiles/scripts/chef'
 alias tc='~/.dotfiles/scripts/console'
 alias tt='~/.dotfiles/scripts/tools'
 alias td='~/.dotfiles/scripts/deploy'
@@ -164,10 +165,13 @@ alias vgs='vagrant global-status'
 alias kso='knife status "hostname:ome*"'
 alias ks='knife status'
 alias kn='knife node'
+alias kns='knife node show'
 alias kc='knife client'
 alias tagged='knife search node "name:ome-vm*" -a tags'
 alias notags='knife search node "NOT tags:* AND name:ome*" -a tags'
 alias k='knife'
+alias bake='knife cookbook upload'
+
 
 # }}}
 # Docker {{{
