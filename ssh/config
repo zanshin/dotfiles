@@ -34,6 +34,12 @@ Host rosindust
     Port 11110
     user mark
 
+# Raspberry Pi
+Host reprise
+    HostName 68.102.23.189
+    Port 11106
+    user pi
+
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
