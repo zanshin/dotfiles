@@ -38,10 +38,25 @@ function ktags() {
   knife search "tags:*${@}*" -a name -a tags
 }
 
+function ktag() {
+  export esc=$(printf '\033')
+  export ret=$(printf '\013')
+  knife search "tags:*${@}*" | egrep 'Node|Tag'  | sed -e s/,//g | sed -e "s/Node Name:/${ret}${esc}[31mName${esc}[0m:/" -e "s/Tags/${esc}[31mTags${esc}[0m/"
+}
+
 function kshow() {
   host $1.campus.ksu.edu >/dev/null 2>&1 && knife node show $1.campus.ksu.edu
   host $1.ads.campus >/dev/null 2>&1 && knife node show $1.ads.campus
   host $1.users.campus >/dev/null 2>&1 && knife node show $1.users.campus
+}
+
+function kns() {
+  knife node show $1
+}
+
+# fucntion to converge Chef node(s)
+function converge() {
+  knife ssh -P -m $1 "sudo chef-client"
 }
 
 # }}}
@@ -448,6 +463,34 @@ clobber () {
   tmux kill-session -t $SESSION
   kill -9 "$PARENTPID"
 
+}
+
+# }}}
+# openssl helper {{{
+function showcert() {
+  openssl x509 -in "$1" -noout -text
+}
+
+# }}}
+# while loop for init 6 {{{
+function pounce() {
+  while true; do nc -vvv -w 1  "$1" 22; done
+}
+# }}}
+# explain.sh {{{
+explain () {
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+        done
+        echo "Bye!"
+        elif [ "$#" -eq 1 ]; then
+        curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+    echo "Usage"
+      echo "explain                  interactive mode."
+      echo "explain 'cmd -o | ...'   one quoted command to explain it."
+      fi
 }
 
 # }}}
