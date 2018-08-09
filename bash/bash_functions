@@ -1,65 +1,3 @@
-# Chef functions {{{
-function knhost() {
-  sed -e 's/.*://' -e 's/.*items found//'
-}
-
-function knifeaws() {
-  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a cloud.public_hostname | knhost
-}
-
-function knifeome() {
-  knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
-}
-
-function knaws() {
-  for i in "$@"; do
-    for j in `knifeaws "$i"`; do
-      ssh $j
-    done
-  done
-}
-
-function knome() {
-  tmux new-window -n $1
-  for node in `knifeome "$1"`; do
-    tmux split-window -t :$ "ssh $node"
-    tmux select-layout -t :$ even-vertical >/dev/null 2>&1
-  done
-  tmux kill-pane -t $.1
-  tmux select-layout -t :$ even-vertical >/dev/null 2>&1
-  tmux set-window-option -t :$ synchronize
-}
-
-function kick() {
-  knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart"
-}
-
-function ktags() {
-  knife search "tags:*${@}*" -a name -a tags
-}
-
-function ktag() {
-  export esc=$(printf '\033')
-  export ret=$(printf '\013')
-  knife search "tags:*${@}*" | egrep 'Node|Tag'  | sed -e s/,//g | sed -e "s/Node Name:/${ret}${esc}[31mName${esc}[0m:/" -e "s/Tags/${esc}[31mTags${esc}[0m/"
-}
-
-function kshow() {
-  host $1.campus.ksu.edu >/dev/null 2>&1 && knife node show $1.campus.ksu.edu
-  host $1.ads.campus >/dev/null 2>&1 && knife node show $1.ads.campus
-  host $1.users.campus >/dev/null 2>&1 && knife node show $1.users.campus
-}
-
-function kns() {
-  knife node show $1
-}
-
-# fucntion to converge Chef node(s)
-function converge() {
-  knife ssh -P -m $1 "sudo chef-client"
-}
-
-# }}}
 # Remove bad key from known_hosts file {{{
 function badkey() {
   vim ~/.ssh/known_hosts +"$*d|x"
@@ -494,3 +432,68 @@ explain () {
 }
 
 # }}}
+# newscript {{{
+# touch, make executable, and start editing a new script
+# $ newscript my_ny_script.sh
+# edit default shebangs within the function
+# include additional skelton files as [extention].txt
+# in the $defaults_txt folder defined in config
+newscript() {
+  # Config
+  # where your scripts are stored
+  local scriptdir=~/bin/
+  # if no extension is provided, default to
+  local default_ext=rb
+  # optional, where skeleton scripts (e.g. rb.txt) are stored
+  local defaults_txt=~/bin/.newscript_defaults
+  # End config
+  local filename="${scriptdir%/}/$1"
+
+  if [[ $# == 0 ]] ; then # no argument, display help and exit
+    echo -e "newscript: touch, make executable, and start editting a new script.\n\033[31;1mError:\033[37;1m Missing filename\033[0m\n\nUsage: newscript SCRIPT_NAME.ext\n"
+    return 1
+  fi
+
+  # get the extension from the filename
+  ext=${filename#*.}
+  # if there's no extension, add default
+  if [[ $ext == $filename ]] ; then
+    ext=$default_ext
+    filename=$filename.$ext
+  fi
+
+  # if no script with this name already exists
+  if [ ! -f $filename ] ; then
+
+    # create a file for the given extension with appropriate shebang
+    case $ext in
+      rb ) echo -e "#! /usr/bin/env ruby" >> $filename;;
+      py ) echo -e "#! /usr/bin/env python" >> $filename;;
+      pl ) echo -e "#! /usr/bin/env perl" >> $filename;;
+      sh | bash ) echo -e "#! /bin/bash" >> $filename;;
+      zsh | bash ) echo -e "#! /bin/zbash" >> $filename;;
+      * ) touch $filename;; # any other extension, create a blank file
+    esac
+
+    # if skeleton file directory and a txt for the given extension exist
+    echo "defaults_txt: $default_txts $ext.txt"
+    if [[ -d ${defaults_txt%/} && -f ${defaults_txt%/}/$ext.txt ]] ; then
+      # concatenate it to the file
+      echo "defaults_txt: $default_txts $ext.txt"
+      cat ${defaults_txt%/}/$ext.txt >> $filename
+    fi
+
+    # add trailing newline to the new script & make it executable
+    echo -ne "\n" >> $filename
+    chmod a+x "$filename"
+    echo -e "\033[32;1m$filename\033[0m"
+  else
+    echo -e "\033[31;1mFile exists: $filename\033[0m"
+  fi
+
+  #Edit the script
+  $EDITOR "$filename"
+}
+
+# }}}
+
