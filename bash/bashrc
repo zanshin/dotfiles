@@ -67,7 +67,7 @@ export CHEFPROD="/Users/mhn/code/chef/ome"
 # --------------------------------------------------------------------
 # Configure how history works
 # --------------------------------------------------------------------
-HISTCONTROL=ignoredups                            # ignore the line if it matches previous line
+HISTCONTROL=ignoredups:ignorespace                # ignore dups and commands beginning with a space
 HISTFILESIZE=20000                                # size of the history file cf. also shopt -s histappend
 HISTSIZE=1000                                     # size of the run-time history list
 HISTIGNORE=ls:ll:la:l:cd:pwd:exit:mc:su:df:clear  # do not put these in history file
