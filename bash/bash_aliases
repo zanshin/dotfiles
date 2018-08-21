@@ -34,7 +34,8 @@ alias "dismount=osascript -e 'tell application "Finder" to eject (every disk who
 
 # }}}
 # ls variants {{{
-alias l="ls -al ${colorflag}"
+alias l="ls -lhF ${colorflag}"
+alias la="ls -lahF ${colorflag}"
 alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
 alias ls="ls ${colorflag}"
@@ -238,6 +239,12 @@ alias hosts='sudo vim /etc/hosts'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# untar
+alias untar="tar xvf"
 
 # }}}
 # Aliases from new-alias function
