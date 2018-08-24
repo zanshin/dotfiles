@@ -1,3 +1,65 @@
+# Chef functions {{{
+ function knhost() {
+   sed -e 's/.*://' -e 's/.*items found//'
+ }
+
+ function knifeaws() {
+   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a cloud.public_hostname | knhost
+ }
+
+ function knifeome() {
+   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
+ }
+
+ function knaws() {
+   for i in "$@"; do
+     for j in `knifeaws "$i"`; do
+       ssh $j
+     done
+   done
+ }
+
+ function knome() {
+   tmux new-window -n $1
+   for node in `knifeome "$1"`; do
+     tmux split-window -t :$ "ssh $node"
+     tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+   done
+   tmux kill-pane -t $.1
+   tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+   tmux set-window-option -t :$ synchronize
+ }
+
+ function kick() {
+   knife ssh "name:$1*" "sudo /etc/init.d/chef-client restart"
+ }
+
+ function ktags() {
+   knife search "tags:*${@}*" -a name -a tags
+ }
+
+ function ktag() {
+   export esc=$(printf '\033')
+   export ret=$(printf '\013')
+   knife search "tags:*${@}*" | egrep 'Node|Tag'  | sed -e s/,//g | sed -e "s/Node Name:/${ret}${esc}[31mName${esc}[0m:/" -e "s/Tags/${esc}[31mTags${esc}[0m/"
+ }
+
+ function kshow() {
+   host $1.campus.ksu.edu >/dev/null 2>&1 && knife node show $1.campus.ksu.edu
+   host $1.ads.campus >/dev/null 2>&1 && knife node show $1.ads.campus
+   host $1.users.campus >/dev/null 2>&1 && knife node show $1.users.campus
+ }
+
+ function kns() {
+   knife node show $1
+ }
+
+ # fucntion to converge Chef node(s)
+ function converge() {
+   knife ssh -P -m $1 "sudo chef-client"
+ }
+
+ # }}}
 # Remove bad key from known_hosts file {{{
 function badkey() {
   vim ~/.ssh/known_hosts +"$*d|x"
