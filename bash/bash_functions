@@ -349,7 +349,7 @@ new-alias() {
 }
 
 # Run `dig` and display most useful info
-digga() {
+digg() {
   dig +nocmd "$1" any +multiline +noall +answer
 }
 
