@@ -63,6 +63,7 @@ umask 002
 # --------------------------------------------------------------------
 export CHEFTEST="/Users/mhn/code/chef/omedev"
 export CHEFPROD="/Users/mhn/code/chef/ome"
+export CHEF_BASEDIR="/Users/mhn/code/chef"
 
 # --------------------------------------------------------------------
 # Configure how history works
