@@ -2,6 +2,14 @@ Host *
 #    UseRoaming no
     ServerAliveInterval 60
 
+# AWS EC2
+Host aws
+    HostName 18.223.95.33
+    StrictHostKeyChecking no
+    User ubuntu
+    IdentityFile /Users/mhn/.ssh/aws-key-pair.pem
+
+
 # Desktop
 Host sarabande
     HostName sarabande.ome.ksu.edu

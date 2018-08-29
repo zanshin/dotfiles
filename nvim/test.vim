@@ -435,14 +435,14 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " }}}
 " Color scheme {{{
 " set background=dark
-silent! colorscheme landscape
+" silent! colorscheme landscape
 " silent! colorscheme nova
 
 " let ayucolor="light"   " for light version of theme
 " let ayucolor="mirage"  " for mirage version of theme
 let ayucolor="dark"    " for dark version of theme
 
-" silent! colorscheme ayu
+silent! colorscheme ayu
 
 " if filereadable(expand("~/.nvim_theme"))
 "   let base16colorspace=256
