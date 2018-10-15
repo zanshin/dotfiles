@@ -18,38 +18,48 @@ tmux send-keys -t chef:1 'cd ~/' C-m
 tmux new-window -n ome
 tmux new-window -n omedev
 tmux new-window -n desktop
+tmux new-window -n zome
+tmux new-window -n zomedev
 
 # window 1 - vpn connection lives here
 tmux send-keys -t chef:1 'cd ~/' C-m
 tmux send-keys -t chef:1 'vpnon' C-m
 
-# window 2 - ome: window for `ome` Chef 12 organization
-# knife status | ome-chef-data | cookbooks
+# window 2 - ome: window for `ome` Chef organization
 #
 tmux split-window -h -p 50 -t chef:2
-tmux split-window -v -p 50 -t chef:2.1
 tmux send-keys -t chef:2.1 'cd ~/code/chef/ome/ome_chef_data' C-m
 tmux send-keys -t chef:2.1 'ls -al' C-m
 tmux send-keys -t chef:2.2 'cd ~/code/chef/ome/cookbooks' C-m
-tmux send-keys -t chef:2.2 'ls -al' C-m
-tmux send-keys -t chef:2.3 'cd ~/code/chef/ome/' C-m
-tmux send-keys -t chef:2.3 'knife status' C-m
+tmux send-keys -t chef:2.2 'knife status' C-m
 
-# window 3 - omedev: window for `omedev` Chef 12 organization
-# knife status | ome-chef-data | cookbooks
+# window 3 - omedev: window for `omedev` Chef organization
 #
 tmux split-window -h -p 50 -t chef:3
-tmux split-window -v -p 50 -t chef:3.1
 tmux send-keys -t chef:3.1 'cd ~/code/chef/omedev/ome_chef_data' C-m
 tmux send-keys -t chef:3.1 'ls -al' C-m
 tmux send-keys -t chef:3.2 'cd ~/code/chef/omedev/cookbooks' C-m
-tmux send-keys -t chef:3.2 'ls -al' C-m
-tmux send-keys -t chef:3.3 'cd ~/code/chef/omedev/' C-m
-tmux send-keys -t chef:3.3 'knife status' C-m
+tmux send-keys -t chef:3.2 'knife status' C-m
 
 # window 4 - desktop: window for general usage
 tmux send-keys -t chef:4 'cd ~/' C-m
 tmux send-keys -t chef:4 'ls' C-m
+
+# window 5 - zome: window for `zome` Chef organization
+#
+tmux split-window -h -p 50 -t chef:5
+tmux send-keys -t chef:5.1 'cd ~/code/chef/zome/ome_chef_data' C-m
+tmux send-keys -t chef:5.1 'ls -al' C-m
+tmux send-keys -t chef:5.2 'cd ~/code/chef/zome/cookbooks' C-m
+tmux send-keys -t chef:5.2 'knife status' C-m
+
+# window 6 - zome: window for `zome` Chef organization
+#
+tmux split-window -h -p 50 -t chef:6
+tmux send-keys -t chef:6.1 'cd ~/code/chef/zomedev/ome_chef_data' C-m
+tmux send-keys -t chef:6.1 'ls -al' C-m
+tmux send-keys -t chef:6.2 'cd ~/code/chef/zomedev/cookbooks' C-m
+tmux send-keys -t chef:6.2 'knife status' C-m
 
 # end if statement and attach mytmux if it existed
 fi
