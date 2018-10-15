@@ -147,6 +147,10 @@ alias td='~/.dotfiles/scripts/deploy'
 # alias tmux='TERM=screen-256colors tmux'
 alias tmux='tmux -2'
 
+# Disable Mouse reporting
+# https://superuser.com/questions/802698/disable-mouse-reporting-in-a-terminal-session-after-tmux-exits-unexpectedly
+alias resetmouse="printf '\e[?1000l'"
+
 # }}}
 # Mutt {{{
 alias mutt='cd ~/Desktop && mutt && cd -'
