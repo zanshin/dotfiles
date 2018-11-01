@@ -102,6 +102,14 @@ Host trebor
 Host mon1
     HostName ome-mon1.campus.ksu.edu
 
+# Personal AWS
+# ssh -i "mark-key.pem" ubuntu@3.16.58.181
+Host bitwarden
+    HostName 18.219.243.59
+    StrictHostKeyChecking no
+    User ubuntu
+    IdentityFile ~/.ssh/mark-key.pem
+
 # WebTeam Fabric
 #Host ec2*compute-1.amazonaws.com
 #    StrictHostKeyChecking no
