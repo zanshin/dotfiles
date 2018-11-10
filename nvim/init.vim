@@ -393,6 +393,9 @@ if has("autocmd")
     " enable syntax highlighting for diffs
     autocmd FileType diff syntax enable
 
+    " Add spell check to txt files
+    autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us
+
 endif
 
 " }}}
