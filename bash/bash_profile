@@ -44,9 +44,10 @@ if [ -d /sbin ] ; then
 PATH="/sbin:${PATH}"
 fi
 
-# add Go path for Debian
+# add Go path for Linux
 if [ -d /usr/local/go/bin ] ; then
   PATH="${PATH}:/usr/local/go/bin"
+  export GOPATH=$HOME/code/go
 fi
 
 # prepend /usr/local/bin to the head of the PATH to keep Homebrew happy

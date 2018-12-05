@@ -5,8 +5,8 @@
 [github]
   user = zanshin
 
-[commit]
-  gpgsign = true
+# [commit]
+#   gpgsign = true
 
 [color]
   ui = auto
