@@ -1,0 +1,24 @@
+{
+    "AWSConfig": {
+        "prefix": "AWSConfig",
+        "body": [
+            "[",
+            "    {",
+            "        \"ParameterKey\": \"${1:ParameterKey}\",",
+            "        \"ParameterValue\": \"${2:ParameterValue}\"",
+            "    }$0",
+            "]"
+        ],
+        "description": "New AWS Json Config"
+    },
+    "ParameterKeyValue": {
+        "prefix": "ParamKey",
+        "body": [
+            "{",
+            "    \"ParameterKey\": \"${1:ParameterKey}\",",
+            "    \"ParameterValue\": \"${2:ParameterValue}\"",
+            "}"
+        ],
+        "description": "Add new ConfigParameter"
+    }
+}

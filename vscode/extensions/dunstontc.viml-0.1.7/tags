@@ -1,0 +1,1863 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/6418097/
+$schema	syntaxes/viml.tmLanguage.json	/^    "$schema": "https:\/\/raw.githubusercontent.com\/dunstontc\/textmate\/master\/schema\/tmLang/;"	s
+0	.vscode/launch.json	/^          "args": ["--extensionDevelopmentPath=${workspaceRoot}" ]$/;"	s	array:configurations.0.args
+0	.vscode/launch.json	/^      {$/;"	o	array:configurations
+0	language-configuration.json	/^        ["'", "'"]$/;"	s	array:autoClosingPairs.4
+0	language-configuration.json	/^        ["'", "'"]$/;"	s	array:surroundingPairs.4
+0	language-configuration.json	/^        ["(", ")"]$/;"	s	array:brackets.2
+0	language-configuration.json	/^        ["(", ")"],$/;"	s	array:autoClosingPairs.2
+0	language-configuration.json	/^        ["(", ")"],$/;"	s	array:surroundingPairs.2
+0	language-configuration.json	/^        ["[", "]"],$/;"	s	array:autoClosingPairs.1
+0	language-configuration.json	/^        ["[", "]"],$/;"	s	array:brackets.1
+0	language-configuration.json	/^        ["[", "]"],$/;"	s	array:surroundingPairs.1
+0	language-configuration.json	/^        ["{", "}"],$/;"	a	array:autoClosingPairs
+0	language-configuration.json	/^        ["{", "}"],$/;"	a	array:brackets
+0	language-configuration.json	/^        ["{", "}"],$/;"	a	array:surroundingPairs
+0	language-configuration.json	/^        ["{", "}"],$/;"	s	array:autoClosingPairs.0
+0	language-configuration.json	/^        ["{", "}"],$/;"	s	array:brackets.0
+0	language-configuration.json	/^        ["{", "}"],$/;"	s	array:surroundingPairs.0
+0	package.json	/^                    ".vim",$/;"	s	array:contributes.languages.0.extensions
+0	package.json	/^                    "VimL",$/;"	s	array:contributes.languages.0.aliases
+0	package.json	/^            {$/;"	o	array:contributes.grammars
+0	package.json	/^            {$/;"	o	array:contributes.languages
+0	package.json	/^        "*"$/;"	s	array:activationEvents
+0	package.json	/^        "Programming Languages"$/;"	s	array:categories
+0	src/completions/options.json	/^  {$/;"	o
+0	syntaxes/viml.tmLanguage.json	/^                        "0": {$/;"	o	object:repository.syntax.patterns.5.captures
+0	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.comment.patterns.2.patterns
+0	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.comment.patterns.3.patterns
+0	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.map.patterns.0.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.commands.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.comment.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.constant.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.entity.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.keyword.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.map.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.operators.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.option.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.punctuation.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.storage.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.strings.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.syntax.patterns
+0	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.variable.patterns
+0	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+0	tsconfig.json	/^		"lib": [ "es6" ],$/;"	s	array:compilerOptions.lib
+0	tsconfig.json	/^		"node_modules"$/;"	s	array:exclude
+0.0.1	CHANGELOG.md	/^# 0.0.1 $/;"	c
+0.1.6	CHANGELOG.md	/^# 0.1.6$/;"	c
+0.1.x	CHANGELOG.md	/^# 0.1.x$/;"	c
+1	language-configuration.json	/^        ["'", "'"]$/;"	s	array:autoClosingPairs.4
+1	language-configuration.json	/^        ["'", "'"]$/;"	s	array:surroundingPairs.4
+1	language-configuration.json	/^        ["(", ")"]$/;"	s	array:brackets.2
+1	language-configuration.json	/^        ["(", ")"],$/;"	s	array:autoClosingPairs.2
+1	language-configuration.json	/^        ["(", ")"],$/;"	s	array:surroundingPairs.2
+1	language-configuration.json	/^        ["[", "]"],$/;"	a	array:autoClosingPairs
+1	language-configuration.json	/^        ["[", "]"],$/;"	a	array:brackets
+1	language-configuration.json	/^        ["[", "]"],$/;"	a	array:surroundingPairs
+1	language-configuration.json	/^        ["[", "]"],$/;"	s	array:autoClosingPairs.1
+1	language-configuration.json	/^        ["[", "]"],$/;"	s	array:brackets.1
+1	language-configuration.json	/^        ["[", "]"],$/;"	s	array:surroundingPairs.1
+1	language-configuration.json	/^        ["{", "}"],$/;"	s	array:autoClosingPairs.0
+1	language-configuration.json	/^        ["{", "}"],$/;"	s	array:brackets.0
+1	language-configuration.json	/^        ["{", "}"],$/;"	s	array:surroundingPairs.0
+1	package.json	/^                    ".vimrc",$/;"	s	array:contributes.languages.0.extensions
+1	package.json	/^                    "viml"$/;"	s	array:contributes.languages.0.aliases
+1	src/completions/options.json	/^  {$/;"	o
+1	syntaxes/viml.tmLanguage.json	/^                        "1": {$/;"	o	object:repository.map.patterns.0.beginCaptures
+1	syntaxes/viml.tmLanguage.json	/^                        "1": {$/;"	o	object:repository.map.patterns.0.endCaptures
+1	syntaxes/viml.tmLanguage.json	/^                        "1": {$/;"	o	object:repository.syntax.patterns.4.captures
+1	syntaxes/viml.tmLanguage.json	/^                        "1": {$/;"	o	object:repository.syntax.patterns.5.captures
+1	syntaxes/viml.tmLanguage.json	/^                        "1": {$/;"	o	object:repository.syntax.patterns.6.captures
+1	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.comment.patterns.2.patterns
+1	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.comment.patterns.3.patterns
+1	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.map.patterns.0.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.commands.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.comment.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.constant.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.keyword.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.map.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.operators.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.option.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.punctuation.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.storage.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.strings.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.syntax.patterns
+1	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.variable.patterns
+1	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+10	src/completions/options.json	/^  {$/;"	o
+10	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+100	src/completions/options.json	/^  {$/;"	o
+101	src/completions/options.json	/^  {$/;"	o
+102	src/completions/options.json	/^  {$/;"	o
+103	src/completions/options.json	/^  {$/;"	o
+104	src/completions/options.json	/^  {$/;"	o
+105	src/completions/options.json	/^  {$/;"	o
+106	src/completions/options.json	/^  {$/;"	o
+107	src/completions/options.json	/^  {$/;"	o
+108	src/completions/options.json	/^  {$/;"	o
+109	src/completions/options.json	/^  {$/;"	o
+11	src/completions/options.json	/^  {$/;"	o
+11	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+110	src/completions/options.json	/^  {$/;"	o
+111	src/completions/options.json	/^  {$/;"	o
+112	src/completions/options.json	/^  {$/;"	o
+113	src/completions/options.json	/^  {$/;"	o
+114	src/completions/options.json	/^  {$/;"	o
+115	src/completions/options.json	/^  {$/;"	o
+116	src/completions/options.json	/^  {$/;"	o
+117	src/completions/options.json	/^  {$/;"	o
+118	src/completions/options.json	/^  {$/;"	o
+119	src/completions/options.json	/^  {$/;"	o
+12	src/completions/options.json	/^  {$/;"	o
+12	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+120	src/completions/options.json	/^  {$/;"	o
+121	src/completions/options.json	/^  {$/;"	o
+122	src/completions/options.json	/^  {$/;"	o
+123	src/completions/options.json	/^  {$/;"	o
+124	src/completions/options.json	/^  {$/;"	o
+125	src/completions/options.json	/^  {$/;"	o
+126	src/completions/options.json	/^  {$/;"	o
+127	src/completions/options.json	/^  {$/;"	o
+128	src/completions/options.json	/^  {$/;"	o
+129	src/completions/options.json	/^  {$/;"	o
+13	src/completions/options.json	/^  {$/;"	o
+130	src/completions/options.json	/^  {$/;"	o
+131	src/completions/options.json	/^  {$/;"	o
+132	src/completions/options.json	/^  {$/;"	o
+133	src/completions/options.json	/^  {$/;"	o
+134	src/completions/options.json	/^  {$/;"	o
+135	src/completions/options.json	/^  {$/;"	o
+136	src/completions/options.json	/^  {$/;"	o
+137	src/completions/options.json	/^  {$/;"	o
+138	src/completions/options.json	/^  {$/;"	o
+139	src/completions/options.json	/^  {$/;"	o
+14	src/completions/options.json	/^  {$/;"	o
+140	src/completions/options.json	/^  {$/;"	o
+141	src/completions/options.json	/^  {$/;"	o
+142	src/completions/options.json	/^  {$/;"	o
+143	src/completions/options.json	/^  {$/;"	o
+144	src/completions/options.json	/^  {$/;"	o
+145	src/completions/options.json	/^  {$/;"	o
+146	src/completions/options.json	/^  {$/;"	o
+147	src/completions/options.json	/^  {$/;"	o
+148	src/completions/options.json	/^  {$/;"	o
+149	src/completions/options.json	/^  {$/;"	o
+15	src/completions/options.json	/^  {$/;"	o
+150	src/completions/options.json	/^  {$/;"	o
+151	src/completions/options.json	/^  {$/;"	o
+152	src/completions/options.json	/^  {$/;"	o
+153	src/completions/options.json	/^  {$/;"	o
+154	src/completions/options.json	/^  {$/;"	o
+155	src/completions/options.json	/^  {$/;"	o
+156	src/completions/options.json	/^  {$/;"	o
+157	src/completions/options.json	/^  {$/;"	o
+158	src/completions/options.json	/^  {$/;"	o
+159	src/completions/options.json	/^  {$/;"	o
+16	src/completions/options.json	/^  {$/;"	o
+160	src/completions/options.json	/^  {$/;"	o
+161	src/completions/options.json	/^  {$/;"	o
+162	src/completions/options.json	/^  {$/;"	o
+163	src/completions/options.json	/^  {$/;"	o
+164	src/completions/options.json	/^  {$/;"	o
+165	src/completions/options.json	/^  {$/;"	o
+166	src/completions/options.json	/^  {$/;"	o
+167	src/completions/options.json	/^  {$/;"	o
+168	src/completions/options.json	/^  {$/;"	o
+169	src/completions/options.json	/^  {$/;"	o
+17	src/completions/options.json	/^  {$/;"	o
+170	src/completions/options.json	/^  {$/;"	o
+171	src/completions/options.json	/^  {$/;"	o
+172	src/completions/options.json	/^  {$/;"	o
+173	src/completions/options.json	/^  {$/;"	o
+174	src/completions/options.json	/^  {$/;"	o
+175	src/completions/options.json	/^  {$/;"	o
+176	src/completions/options.json	/^  {$/;"	o
+177	src/completions/options.json	/^  {$/;"	o
+178	src/completions/options.json	/^  {$/;"	o
+179	src/completions/options.json	/^  {$/;"	o
+18	src/completions/options.json	/^  {$/;"	o
+180	src/completions/options.json	/^  {$/;"	o
+181	src/completions/options.json	/^  {$/;"	o
+182	src/completions/options.json	/^  {$/;"	o
+183	src/completions/options.json	/^  {$/;"	o
+184	src/completions/options.json	/^  {$/;"	o
+185	src/completions/options.json	/^  {$/;"	o
+186	src/completions/options.json	/^  {$/;"	o
+187	src/completions/options.json	/^  {$/;"	o
+188	src/completions/options.json	/^  {$/;"	o
+189	src/completions/options.json	/^  {$/;"	o
+19	src/completions/options.json	/^  {$/;"	o
+190	src/completions/options.json	/^  {$/;"	o
+191	src/completions/options.json	/^  {$/;"	o
+192	src/completions/options.json	/^  {$/;"	o
+193	src/completions/options.json	/^  {$/;"	o
+194	src/completions/options.json	/^  {$/;"	o
+195	src/completions/options.json	/^  {$/;"	o
+196	src/completions/options.json	/^  {$/;"	o
+197	src/completions/options.json	/^  {$/;"	o
+198	src/completions/options.json	/^  {$/;"	o
+199	src/completions/options.json	/^  {$/;"	o
+2	language-configuration.json	/^        ["(", ")"]$/;"	a	array:brackets
+2	language-configuration.json	/^        ["(", ")"],$/;"	a	array:autoClosingPairs
+2	language-configuration.json	/^        ["(", ")"],$/;"	a	array:surroundingPairs
+2	package.json	/^                    ".gvim",$/;"	s	array:contributes.languages.0.extensions
+2	src/completions/options.json	/^  {$/;"	o
+2	syntaxes/viml.tmLanguage.json	/^                        "2": {$/;"	o	object:repository.syntax.patterns.6.captures
+2	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.map.patterns.0.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.commands.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.comment.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.keyword.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.operators.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.option.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.storage.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.strings.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.syntax.patterns
+2	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.variable.patterns
+2	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+20	src/completions/options.json	/^  {$/;"	o
+200	src/completions/options.json	/^  {$/;"	o
+201	src/completions/options.json	/^  {$/;"	o
+202	src/completions/options.json	/^  {$/;"	o
+203	src/completions/options.json	/^  {$/;"	o
+204	src/completions/options.json	/^  {$/;"	o
+205	src/completions/options.json	/^  {$/;"	o
+206	src/completions/options.json	/^  {$/;"	o
+207	src/completions/options.json	/^  {$/;"	o
+208	src/completions/options.json	/^  {$/;"	o
+209	src/completions/options.json	/^  {$/;"	o
+21	src/completions/options.json	/^  {$/;"	o
+210	src/completions/options.json	/^  {$/;"	o
+211	src/completions/options.json	/^  {$/;"	o
+212	src/completions/options.json	/^  {$/;"	o
+213	src/completions/options.json	/^  {$/;"	o
+214	src/completions/options.json	/^  {$/;"	o
+215	src/completions/options.json	/^  {$/;"	o
+216	src/completions/options.json	/^  {$/;"	o
+217	src/completions/options.json	/^  {$/;"	o
+218	src/completions/options.json	/^  {$/;"	o
+219	src/completions/options.json	/^  {$/;"	o
+22	src/completions/options.json	/^  {$/;"	o
+220	src/completions/options.json	/^  {$/;"	o
+221	src/completions/options.json	/^  {$/;"	o
+222	src/completions/options.json	/^  {$/;"	o
+223	src/completions/options.json	/^  {$/;"	o
+224	src/completions/options.json	/^  {$/;"	o
+225	src/completions/options.json	/^  {$/;"	o
+226	src/completions/options.json	/^  {$/;"	o
+227	src/completions/options.json	/^  {$/;"	o
+228	src/completions/options.json	/^  {$/;"	o
+229	src/completions/options.json	/^  {$/;"	o
+23	src/completions/options.json	/^  {$/;"	o
+230	src/completions/options.json	/^  {$/;"	o
+231	src/completions/options.json	/^  {$/;"	o
+232	src/completions/options.json	/^  {$/;"	o
+233	src/completions/options.json	/^  {$/;"	o
+234	src/completions/options.json	/^  {$/;"	o
+235	src/completions/options.json	/^  {$/;"	o
+236	src/completions/options.json	/^  {$/;"	o
+237	src/completions/options.json	/^  {$/;"	o
+238	src/completions/options.json	/^  {$/;"	o
+239	src/completions/options.json	/^  {$/;"	o
+24	src/completions/options.json	/^  {$/;"	o
+240	src/completions/options.json	/^  {$/;"	o
+241	src/completions/options.json	/^  {$/;"	o
+242	src/completions/options.json	/^  {$/;"	o
+243	src/completions/options.json	/^  {$/;"	o
+244	src/completions/options.json	/^  {$/;"	o
+245	src/completions/options.json	/^  {$/;"	o
+246	src/completions/options.json	/^  {$/;"	o
+247	src/completions/options.json	/^  {$/;"	o
+248	src/completions/options.json	/^  {$/;"	o
+249	src/completions/options.json	/^  {$/;"	o
+25	src/completions/options.json	/^  {$/;"	o
+250	src/completions/options.json	/^  {$/;"	o
+251	src/completions/options.json	/^  {$/;"	o
+252	src/completions/options.json	/^  {$/;"	o
+253	src/completions/options.json	/^  {$/;"	o
+254	src/completions/options.json	/^  {$/;"	o
+255	src/completions/options.json	/^  {$/;"	o
+256	src/completions/options.json	/^  {$/;"	o
+257	src/completions/options.json	/^  {$/;"	o
+258	src/completions/options.json	/^  {$/;"	o
+259	src/completions/options.json	/^  {$/;"	o
+26	src/completions/options.json	/^  {$/;"	o
+260	src/completions/options.json	/^  {$/;"	o
+261	src/completions/options.json	/^  {$/;"	o
+262	src/completions/options.json	/^  {$/;"	o
+263	src/completions/options.json	/^  {$/;"	o
+264	src/completions/options.json	/^  {$/;"	o
+265	src/completions/options.json	/^  {$/;"	o
+266	src/completions/options.json	/^  {$/;"	o
+267	src/completions/options.json	/^  {$/;"	o
+268	src/completions/options.json	/^  {$/;"	o
+269	src/completions/options.json	/^  {$/;"	o
+27	src/completions/options.json	/^  {$/;"	o
+270	src/completions/options.json	/^  {$/;"	o
+271	src/completions/options.json	/^  {$/;"	o
+272	src/completions/options.json	/^  {$/;"	o
+273	src/completions/options.json	/^  {$/;"	o
+274	src/completions/options.json	/^  {$/;"	o
+275	src/completions/options.json	/^  {$/;"	o
+276	src/completions/options.json	/^  {$/;"	o
+277	src/completions/options.json	/^  {$/;"	o
+278	src/completions/options.json	/^  {$/;"	o
+279	src/completions/options.json	/^  {$/;"	o
+28	src/completions/options.json	/^  {$/;"	o
+280	src/completions/options.json	/^  {$/;"	o
+281	src/completions/options.json	/^  {$/;"	o
+282	src/completions/options.json	/^  {$/;"	o
+283	src/completions/options.json	/^  {$/;"	o
+284	src/completions/options.json	/^  {$/;"	o
+285	src/completions/options.json	/^  {$/;"	o
+286	src/completions/options.json	/^  {$/;"	o
+287	src/completions/options.json	/^  {$/;"	o
+288	src/completions/options.json	/^  {$/;"	o
+289	src/completions/options.json	/^  {$/;"	o
+29	src/completions/options.json	/^  {$/;"	o
+290	src/completions/options.json	/^  {$/;"	o
+291	src/completions/options.json	/^  {$/;"	o
+292	src/completions/options.json	/^  {$/;"	o
+293	src/completions/options.json	/^  {$/;"	o
+294	src/completions/options.json	/^  {$/;"	o
+295	src/completions/options.json	/^  {$/;"	o
+296	src/completions/options.json	/^  {$/;"	o
+297	src/completions/options.json	/^  {$/;"	o
+298	src/completions/options.json	/^  {$/;"	o
+299	src/completions/options.json	/^  {$/;"	o
+3	language-configuration.json	/^        \/\/ ["\\"", "\\""],$/;"	z	array:autoClosingPairs
+3	language-configuration.json	/^        \/\/ ["\\"", "\\""],$/;"	z	array:surroundingPairs
+3	package.json	/^                    ".ideavim"$/;"	s	array:contributes.languages.0.extensions
+3	src/completions/options.json	/^  {$/;"	o
+3	syntaxes/viml.tmLanguage.json	/^                        "3": {$/;"	o	object:repository.syntax.patterns.4.captures
+3	syntaxes/viml.tmLanguage.json	/^                        "3": {$/;"	o	object:repository.syntax.patterns.5.captures
+3	syntaxes/viml.tmLanguage.json	/^                        "3": {$/;"	o	object:repository.syntax.patterns.6.captures
+3	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.map.patterns.0.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.commands.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.comment.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.keyword.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.operators.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.option.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.storage.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+3	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.syntax.patterns
+3	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+30	src/completions/options.json	/^  {$/;"	o
+300	src/completions/options.json	/^  {$/;"	o
+301	src/completions/options.json	/^  {$/;"	o
+302	src/completions/options.json	/^  {$/;"	o
+303	src/completions/options.json	/^  {$/;"	o
+304	src/completions/options.json	/^  {$/;"	o
+305	src/completions/options.json	/^  {$/;"	o
+306	src/completions/options.json	/^  {$/;"	o
+307	src/completions/options.json	/^  {$/;"	o
+308	src/completions/options.json	/^  {$/;"	o
+309	src/completions/options.json	/^  {$/;"	o
+31	src/completions/options.json	/^  {$/;"	o
+310	src/completions/options.json	/^  {$/;"	o
+311	src/completions/options.json	/^  {$/;"	o
+312	src/completions/options.json	/^  {$/;"	o
+313	src/completions/options.json	/^  {$/;"	o
+314	src/completions/options.json	/^  {$/;"	o
+315	src/completions/options.json	/^  {$/;"	o
+316	src/completions/options.json	/^  {$/;"	o
+317	src/completions/options.json	/^  {$/;"	o
+318	src/completions/options.json	/^  {$/;"	o
+319	src/completions/options.json	/^  {$/;"	o
+32	src/completions/options.json	/^  {$/;"	o
+320	src/completions/options.json	/^  {$/;"	o
+321	src/completions/options.json	/^  {$/;"	o
+322	src/completions/options.json	/^  {$/;"	o
+323	src/completions/options.json	/^  {$/;"	o
+324	src/completions/options.json	/^  {$/;"	o
+325	src/completions/options.json	/^  {$/;"	o
+326	src/completions/options.json	/^  {$/;"	o
+327	src/completions/options.json	/^  {$/;"	o
+328	src/completions/options.json	/^  {$/;"	o
+329	src/completions/options.json	/^  {$/;"	o
+33	src/completions/options.json	/^  {$/;"	o
+330	src/completions/options.json	/^  {$/;"	o
+331	src/completions/options.json	/^  {$/;"	o
+332	src/completions/options.json	/^  {$/;"	o
+333	src/completions/options.json	/^  {$/;"	o
+334	src/completions/options.json	/^  {$/;"	o
+335	src/completions/options.json	/^  {$/;"	o
+336	src/completions/options.json	/^  {$/;"	o
+337	src/completions/options.json	/^  {$/;"	o
+338	src/completions/options.json	/^  {$/;"	o
+339	src/completions/options.json	/^  {$/;"	o
+34	src/completions/options.json	/^  {$/;"	o
+340	src/completions/options.json	/^  {$/;"	o
+341	src/completions/options.json	/^  {$/;"	o
+342	src/completions/options.json	/^  {$/;"	o
+35	src/completions/options.json	/^  {$/;"	o
+36	src/completions/options.json	/^  {$/;"	o
+37	src/completions/options.json	/^  {$/;"	o
+38	src/completions/options.json	/^  {$/;"	o
+39	src/completions/options.json	/^  {$/;"	o
+4	language-configuration.json	/^        ["'", "'"]$/;"	a	array:autoClosingPairs
+4	language-configuration.json	/^        ["'", "'"]$/;"	a	array:surroundingPairs
+4	src/completions/options.json	/^  {$/;"	o
+4	syntaxes/viml.tmLanguage.json	/^                        "4": {$/;"	o	object:repository.syntax.patterns.5.captures
+4	syntaxes/viml.tmLanguage.json	/^                        "4": {$/;"	o	object:repository.syntax.patterns.6.captures
+4	syntaxes/viml.tmLanguage.json	/^                        {$/;"	o	array:repository.map.patterns.0.patterns
+4	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.commands.patterns
+4	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.keyword.patterns
+4	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.operators.patterns
+4	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.storage.patterns
+4	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+4	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.syntax.patterns
+4	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+40	src/completions/options.json	/^  {$/;"	o
+41	src/completions/options.json	/^  {$/;"	o
+42	src/completions/options.json	/^  {$/;"	o
+43	src/completions/options.json	/^  {$/;"	o
+44	src/completions/options.json	/^  {$/;"	o
+45	src/completions/options.json	/^  {$/;"	o
+46	src/completions/options.json	/^  {$/;"	o
+47	src/completions/options.json	/^  {$/;"	o
+48	src/completions/options.json	/^  {$/;"	o
+49	src/completions/options.json	/^  {$/;"	o
+5	src/completions/options.json	/^  {$/;"	o
+5	syntaxes/viml.tmLanguage.json	/^                        "5": {$/;"	o	object:repository.syntax.patterns.6.captures
+5	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.commands.patterns
+5	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.keyword.patterns
+5	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.storage.patterns
+5	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+5	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.syntax.patterns
+5	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+50	src/completions/options.json	/^  {$/;"	o
+51	src/completions/options.json	/^  {$/;"	o
+52	src/completions/options.json	/^  {$/;"	o
+53	src/completions/options.json	/^  {$/;"	o
+54	src/completions/options.json	/^  {$/;"	o
+55	src/completions/options.json	/^  {$/;"	o
+56	src/completions/options.json	/^  {$/;"	o
+57	src/completions/options.json	/^  {$/;"	o
+58	src/completions/options.json	/^  {$/;"	o
+59	src/completions/options.json	/^  {$/;"	o
+6	src/completions/options.json	/^  {$/;"	o
+6	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+6	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.syntax.patterns
+6	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+60	src/completions/options.json	/^  {$/;"	o
+61	src/completions/options.json	/^  {$/;"	o
+62	src/completions/options.json	/^  {$/;"	o
+63	src/completions/options.json	/^  {$/;"	o
+64	src/completions/options.json	/^  {$/;"	o
+65	src/completions/options.json	/^  {$/;"	o
+66	src/completions/options.json	/^  {$/;"	o
+67	src/completions/options.json	/^  {$/;"	o
+68	src/completions/options.json	/^  {$/;"	o
+69	src/completions/options.json	/^  {$/;"	o
+7	src/completions/options.json	/^  {$/;"	o
+7	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+7	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+70	src/completions/options.json	/^  {$/;"	o
+71	src/completions/options.json	/^  {$/;"	o
+72	src/completions/options.json	/^  {$/;"	o
+73	src/completions/options.json	/^  {$/;"	o
+74	src/completions/options.json	/^  {$/;"	o
+75	src/completions/options.json	/^  {$/;"	o
+76	src/completions/options.json	/^  {$/;"	o
+77	src/completions/options.json	/^  {$/;"	o
+78	src/completions/options.json	/^  {$/;"	o
+79	src/completions/options.json	/^  {$/;"	o
+8	src/completions/options.json	/^  {$/;"	o
+8	syntaxes/viml.tmLanguage.json	/^                {$/;"	o	array:repository.support.patterns
+8	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+80	src/completions/options.json	/^  {$/;"	o
+81	src/completions/options.json	/^  {$/;"	o
+82	src/completions/options.json	/^  {$/;"	o
+83	src/completions/options.json	/^  {$/;"	o
+84	src/completions/options.json	/^  {$/;"	o
+85	src/completions/options.json	/^  {$/;"	o
+86	src/completions/options.json	/^  {$/;"	o
+87	src/completions/options.json	/^  {$/;"	o
+88	src/completions/options.json	/^  {$/;"	o
+89	src/completions/options.json	/^  {$/;"	o
+9	src/completions/options.json	/^  {$/;"	o
+9	syntaxes/viml.tmLanguage.json	/^        {$/;"	o	array:patterns
+90	src/completions/options.json	/^  {$/;"	o
+91	src/completions/options.json	/^  {$/;"	o
+92	src/completions/options.json	/^  {$/;"	o
+93	src/completions/options.json	/^  {$/;"	o
+94	src/completions/options.json	/^  {$/;"	o
+95	src/completions/options.json	/^  {$/;"	o
+96	src/completions/options.json	/^  {$/;"	o
+97	src/completions/options.json	/^  {$/;"	o
+98	src/completions/options.json	/^  {$/;"	o
+99	src/completions/options.json	/^  {$/;"	o
+@types/node	package.json	/^        "@types\/node": "^9.6.6",$/;"	s	object:devDependencies
+Change Log	CHANGELOG.md	/^# Change Log$/;"	c
+Features	README.md	/^## Features$/;"	s
+NAMING CONVENTIONS	README.md	/^## NAMING CONVENTIONS  $/;"	s
+Notes on Vim Script	README.md	/^## Notes on Vim Script$/;"	s
+VimFoldP	src/syntax/vim.vim	/^  com! -nargs=* VimFoldP <args> fold$/;"	c
+VimFoldP	src/syntax/vim.vim	/^  com! -nargs=* VimFoldP <args>$/;"	c
+VimFoldP	src/syntax/vim.vim	/^ com! -nargs=*	VimFoldP	<args>$/;"	c
+VimFolda	src/syntax/vim.vim	/^  com! -nargs=* VimFolda <args> fold$/;"	c
+VimFolda	src/syntax/vim.vim	/^  com! -nargs=* VimFolda <args>$/;"	c
+VimFolda	src/syntax/vim.vim	/^ com! -nargs=*	VimFolda	<args>$/;"	c
+VimFoldf	src/syntax/vim.vim	/^  com! -nargs=* VimFoldf <args> fold$/;"	c
+VimFoldf	src/syntax/vim.vim	/^  com! -nargs=* VimFoldf <args>$/;"	c
+VimFoldf	src/syntax/vim.vim	/^ com! -nargs=*	VimFoldf	<args>$/;"	c
+VimFoldl	src/syntax/vim.vim	/^  com! -nargs=* VimFoldl <args> fold$/;"	c
+VimFoldl	src/syntax/vim.vim	/^  com! -nargs=* VimFoldl <args>$/;"	c
+VimFoldl	src/syntax/vim.vim	/^ com! -nargs=*	VimFoldl	<args>$/;"	c
+VimFoldm	src/syntax/vim.vim	/^  com! -nargs=* VimFoldm <args> fold$/;"	c
+VimFoldm	src/syntax/vim.vim	/^  com! -nargs=* VimFoldm <args>$/;"	c
+VimFoldm	src/syntax/vim.vim	/^ com! -nargs=*	VimFoldm	<args>$/;"	c
+VimFoldp	src/syntax/vim.vim	/^  com! -nargs=* VimFoldp <args> fold$/;"	c
+VimFoldp	src/syntax/vim.vim	/^  com! -nargs=* VimFoldp <args>$/;"	c
+VimFoldp	src/syntax/vim.vim	/^ com! -nargs=*	VimFoldp	<args>$/;"	c
+VimFoldr	src/syntax/vim.vim	/^  com! -nargs=* VimFoldr <args> fold$/;"	c
+VimFoldr	src/syntax/vim.vim	/^  com! -nargs=* VimFoldr <args>$/;"	c
+VimFoldr	src/syntax/vim.vim	/^ com! -nargs=*	VimFoldr	<args>$/;"	c
+VimFoldt	src/syntax/vim.vim	/^  com! -nargs=* VimFoldt <args> fold$/;"	c
+VimFoldt	src/syntax/vim.vim	/^  com! -nargs=* VimFoldt <args>$/;"	c
+VimFoldt	src/syntax/vim.vim	/^ com! -nargs=*	VimFoldt	<args>$/;"	c
+VimL	README.md	/^# VimL $/;"	c
+[License](https://github.com/dunstontc/viml/blob/master/LICENSE)	README.md	/^## [License](https:\/\/github.com\/dunstontc\/viml\/blob\/master\/LICENSE)$/;"	s
+activationEvents	package.json	/^    "activationEvents": [$/;"	a
+aliases	package.json	/^                "aliases": [$/;"	a	object:contributes.languages.0
+allOptions	src/js/index.js	/^let allOptions = vimOptions.map(opt => optionsArray.push(opt.option));$/;"	v
+args	.vscode/launch.json	/^          "args": ["--extensionDevelopmentPath=${workspaceRoot}" ]$/;"	a	object:configurations.0
+autoClosingPairs	language-configuration.json	/^    "autoClosingPairs": [$/;"	a
+b:current_syntax	src/syntax/vim.vim	/^let b:current_syntax = "vim"$/;"	v
+b:loaded_syntax_vim_ex	src/syntax/vim.vim	/^let b:loaded_syntax_vim_ex="2017-12-03T03:32:15+00:00 e49c616"$/;"	v
+begin	syntaxes/viml.tmLanguage.json	/^                    "begin": "'",$/;"	s	object:repository.strings.patterns.1
+begin	syntaxes/viml.tmLanguage.json	/^                    "begin": "((\\\\s+)?\\"\\"\\")",$/;"	s	object:repository.comment.patterns.0
+begin	syntaxes/viml.tmLanguage.json	/^                    "begin": "(\\\\<)",$/;"	s	object:repository.map.patterns.0
+begin	syntaxes/viml.tmLanguage.json	/^                    "begin": "(\\\\s+\\"\\\\s+)(?!\\")",$/;"	s	object:repository.comment.patterns.2
+begin	syntaxes/viml.tmLanguage.json	/^                    "begin": "(aug(roup)?)",$/;"	s	object:repository.commands.patterns.5
+begin	syntaxes/viml.tmLanguage.json	/^                    "begin": "\\"",$/;"	s	object:repository.strings.patterns.0
+begin	syntaxes/viml.tmLanguage.json	/^                    "begin": "^(\\\\s+)?\\"",$/;"	s	object:repository.comment.patterns.3
+beginCaptures	syntaxes/viml.tmLanguage.json	/^                    "beginCaptures": {$/;"	o	object:repository.map.patterns.0
+brackets	language-configuration.json	/^    "brackets": [$/;"	a
+bugs	package.json	/^    "bugs": {$/;"	o
+captures	syntaxes/viml.tmLanguage.json	/^                    "captures": {$/;"	o	object:repository.syntax.patterns.4
+captures	syntaxes/viml.tmLanguage.json	/^                    "captures": {$/;"	o	object:repository.syntax.patterns.5
+captures	syntaxes/viml.tmLanguage.json	/^                    "captures": {$/;"	o	object:repository.syntax.patterns.6
+categories	package.json	/^    "categories": [$/;"	a
+color	package.json	/^        "color": "#569cd6",$/;"	s	object:galleryBanner
+commands	syntaxes/viml.tmLanguage.json	/^        "commands": {$/;"	o	object:repository
+comment	syntaxes/viml.tmLanguage.json	/^        "comment": {$/;"	o	object:repository
+comments	language-configuration.json	/^    "comments": {$/;"	o
+compile	package.json	/^        "compile": "tsc -watch -p .\/",$/;"	s	object:scripts
+compilerOptions	tsconfig.json	/^	"compilerOptions": {$/;"	o
+configuration	package.json	/^                "configuration": ".\/language-configuration.json"$/;"	s	object:contributes.languages.0
+configurations	.vscode/launch.json	/^  "configurations": [$/;"	a
+constant	syntaxes/viml.tmLanguage.json	/^        "constant": {$/;"	o	object:repository
+contributes	package.json	/^    "contributes": {$/;"	o
+description	package.json	/^    "description": "vscode-viml-syntax",$/;"	s
+description	src/completions/options.json	/^    "description": "ASCII code of the letter Aleph (Hebrew)"$/;"	s	object:0
+description	src/completions/options.json	/^    "description": "CJK character set to be used for :hardcopy"$/;"	s	object:211
+description	src/completions/options.json	/^    "description": "Farsi keyboard mapping"$/;"	s	object:93
+description	src/completions/options.json	/^    "description": "GUI: Name(s) of font(s) to be used"$/;"	s	object:116
+description	src/completions/options.json	/^    "description": "GUI: Names of multi-byte fonts to be used"$/;"	s	object:117
+description	src/completions/options.json	/^    "description": "GUI: Which components and options are used"$/;"	s	object:119
+description	src/completions/options.json	/^    "description": "GUI: custom label for a tab page"$/;"	s	object:120
+description	src/completions/options.json	/^    "description": "GUI: custom tooltip for a tab page"$/;"	s	object:121
+description	src/completions/options.json	/^    "description": "GUI: settings for cursor shape and blinking"$/;"	s	object:115
+description	src/completions/options.json	/^    "description": "Hebrew keyboard mapping"$/;"	s	object:128
+description	src/completions/options.json	/^    "description": "Use cscope.out path basename as prefix"$/;"	s	object:57
+description	src/completions/options.json	/^    "description": "adjust case of match for keyword completion"$/;"	s	object:142
+description	src/completions/options.json	/^    "description": "after this many characters flush swap file"$/;"	s	object:311
+description	src/completions/options.json	/^    "description": "after this many milliseconds flush swap file"$/;"	s	object:312
+description	src/completions/options.json	/^    "description": "alias for term"$/;"	s	object:306
+description	src/completions/options.json	/^    "description": "allow CTRL-_ in Insert and Command-line mode"$/;"	s	object:1
+description	src/completions/options.json	/^    "description": "allow mappings to work recursively"$/;"	s	object:223
+description	src/completions/options.json	/^    "description": "allow pasting text"$/;"	s	object:197
+description	src/completions/options.json	/^    "description": "allow reading\/writing devices on MS-Windows"$/;"	s	object:193
+description	src/completions/options.json	/^    "description": "allow specified keys to cross line boundaries"$/;"	s	object:320
+description	src/completions/options.json	/^    "description": "alphabetic characters for other language mode"$/;"	s	object:152
+description	src/completions/options.json	/^    "description": "as autowrite, but works with more commands"$/;"	s	object:10
+description	src/completions/options.json	/^    "description": "ask what to do about unsaved\/read-only files"$/;"	s	object:51
+description	src/completions/options.json	/^    "description": "autocommand events that are ignored"$/;"	s	object:82
+description	src/completions/options.json	/^    "description": "autom. read file when changed outside of Vim"$/;"	s	object:8
+description	src/completions/options.json	/^    "description": "automatic indenting for Lisp"$/;"	s	object:160
+description	src/completions/options.json	/^    "description": "automatically detected character encodings"$/;"	s	object:86
+description	src/completions/options.json	/^    "description": "automatically detected values for fileformat"$/;"	s	object:88
+description	src/completions/options.json	/^    "description": "automatically write file if changed"$/;"	s	object:9
+description	src/completions/options.json	/^    "description": "briefly jump to matching bracket if insert one"$/;"	s	object:258
+description	src/completions/options.json	/^    "description": "buffer has been modified"$/;"	s	object:181
+description	src/completions/options.json	/^    "description": "change directory to the file in the current window"$/;"	s	object:4
+description	src/completions/options.json	/^    "description": "changes meaning of mouse buttons"$/;"	s	object:186
+description	src/completions/options.json	/^    "description": "changes special characters in search patterns"$/;"	s	object:165
+description	src/completions/options.json	/^    "description": "changes to the text are not possible"$/;"	s	object:180
+description	src/completions/options.json	/^    "description": "characters for displaying in list mode"$/;"	s	object:163
+description	src/completions/options.json	/^    "description": "characters included in file names and pathnames"$/;"	s	object:144
+description	src/completions/options.json	/^    "description": "characters included in identifiers"$/;"	s	object:145
+description	src/completions/options.json	/^    "description": "characters included in keywords"$/;"	s	object:146
+description	src/completions/options.json	/^    "description": "characters that may cause a line break"$/;"	s	object:24
+description	src/completions/options.json	/^    "description": "characters to escape when shellxquote is ("$/;"	s	object:250
+description	src/completions/options.json	/^    "description": "characters to use for displaying special items"$/;"	s	object:91
+description	src/completions/options.json	/^    "description": "chars from the right where wrapping starts"$/;"	s	object:337
+description	src/completions/options.json	/^    "description": "close a fold when the cursor leaves it"$/;"	s	object:94
+description	src/completions/options.json	/^    "description": "close folds with a level higher than this"$/;"	s	object:99
+description	src/completions/options.json	/^    "description": "columns to highlight"$/;"	s	object:42
+description	src/completions/options.json	/^    "description": "command to execute cscope"$/;"	s	object:55
+description	src/completions/options.json	/^    "description": "command-line character for wildcard expansion"$/;"	s	object:321
+description	src/completions/options.json	/^    "description": "commands for which editing works right-to-left"$/;"	s	object:227
+description	src/completions/options.json	/^    "description": "commands move cursor to first non-blank in line"$/;"	s	object:275
+description	src/completions/options.json	/^    "description": "controls the format of :hardcopy output"$/;"	s	object:213
+description	src/completions/options.json	/^    "description": "custom format for the console tab pages line"$/;"	s	object:283
+description	src/completions/options.json	/^    "description": "custom format for the ruler"$/;"	s	object:230
+description	src/completions/options.json	/^    "description": "custom format for the status line"$/;"	s	object:276
+description	src/completions/options.json	/^    "description": "dark or light, used for highlight colors"$/;"	s	object:11
+description	src/completions/options.json	/^    "description": "default regexp engine to use"$/;"	s	object:221
+description	src/completions/options.json	/^    "description": "delay in mS before a balloon may pop up"$/;"	s	object:18
+description	src/completions/options.json	/^    "description": "delay this many msec for each char (for debug)"$/;"	s	object:342
+description	src/completions/options.json	/^    "description": "delete combining characters on their own"$/;"	s	object:66
+description	src/completions/options.json	/^    "description": "description of the lines in the error file"$/;"	s	object:81
+description	src/completions/options.json	/^    "description": "determines :cstag search order"$/;"	s	object:59
+description	src/completions/options.json	/^    "description": "directory where to store files with :mkview"$/;"	s	object:315
+description	src/completions/options.json	/^    "description": "disallow writing the buffer"$/;"	s	object:219
+description	src/completions/options.json	/^    "description": "do C program indenting"$/;"	s	object:35
+description	src/completions/options.json	/^    "description": "do apply langmap to mapped characters"$/;"	s	object:154
+description	src/completions/options.json	/^    "description": "do not ring the bell for these reasons"$/;"	s	object:21
+description	src/completions/options.json	/^    "description": "do not use the IM in any mode"$/;"	s	object:134
+description	src/completions/options.json	/^    "description": "do shaping for Arabic characters"$/;"	s	object:6
+description	src/completions/options.json	/^    "description": "dont redraw while executing macros"$/;"	s	object:156
+description	src/completions/options.json	/^    "description": "dont unload buffer when it is |abandon|ed"$/;"	s	object:125
+description	src/completions/options.json	/^    "description": "enable prompt in Ex mode"$/;"	s	object:214
+description	src/completions/options.json	/^    "description": "enable spell checking"$/;"	s	object:268
+description	src/completions/options.json	/^    "description": "enable starting\/stopping selection with keys"$/;"	s	object:150
+description	src/completions/options.json	/^    "description": "enable the entering of digraphs in Insert mode"$/;"	s	object:71
+description	src/completions/options.json	/^    "description": "enable the use of mouse clicks"$/;"	s	object:183
+description	src/completions/options.json	/^    "description": "encoding to be used for printing"$/;"	s	object:207
+description	src/completions/options.json	/^    "description": "encoding used internally"$/;"	s	object:75
+description	src/completions/options.json	/^    "description": "escape characters used in a string"$/;"	s	object:218
+description	src/completions/options.json	/^    "description": "expression for character encoding conversion"$/;"	s	object:34
+description	src/completions/options.json	/^    "description": "expression to show in balloon"$/;"	s	object:20
+description	src/completions/options.json	/^    "description": "expression used to display for a closed fold"$/;"	s	object:106
+description	src/completions/options.json	/^    "description": "expression used to obtain a diff file"$/;"	s	object:69
+description	src/completions/options.json	/^    "description": "expression used to obtain the indent of a line"$/;"	s	object:140
+description	src/completions/options.json	/^    "description": "expression used to patch a file"$/;"	s	object:199
+description	src/completions/options.json	/^    "description": "expression used to print PostScript for :hardcopy"$/;"	s	object:208
+description	src/completions/options.json	/^    "description": "expression used to process an include line"$/;"	s	object:138
+description	src/completions/options.json	/^    "description": "expression used when foldmethod is expr"$/;"	s	object:97
+description	src/completions/options.json	/^    "description": "expression used with gq command"$/;"	s	object:107
+description	src/completions/options.json	/^    "description": "extension used for the backup file"$/;"	s	object:16
+description	src/completions/options.json	/^    "description": "external program to use for = command"$/;"	s	object:78
+description	src/completions/options.json	/^    "description": "file encoding for multi-byte text"$/;"	s	object:85
+description	src/completions/options.json	/^    "description": "file format used for file I\/O"$/;"	s	object:87
+description	src/completions/options.json	/^    "description": "file names in tag file are relative"$/;"	s	object:289
+description	src/completions/options.json	/^    "description": "file to write messages in"$/;"	s	object:314
+description	src/completions/options.json	/^    "description": "files matching these patterns are not completed"$/;"	s	object:323
+description	src/completions/options.json	/^    "description": "files where |zg| and |zw| store words"$/;"	s	object:270
+description	src/completions/options.json	/^    "description": "flag to shell to execute one command"$/;"	s	object:244
+description	src/completions/options.json	/^    "description": "flags for Vi-compatible behavior"$/;"	s	object:53
+description	src/completions/options.json	/^    "description": "folding type"$/;"	s	object:102
+description	src/completions/options.json	/^    "description": "foldlevel when starting to edit a file"$/;"	s	object:100
+description	src/completions/options.json	/^    "description": "font names to be used for CJK output of :hardcopy"$/;"	s	object:212
+description	src/completions/options.json	/^    "description": "for Arabic as a default second language"$/;"	s	object:5
+description	src/completions/options.json	/^    "description": "for default second language (Farsi\/Hebrew)"$/;"	s	object:2
+description	src/completions/options.json	/^    "description": "for which commands a fold will be opened"$/;"	s	object:105
+description	src/completions/options.json	/^    "description": "format of grepprg output"$/;"	s	object:113
+description	src/completions/options.json	/^    "description": "format of the header used for :hardcopy"$/;"	s	object:210
+description	src/completions/options.json	/^    "description": "full path name of the main help file"$/;"	s	object:122
+description	src/completions/options.json	/^    "description": "function for filetype-specific completion"$/;"	s	object:192
+description	src/completions/options.json	/^    "description": "function to be called for |g@| operator"$/;"	s	object:194
+description	src/completions/options.json	/^    "description": "function to be used for Insert mode completion"$/;"	s	object:47
+description	src/completions/options.json	/^    "description": "give informative messages"$/;"	s	object:313
+description	src/completions/options.json	/^    "description": "give messages when adding a cscope database"$/;"	s	object:60
+description	src/completions/options.json	/^    "description": "height of the command-line window"$/;"	s	object:41
+description	src/completions/options.json	/^    "description": "height of the preview window"$/;"	s	object:204
+description	src/completions/options.json	/^    "description": "hide mouse pointer while typing"$/;"	s	object:185
+description	src/completions/options.json	/^    "description": "highlight match while typing search pattern"$/;"	s	object:139
+description	src/completions/options.json	/^    "description": "highlight matches with last search pattern"$/;"	s	object:126
+description	src/completions/options.json	/^    "description": "highlight the screen column of the cursor"$/;"	s	object:62
+description	src/completions/options.json	/^    "description": "highlight the screen line of the cursor"$/;"	s	object:63
+description	src/completions/options.json	/^    "description": "how automatic formatting is to be done"$/;"	s	object:109
+description	src/completions/options.json	/^    "description": "how backspace works at start of line"$/;"	s	object:12
+description	src/completions/options.json	/^    "description": "how many components of the path to show"$/;"	s	object:54
+description	src/completions/options.json	/^    "description": "how scrollbind should behave"$/;"	s	object:236
+description	src/completions/options.json	/^    "description": "how to do indenting when cindent is set"$/;"	s	object:37
+description	src/completions/options.json	/^    "description": "how to handle case when searching in tags files"$/;"	s	object:287
+description	src/completions/options.json	/^    "description": "identifies the preview window"$/;"	s	object:205
+description	src/completions/options.json	/^    "description": "ignore case in search patterns"$/;"	s	object:132
+description	src/completions/options.json	/^    "description": "ignore case when completing file names"$/;"	s	object:324
+description	src/completions/options.json	/^    "description": "ignore case when using file names"$/;"	s	object:89
+description	src/completions/options.json	/^    "description": "ignore lines when foldmethod is indent"$/;"	s	object:98
+description	src/completions/options.json	/^    "description": "in which direction equalalways works"$/;"	s	object:74
+description	src/completions/options.json	/^    "description": "inserting characters will work backwards"$/;"	s	object:225
+description	src/completions/options.json	/^    "description": "keep backup file after overwriting a file"$/;"	s	object:13
+description	src/completions/options.json	/^    "description": "keep the oldest version of a file"$/;"	s	object:200
+description	src/completions/options.json	/^    "description": "keep window height when opening\/closing windows"$/;"	s	object:331
+description	src/completions/options.json	/^    "description": "keep window width when opening\/closing windows"$/;"	s	object:332
+description	src/completions/options.json	/^    "description": "key code that causes paste to toggle"$/;"	s	object:198
+description	src/completions/options.json	/^    "description": "key used to open the command-line window"$/;"	s	object:33
+description	src/completions/options.json	/^    "description": "keyboard focus follows the mouse"$/;"	s	object:184
+description	src/completions/options.json	/^    "description": "keys that trigger indent when cindent is set"$/;"	s	object:36
+description	src/completions/options.json	/^    "description": "keys that trigger indenting with indentexpr"$/;"	s	object:141
+description	src/completions/options.json	/^    "description": "language to be used for the menus"$/;"	s	object:153
+description	src/completions/options.json	/^    "description": "language(s) to do spell checking for"$/;"	s	object:271
+description	src/completions/options.json	/^    "description": "let Vim set the text of the window icon"$/;"	s	object:130
+description	src/completions/options.json	/^    "description": "let Vim set the title of the window"$/;"	s	object:300
+description	src/completions/options.json	/^    "description": "like shellquote, but include redirection"$/;"	s	object:251
+description	src/completions/options.json	/^    "description": "like wildchar but also works when mapped"$/;"	s	object:322
+description	src/completions/options.json	/^    "description": "lines to scroll with CTRL-U and CTRL-D"$/;"	s	object:232
+description	src/completions/options.json	/^    "description": "list of directories for the backup file"$/;"	s	object:15
+description	src/completions/options.json	/^    "description": "list of directories searched with :cd"$/;"	s	object:32
+description	src/completions/options.json	/^    "description": "list of directories searched with gf et.al."$/;"	s	object:201
+description	src/completions/options.json	/^    "description": "list of directories used for packages"$/;"	s	object:195
+description	src/completions/options.json	/^    "description": "list of directories used for runtime files"$/;"	s	object:231
+description	src/completions/options.json	/^    "description": "list of directory names for the swap file"$/;"	s	object:72
+description	src/completions/options.json	/^    "description": "list of file names used by the tag command"$/;"	s	object:290
+description	src/completions/options.json	/^    "description": "list of file names used for keyword completion"$/;"	s	object:67
+description	src/completions/options.json	/^    "description": "list of flags for how to display text"$/;"	s	object:73
+description	src/completions/options.json	/^    "description": "list of flags, reduce length of messages"$/;"	s	object:254
+description	src/completions/options.json	/^    "description": "list of font names for double-wide characters"$/;"	s	object:118
+description	src/completions/options.json	/^    "description": "list of thesaurus files for keyword completion"$/;"	s	object:296
+description	src/completions/options.json	/^    "description": "load plugin scripts when starting up"$/;"	s	object:164
+description	src/completions/options.json	/^    "description": "long lines wrap and continue on the next line"$/;"	s	object:336
+description	src/completions/options.json	/^    "description": "make a backup before overwriting a file"$/;"	s	object:341
+description	src/completions/options.json	/^    "description": "make autoindent use existing indent structure"$/;"	s	object:52
+description	src/completions/options.json	/^    "description": "make backup as a copy, dont rename the file"$/;"	s	object:14
+description	src/completions/options.json	/^    "description": "make sure last line in file has <EOL>"$/;"	s	object:92
+description	src/completions/options.json	/^    "description": "markers used when foldmethod is marker"$/;"	s	object:101
+description	src/completions/options.json	/^    "description": "max nr of lines to save for undo on a buffer reload"$/;"	s	object:310
+description	src/completions/options.json	/^    "description": "max time between mouse double-click"$/;"	s	object:188
+description	src/completions/options.json	/^    "description": "maximum column to find syntax items"$/;"	s	object:281
+description	src/completions/options.json	/^    "description": "maximum fold depth"$/;"	s	object:104
+description	src/completions/options.json	/^    "description": "maximum height of the popup menu"$/;"	s	object:215
+description	src/completions/options.json	/^    "description": "maximum memory (in Kbyte) used for all buffers"$/;"	s	object:175
+description	src/completions/options.json	/^    "description": "maximum memory (in Kbyte) used for one buffer"$/;"	s	object:173
+description	src/completions/options.json	/^    "description": "maximum memory (in Kbyte) used for pattern search"$/;"	s	object:174
+description	src/completions/options.json	/^    "description": "maximum nr of combining characters displayed"$/;"	s	object:170
+description	src/completions/options.json	/^    "description": "maximum number of changes that can be undone"$/;"	s	object:309
+description	src/completions/options.json	/^    "description": "maximum number of items in a menu"$/;"	s	object:176
+description	src/completions/options.json	/^    "description": "maximum number of tab pages for |-p| and tab all"$/;"	s	object:284
+description	src/completions/options.json	/^    "description": "maximum recursive depth for mapping"$/;"	s	object:172
+description	src/completions/options.json	/^    "description": "maximum recursive depth for user functions"$/;"	s	object:171
+description	src/completions/options.json	/^    "description": "maximum width of text that is being inserted"$/;"	s	object:295
+description	src/completions/options.json	/^    "description": "memory used before |:mkspell| compresses the tree"$/;"	s	object:177
+description	src/completions/options.json	/^    "description": "message on status line to show current mode"$/;"	s	object:259
+description	src/completions/options.json	/^    "description": "method(s) used to suggest spelling corrections"$/;"	s	object:272
+description	src/completions/options.json	/^    "description": "min. nr. of columns to left and right of cursor"$/;"	s	object:262
+description	src/completions/options.json	/^    "description": "minimal number of columns for any window"$/;"	s	object:334
+description	src/completions/options.json	/^    "description": "minimal number of columns for current window"$/;"	s	object:335
+description	src/completions/options.json	/^    "description": "minimum height of a new help window"$/;"	s	object:123
+description	src/completions/options.json	/^    "description": "minimum nr. of lines above and below cursor"$/;"	s	object:235
+description	src/completions/options.json	/^    "description": "minimum number of columns to scroll horizontal"$/;"	s	object:261
+description	src/completions/options.json	/^    "description": "minimum number of lines for a fold to be closed"$/;"	s	object:103
+description	src/completions/options.json	/^    "description": "minimum number of lines for any window"$/;"	s	object:333
+description	src/completions/options.json	/^    "description": "minimum number of lines for the current window"$/;"	s	object:330
+description	src/completions/options.json	/^    "description": "minimum number of lines to scroll"$/;"	s	object:234
+description	src/completions/options.json	/^    "description": "mode for wildchar command-line expansion"$/;"	s	object:326
+description	src/completions/options.json	/^    "description": "move cursor in window as it moves in other windows"$/;"	s	object:61
+description	src/completions/options.json	/^    "description": "name of a keyboard mapping"$/;"	s	object:149
+description	src/completions/options.json	/^    "description": "name of external program used with gq command"$/;"	s	object:110
+description	src/completions/options.json	/^    "description": "name of shell to use for external commands"$/;"	s	object:243
+description	src/completions/options.json	/^    "description": "name of the Perl dynamic library"$/;"	s	object:202
+description	src/completions/options.json	/^    "description": "name of the Python 2 dynamic library"$/;"	s	object:216
+description	src/completions/options.json	/^    "description": "name of the Python 3 dynamic library"$/;"	s	object:217
+description	src/completions/options.json	/^    "description": "name of the Ruby dynamic library"$/;"	s	object:228
+description	src/completions/options.json	/^    "description": "name of the errorfile for :make"$/;"	s	object:166
+description	src/completions/options.json	/^    "description": "name of the errorfile for the QuickFix mode"$/;"	s	object:80
+description	src/completions/options.json	/^    "description": "name of the font to be used for :hardcopy"$/;"	s	object:209
+description	src/completions/options.json	/^    "description": "name of the printer to be used for :hardcopy"$/;"	s	object:206
+description	src/completions/options.json	/^    "description": "name of the terminal"$/;"	s	object:292
+description	src/completions/options.json	/^    "description": "new window from split is below the current one"$/;"	s	object:273
+description	src/completions/options.json	/^    "description": "new window is put right of the current one"$/;"	s	object:274
+description	src/completions/options.json	/^    "description": "no backup for files that match these patterns"$/;"	s	object:17
+description	src/completions/options.json	/^    "description": "no ignore case when pattern has uppercase"$/;"	s	object:264
+description	src/completions/options.json	/^    "description": "nr of lines to scroll for CTRL-F and CTRL-B"$/;"	s	object:329
+description	src/completions/options.json	/^    "description": "nroff macros that separate paragraphs"$/;"	s	object:196
+description	src/completions/options.json	/^    "description": "nroff macros that separate sections"$/;"	s	object:237
+description	src/completions/options.json	/^    "description": "number formats recognized for CTRL-A command"$/;"	s	object:189
+description	src/completions/options.json	/^    "description": "number of columns in the display"$/;"	s	object:43
+description	src/completions/options.json	/^    "description": "number of columns used for the line number"$/;"	s	object:191
+description	src/completions/options.json	/^    "description": "number of command-lines that are remembered"$/;"	s	object:127
+description	src/completions/options.json	/^    "description": "number of lines checked for modelines"$/;"	s	object:179
+description	src/completions/options.json	/^    "description": "number of lines in the display"$/;"	s	object:158
+description	src/completions/options.json	/^    "description": "number of lines to use for the command-line"$/;"	s	object:40
+description	src/completions/options.json	/^    "description": "number of pixel lines to use between characters"$/;"	s	object:159
+description	src/completions/options.json	/^    "description": "number of significant characters for a tag"$/;"	s	object:288
+description	src/completions/options.json	/^    "description": "number of spaces that <Tab> in file uses"$/;"	s	object:285
+description	src/completions/options.json	/^    "description": "number of spaces that <Tab> uses while editing"$/;"	s	object:267
+description	src/completions/options.json	/^    "description": "number of spaces to use for (auto)indent step"$/;"	s	object:253
+description	src/completions/options.json	/^    "description": "old title, restored when exiting"$/;"	s	object:302
+description	src/completions/options.json	/^    "description": "options for Insert mode completion"$/;"	s	object:48
+description	src/completions/options.json	/^    "description": "options for using diff mode"$/;"	s	object:70
+description	src/completions/options.json	/^    "description": "options for |:mksession|"$/;"	s	object:241
+description	src/completions/options.json	/^    "description": "pairs of characters that % can match"$/;"	s	object:168
+description	src/completions/options.json	/^    "description": "pattern to be used to find a macro definition"$/;"	s	object:65
+description	src/completions/options.json	/^    "description": "pattern to be used to find an include file"$/;"	s	object:137
+description	src/completions/options.json	/^    "description": "pattern to locate end of a sentence"$/;"	s	object:269
+description	src/completions/options.json	/^    "description": "pattern used to recognize a list header"$/;"	s	object:108
+description	src/completions/options.json	/^    "description": "patterns that can start a comment line"$/;"	s	object:44
+description	src/completions/options.json	/^    "description": "pause listings when the whole screen is filled"$/;"	s	object:182
+description	src/completions/options.json	/^    "description": "percentage of columns used for window title"$/;"	s	object:301
+description	src/completions/options.json	/^    "description": "phonetic Hebrew keyboard mapping"$/;"	s	object:129
+description	src/completions/options.json	/^    "description": "preferred help languages"$/;"	s	object:124
+description	src/completions/options.json	/^    "description": "prepend a Byte Order Mark to the file"$/;"	s	object:23
+description	src/completions/options.json	/^    "description": "preserve the indent structure when reindenting"$/;"	s	object:203
+description	src/completions/options.json	/^    "description": "print the line number in front of each line"$/;"	s	object:190
+description	src/completions/options.json	/^    "description": "printable characters"$/;"	s	object:147
+description	src/completions/options.json	/^    "description": "program to use for :grep"$/;"	s	object:114
+description	src/completions/options.json	/^    "description": "program to use for the :make command"$/;"	s	object:167
+description	src/completions/options.json	/^    "description": "program to use for the K command"$/;"	s	object:151
+description	src/completions/options.json	/^    "description": "push tags onto the tag stack"$/;"	s	object:291
+description	src/completions/options.json	/^    "description": "quote character(s) for around shell command"$/;"	s	object:246
+description	src/completions/options.json	/^    "description": "read .nvimrc and .exrc in the current directory"$/;"	s	object:84
+description	src/completions/options.json	/^    "description": "read\/write\/edit file in binary mode"$/;"	s	object:22
+description	src/completions/options.json	/^    "description": "recognize modelines at start or end of file"$/;"	s	object:178
+description	src/completions/options.json	/^    "description": "ring the bell for error messages"$/;"	s	object:79
+description	src/completions/options.json	/^    "description": "round indent to multiple of shiftwidth"$/;"	s	object:252
+description	src/completions/options.json	/^    "description": "save undo information in a file"$/;"	s	object:308
+description	src/completions/options.json	/^    "description": "scroll in window as other windows scroll"$/;"	s	object:233
+description	src/completions/options.json	/^    "description": "searches wrap around the end of the file"$/;"	s	object:338
+description	src/completions/options.json	/^    "description": "secure mode for reading .vimrc in current dir"$/;"	s	object:238
+description	src/completions/options.json	/^    "description": "set to display all folds open"$/;"	s	object:96
+description	src/completions/options.json	/^    "description": "set to msg to see all error messages"$/;"	s	object:64
+description	src/completions/options.json	/^    "description": "sets behavior when switching to another buffer"$/;"	s	object:280
+description	src/completions/options.json	/^    "description": "settings for breakindent"$/;"	s	object:26
+description	src/completions/options.json	/^    "description": "shape of the mouse pointer in different modes"$/;"	s	object:187
+description	src/completions/options.json	/^    "description": "shorten some messages"$/;"	s	object:294
+description	src/completions/options.json	/^    "description": "show (partial) command in status line"$/;"	s	object:256
+description	src/completions/options.json	/^    "description": "show <Tab> and <EOL>"$/;"	s	object:162
+description	src/completions/options.json	/^    "description": "show cursor line and column in the status line"$/;"	s	object:229
+description	src/completions/options.json	/^    "description": "show full tag pattern when completing tag"$/;"	s	object:257
+description	src/completions/options.json	/^    "description": "show relative line number in front of each line"$/;"	s	object:222
+description	src/completions/options.json	/^    "description": "smart autoindenting for C programs"$/;"	s	object:265
+description	src/completions/options.json	/^    "description": "special type of buffer"$/;"	s	object:30
+description	src/completions/options.json	/^    "description": "specifies how case of letters is changed"$/;"	s	object:31
+description	src/completions/options.json	/^    "description": "specifies how command line completion is done"$/;"	s	object:327
+description	src/completions/options.json	/^    "description": "specifies what to save for :mkview"$/;"	s	object:316
+description	src/completions/options.json	/^    "description": "specify how Insert mode completion works"$/;"	s	object:46
+description	src/completions/options.json	/^    "description": "start the edit of a file in Insert mode"$/;"	s	object:143
+description	src/completions/options.json	/^    "description": "string to put output of :make in error file"$/;"	s	object:245
+description	src/completions/options.json	/^    "description": "string to put output of filter in a temp file"$/;"	s	object:247
+description	src/completions/options.json	/^    "description": "string to use at the start of wrapped lines"$/;"	s	object:255
+description	src/completions/options.json	/^    "description": "string to use for the Vim icon text"$/;"	s	object:131
+description	src/completions/options.json	/^    "description": "string to use for the Vim window title"$/;"	s	object:303
+description	src/completions/options.json	/^    "description": "suffixes added when searching for a file"$/;"	s	object:278
+description	src/completions/options.json	/^    "description": "suffixes that are ignored with multiple match"$/;"	s	object:277
+description	src/completions/options.json	/^    "description": "switch on balloon evaluation"$/;"	s	object:19
+description	src/completions/options.json	/^    "description": "syntax to be loaded for current buffer"$/;"	s	object:282
+description	src/completions/options.json	/^    "description": "take indent for new line from previous line"$/;"	s	object:7
+description	src/completions/options.json	/^    "description": "tells when last window has status lines"$/;"	s	object:155
+description	src/completions/options.json	/^    "description": "tells when the tab pages line is displayed"$/;"	s	object:260
+description	src/completions/options.json	/^    "description": "template for comments; used for fold marker"$/;"	s	object:45
+description	src/completions/options.json	/^    "description": "tenths of a second to show matching paren"$/;"	s	object:169
+description	src/completions/options.json	/^    "description": "terminal takes care of bi-directionality"$/;"	s	object:293
+description	src/completions/options.json	/^    "description": "the :substitute flag g is default on"$/;"	s	object:112
+description	src/completions/options.json	/^    "description": "threshold for reporting nr. of lines changed"$/;"	s	object:224
+description	src/completions/options.json	/^    "description": "tilde command ~ behaves like an operator"$/;"	s	object:297
+description	src/completions/options.json	/^    "description": "time out on mappings and key codes"$/;"	s	object:298
+description	src/completions/options.json	/^    "description": "time out on mappings"$/;"	s	object:304
+description	src/completions/options.json	/^    "description": "time out time for key codes in milliseconds"$/;"	s	object:305
+description	src/completions/options.json	/^    "description": "time out time in milliseconds"$/;"	s	object:299
+description	src/completions/options.json	/^    "description": "timeout for hlsearch and |:match| highlighting"$/;"	s	object:220
+description	src/completions/options.json	/^    "description": "two spaces after a period with a join command"$/;"	s	object:148
+description	src/completions/options.json	/^    "description": "type of file, used for autocommands"$/;"	s	object:90
+description	src/completions/options.json	/^    "description": "use .shada file upon startup and exiting"$/;"	s	object:242
+description	src/completions/options.json	/^    "description": "use :lmap or IM in Insert mode"$/;"	s	object:135
+description	src/completions/options.json	/^    "description": "use :lmap or IM when typing a search pattern"$/;"	s	object:136
+description	src/completions/options.json	/^    "description": "use IM when starting to edit a command line"$/;"	s	object:133
+description	src/completions/options.json	/^    "description": "use binary searching in tags files"$/;"	s	object:286
+description	src/completions/options.json	/^    "description": "use cscope for tag commands"$/;"	s	object:58
+description	src/completions/options.json	/^    "description": "use diff mode for the current window"$/;"	s	object:68
+description	src/completions/options.json	/^    "description": "use forward slash for shell file names"$/;"	s	object:248
+description	src/completions/options.json	/^    "description": "use menu for command line completion"$/;"	s	object:325
+description	src/completions/options.json	/^    "description": "use quickfix window for cscope results"$/;"	s	object:56
+description	src/completions/options.json	/^    "description": "use shiftwidth when inserting <Tab>"$/;"	s	object:266
+description	src/completions/options.json	/^    "description": "use spaces when <Tab> is inserted"$/;"	s	object:83
+description	src/completions/options.json	/^    "description": "use the clipboard as the unnamed register"$/;"	s	object:39
+description	src/completions/options.json	/^    "description": "use visual bell instead of beeping"$/;"	s	object:318
+description	src/completions/options.json	/^    "description": "warn for shell command when buffer was changed"$/;"	s	object:319
+description	src/completions/options.json	/^    "description": "what to do when buffer is no longer in window"$/;"	s	object:28
+description	src/completions/options.json	/^    "description": "what to do with Unicode chars of ambiguous width"$/;"	s	object:3
+description	src/completions/options.json	/^    "description": "what type of selection to use"$/;"	s	object:239
+description	src/completions/options.json	/^    "description": "when the windows system handles ALT keys"$/;"	s	object:328
+description	src/completions/options.json	/^    "description": "when to display the sign column"$/;"	s	object:263
+description	src/completions/options.json	/^    "description": "when to use Select mode instead of Visual mode"$/;"	s	object:240
+description	src/completions/options.json	/^    "description": "when to use virtual editing"$/;"	s	object:317
+description	src/completions/options.json	/^    "description": "where to store undo files"$/;"	s	object:307
+description	src/completions/options.json	/^    "description": "whether concealable text is hidden in cursor line"$/;"	s	object:49
+description	src/completions/options.json	/^    "description": "whether concealable text is shown or hidden"$/;"	s	object:50
+description	src/completions/options.json	/^    "description": "whether the buffer shows up in the buffer list"$/;"	s	object:29
+description	src/completions/options.json	/^    "description": "whether to invoke fsync() after file write"$/;"	s	object:111
+description	src/completions/options.json	/^    "description": "whether to use a swapfile for a buffer"$/;"	s	object:279
+description	src/completions/options.json	/^    "description": "whether to use a temp file for shell commands"$/;"	s	object:249
+description	src/completions/options.json	/^    "description": "which directory to start browsing in"$/;"	s	object:27
+description	src/completions/options.json	/^    "description": "width of the column used to indicate folds"$/;"	s	object:95
+description	src/completions/options.json	/^    "description": "window is right-to-left oriented"$/;"	s	object:226
+description	src/completions/options.json	/^    "description": "windows are automatically made the same size"$/;"	s	object:77
+description	src/completions/options.json	/^    "description": "words that change how lisp indenting works"$/;"	s	object:161
+description	src/completions/options.json	/^    "description": "words where si and cin add an indent"$/;"	s	object:38
+description	src/completions/options.json	/^    "description": "wrap long lines at a blank"$/;"	s	object:157
+description	src/completions/options.json	/^    "description": "wrapped line repeats indent"$/;"	s	object:25
+description	src/completions/options.json	/^    "description": "write <EOL> for last line in file"$/;"	s	object:76
+description	src/completions/options.json	/^    "description": "write to file with no need for ! override"$/;"	s	object:340
+description	src/completions/options.json	/^    "description": "writing to a file is allowed"$/;"	s	object:339
+devDependencies	package.json	/^    "devDependencies": {$/;"	o
+displayName	package.json	/^    "displayName": "vscode-viml-syntax",$/;"	s
+end	syntaxes/viml.tmLanguage.json	/^                    "end": "$",$/;"	s	object:repository.comment.patterns.2
+end	syntaxes/viml.tmLanguage.json	/^                    "end": "$",$/;"	s	object:repository.comment.patterns.3
+end	syntaxes/viml.tmLanguage.json	/^                    "end": "('|$)",$/;"	s	object:repository.strings.patterns.1
+end	syntaxes/viml.tmLanguage.json	/^                    "end": "(\\"|$)",$/;"	s	object:repository.strings.patterns.0
+end	syntaxes/viml.tmLanguage.json	/^                    "end": "(\\\\>|\\\\s)",$/;"	s	object:repository.map.patterns.0
+end	syntaxes/viml.tmLanguage.json	/^                    "end": "(augroup\\\\sEND|$)",$/;"	s	object:repository.commands.patterns.5
+end	syntaxes/viml.tmLanguage.json	/^                    "end": "^(?!\\")",$/;"	s	object:repository.comment.patterns.0
+endCaptures	syntaxes/viml.tmLanguage.json	/^                    "endCaptures": {$/;"	o	object:repository.map.patterns.0
+engines	package.json	/^    "engines": {$/;"	o
+entity	syntaxes/viml.tmLanguage.json	/^        "entity": {$/;"	o	object:repository
+exclude	tsconfig.json	/^	"exclude": [$/;"	a
+extensions	package.json	/^                "extensions": [$/;"	a	object:contributes.languages.0
+g:vimsyn_embed	src/syntax/vim.vim	/^ let g:vimsyn_embed= "lmpPr"$/;"	v
+g:vimsyn_maxlines	src/syntax/vim.vim	/^ let g:vimsyn_maxlines= g:vim_maxlines$/;"	v
+g:vimsyn_minlines	src/syntax/vim.vim	/^ let g:vimsyn_minlines= g:vim_minlines$/;"	v
+g:vimsyn_noerror	src/syntax/vim.vim	/^ let g:vimsyn_noerror= g:vimsyntax_noerror$/;"	v
+galleryBanner	package.json	/^    "galleryBanner": {$/;"	o
+grammars	package.json	/^        "grammars": [$/;"	a	object:contributes
+gulp	gulpfile.js	/^const gulp  = require('gulp');$/;"	C
+gulp	package.json	/^        "gulp": "^3.9.1",$/;"	s	object:devDependencies
+gulp-json5-to-json	package.json	/^        "gulp-json5-to-json": "^0.2.1",$/;"	s	object:devDependencies
+gulp-merge-json	package.json	/^        "gulp-merge-json": "^1.3.0",$/;"	s	object:devDependencies
+gulp-watch	package.json	/^        "gulp-watch": "^5.0.0",$/;"	s	object:devDependencies
+icon	package.json	/^    "icon": "assets\/128.png",$/;"	s
+id	package.json	/^                "id": "viml",$/;"	s	object:contributes.languages.0
+include	syntaxes/viml.tmLanguage.json	/^                    "include": "#operators"$/;"	s	object:repository.keyword.patterns.5
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#commands"$/;"	s	object:patterns.10
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#comment"$/;"	s	object:patterns.0
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#constant"$/;"	s	object:patterns.1
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#entity"$/;"	s	object:patterns.2
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#keyword"$/;"	s	object:patterns.3
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#map"$/;"	s	object:patterns.12
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#option"$/;"	s	object:patterns.11
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#punctuation"$/;"	s	object:patterns.4
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#storage"$/;"	s	object:patterns.5
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#strings"$/;"	s	object:patterns.6
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#support"$/;"	s	object:patterns.7
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#syntax"$/;"	s	object:patterns.9
+include	syntaxes/viml.tmLanguage.json	/^            "include": "#variable"$/;"	s	object:patterns.8
+json5	gulpfile.js	/^const json5 = require('gulp-json5-to-json');$/;"	C
+keyword	syntaxes/viml.tmLanguage.json	/^        "keyword": {$/;"	o	object:repository
+language	package.json	/^                "language": "viml",$/;"	s	object:contributes.grammars.0
+languages	package.json	/^        "languages": [$/;"	a	object:contributes
+lib	tsconfig.json	/^		"lib": [ "es6" ],$/;"	a	object:compilerOptions
+lineComment	language-configuration.json	/^        "lineComment": "\\"",$/;"	s	object:comments
+link	package.json	/^        "link": "ln -s $(pwd) ~\/.vscode-insiders\/extensions",$/;"	s	object:scripts
+main	package.json	/^    "main": ".\/build\/extension",$/;"	s
+map	syntaxes/viml.tmLanguage.json	/^        "map": {$/;"	o	object:repository
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "(?<=:\\\\s)(.+)"$/;"	s	object:repository.map.patterns.0.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "(?i:(F[0-9]+))"$/;"	s	object:repository.map.patterns.0.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "(?i:([adcms]-\\\\w))"$/;"	s	object:repository.map.patterns.0.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "(?i:(bang|buffer|expr|nop|plug|sid|silent))"$/;"	s	object:repository.map.patterns.0.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "(?i:(bs|bar|cr|del|down|esc|left|right|space|tab|up|leader/;"	s	object:repository.map.patterns.0.patterns.4
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "\\\\{\\\\{\\\\{\\\\d?$",$/;"	s	object:repository.comment.patterns.2.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "\\\\{\\\\{\\\\{\\\\d?$",$/;"	s	object:repository.comment.patterns.3.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "\\\\}\\\\}\\\\}\\\\d?",$/;"	s	object:repository.comment.patterns.2.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                            "match": "\\\\}\\\\}\\\\}\\\\d?",$/;"	s	object:repository.comment.patterns.3.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": " ([:\\\\-.]|[&|]{2})( |$)"$/;"	s	object:repository.operators.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "&?\\\\b(aleph|allowrevins|altkeymap|ambiwidth|autochdir|arabic|ara/;"	s	object:repository.option.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "&?\\\\b(al|aleph|anti|antialias|arab|arabic|arshape|arabicshape|ar/;"	s	object:repository.option.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "&?\\\\b(al|ari|akm|ambw|acd|arab|arshape|ai|ar|aw|awa|bg|bs|bk|bkc/;"	s	object:repository.option.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "( [<>] )"$/;"	s	object:repository.operators.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(&(cpo|isk|omnifunc|paste|previewwindow|rtp|tags|term|wrap))"$/;"	s	object:repository.support.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(&(shell(cmdflag|redir)?))"$/;"	s	object:repository.support.patterns.4
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(([absg]\\\\:)?[a-zA-Z0-9_#.]{2,})\\\\b(?=\\\\()"$/;"	s	object:repository.entity.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "((start|skip|end)\\\\=)(\\\\+\\\\S+\\\\+\\\\s)?"$/;"	s	object:repository.syntax.patterns.4
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(>=)"$/;"	s	object:repository.operators.patterns.4
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(?<=\\\\()([a-zA-Z]+)(?=\\\\))"$/;"	s	object:repository.variable.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "([#+?!=~\\\\\\\\])"$/;"	s	object:repository.operators.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "([()])"$/;"	s	object:repository.punctuation.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "([,])"$/;"	s	object:repository.punctuation.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "([.]{3})"$/;"	s	object:repository.operators.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(\\\\b([cinostvx]?(nore)?map)\\\\b)"$/;"	s	object:repository.map.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(add|call|delete|empty|extend|get|has|isdirectory|join|printf)(?=\\/;"	s	object:repository.support.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(hi|highlight)(?:\\\\s+)(def|default)(?:\\\\s+)(link)(?:\\\\s+)(\\/;"	s	object:repository.syntax.patterns.6
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(syn|syntax)\\\\s+(cluster|keyword|match|region)(\\\\s+\\\\w+\\\\s/;"	s	object:repository.syntax.patterns.5
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "(v\\\\:(beval_col|beval_bufnr|beval_lnum|beval_text|beval_winnr|ch/;"	s	object:repository.support.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "-bang"$/;"	s	object:repository.commands.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "-complete=\\\\S+"$/;"	s	object:repository.commands.patterns.4
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "-nargs=[*+0-9]+"$/;"	s	object:repository.commands.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\/(\\\\\\\\\\\\\\\\|\\\\\\\\\/|[^\\\\n\/])*\/",$/;"	s	object:repository.strings.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\<args\\\\>"$/;"	s	object:repository.support.patterns.5
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(BufNewFile|BufReadPre|BufRead|BufReadPost|BufReadCmd|FileRea/;"	s	object:repository.support.patterns.7
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(Comment|Constant|String|Character|Number|Boolean|Float|Ident/;"	s	object:repository.support.patterns.8
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(None|ErrorMsg|WarningMsg)\\\\b"$/;"	s	object:repository.support.patterns.6
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(Plug|Plugin)\\\\b",$/;"	s	object:repository.storage.patterns.5
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b([0-9]+)\\\\b"$/;"	s	object:repository.constant.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b([absgl]:[a-zA-Z0-9_.#]+)\\\\b(?!\\\\()"$/;"	s	object:repository.variable.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(abort|autocmd)\\\\b",$/;"	s	object:repository.storage.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(add|containedin|contains|matchgroup|nextgroup)\\\\="$/;"	s	object:repository.syntax.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(break|continue|try|catch|endtry|finally|finish|throw|range)\\/;"	s	object:repository.keyword.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(call|let|unlet)\\\\b",$/;"	s	object:repository.storage.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(color(scheme)?)\\\\b",$/;"	s	object:repository.storage.patterns.4
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(com(mand)?)\\\\b",$/;"	s	object:repository.storage.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(contained|display|excludenl|fold|keepend|oneline|skipnl|skip/;"	s	object:repository.syntax.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(echo(m|hl)?|exe(cute)?|redir|redraw|sleep|so(urce)?|wincmd|s/;"	s	object:repository.support.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(end|endif|endfor|endwhile)\\\\s|$"$/;"	s	object:repository.keyword.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(fun|func|function|endfunction|endfunc)\\\\b"$/;"	s	object:repository.keyword.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(if|while|for|return|au(g|group)|else(if|)?|do|in)\\\\b"$/;"	s	object:repository.keyword.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(noanti|noantialias|noarab|noarabic|noarshape|noarabicshape|n/;"	s	object:repository.option.patterns.3
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(normal|silent)\\\\b"$/;"	s	object:repository.keyword.patterns.4
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(set(l|local)?)\\\\b",$/;"	s	object:repository.storage.patterns.2
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\b(true|false)\\\\b"$/;"	s	object:repository.constant.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\bau(\\\\s|\\\\!)"$/;"	s	object:repository.commands.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "\\\\bcom(\\\\s|\\\\!)"$/;"	s	object:repository.commands.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "^\\"\\\\svim:.*",$/;"	s	object:repository.comment.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "https?:\/\/\\\\S+"$/;"	s	object:repository.variable.patterns.0
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "syn(tax)? (clear|enable|include|off|on|manual|sync)"$/;"	s	object:repository.syntax.patterns.1
+match	syntaxes/viml.tmLanguage.json	/^                    "match": "syn(tax)? case (ignore|match)"$/;"	s	object:repository.syntax.patterns.0
+merge	gulpfile.js	/^const merge = require('gulp-merge-json');$/;"	C
+module	tsconfig.json	/^		"module": "commonjs",$/;"	s	object:compilerOptions
+name	.vscode/launch.json	/^          "name": "Launch Extension",$/;"	s	object:configurations.0
+name	package.json	/^    "name": "viml",$/;"	s
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "comment.line.foldmarker.viml"$/;"	s	object:repository.comment.patterns.2.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "comment.line.foldmarker.viml"$/;"	s	object:repository.comment.patterns.2.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "comment.line.foldmarker.viml"$/;"	s	object:repository.comment.patterns.3.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "comment.line.foldmarker.viml"$/;"	s	object:repository.comment.patterns.3.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "constant.character.map.key.fn.viml",$/;"	s	object:repository.map.patterns.0.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "constant.character.map.key.viml",$/;"	s	object:repository.map.patterns.0.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "constant.character.map.rhs.viml",$/;"	s	object:repository.map.patterns.0.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "constant.character.map.special.viml",$/;"	s	object:repository.map.patterns.0.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "constant.character.map.viml",$/;"	s	object:repository.map.patterns.0.patterns.4
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "keyword.other.syntax-range.viml"$/;"	s	object:repository.syntax.patterns.4.captures.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "punctuation.definition.map.viml"$/;"	s	object:repository.map.patterns.0.beginCaptures.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "punctuation.definition.map.viml"$/;"	s	object:repository.map.patterns.0.endCaptures.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "storage.highlight.viml"$/;"	s	object:repository.syntax.patterns.6.captures.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "storage.modifier.syntax.viml"$/;"	s	object:repository.syntax.patterns.5.captures.4
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "storage.modifier.syntax.viml"$/;"	s	object:repository.syntax.patterns.6.captures.2
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "storage.syntax.viml"$/;"	s	object:repository.syntax.patterns.5.captures.1
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "string.regexp.viml"$/;"	s	object:repository.syntax.patterns.4.captures.3
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "support.function.highlight.viml"$/;"	s	object:repository.syntax.patterns.6.captures.3
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "support.type.syntax.viml"$/;"	s	object:repository.syntax.patterns.5.captures.0
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "variable.other.syntax-scope.viml"$/;"	s	object:repository.syntax.patterns.5.captures.3
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "variable.other.viml"$/;"	s	object:repository.syntax.patterns.6.captures.4
+name	syntaxes/viml.tmLanguage.json	/^                            "name": "variable.other.viml"$/;"	s	object:repository.syntax.patterns.6.captures.5
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "comment.block.documentation.viml"$/;"	s	object:repository.comment.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "comment.block.modeline.viml"$/;"	s	object:repository.comment.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "comment.line.viml",$/;"	s	object:repository.comment.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "comment.line.viml",$/;"	s	object:repository.comment.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "constant.language.boolean.viml",$/;"	s	object:repository.constant.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "constant.numeric.viml",$/;"	s	object:repository.constant.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "entity.name.function.viml",$/;"	s	object:repository.entity.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.control.syntax.viml",$/;"	s	object:repository.syntax.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.control.syntax.viml",$/;"	s	object:repository.syntax.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.control.viml",$/;"	s	object:repository.keyword.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.control.viml",$/;"	s	object:repository.keyword.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.control.viml",$/;"	s	object:repository.keyword.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.function.viml",$/;"	s	object:repository.keyword.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.operator.viml",$/;"	s	object:repository.operators.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.operator.viml",$/;"	s	object:repository.operators.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.operator.viml",$/;"	s	object:repository.operators.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.operator.viml",$/;"	s	object:repository.operators.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.operator.viml",$/;"	s	object:repository.operators.patterns.4
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.other.syntax.viml",$/;"	s	object:repository.syntax.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.other.syntax.viml",$/;"	s	object:repository.syntax.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "keyword.other.viml",$/;"	s	object:repository.keyword.patterns.4
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "punctuation.comma.viml",$/;"	s	object:repository.punctuation.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "punctuation.parens.viml",$/;"	s	object:repository.punctuation.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.other.command.args.viml",$/;"	s	object:repository.commands.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.other.command.bang.viml",$/;"	s	object:repository.commands.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.other.command.completion.viml",$/;"	s	object:repository.commands.patterns.4
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.other.command.viml",$/;"	s	object:repository.commands.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.other.command.viml",$/;"	s	object:repository.commands.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.plugin.viml"$/;"	s	object:repository.storage.patterns.5
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.type.map.viml",$/;"	s	object:repository.map.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.viml"$/;"	s	object:repository.storage.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.viml"$/;"	s	object:repository.storage.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.viml"$/;"	s	object:repository.storage.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.viml"$/;"	s	object:repository.storage.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "storage.viml"$/;"	s	object:repository.storage.patterns.4
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "string.quoted.double.viml",$/;"	s	object:repository.strings.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "string.quoted.single.viml",$/;"	s	object:repository.strings.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "string.regexp.viml"$/;"	s	object:repository.strings.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.function.augroup.viml"$/;"	s	object:repository.commands.patterns.5
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.function.viml",$/;"	s	object:repository.support.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.function.viml",$/;"	s	object:repository.support.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.builtin.vim-variable.viml",$/;"	s	object:repository.support.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.builtin.viml",$/;"	s	object:repository.support.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.builtin.viml",$/;"	s	object:repository.support.patterns.4
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.event.viml",$/;"	s	object:repository.support.patterns.7
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.option.off.viml",$/;"	s	object:repository.option.patterns.3
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.option.shortname.viml",$/;"	s	object:repository.option.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.option.viml",$/;"	s	object:repository.option.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.option.viml",$/;"	s	object:repository.option.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.syntax-group.viml",$/;"	s	object:repository.support.patterns.8
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.type.syntax.viml",$/;"	s	object:repository.support.patterns.6
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "support.variable.args.viml",$/;"	s	object:repository.support.patterns.5
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "variable.other.link.viml",$/;"	s	object:repository.variable.patterns.0
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "variable.other.viml",$/;"	s	object:repository.variable.patterns.2
+name	syntaxes/viml.tmLanguage.json	/^                    "name": "variable.parameter.viml",$/;"	s	object:repository.variable.patterns.1
+name	syntaxes/viml.tmLanguage.json	/^    "name": "viml",$/;"	s
+operators	syntaxes/viml.tmLanguage.json	/^        "operators": {$/;"	o	object:repository
+option	src/completions/options.json	/^    "option": "aleph",$/;"	s	object:0
+option	src/completions/options.json	/^    "option": "allowrevins",$/;"	s	object:1
+option	src/completions/options.json	/^    "option": "altkeymap",$/;"	s	object:2
+option	src/completions/options.json	/^    "option": "ambiwidth",$/;"	s	object:3
+option	src/completions/options.json	/^    "option": "arabic",$/;"	s	object:5
+option	src/completions/options.json	/^    "option": "arabicshape",$/;"	s	object:6
+option	src/completions/options.json	/^    "option": "autochdir",$/;"	s	object:4
+option	src/completions/options.json	/^    "option": "autoindent",$/;"	s	object:7
+option	src/completions/options.json	/^    "option": "autoread",$/;"	s	object:8
+option	src/completions/options.json	/^    "option": "autowrite",$/;"	s	object:9
+option	src/completions/options.json	/^    "option": "autowriteall",$/;"	s	object:10
+option	src/completions/options.json	/^    "option": "background",$/;"	s	object:11
+option	src/completions/options.json	/^    "option": "backspace",$/;"	s	object:12
+option	src/completions/options.json	/^    "option": "backup",$/;"	s	object:13
+option	src/completions/options.json	/^    "option": "backupcopy",$/;"	s	object:14
+option	src/completions/options.json	/^    "option": "backupdir",$/;"	s	object:15
+option	src/completions/options.json	/^    "option": "backupext",$/;"	s	object:16
+option	src/completions/options.json	/^    "option": "backupskip",$/;"	s	object:17
+option	src/completions/options.json	/^    "option": "balloondelay",$/;"	s	object:18
+option	src/completions/options.json	/^    "option": "ballooneval",$/;"	s	object:19
+option	src/completions/options.json	/^    "option": "balloonexpr",$/;"	s	object:20
+option	src/completions/options.json	/^    "option": "belloff",$/;"	s	object:21
+option	src/completions/options.json	/^    "option": "binary",$/;"	s	object:22
+option	src/completions/options.json	/^    "option": "bomb",$/;"	s	object:23
+option	src/completions/options.json	/^    "option": "breakat",$/;"	s	object:24
+option	src/completions/options.json	/^    "option": "breakindent",$/;"	s	object:25
+option	src/completions/options.json	/^    "option": "breakindentopt",$/;"	s	object:26
+option	src/completions/options.json	/^    "option": "browsedir",$/;"	s	object:27
+option	src/completions/options.json	/^    "option": "bufhidden",$/;"	s	object:28
+option	src/completions/options.json	/^    "option": "buflisted",$/;"	s	object:29
+option	src/completions/options.json	/^    "option": "buftype",$/;"	s	object:30
+option	src/completions/options.json	/^    "option": "casemap",$/;"	s	object:31
+option	src/completions/options.json	/^    "option": "cdpath",$/;"	s	object:32
+option	src/completions/options.json	/^    "option": "cedit",$/;"	s	object:33
+option	src/completions/options.json	/^    "option": "charconvert",$/;"	s	object:34
+option	src/completions/options.json	/^    "option": "cindent",$/;"	s	object:35
+option	src/completions/options.json	/^    "option": "cinkeys",$/;"	s	object:36
+option	src/completions/options.json	/^    "option": "cinoptions",$/;"	s	object:37
+option	src/completions/options.json	/^    "option": "cinwords",$/;"	s	object:38
+option	src/completions/options.json	/^    "option": "clipboard",$/;"	s	object:39
+option	src/completions/options.json	/^    "option": "cmdheight",$/;"	s	object:40
+option	src/completions/options.json	/^    "option": "cmdwinheight",$/;"	s	object:41
+option	src/completions/options.json	/^    "option": "colorcolumn",$/;"	s	object:42
+option	src/completions/options.json	/^    "option": "columns",$/;"	s	object:43
+option	src/completions/options.json	/^    "option": "comments",$/;"	s	object:44
+option	src/completions/options.json	/^    "option": "commentstring",$/;"	s	object:45
+option	src/completions/options.json	/^    "option": "complete",$/;"	s	object:46
+option	src/completions/options.json	/^    "option": "completefunc",$/;"	s	object:47
+option	src/completions/options.json	/^    "option": "completeopt",$/;"	s	object:48
+option	src/completions/options.json	/^    "option": "concealcursor",$/;"	s	object:49
+option	src/completions/options.json	/^    "option": "conceallevel",$/;"	s	object:50
+option	src/completions/options.json	/^    "option": "confirm",$/;"	s	object:51
+option	src/completions/options.json	/^    "option": "copyindent",$/;"	s	object:52
+option	src/completions/options.json	/^    "option": "cpoptions",$/;"	s	object:53
+option	src/completions/options.json	/^    "option": "cscopepathcomp",$/;"	s	object:54
+option	src/completions/options.json	/^    "option": "cscopeprg",$/;"	s	object:55
+option	src/completions/options.json	/^    "option": "cscopequickfix",$/;"	s	object:56
+option	src/completions/options.json	/^    "option": "cscoperelative",$/;"	s	object:57
+option	src/completions/options.json	/^    "option": "cscopetag",$/;"	s	object:58
+option	src/completions/options.json	/^    "option": "cscopetagorder",$/;"	s	object:59
+option	src/completions/options.json	/^    "option": "cscopeverbose",$/;"	s	object:60
+option	src/completions/options.json	/^    "option": "cursorbind",$/;"	s	object:61
+option	src/completions/options.json	/^    "option": "cursorcolumn",$/;"	s	object:62
+option	src/completions/options.json	/^    "option": "cursorline",$/;"	s	object:63
+option	src/completions/options.json	/^    "option": "debug",$/;"	s	object:64
+option	src/completions/options.json	/^    "option": "define",$/;"	s	object:65
+option	src/completions/options.json	/^    "option": "delcombine",$/;"	s	object:66
+option	src/completions/options.json	/^    "option": "dictionary",$/;"	s	object:67
+option	src/completions/options.json	/^    "option": "diff",$/;"	s	object:68
+option	src/completions/options.json	/^    "option": "diffexpr",$/;"	s	object:69
+option	src/completions/options.json	/^    "option": "diffopt",$/;"	s	object:70
+option	src/completions/options.json	/^    "option": "digraph",$/;"	s	object:71
+option	src/completions/options.json	/^    "option": "directory",$/;"	s	object:72
+option	src/completions/options.json	/^    "option": "display",$/;"	s	object:73
+option	src/completions/options.json	/^    "option": "eadirection",$/;"	s	object:74
+option	src/completions/options.json	/^    "option": "encoding",$/;"	s	object:75
+option	src/completions/options.json	/^    "option": "endofline",$/;"	s	object:76
+option	src/completions/options.json	/^    "option": "equalalways",$/;"	s	object:77
+option	src/completions/options.json	/^    "option": "equalprg",$/;"	s	object:78
+option	src/completions/options.json	/^    "option": "errorbells",$/;"	s	object:79
+option	src/completions/options.json	/^    "option": "errorfile",$/;"	s	object:80
+option	src/completions/options.json	/^    "option": "errorformat",$/;"	s	object:81
+option	src/completions/options.json	/^    "option": "eventignore",$/;"	s	object:82
+option	src/completions/options.json	/^    "option": "expandtab",$/;"	s	object:83
+option	src/completions/options.json	/^    "option": "exrc",$/;"	s	object:84
+option	src/completions/options.json	/^    "option": "fileencoding",$/;"	s	object:85
+option	src/completions/options.json	/^    "option": "fileencodings",$/;"	s	object:86
+option	src/completions/options.json	/^    "option": "fileformat",$/;"	s	object:87
+option	src/completions/options.json	/^    "option": "fileformats",$/;"	s	object:88
+option	src/completions/options.json	/^    "option": "fileignorecase",$/;"	s	object:89
+option	src/completions/options.json	/^    "option": "filetype",$/;"	s	object:90
+option	src/completions/options.json	/^    "option": "fillchars",$/;"	s	object:91
+option	src/completions/options.json	/^    "option": "fixendofline",$/;"	s	object:92
+option	src/completions/options.json	/^    "option": "fkmap",$/;"	s	object:93
+option	src/completions/options.json	/^    "option": "foldclose",$/;"	s	object:94
+option	src/completions/options.json	/^    "option": "foldcolumn",$/;"	s	object:95
+option	src/completions/options.json	/^    "option": "foldenable",$/;"	s	object:96
+option	src/completions/options.json	/^    "option": "foldexpr",$/;"	s	object:97
+option	src/completions/options.json	/^    "option": "foldignore",$/;"	s	object:98
+option	src/completions/options.json	/^    "option": "foldlevel",$/;"	s	object:99
+option	src/completions/options.json	/^    "option": "foldlevelstart",$/;"	s	object:100
+option	src/completions/options.json	/^    "option": "foldmarker",$/;"	s	object:101
+option	src/completions/options.json	/^    "option": "foldmethod",$/;"	s	object:102
+option	src/completions/options.json	/^    "option": "foldminlines",$/;"	s	object:103
+option	src/completions/options.json	/^    "option": "foldnestmax",$/;"	s	object:104
+option	src/completions/options.json	/^    "option": "foldopen",$/;"	s	object:105
+option	src/completions/options.json	/^    "option": "foldtext",$/;"	s	object:106
+option	src/completions/options.json	/^    "option": "formatexpr",$/;"	s	object:107
+option	src/completions/options.json	/^    "option": "formatlistpat",$/;"	s	object:108
+option	src/completions/options.json	/^    "option": "formatoptions",$/;"	s	object:109
+option	src/completions/options.json	/^    "option": "formatprg",$/;"	s	object:110
+option	src/completions/options.json	/^    "option": "fsync",$/;"	s	object:111
+option	src/completions/options.json	/^    "option": "gdefault",$/;"	s	object:112
+option	src/completions/options.json	/^    "option": "grepformat",$/;"	s	object:113
+option	src/completions/options.json	/^    "option": "grepprg",$/;"	s	object:114
+option	src/completions/options.json	/^    "option": "guicursor",$/;"	s	object:115
+option	src/completions/options.json	/^    "option": "guifont",$/;"	s	object:116
+option	src/completions/options.json	/^    "option": "guifontset",$/;"	s	object:117
+option	src/completions/options.json	/^    "option": "guifontwide",$/;"	s	object:118
+option	src/completions/options.json	/^    "option": "guioptions",$/;"	s	object:119
+option	src/completions/options.json	/^    "option": "guitablabel",$/;"	s	object:120
+option	src/completions/options.json	/^    "option": "guitabtooltip",$/;"	s	object:121
+option	src/completions/options.json	/^    "option": "helpfile",$/;"	s	object:122
+option	src/completions/options.json	/^    "option": "helpheight",$/;"	s	object:123
+option	src/completions/options.json	/^    "option": "helplang",$/;"	s	object:124
+option	src/completions/options.json	/^    "option": "hidden",$/;"	s	object:125
+option	src/completions/options.json	/^    "option": "history",$/;"	s	object:127
+option	src/completions/options.json	/^    "option": "hkmap",$/;"	s	object:128
+option	src/completions/options.json	/^    "option": "hkmapp",$/;"	s	object:129
+option	src/completions/options.json	/^    "option": "hlsearch",$/;"	s	object:126
+option	src/completions/options.json	/^    "option": "icon",$/;"	s	object:130
+option	src/completions/options.json	/^    "option": "iconstring",$/;"	s	object:131
+option	src/completions/options.json	/^    "option": "ignorecase",$/;"	s	object:132
+option	src/completions/options.json	/^    "option": "imcmdline",$/;"	s	object:133
+option	src/completions/options.json	/^    "option": "imdisable",$/;"	s	object:134
+option	src/completions/options.json	/^    "option": "iminsert",$/;"	s	object:135
+option	src/completions/options.json	/^    "option": "imsearch",$/;"	s	object:136
+option	src/completions/options.json	/^    "option": "include",$/;"	s	object:137
+option	src/completions/options.json	/^    "option": "includeexpr",$/;"	s	object:138
+option	src/completions/options.json	/^    "option": "incsearch",$/;"	s	object:139
+option	src/completions/options.json	/^    "option": "indentexpr",$/;"	s	object:140
+option	src/completions/options.json	/^    "option": "indentkeys",$/;"	s	object:141
+option	src/completions/options.json	/^    "option": "infercase",$/;"	s	object:142
+option	src/completions/options.json	/^    "option": "insertmode",$/;"	s	object:143
+option	src/completions/options.json	/^    "option": "isfname",$/;"	s	object:144
+option	src/completions/options.json	/^    "option": "isident",$/;"	s	object:145
+option	src/completions/options.json	/^    "option": "iskeyword",$/;"	s	object:146
+option	src/completions/options.json	/^    "option": "isprint",$/;"	s	object:147
+option	src/completions/options.json	/^    "option": "joinspaces",$/;"	s	object:148
+option	src/completions/options.json	/^    "option": "keymap",$/;"	s	object:149
+option	src/completions/options.json	/^    "option": "keymodel",$/;"	s	object:150
+option	src/completions/options.json	/^    "option": "keywordprg",$/;"	s	object:151
+option	src/completions/options.json	/^    "option": "langmap",$/;"	s	object:152
+option	src/completions/options.json	/^    "option": "langmenu",$/;"	s	object:153
+option	src/completions/options.json	/^    "option": "langremap",$/;"	s	object:154
+option	src/completions/options.json	/^    "option": "laststatus",$/;"	s	object:155
+option	src/completions/options.json	/^    "option": "lazyredraw",$/;"	s	object:156
+option	src/completions/options.json	/^    "option": "linebreak",$/;"	s	object:157
+option	src/completions/options.json	/^    "option": "lines",$/;"	s	object:158
+option	src/completions/options.json	/^    "option": "linespace",$/;"	s	object:159
+option	src/completions/options.json	/^    "option": "lisp",$/;"	s	object:160
+option	src/completions/options.json	/^    "option": "lispwords",$/;"	s	object:161
+option	src/completions/options.json	/^    "option": "list",$/;"	s	object:162
+option	src/completions/options.json	/^    "option": "listchars",$/;"	s	object:163
+option	src/completions/options.json	/^    "option": "loadplugins",$/;"	s	object:164
+option	src/completions/options.json	/^    "option": "magic",$/;"	s	object:165
+option	src/completions/options.json	/^    "option": "makeef",$/;"	s	object:166
+option	src/completions/options.json	/^    "option": "makeprg",$/;"	s	object:167
+option	src/completions/options.json	/^    "option": "matchpairs",$/;"	s	object:168
+option	src/completions/options.json	/^    "option": "matchtime",$/;"	s	object:169
+option	src/completions/options.json	/^    "option": "maxcombine",$/;"	s	object:170
+option	src/completions/options.json	/^    "option": "maxfuncdepth",$/;"	s	object:171
+option	src/completions/options.json	/^    "option": "maxmapdepth",$/;"	s	object:172
+option	src/completions/options.json	/^    "option": "maxmem",$/;"	s	object:173
+option	src/completions/options.json	/^    "option": "maxmempattern",$/;"	s	object:174
+option	src/completions/options.json	/^    "option": "maxmemtot",$/;"	s	object:175
+option	src/completions/options.json	/^    "option": "menuitems",$/;"	s	object:176
+option	src/completions/options.json	/^    "option": "mkspellmem",$/;"	s	object:177
+option	src/completions/options.json	/^    "option": "modeline",$/;"	s	object:178
+option	src/completions/options.json	/^    "option": "modelines",$/;"	s	object:179
+option	src/completions/options.json	/^    "option": "modifiable",$/;"	s	object:180
+option	src/completions/options.json	/^    "option": "modified",$/;"	s	object:181
+option	src/completions/options.json	/^    "option": "more",$/;"	s	object:182
+option	src/completions/options.json	/^    "option": "mouse",$/;"	s	object:183
+option	src/completions/options.json	/^    "option": "mousefocus",$/;"	s	object:184
+option	src/completions/options.json	/^    "option": "mousehide",$/;"	s	object:185
+option	src/completions/options.json	/^    "option": "mousemodel",$/;"	s	object:186
+option	src/completions/options.json	/^    "option": "mouseshape",$/;"	s	object:187
+option	src/completions/options.json	/^    "option": "mousetime",$/;"	s	object:188
+option	src/completions/options.json	/^    "option": "nrformats",$/;"	s	object:189
+option	src/completions/options.json	/^    "option": "number",$/;"	s	object:190
+option	src/completions/options.json	/^    "option": "numberwidth",$/;"	s	object:191
+option	src/completions/options.json	/^    "option": "omnifunc",$/;"	s	object:192
+option	src/completions/options.json	/^    "option": "opendevice",$/;"	s	object:193
+option	src/completions/options.json	/^    "option": "operatorfunc",$/;"	s	object:194
+option	src/completions/options.json	/^    "option": "packpath",$/;"	s	object:195
+option	src/completions/options.json	/^    "option": "paragraphs",$/;"	s	object:196
+option	src/completions/options.json	/^    "option": "paste",$/;"	s	object:197
+option	src/completions/options.json	/^    "option": "pastetoggle",$/;"	s	object:198
+option	src/completions/options.json	/^    "option": "patchexpr",$/;"	s	object:199
+option	src/completions/options.json	/^    "option": "patchmode",$/;"	s	object:200
+option	src/completions/options.json	/^    "option": "path",$/;"	s	object:201
+option	src/completions/options.json	/^    "option": "perldll",$/;"	s	object:202
+option	src/completions/options.json	/^    "option": "preserveindent",$/;"	s	object:203
+option	src/completions/options.json	/^    "option": "previewheight",$/;"	s	object:204
+option	src/completions/options.json	/^    "option": "previewwindow",$/;"	s	object:205
+option	src/completions/options.json	/^    "option": "printdevice",$/;"	s	object:206
+option	src/completions/options.json	/^    "option": "printencoding",$/;"	s	object:207
+option	src/completions/options.json	/^    "option": "printexpr",$/;"	s	object:208
+option	src/completions/options.json	/^    "option": "printfont",$/;"	s	object:209
+option	src/completions/options.json	/^    "option": "printheader",$/;"	s	object:210
+option	src/completions/options.json	/^    "option": "printmbcharset",$/;"	s	object:211
+option	src/completions/options.json	/^    "option": "printmbfont",$/;"	s	object:212
+option	src/completions/options.json	/^    "option": "printoptions",$/;"	s	object:213
+option	src/completions/options.json	/^    "option": "prompt",$/;"	s	object:214
+option	src/completions/options.json	/^    "option": "pumheight",$/;"	s	object:215
+option	src/completions/options.json	/^    "option": "pythondll",$/;"	s	object:216
+option	src/completions/options.json	/^    "option": "pythonthreedll",$/;"	s	object:217
+option	src/completions/options.json	/^    "option": "quoteescape",$/;"	s	object:218
+option	src/completions/options.json	/^    "option": "readonly",$/;"	s	object:219
+option	src/completions/options.json	/^    "option": "redrawtime",$/;"	s	object:220
+option	src/completions/options.json	/^    "option": "regexpengine",$/;"	s	object:221
+option	src/completions/options.json	/^    "option": "relativenumber",$/;"	s	object:222
+option	src/completions/options.json	/^    "option": "remap",$/;"	s	object:223
+option	src/completions/options.json	/^    "option": "report",$/;"	s	object:224
+option	src/completions/options.json	/^    "option": "revins",$/;"	s	object:225
+option	src/completions/options.json	/^    "option": "rightleft",$/;"	s	object:226
+option	src/completions/options.json	/^    "option": "rightleftcmd",$/;"	s	object:227
+option	src/completions/options.json	/^    "option": "rubydll",$/;"	s	object:228
+option	src/completions/options.json	/^    "option": "ruler",$/;"	s	object:229
+option	src/completions/options.json	/^    "option": "rulerformat",$/;"	s	object:230
+option	src/completions/options.json	/^    "option": "runtimepath",$/;"	s	object:231
+option	src/completions/options.json	/^    "option": "scroll",$/;"	s	object:232
+option	src/completions/options.json	/^    "option": "scrollbind",$/;"	s	object:233
+option	src/completions/options.json	/^    "option": "scrolljump",$/;"	s	object:234
+option	src/completions/options.json	/^    "option": "scrolloff",$/;"	s	object:235
+option	src/completions/options.json	/^    "option": "scrollopt",$/;"	s	object:236
+option	src/completions/options.json	/^    "option": "sections",$/;"	s	object:237
+option	src/completions/options.json	/^    "option": "secure",$/;"	s	object:238
+option	src/completions/options.json	/^    "option": "selection",$/;"	s	object:239
+option	src/completions/options.json	/^    "option": "selectmode",$/;"	s	object:240
+option	src/completions/options.json	/^    "option": "sessionoptions",$/;"	s	object:241
+option	src/completions/options.json	/^    "option": "shada",$/;"	s	object:242
+option	src/completions/options.json	/^    "option": "shell",$/;"	s	object:243
+option	src/completions/options.json	/^    "option": "shellcmdflag",$/;"	s	object:244
+option	src/completions/options.json	/^    "option": "shellpipe",$/;"	s	object:245
+option	src/completions/options.json	/^    "option": "shellquote",$/;"	s	object:246
+option	src/completions/options.json	/^    "option": "shellredir",$/;"	s	object:247
+option	src/completions/options.json	/^    "option": "shellslash",$/;"	s	object:248
+option	src/completions/options.json	/^    "option": "shelltemp",$/;"	s	object:249
+option	src/completions/options.json	/^    "option": "shellxescape",$/;"	s	object:250
+option	src/completions/options.json	/^    "option": "shellxquote",$/;"	s	object:251
+option	src/completions/options.json	/^    "option": "shiftround",$/;"	s	object:252
+option	src/completions/options.json	/^    "option": "shiftwidth",$/;"	s	object:253
+option	src/completions/options.json	/^    "option": "shortmess",$/;"	s	object:254
+option	src/completions/options.json	/^    "option": "showbreak",$/;"	s	object:255
+option	src/completions/options.json	/^    "option": "showcmd",$/;"	s	object:256
+option	src/completions/options.json	/^    "option": "showfulltag",$/;"	s	object:257
+option	src/completions/options.json	/^    "option": "showmatch",$/;"	s	object:258
+option	src/completions/options.json	/^    "option": "showmode",$/;"	s	object:259
+option	src/completions/options.json	/^    "option": "showtabline",$/;"	s	object:260
+option	src/completions/options.json	/^    "option": "sidescroll",$/;"	s	object:261
+option	src/completions/options.json	/^    "option": "sidescrolloff",$/;"	s	object:262
+option	src/completions/options.json	/^    "option": "signcolumn",$/;"	s	object:263
+option	src/completions/options.json	/^    "option": "smartcase",$/;"	s	object:264
+option	src/completions/options.json	/^    "option": "smartindent",$/;"	s	object:265
+option	src/completions/options.json	/^    "option": "smarttab",$/;"	s	object:266
+option	src/completions/options.json	/^    "option": "softtabstop",$/;"	s	object:267
+option	src/completions/options.json	/^    "option": "spell",$/;"	s	object:268
+option	src/completions/options.json	/^    "option": "spellcapcheck",$/;"	s	object:269
+option	src/completions/options.json	/^    "option": "spellfile",$/;"	s	object:270
+option	src/completions/options.json	/^    "option": "spelllang",$/;"	s	object:271
+option	src/completions/options.json	/^    "option": "spellsuggest",$/;"	s	object:272
+option	src/completions/options.json	/^    "option": "splitbelow",$/;"	s	object:273
+option	src/completions/options.json	/^    "option": "splitright",$/;"	s	object:274
+option	src/completions/options.json	/^    "option": "startofline",$/;"	s	object:275
+option	src/completions/options.json	/^    "option": "statusline",$/;"	s	object:276
+option	src/completions/options.json	/^    "option": "suffixes",$/;"	s	object:277
+option	src/completions/options.json	/^    "option": "suffixesadd",$/;"	s	object:278
+option	src/completions/options.json	/^    "option": "swapfile",$/;"	s	object:279
+option	src/completions/options.json	/^    "option": "switchbuf",$/;"	s	object:280
+option	src/completions/options.json	/^    "option": "synmaxcol",$/;"	s	object:281
+option	src/completions/options.json	/^    "option": "syntax",$/;"	s	object:282
+option	src/completions/options.json	/^    "option": "tabline",$/;"	s	object:283
+option	src/completions/options.json	/^    "option": "tabpagemax",$/;"	s	object:284
+option	src/completions/options.json	/^    "option": "tabstop",$/;"	s	object:285
+option	src/completions/options.json	/^    "option": "tagbsearch",$/;"	s	object:286
+option	src/completions/options.json	/^    "option": "tagcase",$/;"	s	object:287
+option	src/completions/options.json	/^    "option": "taglength",$/;"	s	object:288
+option	src/completions/options.json	/^    "option": "tagrelative",$/;"	s	object:289
+option	src/completions/options.json	/^    "option": "tags",$/;"	s	object:290
+option	src/completions/options.json	/^    "option": "tagstack",$/;"	s	object:291
+option	src/completions/options.json	/^    "option": "term",$/;"	s	object:292
+option	src/completions/options.json	/^    "option": "termbidi",$/;"	s	object:293
+option	src/completions/options.json	/^    "option": "terse",$/;"	s	object:294
+option	src/completions/options.json	/^    "option": "textwidth",$/;"	s	object:295
+option	src/completions/options.json	/^    "option": "thesaurus",$/;"	s	object:296
+option	src/completions/options.json	/^    "option": "tildeop",$/;"	s	object:297
+option	src/completions/options.json	/^    "option": "timeout",$/;"	s	object:298
+option	src/completions/options.json	/^    "option": "timeoutlen",$/;"	s	object:299
+option	src/completions/options.json	/^    "option": "title",$/;"	s	object:300
+option	src/completions/options.json	/^    "option": "titlelen",$/;"	s	object:301
+option	src/completions/options.json	/^    "option": "titleold",$/;"	s	object:302
+option	src/completions/options.json	/^    "option": "titlestring",$/;"	s	object:303
+option	src/completions/options.json	/^    "option": "ttimeout",$/;"	s	object:304
+option	src/completions/options.json	/^    "option": "ttimeoutlen",$/;"	s	object:305
+option	src/completions/options.json	/^    "option": "ttytype",$/;"	s	object:306
+option	src/completions/options.json	/^    "option": "undodir",$/;"	s	object:307
+option	src/completions/options.json	/^    "option": "undofile",$/;"	s	object:308
+option	src/completions/options.json	/^    "option": "undolevels",$/;"	s	object:309
+option	src/completions/options.json	/^    "option": "undoreload",$/;"	s	object:310
+option	src/completions/options.json	/^    "option": "updatecount",$/;"	s	object:311
+option	src/completions/options.json	/^    "option": "updatetime",$/;"	s	object:312
+option	src/completions/options.json	/^    "option": "verbose",$/;"	s	object:313
+option	src/completions/options.json	/^    "option": "verbosefile",$/;"	s	object:314
+option	src/completions/options.json	/^    "option": "viewdir",$/;"	s	object:315
+option	src/completions/options.json	/^    "option": "viewoptions",$/;"	s	object:316
+option	src/completions/options.json	/^    "option": "virtualedit",$/;"	s	object:317
+option	src/completions/options.json	/^    "option": "visualbell",$/;"	s	object:318
+option	src/completions/options.json	/^    "option": "warn",$/;"	s	object:319
+option	src/completions/options.json	/^    "option": "whichwrap",$/;"	s	object:320
+option	src/completions/options.json	/^    "option": "wildchar",$/;"	s	object:321
+option	src/completions/options.json	/^    "option": "wildcharm",$/;"	s	object:322
+option	src/completions/options.json	/^    "option": "wildignore",$/;"	s	object:323
+option	src/completions/options.json	/^    "option": "wildignorecase",$/;"	s	object:324
+option	src/completions/options.json	/^    "option": "wildmenu",$/;"	s	object:325
+option	src/completions/options.json	/^    "option": "wildmode",$/;"	s	object:326
+option	src/completions/options.json	/^    "option": "wildoptions",$/;"	s	object:327
+option	src/completions/options.json	/^    "option": "winaltkeys",$/;"	s	object:328
+option	src/completions/options.json	/^    "option": "window",$/;"	s	object:329
+option	src/completions/options.json	/^    "option": "winfixheight",$/;"	s	object:331
+option	src/completions/options.json	/^    "option": "winfixwidth",$/;"	s	object:332
+option	src/completions/options.json	/^    "option": "winheight",$/;"	s	object:330
+option	src/completions/options.json	/^    "option": "winminheight",$/;"	s	object:333
+option	src/completions/options.json	/^    "option": "winminwidth",$/;"	s	object:334
+option	src/completions/options.json	/^    "option": "winwidth",$/;"	s	object:335
+option	src/completions/options.json	/^    "option": "wrap",$/;"	s	object:336
+option	src/completions/options.json	/^    "option": "wrapmargin",$/;"	s	object:337
+option	src/completions/options.json	/^    "option": "wrapscan",$/;"	s	object:338
+option	src/completions/options.json	/^    "option": "write",$/;"	s	object:339
+option	src/completions/options.json	/^    "option": "writeany",$/;"	s	object:340
+option	src/completions/options.json	/^    "option": "writebackup",$/;"	s	object:341
+option	src/completions/options.json	/^    "option": "writedelay",$/;"	s	object:342
+option	syntaxes/viml.tmLanguage.json	/^        "option": {$/;"	o	object:repository
+optionsArray	src/js/index.js	/^let optionsArray = [];$/;"	v
+outDir	tsconfig.json	/^    "outDir": "build",$/;"	s	object:compilerOptions
+path	package.json	/^                "path": ".\/syntaxes\/viml.tmLanguage.json"$/;"	s	object:contributes.grammars.0
+path	src/js/index.js	/^const path = require('path');$/;"	C
+patterns	syntaxes/viml.tmLanguage.json	/^                    "patterns": [$/;"	a	object:repository.comment.patterns.2
+patterns	syntaxes/viml.tmLanguage.json	/^                    "patterns": [$/;"	a	object:repository.comment.patterns.3
+patterns	syntaxes/viml.tmLanguage.json	/^                    "patterns": [$/;"	a	object:repository.map.patterns.0
+patterns	syntaxes/viml.tmLanguage.json	/^                    "patterns": []$/;"	a	object:repository.strings.patterns.0
+patterns	syntaxes/viml.tmLanguage.json	/^                    "patterns": []$/;"	a	object:repository.strings.patterns.1
+patterns	syntaxes/viml.tmLanguage.json	/^                    "patterns": []$/;"	a	object:repository.syntax.patterns.5
+patterns	syntaxes/viml.tmLanguage.json	/^                    "patterns": []$/;"	a	object:repository.syntax.patterns.6
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.commands
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.comment
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.constant
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.entity
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.keyword
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.map
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.operators
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.option
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.punctuation
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.storage
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.strings
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.support
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.syntax
+patterns	syntaxes/viml.tmLanguage.json	/^            "patterns": [$/;"	a	object:repository.variable
+patterns	syntaxes/viml.tmLanguage.json	/^    "patterns": [$/;"	a
+postinstall	package.json	/^        "postinstall": "node .\/node_modules\/vscode\/bin\/install",$/;"	s	object:scripts
+publisher	package.json	/^    "publisher": "dunstontc",$/;"	s
+punctuation	syntaxes/viml.tmLanguage.json	/^        "punctuation": {$/;"	o	object:repository
+removeComments	tsconfig.json	/^    "removeComments": true,$/;"	b	object:compilerOptions
+repository	package.json	/^    "repository": {$/;"	o
+repository	syntaxes/viml.tmLanguage.json	/^    "repository": {$/;"	o
+request	.vscode/launch.json	/^          "request": "launch",$/;"	s	object:configurations.0
+rootDir	tsconfig.json	/^		"rootDir": "src"$/;"	s	object:compilerOptions
+runtimeExecutable	.vscode/launch.json	/^          "runtimeExecutable": "${execPath}",$/;"	s	object:configurations.0
+s:iskKeep	src/syntax/vim.vim	/^ let s:iskKeep= &isk$/;"	v
+s:keepcpo	src/syntax/vim.vim	/^let s:keepcpo= &cpo$/;"	v
+s:luapath	src/syntax/vim.vim	/^   let s:luapath= fnameescape(s:luapath)$/;"	v
+s:luapath	src/syntax/vim.vim	/^let s:luapath= fnameescape(expand("<sfile>:p:h")."\/lua.vim")$/;"	v
+s:mzschemepath	src/syntax/vim.vim	/^   let s:mzschemepath= fnameescape(s:mzschemepath)$/;"	v
+s:mzschemepath	src/syntax/vim.vim	/^let s:mzschemepath= fnameescape(expand("<sfile>:p:h")."\/scheme.vim")$/;"	v
+s:perlpath	src/syntax/vim.vim	/^   let s:perlpath= fnameescape(s:perlpath)$/;"	v
+s:perlpath	src/syntax/vim.vim	/^let s:perlpath= fnameescape(expand("<sfile>:p:h")."\/perl.vim")$/;"	v
+s:pythonpath	src/syntax/vim.vim	/^   let s:pythonpath= fnameescape(s:pythonpath)$/;"	v
+s:pythonpath	src/syntax/vim.vim	/^let s:pythonpath= fnameescape(expand("<sfile>:p:h")."\/python.vim")$/;"	v
+s:rubypath	src/syntax/vim.vim	/^   let s:rubypath= fnameescape(s:rubypath)$/;"	v
+s:rubypath	src/syntax/vim.vim	/^let s:rubypath= fnameescape(expand("<sfile>:p:h")."\/ruby.vim")$/;"	v
+s:tclpath	src/syntax/vim.vim	/^    let s:tclpath= fnameescape(s:tclpath)$/;"	v
+s:tclpath	src/syntax/vim.vim	/^ let s:tclpath= fnameescape(expand("<sfile>:p:h")."\/tcl.vim")$/;"	v
+s:trytcl	src/syntax/vim.vim	/^ let s:trytcl= (&shell !~ '\\<\\%(bash\\>\\|4[nN][tT]\\|\\<zsh\\)\\>\\%(\\.exe\\)\\=$')$/;"	v
+s:trytcl	src/syntax/vim.vim	/^ let s:trytcl= 1$/;"	v
+s:vimsyn_maxlines	src/syntax/vim.vim	/^ let s:vimsyn_maxlines= 60$/;"	v
+s:vimsyn_maxlines	src/syntax/vim.vim	/^ let s:vimsyn_maxlines= g:vim_maxlines$/;"	v
+scopeName	package.json	/^                "scopeName": "source.viml",$/;"	s	object:contributes.grammars.0
+scopeName	syntaxes/viml.tmLanguage.json	/^    "scopeName": "source.viml",$/;"	s
+scripts	package.json	/^    "scripts": {$/;"	o
+shortname	src/completions/options.json	/^    "shortname": "acd",$/;"	s	object:4
+shortname	src/completions/options.json	/^    "shortname": "ai",$/;"	s	object:7
+shortname	src/completions/options.json	/^    "shortname": "akm",$/;"	s	object:2
+shortname	src/completions/options.json	/^    "shortname": "al",$/;"	s	object:0
+shortname	src/completions/options.json	/^    "shortname": "ambw",$/;"	s	object:3
+shortname	src/completions/options.json	/^    "shortname": "ar",$/;"	s	object:8
+shortname	src/completions/options.json	/^    "shortname": "arab",$/;"	s	object:5
+shortname	src/completions/options.json	/^    "shortname": "ari",$/;"	s	object:1
+shortname	src/completions/options.json	/^    "shortname": "arshape",$/;"	s	object:6
+shortname	src/completions/options.json	/^    "shortname": "aw",$/;"	s	object:9
+shortname	src/completions/options.json	/^    "shortname": "awa",$/;"	s	object:10
+shortname	src/completions/options.json	/^    "shortname": "bdir",$/;"	s	object:15
+shortname	src/completions/options.json	/^    "shortname": "bdlay",$/;"	s	object:18
+shortname	src/completions/options.json	/^    "shortname": "beval",$/;"	s	object:19
+shortname	src/completions/options.json	/^    "shortname": "bex",$/;"	s	object:16
+shortname	src/completions/options.json	/^    "shortname": "bexpr",$/;"	s	object:20
+shortname	src/completions/options.json	/^    "shortname": "bg",$/;"	s	object:11
+shortname	src/completions/options.json	/^    "shortname": "bh",$/;"	s	object:28
+shortname	src/completions/options.json	/^    "shortname": "bin",$/;"	s	object:22
+shortname	src/completions/options.json	/^    "shortname": "bk",$/;"	s	object:13
+shortname	src/completions/options.json	/^    "shortname": "bkc",$/;"	s	object:14
+shortname	src/completions/options.json	/^    "shortname": "bl",$/;"	s	object:29
+shortname	src/completions/options.json	/^    "shortname": "bo",$/;"	s	object:21
+shortname	src/completions/options.json	/^    "shortname": "bomb",$/;"	s	object:23
+shortname	src/completions/options.json	/^    "shortname": "bri",$/;"	s	object:25
+shortname	src/completions/options.json	/^    "shortname": "briopt",$/;"	s	object:26
+shortname	src/completions/options.json	/^    "shortname": "brk",$/;"	s	object:24
+shortname	src/completions/options.json	/^    "shortname": "bs",$/;"	s	object:12
+shortname	src/completions/options.json	/^    "shortname": "bsdir",$/;"	s	object:27
+shortname	src/completions/options.json	/^    "shortname": "bsk",$/;"	s	object:17
+shortname	src/completions/options.json	/^    "shortname": "bt",$/;"	s	object:30
+shortname	src/completions/options.json	/^    "shortname": "cb",$/;"	s	object:39
+shortname	src/completions/options.json	/^    "shortname": "cc",$/;"	s	object:42
+shortname	src/completions/options.json	/^    "shortname": "ccv",$/;"	s	object:34
+shortname	src/completions/options.json	/^    "shortname": "cd",$/;"	s	object:32
+shortname	src/completions/options.json	/^    "shortname": "cedit",$/;"	s	object:33
+shortname	src/completions/options.json	/^    "shortname": "cf",$/;"	s	object:51
+shortname	src/completions/options.json	/^    "shortname": "cfu",$/;"	s	object:47
+shortname	src/completions/options.json	/^    "shortname": "ch",$/;"	s	object:40
+shortname	src/completions/options.json	/^    "shortname": "ci",$/;"	s	object:52
+shortname	src/completions/options.json	/^    "shortname": "cin",$/;"	s	object:35
+shortname	src/completions/options.json	/^    "shortname": "cink",$/;"	s	object:36
+shortname	src/completions/options.json	/^    "shortname": "cino",$/;"	s	object:37
+shortname	src/completions/options.json	/^    "shortname": "cinw",$/;"	s	object:38
+shortname	src/completions/options.json	/^    "shortname": "cmp",$/;"	s	object:31
+shortname	src/completions/options.json	/^    "shortname": "cms",$/;"	s	object:45
+shortname	src/completions/options.json	/^    "shortname": "co",$/;"	s	object:43
+shortname	src/completions/options.json	/^    "shortname": "cocu",$/;"	s	object:49
+shortname	src/completions/options.json	/^    "shortname": "cole",$/;"	s	object:50
+shortname	src/completions/options.json	/^    "shortname": "com",$/;"	s	object:44
+shortname	src/completions/options.json	/^    "shortname": "cot",$/;"	s	object:48
+shortname	src/completions/options.json	/^    "shortname": "cpo",$/;"	s	object:53
+shortname	src/completions/options.json	/^    "shortname": "cpo",$/;"	s	object:60
+shortname	src/completions/options.json	/^    "shortname": "cpt",$/;"	s	object:46
+shortname	src/completions/options.json	/^    "shortname": "crb",$/;"	s	object:61
+shortname	src/completions/options.json	/^    "shortname": "cspc",$/;"	s	object:54
+shortname	src/completions/options.json	/^    "shortname": "csprg",$/;"	s	object:55
+shortname	src/completions/options.json	/^    "shortname": "csqf",$/;"	s	object:56
+shortname	src/completions/options.json	/^    "shortname": "csre",$/;"	s	object:57
+shortname	src/completions/options.json	/^    "shortname": "cst",$/;"	s	object:58
+shortname	src/completions/options.json	/^    "shortname": "csto",$/;"	s	object:59
+shortname	src/completions/options.json	/^    "shortname": "cuc",$/;"	s	object:62
+shortname	src/completions/options.json	/^    "shortname": "cul",$/;"	s	object:63
+shortname	src/completions/options.json	/^    "shortname": "cwh",$/;"	s	object:41
+shortname	src/completions/options.json	/^    "shortname": "debug",$/;"	s	object:64
+shortname	src/completions/options.json	/^    "shortname": "deco",$/;"	s	object:66
+shortname	src/completions/options.json	/^    "shortname": "def",$/;"	s	object:65
+shortname	src/completions/options.json	/^    "shortname": "dex",$/;"	s	object:69
+shortname	src/completions/options.json	/^    "shortname": "dg",$/;"	s	object:71
+shortname	src/completions/options.json	/^    "shortname": "dict",$/;"	s	object:67
+shortname	src/completions/options.json	/^    "shortname": "diff",$/;"	s	object:68
+shortname	src/completions/options.json	/^    "shortname": "dip",$/;"	s	object:70
+shortname	src/completions/options.json	/^    "shortname": "dir",$/;"	s	object:72
+shortname	src/completions/options.json	/^    "shortname": "dy",$/;"	s	object:73
+shortname	src/completions/options.json	/^    "shortname": "ea",$/;"	s	object:77
+shortname	src/completions/options.json	/^    "shortname": "ead",$/;"	s	object:74
+shortname	src/completions/options.json	/^    "shortname": "eb",$/;"	s	object:79
+shortname	src/completions/options.json	/^    "shortname": "ef",$/;"	s	object:80
+shortname	src/completions/options.json	/^    "shortname": "efm",$/;"	s	object:81
+shortname	src/completions/options.json	/^    "shortname": "ei",$/;"	s	object:82
+shortname	src/completions/options.json	/^    "shortname": "enc",$/;"	s	object:75
+shortname	src/completions/options.json	/^    "shortname": "eol",$/;"	s	object:76
+shortname	src/completions/options.json	/^    "shortname": "ep",$/;"	s	object:78
+shortname	src/completions/options.json	/^    "shortname": "et",$/;"	s	object:83
+shortname	src/completions/options.json	/^    "shortname": "ex",$/;"	s	object:84
+shortname	src/completions/options.json	/^    "shortname": "fcl",$/;"	s	object:94
+shortname	src/completions/options.json	/^    "shortname": "fcs",$/;"	s	object:91
+shortname	src/completions/options.json	/^    "shortname": "fdc",$/;"	s	object:95
+shortname	src/completions/options.json	/^    "shortname": "fde",$/;"	s	object:97
+shortname	src/completions/options.json	/^    "shortname": "fdi",$/;"	s	object:98
+shortname	src/completions/options.json	/^    "shortname": "fdl",$/;"	s	object:99
+shortname	src/completions/options.json	/^    "shortname": "fdls",$/;"	s	object:100
+shortname	src/completions/options.json	/^    "shortname": "fdm",$/;"	s	object:102
+shortname	src/completions/options.json	/^    "shortname": "fdn",$/;"	s	object:104
+shortname	src/completions/options.json	/^    "shortname": "fdo",$/;"	s	object:105
+shortname	src/completions/options.json	/^    "shortname": "fdt",$/;"	s	object:106
+shortname	src/completions/options.json	/^    "shortname": "fen",$/;"	s	object:96
+shortname	src/completions/options.json	/^    "shortname": "fenc",$/;"	s	object:85
+shortname	src/completions/options.json	/^    "shortname": "fencs",$/;"	s	object:86
+shortname	src/completions/options.json	/^    "shortname": "fex",$/;"	s	object:107
+shortname	src/completions/options.json	/^    "shortname": "ff",$/;"	s	object:87
+shortname	src/completions/options.json	/^    "shortname": "ffs",$/;"	s	object:88
+shortname	src/completions/options.json	/^    "shortname": "fic",$/;"	s	object:89
+shortname	src/completions/options.json	/^    "shortname": "fixeol",$/;"	s	object:92
+shortname	src/completions/options.json	/^    "shortname": "fk",$/;"	s	object:93
+shortname	src/completions/options.json	/^    "shortname": "flp",$/;"	s	object:108
+shortname	src/completions/options.json	/^    "shortname": "fml",$/;"	s	object:103
+shortname	src/completions/options.json	/^    "shortname": "fmr",$/;"	s	object:101
+shortname	src/completions/options.json	/^    "shortname": "fo",$/;"	s	object:109
+shortname	src/completions/options.json	/^    "shortname": "fp",$/;"	s	object:110
+shortname	src/completions/options.json	/^    "shortname": "fs",$/;"	s	object:111
+shortname	src/completions/options.json	/^    "shortname": "ft",$/;"	s	object:90
+shortname	src/completions/options.json	/^    "shortname": "gcr",$/;"	s	object:115
+shortname	src/completions/options.json	/^    "shortname": "gd",$/;"	s	object:112
+shortname	src/completions/options.json	/^    "shortname": "gfm",$/;"	s	object:113
+shortname	src/completions/options.json	/^    "shortname": "gfn",$/;"	s	object:116
+shortname	src/completions/options.json	/^    "shortname": "gfs",$/;"	s	object:117
+shortname	src/completions/options.json	/^    "shortname": "gfw",$/;"	s	object:118
+shortname	src/completions/options.json	/^    "shortname": "go",$/;"	s	object:119
+shortname	src/completions/options.json	/^    "shortname": "gp",$/;"	s	object:114
+shortname	src/completions/options.json	/^    "shortname": "gtl",$/;"	s	object:120
+shortname	src/completions/options.json	/^    "shortname": "gtt",$/;"	s	object:121
+shortname	src/completions/options.json	/^    "shortname": "hf",$/;"	s	object:122
+shortname	src/completions/options.json	/^    "shortname": "hh",$/;"	s	object:123
+shortname	src/completions/options.json	/^    "shortname": "hi",$/;"	s	object:127
+shortname	src/completions/options.json	/^    "shortname": "hid",$/;"	s	object:125
+shortname	src/completions/options.json	/^    "shortname": "hk",$/;"	s	object:128
+shortname	src/completions/options.json	/^    "shortname": "hkp",$/;"	s	object:129
+shortname	src/completions/options.json	/^    "shortname": "hlg",$/;"	s	object:124
+shortname	src/completions/options.json	/^    "shortname": "hls",$/;"	s	object:126
+shortname	src/completions/options.json	/^    "shortname": "ic",$/;"	s	object:132
+shortname	src/completions/options.json	/^    "shortname": "icon",$/;"	s	object:130
+shortname	src/completions/options.json	/^    "shortname": "iconstring",$/;"	s	object:131
+shortname	src/completions/options.json	/^    "shortname": "im",$/;"	s	object:143
+shortname	src/completions/options.json	/^    "shortname": "imc",$/;"	s	object:133
+shortname	src/completions/options.json	/^    "shortname": "imd",$/;"	s	object:134
+shortname	src/completions/options.json	/^    "shortname": "imi",$/;"	s	object:135
+shortname	src/completions/options.json	/^    "shortname": "ims",$/;"	s	object:136
+shortname	src/completions/options.json	/^    "shortname": "inc",$/;"	s	object:137
+shortname	src/completions/options.json	/^    "shortname": "inde",$/;"	s	object:140
+shortname	src/completions/options.json	/^    "shortname": "indk",$/;"	s	object:141
+shortname	src/completions/options.json	/^    "shortname": "inex",$/;"	s	object:138
+shortname	src/completions/options.json	/^    "shortname": "inf",$/;"	s	object:142
+shortname	src/completions/options.json	/^    "shortname": "is",$/;"	s	object:139
+shortname	src/completions/options.json	/^    "shortname": "isf",$/;"	s	object:144
+shortname	src/completions/options.json	/^    "shortname": "isi",$/;"	s	object:145
+shortname	src/completions/options.json	/^    "shortname": "isk",$/;"	s	object:146
+shortname	src/completions/options.json	/^    "shortname": "isp",$/;"	s	object:147
+shortname	src/completions/options.json	/^    "shortname": "js",$/;"	s	object:148
+shortname	src/completions/options.json	/^    "shortname": "km",$/;"	s	object:150
+shortname	src/completions/options.json	/^    "shortname": "kmp",$/;"	s	object:149
+shortname	src/completions/options.json	/^    "shortname": "kp",$/;"	s	object:151
+shortname	src/completions/options.json	/^    "shortname": "lbr",$/;"	s	object:157
+shortname	src/completions/options.json	/^    "shortname": "lcs",$/;"	s	object:163
+shortname	src/completions/options.json	/^    "shortname": "lines",$/;"	s	object:158
+shortname	src/completions/options.json	/^    "shortname": "lisp",$/;"	s	object:160
+shortname	src/completions/options.json	/^    "shortname": "list",$/;"	s	object:162
+shortname	src/completions/options.json	/^    "shortname": "lm",$/;"	s	object:153
+shortname	src/completions/options.json	/^    "shortname": "lmap",$/;"	s	object:152
+shortname	src/completions/options.json	/^    "shortname": "lpl",$/;"	s	object:164
+shortname	src/completions/options.json	/^    "shortname": "lrm",$/;"	s	object:154
+shortname	src/completions/options.json	/^    "shortname": "ls",$/;"	s	object:155
+shortname	src/completions/options.json	/^    "shortname": "lsp",$/;"	s	object:159
+shortname	src/completions/options.json	/^    "shortname": "lw",$/;"	s	object:161
+shortname	src/completions/options.json	/^    "shortname": "lz",$/;"	s	object:156
+shortname	src/completions/options.json	/^    "shortname": "ma",$/;"	s	object:180
+shortname	src/completions/options.json	/^    "shortname": "magic",$/;"	s	object:165
+shortname	src/completions/options.json	/^    "shortname": "mat",$/;"	s	object:169
+shortname	src/completions/options.json	/^    "shortname": "mco",$/;"	s	object:170
+shortname	src/completions/options.json	/^    "shortname": "mef",$/;"	s	object:166
+shortname	src/completions/options.json	/^    "shortname": "mfd",$/;"	s	object:171
+shortname	src/completions/options.json	/^    "shortname": "mh",$/;"	s	object:185
+shortname	src/completions/options.json	/^    "shortname": "mis",$/;"	s	object:176
+shortname	src/completions/options.json	/^    "shortname": "ml",$/;"	s	object:178
+shortname	src/completions/options.json	/^    "shortname": "mls",$/;"	s	object:179
+shortname	src/completions/options.json	/^    "shortname": "mm",$/;"	s	object:173
+shortname	src/completions/options.json	/^    "shortname": "mmd",$/;"	s	object:172
+shortname	src/completions/options.json	/^    "shortname": "mmp",$/;"	s	object:174
+shortname	src/completions/options.json	/^    "shortname": "mmt",$/;"	s	object:175
+shortname	src/completions/options.json	/^    "shortname": "mod",$/;"	s	object:181
+shortname	src/completions/options.json	/^    "shortname": "more",$/;"	s	object:182
+shortname	src/completions/options.json	/^    "shortname": "mouse",$/;"	s	object:183
+shortname	src/completions/options.json	/^    "shortname": "mousef",$/;"	s	object:184
+shortname	src/completions/options.json	/^    "shortname": "mousem",$/;"	s	object:186
+shortname	src/completions/options.json	/^    "shortname": "mouses",$/;"	s	object:187
+shortname	src/completions/options.json	/^    "shortname": "mouset",$/;"	s	object:188
+shortname	src/completions/options.json	/^    "shortname": "mp",$/;"	s	object:167
+shortname	src/completions/options.json	/^    "shortname": "mps",$/;"	s	object:168
+shortname	src/completions/options.json	/^    "shortname": "msm",$/;"	s	object:177
+shortname	src/completions/options.json	/^    "shortname": "nf",$/;"	s	object:189
+shortname	src/completions/options.json	/^    "shortname": "nu",$/;"	s	object:190
+shortname	src/completions/options.json	/^    "shortname": "nuw",$/;"	s	object:191
+shortname	src/completions/options.json	/^    "shortname": "odev",$/;"	s	object:193
+shortname	src/completions/options.json	/^    "shortname": "ofu",$/;"	s	object:192
+shortname	src/completions/options.json	/^    "shortname": "opfunc",$/;"	s	object:194
+shortname	src/completions/options.json	/^    "shortname": "pa",$/;"	s	object:201
+shortname	src/completions/options.json	/^    "shortname": "para",$/;"	s	object:196
+shortname	src/completions/options.json	/^    "shortname": "paste",$/;"	s	object:197
+shortname	src/completions/options.json	/^    "shortname": "pdev",$/;"	s	object:206
+shortname	src/completions/options.json	/^    "shortname": "penc",$/;"	s	object:207
+shortname	src/completions/options.json	/^    "shortname": "perldll",$/;"	s	object:202
+shortname	src/completions/options.json	/^    "shortname": "pex",$/;"	s	object:199
+shortname	src/completions/options.json	/^    "shortname": "pexpr",$/;"	s	object:208
+shortname	src/completions/options.json	/^    "shortname": "pfn",$/;"	s	object:209
+shortname	src/completions/options.json	/^    "shortname": "ph",$/;"	s	object:215
+shortname	src/completions/options.json	/^    "shortname": "pheader",$/;"	s	object:210
+shortname	src/completions/options.json	/^    "shortname": "pi",$/;"	s	object:203
+shortname	src/completions/options.json	/^    "shortname": "pm",$/;"	s	object:200
+shortname	src/completions/options.json	/^    "shortname": "pmbcs",$/;"	s	object:211
+shortname	src/completions/options.json	/^    "shortname": "pmbfn",$/;"	s	object:212
+shortname	src/completions/options.json	/^    "shortname": "popt",$/;"	s	object:213
+shortname	src/completions/options.json	/^    "shortname": "pp",$/;"	s	object:195
+shortname	src/completions/options.json	/^    "shortname": "prompt",$/;"	s	object:214
+shortname	src/completions/options.json	/^    "shortname": "pt",$/;"	s	object:198
+shortname	src/completions/options.json	/^    "shortname": "pvh",$/;"	s	object:204
+shortname	src/completions/options.json	/^    "shortname": "pvw",$/;"	s	object:205
+shortname	src/completions/options.json	/^    "shortname": "pythondll",$/;"	s	object:216
+shortname	src/completions/options.json	/^    "shortname": "pythonthreedlll",$/;"	s	object:217
+shortname	src/completions/options.json	/^    "shortname": "qe",$/;"	s	object:218
+shortname	src/completions/options.json	/^    "shortname": "rdt",$/;"	s	object:220
+shortname	src/completions/options.json	/^    "shortname": "re",$/;"	s	object:221
+shortname	src/completions/options.json	/^    "shortname": "remap",$/;"	s	object:223
+shortname	src/completions/options.json	/^    "shortname": "report",$/;"	s	object:224
+shortname	src/completions/options.json	/^    "shortname": "ri",$/;"	s	object:225
+shortname	src/completions/options.json	/^    "shortname": "rl",$/;"	s	object:226
+shortname	src/completions/options.json	/^    "shortname": "rlc",$/;"	s	object:227
+shortname	src/completions/options.json	/^    "shortname": "rnu",$/;"	s	object:222
+shortname	src/completions/options.json	/^    "shortname": "ro",$/;"	s	object:219
+shortname	src/completions/options.json	/^    "shortname": "rtp",$/;"	s	object:231
+shortname	src/completions/options.json	/^    "shortname": "ru",$/;"	s	object:229
+shortname	src/completions/options.json	/^    "shortname": "rubydll",$/;"	s	object:228
+shortname	src/completions/options.json	/^    "shortname": "ruf",$/;"	s	object:230
+shortname	src/completions/options.json	/^    "shortname": "sb",$/;"	s	object:273
+shortname	src/completions/options.json	/^    "shortname": "sbo",$/;"	s	object:236
+shortname	src/completions/options.json	/^    "shortname": "sbr",$/;"	s	object:255
+shortname	src/completions/options.json	/^    "shortname": "sc",$/;"	s	object:256
+shortname	src/completions/options.json	/^    "shortname": "scb",$/;"	s	object:233
+shortname	src/completions/options.json	/^    "shortname": "scl",$/;"	s	object:263
+shortname	src/completions/options.json	/^    "shortname": "scr",$/;"	s	object:232
+shortname	src/completions/options.json	/^    "shortname": "scs",$/;"	s	object:264
+shortname	src/completions/options.json	/^    "shortname": "sd",$/;"	s	object:242
+shortname	src/completions/options.json	/^    "shortname": "sect",$/;"	s	object:237
+shortname	src/completions/options.json	/^    "shortname": "secure",$/;"	s	object:238
+shortname	src/completions/options.json	/^    "shortname": "sel",$/;"	s	object:239
+shortname	src/completions/options.json	/^    "shortname": "sft",$/;"	s	object:257
+shortname	src/completions/options.json	/^    "shortname": "sh",$/;"	s	object:243
+shortname	src/completions/options.json	/^    "shortname": "shcf",$/;"	s	object:244
+shortname	src/completions/options.json	/^    "shortname": "shm",$/;"	s	object:254
+shortname	src/completions/options.json	/^    "shortname": "shq",$/;"	s	object:246
+shortname	src/completions/options.json	/^    "shortname": "si",$/;"	s	object:265
+shortname	src/completions/options.json	/^    "shortname": "siso",$/;"	s	object:262
+shortname	src/completions/options.json	/^    "shortname": "sj",$/;"	s	object:234
+shortname	src/completions/options.json	/^    "shortname": "slm",$/;"	s	object:240
+shortname	src/completions/options.json	/^    "shortname": "sm",$/;"	s	object:258
+shortname	src/completions/options.json	/^    "shortname": "smc",$/;"	s	object:281
+shortname	src/completions/options.json	/^    "shortname": "smd",$/;"	s	object:259
+shortname	src/completions/options.json	/^    "shortname": "so",$/;"	s	object:235
+shortname	src/completions/options.json	/^    "shortname": "sol",$/;"	s	object:275
+shortname	src/completions/options.json	/^    "shortname": "sp",$/;"	s	object:245
+shortname	src/completions/options.json	/^    "shortname": "spc",$/;"	s	object:269
+shortname	src/completions/options.json	/^    "shortname": "spell",$/;"	s	object:268
+shortname	src/completions/options.json	/^    "shortname": "spf",$/;"	s	object:270
+shortname	src/completions/options.json	/^    "shortname": "spl",$/;"	s	object:271
+shortname	src/completions/options.json	/^    "shortname": "spr",$/;"	s	object:274
+shortname	src/completions/options.json	/^    "shortname": "sps",$/;"	s	object:272
+shortname	src/completions/options.json	/^    "shortname": "sr",$/;"	s	object:252
+shortname	src/completions/options.json	/^    "shortname": "srr",$/;"	s	object:247
+shortname	src/completions/options.json	/^    "shortname": "ss",$/;"	s	object:261
+shortname	src/completions/options.json	/^    "shortname": "ssl",$/;"	s	object:248
+shortname	src/completions/options.json	/^    "shortname": "ssop",$/;"	s	object:241
+shortname	src/completions/options.json	/^    "shortname": "sta",$/;"	s	object:266
+shortname	src/completions/options.json	/^    "shortname": "stal",$/;"	s	object:260
+shortname	src/completions/options.json	/^    "shortname": "stl",$/;"	s	object:276
+shortname	src/completions/options.json	/^    "shortname": "stmp",$/;"	s	object:249
+shortname	src/completions/options.json	/^    "shortname": "sts",$/;"	s	object:267
+shortname	src/completions/options.json	/^    "shortname": "su",$/;"	s	object:277
+shortname	src/completions/options.json	/^    "shortname": "sua",$/;"	s	object:278
+shortname	src/completions/options.json	/^    "shortname": "sw",$/;"	s	object:253
+shortname	src/completions/options.json	/^    "shortname": "swb",$/;"	s	object:280
+shortname	src/completions/options.json	/^    "shortname": "swf",$/;"	s	object:279
+shortname	src/completions/options.json	/^    "shortname": "sxe",$/;"	s	object:250
+shortname	src/completions/options.json	/^    "shortname": "sxq",$/;"	s	object:251
+shortname	src/completions/options.json	/^    "shortname": "syn",$/;"	s	object:282
+shortname	src/completions/options.json	/^    "shortname": "tag",$/;"	s	object:290
+shortname	src/completions/options.json	/^    "shortname": "tal",$/;"	s	object:283
+shortname	src/completions/options.json	/^    "shortname": "tbidi",$/;"	s	object:293
+shortname	src/completions/options.json	/^    "shortname": "tbs",$/;"	s	object:286
+shortname	src/completions/options.json	/^    "shortname": "tc",$/;"	s	object:287
+shortname	src/completions/options.json	/^    "shortname": "term",$/;"	s	object:292
+shortname	src/completions/options.json	/^    "shortname": "terse",$/;"	s	object:294
+shortname	src/completions/options.json	/^    "shortname": "tgst",$/;"	s	object:291
+shortname	src/completions/options.json	/^    "shortname": "title",$/;"	s	object:300
+shortname	src/completions/options.json	/^    "shortname": "titlelen",$/;"	s	object:301
+shortname	src/completions/options.json	/^    "shortname": "titleold",$/;"	s	object:302
+shortname	src/completions/options.json	/^    "shortname": "titlestring",$/;"	s	object:303
+shortname	src/completions/options.json	/^    "shortname": "tl",$/;"	s	object:288
+shortname	src/completions/options.json	/^    "shortname": "tm",$/;"	s	object:299
+shortname	src/completions/options.json	/^    "shortname": "to",$/;"	s	object:298
+shortname	src/completions/options.json	/^    "shortname": "top",$/;"	s	object:297
+shortname	src/completions/options.json	/^    "shortname": "tpm",$/;"	s	object:284
+shortname	src/completions/options.json	/^    "shortname": "tr",$/;"	s	object:289
+shortname	src/completions/options.json	/^    "shortname": "ts",$/;"	s	object:285
+shortname	src/completions/options.json	/^    "shortname": "tsr",$/;"	s	object:296
+shortname	src/completions/options.json	/^    "shortname": "ttimeout",$/;"	s	object:304
+shortname	src/completions/options.json	/^    "shortname": "ttm",$/;"	s	object:305
+shortname	src/completions/options.json	/^    "shortname": "tty",$/;"	s	object:306
+shortname	src/completions/options.json	/^    "shortname": "tw",$/;"	s	object:295
+shortname	src/completions/options.json	/^    "shortname": "uc",$/;"	s	object:311
+shortname	src/completions/options.json	/^    "shortname": "udf",$/;"	s	object:308
+shortname	src/completions/options.json	/^    "shortname": "udir",$/;"	s	object:307
+shortname	src/completions/options.json	/^    "shortname": "ul",$/;"	s	object:309
+shortname	src/completions/options.json	/^    "shortname": "ur",$/;"	s	object:310
+shortname	src/completions/options.json	/^    "shortname": "ut",$/;"	s	object:312
+shortname	src/completions/options.json	/^    "shortname": "vb",$/;"	s	object:318
+shortname	src/completions/options.json	/^    "shortname": "vbs",$/;"	s	object:313
+shortname	src/completions/options.json	/^    "shortname": "vdir",$/;"	s	object:315
+shortname	src/completions/options.json	/^    "shortname": "ve",$/;"	s	object:317
+shortname	src/completions/options.json	/^    "shortname": "vfile",$/;"	s	object:314
+shortname	src/completions/options.json	/^    "shortname": "vop",$/;"	s	object:316
+shortname	src/completions/options.json	/^    "shortname": "wa",$/;"	s	object:340
+shortname	src/completions/options.json	/^    "shortname": "wak",$/;"	s	object:328
+shortname	src/completions/options.json	/^    "shortname": "warn",$/;"	s	object:319
+shortname	src/completions/options.json	/^    "shortname": "wb",$/;"	s	object:341
+shortname	src/completions/options.json	/^    "shortname": "wc",$/;"	s	object:321
+shortname	src/completions/options.json	/^    "shortname": "wcm",$/;"	s	object:322
+shortname	src/completions/options.json	/^    "shortname": "wd",$/;"	s	object:342
+shortname	src/completions/options.json	/^    "shortname": "wfh",$/;"	s	object:331
+shortname	src/completions/options.json	/^    "shortname": "wfw",$/;"	s	object:332
+shortname	src/completions/options.json	/^    "shortname": "wh",$/;"	s	object:330
+shortname	src/completions/options.json	/^    "shortname": "wi",$/;"	s	object:329
+shortname	src/completions/options.json	/^    "shortname": "wic",$/;"	s	object:324
+shortname	src/completions/options.json	/^    "shortname": "wig",$/;"	s	object:323
+shortname	src/completions/options.json	/^    "shortname": "wim",$/;"	s	object:326
+shortname	src/completions/options.json	/^    "shortname": "wiw",$/;"	s	object:335
+shortname	src/completions/options.json	/^    "shortname": "wm",$/;"	s	object:337
+shortname	src/completions/options.json	/^    "shortname": "wmh",$/;"	s	object:333
+shortname	src/completions/options.json	/^    "shortname": "wmnu",$/;"	s	object:325
+shortname	src/completions/options.json	/^    "shortname": "wmw",$/;"	s	object:334
+shortname	src/completions/options.json	/^    "shortname": "wop",$/;"	s	object:327
+shortname	src/completions/options.json	/^    "shortname": "wrap",$/;"	s	object:336
+shortname	src/completions/options.json	/^    "shortname": "write",$/;"	s	object:339
+shortname	src/completions/options.json	/^    "shortname": "ws",$/;"	s	object:338
+shortname	src/completions/options.json	/^    "shortname": "ww",$/;"	s	object:320
+sourceMap	tsconfig.json	/^		"sourceMap": true,$/;"	b	object:compilerOptions
+start	package.json	/^        "start": "gulp watch",$/;"	s	object:scripts
+storage	syntaxes/viml.tmLanguage.json	/^        "storage": {$/;"	o	object:repository
+strings	syntaxes/viml.tmLanguage.json	/^        "strings": {$/;"	o	object:repository
+support	syntaxes/viml.tmLanguage.json	/^        "support": {$/;"	o	object:repository
+surroundingPairs	language-configuration.json	/^    "surroundingPairs": [$/;"	a
+syntax	syntaxes/viml.tmLanguage.json	/^        "syntax": {$/;"	o	object:repository
+target	tsconfig.json	/^		"target": "es5",$/;"	s	object:compilerOptions
+test	package.json	/^        "test": "node .\/src\/index.js"$/;"	s	object:scripts
+theme	package.json	/^        "theme": "dark"$/;"	s	object:galleryBanner
+type	.vscode/launch.json	/^          "type": "extensionHost",$/;"	s	object:configurations.0
+type	package.json	/^        "type": "git",$/;"	s	object:repository
+typescript	package.json	/^        "typescript": "^2.8.3",$/;"	s	object:devDependencies
+unlink	package.json	/^        "unlink": "rm -r ~\/.vscode-insiders\/extensions\/vscode-viml",$/;"	s	object:scripts
+url	package.json	/^        "url": "https:\/\/github.com\/dunstontc\/viml.git"$/;"	s	object:repository
+url	package.json	/^      "url": "https:\/\/github.com\/dunstontc\/viml\/issues"$/;"	s	object:bugs
+variable	syntaxes/viml.tmLanguage.json	/^        "variable": {$/;"	o	object:repository
+version	.vscode/launch.json	/^  "version": "0.1.0",$/;"	s
+version	package.json	/^    "version": "0.1.6",$/;"	s
+vimOptions	src/js/index.js	/^const vimOptions = require(path.join(__dirname, '..', 'completions', 'options'));$/;"	C
+vscode	package.json	/^        "vscode": "^1.1.14"$/;"	s	object:devDependencies
+vscode	package.json	/^        "vscode": "^1.20.0"$/;"	s	object:engines

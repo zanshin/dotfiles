@@ -1,0 +1,162 @@
+{
+	"name": "vscode-aws-console",
+	"displayName": "AWS Console EC2 Manager",
+	"description": "VS Code aws-console integration extension, allows you to manage resources such as EC2 containers.",
+	"author": {
+		"email": "fotiadis90@gmail.com",
+		"name": "Alexandros Fotiadis"
+	},
+	"version": "0.0.5",
+	"publisher": "vscode-aws-console",
+	"repository": {
+		"url": "https://github.com/alex20465/vscode-aws-console",
+		"type": "github"
+	},
+	"engines": {
+		"vscode": "^1.25.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onView:aws_ec2_containers"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "AWS Console",
+			"properties": {
+				"awsconsole.ec2.region": {
+					"type": "string",
+					"default": "us-east-1",
+					"description": "Specifies the EC2 containers region",
+					"enum": [
+						"us-east-2",
+						"us-east-1",
+						"us-west-1",
+						"us-west-2",
+						"ap-northeast-1",
+						"ap-northeast-2",
+						"ap-northeast-3",
+						"ap-south-1",
+						"ap-southeast-1",
+						"ap-southeast-2",
+						"ca-central-1",
+						"cn-north-1",
+						"cn-northwest-1",
+						"eu-central-1",
+						"eu-west-1",
+						"eu-west-2",
+						"eu-west-3",
+						"sa-east-1",
+						"us-gov-west-1"
+					]
+				}
+			}
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "aws-console",
+					"title": "AWS Console",
+					"icon": "images/dark/logo.svg"
+				}
+			]
+		},
+		"views": {
+			"aws-console": [
+				{
+					"id": "aws_ec2_containers",
+					"name": "EC2 Containers"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "awsconsole.ec2.stopContainer",
+				"icon": {
+					"dark": "images/dark/stop.svg",
+					"light": "images/light/stop.svg"
+				},
+				"title": "Stop"
+			},
+			{
+				"command": "awsconsole.ec2.startContainer",
+				"title": "Start",
+				"icon": {
+					"dark": "images/dark/play.svg",
+					"light": "images/light/play.svg"
+				}
+			},
+			{
+				"command": "awsconsole.ec2.refreshContainers",
+				"title": "Refresh",
+				"icon": {
+					"dark": "images/dark/refresh.svg",
+					"light": "images/light/refresh.svg"
+				}
+			},
+			{
+				"command": "awsconsole.ec2.copyItemValue",
+				"title": "Copy",
+				"icon": {
+					"dark": "images/dark/copy.svg",
+					"light": "images/light/copy.svg"
+				}
+			}
+		],
+		"menus": {
+			"view/item/context": [
+				{
+					"command": "awsconsole.ec2.stopContainer",
+					"when": "view == aws_ec2_containers && viewItem == running_container",
+					"group": "inline"
+				},
+				{
+					"command": "awsconsole.ec2.startContainer",
+					"when": "view == aws_ec2_containers && viewItem == stopped_container",
+					"group": "inline"
+				},
+				{
+					"command": "awsconsole.ec2.copyItemValue",
+					"when": "view == aws_ec2_containers && viewItem == detail_item",
+					"group": "inline"
+				}
+			],
+			"view/title": [
+				{
+					"command": "awsconsole.ec2.refreshContainers",
+					"when": "view == aws_ec2_containers",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/clipboardy": "^1.1.0",
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^7.0.43",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.291.0",
+		"clipboardy": "^1.2.3"
+	},
+	"readme": "README.md",
+	"icon": "media/aws-console-logo.png",
+	"__metadata": {
+		"id": "278b7391-93cc-44ec-af01-f9e3e25a4afe",
+		"publisherId": "c069b19a-4156-47b3-856f-d3da05b75e3f",
+		"publisherDisplayName": "AWS Console for VS Code"
+	}
+}

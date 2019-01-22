@@ -1,0 +1,72 @@
+{
+	"name": "viml",
+	"displayName": "vscode-viml-syntax",
+	"description": "Syntax highlighting for .vim files.",
+	"version": "0.1.7",
+	"publisher": "dunstontc",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dunstontc/viml.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dunstontc/viml/issues"
+	},
+	"scripts": {
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"link": "ln -s $(pwd) ~/.vscode-insiders/extensions",
+		"unlink": "rm -r ~/.vscode-insiders/extensions/vscode-viml",
+		"start": "gulp watch",
+		"test": "node ./src/index.js"
+	},
+	"engines": {
+		"vscode": "^1.20.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "viml",
+				"aliases": [
+					"VimL",
+					"viml"
+				],
+				"extensions": [
+					".vim",
+					".vimrc",
+					".gvim",
+					".ideavim"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "viml",
+				"scopeName": "source.viml",
+				"path": "./syntaxes/viml.tmLanguage.json"
+			}
+		]
+	},
+	"galleryBanner": {
+		"color": "#569cd6",
+		"theme": "dark"
+	},
+	"icon": "assets/vim.png",
+	"devDependencies": {
+		"@types/node": "^9.6.6",
+		"gulp": "^3.9.1",
+		"gulp-json5-to-json": "^0.2.1",
+		"gulp-merge-json": "^1.3.0",
+		"gulp-watch": "^5.0.0",
+		"typescript": "^2.8.3",
+		"vscode": "^1.1.14"
+	},
+	"__metadata": {
+		"id": "7bfe5a0b-4cab-40a1-9314-48f86c1d1b4e",
+		"publisherId": "564ecb85-8c09-42fc-b2da-902737b2e743",
+		"publisherDisplayName": "dunstontc"
+	}
+}
