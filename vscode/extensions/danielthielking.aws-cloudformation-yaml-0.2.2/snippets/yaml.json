@@ -1,0 +1,246 @@
+{
+    "AWS CloudFormation Template": {
+        "prefix": "AWSTemplate",
+        "body": [
+            "---",
+            "AWSTemplateFormatVersion: '2010-09-09'",
+            "Description: 'Master stack: ${1:PathToMasterStackFile}'",
+            "",
+            "Parameters:",
+            "  BranchName:",
+            "    Default: ${2:BranchName}",
+            "    Description: Choose which Branch do you want to use",
+            "    Type: String",
+            "  Customer:",
+            "    Description: is used as Customer tag value for all resources",
+            "    Type: String",
+            "    Default: ${3:Customer}",
+            "    AllowedPattern: ^[A-Za-z0-9]*$",
+            "    ConstraintDescription: must contain only alphanumeric characters and numbers.",
+            "    MaxLength: 20",
+            "    MinLength: 1",
+            "  CustomerProject:",
+            "    Description: is used as Customer project tag value for all resources",
+            "    Type: String",
+            "    Default: ${4:CustomerProject}",
+            "    AllowedPattern: ^[A-Za-z0-9]*$",
+            "    ConstraintDescription: must contain only alphanumeric characters and numbers.",
+            "    MaxLength: 20",
+            "    MinLength: 1",
+            "  Environment:",
+            "    Description: Environment to deploy. Use staging for limited resources and no alerts.",
+            "    Type: String",
+            "    Default: ${5|Staging,Production|}",
+            "    AllowedValues:",
+            "    - Staging",
+            "    - Production",
+            "",
+            "Metadata:",
+            "  AWS::CloudFormation::Interface:",
+            "    ParameterGroups:",
+            "    - Label:",
+            "        default: Tagging and billing",
+            "      Parameters:",
+            "      - Customer",
+            "      - CustomerProject",
+            "    - Label:",
+            "        default: Choose Branch and Environment",
+            "      Parameters:",
+            "      - Environment",
+            "      - BranchName",
+            "",
+            "Mappings:",
+            "",
+            "Resources:",
+            "  $0",
+            "",
+            "Outputs:",
+            "  $1"
+        ],
+        "description": "This snippet provides a complete AWS CFN template structure."
+    },
+    "Parameter": {
+        "prefix": "Parameter",
+        "body": [
+            "${1:ParameterName}:",
+            "  Description: ${2:ParameterDescription}",
+            "  Type: ${3|String,Number,CommaDelimitedList|}",
+            "  Default: ${4:ParameterDefault}"
+        ],
+        "description": "Adds new parameter"
+    },
+    "MetadataParameterGroup": {
+        "prefix": "MetadataParameterGroup",
+        "body": [
+            "- Label:",
+            "    default: ${1:ParameterGroupDescription}",
+            "  Parameters:",
+            "  - ${0:Parameter}"
+        ],
+        "description": "Adds ParameterGroup to Interface"
+    },
+    "ConditionsSection": {
+        "prefix": "ConditionsSection",
+        "body": [
+            "Conditions:",
+            "  ${1:LogicalId}: ${2:IntrinsicFunction}"
+        ],
+        "description": "Adds Conditions Section to Template"
+    },
+    "Resource": {
+        "prefix": "Resource",
+        "body": [
+            "${1:ResourceName}:",
+            "  Type: AWS::${2:ResourceGroup}::${3:ResourceType}",
+            "  DependsOn:",
+            "  - ${4:ResourceDependsOn}",
+            "  Properties:",
+            "    ${5:ResourceProperties}"
+        ],
+        "description": "Adds new AWS resource to template"
+    },
+    "ResourceWithTemplate": {
+        "prefix": "ResourceWithTemplateURL",
+        "body": [
+            "${1:ResourceName}:",
+            "Type: AWS::CloudFormation::Stack",
+            "DependsOn:",
+            "- ${2:ResourceDependsOn}",
+            "Properties:",
+            "  Parameters:",
+            "    ${3:ResourceParameters}",
+            "  TemplateURL:",
+            "    !Join",
+            "    - '/'",
+            "    - - !FindInMap [CFNBucket, AllRegions, BucketUrl]",
+            "      - !Ref BranchName",
+            "      - cfn-generic/${0:ResourceTemplateURL}"
+        ],
+        "description": "Adds new AWS resource from generic template to current template"
+    },
+    "Output": {
+        "prefix": "Output",
+        "body": [
+            "${1:OutputName}:",
+            "  Description: ${2:OutputDescription}",
+            "  Value: ${0:OutputValue}"
+        ],
+        "description": "Adds output"
+    },
+    "Export": {
+        "prefix": "Export",
+        "body": [
+            "${1:OutputName}:",
+            "  Description: ${2:OutputDescription}",
+            "  Value: ${3:OutputValue}",
+            "  Export:",
+            "    Name: ${0:OutputExportName}"
+        ],
+        "description": "Adds export"
+    },
+    "Tag": {
+        "prefix": "Tag",
+        "body": [
+            "- Key: ${1:KeyName}",
+            "  Value: ${2:KeyValue}"
+        ],
+        "description": "Adds Tag"
+    },
+    "FindInMap": {
+        "prefix": "!FindInMap",
+        "body": "!FindInMap [${1:Map}, ${2:Selector}, ${3:Value}]",
+        "description": "Add !FindInMapp function"
+    },
+    "GetAtt": {
+        "prefix": "!GetAtt",
+        "body": "!GetAtt $0",
+        "description": "Add !GetAtt function"
+    },
+    "GetAZs": {
+        "prefix": "!GetAZs",
+        "body": "!GetAZs ${0:Region}",
+        "description": "Add !GetAZs function"
+    },
+    "Cidr": {
+        "prefix": "!Cidr",
+        "body": "!Cidr [${1:IpBlock}, ${2:Count}, ${3:SizeMask}]",
+        "description": "Add !Cidr function"
+    },
+    "ImportValue": {
+        "prefix": "!ImportValue",
+        "body": "!ImportValue ${1:ValueToImport}",
+        "description": "Add !ImportValue function"
+    },
+    "Join": {
+        "prefix": "!Join",
+        "body": [
+            "!Join",
+            "- '${1:Delimiter}'",
+            "- - ${2: Value}",
+            "  - ${0: Value}"
+        ],
+        "description": "Add !Join function"
+    },
+    "Select": {
+        "prefix": "!Select",
+        "body": "!Select [${1:Index}, ${2:List}]$0",
+        "description": "Add !Select function"
+    },
+    "Split": {
+        "prefix": "!Split",
+        "body": "!Split [${1:Delimiter}, ${2:SourceString}]$0",
+        "description": "Add !Split function"
+    },
+    "Sub": {
+        "prefix": "!Sub",
+        "body": [
+            "!Sub",
+            "- ${1:StringWithVariables}",
+            "- { ${2:VarName}: ${3:VarValue}$0 }"
+        ],
+        "description": "Adds !Sub function"
+    },
+    "Reference": {
+        "prefix": "!Ref",
+        "body": "!Ref ${0}",
+        "description": "Add !Ref function"
+    },
+    "And": {
+        "prefix": "!And",
+        "body": [
+            "!And",
+            "- ${1:Condition1}",
+            "- ${2:Condition2}"
+        ],
+        "description": "Add !And function"
+    },
+    "Equals": {
+        "prefix": "!Equals",
+        "body": "!Equals [${1:Value1}, ${2:Value2}]$0",
+        "description": "Add !Equals function"
+    },
+    "If": {
+        "prefix": "!If",
+        "body": [
+            "!If",
+            "- ${1:Condition}",
+            "- ${2:CondTrue}",
+            "- ${3:CondFalse}"
+        ],
+        "description": "Add !If function"
+    },
+    "Not": {
+        "prefix": "!Not",
+        "body": "!Not [${1:Condition}]",
+        "description": "Add !Not function"
+    },
+    "Or": {
+        "prefix": "!Or",
+        "body": [
+            "!Or",
+            "- ${1:Condition1}",
+            "- ${2:Condition2}"
+        ],
+        "description": "Add !Or function"
+    }
+}

@@ -1,0 +1,17 @@
+2018-04-07 "syntax enable".
+2018-04-07 "filetype plugin indent on".
+2018-04-07 augroups.
+2018-04-08 Scopes for function names. (ex:scope#function()).
+2018-04-20 Abbreviations.
+2018-04-20 command line abbreviations.
+2018-06-01 Highlight "-nargs=?".
+2018-04-07 "<q-args>".
+2018-06-01 Highlight "<f-args>".
+2018-06-01 Highlight "-bar".
+2018-06-01 Highlight "$ENV_VARS".
+2018-06-01 Highlight parameters.
+2018-06-01 Highlight "."
+2018-06-01 Highlight `execute py_exe "<< EOF"`.
+2018-06-01 Highlight "ruby << EOF".
+
+

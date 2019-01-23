@@ -1,0 +1,76 @@
+{
+	"name": "hugofy",
+	"displayName": "hugofy",
+	"description": "Make your life easier to use Hugo static site generator in vscode",
+	"version": "0.1.0",
+	"publisher": "akmittal",
+	"icon": "hugofy.png",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "hugofy.build",
+				"title": "Hugofy: Build"
+			},
+			{
+				"command": "hugofy.getVersion",
+				"title": "Hugofy: Version"
+			},
+			{
+				"command": "hugofy.downloadTheme",
+				"title": "Hugofy: Download Themes"
+			},
+			{
+				"command": "hugofy.newPost",
+				"title": "Hugofy: New Post"
+			},
+			{
+				"command": "hugofy.newSite",
+				"title": "Hugofy: New Site"
+			},
+			{
+				"command": "hugofy.setTheme",
+				"title": "Hugofy: Set Theme"
+			},
+			{
+				"command": "hugofy.startServer",
+				"title": "Hugofy: Start Server"
+			},
+			{
+				"command": "hugofy.stopServer",
+				"title": "Hugofy: Stop Server"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.34",
+		"@types/node": "^6.0.53",
+		"mocha": "^2.3.3",
+		"tslint": "^4.2.0",
+		"typescript": "^2.1.0",
+		"vscode": "^1.0.3"
+	},
+	"dependencies": {
+		"opn": "^4.0.2"
+	},
+	"__metadata": {
+		"id": "86233e31-b5ac-4430-a8d1-1a8ae60137bc",
+		"publisherId": "2fd84e4a-bac5-48f1-8d1f-48459a37f7d2",
+		"publisherDisplayName": "akmittal"
+	}
+}

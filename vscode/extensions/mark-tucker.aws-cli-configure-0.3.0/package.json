@@ -1,0 +1,98 @@
+{
+	"name": "aws-cli-configure",
+	"displayName": "AWS CLI Configure",
+	"description": "Quickly access the AWS CLI config & credentials files and set any named profile as the [default] profile.",
+	"version": "0.3.0",
+	"publisher": "mark-tucker",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.23.0"
+	},
+	"galleryBanner": {
+		"color": "#2B2C33",
+		"theme": "dark"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"aws",
+		"amazon",
+		"aws cli",
+		"config",
+		"credentials"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rmtuckerphx/aws-cli-configure.git"
+	},
+	"bugs": {
+		"url": "https://github.com/rmtuckerphx/aws-cli-configure/issues"
+	},
+	"activationEvents": [
+		"onCommand:aws-cli.open.credentials",
+		"onCommand:aws-cli.open.config",
+		"onCommand:aws-cli.open.both",
+		"onCommand:aws-cli.browse.docs",
+		"onCommand:aws-cli.default.map.credentials",
+		"onCommand:aws-cli.set-default-profile.credentials",
+		"onCommand:aws-cli.copy.profile.credentials"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "aws-cli.open.credentials",
+				"title": "AWS CLI: Open 'credentials' file"
+			},
+			{
+				"command": "aws-cli.open.config",
+				"title": "AWS CLI: Open 'config' file"
+			},
+			{
+				"command": "aws-cli.open.both",
+				"title": "AWS CLI: Open 'credentials' & 'config' files"
+			},
+			{
+				"command": "aws-cli.browse.docs",
+				"title": "AWS CLI: Browse online docs"
+			},
+			{
+				"command": "aws-cli.default.map.credentials",
+				"title": "AWS CLI: Show [named] profile mapped to [default] in 'credentials'"
+			},
+			{
+				"command": "aws-cli.set-default-profile.credentials",
+				"title": "AWS CLI: Set 'credentials' [default] profile to..."
+			},
+			{
+				"command": "aws-cli.copy.profile.credentials",
+				"title": "AWS CLI: Copy profile name from 'credentials'..."
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6",
+		"eslint": "^4.11.0",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"aws-profile-handler": "git://github.com/rmtuckerphx/aws-profile-handler.git",
+		"copy-paste": "^1.3.0",
+		"object-hash": "^1.3.0",
+		"opn": "^5.3.0",
+		"uniqid": "^5.0.2"
+	},
+	"__metadata": {
+		"id": "f1b47f88-a256-4d39-a24a-546cbf1a4ed9",
+		"publisherId": "2d8dc406-5ef6-430a-b9d7-56752c287fe3",
+		"publisherDisplayName": "Mark Tucker"
+	}
+}

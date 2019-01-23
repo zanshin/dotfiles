@@ -1,0 +1,34 @@
+{
+	"name": "aws-cloudformation-yaml",
+	"displayName": "aws-cloudformation-yaml",
+	"description": "Adds YAML and JSON snippets for AWS CloudFormation to VS Code",
+	"version": "0.2.2",
+	"publisher": "DanielThielking",
+	"engines": {
+		"vscode": "^1.14.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "yaml",
+				"path": "./snippets/yaml.json"
+			},
+			{
+				"language": "json",
+				"path": "./snippets/json.json"
+			}
+		]
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dthielking/aws-cloudformation-yaml.git"
+	},
+	"__metadata": {
+		"id": "aaa99d1c-5fcd-44a1-a84a-7106dcd265d0",
+		"publisherId": "55cf8dc7-35e1-4996-a102-96c1b48b8c8c",
+		"publisherDisplayName": "Daniel Thielking"
+	}
+}
