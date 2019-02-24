@@ -1,155 +1,71 @@
-! Base Settings
-! -------------
-URxvt.termName:    rxvt-256color
-URxvt.scrollBar:   false
-! URxvt.font:        xft:monospace:size=11
-!URxvt.font:        xft:Inconsolata:size=13
-URxvt.font:        xft:Hack:size=11
-!xterm*faceName:    xft:Inconsolata:size=13
-xterm*faceName:    xft:Hack:size=11
-URxvt*transparent: true
-URxvt*shading:     25
-URxvt*fading:      30
-URxvt.saveLines:   50000
 
-!
-! Generated with :
-! XRDB2Xreources.py
-!
-*.foreground:  #fffaf4
-*.background:  #0e1019
-*.cursorColor: #ff0018
-!
-! Black
-*.color0:      #232323
-*.color8:      #444444
-!
-! Red
-*.color1:      #ff000f
-*.color9:      #ff2740
-!
-! Green
-*.color2:      #8ce10b
-*.color10:     #abe15b
-!
-! Yellow
-*.color3:      #ffb900
-*.color11:     #ffd242
-!
-! Blue
-*.color4:      #008df8
-*.color12:     #0092ff
-!
-! Magenta
-*.color5:      #6d43a6
-*.color13:     #9a5feb
-!
-! Cyan
-*.color6:      #00d8eb
-*.color14:     #67fff0
-!
-! White
-*.color7:      #ffffff
-*.color15:     #ffffff
-!
-! Bold, Italic, Underline
-*.colorBD:     #9e9c9a
-!*.colorIT:
-!*.colorUL:
-
-
-! ------------------------------------------------------------------------------
-! ROFI Color theme
-! ------------------------------------------------------------------------------
-rofi.color-enabled: true
-rofi.color-window: #273238, #273238, #1e2529
-rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
-rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
-rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
-
-! URxvt*background:           #101218
-! URxvt*foreground:           #d1d4e0
-! URxvt*cursorColor:          #d1d4e0
-! URxvt*scrollColor:          #d1d4e0
-! URxvt*highlightColor:       #1f222d
-! URxvt*highlightTextColor:   #C0C5CE
-
-! URxvt*color0:               #101218
-! URxvt*color1:               #ee829f
-! URxvt*color2:               #a5ffe1
-! URxvt*color3:               #ffefcc
-! URxvt*color4:               #97bbf7
-! URxvt*color5:               #c0b7f9
-! URxvt*color6:               #97e0ff
-! URxvt*color7:               #d1d4e0
-! URxvt*color8:               #7780a1
-! URxvt*color9:               #ee829f
-! URxvt*color10:              #a5ffe1
-! URxvt*color11:              #ffefcc
-! URxvt*color12:              #97bbf7
-! URxvt*color13:              #c0b7f9
-! URxvt*color14:              #97e0ff
-! URxvt*color15:              #ffffff
-
-! URxvt*color16:              #f99170
-! URxvt*color17:              #fcc09e
-! URxvt*color18:              #1f222d
-! URxvt*color19:              #252936
-! URxvt*color20:              #C0C5CE
-! URxvt*color21:              #C9CCDB
-
-! Spacegray colors
-! ----------------
-! URxvt*background:           #111314
-! URxvt*foreground:           #b7bbb7
-! URxvt*cursorColor:          #b7bbb7
-! URxvt*scrollColor:          #b7bbb7
-! URxvt*highlightColor:
-! URxvt*hihglightTextColor:
-
+! Chalk colors
+*.foreground:  #d2d8d9
+*.background:  #2b2b2e
+*.cursorColor:  #d2d8d9
 ! black
-! URxvt*color0:               #2c2f33
-! URxvt*color8:               #4b5056
+*.color0:      #7d8b8f
+*.color8:      #888888
 ! red
-! URxvt*color1:               #b04c50
-! URxvt*color9:               #b04c50
+*.color1:      #b23a52
+*.color9:      #f24840
 ! green
-! URxvt*color2:               #919652
-! URxvt*color10:              #94985b
+*.color2:      #789b6a
+*.color10:     #80c470
 ! yellow
-! URxvt*color3:               #e2995c
-! URxvt*color11:              #e2995c
+*.color3:      #b9ac4a
+*.color11:     #ffeb62
 ! blue
-! URxvt*color4:               #66899d
-! URxvt*color12:              #66899d
+*.color4:      #2a7fac
+*.color12:     #4196ff
 ! magenta
-! URxvt*color5:               #8d6494
-! URxvt*color13:              #8d6494
+*.color5:      #bd4f5a
+*.color13:     #fc5275
 ! cyan
-! URxvt*color6:               #527c77
-! URxvt*color14:              #527c77
+*.color6:      #44a799
+*.color14:     #53cdbd
 ! white
-! URxvt*color7:               #606360
-! URxvt*color15:              #dde3dc
+*.color7:      #d2d8d9
+*.color15:     #d2d8d9
 
+! URxvt settings
+! URxvt.termName:          xterm-256color
+URxvt.termName:          screen-256color
 
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
 
+! URxvt*transparent:       false
+URxvt*transparent:       true
+URxvt*shading:           10
 
+! Works with compton for true transparency
+!URxvt*depth: 32
+!URxvt.background: [5]#2b303b
 
+! URxvt.font: xft:Sans Seri:pixelsize=16
+URxvt.font: xft:Hack:pixelsize=13
 
+! Urxvt*font:              xtf:Anonymous:size=18
+! URxvt.letterSpace: 0
 
+*antialias:  true
+*autohint:   false
 
-! Enable Perl extensions
-! ----------------------
-URxvt.perl-ext-common: default,matcher,fullscreen,resize-font,clipboard
+! URxvt.perl-ext-common: default,matcher,fullscreen,resize-font,clipboard,tabbed,selection-to-clipboard
+URxvt.perl-ext-common: default,matcher,clipboard,selection-to-clipboard
 
-! Clickable URLs
-! --------------
-URxvt.url-launcher: /usr/bin/chromium
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
-! Fullscreen toggle
+! URxvt.perl-ext-common: ...,tabbed,...
+! URxvt.tabbed.tabbar-fg: 2
+! URxvt.tabbed.tabbar-bg: 0
+! URxvt.tabbed.tab-fg: 3
+! URxvt.tabbed.tab-bg: 2
+
+! fullscreen toggle
 URxvt.keysym.F11: perl:fullscreen:switch
 
-! Copy to Clipboard and Primary (keep them in sync)
-Urxvt.perl-ext-common: selection-to-clipboard
+! clipboard
+! URxvt.perl-ext-common: selection-to-clipboard
