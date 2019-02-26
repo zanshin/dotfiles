@@ -197,7 +197,7 @@ height = 30
 ; padding = 2
 ; module-margin = 1
 
-modules-left = host kernel updates closebar
+modules-left = host kernel checkreboot updates closebar
 
 [module/linuxbarlauncher]
 type = custom/text
@@ -233,6 +233,7 @@ label-unfocused-foreground = ${global.icon}
 label-unfocused-padding = 2
 label-visible-padding = 2
 label-urgent-padding = 2
+label-urgent-foreground = ${colors.red}
 label-mode-padding = 2
 label-focused-padding = 2
 
@@ -383,7 +384,12 @@ interval = 1200
 [module/kernel]
 type = custom/script
 exec = ~/.config/polybar/kernel.sh
-internal = 1200
+interval = 1200
+
+[module/checkreboot]
+type = custom/script
+exec = ~/.config/polybar/arch-reboot.sh
+interval = 1200
 
 ; }}}
 
