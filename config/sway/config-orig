@@ -163,7 +163,6 @@ bindsym $mod+r mode "resize"
 # Enable natural scrolling and tap on Touchpad
 input "1267:12376:ELAN1200:00_04F3:3058_Touchpad" {
     tap enabled
-    tap_button_map lrm
     natural_scroll enabled
 }
 
