@@ -63,7 +63,13 @@ bindsym $mod+i exec $browser
 bindsym $mod+Shift+q kill
 
 # Start menu
-bindsym $mod+d exec $menu
+# bindsym $mod+d exec $menu
+bindsym $mod+d exec "bash ~/.config/rofi/menu/SEARCH"
+
+# Power menu via rofi
+bindsym $mod+p exec ~/.config/rofi/menu/SYSTEM
+bindsym XF86Sleep exec i3exit suspend
+bindsym XF86PowerOff exec i3exit poweroff
 
 # Floating windows
 #floating_modifier $mod normal
@@ -108,8 +114,8 @@ bindsym $mod+Shift+$right move right
 
 # Split focused container
 bindsym $mod+e layout toggle split
-bindsym $mod+Minus splith
-bindsym $mod+Bar splitv
+bindsym $mod+v splith
+bindsym $mod+b splitv
 
 # Switch focused container layout styles
 bindsym $mod+s layout stacking
@@ -206,3 +212,8 @@ exec --no-startup-id loadkeys /usr/local/share/kbd/keymaps/personal.map
 
 # Start compton
 # exec --no-startup-id compton --blur-kern 5x5 -b
+exec --no-startup-id compton -b
+
+# xautolock
+exec --no-startup-id betterlockscreen -u /home/mark/Pictures/wallpaper.jpg -b 3
+exec --no-startup-id xautolock -time 5 -locker "i3exit lock" -killtime 10 -killer "xset dpms force off" -nowlocker "betterlockscreen -l blur"
