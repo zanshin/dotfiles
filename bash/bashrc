@@ -34,6 +34,10 @@ if [[ "myos" == "Darwin" ]]; then
   [[ -e $(brew --prefix)/etc/bash_completions.d/git-completions.bash ]] && source $(brew --prefix)/etc/bash_completions.d/git-completions.bash
 fi
 
+# source Master Password rc and completion files
+# [[ -e $HOME/src/masterpassword/mpw.bashrc ]] && source $HOME/src/masterpassword/mpw.bashrc
+# [[ -s $HOME/src/masterpassword/mpw.completion.bash ]] && source $HOME/src/masterpassword/mpw.completion.bash
+
 # export EDITOR, PAGER, and LESS
 export VISUAL=nvim
 export EDITOR="$VISUAL"

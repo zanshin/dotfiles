@@ -1,4 +1,4 @@
-# Custom config for i3
+# Custom config for sway
 
 set $mod Mod1
 
@@ -8,9 +8,10 @@ set $up k
 set $right l
 
 set $term /usr/bin/urxvt
-set $menu /usr/bin/rofi -show run
+#set $term /usr/bin/terminator
+#set $menu /usr/bin/rofi -show drum
+set $menu /usr/local/bin/dmenu_run
 set $browser /usr/bin/firefox
-set $barcmd i3status
 
 # Workspaces
 set $wkspace1 1
@@ -24,14 +25,6 @@ set $wkspace8 8
 set $wkspace9 9
 set $wkspace10 10
 
-# Font for window titles. Will also be used by the bar unless
-# a different font is specified in the bar
-# font pango:Hack 10, FontAwesome 9
-font pango:SFNS Display Regular 15, FontAwesome 9
-
-# no title bars
-for_window [class="^.*"] border pixel 0
-
 # Gaps
 gaps outer 10
 gaps inner 40
@@ -40,6 +33,14 @@ default_border none
 default_floating_border none
 hide_edge_borders both
 
+# Output
+set $wallpaper ~/Pictures/wallpaper.jpg
+output * bg $wallpaper fill
+output eDP-1  pos 1920  0 res 1920x1080
+
+workspace 1 output eDP-1
+
+# Behavior
 focus_follows_mouse yes
 
 # Key bindings
@@ -66,32 +67,12 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu
 
 # Floating windows
-#floating_modifier $mod normal
+floating_modifier $mod normal
 
-# Float some windows
-for_window [class="Code"] floating enable
-for_window [class="Firefox"] floating enable
-for_window [class="google-chrome"] floating enable
-for_window [class="Google-chrome"] floating enable
-for_window [class="Keybase"] floating enable
-for_window [class="Rocket.chat"] floating enable
-for_window [class="Slack"] floating enable
-for_window [class="Steam"] floating enable
-for_window [class="VirtualBox"] floating enable
-for_window [class="vlc"] floating enable
-for_window [class="Wireshark"] floating enable
-
-# Assign some apps to certain workspaces
-assign [class="Firefox"] $wkspace2
-assign [class="Rocket.Chat"] $wkspace10
-
-# Reload ~/.config/i3/config
+# Reload ~/.config/sway/config
 bindsym $mod+Shift+c reload
 
-# Restart i3 in-place (preserves layout/session)
-bindsym $mod+Shift+s restart
-
-# Exit i3 logging out of Wayland
+# Exit sway logging out of Wayland
 bindsym $mod+Shift+e exit
 
 # Move focus
@@ -177,32 +158,8 @@ bindsym $mod+r mode "resize"
 #        background #323232
 #        inactive_workspace #32323200 #32323200 #5c5c5c
 #    }
-#    status_command $barcmd --config ~/.config/i3/status.conf
 #}
 
-# Polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+include /etc/sway/config.d/*
 
-# Wallpaper using feh
-exec_always --no-startup-id feh --bg-scale /home/mark/Pictures/wallpaper.jpg
-
-# Run xrdb merge for good colors
-exec xrdb -merge $HOME/.XResources
-
-# Set screen resolution (via arandr)
-exec xrandr --output HDMI1 --off --output DP1 --off --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
-
-# Start NetworkManager applet
-exec --no-startup-id nm-applet
-
-# Start dunst notification daemon
-exec --no-startup-id dunst
-
-# Start Dropbox
-exec --no-startup-id dropbox start
-
-# Load our modified keymap
-exec --no-startup-id loadkeys /usr/local/share/kbd/keymaps/personal.map
-
-# Start compton
-# exec --no-startup-id compton --blur-kern 5x5 -b
+exec waybar
