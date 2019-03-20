@@ -66,6 +66,8 @@ alias 'rm=rm -i'
 #alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
 alias 'previous=history | grep '
 
+alias 'xup=xrdb ~/.Xresources'
+
 # }}}
 # Mercurial (hg) {{{
 alias 'h=hg status'

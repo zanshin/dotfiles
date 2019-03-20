@@ -1,412 +1,305 @@
-;=====================================================
 ;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
+; Polybar configuration
+; see https://github.com/jaagr/polybar for README
 ;
-;   The README contains alot of information
-;
-;=====================================================
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
-
+; Colors {{{
 [colors]
+
+black    = ${xrdb:color0}
+red      = ${xrdb:color1}
+green    = ${xrdb:color2}
+yellow   = ${xrdb:color3}
+blue     = ${xrdb:color4}
+magenta  = ${xrdb:color5}
+cyan     = ${xrdb:color6}
+white    = ${xrdb:color7}
+brblack  = ${xrdb:color8}
+brred    = ${xrdb:color9}
+brgreen  = ${xrdb:color10}
+bryellow = ${xrdb:color11}
+brblue   = ${xrdb:color12}
+brmagenta= ${xrdb:color13}
+brcyan   = ${xrdb:color14}
+brwhite  = ${xrdb:color15}
+
 navy    = #001f3f
-blue    = #0074d9
 aqua    = #7fdbff
 teal    = #39cccc
 olive   = #3d9970
-green   = #3ecc40
 lime    = #01ff70
-yellow  = #ffdc00
 orange  = #ff851b
-red     = #ff4136
 maroon  = #85144b
 fuchsia = #f012be
 purple  = #b10dc9
-black   = #111111
 gray    = #aaaaaa
-silver  = #dddddd
-white   = #ffffff
+silver = #dddddd
 
-background    = #ed222222
-foreground    = #dfdfdf
-underline     = #00f
-overline      = #f00
-border-bottom = #333
-border-top    = #333
+foreground = ${xrdb:foreground}
+background = ${xrdb:background}
 
-[bar/top]
-;monitor = ${env:MONITOR:HDMI2}
-;monitor = eDP-1
-monitor =
-dock = false
+; }}}
+
+; Global attributes {{{
+[global]
+icon    = ${colors.blue}
+fg      = ${colors.foreground}
+bg      = #00000000
+
+; }}}
+
+; Common bar {{{
+[bar/common]
+monitor = eDP-1
 width = 100%
-height = 27
-offset-x = 0
-offset-y = 0
-override-redirect = true
-
-;background = ${xrdb:color9}
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-;lineheight = 1
-;linecolor = #555
-overline-size = 2
-overline-color = ${colors.overline}
-underline-size = 2
-underline-color = ${colors.underline}
-
-border-bottom = 2
-border-bottom-color = ${colors.border-bottom}
-
-spacing = 1
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
+height = 20
+padding-left        = 2
+padding-right       = 2
+module-margin-left  = 2
 module-margin-right = 2
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
-font-0 = Hack:pixelsize=10;0
-font-1 = FontAwesome:pixelsize=10;0
-;font-1 = fixed:pixelsize=10;0
-;font-2 = unifont:size=6:heavy:fontformat=truetype;-2
-;font-3 = siji:pixelsize=10;0
+; font-0 = "Hack:style=Regular:size=10"
+font-0 = SFNS Display Regular:size=13;0
+font-1 = "FontAwesome:style=regular:size=15;2"
 
-;modules-left = bspwm i3
-modules-left = i3
-modules-center = xwindow
-;modules-right = backlight volume memory cpu wlan eth battery temperature date powermenu
-;modules-right = wlan date powermenu
-modules-right = wlan date powermenubarlauncher
+background = ${global.bg}
+foreground = ${global.fg}
 
-;wm-restack = bspwm
+; }}}
 
-[bar/bottom]
-;monitor = ${env:MONITOR:HDMI2}
-;monitor = eDP-1
-monitor =
-dock = false
+; Dummy bar {{{
+[bar/dummy]
+monitor = eDP-1
+foreground   = #00000000
+background   = #00000000
+border-color = #00000000
 width = 100%
-height = 27
-offset-x = 0
-offset-y = 0
-bottom = true
-override-redirect = true
+height = 30
+modules-center = blank
+font-0 = SFNS Display Regular:size=11;0
+content = " "
+override-direct = true
+wm-restack = i3
+
+; }}}
+
+; Top bar {{{
+[bar/top]
+inherit = bar/common
+
+line-color = ${global.bg}
+line-size = 16
+
+spacing = 2
+; padding-right = 1
+; module-margin = 1
 
 tray-position = right
-tray-detached = false
-tray-maxsize = 25
-;tray-transparent = true
-tray-background = ${root.background}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 2
+tray-padding  = 2
+tray-detatched = false
+tray-background = ${global.bg}
 tray-scale = 1.0
 
+modules-left = linuxbarlauncher i3
+modules-center = title
+; modules-right = volume wlan date
+modules-right = volume wlan diskbarlauncher statsbarlauncher powerbarlauncher clock
 
-;background = ${xrdb:color9}
-background = ${colors.background}
-foreground = ${colors.foreground}
+; }}}
 
-;lineheight = 1
-;linecolor = #555
-overline-size = 2
-overline-color = ${colors.overline}
-underline-size = 2
-underline-color = ${colors.underline}
+; Bottom bar {{{
+[bar/bottom]
+; inherit = bar/common
+; bottom = true
+; height = 20
+;
+; background = ${bar/top.background}
+; foreground = ${bar/top.foreground}
+;
+; line-color = ${bar/top.background}
+; line-size = 2
 
-border-top = 2
-border-top-color = ${colors.border-top}
+; spacing = 3
+; padding-right = 4
+; module-margin-left = 0
+; module-margin-right = 6
 
-spacing = 1
-padding-left = 0
-padding-right = 2
-module-margin-left = 1
-module-margin-right = 2
+; modules-left = powermenu openweathermap ssh ping updates
+; modules-left = powermenu battery-combined-udev ssh ping updates
+; modules-left = host kernel battery-combined-udev updates ssh wttr
+; modules-right = uptime cpu memory temperature filesystem
+; modules-center = spotify
 
-font-0 = Hack:pixelsize=10;0
-font-1 = FontAwesome:pixelsize=10;0
-;font-1 = fixed:pixelsize=10;0
-;font-2 = unifont:size=6:heavy:fontformat=truetype;-2
-;font-3 = siji:pixelsize=10;0
+; }}}
 
-;modules-left = bspwm i3
-;modules-left = i3
-;modules-center = xwindow
-;modules-right = backlight volume memory cpu wlan eth battery temperature date powermenu
-modules-left = volume
-modules-center = cpu memory temperature battery
-modules-right = filesystem
+; Power bar and launcher {{{
+[bar/powerbar]
+inherit = bar/common
+height = 30
+; offset-y = 10
 
+; padding = 3
+; module-margin = 2
 
-[module/xwindow]
-type = internal/xwindow
-label = %title%
-label-maxlen = 40
+modules-right = lock logout suspend reboot poweroff closebar
 
+[module/powerbarlauncher]
+type = custom/text
+content = "  "
+content-foreground = ${global.icon}
+click-left = polybar powerbar
 
-[module/filesystem]
-type = internal/fs
-interval = 25
+; }}}
 
-mount-0 = /
-mount-1 = /home
+; Stats bar and launcher {{{
+[bar/statsbar]
+inherit = bar/common
+height = 30
 
-;label-mounted = %mountpoint%: %percentage_free%
-label-mounted =  %mountpoint%: %used% of %total%
-label-mounted-foreground = ${colors.gray}
+; padding = 3
+; module-margin = 2
 
-label-unmounted = %mountpoint%: not mounted
-label-unmounted-foreground = #55
+modules-right = ip uptime cpu memory battery-combined-udev temperature closebar
 
-label-mounted-overline = ${colors.yellow}
-label-unmounted-overline = ${colors.yellow}
+[module/statsbarlauncher]
+type = custom/text
+content = "  "
+content-foreground = ${global.icon}
+click-left = polybar statsbar
 
+; }}}
 
+; File ssytem bar and launcher {{{
+[bar/diskbar]
+inherit = bar/common
+height = 30
+
+; padding = 3
+; module-margin = 3
+
+modules-right = filesystem closebar
+
+[module/diskbarlauncher]
+type = custom/text
+content = "  "
+content-foreground = ${global.icon}
+click-left = polybar diskbar
+
+; }}}
+
+; Linux (about) bar and launcher {{{
+[bar/linuxbar]
+inherit = bar/common
+height = 30
+
+; padding = 2
+; module-margin = 1
+
+modules-left = host kernel checkreboot updates closebar
+
+[module/linuxbarlauncher]
+type = custom/text
+content = "  "
+click-left = polybar linuxbar
+content-foreground = ${global.icon}
+
+; }}}
+
+; Internal modules {{{
 [module/i3]
 type = internal/i3
-;pin-workspaces = true
+pin-workspaces = false
 strip-wsnumbers = false
-format = <label-state> <label-mode>
-index-sort = true
+format = <label-state><label-mode>
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 
 label-mode = %mode%
-label-mode-padding = 2
-label-mode-background = #d60027
-
-;label-focused = %index%
-label-focused = %name%
-;label-focused-background = #ee333333
-label-focused-background = ${colors.aqua}
-label-focused-foreground = ${colors.black}
-label-focused-padding = 2
-label-focused-underline = ${colors.aqua}
-
-;label-unfocused = %index%
-label-unfocused = %name%
+label-focused = %icon%
+label-focused-background = ${global.bg}
+label-focused-foreground = ${global.fg}
+label-unfocused-foreground = ${global.icon}
 label-unfocused-padding = 2
-label-unfocused-underline = ${colors.blue}
-
-;label-urgent = %index%!
-label-urgent = %name%!
-;label-urgent-background = #bd2c40
-label-urgent-padding = 2
-label-urgent-underline = ${colors.red}
-label-urgent-background = ${colors.red}
-label-urgent-foreground = ${colors.white}
-
-;label-visible = %index%
-label-visible = %name%
-label-visible-foreground = #55
 label-visible-padding = 2
+label-urgent-padding = 2
+label-urgent-foreground = ${colors.red}
+label-mode-padding = 2
+label-focused-padding = 2
 
-;ws-icon-[0-9]+= label:icon
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 0;
-;ws-icon-default = 
-
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-label = CPU %{F#666}%{F#cc} %percentage%
-;label-underline = #f90000
-label-overline = ${colors.orange}
-
-format = <label> <bar-load>
-;label = CPU
-
-bar-load-width = 30
-bar-load-foreground-0 = #aaff77
-bar-load-foreground-1 = #aaff77
-bar-load-foreground-2 = #fba922
-bar-load-foreground-3 = #ff5555
-bar-load-indicator = |
-bar-load-indicator-foreground = #ff
-bar-load-indicator-font = 3
-bar-load-fill = =
-bar-load-fill-font = 3
-bar-load-empty = ─
-bar-load-empty-font = 3
-bar-load-empty-foreground = #444444
-
-[module/memory]
-type = internal/memory
-interval = 2
-label = RAM %{F#665}%{F#cc} %percentage_used%
-;label-underline = #4bffdc
-label-overline = ${colors.orange}
-
-format = <label> <bar-used>
-;label = RAM
-
-bar-used-width = 30
-bar-used-foreground-0 = #aaff77
-bar-used-foreground-1 = #aaff77
-bar-used-foreground-2 = #fba922
-bar-used-foreground-3 = #ff5555
-bar-used-indicator = |
-bar-used-indicator-foreground = #ff
-bar-used-indicator-font = 3
-bar-used-fill = =
-bar-used-fill-font = 3
-bar-used-empty = ─
-bar-used-empty-font = 3
-bar-used-empty-foreground = #444444
 
 [module/wlan]
 type = internal/network
 interface = wlp1s0
 interval = 3.0
 
-;format-connected = <ramp-signal> <label-connected>
 format-connected = <label-connected>
-format-connected-underline = ${colors.purple}
-;format-connected-overline = #9f78e1
-format-disconnected-underline = ${self.format-connected-underline}
-;format-disconnected-overline = ${self.format-connected-overline}
+format-disconnect = <label-disconnected>
 
-;label-connected = %{F#55} %{F#ff} %essid%
-label-connected = %{F#ff} %essid%
+label-connected = %{F#ff}   %local_ip%
 label-disconnected = %ifname% disconnected
 label-disconnected-foreground = #55
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = #55
-
-
-;[module/eth]
-;type = internal/network
-;interface = enp0s25
-;;interval = 3.0
-;
-;format-connected-underline = ${colors.purple}
-;;format-connected-overline = #55aa55
-;format-disconnected-underline = ${self.format-connected-underline}
-;;format-disconnected-overline = ${self.format-connected-overline}
-;
-;label-connected = %{F#55}%{F#ff} %local_ip%
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = #55
-
-
-[module/date]
-type = internal/date
-;date = %%{F#55}%%{F#ff} %H:%M
-;date-alt = %%{F#55}%{F#ff} %Y-%m-%d  %%{F#55}%%{F#ff} %H:%M
-date =   %%{F#999}%a %e %b%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
-interval = 5
-format-underline = ${colors.purple}
-
-
 [module/volume]
-type = internal/volume
+type = internal/alsa
+; master-mixer = Master
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
+label-muted =  muted
 
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-label-volume-overline = ${colors.green}
+[module/clock]
+type = internal/date
+interval = 2
+; date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+; date =   %a %e %b %I:%M
+date = %a %e %b %I:%M
 
-label-muted =  sound muted
-label-muted-foreground = #55
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 75
 
-bar-volume-width = 20
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = │
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = #ff
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = #55
+; }}}
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 98
+; File system bar modules {{{
+[module/filesystem]
+type = internal/fs
+mount-0 = /
+mount-1 = /data
+interval = 25
 
-; Available tags:
-;   <label-charging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;   <animation-charging>
-format-charging = <animation-charging> <label-charging>
+label-mounted   = %mountpoint%: %used%:%total%
+label-unmounted = %mountpoint%: N/A
 
-; Available tags:
-;   <label-discharging> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-format-discharging = <ramp-capacity> <label-discharging>
+; }}}
 
-; Available tags:
-;   <label-full> (default)
-;   <bar-capacity>
-;   <ramp-capacity>
-;format-full = <ramp-capacity> <label-full>
+; Stats bar modules {{{
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+; format = <label> <ramp-coreload>
+format = <label>
+; label = CPU
+label =  %percentage:4%
+label-foreground = ${global.icon}
 
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current charge rate in watts)
-label-charging = Charging %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-;   %time%
-;   %consumption% (shows current discharge rate in watts)
-label-discharging = Discharging %percentage%%
-
-; Available tokens:
-;   %percentage% (default)
-label-full = Fully charged
-
-; Only applies if <ramp-capacity> is used
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-; Only applies if <bar-capacity> is used
-bar-capacity-width = 10
-
-; Only applies if <animation-charging> is used
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-; Framerate in milliseconds
-animation-charging-framerate = 750
-
-;format-charging-underline = #ffb52a
-format-charging-overline = ${colors.orange}
-format-discharging-overline = ${colors.orange}
-
+[module/memory]
+type = internal/memory
+; format = <label> <bar-used>
+format = <label>
+; label = RAM
+label =  %percentage_used:2%
+label-foreground = ${global.icon}
 
 [module/temperature]
 type = internal/temperature
@@ -414,116 +307,100 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-;format-underline = #f50a4d
-format-overline = ${colors.orange}
 format-warn = <ramp> <label-warn>
-;format-warn-underline = ${self.format-underline}
-format-warn-overline = ${self.format-overline}
+; format-warn-underline = ${colors.red}
 
 label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = #e60053
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = #55
 
+[module/battery-combined-udev]
+type = custom/script
+exec = ~/.config/polybar/battery-combined-udev.sh
+tail = true
 
-;[module/powermenu]
-;type = custom/menu
-;
-;label-open = 
-;label-open-foreground = #e60053
-;label-close =  cancel
-;label-close-foreground = #e60053
-;label-separator = |
-;label-separator-foreground = #55
-;
-;menu-0-0 =  reboot
-;menu-0-0-exec = menu-open-1
-;menu-0-1 =  power off
-;menu-0-1-exec = menu-open-2
-;
-;menu-1-0 =  cancel
-;menu-1-0-exec = menu-open-0
-;menu-1-1 = reboot
-;menu-1-1-exec = sudo systemctl reboot
-;
-;menu-2-0 =  power off
-;menu-2-0-exec = sudo systemctl poweroff
-;menu-2-1 =  cancel
-;menu-2-1-exec = menu-open-0
+[module/uptime]
+type = custom/script
+exec = uptime | awk '{print $3 " " $4 " " $5 " " $6}' | cut -d ',' -f -2
+interval = 6
+format-prefix = "up "
+format-prefix-foreground = ${global.icon}
 
-; "Floating power options menu bar
-; from: https://github.com/djsavvy/dotfiles
-[module/powermenubarlauncher]
-type = custom/text
-content = " "
-click-left = polybar powermenubar
+[module/ip]
+type = custom/script
+interval = 60
+format-prefix = "ip: "
+format-prefix-foreground = ${global.icon}
+exec = echo "$(wget -qO- https://canihazip.com/s | sed -e 's/[^[:digit:]\|.]//g')"
+exec-if = ping -c 1 google.com
 
-[bar/powermenubar]
-monitor =
-width = 26%
-height = 27
-radius = 0
+; }}}
 
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-border-size = 1
-border-color = #00
-border-bottom-size = 1
-border-bottom-color = ${colors.border-bottom}
-border-top-size = 1
-border-top-color = ${colors.border-top}
-border-right-size = 0
-border-right-color = #333
-
-offset-x = 1420
-offset-y = 33
-
-padding = 3
-module-margin = 2
-separator = %{F#33}|
-
-font-0 = Hack:pixelsize=8;0
-font-1 = FontAwesome:pixelsize=10;0
-
-modules-center = lock logout suspend reboot poweroff closepowermenubar
-
-override-redirect = true
-wm-restack = true
-
+; Power bar modules {{{
 [module/lock]
 type = custom/text
-content = " Lock"
+content = " lock"
 click-left = "pkill -n polybar ; lock -f Hack-Regular"
-; click-left = "pkill -n polybar ; sh ~/.config/i3/Lock.sh"
 
 [module/suspend]
 type = custom/text
-content = " Suspend"
-click-left = "pkill -n polybar ; lock -f Hack-Regular && systemctl suspend"
+content = " suspend"
+click-left = "pkill -n polybar ; lock -f Hack-Regular && sudo systemctl suspend"
 
 [module/logout]
 type = custom/text
-content = " Logout"
+content = " logout"
 click-left = "pkill -n polybar ; i3-msg exit"
 
 [module/reboot]
 type = custom/text
-content = " Reboot"
-click-left = "pkill -n polybar ; systemctl reboot"
+content = " reboot"
+click-left = "pkill -n polybar ; sudo systemctl reboot"
 
 [module/poweroff]
 type = custom/text
-content = " Poweroff"
-click-left = "pkill -n polybar ; systemctl poweroff"
+content = " poweroff"
+click-left = "pkill -n polybar ; sudo systemctl poweroff
 
-[module/closepowermenubar]
+; }}}
+
+; Linux bar modules {{{
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/updates.sh
+interval = 600
+
+[module/host]
+type = custom/script
+exec = ~/.config/polybar/hostname.sh
+interval = 1200
+
+[module/kernel]
+type = custom/script
+exec = ~/.config/polybar/kernel.sh
+interval = 1200
+
+[module/checkreboot]
+type = custom/script
+exec = ~/.config/polybar/arch-reboot.sh
+interval = 1200
+
+; }}}
+
+; Shared module to close sub-bars {{{
+[module/closebar]
 type = custom/text
-content = " Cancel"
+content = " close"
 click-left = "pkill -n polybar"
 
+; }}}
+
+
 ; vim:ft=dosini
+
