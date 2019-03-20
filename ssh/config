@@ -12,17 +12,13 @@ Host aws
 
 # Desktop
 Host sarabande
-    HostName sarabande.ome.ksu.edu
+    HostName sarabande.est.ksu.edu
     Port 11122
 
 # Treadmill iMac
 Host fugazi
-    HostName fugazi.ome.ksu.edu
+    HostName fugazi.est.ksu.edu
     Port 11122
-
-# Sandbox
-Host mhn
-    HostName ome-wse-mhn.campus.ksu.edu
 
 # Ubuntu on NUC
 Host fermata
@@ -36,8 +32,8 @@ Host minuet
     Port 11106
     user mark
 
-# Ubuntu on ASUS
-Host vivaldi
+# Arch Linux on ASUS
+Host dvorak
     HostName 68.102.23.189
     Port 11111
     user mark
@@ -101,14 +97,6 @@ Host trebor
 
 Host mon1
     HostName ome-mon1.campus.ksu.edu
-
-# Personal AWS
-# ssh -i "mark-key.pem" ubuntu@3.16.58.181
-Host bitwarden
-    HostName 18.219.243.59
-    StrictHostKeyChecking no
-    User ubuntu
-    IdentityFile ~/.ssh/mark-key.pem
 
 # WebTeam Fabric
 #Host ec2*compute-1.amazonaws.com
