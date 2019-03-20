@@ -64,6 +64,9 @@ scroll-down = i3wm-wsprev
 font-0 = SFNS Display Regular:size=13;0
 font-1 = "FontAwesome:style=regular:size=15;2"
 
+background = ${global.bg}
+foreground = ${global.fg}
+
 ; }}}
 
 ; Dummy bar {{{
@@ -85,9 +88,6 @@ wm-restack = i3
 ; Top bar {{{
 [bar/top]
 inherit = bar/common
-
-background = ${global.bg}
-foreground = ${global.fg}
 
 line-color = ${global.bg}
 line-size = 16
