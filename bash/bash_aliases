@@ -142,6 +142,7 @@ alias tk='tmux kill-session -t'
 # tmux scripts
 alias tb='~/.dotfiles/scripts/blog'
 alias tw='~/.dotfiles/scripts/chef'
+alias tf='~/.dotfiles/scripts/fugazi'
 alias tc='~/.dotfiles/scripts/console'
 alias tt='~/.dotfiles/scripts/tools'
 alias td='~/.dotfiles/scripts/deploy'
