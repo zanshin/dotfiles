@@ -3,10 +3,12 @@ AWS
 CISO
 D'oh
 DNS
+DNS
 DRAC
 ExpanSIS
 Facebook
 GPG
+Gartner
 Gartner
 GitHub
 Gmail
@@ -19,6 +21,7 @@ IMAP
 ISP
 Japsh
 JavaScript
+Kindlein
 MTAs
 MUAs
 Maildir
@@ -40,8 +43,10 @@ RocketChat
 SFTP
 SSL
 SaaS
+Schlaf
 Sysadmin
 Taz
+Telecom
 Telecom
 Teval
 Thunderbird
@@ -61,6 +66,8 @@ blog
 config
 deoployment
 dev
+dev
+diatonically
 dotfiles
 eProfile
 iPhone
@@ -97,7 +104,6 @@ urlview
 webMethods
 webapps
 weblog
-webmethods
 weechat
 zanshin
 iMacs
