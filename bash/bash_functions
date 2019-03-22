@@ -232,20 +232,27 @@ function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') 
 # }}}
 # myIP address {{{
 function myip() {
-  curl -s https://api.ipify.org | awk '{print "public ip   : " $1}'
-  ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0         : " $2}'
-  ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0   (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-#  ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0   (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-  ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1   (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-#  ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1   (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-  ifconfig utun1 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-  ifconfig utun2 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun2 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-  ifconfig utun3 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun3 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-  ifconfig utun4 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun4 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
-#  ifconfig utun4 2>/dev/null | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "utun4 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
-  ifconfig gpd0 2>/dev/null | grep  'inet' | sed -e 's/ / /' | awk '{print "gpd0 (IPv4): "$2 " " $3 " " $4 " " $5 " " $6}'
-}
+  curl -s https://api.ipify.org | awk '{print "public ip: " $1}'
+  if [[ `uname -a | grep -i darwin` ]]; then
 
+    ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0         : " $2}'
+    ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0   (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+#  ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0   (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+    ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1   (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+#  ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1   (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+    ifconfig utun1 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+    ifconfig utun2 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun2 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+    ifconfig utun3 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun3 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+    ifconfig utun4 2>/dev/null | grep 'inet ' | sed -e 's/ / /' | awk '{print "utun4 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+#  ifconfig utun4 2>/dev/null | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "utun4 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+    ifconfig gpd0 2>/dev/null | grep  'inet' | sed -e 's/ / /' | awk '{print "gpd0 (IPv4): "$2 " " $3 " " $4 " " $5 " " $6}'
+  else
+      for i in `netstat -i | egrep -v "^(Iface|lo|Ker)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print "   : " $2}' ; done
+
+#    ip -4 addr show lo | grep inet | awk '{print "lo       : " $2}'
+#    ip -4 addr show wlp1s0 | grep inet | awk '{print "wlp1s0   : " $2}'
+  fi
+}
 # }}}
 # (s)ave or (i)nsert a directory. {{{
 s() { pwd > ~/.save_dir ; }
