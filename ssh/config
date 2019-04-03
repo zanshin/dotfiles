@@ -13,12 +13,12 @@ Host aws
 # Desktop
 Host sarabande
     HostName sarabande.est.ksu.edu
-    Port 11122
+#    Port 11122
 
 # Treadmill iMac
 Host fugazi
     HostName fugazi.est.ksu.edu
-    Port 11122
+#    Port 11122
 
 # Ubuntu on NUC
 Host fermata
