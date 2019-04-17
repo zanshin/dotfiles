@@ -209,8 +209,8 @@ alias asavpn='sudo openconnect --config ~/.openconnect/asavpn https://vpn.net.k-
 alias dbvpn='sudo openconnect --config ~/.openconnect/dbvpn https://vpn.net.k-state.edu'
 alias omevpn='sudo openconnect --config ~/.openconnect/omevpn https://vpn.net.k-state.edu'
 
-# alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
-alias vpnon="vpnon.sh"
+alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
+# alias vpnon="vpnon.sh"
 alias vpnoff='/opt/cisco/anyconnect/bin/vpn disconnect'
 
 alias kvnc='open vnc://krayt.ome.ksu.edu'
