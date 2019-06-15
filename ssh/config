@@ -57,6 +57,7 @@ Host reprise
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
+    ForwardX11 no
     Port 443
 
 # OME system admin
