@@ -241,14 +241,18 @@ function myip() {
 }
 
 function tmuxip() {
-  PUBIP=`curl -s https://api.ipify.org | awk '{print $1}'`
-  if [[ `uname -a | grep -i darwin` ]]; then
-    OTHERIPS=`netstat -i -n | egrep "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v lo | awk '{print " : " $1":"$4}'`
-  else
-    OTHERIPS=`for i in `netstat -i | egrep -v "^(Iface|lo|Ker)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print " : " $2}' ; done`
-  fi
-  echo $PUBIP $OTHERIPS
+  echo `ifconfig | grep "inet 10.130" | grep -v broadcast | awk '{print $2}'`
 }
+# function tmuxip() {
+#   PUBIP=`curl -s https://api.ipify.org | awk '{print $1}'`
+#   if [[ `uname -a | grep -i darwin` ]]; then
+#     OTHERIPS=`netstat -i -n | egrep "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v lo | awk '{print " : " $1":"$4}'`
+#   else
+#     # OTHERIPS=`for i in `netstat -i | egrep -v "^(Iface|lo|Ker)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print " : " $2}' ; done | grep utun`
+#     OTHERIPS=`for i in `netstat -i | egrep -v "^(utun)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print " : " $2}' ; done`
+#   fi
+#   echo $PUBIP $OTHERIPS
+# }
 # }}}
 # (s)ave or (i)nsert a directory. {{{
 s() { pwd > ~/.save_dir ; }
