@@ -2,6 +2,7 @@ Host *
 #    UseRoaming no
     ServerAliveInterval 60
     ForwardX11 yes
+    User mhn
 
 # AWS EC2
 Host aws
@@ -23,12 +24,14 @@ Host fugazi
 
 # Ubuntu on NUC
 Host fermata
+    ForwardX11 no
     HostName 68.102.23.189
     Port 11105
     user mark
 
 # Raspbian on Raspberry Pi
 Host minuet
+    ForwardX11 no
     HostName 68.102.23.189
     Port 11106
     user mark
@@ -132,7 +135,6 @@ Host ksuunix
 # WebFaction hosting
 Host wf
     HostName markn.webfactional.com
+    ForwardX11 no
     User markn
 
-Host *
-    User mhn
