@@ -2,7 +2,7 @@ Host *
 #    UseRoaming no
     ServerAliveInterval 60
 #    ForwardX11 yes
-    User mhn
+#    User mhn
 
 # AWS EC2
 Host aws
@@ -14,9 +14,11 @@ Host aws
 # Work iMacs
 Host sarabande
     HostName sarabande.est.ksu.edu
+    User mhn
 
 Host fugazi
     HostName fugazi.est.ksu.edu
+    User mhn
 
 # Ubuntu on NUC
 Host fermata
@@ -53,22 +55,6 @@ Host github.com
     HostName ssh.github.com
     Port 443
 
-# OME system admin
-Host ome-tools1*
-    HostkeyAlgorithms ssh-dss
-
-Host web1
-    HostName ome-web1.campus.ksu.edu
-
-Host web2
-    HostName ome-web2.campus.ksu.edu
-
-Host web3
-    HostName ome-web3.campus.ksu.edu
-
-Host web4
-    HostName ome-web4.campus.ksu.edu
-
 
 # WebTeam Fabric
 #Host ec2*compute-1.amazonaws.com
@@ -99,6 +85,7 @@ Host ec2*compute-1.amazonaws.com
 # Personal K-State Webpage
 Host ksuunix
     HostName unix.ksu.edu
+    User mhn
 
 # WebFaction hosting
 Host wf
