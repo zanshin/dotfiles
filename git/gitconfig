@@ -35,6 +35,7 @@
   excludesfile = ~/.gitignore_global
   quotepath = false
 	pager = less -R
+  filemode = true
 
 [diff]
   tool = vimdiff
