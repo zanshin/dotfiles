@@ -1,20 +1,24 @@
 Host *
 #    UseRoaming no
     ServerAliveInterval 60
+#    ForwardX11 yes
+#    User mhn
 
-# Desktop
+# AWS EC2
+Host aws
+    HostName 18.223.95.33
+    StrictHostKeyChecking no
+    User ubuntu
+    IdentityFile /Users/mhn/.ssh/aws-key-pair.pem
+
+# Work iMacs
 Host sarabande
-    HostName sarabande.ome.ksu.edu
-    Port 11122
+    HostName sarabande.est.ksu.edu
+    User mhn
 
-# Treadmill iMac
 Host fugazi
-    HostName fugazi.ome.ksu.edu
-    Port 11122
-
-# Sandbox
-Host mhn
-    HostName ome-wse-mhn.campus.ksu.edu
+    HostName fugazi.est.ksu.edu
+    User mhn
 
 # Ubuntu on NUC
 Host fermata
@@ -22,65 +26,35 @@ Host fermata
     Port 11105
     user mark
 
-# Ubuntu on ASUS
-Host vivaldi
+# Raspbian on Raspberry Pi
+Host minuet
+    HostName 68.102.23.189
+    Port 11106
+    user mark
+
+# Arch Linux on ASUS
+Host dvorak
     HostName 68.102.23.189
     Port 11111
     user mark
 
-# macOS High Sierra on MacBook Pro
+# macOS Mojave on MacBook Pro
 Host rosindust
     HostName 68.102.23.189
     Port 11110
     user mark
+
+# Raspberry Pi
+Host reprise
+    HostName 68.102.23.189
+    Port 11106
+    user pi
 
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
     Port 443
 
-# OME system admin
-Host ome-tools1*
-    HostkeyAlgorithms ssh-dss
-
-Host txp1
-    HostName ome-webmethods-p-app-01.campus.ksu.edu
-
-Host txp2
-    HostName ome-webmethods-p-app-02.campus.ksu.edu
-
-Host txt1
-    HostName ome-webmethods-t-app-01.campus.ksu.edu
-
-Host txt2
-    HostName ome-webmethods-t-app-02.campus.ksu.edu
-
-Host txd1
-    HostName ome-webmethods-d-app-01.campus.ksu.edu
-
-Host tools
-    HostName ome-tools1.campus.ksu.edu
-
-Host tools1
-    HostName ome-vm-tools1.campus.ksu.edu
-
-Host web1
-    HostName ome-web1.campus.ksu.edu
-
-Host web2
-    HostName ome-web2.campus.ksu.edu
-
-Host web3
-    HostName ome-web3.campus.ksu.edu
-
-Host web4
-    HostName ome-web4.campus.ksu.edu
-
-Host trebor
-    HostName trebor.ome.ksu.edu
-
-Host mon1
-    HostName ome-mon1.campus.ksu.edu
 
 # WebTeam Fabric
 #Host ec2*compute-1.amazonaws.com
@@ -111,11 +85,10 @@ Host ec2*compute-1.amazonaws.com
 # Personal K-State Webpage
 Host ksuunix
     HostName unix.ksu.edu
+    User mhn
 
 # WebFaction hosting
 Host wf
     HostName markn.webfactional.com
     User markn
 
-Host *
-    User mhn

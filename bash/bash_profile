@@ -44,9 +44,10 @@ if [ -d /sbin ] ; then
 PATH="/sbin:${PATH}"
 fi
 
-# add Go path for Debian
+# add Go path for Linux
 if [ -d /usr/local/go/bin ] ; then
   PATH="${PATH}:/usr/local/go/bin"
+  export GOPATH=$HOME/code/go
 fi
 
 # prepend /usr/local/bin to the head of the PATH to keep Homebrew happy
@@ -54,9 +55,14 @@ if [ -d /usr/local/bin ] ; then
 	PATH="/usr/local/bin:${PATH}"
 fi
 
-# Add Standard ML/NJ binaries to path
-if [ -d /usr/local/smlnj/bin ] ; then
-  PATH="${PATH}:/usr/local/smlnj/bin"
+# Enable path to pip
+if [ -d ~/.local/bin ] ; then
+  PATH=~/.local/bin:$PATH
+fi
+
+# Enable path for Rust
+if [ -d ~/.cargo/bin ] ; then
+  PATH=~/.cargo/bin:$PATH
 fi
 
 export PATH
@@ -75,3 +81,4 @@ if [ -f '/Users/mark/src/google-cloud-sdk/path.bash.inc' ]; then source '/Users/
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mark/src/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/mark/src/google-cloud-sdk/completion.bash.inc'; fi
+

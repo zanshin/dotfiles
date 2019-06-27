@@ -34,10 +34,12 @@ alias "dismount=osascript -e 'tell application "Finder" to eject (every disk who
 
 # }}}
 # ls variants {{{
-alias l="ls -al ${colorflag}"
+alias l="ls -lahF ${colorflag}"
+alias ll="ls -lhF ${colorflag}"
 alias lsd='ls -ld */'
 alias lh='ls -a | egrep "^\."'
 alias ls="ls ${colorflag}"
+alias l.="ls -ld .?*"
 
 alias sym="ls -la | grep '\->'"
 
@@ -52,14 +54,19 @@ alias estdev="cd ~/code/chef/estdev"
 alias estwin="cd ~/code/chef/estwin"
 alias estwindev="cd ~/code/chef/estwindev"
 alias omeaws="cd ~/code/chef/omeaws"
+alias zome="cd ~/code/chef/zome"
+alias zomedev="cd ~/code/chef/zomedev"
 
 alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
+alias roll2="cd ~/code/chef/zome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 # }}}
 # Miscellaneous {{{
 alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
 #alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
 alias 'previous=history | grep '
+
+alias 'xup=xrdb ~/.Xresources'
 
 # }}}
 # Mercurial (hg) {{{
@@ -108,12 +115,16 @@ alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc-l"
 # guser shows a list of all developers and the number of commits they've made
 alias guser="git shortlog | grep -E '^[^ ]'"
 
-# ect (Edit Changed in Tabs) opens all foles marked as changed by Git in tabs
+# ect (Edit Changed in Tabs) opens all files marked as changed by Git in tabs
 alias ect="git status --short | awk '{print $2}' | xargs -o nvim"
 
 # Use `git up` Git alias to update master branch on all repositories in parent
 # directory
 alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs -I @@ bash -c 'cd @@ && echo @@ && git checkout master && git up && cd ..'"
+
+# Not really a Git thing, but situation is caused by git pull on dotfile repo
+# reset file permissions on ~/.ssh/config to 600
+alias cssh="chmod 600 ~/.dotfiles/ssh/config"
 
 # }}}
 # Neovim and Vim {{{
@@ -134,7 +145,8 @@ alias tk='tmux kill-session -t'
 
 # tmux scripts
 alias tb='~/.dotfiles/scripts/blog'
-alias td='~/.dotfiles/scripts/chef'
+alias tw='~/.dotfiles/scripts/chef'
+alias tf='~/.dotfiles/scripts/fugazi'
 alias tc='~/.dotfiles/scripts/console'
 alias tt='~/.dotfiles/scripts/tools'
 alias td='~/.dotfiles/scripts/deploy'
@@ -142,6 +154,10 @@ alias td='~/.dotfiles/scripts/deploy'
 # force tmux to use 256 colors
 # alias tmux='TERM=screen-256colors tmux'
 alias tmux='tmux -2'
+
+# Disable Mouse reporting
+# https://superuser.com/questions/802698/disable-mouse-reporting-in-a-terminal-session-after-tmux-exits-unexpectedly
+alias resetmouse="printf '\e[?1000l'"
 
 # }}}
 # Mutt {{{
@@ -164,10 +180,14 @@ alias vgs='vagrant global-status'
 alias kso='knife status "hostname:ome*"'
 alias ks='knife status'
 alias kn='knife node'
+alias kns='knife node show'
 alias kc='knife client'
 alias tagged='knife search node "name:ome-vm*" -a tags'
 alias notags='knife search node "NOT tags:* AND name:ome*" -a tags'
 alias k='knife'
+alias bake='knife cookbook upload'
+alias ksg='knife status | grep '
+
 
 # }}}
 # Docker {{{
@@ -194,6 +214,7 @@ alias dbvpn='sudo openconnect --config ~/.openconnect/dbvpn https://vpn.net.k-st
 alias omevpn='sudo openconnect --config ~/.openconnect/omevpn https://vpn.net.k-state.edu'
 
 alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
+# alias vpnon="vpnon.sh"
 alias vpnoff='/opt/cisco/anyconnect/bin/vpn disconnect'
 
 alias kvnc='open vnc://krayt.ome.ksu.edu'
@@ -232,6 +253,12 @@ alias hosts='sudo vim /etc/hosts'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# untar
+alias untar="tar xvf"
 
 # }}}
 # Aliases from new-alias function

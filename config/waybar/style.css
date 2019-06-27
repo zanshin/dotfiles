@@ -1,0 +1,54 @@
+/* Load wal colors */
+/* Waybar does not work with the :root pseudo class! */
+/*@import url("/home/corbin/.cache/wal/colors.css");*/
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Fira Code, Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    min-height: 0;
+}
+
+window#waybar {
+    opacity: 0.7; /* Should be the same opacity as terminal background */
+    background: #0E0E0E;
+    color: #d6d6d7;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #79856A;
+    border-bottom: 3px solid #898976;
+}
+
+#mode {
+    background: #64727D;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #custom-brightness, #mode {
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#battery.critical {
+    color: #CE986E;
+}
+
+#battery.charging {
+    color: #79856A;
+}
+
+#network.disconnected {
+    color: #CE986E;
+}
+
+#pulseaudio.muted {
+    color: #CE986E;
+}
+

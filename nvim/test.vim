@@ -34,9 +34,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " ----- Undo
 Plug 'sjl/gundo.vim'
 
-" ----- Go Language
-Plug 'fatih/vim-go'
-
 " ----- Utilities
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
@@ -396,12 +393,6 @@ if has("autocmd")
     " enable syntax highlighting for diffs
     autocmd FileType diff syntax enable
 
-    " Add spell check to txt files
-    autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us
-
-    " Go Language
-    autocmd BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-
 endif
 
 " }}}
@@ -447,15 +438,11 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " silent! colorscheme landscape
 " silent! colorscheme nova
 
-" Base16 Chalk
-let base16colorspace=256
-silent! colorscheme base16-chalk
-
 " let ayucolor="light"   " for light version of theme
 " let ayucolor="mirage"  " for mirage version of theme
-" let ayucolor="dark"    " for dark version of theme
+let ayucolor="dark"    " for dark version of theme
 
-" silent! colorscheme ayu
+silent! colorscheme ayu
 
 " if filereadable(expand("~/.nvim_theme"))
 "   let base16colorspace=256
@@ -645,49 +632,6 @@ nnoremap <leader>3 :Tmap
 nnoremap <leader>0 :Ttoggle
 let g:neoterm_automap_keys = '<F5>'
 
-
-" }}}
-" Vim-go {{{
-let g:go_fmt_fail_silently = 0
-let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
-let g:go_term_enabled = 1
-" let g:go_snippet_engine = "neosnippet"
-let g:go_highlight_space_tab_error = 0
-let g:go_highlight_array_whitespace_error = 0
-let g:go_highlight_trailing_whitespace_error = 0
-let g:go_highlight_extra_types = 0
-let g:go_highlight_operators = 0
-let g:go_highlight_build_constraints = 1
-
-au Filetype go nmap <leader>s <Plug>(go-def-split)
-au Filetype go nmap <leader>v <Plug>(go-def-vertical)
-au Filetype go nmap <leader>i <Plug>(go-info)
-au Filetype go nmap <leader>l <Plug>(go-metalinter)
-
-au Filetype go nmap <leader>r <Plug>(go-run)
-
-au Filetype go nmap <leader>b <Plug>(go-build)
-au Filetype go nmap <leader>t <Plug>(go-test)
-au Filetype go nmap <leader>dt <Plug>(go-test-compile)
-au Filetype go nmap <leader>d <Plug>(go-doc)
-
-au Filetype go nmap <leader>e <Plug>(go-rename)
-
-" neovim specific
-if has('nvim')
-  au FileType go nmap <leader>rt <Plug>(go-run-tab)
-  au FileType go nmap <leader>rs <Plug>(go-run-split)
-  au FileType go nmap <leader>rv <Plug>(go-run-vertical)
-endif
-
-" Alternates
-augroup go
-  autocmd!
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-augroup END
 
 " }}}
 " finis {{{
