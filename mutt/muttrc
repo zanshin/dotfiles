@@ -3,8 +3,8 @@
 # rc file for mutt
 
 # Theme {{{
-# source ~/.mutt/themes/mhn.muttrc
-source ~/.mutt/themes/base16.muttrc
+source ~/.mutt/themes/mhn.muttrc
+# source ~/.mutt/themes/base16.muttrc
 
 # }}}
 # Paths {{{
@@ -341,6 +341,11 @@ set status_chars   = " *%A"
 # set status_format="%v: (%s) [%M/%m] [flags:%?02n new?,t:%t]"
 # set status_format=" $from Messages: %M (%m) [Unread: %n] %> %r (%P) [%l] (%s/%S) (%v) "
 set status_format=" $my_acct : %m messages, %n unread  %> (%P) [%l] (%v) "
+
+# }}}
+# Auto view HTML messages {{{
+auto_view text/html                                     # view html automatically
+alternative_order text/plain text/enriched text/html    # save html for last
 
 # }}}
 # Uh ... {{{
