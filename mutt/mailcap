@@ -10,8 +10,9 @@
 
 # HTML
 # text/html; ~/.mutt/scripts/view_attachment.sh %s html
-text/html;  lynx %s; nametemplate=%s.html
-text/html;  lynx -dump %s; nametemplate=%s.html; copiousoutput
+# text/html;  lynx %s; nametemplate=%s.html
+# text/html;  lynx -dump %s; nametemplate=%s.html; copiousoutput
+text/html; w3m -I %{charset} -dump %s; nametemplate=%s.html; -T text/html; copiousoutput
 
 # Unidentified files
 application/octet-stream; ~/.mutt/scripts/view_attachment.sh %s "-"
