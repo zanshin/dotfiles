@@ -34,6 +34,9 @@ if [[ "myos" == "Darwin" ]]; then
   [[ -e $(brew --prefix)/etc/bash_completions.d/git-completions.bash ]] && source $(brew --prefix)/etc/bash_completions.d/git-completions.bash
 fi
 
+# add RVM bash_completion
+[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
+
 # source Master Password rc and completion files
 # [[ -e $HOME/src/masterpassword/mpw.bashrc ]] && source $HOME/src/masterpassword/mpw.bashrc
 # [[ -s $HOME/src/masterpassword/mpw.completion.bash ]] && source $HOME/src/masterpassword/mpw.completion.bash
@@ -116,3 +119,6 @@ LP_PS1_PREFIX="\n"
 source $HOME/.config/liquidprompt/liquidprompt
 
 # finis
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
