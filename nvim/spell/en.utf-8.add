@@ -2,12 +2,14 @@ ASUS
 AWS
 CCoE
 CISO
+CommandCentral
 D'oh
 DNS
 DRAC
 DevOps
 EIS
 ExpanSIS
+F5
 FIS
 Facebook
 GPG
@@ -55,8 +57,10 @@ Priyatham's
 RACI
 RDS
 RocketChat
+Rollout
 SFTP
 SSL
+SSO
 SaaS
 Schlaf
 SoftwareAG
@@ -73,6 +77,7 @@ Ubuntu
 Udemy
 Undeployed
 UniversalMessaging
+VPC
 VPN
 VPNs
 WSEs
@@ -88,6 +93,7 @@ app
 apps
 audiobook
 blog
+borked
 config
 deoployment
 dev
