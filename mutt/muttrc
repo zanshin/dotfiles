@@ -3,8 +3,8 @@
 # rc file for mutt
 
 # Theme {{{
+# source ~/.mutt/themes/sjl.muttrc
 source ~/.mutt/themes/mhn.muttrc
-# source ~/.mutt/themes/base16.muttrc
 
 # }}}
 # Paths {{{
@@ -165,6 +165,7 @@ alternative_order text/plain text/enriched text/html
 # Index view settings {{{
 set date_format = "%m.%d.%y"
 set index_format = "[%Z] %D %-20.20F %s"         #
+# set index_format = "%Z %-15.15F %s (%4C)"         #
 set sort = threads                               # like gmail
 # set sort_aux =  reverse-last-date-received       # like gmail
 set sort_aux =  last-date-received       # like gmail
