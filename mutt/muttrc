@@ -3,8 +3,8 @@
 # rc file for mutt
 
 # Theme {{{
-# source ~/.mutt/themes/mhn.muttrc
-source ~/.mutt/themes/base16.muttrc
+# source ~/.mutt/themes/sjl.muttrc
+source ~/.mutt/themes/mhn.muttrc
 
 # }}}
 # Paths {{{
@@ -48,7 +48,7 @@ set write_inc=100                                # Write counter ticks every 100
 # }}}
 # Sidebar stuff {{{
 set sidebar_visible=yes
-set sidebar_width=30
+set sidebar_width=20
 set sidebar_folder_indent=yes
 # set sidebar_sort_method="sort"
 set sidebar_short_path=yes
@@ -116,26 +116,13 @@ macro index \e4 '<sync-mailbox><enter-command>source ~/.mutt/accounts/codeprole.
 
 # }}}
 # GPG {{{
-# Use GPGME
-set crypt_use_gpgme = yes
-
-# Sign replies to signed emails
-set crypt_replysign = yes
-
-# Encrypt replies to encrypted emails
-set crypt_replyencrypt = yes
-
-# Encrypt and sign replies to encrypted and signed email
-set crypt_replysignencrypted = yes
-
-# Attempt to verify signatures automatically
-set crypt_verify_sig = yes
-
-# Use my key for signing and encrypting
-set pgp_sign_as = 0x53445200
-
-# Automatically sign all out-going email
-set crypt_autosign = yes
+set crypt_use_gpgme = yes               # Use GPGME
+set crypt_replysign = yes               # Sign replies to signed emails
+set crypt_replyencrypt = yes            # Encrypt replies to encrypted emails
+set crypt_replysignencrypted = yes      # Encrypt andn sign replies to encrypted and signed email
+set crypt_verify_sig = yes              # Attempt to verify signatures automatically
+set pgp_sign_as = 0x53445200            # Use my key for signing and encrypting
+set crypt_autosign = yes                # Automatically sign all out-going email
 
 # GPG colors
 color body cyan default   "^gpg: Signature made.*"
@@ -178,6 +165,7 @@ alternative_order text/plain text/enriched text/html
 # Index view settings {{{
 set date_format = "%m.%d.%y"
 set index_format = "[%Z] %D %-20.20F %s"         #
+# set index_format = "%Z %-15.15F %s (%4C)"         #
 set sort = threads                               # like gmail
 # set sort_aux =  reverse-last-date-received       # like gmail
 set sort_aux =  last-date-received       # like gmail
@@ -274,12 +262,15 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 
 # Move current message to Archive folder
 # macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
-macro index .s ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
-macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
+# macro index .s ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index,pager .s ":set confirmappend=no delete=yes auto_tag=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+# macro index,pager A "<save-message>=Archive<enter>" "Archive Message"
 
 # Move current message to Junk folder
 macro index S ":set confirmappend=no delete=yes\n<save-message>=Junk\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
 macro index .j ":set confirmappend=no delete=yes\n<save-message>=Junk\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+#
 
 # Ctrl-r to mark all messages as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>,<enter>" "mark all messages as read"
@@ -341,6 +332,11 @@ set status_chars   = " *%A"
 # set status_format="%v: (%s) [%M/%m] [flags:%?02n new?,t:%t]"
 # set status_format=" $from Messages: %M (%m) [Unread: %n] %> %r (%P) [%l] (%s/%S) (%v) "
 set status_format=" $my_acct : %m messages, %n unread  %> (%P) [%l] (%v) "
+
+# }}}
+# Auto view HTML messages {{{
+auto_view text/html                                     # view html automatically
+alternative_order text/plain text/enriched text/html    # save html for last
 
 # }}}
 # Uh ... {{{

@@ -1,7 +1,7 @@
 Host *
 #    UseRoaming no
     ServerAliveInterval 60
-#    ForwardX11 yes
+    ForwardX11 yes
 #    User mhn
 
 # AWS EC2
@@ -19,6 +19,11 @@ Host sarabande
 Host fugazi
     HostName fugazi.est.ksu.edu
     User mhn
+
+# Jump box
+Host jump
+    HostName est-jump-p-mhn-01.campus.ksu.edu
+    user mhn
 
 # Ubuntu on NUC
 Host fermata
