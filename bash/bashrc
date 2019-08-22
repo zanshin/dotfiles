@@ -112,7 +112,7 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 # --------------------------------------------------------------------
 # Source AWS MGA Serial
 # --------------------------------------------------------------------
-source $HOME/.awstoken
+[[ -e $HOME/.awstoken ]] && source $HOME/.awstoken
 
 # --------------------------------------------------------------------
 # liquidprompt setup
