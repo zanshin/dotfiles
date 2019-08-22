@@ -558,6 +558,14 @@ explain () {
 }
 
 # }}}
+# Display terminal window size {{{
+tsize() {
+  tcols=$(tput cols)
+  trows=$(tput lines)
+  echo "$tcols wide by $trows tall"
+}
+
+# }}}
 # newscript {{{
 # touch, make executable, and start editing a new script
 # $ newscript my_ny_script.sh
