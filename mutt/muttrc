@@ -178,6 +178,9 @@ color index yellow color233    '~h "X-Spam-Status:.*score=(2|3)\."'
 color index brightred color233 '~h "X-Spam-Status:.*score=(4|5)\."'
 color index magenta color233   '~h "X-Spam-Status:.*score=(6|7)\."'
 
+# color tagged messages
+color index green color233 '~T'
+
 # }}}
 # Bindings {{{
 # Pager
