@@ -1,7 +1,7 @@
 Host *
 #    UseRoaming no
     ServerAliveInterval 60
-    ForwardX11 yes
+#    ForwardX11 yes
 #    User mhn
 
 # AWS EC2
