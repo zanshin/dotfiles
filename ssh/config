@@ -31,6 +31,11 @@ Host fermata
     Port 11105
     user mark
 
+Host irc
+    HostName 68.102.23.189
+    Port 11116
+    user mark
+
 # Raspbian on Raspberry Pi
 Host minuet
     HostName 68.102.23.189
