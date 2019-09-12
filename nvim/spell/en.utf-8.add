@@ -4,7 +4,9 @@ Airpods
 CCoE
 CISO
 Citicard
+CloudFormation
 CommandCentral
+Commvault
 D'oh
 DNS
 DRAC
@@ -42,6 +44,7 @@ MTAs
 MUAs
 MWS
 MacBook
+MailMate
 Maildir
 Matomo
 Muchly
@@ -70,12 +73,14 @@ RocketChat
 Rollout
 SATA
 SFTP
+SQL
 SSD
 SSL
 SSO
 SaaS
 Schlaf
 SoftwareAG
+SpamSieve
 Sysadmin
 Talisma
 Taz
@@ -89,6 +94,7 @@ Ubuntu
 Udemy
 Undeployed
 UniversalMessaging
+VMC
 VPC
 VPN
 VPNs
@@ -122,8 +128,6 @@ i7
 iFixIt
 iMac
 iMacs
-iMacs
-iPaaS
 iPaaS
 iPad
 iPads
@@ -168,7 +172,6 @@ urlview
 webMethods
 webapps
 weblog
-webmethods
 weechat
 www
 yay
