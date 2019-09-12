@@ -144,6 +144,16 @@ set formatoptions+=l                   " don't break long lines that were alread
 set matchpairs+=<:>
 
 " }}}
+" Poor man's bracket matching {{{
+" inoremap " ""<left>
+" inoremap ' ''<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap { {}<left>
+" inoremap {<CR> {<CR>}<ESC>O
+" inoremap {;<CR> {<CR>};<ESC>O
+
+" }}}
 " Navigation and Movement {{{
 
 " Disable arrow keys and make semi-snarky comment instead
