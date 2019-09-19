@@ -7,6 +7,14 @@
 # -------------------------------------------------------------------
 
 # -------------------------------------------------------------------
+# Reset Path Helper
+# -------------------------------------------------------------------
+if [ -x /usr/libexec/path_helper ]; then
+	PATH=""
+	eval `/usr/libexec/path_helper -s`
+fi
+
+# -------------------------------------------------------------------
 # Source my bashrc file
 # -------------------------------------------------------------------
 
@@ -26,22 +34,12 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d $HOME/bin ] ; then
-    PATH="${HOME}/bin:${PATH}"
+  PATH="${PATH}:${HOME}/bin"
 fi
 
 # set PATH so it includes /usr/local/sbin if it exists
 if [ -d /usr/local/sbin ] ; then
-	PATH="/usr/local/sbin:${PATH}"
-fi
-
-# set PATH so it includes /usr/sbin if it exists
-if [ -d /usr/sbin ] ; then
-  PATH="/usr/sbin:${PATH}"
-fi
-
-# set PATH so it includes /sbin if it exists
-if [ -d /sbin ] ; then
-PATH="/sbin:${PATH}"
+	PATH="${PATH}:/usr/local/sbin"
 fi
 
 # add Go path for Linux
@@ -50,20 +48,20 @@ if [ -d /usr/local/go/bin ] ; then
   export GOPATH=$HOME/code/go
 fi
 
-# prepend /usr/local/bin to the head of the PATH to keep Homebrew happy
-if [ -d /usr/local/bin ] ; then
-	PATH="/usr/local/bin:${PATH}"
-fi
-
 # Enable path to pip
-if [ -d ~/.local/bin ] ; then
-  PATH=~/.local/bin:$PATH
-fi
+# if [ -d ~/.local/bin ] ; then
+#   PATH="~/.local/bin:${PATH}"
+# fi
 
 # Enable path for Rust
-if [ -d ~/.cargo/bin ] ; then
-  PATH=~/.cargo/bin:$PATH
-fi
+# if [ -d ~/.cargo/bin ] ; then
+#   PATH="~/.cargo/bin:${PATH}"
+# fi
+
+# Add path to Python3 scripts (needed for AWS CLI)
+# if [ -d $HOME/Library/Python/3.7/bin ] ; then
+#   PATH="${PATH}:$HOME/Library/Python/3.7/bin"
+# fi
 
 export PATH
 
@@ -74,13 +72,4 @@ export PATH
 [[ -e /usr/local/bin/rbenv ]] && eval "$(rbenv init -)"
 
 # finis
-# mhn 2016.1.9
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mark/src/google-cloud-sdk/path.bash.inc' ]; then source '/Users/mark/src/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mark/src/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/mark/src/google-cloud-sdk/completion.bash.inc'; fi
-
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# mhn 2019.9.19
