@@ -259,5 +259,17 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias untar="tar xvf"
 
 # }}}
+# AWS {{{
+
+# AWS "whoami"
+alias awswho="aws sts get-caller-identity 2>/dev/null"
+
+# AWS login
+alias awson='aws login ; LP_PS1_PREFIX="\033[0;34maws \033[0m"'
+
+# AWS logout
+alias awsoff='aws logout ; LP_PS1_PREFIX=""'
+
+# }}}
 # Aliases from new-alias function
 alias lst='ls -alt'
