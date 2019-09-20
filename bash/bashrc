@@ -116,7 +116,8 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 [[ $- = *i* ]] || return
 
 # Use Liquid Prompt
-LP_PS1_PREFIX="\n"
+LP_PS1_PREFIX=`aws sts get-caller-identity 2>/dev/null | grep Arn | awk -F'/' '{print $2" "}'`
+# LP_PS1_PREFIX="\n"
 source $HOME/.config/liquidprompt/liquidprompt
 
 # finis
