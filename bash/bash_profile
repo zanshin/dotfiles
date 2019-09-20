@@ -10,13 +10,9 @@
 # Reset Path Helper
 # test kernel to allow reset on Linux
 # -------------------------------------------------------------------
-if [[ `uname -s | grep i darwin` ]] ; then
-  if [ -x /usr/libexec/path_helper ]; then
-    PATH=""
-    eval `/usr/libexec/path_helper -s`
-  fi
-else
-  PATH=""
+PATH=""
+if [ -x /usr/libexec/path_helper ]; then
+  eval `/usr/libexec/path_helper -s`
 fi
 
 # -------------------------------------------------------------------

@@ -22,6 +22,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'trevordmiller/nova-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'romainl/Apprentice'
+Plug 'kyoz/purify'
+Plug 'joshdick/onedark'
 
 " ----- Syntax & Highlighting
 Plug 'Yggdroot/indentline'
@@ -453,19 +456,22 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 
 " }}}
 " Color scheme {{{
-" set background=dark
+set background=dark
 " silent! colorscheme landscape
 " silent! colorscheme nova
+" silent! colorscheme apprentice
+" silent! colorscheme purify
+" silent! colorscheme onedark
 
 " Base16 Chalk
-let base16colorspace=256
-silent! colorscheme base16-chalk
+" let base16colorspace=256
+" silent! colorscheme base16-chalk
 
 " let ayucolor="light"   " for light version of theme
 " let ayucolor="mirage"  " for mirage version of theme
-" let ayucolor="dark"    " for dark version of theme
+let ayucolor="dark"    " for dark version of theme
 
-" silent! colorscheme ayu
+silent! colorscheme ayu
 
 " if filereadable(expand("~/.nvim_theme"))
 "   let base16colorspace=256
