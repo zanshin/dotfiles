@@ -133,6 +133,7 @@ alias 'vi=nvim'
 alias 'nv=nvim'
 alias vplug="vim +PlugUpgrade +PlugUpdate +qall"
 alias nplug="nvim +PlugUpgrade +PlugUpdate +qall"
+alias 'vim=vim -U none'
 
 # }}}
 # Tmux {{{
