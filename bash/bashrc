@@ -35,7 +35,7 @@ if [[ "myos" == "Darwin" ]]; then
 fi
 
 # add RVM bash_completion
-[[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
+# [[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
 
 # source Master Password rc and completion files
 # [[ -e $HOME/src/masterpassword/mpw.bashrc ]] && source $HOME/src/masterpassword/mpw.bashrc
