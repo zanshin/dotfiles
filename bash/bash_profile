@@ -64,6 +64,11 @@ fi
 #   PATH="${PATH}:$HOME/Library/Python/3.7/bin"
 # fi
 
+# Add path to ~/.local/bin for aws cli on linux
+if [ -d $HOME/.local/bin ] ; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+
 export PATH
 
 # -------------------------------------------------------------------
