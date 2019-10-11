@@ -33,9 +33,25 @@ fi
 # Build a PATH environment variable
 # -------------------------------------------------------------------
 
-# set PATH so it includes user's private bin if it exists
+# set PATH so it includes user's private bin directories, if they exist
 if [ -d $HOME/bin ] ; then
   PATH="${PATH}:${HOME}/bin"
+fi
+
+if [ -d $HOME/bin/bash ] ; then
+  PATH="${PATH}:${HOME}/bin/bash"
+fi
+
+if [ -d $HOME/bin/ruby ] ; then
+  PATH="${PATH}:${HOME}/bin/ruby"
+fi
+
+if [ -d $HOME/bin/python ] ; then
+  PATH="${PATH}:${HOME}/bin/python"
+fi
+
+if [ -d $HOME/bin/perl ] ; then
+  PATH="${PATH}:${HOME}/bin/perl"
 fi
 
 # set PATH so it includes /usr/local/sbin if it exists
