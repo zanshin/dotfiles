@@ -41,6 +41,9 @@ fi
 # [[ -e $HOME/src/masterpassword/mpw.bashrc ]] && source $HOME/src/masterpassword/mpw.bashrc
 # [[ -s $HOME/src/masterpassword/mpw.completion.bash ]] && source $HOME/src/masterpassword/mpw.completion.bash
 
+# Silence macOS warning about zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # export EDITOR, PAGER, and LESS
 export VISUAL=nvim
 export EDITOR="$VISUAL"
