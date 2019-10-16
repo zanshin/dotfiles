@@ -8,11 +8,13 @@
 
 # -------------------------------------------------------------------
 # Reset Path Helper
-# test kernel to allow reset on Linux
+# test kernel to prevent reset on Linux
 # -------------------------------------------------------------------
-PATH=""
-if [ -x /usr/libexec/path_helper ]; then
-  eval `/usr/libexec/path_helper -s`
+if [[ "myos" == "Darwin" ]]; then
+  PATH=""
+  if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+  fi
 fi
 
 # -------------------------------------------------------------------
