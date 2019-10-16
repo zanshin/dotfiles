@@ -124,7 +124,7 @@ alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs 
 
 # Not really a Git thing, but situation is caused by git pull on dotfile repo
 # reset file permissions on ~/.ssh/config to 600
-alias cssh="chmod 600 ~/.dotfiles/ssh/config"
+alias cssh="chmod 600 ~/.dotfiles/ssh/config && chmod 600 ~/.dotfiles/ssh/authorized_keys"
 
 # }}}
 # Neovim and Vim {{{
