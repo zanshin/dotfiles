@@ -5,11 +5,11 @@ Host *
 #    User mhn
 
 # AWS EC2
-Host aws
-    HostName 3.13.100.29
-    StrictHostKeyChecking no
-    User ubuntu
-    IdentityFile /Users/mark/.ssh/mycloud.pem
+# Host aws
+#     HostName 3.13.100.29
+#     StrictHostKeyChecking no
+#     User ubuntu
+#     IdentityFile /Users/mark/.ssh/mycloud.pem
 
 # Work iMacs
 Host sarabande
@@ -71,10 +71,10 @@ Host github.com
 #    StrictHostKeyChecking no
 #    User fabric
 #    IdentityFile  /Users/mhn/.ssh/id_fabric
-Host ec2*compute-1.amazonaws.com
-    StrictHostKeyChecking no
-    User ubuntu
-    IdentityFile /Users/mhn/.ssh/asakey.pem
+# Host ec2*compute-1.amazonaws.com
+#     StrictHostKeyChecking no
+#     User ubuntu
+#     IdentityFile /Users/mhn/.ssh/asakey.pem
 
 #Host aws_prod1
 #    HostName ec2-23-21-38-28.compute-1.amazonaws.com
