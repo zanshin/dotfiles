@@ -5,6 +5,7 @@ Bitwarden
 Bitwarden's
 CCoE
 CISO
+CLI
 Citi
 Citicard
 CloudFormation
@@ -133,6 +134,7 @@ dotfiles
 eProfile
 fsck
 fugazi
+gizmo
 i3
 i5
 i7
@@ -182,6 +184,7 @@ trackpad
 txt
 undeploy
 urlview
+vRNI
 webMethods
 webapps
 weblog
@@ -189,5 +192,3 @@ weechat
 www
 yay
 zanshin
-CLI
-vRNI
