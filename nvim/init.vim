@@ -28,6 +28,7 @@ Plug 'ayu-theme/ayu-vim'
 
 " ----- Syntax & Highlighting
 Plug 'Yggdroot/indentline'
+Plug 'stephpy/vim-yaml'
 
 " ----- Git helpers
 Plug 'tpope/vim-fugitive'
