@@ -6,20 +6,15 @@ update
 # Upgrade any already-installed formulae
 upgrade
 
+# Add the bash shell
+install bash
+
 # tmux, requires `reattach-to-user-namespace`
-install reattach-to-user-namespace
+# install reattach-to-user-namespace
 install tmux
 
-# Version Control
-install git
-install mercurial
-
 # Editor
-install vim
-
-# For compiling older libraries
-tap homebrew/dupes
-install apple-gcc42
+install neovim
 
 # Utilities
 install archey
@@ -27,12 +22,7 @@ install wget
 install youtube-dl
 install openssl
 install htop-osx
-
-# HandBrake required library
-install libdvdcss
-
-# OpenConnect
-install openconnect
+install speedtest-cli
 
 # Cleanup any outdated formulas from the cellar
 cleanup
