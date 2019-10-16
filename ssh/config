@@ -43,10 +43,10 @@ Host minuet
     user mark
 
 # Arch Linux on ASUS
-Host dvorak
-    HostName 68.102.23.189
-    Port 11111
-    user mark
+# Host dvorak
+#     HostName 68.102.23.189
+#     Port 11111
+#     user mark
 
 # macOS Mojave on MacBook Pro
 Host rosindust
@@ -54,43 +54,10 @@ Host rosindust
     Port 11110
     user mark
 
-# Raspberry Pi
-Host reprise
-    HostName 68.102.23.189
-    Port 11106
-    user pi
-
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
     Port 443
-
-
-# WebTeam Fabric
-#Host ec2*compute-1.amazonaws.com
-#    StrictHostKeyChecking no
-#    User fabric
-#    IdentityFile  /Users/mhn/.ssh/id_fabric
-# Host ec2*compute-1.amazonaws.com
-#     StrictHostKeyChecking no
-#     User ubuntu
-#     IdentityFile /Users/mhn/.ssh/asakey.pem
-
-#Host aws_prod1
-#    HostName ec2-23-21-38-28.compute-1.amazonaws.com
-#    StrictHostKeyChecking no
-#    User mhn
-#    IdentityFile /Users/mhn/.ssh/mhn.pem
-
-#Host web_prod1
-#    HostName ec2-23-21-38-28.compute-1.amazonaws.com
-#    User ubuntu
-#    IdentityFile ~/.ssh/asakey.pem
-
-#Host web_prod2
-#    HostName ec2-50-16-61-249.compute-1.amazonaws.com
-#    User ubuntu
-#    IdentityFile ~/.ssh/asakey.pem
 
 # Personal K-State Webpage
 Host ksuunix
