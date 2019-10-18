@@ -2,12 +2,6 @@
 # Rosindust brewfile
 ###
 
-# Make sure we're using the latest version of Homebrew
-# update
-
-# Upgrade anf already installed formulae
-# upgrade
-
 # Default taps
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -33,9 +27,7 @@ brew "ffmpeg"
 brew "figlet"
 brew "fortune"
 brew "glances"
-# brew "gnupg"
 brew "gpgme"
-# brew "htop-osx"
 brew "hugo"
 brew "imagemagick"
 brew "ipcalc"
@@ -111,13 +103,11 @@ brew "vim"
 # Mac Apple Store
 mas "Battery Health 2", id: 1120214373
 mas "Disk Speed Test", id: 425264550
-# mas "EchofonLite", id: 403858460
 mas "GarageBand", id: 682658836
 mas "GhosteryLite", id: 1436953057
-# mas "Growl", id: 467939042
 mas "iMovie", id: 408981434
 mas "iPhoto", id: 408981381
-# mas "iPulse", id: 1028916583
+mas "iPulse", id: 1028916583
 mas "iStat Mini", id: 927292435
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
@@ -132,8 +122,38 @@ mas "Slack", id: 803453959
 mas "Twitterrific", id: 1289378661
 mas "Xcode", id: 497799835
 
-# Clean up any out-dated formulas from the cellar
-# cleanup
+# Casks
+cask "alfred"
+cask "authy"
+cask "bitwarden"
+cask "dash"
+cask "docker"
+cask "fetch"
+cask "firefox"
+cask "handbrake"
+cask "iterm2"
+cask "keybase"
+cask "lilypond"
+cask "mailmate"
+cask "master-password"
+cask "monodraw"
+cask "netnewswire"
+cask "numi"
+cask "opera"
+cask "rocket-chat"
+cask "sketchup"
+cask "spamsieve"
+cask "spectacle"
+cask "steam"
+cask "superduper"
+cask "syncthing"
+cask "tor-browser"
+cask "vagrant"
+cask "vanilla"
+cask "virtualbox"
+cask "visualstudio"
+cask "vivaldi"
+cask "vlc"
+cask "wireshark"
+cask "zoom"
 
-# Ask the doctor how things are
-# doctor
