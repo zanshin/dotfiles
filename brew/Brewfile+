@@ -1,0 +1,73 @@
+# A few of my favorite brews
+
+# Make sure we’re using the latest Homebrew
+update
+
+# Upgrade any already-installed formulae
+upgrade
+
+# Utilities
+install ansible
+install archey
+install bash
+install bash-completion
+install cowsay
+install ffmpeg
+install figlet
+install fortune
+install glances
+install gnupg
+install gpgme
+install htop-osx
+install hugo
+install imagemagick
+install jq
+install kubernetes-cli
+install mas
+install mtr
+install mutt
+install neovim
+install openconnect
+install openssl
+install packer
+install pidof
+install pinentry
+install rbenv
+install ruby
+install ruby-build
+install speedtest-cli
+install tmux
+install tree
+install weechat
+install wget
+install youtube-dl
+
+# Mac App Store
+866773894 Quiver (3.2.7)
+514951692 NetSpot (1.4.420)
+927292435 iStat Mini (1.1)
+1120214373 Battery Health 2 (1.91)
+425264550 Disk Speed Test (3.2)
+409183694 Keynote (9.2)
+405399194 Kindle (1.26.1)
+1436953057 GhosteryLite (1.0.0)
+682658836 GarageBand (10.3.3)
+408981381 iPhoto (9.6.1)
+467939042 Growl (2.1.3)
+409203825 Numbers (6.2)
+1028916583 iPulse (3.0.4)
+497799835 Xcode (11.1)
+403858460 EchofonLite (1.8.7)
+409201541 Pages (8.2)
+448925439 Marked (1.4.3)
+408981434 iMovie (10.1.13)
+715768417 Microsoft Remote Desktop (8.0.30030)
+588726889 ReadKit (2.6.2)
+803453959 Slack (4.1.0)
+1289378661 Twitterrific (5.4.3)
+
+# Cleanup any outdated formulas from the cellar
+cleanup
+
+# Ask the doctor how things are
+doctor
