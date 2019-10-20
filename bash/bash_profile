@@ -61,11 +61,11 @@ if [ -d /usr/local/sbin ] ; then
 	PATH="${PATH}:/usr/local/sbin"
 fi
 
-# add Go path for Linux
-if [ -d /usr/local/go/bin ] ; then
-  PATH="${PATH}:/usr/local/go/bin"
-  export GOPATH=$HOME/code/go
-fi
+# add Go path for Arch Linux
+# if [ -e /usr/bin/go ] ; then
+#   PATH="${PATH}:/usr/bin/go"
+#   export GOPATH=$HOME/code/go
+# fi
 
 # Enable path to pip
 # if [ -d ~/.local/bin ] ; then
