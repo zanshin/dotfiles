@@ -41,11 +41,21 @@ fi
 # [[ -e $HOME/src/masterpassword/mpw.bashrc ]] && source $HOME/src/masterpassword/mpw.bashrc
 # [[ -s $HOME/src/masterpassword/mpw.completion.bash ]] && source $HOME/src/masterpassword/mpw.completion.bash
 
+# Silence macOS warning about zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # export EDITOR, PAGER, and LESS
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PAGER=less
 export LESS="-M -n -q -i -r"
+
+# Setup for Go
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+
+# Add /.local/bin (mostly for awscli)
+export PATH=$PATH:$HOME/.local/bin
 
 # mutt GPG tty setting
 export GPG_TTY=$(tty)
@@ -121,3 +131,5 @@ LP_PS1_PREFIX="\n"
 source $HOME/.config/liquidprompt/liquidprompt
 
 # finis
+
+complete -C /usr/local/bin/vault vault

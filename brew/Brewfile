@@ -1,41 +1,159 @@
-# A few of my favorite brews
+###
+# Rosindust brewfile
+###
 
-# Make sure we’re using the latest Homebrew
-update
+# Default taps
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "mas-cli/tap"
 
-# Upgrade any already-installed formulae
-upgrade
+# Casks brew bundle dump found
+# tap "michaeldfallen/formula"
+# tap "neovim/neovim"
+# tap "railwaycat/emacsmacport"
+# tap "sgeb/mutt"
+# tap "youtux/livecheck"
 
-# tmux, requires `reattach-to-user-namespace`
-install reattach-to-user-namespace
-install tmux
+# Formulae I deliberately want
+brew "ansible"
+brew "archey"
+brew "bash"
+brew "bash-completion"
+brew "cowsay"
+brew "ffmpeg"
+brew "figlet"
+brew "fortune"
+brew "glances"
+brew "gpgme"
+brew "hugo"
+brew "imagemagick"
+brew "ipcalc"
+brew "jq"
+brew "kubernetes-cli"
+brew "mas"
+brew "mtr"
+brew "mutt"
+brew "neovim"
+brew "openconnect"
+brew "pidof"
+brew "rbenv"
+brew "ruby"
+brew "ruby-build"
+brew "speedtest-cli"
+brew "sysdig"
+brew "tcptraceroute"
+brew "tmux"
+brew "tree"
+brew "weechat"
+brew "wget"
+brew "youtube-dl"
 
-# Version Control
-install git
-install mercurial
+# Formulae that brew bundle dump found
+brew "ack"
+brew "autoconf"
+brew "awscli"
+brew "c-ares"
+brew "gettext"
+brew "openssl"
+brew "libtool"
+brew "cfssl"
+brew "gmp@4"
+brew "ppl@0.11"
+brew "cloog@0.15"
+brew "contacts"
+brew "coreutils"
+brew "dbus"
+brew "doxygen"
+brew "gmp"
+brew "libunistring"
+brew "nettle"
+brew "lame"
+brew "xvid"
+brew "geoip"
+brew "git"
+brew "libksba"
+brew "qt"
+brew "httpie"
+brew "oniguruma"
+brew "jsoncpp"
+brew "libdvdcss"
+brew "libmpc@0.8"
+brew "libnet"
+brew "libssh"
+brew "lua"
+brew "lua@5.1"
+brew "luajit"
+brew "luarocks"
+brew "mercurial"
+brew "msgpack"
+brew "tokyo-cabinet"
+brew "nethack"
+brew "nnn"
+brew "packer"
+brew "reattach-to-user-namespace"
+brew "s-lang"
+brew "smartmontools"
+brew "telnet"
+brew "utf8proc"
+brew "vim"
 
-# Editor
-install vim
+# Mac Apple Store
+mas "Battery Health 2", id: 1120214373
+mas "Disk Speed Test", id: 425264550
+mas "GarageBand", id: 682658836
+mas "GhosteryLite", id: 1436953057
+mas "iMovie", id: 408981434
+mas "iPhoto", id: 408981381
+mas "iPulse", id: 1028916583
+mas "iStat Mini", id: 927292435
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "Marked", id: 448925439
+mas "Microsoft Remote Desktop", id: 715768417
+mas "NetSpot", id: 514951692
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Quiver", id: 866773894
+mas "ReadKit", id: 588726889
+mas "Slack", id: 803453959
+mas "Twitterrific", id: 1289378661
+mas "Xcode", id: 497799835
 
-# For compiling older libraries
-tap homebrew/dupes
-install apple-gcc42
+# Casks
+cask "alfred"
+cask "authy"
+cask "bitwarden"
+cask "dash"
+cask "docker"
+cask "fetch"
+cask "firefox"
+cask "handbrake"
+cask "iterm2"
+cask "keybase"
+cask "lilypond"
+cask "mailmate"
+cask "master-password"
+cask "monodraw"
+cask "netnewswire"
+cask "numi"
+cask "opera"
+cask "rocket-chat"
+cask "sketchup"
+cask "spamsieve"
+cask "spectacle"
+cask "steam"
+cask "superduper"
+cask "syncthing"
+cask "tor-browser"
+cask "vagrant"
+cask "vanilla"
+cask "virtualbox"
+cask "visualstudio"
+cask "vivaldi"
+cask "vlc"
+cask "wireshark"
+cask "zoom"
 
-# Utilities
-install archey
-install wget
-install youtube-dl
-install openssl
-install htop-osx
-
-# HandBrake required library
-install libdvdcss
-
-# OpenConnect
-install openconnect
-
-# Cleanup any outdated formulas from the cellar
-cleanup
-
-# Ask the doctor how things are
-doctor

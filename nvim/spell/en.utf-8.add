@@ -5,6 +5,8 @@ Bitwarden
 Bitwarden's
 CCoE
 CISO
+CLI
+CLI
 Citi
 Citicard
 CloudFormation
@@ -114,6 +116,7 @@ WebFaction
 WebFaction's
 Wellbutrin
 WiFi
+Wiki
 X11
 Yay
 YouTube
@@ -133,6 +136,7 @@ dotfiles
 eProfile
 fsck
 fugazi
+gizmo
 i3
 i5
 i7
@@ -152,6 +156,7 @@ mbox
 mbsync
 mediasite
 msmtp
+nagios
 nerdliness
 nginx
 notmuch
@@ -180,8 +185,10 @@ tmux
 tomcat8
 trackpad
 txt
+uAchieve
 undeploy
 urlview
+vRNI
 webMethods
 webapps
 weblog
@@ -189,8 +196,3 @@ weechat
 www
 yay
 zanshin
-CLI
-vRNI
-Wiki
-uAchieve
-nagios

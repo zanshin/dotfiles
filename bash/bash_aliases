@@ -124,7 +124,7 @@ alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs 
 
 # Not really a Git thing, but situation is caused by git pull on dotfile repo
 # reset file permissions on ~/.ssh/config to 600
-alias cssh="chmod 600 ~/.dotfiles/ssh/config"
+alias cssh="chmod 600 ~/.dotfiles/ssh/config && chmod 600 ~/.dotfiles/ssh/authorized_keys"
 
 # }}}
 # Neovim and Vim {{{
@@ -213,8 +213,10 @@ alias estvpn='sudo openconnect --config ~/.dotfiles/openconnect/estvpn https://v
 alias estvpnoff='sudo pkill -SIGINT openconnect'
 
 alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
-# alias vpnon="vpnon.sh"
 alias vpnoff='/opt/cisco/anyconnect/bin/vpn disconnect'
+
+alias gpon="tmux new -s vpn 'sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu"
+alias gpoff='sudo pkill -SIGINT openconnect'
 
 alias kvnc='open vnc://krayt.ome.ksu.edu'
 alias ksunix='ssh mhn@unix.ksuedu'

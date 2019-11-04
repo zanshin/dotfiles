@@ -8,11 +8,13 @@
 
 # -------------------------------------------------------------------
 # Reset Path Helper
-# test kernel to allow reset on Linux
+# test kernel to prevent reset on Linux
 # -------------------------------------------------------------------
-PATH=""
-if [ -x /usr/libexec/path_helper ]; then
-  eval `/usr/libexec/path_helper -s`
+if [[ "myos" == "Darwin" ]]; then
+  PATH=""
+  if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+  fi
 fi
 
 # -------------------------------------------------------------------
@@ -59,11 +61,11 @@ if [ -d /usr/local/sbin ] ; then
 	PATH="${PATH}:/usr/local/sbin"
 fi
 
-# add Go path for Linux
-if [ -d /usr/local/go/bin ] ; then
-  PATH="${PATH}:/usr/local/go/bin"
-  export GOPATH=$HOME/code/go
-fi
+# add Go path for Arch Linux
+# if [ -e /usr/bin/go ] ; then
+#   PATH="${PATH}:/usr/bin/go"
+#   export GOPATH=$HOME/code/go
+# fi
 
 # Enable path to pip
 # if [ -d ~/.local/bin ] ; then
