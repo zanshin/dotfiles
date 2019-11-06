@@ -215,7 +215,7 @@ alias estvpnoff='sudo pkill -SIGINT openconnect'
 alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
 alias vpnoff='/opt/cisco/anyconnect/bin/vpn disconnect'
 
-alias gpon="tmux new -s vpn 'sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu"
+alias gpon="tmux new -s vpn 'sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu'"
 alias gpoff='sudo pkill -SIGINT openconnect'
 
 alias kvnc='open vnc://krayt.ome.ksu.edu'
