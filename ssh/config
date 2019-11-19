@@ -3,6 +3,7 @@ Host *
     ServerAliveInterval 60
 #    ForwardX11 yes
 #    User mhn
+#    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
 
 # AWS EC2
 # Host aws
