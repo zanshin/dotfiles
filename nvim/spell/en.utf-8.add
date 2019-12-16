@@ -1,6 +1,7 @@
 ASUS
 AWS
 Airpods
+AppStream
 Bitwarden
 Bitwarden's
 CCoE
@@ -28,6 +29,7 @@ GHz
 GPG
 Gartner
 GitHub
+GlobalProtect
 Gmail
 GnuPG
 HTTPS
@@ -82,6 +84,7 @@ RDS
 Refactor
 RocketChat
 Rollout
+Romberg
 SATA
 SFTP
 SQL
@@ -95,6 +98,7 @@ SpamSieve
 Starbucks
 SysAdmin
 Sysadmin
+TTT
 Talisma
 Taz
 Telecom
@@ -126,6 +130,7 @@ app
 apps
 audiobook
 audiobooks
+b0rking
 blog
 borked
 config
@@ -163,6 +168,7 @@ notmuch
 nvim
 offlineimap
 ome
+openconnect
 pannus
 pci
 plugins
@@ -196,7 +202,3 @@ weechat
 www
 yay
 zanshin
-b0rking
-openconnect
-AppStream
-GlobalProtect

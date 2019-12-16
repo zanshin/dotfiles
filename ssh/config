@@ -3,6 +3,7 @@ Host *
     ServerAliveInterval 60
 #    ForwardX11 yes
 #    User mhn
+#    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
 
 # AWS EC2
 # Host aws
@@ -27,12 +28,14 @@ Host jump
 
 # Ubuntu on NUC
 Host fermata
-    HostName 68.102.23.189
+#    HostName 68.102.23.189
+    HostName 24.255.217.102
     Port 11105
     user mark
 
 Host irc
-    HostName 68.102.23.189
+#    HostName 68.102.23.189
+    HostName 24.255.217.102
     Port 11116
     user mark
 
@@ -50,7 +53,8 @@ Host minuet
 
 # macOS Mojave on MacBook Pro
 Host rosindust
-    HostName 68.102.23.189
+#    HostName 68.102.23.189
+    HostName 24.255.217.102
     Port 11110
     user mark
 
