@@ -37,28 +37,28 @@ fi
 
 # set PATH so it includes user's private bin directories, if they exist
 if [ -d $HOME/bin ] ; then
-  PATH="${PATH}:${HOME}/bin"
+  PATH="$PATH:$HOME/bin"
 fi
 
 if [ -d $HOME/bin/bash ] ; then
-  PATH="${PATH}:${HOME}/bin/bash"
+  PATH="$PATH:$HOME/bin/bash"
 fi
 
 if [ -d $HOME/bin/ruby ] ; then
-  PATH="${PATH}:${HOME}/bin/ruby"
+  PATH="$PATH:$HOME/bin/ruby"
 fi
 
 if [ -d $HOME/bin/python ] ; then
-  PATH="${PATH}:${HOME}/bin/python"
+  PATH="$PATH:$HOME/bin/python"
 fi
 
 if [ -d $HOME/bin/perl ] ; then
-  PATH="${PATH}:${HOME}/bin/perl"
+  PATH="$PATH:$HOME/bin/perl"
 fi
 
 # set PATH so it includes /usr/local/sbin if it exists
 if [ -d /usr/local/sbin ] ; then
-	PATH="${PATH}:/usr/local/sbin"
+	PATH="$PATH:/usr/local/sbin"
 fi
 
 # add Go path for Arch Linux
@@ -74,7 +74,7 @@ fi
 
 # Enable path for Rust
 if [ -d $HOME/.cargo/bin ] ; then
-  PATH="${PATH}:$HOME/.cargo/bin"
+  PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 # Add path to Python3 scripts (needed for AWS CLI)
