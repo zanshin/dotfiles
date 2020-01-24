@@ -25,10 +25,12 @@ Plug 'ayu-theme/ayu-vim'
 " Plug 'romainl/Apprentice'
 " Plug 'kyoz/purify'
 " Plug 'joshdick/onedark'
+Plug 'sonph/onehalf'
 
 " ----- Syntax & Highlighting
 Plug 'Yggdroot/indentline'
 Plug 'stephpy/vim-yaml'
+Plug 'hashivim/vim-terraform'
 
 " ----- Git helpers
 Plug 'tpope/vim-fugitive'
@@ -457,8 +459,9 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 
 " }}}
 " Color scheme {{{
+" silent! colorscheme onehalfdark
 set background=dark
-" silent! colorscheme landscape
+silent! colorscheme landscape
 " silent! colorscheme nova
 " silent! colorscheme apprentice
 " silent! colorscheme purify
@@ -472,7 +475,7 @@ set background=dark
 " let ayucolor="mirage"  " for mirage version of theme
 let ayucolor="dark"    " for dark version of theme
 
-silent! colorscheme ayu
+" silent! colorscheme ayu
 
 " if filereadable(expand("~/.nvim_theme"))
 "   let base16colorspace=256
@@ -563,7 +566,8 @@ let g:python_host_prog = '/usr/bin/python'
 
 " }}}
 " Airline {{{
-" let g:airline_theme='landscape'
+" let g:airline_theme='onehalfdark'
+let g:airline_theme='landscape'
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
 " let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
