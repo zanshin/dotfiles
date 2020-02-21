@@ -461,11 +461,11 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 " Color scheme {{{
 " silent! colorscheme onehalfdark
 set background=dark
-silent! colorscheme landscape
+" silent! colorscheme landscape
 " silent! colorscheme nova
 " silent! colorscheme apprentice
 " silent! colorscheme purify
-" silent! colorscheme onedark
+silent! colorscheme onedark
 
 " Base16 Chalk
 " let base16colorspace=256
