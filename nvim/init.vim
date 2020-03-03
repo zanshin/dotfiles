@@ -557,8 +557,7 @@ let g:python_host_prog = '/usr/bin/python'
 
 " }}}
 " Airline {{{
-" let g:airline_theme='landscape'
-let g:airline_theme='lightline'
+let g:airline_theme='landscape'
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
 " let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
@@ -575,7 +574,7 @@ let g:airline#extensions#tagbar#enabled = 0
 " Show just the file name
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-" let g:airline_theme='dark'
+let g:airline_theme='dark'
 
 " }}}
 " Vim-fugitive {{{
