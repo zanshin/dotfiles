@@ -16,9 +16,10 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " ----- Make Neovim look good
 Plug 'itchyny/landscape.vim'
-Plug 'itchyny/lightline.vim'
 " Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'hzchirs/vim-material'
+Plug 'bluz71/vim-nightfly-guicolors'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -455,8 +456,16 @@ noremap <silent> <leader>s :call ToggleSyntax()<CR>
 
 " }}}
 " Color scheme {{{
-set background=dark
-silent! colorscheme landscape
+" set background=dark
+" silent! colorscheme landscape
+
+" Oceanic
+" let g:material_style='oceanic'
+" set background=dark
+" colorscheme vim-material
+
+" Nightfly
+colorscheme nightfly
 
 " Base16 Chalk
 " let base16colorspace=256
@@ -557,7 +566,7 @@ let g:python_host_prog = '/usr/bin/python'
 
 " }}}
 " Airline {{{
-let g:airline_theme='landscape'
+" let g:airline_theme='landscape'
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
 " let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
