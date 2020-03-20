@@ -8,6 +8,10 @@ set -o pipefail
 # It expects a file (.certs) that contains a list of domains to query. Each
 # entry in the file has two parts, the name to display, and the domain to
 # query. The two entries are separated by a space.
+#
+# .certs file example:
+# example example.com
+# www www.example.com
 ###
 
 echo -e "certcheck\n"
