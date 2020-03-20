@@ -20,7 +20,6 @@ while read -r line; do
     # Get the name and the domain
     name=${certarray[0]}
     domain=${certarray[1]}
-    # dates=$(echo | openssl s_client -servername ${certarray[1]} -connect ${certarray[1]}:443 2>/dev/null | openssl x509 -noout -dates)
 
     # Get the certificate start and end dates
     result=$(echo | openssl s_client -servername $domain -connect $domain:443 2>/dev/null | openssl x509 -noout -dates)
@@ -33,8 +32,6 @@ while read -r line; do
 
     startdate=${datearray[0]}
     enddate=${datearray[1]}
-
-    # echo "start: $startdate end: $enddate"
 
     # Print the results in columns
     printf "%-15s %-30s %-30s\n" "$name" "$startdate" "$enddate"
