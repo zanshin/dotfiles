@@ -16,13 +16,14 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 
 " ----- Make Neovim look good
 Plug 'itchyny/landscape.vim'
+Plug 'itchyny/lightline.vim'
 " Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'hzchirs/vim-material'
 Plug 'bluz71/vim-nightfly-guicolors'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " ----- Syntax & Highlighting
 Plug 'Yggdroot/indentline'
@@ -553,16 +554,16 @@ let g:python_host_prog = '/usr/bin/python'
 
 " }}}
 " Lightline {{{
-" let g:lightline = {
-"       \ 'colorscheme': 'landscape',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-"       \ },
-"       \ 'component_function': {
-"       \   'gitbranch': 'fugitive#statusline'
-"       \ },
-"       \ }
+let g:lightline = {
+      \ 'colorscheme': 'material',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 " }}}
 " Airline {{{
@@ -575,15 +576,15 @@ let g:python_host_prog = '/usr/bin/python'
 " let g:airline#extensions#branch#empty_message = ''
 
 " Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " Hide function display (don't use it)
-let g:airline#extensions#tagbar#enabled = 0
+" let g:airline#extensions#tagbar#enabled = 0
 
 " Show just the file name
-let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#fnamemod = ':t'
 
-let g:airline_theme='dark'
+" let g:airline_theme='dark'
 
 " }}}
 " Vim-fugitive {{{
