@@ -274,5 +274,13 @@ alias awson='aws login ; LP_PS1_PREFIX="\033[0;34maws \033[0m"'
 alias awsoff='aws logout ; LP_PS1_PREFIX=""'
 
 # }}}
+# systemctl {{{
+alias ss="sudo systemctl"
+alias ssu="sudo systemctl start"
+alias ssd="sudo systemctl stop"
+alias ssr="sudo systemctl restart"
+alias sse="sudo systemctl enable"
+
+# }}}
 # Aliases from new-alias function
 alias lst='ls -alt'
