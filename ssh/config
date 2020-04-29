@@ -23,7 +23,8 @@ Host fugazi
 
 # Jump box
 Host jump
-    HostName est-jump-p-mhn-01.campus.ksu.edu
+#    HostName est-jump-p-mhn-01.campus.ksu.edu
+    HostName est-jump-p-linux-01.campus.ksu.edu
     user mhn
 
 # Ubuntu on NUC
