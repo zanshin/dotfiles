@@ -199,6 +199,10 @@ nnoremap <leader>bn :bnext<CR>         " move to next buffer
 nnoremap <leader>bp :bprevious<CR>     " move to previous buffer
 nnoremap <leader>bq :bp <BAR> bd #<CR> " move to previous buffer and close buffer
 
+" TAB in general mofe with move between buffers
+nnoremap <TAB>   :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
+
 " }}}
 " File focus {{{
 
@@ -366,9 +370,12 @@ if has("autocmd")
     " prevent Neovim from auto-indenting comment on subsequent lines
     autocmd FileType * setlocal formatoptions-=r formatoptions-=o
 
-    " syntax of these languages is fussy over tabs Vs spaces
+    " make files
     autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+    " yaml files
+    autocmd BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>
 
     " setup for mail
     autocmd FileType mail setlocal formatoptions+=aw
@@ -379,6 +386,7 @@ if has("autocmd")
     " treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
 
+    " Git
     " spell check Git commit messages
     autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 
