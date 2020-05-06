@@ -17,6 +17,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " ----- Make Neovim look good
 Plug 'itchyny/landscape.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 " Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'hzchirs/vim-material'
@@ -95,6 +96,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
+set showtabline=2                      " always show the tabline
 set laststatus=2                       " always show the status line
 set cmdheight=2                        " two-line tall status line
 set showcmd                            " show the command
@@ -570,11 +572,32 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
+      \  },
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
-      \ },
+      \  },
       \ }
+
+let g:lightline#bufferline#show_number  = 0
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
+let g:lightline#bufferline#filename_modifier = ':t'
+
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
+
+" Mappings to use <leader>+# to move to buffer
+" nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+" nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+" nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+" nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+" nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+" nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+" nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+" nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+" nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+" nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 " }}}
 " Airline {{{
