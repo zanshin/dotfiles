@@ -55,7 +55,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'fatih/vim-go'
 
 " VimWiki
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 " Neovim stuff
 Plug 'kassio/neoterm'
@@ -179,7 +179,7 @@ set formatoptions+=l                             " don't break long lines that w
 " File focus settings
 set autowrite                                    " write out old file when switching between files
 set autoread                                     " reload files changed on disk
-au FocusLost * :wa                               " save file when Neovim loses focus
+au FocusLost * :wa!                              " save file when Neovim loses focus
 set hidden                                       " switch between buffers without saving
 
 " Backups
