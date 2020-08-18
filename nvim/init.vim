@@ -54,9 +54,6 @@ Plug 'tomtom/tcomment_vim'
 " Go Language
 Plug 'fatih/vim-go'
 
-" VimWiki
-Plug 'vimwiki/vimwiki'
-
 " Neovim stuff
 Plug 'kassio/neoterm'
 
@@ -179,7 +176,7 @@ set formatoptions+=l                             " don't break long lines that w
 " File focus settings
 set autowrite                                    " write out old file when switching between files
 set autoread                                     " reload files changed on disk
-au FocusLost * :wa                               " save file when Neovim loses focus
+au FocusLost * :wa!                              " save file when Neovim loses focus
 set hidden                                       " switch between buffers without saving
 
 " Backups
@@ -643,12 +640,6 @@ augroup go
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
-
-" }}}
-" ----- VimWiki {{{
-let g:vimwiki_list = [{'path': '~/code/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-
-" }}}
 
 " }}}
 
