@@ -229,6 +229,8 @@ alias mkenv='mkvirtualenv'
 alias on='workon'
 alias off='deactivate'
 
+alias python="python3"
+
 # }}}
 # Oddball stuff {{{
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
