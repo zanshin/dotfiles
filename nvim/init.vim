@@ -54,9 +54,6 @@ Plug 'tomtom/tcomment_vim'
 " Go Language
 Plug 'fatih/vim-go'
 
-" VimWiki
-" Plug 'vimwiki/vimwiki'
-
 " Neovim stuff
 Plug 'kassio/neoterm'
 
@@ -643,12 +640,6 @@ augroup go
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
-
-" }}}
-" ----- VimWiki {{{
-let g:vimwiki_list = [{'path': '~/code/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
-
-" }}}
 
 " }}}
 
