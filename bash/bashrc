@@ -79,6 +79,12 @@ export CHEFPROD="/Users/mhn/code/chef/ome"
 export CHEF_BASEDIR="/Users/mhn/code/chef"
 
 # --------------------------------------------------------------------
+# Export CARGO_HOME and RUSTUP_HOME for Rust
+# --------------------------------------------------------------------
+export CARGO_HOME="/opt/rust/.cargo/bin"
+export RUSTUP_HOME="/opt/rust/.rustup"
+
+# --------------------------------------------------------------------
 # Configure how history works
 # --------------------------------------------------------------------
 HISTCONTROL=ignoredups:ignorespace                # ignore dups and commands beginning with a space
