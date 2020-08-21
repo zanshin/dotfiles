@@ -26,7 +26,7 @@ alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
 # }}}
 # }}}
 # Mac OS X specific stuff {{{
-# alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
+#alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
 alias 'adventure=emacs -batch -l dunnet'
 alias 'mailsize=du -hs ~/Library/mail'
 alias 'ttop=top -ocpu -R -F -s 2 -n30'
@@ -200,7 +200,7 @@ alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
 
 # }}}
 # Randome shortcuts {{{
-alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
+alias bu='brew update; brew upgrade; brew cask upgrade; brew cleanup; brew doctor'
 alias wifi='networksetup -setairportpower en0'
 alias makepass='openssl rand -base64 12'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
@@ -228,6 +228,8 @@ alias wf='ssh markn@markn.webfactional.com'
 alias mkenv='mkvirtualenv'
 alias on='workon'
 alias off='deactivate'
+
+alias python="python3"
 
 # }}}
 # Oddball stuff {{{
