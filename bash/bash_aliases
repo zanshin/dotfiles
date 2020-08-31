@@ -247,6 +247,7 @@ alias sb='source ~/.bashrc'
 # Just for fun
 alias please='sudo !!'
 alias fail='tail -f'
+alias gtail='tail -f $1 | grep --line-buffered "$2"'
 
 # }}}
 # Stolen from Jessie Frazelle {{{
