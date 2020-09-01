@@ -536,7 +536,8 @@ nnoremap <leader>U :GundoToggle<CR>
 nnoremap <c-n> :NERDTreeToggle<CR>
 
 " Some custom indicators for file state
-let g:NERDTreeIndicatorMapCustom = {
+" let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
