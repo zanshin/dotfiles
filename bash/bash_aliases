@@ -68,6 +68,8 @@ alias 'previous=history | grep '
 
 alias 'xup=xrdb ~/.Xresources'
 
+alias 'galias=alias | grep '
+
 # }}}
 # Mercurial (hg) {{{
 alias 'h=hg status'
