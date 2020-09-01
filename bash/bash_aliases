@@ -247,6 +247,7 @@ alias sb='source ~/.bashrc'
 # Just for fun
 alias please='sudo !!'
 alias fail='tail -f'
+alias gtail='tail -f $1 | grep --line-buffered "$2"'
 
 # }}}
 # Stolen from Jessie Frazelle {{{
@@ -264,10 +265,15 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias untar="tar xvf"
 
 # }}}
+# Linux clipboard {{{
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+
+# }}}
 # AWS {{{
 
 # AWS "whoami"
-alias awswho="aws sts get-caller-identity 2>/dev/null"
+# alias awswho="aws sts get-caller-identity 2>/dev/null"
 
 # AWS login
 alias awson='aws login ; LP_PS1_PREFIX="\033[0;34maws \033[0m"'

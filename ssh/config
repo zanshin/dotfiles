@@ -78,9 +78,9 @@ Host rosindust
     user mark
 
 # Access GitHub even when port 22 isn't available
-# Host github.com
-#     HostName ssh.github.com
-#     Port 443
+Host github.com
+    HostName ssh.github.com
+    Port 443
 
 # Personal K-State Webpage
 Host ksuunix
