@@ -71,7 +71,7 @@ done
 # Setup Bash
 if ask "Setup Bash" Y; then
   echo "Setting up bash startup files"
-  cd "$dotfiles_dir"/bash;
+#  cd "$dotfiles_dir"/bash;
   ln -sfn "$dotfiles_dir"/bash/bash.d "${HOME}"/.config/bash.d;
   ln -sf "$dotfiles_dir"/bash/bashrc "${HOME}"/.bashrc;
   ln -sf "$dotfiles_dir"/bash/bash_profile "${HOME}"/.bash_profile;
