@@ -1,0 +1,57 @@
+# -------------------------------------------------------------------
+# paths
+#
+# This file sets up the PATH environment variable. For Darwin-based
+# systems, i.e., macOS, it resets PATH and then uses path_helper to
+# re-establish it, before adding user specific paths.
+#
+# -------------------------------------------------------------------
+
+# -------------------------------------------------------------------
+# Reset Path Helper
+# test kernel to prevent reset on Linux
+# -------------------------------------------------------------------
+if [[ "myos" == "Darwin" ]]; then
+  PATH=""
+  if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+  fi
+fi
+
+# -------------------------------------------------------------------
+# Add user specific paths to PATH environment variable
+# -------------------------------------------------------------------
+
+# set PATH so it includes user's private bin directories, if they exist
+if [ -d $HOME/bin ] ; then PATH="$PATH:$HOME/bin" fi
+if [ -d $HOME/bin/bash ] ; then PATH="$PATH:$HOME/bin/bash" fi
+if [ -d $HOME/bin/ruby ] ; then PATH="$PATH:$HOME/bin/ruby" fi
+if [ -d $HOME/bin/python ] ; then PATH="$PATH:$HOME/bin/python" fi
+if [ -d $HOME/bin/perl ] ; then PATH="$PATH:$HOME/bin/perl" fi
+
+# set PATH so it includes /usr/local/sbin if it exists
+if [ -d /usr/local/sbin ] ; thenPATH="$PATH:/usr/local/sbin" fi
+
+# add Go path for Arch Linux
+# if [ -e /usr/bin/go ] ; then
+#   PATH="${PATH}:/usr/bin/go"
+#   export GOPATH=$HOME/code/go
+# fi
+
+# Enable path to pip
+# if [ -d ~/.local/bin ] ; then
+#   PATH="~/.local/bin:${PATH}"
+# fi
+
+# Enable path for Rust
+if [ -d /opt/rust/.cargo/bin ] ; then PATH="$PATH:$HOME/.cargo/bin" fi
+
+# Add path to Python3 scripts (needed for AWS CLI)
+# if [ -d $HOME/Library/Python/3.7/bin ] ; then
+#   PATH="${PATH}:$HOME/Library/Python/3.7/bin"
+# fi
+
+# Add path to ~/.local/bin for aws cli on linux
+if [ -d $HOME/.local/bin ] ; then PATH="$HOME/.local/bin:$PATH" fi
+
+export PATH
