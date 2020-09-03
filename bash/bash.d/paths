@@ -57,3 +57,10 @@ if [ -d /opt/rust/.cargo/bin ] ; then PATH="${PATH}:${HOME}/.cargo/bin" ; fi
 if [ -d ${HOME}/.local/bin ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
 
 export PATH
+
+# Be incredible anal and remove duplicates from PATH, even though the
+# shell will only use the first occurrance.
+# https://www.linuxjournal.com/content/removing-duplicate-path-entries
+PATH=$(echo $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
+
+export PATH
