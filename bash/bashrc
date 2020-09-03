@@ -50,7 +50,8 @@ done
 # for file in ${HOME}/.config/bash.d/{aliases,bindkeys,colors,dockerfunc,exports,functions,paths} ; do
 for file in ${HOME}/.config/bash.d/{paths,aliases,bindkeys,colors,dockerfunc,exports,functions} ; do
   if [[ -r "$file" ]] && [[ -f "$file" ]] ; then
-    source "${HOME}/.config/bash.d/${file}"
+    # source "${HOME}/.config/bash.d/${file}"
+    source "${file}"
   fi
 done
 unset file
