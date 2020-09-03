@@ -96,3 +96,5 @@ source $HOME/.config/liquidprompt/liquidprompt
 # finis
 
 complete -C /usr/local/bin/vault vault
+
+complete -C /usr/local/bin/terraform terraform
