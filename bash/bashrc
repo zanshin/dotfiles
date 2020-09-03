@@ -1,5 +1,10 @@
+#!/bin/bash
+
 # --------------------------------------------------------------------
 # bashrc
+#
+# Executed by bash for non-login shells, i.e., any terminal you open
+# _after_ logging into a machine.
 # --------------------------------------------------------------------
 
 myos=`uname -s`
