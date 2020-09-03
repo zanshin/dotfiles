@@ -73,8 +73,9 @@ fi
 # fi
 
 # Enable path for Rust
-if [ -d /opt/rust/.cargo/bin ] ; then
-  PATH="$PATH:/opt/rust/.cargo/bin"
+# export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d $HOME/.cargo/bin ] ; then
+  PATH="$PATH:$HOME/.cargo/bin"
 fi
 
 # Add path to Python3 scripts (needed for AWS CLI)

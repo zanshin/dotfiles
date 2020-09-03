@@ -81,8 +81,8 @@ export CHEF_BASEDIR="/Users/mhn/code/chef"
 # --------------------------------------------------------------------
 # Export CARGO_HOME and RUSTUP_HOME for Rust
 # --------------------------------------------------------------------
-export CARGO_HOME="/opt/rust/.cargo/bin"
-export RUSTUP_HOME="/opt/rust/.rustup"
+export CARGO_HOME="$HOME/.cargo/bin"
+export RUSTUP_HOME="$HOME/.rustup"
 
 # --------------------------------------------------------------------
 # Configure how history works
@@ -140,3 +140,5 @@ source $HOME/.config/liquidprompt/liquidprompt
 # finis
 
 complete -C /usr/local/bin/vault vault
+
+complete -C /usr/local/bin/terraform terraform
