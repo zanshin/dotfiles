@@ -34,11 +34,11 @@ if [ -d ${HOME}/bin/perl ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
 # set PATH so it includes /usr/local/sbin if it exists
 if [ -d /usr/local/sbin ] ; thenPATH="${PATH}:/usr/local/sbin" ; fi
 
-# add Go path for Arch Linux
-# if [ -e /usr/bin/go ] ; then
-#   PATH="${PATH}:/usr/bin/go"
-#   export GOPATH=${HOME}/code/go
-# fi
+# add Go path
+if [ -e /usr/bin/go ] ; then
+  PATH="${PATH}:/usr/bin/go"
+  export GOPATH=${HOME}/code/go
+fi
 
 # Enable path to pip
 # if [ -d ~/.local/bin ] ; then
