@@ -13,8 +13,3 @@ if [[ -r "${HOME}/.bashrc" ]]; then
   source "${HOME}/.bashrc"
 fi
 
-# -------------------------------------------------------------------
-# Enable rbenv
-# -------------------------------------------------------------------
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-[[ -e /usr/local/bin/rbenv ]] && eval "$(rbenv init -)"

@@ -73,10 +73,11 @@ unset noclobber
 # umask: 002 lets group members create/modify files. outsiders can only read
 umask 002
 
-# --------------------------------------------------------------------
 # Source AWS MGA Serial
-# --------------------------------------------------------------------
 [[ -e $HOME/.awstoken ]] && source $HOME/.awstoken
+
+# Enable rbenv
+[[ -e /usr/local/bin/rbenv ]] && eval "$(rbenv init -)"
 
 # --------------------------------------------------------------------
 # liquidprompt setup
