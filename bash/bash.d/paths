@@ -32,7 +32,7 @@ if [ -d ${HOME}/bin/python ] ; then PATH="${PATH}:${HOME}/bin/python" ; fi
 if [ -d ${HOME}/bin/perl ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
 
 # set PATH so it includes /usr/local/sbin if it exists
-if [ -d /usr/local/sbin ] ; thenPATH="${PATH}:/usr/local/sbin" ; fi
+if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
 
 # add Go path
 if [ -e /usr/bin/go ] ; then
