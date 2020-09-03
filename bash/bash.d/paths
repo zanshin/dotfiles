@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # -------------------------------------------------------------------
 # paths
 #
@@ -23,19 +25,19 @@ fi
 # -------------------------------------------------------------------
 
 # set PATH so it includes user's private bin directories, if they exist
-if [ -d $HOME/bin ] ; then PATH="$PATH:$HOME/bin" fi
-if [ -d $HOME/bin/bash ] ; then PATH="$PATH:$HOME/bin/bash" fi
-if [ -d $HOME/bin/ruby ] ; then PATH="$PATH:$HOME/bin/ruby" fi
-if [ -d $HOME/bin/python ] ; then PATH="$PATH:$HOME/bin/python" fi
-if [ -d $HOME/bin/perl ] ; then PATH="$PATH:$HOME/bin/perl" fi
+if [ -d ${HOME}/bin ] ; then PATH="${PATH}:${HOME}/bin" ; fi
+if [ -d ${HOME}/bin/bash ] ; then PATH="${PATH}:${HOME}/bin/bash" ; fi
+if [ -d ${HOME}/bin/ruby ] ; then PATH="${PATH}:${HOME}/bin/ruby" ; fi
+if [ -d ${HOME}/bin/python ] ; then PATH="${PATH}:${HOME}/bin/python" ; fi
+if [ -d ${HOME}/bin/perl ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
 
 # set PATH so it includes /usr/local/sbin if it exists
-if [ -d /usr/local/sbin ] ; thenPATH="$PATH:/usr/local/sbin" fi
+if [ -d /usr/local/sbin ] ; thenPATH="${PATH}:/usr/local/sbin" ; fi
 
 # add Go path for Arch Linux
 # if [ -e /usr/bin/go ] ; then
 #   PATH="${PATH}:/usr/bin/go"
-#   export GOPATH=$HOME/code/go
+#   export GOPATH=${HOME}/code/go
 # fi
 
 # Enable path to pip
@@ -44,14 +46,14 @@ if [ -d /usr/local/sbin ] ; thenPATH="$PATH:/usr/local/sbin" fi
 # fi
 
 # Enable path for Rust
-if [ -d /opt/rust/.cargo/bin ] ; then PATH="$PATH:$HOME/.cargo/bin" fi
+if [ -d /opt/rust/.cargo/bin ] ; then PATH="${PATH}:${HOME}/.cargo/bin" ; fi
 
 # Add path to Python3 scripts (needed for AWS CLI)
-# if [ -d $HOME/Library/Python/3.7/bin ] ; then
-#   PATH="${PATH}:$HOME/Library/Python/3.7/bin"
+# if [ -d ${HOME}/Library/Python/3.7/bin ] ; then
+#   PATH="${PATH}:${HOME}/Library/Python/3.7/bin"
 # fi
 
 # Add path to ~/.local/bin for aws cli on linux
-if [ -d $HOME/.local/bin ] ; then PATH="$HOME/.local/bin:$PATH" fi
+if [ -d ${HOME}/.local/bin ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
 
 export PATH
