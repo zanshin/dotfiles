@@ -1,0 +1,82 @@
+#!/bin/bash
+# Bash wrappers for docker run commands
+
+# Helper functions
+dcleanup() {
+  docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+  docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+del_stopped() {
+  local name=$1
+  local state=$(docker inspect --format "{{.State.Runing}" $name 2>/dev/null)
+
+  if [[ "$state" == "false" ]] ; then
+    docker rm $name
+  fi
+}
+
+relies_on() {
+  local containers=$@
+
+  for container in $containers; do
+    local state=$(docker inspect --format "{{.State.Running}}" $container 2>/dev/null)
+
+    if [[ "$state" == "false" ]] || [[ "$state" == "" ]]; then
+      echo "$container is not running, starting it for you."
+      $container
+    fi
+  done
+}
+
+cows() {
+  docker run --rm -it \
+         --name cowsay \
+         zanshin/cowsay
+}
+
+chrome() {
+  # add flags for proxy if passed
+  local proxy=
+  local map=
+  local args=$@
+  if [[ "$1" == "tor" ]]; then
+    relies_on torproxy
+
+    map="MAP * ~NOTFOUND , EXCLUDE torproxy"
+    proxy="socks5://torproxy:9050"
+    args="https://check.torproject.org/api/ip ${@:2}"
+  fi
+
+  del_stopped chrome
+
+  sudo docker run -d \
+    --memory 3gb \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    -v $HOME/Downloads:/root/Downloads \
+    -v $HOME/Pictures:/root/Pictures \
+    -v $HOME/Torrents:/root/Torrents \
+    -v $HOME/.chrome:/data \
+    -v /dev/shm:/dev/shm \
+    -v /etc/hosts:/etc/hosts \
+    --device /dev/snd \
+    --device /dev/dri \
+    --device /dev/video0 \
+    --group-add audio \
+    --group-add video \
+    --name chrome \
+    jess/chrome --user-data-dir=/data \
+    --proxy-server="$proxy" \
+    --host-resolver-rules="$map" "$args"
+}
+
+htop() {
+  docker run --rm -it \
+         --pid host \
+         --net none \
+         --name htop \
+         zanshin/htop
+}
+
