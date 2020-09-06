@@ -406,7 +406,7 @@ getcertnames() {
 
 # Linux specific functions, work on both MacOS and Linux.
 pbcopy() {
-        stdin=$(</dev/stdin);
+        stdin="$(</dev/stdin)";
         pbcopy="$(which pbcopy)";
         if [[ -n "$pbcopy" ]]; then
                 echo "$stdin" | "$pbcopy"

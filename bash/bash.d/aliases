@@ -268,8 +268,8 @@ alias untar="tar xvf"
 
 # }}}
 # Linux clipboard {{{
-alias pbcopy="xsel --clipboard --input"
-alias pbpaste="xsel --clipboard --output"
+# alias pbcopy="xsel --clipboard --input"
+# alias pbpaste="xsel --clipboard --output"
 
 # }}}
 # AWS {{{
