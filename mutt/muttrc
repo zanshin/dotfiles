@@ -72,7 +72,7 @@ set spoolfile = "~/.mail/mark/INBOX"
 # source `$HOME/.mutt/scripts/safesource.sh $HOME/.mutt/scripts/mailboxes.rb`
 # source ~/.mutt/mailboxes.mutt
 mailboxes +"mark --------------------"
-mailboxes /home/mark/.mail/mark/INBOX /home/mark/.mail/mark/Archive /home/mark/.mail/mark/Drafts /home/mark/.mail/mark/Sent /home/mark/.mail/mark/sibylle /home/mark/.mail/mark/Trash /home/mark/.mail/mark/Junk
+mailboxes /home/mark/.mail/mark/INBOX /home/mark/.mail/mark/Archive /home/mark/.mail/mark/Drafts /home/mark/.mail/mark/Sent  /home/mark/.mail/mark/Trash /home/mark/.mail/mark/Junk
 
 mailboxes +"root --------------------"
 mailboxes /home/mark/.mail/root/INBOX /home/mark/.mail/root/Archive /home/mark/.mail/root/Drafts /home/mark/.mail/root/Sent /home/mark/.mail/root/Trash /home/mark/.mail/root/Junk
