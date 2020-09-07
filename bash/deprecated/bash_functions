@@ -8,7 +8,8 @@
  }
 
  function knifeome() {
-   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
+#   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
+   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a fqdn | sort | knhost
  }
 
  function knaws() {
@@ -190,7 +191,7 @@ any() {
 }
 
 # }}}
-# display a neatly formatted path {{{
+# path: display a neatly formatted path {{{
 path() {
 local blue="\033[1;34m"
 local green="\033[0;32m"
@@ -406,14 +407,18 @@ getcertnames() {
 # }}}
 # Colorize Man {{{
 man() {
-  env \
-    LESS_TERMCAP_md=$'\E[1;36m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[1;40;92m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[1;32m' \
-      man "$@"
+    if [[ "$myos" == "Linux" ]]; then
+      /usr/bin/man "$@"
+    else
+      env \
+        LESS_TERMCAP_md=$'\E[1;36m' \
+        LESS_TERMCAP_me=$'\E[0m' \
+        LESS_TERMCAP_se=$'\E[0m' \
+        LESS_TERMCAP_so=$'\E[1;40;92m' \
+        LESS_TERMCAP_ue=$'\E[0m' \
+        LESS_TERMCAP_us=$'\E[1;32m' \
+          man "$@"
+    fi
 }
 
 # }}}
@@ -536,6 +541,47 @@ function showcert() {
 }
 
 # }}}
+# SSL Certificate Date Check {{{
+function ssldates() {
+  echo | openssl s_client -servername "$@" -connect "$@":443 2>/dev/null | openssl x509 -noout -dates
+}
+# }}}
+# Check SSL Certificate dates for my sites {{{
+function mycerts () {
+  printf "zanshin         "
+  echo | openssl s_client -servername "zanshin.net" -connect "zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - - -
+  printf "books           "
+  echo | openssl s_client -servername "books.zanshin.net" -connect "books.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "geek            "
+  echo | openssl s_client -servername "geek.zanshin.net" -connect "geek.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "health          "
+  echo | openssl s_client -servername "health.zanshin.net" -connect "health.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "music           "
+  echo | openssl s_client -servername "music.zanshin.net" -connect "music.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "matomo          "
+  echo | openssl s_client -servername "matomo.zanshin.net" -connect "matomo.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "mandolin        "
+  echo | openssl s_client -servername "mandolin.zanshin.net" -connect "mandolin.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "practice        "
+  echo | openssl s_client -servername "practice.zanshin.net" -connect "practice.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "mint            "
+  echo | openssl s_client -servername "mint.zanshin.net" -connect "mint.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "sibyllekuder    "
+  echo | openssl s_client -servername "sibyllekuder.com" -connect "sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "notes           "
+  echo | openssl s_client -servername "notes.sibyllekuder.com" -connect "notes.sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "blog            "
+  echo | openssl s_client -servername "blog.sibyllekuder.com" -connect "blog.sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "mint            "
+  echo | openssl s_client -servername "mint.sibyllekuder.com" -connect "mint.sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "jonathankuder   "
+  echo | openssl s_client -servername "jonathankuder.com" -connect "jonathankuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "hannelorebohlig "
+  echo | openssl s_client -servername "hannelorebohlig.com" -connect "hannelorebohlig.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "aiydk           "
+  echo | openssl s_client -servername "andifyoudidknow.com" -connect "andifyoudidknow.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+}
+# }}}
 # while loop for init 6 {{{
 function pounce() {
   while true; do nc -vvv -w 1  "$1" 22; done
@@ -630,4 +676,21 @@ newscript() {
 }
 
 # }}}
+# AWS helpers {{{
 
+# awscli profile function
+awsp() {
+  export AWS_PROFILE="$@"
+}
+
+# ps1set: set the liquidprompt prefix
+ps1set() {
+  LP_PS1_PREFIX="\033[0;34m`aws sts get-caller-identity 2>/dev/null | grep Arn | awk -F'/' '{print $2" "}'`\033[0m"
+}
+
+# ps1reset: reset the liquidprompt prefix
+ps1reset() {
+  LP_PS1_PREFIX=""
+}
+
+# }}}

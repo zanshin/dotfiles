@@ -1,0 +1,297 @@
+# -------------------------------------------------------------------
+# .bash_aliases
+#
+# Various aliases that I like and use.
+# -------------------------------------------------------------------
+
+# Ruby stuff {{{
+alias ri='ri -Tf ansi'     # Search Ruby documentaton
+
+# }}}
+# Movement {{{
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias code='~/code'
+
+# }}}
+# Sorted size {{{
+alias 'dus=du -sckx * | sort -nr'
+
+# Processes {{{
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+
+# }}}
+# }}}
+# Mac OS X specific stuff {{{
+#alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
+alias 'adventure=emacs -batch -l dunnet'
+alias 'mailsize=du -hs ~/Library/mail'
+alias 'ttop=top -ocpu -R -F -s 2 -n30'
+alias "dismount=osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true)'"
+
+# }}}
+# ls variants {{{
+alias l="ls -lahF ${colorflag}"
+alias ll="ls -lhF ${colorflag}"
+alias lsd='ls -ld */'
+alias lh='ls -a | egrep "^\."'
+alias ls="ls ${colorflag}"
+alias l.="ls -ld .?*"
+
+alias sym="ls -la | grep '\->'"
+
+# }}}
+# Directory shortcuts {{{
+alias omedev="cd ~/code/chef/omedev"
+alias ome="cd ~/code/chef/ome"
+alias omepci="cd ~/code/chef/omepci"
+alias omepcidev="cd ~/code/chef/omepcidev"
+alias est="cd ~/code/chef/est"
+alias estdev="cd ~/code/chef/estdev"
+alias estwin="cd ~/code/chef/estwin"
+alias estwindev="cd ~/code/chef/estwindev"
+alias omeaws="cd ~/code/chef/omeaws"
+alias zome="cd ~/code/chef/zome"
+alias zomedev="cd ~/code/chef/zomedev"
+
+alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
+alias roll2="cd ~/code/chef/zome/cookbooks/ome_wildfly_cluster/scripts/reboot"
+# }}}
+# Miscellaneous {{{
+alias 'bk=cd $OLDPWD'
+alias 'rm=rm -i'
+#alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
+alias 'previous=history | grep '
+
+alias 'xup=xrdb ~/.Xresources'
+
+alias 'galias=alias | grep '
+
+# }}}
+# Mercurial (hg) {{{
+alias 'h=hg status'
+alias 'hc=hg commit'
+alias 'push=hg push'
+alias 'pull=hg pull'
+alias 'clone=hg clone'
+
+# }}}
+# Git {{{
+alias ga='git add'
+alias gp='git push'
+alias gl='git log'
+# alias gpl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreed(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gpl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gs='git status'
+alias gd='git diff'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gcm='git commit'
+alias gb='git branch'
+alias gc='git checkout'
+alias gcb='git checkout -b'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+alias gta='git tag -a -m'
+alias gf='git reflog'
+alias gv="git log --pretty=format:'%s' | cut -d ' ' -f 1 | sort | uniq -c | sort -nr"
+alias gdb='git diff master..`git rev-parse --abbrev-ref HEAD`'
+alias gr='git diff master..'
+
+# requires git-up gem to be installed
+alias gu='git up'
+
+# leverage an alias from the ~/.gitconfig
+alias gh='git hist'
+alias gt='git today'
+
+# curiosities
+# gsh shows the number of commits for the current repos for all developers
+alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc-l"
+
+# guser shows a list of all developers and the number of commits they've made
+alias guser="git shortlog | grep -E '^[^ ]'"
+
+# ect (Edit Changed in Tabs) opens all files marked as changed by Git in tabs
+alias ect="git status --short | awk '{print $2}' | xargs -o nvim"
+
+# Use `git up` Git alias to update master branch on all repositories in parent
+# directory
+alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs -I @@ bash -c 'cd @@ && echo @@ && git checkout master && git up && cd ..'"
+
+# Not really a Git thing, but situation is caused by git pull on dotfile repo
+# reset file permissions on ~/.ssh/config to 600
+alias cssh="chmod 600 ~/.dotfiles/ssh/config && chmod 600 ~/.dotfiles/ssh/authorized_keys"
+
+# }}}
+# Neovim and Vim {{{
+# alias 'vi=vim'
+alias 'vi=nvim'
+alias 'nv=nvim'
+alias vplug="vim +PlugUpgrade +PlugUpdate +qall"
+alias nplug="nvim +PlugUpgrade +PlugUpdate +qall"
+alias 'vim=vim -U none'
+
+# }}}
+# Tmux {{{
+alias takeove='tmux detach -a'
+alias attach='tmux attach -t base || tmux new -s base'
+alias ta='tmux attach -t'
+alias tn='tmux new -s'
+alias tls='tmux ls'
+alias tk='tmux kill-session -t'
+
+# tmux scripts
+alias tb='~/.dotfiles/scripts/blog'
+alias tw='~/.dotfiles/scripts/chef'
+alias tf='~/.dotfiles/scripts/fugazi'
+alias tc='~/.dotfiles/scripts/console'
+alias tt='~/.dotfiles/scripts/tools'
+alias td='~/.dotfiles/scripts/deploy'
+
+# force tmux to use 256 colors
+# alias tmux='TERM=screen-256colors tmux'
+alias tmux='tmux -2'
+
+# Disable Mouse reporting
+# https://superuser.com/questions/802698/disable-mouse-reporting-in-a-terminal-session-after-tmux-exits-unexpectedly
+alias resetmouse="printf '\e[?1000l'"
+
+# }}}
+# Mutt {{{
+alias mutt='cd ~/Desktop && mutt && cd -'
+# alias mutt='mutt -e "set crypt_use_gpgme=no"'
+
+# }}}
+# Vagrant {{{
+alias vg='vagrant'
+alias vs='vagrant ssh'
+alias vu='vagrant up'
+alias vp='vagrant provision'
+alias vh='vagrant halt'
+alias vr='vagrant reload'
+alias vd='vagrant destroy'
+alias vgs='vagrant global-status'
+
+# }}}
+# Knife {{{
+alias kso='knife status "hostname:ome*"'
+alias ks='knife status'
+alias kn='knife node'
+alias kns='knife node show'
+alias kc='knife client'
+alias tagged='knife search node "name:ome-vm*" -a tags'
+alias notags='knife search node "NOT tags:* AND name:ome*" -a tags'
+alias k='knife'
+alias bake='knife cookbook upload'
+alias ksg='knife status | grep '
+
+
+# }}}
+# Docker {{{
+alias dm='docker-machine'
+alias dmenv='eval "$(docker-machine env local)"'
+
+alias d='docker'
+alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
+
+# }}}
+# Randome shortcuts {{{
+alias bu='brew update; brew upgrade; brew cask upgrade; brew cleanup; brew doctor'
+alias wifi='networksetup -setairportpower en0'
+alias makepass='openssl rand -base64 12'
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+#alias cowsay='fortune | cowsay'
+
+# }}}
+# VPN & Remote machines {{{
+# alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu &'
+alias estvpn='sudo openconnect --config ~/.dotfiles/openconnect/estvpn https://vpn.net.k-state.edu'
+alias estvpnoff='sudo pkill -SIGINT openconnect'
+
+alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
+alias vpnoff='/opt/cisco/anyconnect/bin/vpn disconnect'
+
+alias gpon="tmux new -s vpn 'sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu'"
+alias gpoff='sudo pkill -SIGINT openconnect'
+
+alias kvnc='open vnc://krayt.ome.ksu.edu'
+alias ksunix='ssh mhn@unix.ksuedu'
+alias tools='ssh mhn@tools.ome.ksu.edu'
+alias wf='ssh markn@markn.webfactional.com'
+
+# }}}
+# Python virtualenv {{{
+alias mkenv='mkvirtualenv'
+alias on='workon'
+alias off='deactivate'
+
+alias python="python3"
+
+# }}}
+# Oddball stuff {{{
+alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
+alias inet='ifconfig | grep inet | grep -v inet6'
+alias sloc='/usr/local/sloccount/bin/sloccount'
+alias adventure='emacs -batch -l dunnet'
+alias ttop='top -ocpu -R -F -s 2 -n30'
+alias rm='rm -i'
+
+alias acat='source ~/.bash_aliases'
+alias facat='source ~/.bash_functions'
+alias sb='source ~/.bashrc'
+
+# Just for fun
+alias please='sudo !!'
+alias fail='tail -f'
+alias gtail='tail -f $1 | grep --line-buffered "$2"'
+
+# }}}
+# Stolen from Jessie Frazelle {{{
+
+# vhosts - edit hosts file
+alias hosts='sudo vim /etc/hosts'
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# untar
+alias untar="tar xvf"
+
+# }}}
+# Linux clipboard {{{
+# alias pbcopy="xsel --clipboard --input"
+# alias pbpaste="xsel --clipboard --output"
+
+# }}}
+# AWS {{{
+
+# AWS "whoami"
+# alias awswho="aws sts get-caller-identity 2>/dev/null"
+
+# AWS login
+alias awson='aws login ; LP_PS1_PREFIX="\033[0;34maws \033[0m"'
+
+# AWS logout
+alias awsoff='aws logout ; LP_PS1_PREFIX=""'
+
+# }}}
+# systemctl {{{
+alias ss="sudo systemctl"
+alias ssu="sudo systemctl start"
+alias ssd="sudo systemctl stop"
+alias ssr="sudo systemctl restart"
+alias sse="sudo systemctl enable"
+
+# }}}
+# Aliases from new-alias function
+alias lst='ls -alt'
+alias packages='echo $(pacman -Qn | wc -l) "Arch packages, and " $(pacman -Qm | wc -l) "AUR packages"'

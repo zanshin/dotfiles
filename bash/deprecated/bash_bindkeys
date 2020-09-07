@@ -1,0 +1,11 @@
+## bind '"\e[A":up-line-or-search' ## up arrow for back-history-search
+## bind '"\e[B":down-line-or-search' ## down arrow for fwd-history-search
+
+# Don't want these unless we're in an interactive shell
+if [ ! -z "$PS1" ]; then
+  bind '"\e[A":history-search-backward'
+  bind '"\e[B":history-search-forward'
+
+  bind '"\eOB":history-search-forward'
+  bind '"\eOA":history-search-backward'
+fi

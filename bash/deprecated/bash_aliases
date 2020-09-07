@@ -26,7 +26,7 @@ alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
 # }}}
 # }}}
 # Mac OS X specific stuff {{{
-alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
+#alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
 alias 'adventure=emacs -batch -l dunnet'
 alias 'mailsize=du -hs ~/Library/mail'
 alias 'ttop=top -ocpu -R -F -s 2 -n30'
@@ -67,6 +67,8 @@ alias 'rm=rm -i'
 alias 'previous=history | grep '
 
 alias 'xup=xrdb ~/.Xresources'
+
+alias 'galias=alias | grep '
 
 # }}}
 # Mercurial (hg) {{{
@@ -124,7 +126,7 @@ alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs 
 
 # Not really a Git thing, but situation is caused by git pull on dotfile repo
 # reset file permissions on ~/.ssh/config to 600
-alias cssh="chmod 600 ~/.dotfiles/ssh/config"
+alias cssh="chmod 600 ~/.dotfiles/ssh/config && chmod 600 ~/.dotfiles/ssh/authorized_keys"
 
 # }}}
 # Neovim and Vim {{{
@@ -133,6 +135,7 @@ alias 'vi=nvim'
 alias 'nv=nvim'
 alias vplug="vim +PlugUpgrade +PlugUpdate +qall"
 alias nplug="nvim +PlugUpgrade +PlugUpdate +qall"
+alias 'vim=vim -U none'
 
 # }}}
 # Tmux {{{
@@ -199,7 +202,7 @@ alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
 
 # }}}
 # Randome shortcuts {{{
-alias bu='brew update; brew upgrade; brew cleanup; brew doctor'
+alias bu='brew update; brew upgrade; brew cask upgrade; brew cleanup; brew doctor'
 alias wifi='networksetup -setairportpower en0'
 alias makepass='openssl rand -base64 12'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
@@ -208,14 +211,14 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 # }}}
 # VPN & Remote machines {{{
 # alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu &'
-alias estvpn='sudo openconnect --config ~/.openconnect/estvpn https://vpn.net.k-state.edu'
-alias asavpn='sudo openconnect --config ~/.openconnect/asavpn https://vpn.net.k-state.edu'
-alias dbvpn='sudo openconnect --config ~/.openconnect/dbvpn https://vpn.net.k-state.edu'
-alias omevpn='sudo openconnect --config ~/.openconnect/omevpn https://vpn.net.k-state.edu'
+alias estvpn='sudo openconnect --config ~/.dotfiles/openconnect/estvpn https://vpn.net.k-state.edu'
+alias estvpnoff='sudo pkill -SIGINT openconnect'
 
 alias vpnon='/opt/cisco/anyconnect/bin/vpn -s connect vpn.net.k-state.edu'
-# alias vpnon="vpnon.sh"
 alias vpnoff='/opt/cisco/anyconnect/bin/vpn disconnect'
+
+alias gpon="tmux new -s vpn 'sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu'"
+alias gpoff='sudo pkill -SIGINT openconnect'
 
 alias kvnc='open vnc://krayt.ome.ksu.edu'
 alias ksunix='ssh mhn@unix.ksuedu'
@@ -227,6 +230,8 @@ alias wf='ssh markn@markn.webfactional.com'
 alias mkenv='mkvirtualenv'
 alias on='workon'
 alias off='deactivate'
+
+alias python="python3"
 
 # }}}
 # Oddball stuff {{{
@@ -244,6 +249,7 @@ alias sb='source ~/.bashrc'
 # Just for fun
 alias please='sudo !!'
 alias fail='tail -f'
+alias gtail='tail -f $1 | grep --line-buffered "$2"'
 
 # }}}
 # Stolen from Jessie Frazelle {{{
@@ -261,5 +267,31 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 alias untar="tar xvf"
 
 # }}}
+# Linux clipboard {{{
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+
+# }}}
+# AWS {{{
+
+# AWS "whoami"
+# alias awswho="aws sts get-caller-identity 2>/dev/null"
+
+# AWS login
+alias awson='aws login ; LP_PS1_PREFIX="\033[0;34maws \033[0m"'
+
+# AWS logout
+alias awsoff='aws logout ; LP_PS1_PREFIX=""'
+
+# }}}
+# systemctl {{{
+alias ss="sudo systemctl"
+alias ssu="sudo systemctl start"
+alias ssd="sudo systemctl stop"
+alias ssr="sudo systemctl restart"
+alias sse="sudo systemctl enable"
+
+# }}}
 # Aliases from new-alias function
 alias lst='ls -alt'
+alias packages='echo $(pacman -Qn | wc -l) "Arch packages, and " $(pacman -Qm | wc -l) "AUR packages"'

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # -------------------------------------------------------------------
 # .bash_profile
 #
@@ -6,81 +8,8 @@
 # (Terminal) execute this for all new tabs or instances.
 # -------------------------------------------------------------------
 
-# -------------------------------------------------------------------
-# Source my bashrc file
-# -------------------------------------------------------------------
-
-# Source our .bashrc, if present
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
+# Load .bashrc, which in turn loads everything else
+if [[ -r "${HOME}/.bashrc" ]]; then
+  source "${HOME}/.bashrc"
 fi
 
-# Source our bash.local, if present
-if [ -f ~/.bashrc.local ]; then
-  source ~/.bashrc.local
-fi
-
-# -------------------------------------------------------------------
-# Build a PATH environment variable
-# -------------------------------------------------------------------
-
-# set PATH so it includes user's private bin if it exists
-if [ -d $HOME/bin ] ; then
-    PATH="${HOME}/bin:${PATH}"
-fi
-
-# set PATH so it includes /usr/local/sbin if it exists
-if [ -d /usr/local/sbin ] ; then
-	PATH="/usr/local/sbin:${PATH}"
-fi
-
-# set PATH so it includes /usr/sbin if it exists
-if [ -d /usr/sbin ] ; then
-  PATH="/usr/sbin:${PATH}"
-fi
-
-# set PATH so it includes /sbin if it exists
-if [ -d /sbin ] ; then
-PATH="/sbin:${PATH}"
-fi
-
-# add Go path for Linux
-if [ -d /usr/local/go/bin ] ; then
-  PATH="${PATH}:/usr/local/go/bin"
-  export GOPATH=$HOME/code/go
-fi
-
-# prepend /usr/local/bin to the head of the PATH to keep Homebrew happy
-if [ -d /usr/local/bin ] ; then
-	PATH="/usr/local/bin:${PATH}"
-fi
-
-# Enable path to pip
-if [ -d ~/.local/bin ] ; then
-  PATH=~/.local/bin:$PATH
-fi
-
-# Enable path for Rust
-if [ -d ~/.cargo/bin ] ; then
-  PATH=~/.cargo/bin:$PATH
-fi
-
-export PATH
-
-# -------------------------------------------------------------------
-# Enable rbenv
-# -------------------------------------------------------------------
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-[[ -e /usr/local/bin/rbenv ]] && eval "$(rbenv init -)"
-
-# finis
-# mhn 2016.1.9
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mark/src/google-cloud-sdk/path.bash.inc' ]; then source '/Users/mark/src/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mark/src/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/mark/src/google-cloud-sdk/completion.bash.inc'; fi
-
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

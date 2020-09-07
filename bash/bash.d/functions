@@ -1,0 +1,716 @@
+# Chef functions {{{
+ function knhost() {
+   sed -e 's/.*://' -e 's/.*items found//'
+ }
+
+ function knifeaws() {
+   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a cloud.public_hostname | knhost
+ }
+
+ function knifeome() {
+#   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
+   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a fqdn | sort | knhost
+ }
+
+ function knaws() {
+   for i in "$@"; do
+     for j in `knifeaws "$i"`; do
+       ssh $j
+     done
+   done
+ }
+
+ function knome() {
+   tmux new-window -n $1
+   for node in `knifeome "$1"`; do
+     tmux split-window -t :$ "ssh $node"
+     tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+   done
+   tmux kill-pane -t $.1
+   tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+   tmux set-window-option -t :$ synchronize
+ }
+
+ function kick() {
+   knife ssh -P -m "$1" "sudo chef-client"
+ }
+
+ function ktags() {
+   knife search "tags:*${@}*" -a name -a tags
+ }
+
+ function ktag() {
+   export esc=$(printf '\033')
+   export ret=$(printf '\013')
+   knife search "tags:*${@}*" | egrep 'Node|Tag'  | sed -e s/,//g | sed -e "s/Node Name:/${ret}${esc}[31mName${esc}[0m:/" -e "s/Tags/${esc}[31mTags${esc}[0m/"
+ }
+
+ function kshow() {
+   host $1.campus.ksu.edu >/dev/null 2>&1 && knife node show $1.campus.ksu.edu
+   host $1.ads.campus >/dev/null 2>&1 && knife node show $1.ads.campus
+   host $1.users.campus >/dev/null 2>&1 && knife node show $1.users.campus
+ }
+
+ function kns() {
+   knife node show $1
+ }
+
+ # fucntion to converge Chef node(s)
+ function converge() {
+   knife ssh -P -m $1 "sudo chef-client"
+ }
+
+ # }}}
+# Remove bad key from known_hosts file {{{
+function badkey() {
+  vim ~/.ssh/known_hosts +"$*d|x"
+}
+
+# }}}
+# Git function {{{
+function gg() {
+  git commit -m "$*"
+}
+
+# }}}
+# Dash functions {{{
+# Open argument in Dash
+function dash() {
+  open dash://$*
+}
+
+function dman() {
+  open dash://manpages:$*
+}
+
+function dchef() {
+  open dash://chef:$*
+}
+
+# }}}
+# compressed file expander {{{
+# (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
+ex() {
+  if [[ -e $1 ]]; then
+    case $1 in
+      *.tar.bz2) tar xvjf $1;;
+      *.tar.gz) tar xvzf $1;;
+      *.tar.xz) tar xvJf $1;;
+      *.tar.lzma) tar --lzma xvf $1;;
+      *.bz2) bunzip $1;;
+      *.rar) unrar $1;;
+      *.gz) gunzip $1;;
+      *.tar) tar xvf $1;;
+      *.tbz2) tar xvjf $1;;
+      *.tgz) tar xvzf $1;;
+      *.zip) unzip $1;;
+      *.Z) uncompress $1;;
+      *.7z) 7z x $1;;
+      *.dmg) hdiutul mount $1;; # mount OS X disk images
+      *) echo "'$1' cannot be extracted via >ex<";;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# }}}
+# Find files and exec commands at them. {{{
+# $ find-exec .coffee cat | wc -l
+# # => 9762
+# from https://github.com/paulmillr/dotfiles
+function find-exec() {
+  find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
+}
+
+# }}}
+# Count code lines in some directory. {{{
+# $ loc py js css
+# # => Lines of code for .py: 3781
+# # => Lines of code for .js: 3354
+# # => Lines of code for .css: 2970
+# # => Total lines of code: 10105
+# from https://github.com/paulmillr/dotfiles
+function loc() {
+  local total
+  local firstletter
+  local ext
+  local lines
+  total=0
+  for ext in $@; do
+    firstletter=$(echo $ext | cut -c1-1)
+    if [[ firstletter != "." ]]; then
+      ext=".$ext"
+    fi
+    lines=`find-exec "*$ext" cat | wc -l`
+    lines=${lines// /}
+    total=$(($total + $lines))
+    echo "Lines of code for ${fg[blue]}$ext${reset_color}: ${fg[green]}$lines${reset_color}"
+  done
+  echo "${fg[blue]}Total${reset_color} lines of code: ${fg[green]}$total${reset_color}"
+}
+
+# }}}
+# Show how much RAM application uses. {{{
+# $ ram safari
+# # => safari uses 154.69 MBs of RAM.
+# from https://github.com/paulmillr/dotfiles
+function ram() {
+  local sum
+  local items
+  local app="$1"
+  if [[ -z "$app" ]]; then
+    echo "First argument - pattern to grep from processes"
+  else
+    sum=0
+    for i in `ps aux | grep -i "$app" | grep -v "grep" | awk '{print $6}'`; do
+      sum=$(($i + $sum))
+    done
+    sum=$(echo "scale=2; $sum / 1024.0" | bc)
+    if [[ $sum != "0" ]]; then
+      echo "${fg[blue]}${app}${reset_color} uses ${fg[green]}${sum}${reset_color} MBs of RAM."
+    else
+      echo "There are no processes with pattern '${fg[blue]}${app}${reset_color}' are running."
+    fi
+  fi
+}
+
+# }}}
+# any function {{{
+# from http://onethingwell.org/post/14669173541/any
+# search for running processes
+any() {
+    emulate -L zsh
+    unsetopt KSH_ARRAYS
+    if [[ -z "$1" ]] ; then
+        echo "any - grep for process(es) by keyword" >&2
+        echo "Usage: any " >&2 ; return 1
+    else
+        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
+    fi
+}
+
+# }}}
+# path: display a neatly formatted path {{{
+path() {
+local blue="\033[1;34m"
+local green="\033[0;32m"
+local cyan="\033[0;36m"
+local purple="\033[0;35m"
+local brown="\033[0;33m"
+local reset_color="\033[0m"
+  echo $PATH | tr ":" "\n" | \
+    awk "{ sub(\"/usr\",   \"$green/usr$reset_color\"); \
+           sub(\"/bin\",   \"$blue/bin$reset_color\"); \
+           sub(\"/opt\",   \"$cyan/opt$reset_color\"); \
+           sub(\"/sbin\",  \"$purple/sbin$reset_color\"); \
+           sub(\"/local\", \"$brown/local$reset_color\"); \
+           print }"
+}
+
+# }}}
+# Mac specific functions {{{
+myos=`uname -s`
+if [[ "myos" == "Darwin" ]]; then
+
+  # view man pages in Preview
+  pman() { ps=`mktemp -t manpageXXXX`.ps ; man -t $@ > "$ps" ; open "$ps" ; }
+
+  # function to show interface IP assignments
+  ips() { foo=`/Users/mark/bin/getip.py; /Users/mark/bin/getip.py en0; /Users/mark/bin/getip.py en1`; echo $foo; }
+
+  # notify function - http://hints.macworld.com/article.php?story=20120831112030251
+  notify() { automator -D title=$1 -D subtitle=$2 -D message=$3 ~/Library/Workflows/DisplayNotification.wflow ; }
+
+fi
+
+# }}}
+# nice mount {{{
+# (http://catonmat.net/blog/another-ten-one-liners-from-commandlingfu-explained)
+# displays mounted drive information in a nicely formatted manner
+function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') | column -t ; }
+
+# }}}
+# myIP address {{{
+function myip() {
+  curl -s https://api.ipify.org | awk '{print "public ip: " $1}'
+  if [[ `uname -a | grep -i darwin` ]]; then
+    netstat -i -n | egrep "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v lo | awk '{print $1 "      : " $4}'
+  else
+      for i in `netstat -i | egrep -v "^(Iface|lo|Ker)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print "   : " $2}' ; done
+  fi
+}
+
+function tmuxip() {
+  echo `ifconfig | grep "inet 10.130" | grep -v broadcast | awk '{print $2}'`
+}
+# function tmuxip() {
+#   PUBIP=`curl -s https://api.ipify.org | awk '{print $1}'`
+#   if [[ `uname -a | grep -i darwin` ]]; then
+#     OTHERIPS=`netstat -i -n | egrep "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v lo | awk '{print " : " $1":"$4}'`
+#   else
+#     # OTHERIPS=`for i in `netstat -i | egrep -v "^(Iface|lo|Ker)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print " : " $2}' ; done | grep utun`
+#     OTHERIPS=`for i in `netstat -i | egrep -v "^(utun)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print " : " $2}' ; done`
+#   fi
+#   echo $PUBIP $OTHERIPS
+# }
+# }}}
+# (s)ave or (i)nsert a directory. {{{
+s() { pwd > ~/.save_dir ; }
+i() { cd "$(cat ~/.save_dir)" ; }
+
+# }}}
+# console function {{{
+function console () {
+  if [[ $# > 0 ]]; then
+    query=$(echo "$*"|tr -s ' ' '|')
+    tail -f /var/log/system.log|grep -i --color=auto -E "$query"
+  else
+    tail -f /var/log/system.log
+  fi
+}
+
+# }}}
+# shell function to define words {{{
+# http://vikros.tumblr.com/post/23750050330/cute-little-function-time
+givedef() {
+  if [[ $# -ge 2 ]]; then
+    echo "givedef: too many arguments" >&2
+    return 1
+  else
+    curl "dict://dict.org/d:$1"
+  fi
+}
+
+# }}}
+# ps with a grep {{{
+# from http://hiltmon.com/blog/2013/07/30/quick-process-search/
+function psax() {
+  ps auxwwwh | grep "$@" | grep -v grep
+}
+
+function psg() {
+  ps -ef | grep -i "$@" | grep -v grep
+}
+
+# }}}
+# turn hidden files on/off in Finder {{{
+function hiddenOn() {
+  defaults write com.apple.Finder AppleShowAllFiles YES
+}
+function hiddenOff() {
+  defaults write com.apple.Finder AppleShowAllFiles NO
+}
+
+# }}}
+# Stolen from Jessie Frazelle {{{
+# https://github.com/jfrazelle/dotfiles/blob/master/.functions
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+tre() {
+  tree -aC -I '.git' --dirsfirst "$@" | less -FRNX
+}
+
+# `v` with no arguments opens the current directory in Vim, otherwise opens the
+# given location
+v() {
+  if [ $# -eq 0 ]; then
+    vim .
+  else
+    vim "$@"
+  fi
+}
+
+# `n` - variant for Neovim
+n() {
+  if [ $# -eq 0 ]; then
+    nvim .
+  else
+    nvim "$@"
+  fi
+}
+
+# Create a new directory and enter it
+mkd() {
+  mkdir -p "$@" && cd "$@"
+}
+
+# Call from a local repo to open the repository on github/bitbucket in browser
+repo() {
+  local giturl=$(git config --get remote.origin.url | sed 's/git@/\/\//g' | sed 's/.git$//' | sed 's/https://g' | sed 's/:/\//g')
+  if [[ $giturl == "" ]]; then
+    echo "Not a git repository or no remote.origin.url is set."
+  else
+    local gitbranch=$(git rev-parse --abbrev-ref HEAD)
+    local giturl="http:${giturl}"
+
+    if [[ $gitbranch != "master" ]]; then
+      local giturl="${giturl}/tree/${gitbranch}"
+    fi
+
+    echo $giturl
+    open $giturl
+  fi
+}
+
+# Function to create aliases
+new-alias() {
+  local last_command=$(echo `history |tail -n2 |head -n1` | sed 's/[0-9]* //')
+  echo alias $1="'""$last_command""'" >> ~/.bash_aliases
+  . ~/.bash_profile
+}
+
+# Run `dig` and display most useful info
+digg() {
+  dig +nocmd "$1" any +multiline +noall +answer
+}
+
+# Show all the names (CNs and SANs) listed in the SSL certificate
+# for a given domain
+getcertnames() {
+	if [ -z "${1}" ]; then
+		echo "ERROR: No domain specified."
+		return 1
+	fi
+
+	local domain="${1}"
+	echo "Testing ${domain}…"
+	echo ""; # newline
+
+	local tmp
+	tmp=$(echo -e "GET / HTTP/1.0\\nEOT" \
+		| openssl s_client -connect "${domain}:443" 2>&1)
+
+	if [[ "${tmp}" = *"-----BEGIN CERTIFICATE-----"* ]]; then
+		local certText
+		certText=$(echo "${tmp}" \
+			| openssl x509 -text -certopt "no_header, no_serial, no_version, \
+			no_signame, no_validity, no_issuer, no_pubkey, no_sigdump, no_aux")
+		echo "Common Name:"
+		echo ""; # newline
+		echo "${certText}" | grep "Subject:" | sed -e "s/^.*CN=//"
+		echo ""; # newline
+		echo "Subject Alternative Name(s):"
+		echo ""; # newline
+		echo "${certText}" | grep -A 1 "Subject Alternative Name:" \
+			| sed -e "2s/DNS://g" -e "s/ //g" | tr "," "\\n" | tail -n +2
+		return 0
+	else
+		echo "ERROR: Certificate not found."
+		return 1
+	fi
+}
+
+# Linux specific functions, work on both MacOS and Linux.
+pbcopy() {
+        stdin="$(</dev/stdin)";
+        pbcopy="$(which pbcopy)";
+        if [[ -n "$pbcopy" ]]; then
+                echo "$stdin" | "$pbcopy"
+        else
+                echo "$stdin" | xclip -selection clipboard
+        fi
+}
+
+pbpaste() {
+        pbpaste="$(which pbpaste)";
+        if [[ -n "$pbpaste" ]]; then
+                "$pbpaste"
+        else
+                xclip -selection clipboard
+        fi
+}
+
+# }}}
+# Colorize Man {{{
+man() {
+    if [[ "$myos" == "Linux" ]]; then
+      /usr/bin/man "$@"
+    else
+      env \
+        LESS_TERMCAP_md=$'\E[1;36m' \
+        LESS_TERMCAP_me=$'\E[0m' \
+        LESS_TERMCAP_se=$'\E[0m' \
+        LESS_TERMCAP_so=$'\E[1;40;92m' \
+        LESS_TERMCAP_ue=$'\E[0m' \
+        LESS_TERMCAP_us=$'\E[1;32m' \
+          man "$@"
+    fi
+}
+
+# }}}
+# Base16 helpers {{{
+#
+# set -x
+
+BASE16_DIR=~/.config/base16-shell/scripts
+BASE16_CONFIG=~/.base16
+BASE16_NVIM=~/.nvim_theme
+BASE16_DEFAULT="base16-chalk.sh"
+
+color() {
+  SCHEME="$1"
+
+  if [ $# -eq 0 -a -s "$BASE16_CONFIG" ]; then
+    cat ~/.base16
+    return
+  fi
+
+  if [[ "$SCHEME" = 'help' ]]; then
+    ACTION='help'
+  elif [[ "$SCHEME" = 'default' ]]; then
+    ACTION='default'
+  else
+    ACTION='set'
+  fi
+
+  case "$ACTION" in
+  set)
+    if [[ "$SCHEME" = 'default' ]]; then
+      FILE="$BASE16_DIR/$BASE16_DEFAULT"
+    else
+      FILE="$BASE16_DIR/base16-$SCHEME.sh"
+    fi
+
+    if [[ -x "$FILE" ]]; then
+      echo "$SCHEME" >| "$BASE16_CONFIG"
+      "$FILE"
+      # sed -i '' -E "s/(base16-[[:alnum:]]*[-[[:alnum:]]]*)/base16-$SCHEME/g" "$BASE16_NVIM"
+      sed -i '.prev' -E "s/base16-[A-Za-z0-9-]*/base16-$SCHEME/g" "$BASE16_NVIM"
+    else
+      echo "Scheme '$SCHEME' not found in $BASE16_DIR"
+      return 1
+    fi
+    ;;
+  default)
+    FILE="$BASE16_DIR/$BASE16_DEFAULT"
+    if [[ -x "$FILE" ]]; then
+      echo "$BASE16_DEFAULT" >! "$BASE16_CONFIG"
+      "$FILE"
+    fi
+    ;;
+  help)
+    echo 'color set [chalk|flat|ocean|grayscale|material-darker|default|...]'
+    echo
+    echo 'Available schemes:'
+    find ~/.config/base16-shell -name 'base16-*.sh' | \
+      sed -E 's|.+/base16-||' | \
+      sed -E 's/.sh//' | \
+      sort | \
+      column
+      ;;
+
+  *)
+    echo 'Unknown subcommand: use one of {default,set,help}'
+    ;;
+  esac
+
+}
+
+# }}}
+# Jekyll helpers {{{
+draft() {
+  rake draft["$1"]
+}
+publish() {
+  rake publish
+}
+deploy() {
+  rake deploy
+}
+build() {
+  rake build
+}
+
+# }}}
+# mtr function {{{
+netwtf() {
+  if [[ "$myos" == "Darwin" ]]; then
+    local mtrpath="/usr/local/Cellar/mtr/**/sbin"
+  else
+    local mtrpath="/usr/bin"
+  fi
+  sudo $mtrpath/mtr -b -o "LSD NBAW JX" 8.8.8.8
+}
+
+# }}}
+# tmux Deployment teardown {{{
+# Take as input the name of the tmux session to end
+# Find the containing process ID, kill the session, kill the process
+clobber () {
+  SESSION="$1"
+  SESSIONPID="$(ps -ef | grep tmux | grep $1 | awk '{print $2}')"
+  PARENTPID="$(ps -o ppid= -p $SESSIONPID)"
+
+  echo "Killing tmux session '$1'"
+  echo "Which has process id '$SESSIONPID'"
+  echo "And is in iTerm2 process '$PARENTPID'"
+
+  tmux kill-session -t $SESSION
+  kill -9 "$PARENTPID"
+
+}
+
+# }}}
+# openssl helper {{{
+function showcert() {
+  openssl x509 -in "$1" -noout -text
+}
+
+# }}}
+# SSL Certificate Date Check {{{
+function ssldates() {
+  echo | openssl s_client -servername "$@" -connect "$@":443 2>/dev/null | openssl x509 -noout -dates
+}
+# }}}
+# Check SSL Certificate dates for my sites {{{
+function mycerts () {
+  printf "zanshin         "
+  echo | openssl s_client -servername "zanshin.net" -connect "zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - - -
+  printf "books           "
+  echo | openssl s_client -servername "books.zanshin.net" -connect "books.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "geek            "
+  echo | openssl s_client -servername "geek.zanshin.net" -connect "geek.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "health          "
+  echo | openssl s_client -servername "health.zanshin.net" -connect "health.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "music           "
+  echo | openssl s_client -servername "music.zanshin.net" -connect "music.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "matomo          "
+  echo | openssl s_client -servername "matomo.zanshin.net" -connect "matomo.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "mandolin        "
+  echo | openssl s_client -servername "mandolin.zanshin.net" -connect "mandolin.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "practice        "
+  echo | openssl s_client -servername "practice.zanshin.net" -connect "practice.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "mint            "
+  echo | openssl s_client -servername "mint.zanshin.net" -connect "mint.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "sibyllekuder    "
+  echo | openssl s_client -servername "sibyllekuder.com" -connect "sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "notes           "
+  echo | openssl s_client -servername "notes.sibyllekuder.com" -connect "notes.sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "blog            "
+  echo | openssl s_client -servername "blog.sibyllekuder.com" -connect "blog.sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "mint            "
+  echo | openssl s_client -servername "mint.sibyllekuder.com" -connect "mint.sibyllekuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "jonathankuder   "
+  echo | openssl s_client -servername "jonathankuder.com" -connect "jonathankuder.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "hannelorebohlig "
+  echo | openssl s_client -servername "hannelorebohlig.com" -connect "hannelorebohlig.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "aiydk           "
+  echo | openssl s_client -servername "andifyoudidknow.com" -connect "andifyoudidknow.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+}
+# }}}
+# while loop for init 6 {{{
+function pounce() {
+  while true; do nc -vvv -w 1  "$1" 22; done
+}
+# }}}
+# explain.sh {{{
+explain () {
+  if [ "$#" -eq 0 ]; then
+    while read  -p "Command: " cmd; do
+      curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+        done
+        echo "Bye!"
+        elif [ "$#" -eq 1 ]; then
+        curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+  else
+    echo "Usage"
+      echo "explain                  interactive mode."
+      echo "explain 'cmd -o | ...'   one quoted command to explain it."
+      fi
+}
+
+# }}}
+# Display terminal window size {{{
+tsize() {
+  tcols=$(tput cols)
+  trows=$(tput lines)
+  echo "$tcols wide by $trows tall"
+}
+
+# }}}
+# newscript {{{
+# touch, make executable, and start editing a new script
+# $ newscript my_ny_script.sh
+# edit default shebangs within the function
+# include additional skelton files as [extention].txt
+# in the $defaults_txt folder defined in config
+newscript() {
+  # Config
+  # where your scripts are stored
+  local scriptdir=~/bin/
+  # if no extension is provided, default to
+  local default_ext=rb
+  # optional, where skeleton scripts (e.g. rb.txt) are stored
+  local defaults_txt=~/bin/.newscript_defaults
+  # End config
+  local filename="${scriptdir%/}/$1"
+
+  if [[ $# == 0 ]] ; then # no argument, display help and exit
+    echo -e "newscript: touch, make executable, and start editting a new script.\n\033[31;1mError:\033[37;1m Missing filename\033[0m\n\nUsage: newscript SCRIPT_NAME.ext\n"
+    return 1
+  fi
+
+  # get the extension from the filename
+  ext=${filename#*.}
+  # if there's no extension, add default
+  if [[ $ext == $filename ]] ; then
+    ext=$default_ext
+    filename=$filename.$ext
+  fi
+
+  # if no script with this name already exists
+  if [ ! -f $filename ] ; then
+
+    # create a file for the given extension with appropriate shebang
+    case $ext in
+      rb ) echo -e "#! /usr/bin/env ruby" >> $filename;;
+      py ) echo -e "#! /usr/bin/env python" >> $filename;;
+      pl ) echo -e "#! /usr/bin/env perl" >> $filename;;
+      sh | bash ) echo -e "#! /bin/bash" >> $filename;;
+      zsh | bash ) echo -e "#! /bin/zbash" >> $filename;;
+      * ) touch $filename;; # any other extension, create a blank file
+    esac
+
+    # if skeleton file directory and a txt for the given extension exist
+    echo "defaults_txt: $default_txts $ext.txt"
+    if [[ -d ${defaults_txt%/} && -f ${defaults_txt%/}/$ext.txt ]] ; then
+      # concatenate it to the file
+      echo "defaults_txt: $default_txts $ext.txt"
+      cat ${defaults_txt%/}/$ext.txt >> $filename
+    fi
+
+    # add trailing newline to the new script & make it executable
+    echo -ne "\n" >> $filename
+    chmod a+x "$filename"
+    echo -e "\033[32;1m$filename\033[0m"
+  else
+    echo -e "\033[31;1mFile exists: $filename\033[0m"
+  fi
+
+  #Edit the script
+  $EDITOR "$filename"
+}
+
+# }}}
+# AWS helpers {{{
+
+# awscli profile function
+awsp() {
+  export AWS_PROFILE="$@"
+}
+
+# ps1set: set the liquidprompt prefix
+ps1set() {
+  LP_PS1_PREFIX="\033[0;34m`aws sts get-caller-identity 2>/dev/null | grep Arn | awk -F'/' '{print $2" "}'`\033[0m"
+}
+
+# ps1reset: reset the liquidprompt prefix
+ps1reset() {
+  LP_PS1_PREFIX=""
+}
+
+# }}}

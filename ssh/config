@@ -3,13 +3,31 @@ Host *
     ServerAliveInterval 60
 #    ForwardX11 yes
 #    User mhn
+#    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
 
-# AWS EC2
-Host aws
-    HostName 18.223.95.33
-    StrictHostKeyChecking no
-    User ubuntu
-    IdentityFile /Users/mhn/.ssh/aws-key-pair.pem
+Host 10.251.* 10.252.*
+  User ec2-user
+
+#AWS sandbox account
+Host 10.251.80.* 10.251.81.* 10.251.82.* 10.251.83.* 10.251.84.* 10.251.85.* 10.251.86.* 10.251.87.*
+  IdentityFile ~/.ssh/baseline-sandbox.pem
+
+#AWS dev account
+Host 10.251.48.* 10.251.49.* 10.251.50.* 10.251.51.* 10.251.52.* 10.251.53.* 10.251.54.* 10.251.55.*
+  IdentityFile ~/.ssh/baseline-dev.pem
+
+#AWS prod account
+Host 10.251.36.* 10.251.37.* 10.251.38.* 10.251.39.* 10.251.32.* 10.251.33.* 10.251.34.* 10.251.35.*
+  IdentityFile ~/.ssh/baseline-prod.pem
+
+#AWS dev west
+Host "10.252.19?.*", "!10.252.190.*", "!10.252.191.*"
+   IdentityFile ~/.ssh/baseline-dev-west.pem
+
+#AWS shared
+Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.*", "10.251.7?.*"
+   IdentityFile ~/.ssh/baseline-shared.pem
+
 
 # Work iMacs
 Host sarabande
@@ -22,70 +40,47 @@ Host fugazi
 
 # Jump box
 Host jump
-    HostName est-jump-p-mhn-01.campus.ksu.edu
+#    HostName est-jump-p-mhn-01.campus.ksu.edu
+    HostName est-jump-p-linux-01.campus.ksu.edu
     user mhn
 
 # Ubuntu on NUC
 Host fermata
-    HostName 68.102.23.189
+#    HostName 68.102.23.189
+    HostName 24.255.217.102
     Port 11105
+    user mark
+
+Host irc
+#    HostName 68.102.23.189
+    HostName 24.255.217.102
+    Port 11116
     user mark
 
 # Raspbian on Raspberry Pi
 Host minuet
-    HostName 68.102.23.189
+#    HostName 68.102.23.189
+    HostName 24.255.217.102
     Port 11106
     user mark
 
 # Arch Linux on ASUS
-Host dvorak
-    HostName 68.102.23.189
-    Port 11111
-    user mark
+# Host dvorak
+#     HostName 68.102.23.189
+#     Port 11111
+#     user mark
 
 # macOS Mojave on MacBook Pro
 Host rosindust
-    HostName 68.102.23.189
+#    HostName 68.102.23.189
+    HostName 24.255.217.102
     Port 11110
     user mark
-
-# Raspberry Pi
-Host reprise
-    HostName 68.102.23.189
-    Port 11106
-    user pi
 
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
     Port 443
-
-
-# WebTeam Fabric
-#Host ec2*compute-1.amazonaws.com
-#    StrictHostKeyChecking no
-#    User fabric
-#    IdentityFile  /Users/mhn/.ssh/id_fabric
-Host ec2*compute-1.amazonaws.com
-    StrictHostKeyChecking no
-    User ubuntu
-    IdentityFile /Users/mhn/.ssh/asakey.pem
-
-#Host aws_prod1
-#    HostName ec2-23-21-38-28.compute-1.amazonaws.com
-#    StrictHostKeyChecking no
-#    User mhn
-#    IdentityFile /Users/mhn/.ssh/mhn.pem
-
-#Host web_prod1
-#    HostName ec2-23-21-38-28.compute-1.amazonaws.com
-#    User ubuntu
-#    IdentityFile ~/.ssh/asakey.pem
-
-#Host web_prod2
-#    HostName ec2-50-16-61-249.compute-1.amazonaws.com
-#    User ubuntu
-#    IdentityFile ~/.ssh/asakey.pem
 
 # Personal K-State Webpage
 Host ksuunix
