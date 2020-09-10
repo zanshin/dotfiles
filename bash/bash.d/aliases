@@ -106,6 +106,9 @@ alias gr='git diff master..'
 # requires git-up gem to be installed
 alias gu='git up'
 
+# git up all repos in directory
+alias gua='for dir in * ; do echo -e "\nUpdating $dir ..." ; cd $dir ; gu ; cd .. ; done'
+
 # leverage an alias from the ~/.gitconfig
 alias gh='git hist'
 alias gt='git today'
@@ -268,8 +271,8 @@ alias untar="tar xvf"
 
 # }}}
 # Linux clipboard {{{
-alias pbcopy="xsel --clipboard --input"
-alias pbpaste="xsel --clipboard --output"
+# alias pbcopy="xsel --clipboard --input"
+# alias pbpaste="xsel --clipboard --output"
 
 # }}}
 # AWS {{{

@@ -15,18 +15,25 @@ On those macOS machines where I install Homebrew I also edit `/etc/paths` to mov
 The `~/.dotfiles/brew/Brewfile` acts as a bundle for Homebrew. Use `brew bundle ~/.dotfiles/brew/Brewfile` to set up brews.
 
 ## bash
-For those machines where zsh isn't installed or won't easily work, create the
-following symlinks:
+In September 2020 I reorganized my bash configuration files. The `.bash-profile` now just sources
+`.bashrc`. This means that I get the same configuration whether I'm in an interactive,
+non-interactive, login, or non-login shell.
+
+`.bashrc` sources everything else. The files containing aliases, functions, exports, key bindings,
+colors, and the path configuration, are now all stored in `~/.config/bash.d`. This simplifies the
+file listing of `$HOME`, as the are only three bash files there now, `.bash_profile`, `.bashrc`, and
+`.bash_history`.
+
+The `install.sh` script has been refactored to properly setup the new file scheme. Old
+symlinks/files will need to be removed manually.
+
+To manually install this bash configuration, create the following symlinks.
+
 
     $ ln -s ~/.dotfiles/bash/bash_profile ~/.bash_profile
     $ ln -s ~/.dotfiles/bash/bashrc ~/.bashrc
-    $ ln -s ~/.dotfiles/bash/bash_aliases ~/.bash_aliases
-    $ ln -s ~/.dotfiles/bash/bash_colors ~/.bash_colors
-    $ ln -s ~/.dotfiles/bash/bash_bindkeys ~/.bash_bindkeys
-    $ ln -s ~/.dotfiles/bash/bashrc.local ~/.bashrc.local
+    $ ln -s ~/.dotfiles/bash/bash.d ~/.config/bash.d
 
-The `.bashrc.local` file contains configurations only needed on the remote servers I manage.
-Therefore this file is only linked on those remote machines.
 
 ## ssh
 For ssh configuration, create the following symlink:
@@ -84,11 +91,6 @@ For tmux configuration create this symlink:
 My tmux configuration doesn't always work on Linux - depending the Linux distribution being used. The
 `tmux.linux` file is an alternate tmux configuration that can be linked on Linux.
 
-## i3
-The beginnings of an i3 window manager configuration. Originally setup on Debian, now used on Ubuntu
-16.
-
-    ln -s ~/.dotfiles/i3/config ~/.i3/config
 
 ## config
 The $XDG_CONFIG_HOME location (as far as I know) is `$HOME/.config`. On Linux, and increasingly on
@@ -96,7 +98,7 @@ macOS, tools are placing their configurations under `~/.config`. At present have
 i3 configurations for Arch and Antergos stored in this directory. The Neovim configuration lives in
 $XDG_CONFIG_HOME/nvim, but I keep it separately in this repository.
 
-## mutt and mutt-deprecated
+## mutt
 I have threatened to use mutt for email more than once. These two directories contain the
 configurations that resulted from these experiments. Do not blindly copy these and use them.
 Really.
@@ -104,8 +106,6 @@ Really.
 ## scripts
 These are some tmux setup scripts that I use. Highly personalized.
 
-## slate
-Slate is a macOS window manager. This is my configuration for it.
 
 ## No longer in use
 

@@ -33,9 +33,9 @@ Channel mark-junk
 Master :mark-remote:"Junk"
 Slave :mark-local:Junk
 
-Channel mark-sibylle
-Master :mark-remote:"sibylle"
-Slave :mark-local:sibylle
+# Channel mark-sibylle
+# Master :mark-remote:"sibylle"
+# Slave :mark-local:sibylle
 
 Channel mark-archive
 Master :mark-remote:"Archive"
