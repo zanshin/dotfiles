@@ -109,6 +109,9 @@ alias gr='git diff master..'
 # requires git-up gem to be installed
 alias gu='git up'
 
+# git up all repos in directory
+alias gua='for dir in * ; do echo -e "\nUpdating $dir ..." ; cd $dir ; gu ; cd .. ; done'
+
 # leverage an alias from the ~/.gitconfig
 alias gh='git hist'
 alias gt='git today'
@@ -205,7 +208,7 @@ alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
 
 # }}}
 # Randome shortcuts {{{
-alias bu='brew update; brew upgrade; brew cask upgrade; brew cleanup; brew doctor'
+alias bu='brew update; brew upgrade; brew upgrade --cask ; brew cleanup; brew doctor'
 alias wifi='networksetup -setairportpower en0'
 alias makepass='openssl rand -base64 12'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
