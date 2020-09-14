@@ -70,6 +70,9 @@ alias 'xup=xrdb ~/.Xresources'
 
 alias 'galias=alias | grep '
 
+# Appender helpers
+alias 'ai=$HOME/bin/bash/appender.sh'
+
 # }}}
 # Mercurial (hg) {{{
 alias 'h=hg status'
