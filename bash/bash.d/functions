@@ -180,13 +180,14 @@ function ram() {
 # from http://onethingwell.org/post/14669173541/any
 # search for running processes
 any() {
-    emulate -L zsh
-    unsetopt KSH_ARRAYS
+#    emulate -L zsh
+#    unsetopt KSH_ARRAYS
     if [[ -z "$1" ]] ; then
         echo "any - grep for process(es) by keyword" >&2
         echo "Usage: any " >&2 ; return 1
     else
-        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
+#        ps xauwww | grep -i --color=auto "[${1[1]}]${1[2,-1]}"
+        ps xauwww | grep -i --color=auto "${1}"
     fi
 }
 
@@ -405,24 +406,24 @@ getcertnames() {
 }
 
 # Linux specific functions, work on both MacOS and Linux.
-pbcopy() {
-        stdin="$(</dev/stdin)";
-        pbcopy="$(which pbcopy)";
-        if [[ -n "$pbcopy" ]]; then
-                echo "$stdin" | "$pbcopy"
-        else
-                echo "$stdin" | xclip -selection clipboard
-        fi
-}
-
-pbpaste() {
-        pbpaste="$(which pbpaste)";
-        if [[ -n "$pbpaste" ]]; then
-                "$pbpaste"
-        else
-                xclip -selection clipboard
-        fi
-}
+# pbcopy() {
+#         stdin="$(</dev/stdin)";
+#         pbcopy="$(which pbcopy)";
+#         if [[ -n "$pbcopy" ]]; then
+#                 echo "$stdin" | "$pbcopy"
+#         else
+#                 echo "$stdin" | xclip -selection clipboard
+#         fi
+# }
+#
+# pbpaste() {
+#         pbpaste="$(which pbpaste)";
+#         if [[ -n "$pbpaste" ]]; then
+#                 "$pbpaste"
+#         else
+#                 xclip -selection clipboard
+#         fi
+# }
 
 # }}}
 # Colorize Man {{{
@@ -643,7 +644,7 @@ newscript() {
   # where your scripts are stored
   local scriptdir=~/bin/
   # if no extension is provided, default to
-  local default_ext=rb
+  local default_ext=sh
   # optional, where skeleton scripts (e.g. rb.txt) are stored
   local defaults_txt=~/bin/.newscript_defaults
   # End config

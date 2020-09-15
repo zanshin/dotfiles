@@ -5,17 +5,22 @@ AppStream
 Bitwarden
 Bitwarden's
 Bupkiss
+Bupkiss
+CAS
 CAS
 CCoE
 CISO
 CLI
 CLI
 COVID
+COVID
+CheckMK
 CheckMK
 Chipotle
 Citi
 Citicard
 CloudFormation
+CloudStreams
 CloudStreams
 CommandCentral
 Commvault
@@ -38,6 +43,7 @@ GitHub
 GlobalProtect
 Gmail
 GnuPG
+Grafana
 Grafana
 HTTPS
 IDM
@@ -84,6 +90,7 @@ PGP
 PSEngine
 PaaS
 Passthroughs
+Passthroughs
 Polymorphism
 PostgreSQL
 Priyatham
@@ -103,6 +110,7 @@ SSL
 SSO
 SaaS
 Scantron
+Scantron
 Schlaf
 SoftwareAG
 SpamSieve
@@ -112,6 +120,7 @@ TTT
 Talisma
 Taz
 Telecom
+Terraform
 Terraform
 Teval
 Thunderbird
@@ -123,10 +132,12 @@ Udemy
 Undeployed
 UniversalMessaging
 Unsyncing
+Unsyncing
 VMC
 VPC
 VPN
 VPNs
+WFH
 WFH
 WSEs
 WebFaction
@@ -166,6 +177,7 @@ iPaaS
 iPad
 iPads
 iPhone
+iPhones
 iPhones
 iPod
 ketamine
