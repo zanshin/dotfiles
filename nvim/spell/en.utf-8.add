@@ -9,11 +9,13 @@ Bupkiss
 CAS
 CAS
 CCoE
+CIO
 CISO
 CLI
 CLI
 COVID
 COVID
+CUI
 CheckMK
 CheckMK
 Chipotle
@@ -24,6 +26,8 @@ CloudStreams
 CloudStreams
 CommandCentral
 Commvault
+Cyber
+Cybersecurity
 D'oh
 DARS
 DNS
@@ -33,6 +37,7 @@ EC2
 EIS
 ExpanSIS
 F5
+FIPS
 FIS
 Facebook
 Firefox
@@ -75,6 +80,7 @@ MasterCard
 Matomo
 Mozilla
 Muchly
+NIST
 NUC
 Nagios
 Neomutt
@@ -102,8 +108,10 @@ Refactor
 RocketChat
 Rollout
 Romberg
+Runbooks
 SATA
 SFTP
+SIOC
 SQL
 SSD
 SSL
@@ -158,6 +166,8 @@ b0rking
 blog
 borked
 config
+cyber
+cybersecurity
 deployment
 dev
 diatonically
@@ -186,6 +196,7 @@ mailcap
 mbox
 mbsync
 mediasite
+metadata
 msmtp
 nagios
 nerdliness
@@ -204,6 +215,7 @@ refactorings
 regex
 sarabande
 sed
+shortcodes
 subdomain
 subdomains
 supercedes
@@ -229,13 +241,3 @@ weechat
 www
 yay
 zanshin
-SIOC
-CIO
-Cyber
-Runbooks
-NIST
-Cybersecurity
-cyber
-cybersecurity
-CUI
-FIPS
