@@ -33,6 +33,7 @@ Plug 'hzchirs/vim-material'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jsit/toast.vim'
 
 " Syntax
 Plug 'Yggdroot/indentline'
@@ -79,7 +80,8 @@ if has('syntax')
 endif
 
 set background=dark
-colorscheme nightfly
+" colorscheme nightfly
+colorscheme toast
 
 " silent! colorscheme landscape
 
