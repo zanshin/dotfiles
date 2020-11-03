@@ -106,7 +106,7 @@ set timeout timeoutlen=1000 ttimeoutlen=500
 " Encoding
 set termencoding=utf-8                           " we like UTF-8
 set encoding=utf-8
-set fileencoding=utf=8
+set fileencoding=utf-8
 set fileencodings=utf-8
 
 set showtabline=2                                " always show tabline
