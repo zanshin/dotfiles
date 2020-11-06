@@ -31,6 +31,7 @@ alias 'adventure=emacs -batch -l dunnet'
 alias 'mailsize=du -hs ~/Library/mail'
 alias 'ttop=top -ocpu -R -F -s 2 -n30'
 alias "dismount=osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true)'"
+alias "resetdns=sudo killall -HUP mDNSResponder"
 
 # }}}
 # ls variants {{{

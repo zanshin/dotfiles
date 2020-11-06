@@ -92,3 +92,7 @@ Host wf
     HostName markn.webfactional.com
     User markn
 
+# Pair hosting
+Host pair
+    HostName mnichols.pairserver.com
+    User mnichols
