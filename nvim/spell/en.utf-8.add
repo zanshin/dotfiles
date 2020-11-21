@@ -39,6 +39,7 @@ ExpanSIS
 F5
 FIPS
 FIS
+FSx
 Facebook
 Firefox
 GHz
@@ -98,6 +99,7 @@ PGP
 PHP
 PSEngine
 PaaS
+PagerDuty
 Passthroughs
 Polymorphism
 PostgreSQL
@@ -143,6 +145,7 @@ Undeployed
 UniversalMessaging
 Unsyncing
 Unsyncing
+VM
 VMC
 VPC
 VPN
@@ -261,6 +264,3 @@ weechat
 www
 yay
 zanshin
-PagerDuty
-VM
-FSx
