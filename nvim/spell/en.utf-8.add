@@ -2,6 +2,8 @@ ASUS
 AWS
 Airpods
 AppStream
+BMM
+BigMemoryMax
 Bitwarden
 Bitwarden's
 Bupkiss
@@ -15,12 +17,12 @@ CISO
 CLI
 COVID
 CUI
+CentOS
 CheckMK
 Chipotle
 Citi
 Citicard
 CloudFormation
-CloudStreams
 CloudStreams
 CommandCentral
 Commvault
@@ -28,6 +30,7 @@ Cyber
 Cybersecurity
 D'oh
 DARS
+DBAs
 DNS
 DRAC
 DevOps
@@ -39,6 +42,8 @@ ExpanSIS
 F5
 FIPS
 FIS
+FSx
+FSx
 Facebook
 Firefox
 GHz
@@ -98,6 +103,7 @@ PGP
 PHP
 PSEngine
 PaaS
+PagerDuty
 Passthroughs
 Polymorphism
 PostgreSQL
@@ -106,6 +112,7 @@ Priyatham's
 Q325
 RACI
 RDS
+RHEL
 Rakefile
 Refactor
 RocketChat
@@ -125,6 +132,7 @@ Schlaf
 SoftwareAG
 SpamSieve
 Starbucks
+SysAdmin
 Sysadmin
 TTT
 Talisma
@@ -142,8 +150,7 @@ Udemy
 Undeployed
 UniversalMessaging
 Unsyncing
-Unsyncing
-VMC
+VM
 VPC
 VPN
 VPNs
@@ -177,6 +184,7 @@ chmod
 config
 cyber
 cybersecurity
+dbConfiguration
 deployment
 dev
 diatonically
@@ -206,6 +214,7 @@ jonathankuder
 ketamine
 macOS
 mailcap
+maix
 markhnichols
 matomo
 mbox
@@ -257,19 +266,8 @@ webMethods
 webapps
 webfaction
 weblog
+webmethods
 weechat
 www
 yay
 zanshin
-PagerDuty
-VM
-FSx
-SysAdmin
-DBAs
-maix
-RHEL
-BigMemoryMax
-BMM
-webmethods
-dbConfiguration
-CentOS
