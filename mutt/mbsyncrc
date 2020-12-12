@@ -1,8 +1,8 @@
 # Define the mark account at WebFaction
 IMAPAccount mark
-Host mail.webfaction.com
+Host mnichols.mail.pairserver.com
 SSLType IMAPS
-User mark_zanshin
+User mark@zanshin.net
 PassCmd "+gpg -d -q $HOME/.mutt/passwords/mark.gpg"
 Port 993
 
@@ -18,19 +18,19 @@ Master :mark-remote:"INBOX"
 Slave :mark-local:INBOX
 
 Channel mark-drafts
-Master :mark-remote:"Drafts"
+Master :mark-remote:"INBOX/Drafts"
 Slave :mark-local:Drafts
 
 Channel mark-sent
-Master :mark-remote:"Sent"
+Master :mark-remote:"INBOX/Sent"
 Slave :mark-local:Sent
 
 Channel mark-trash
-Master :mark-remote:"Trash"
+Master :mark-remote:"INBOX/Trash"
 Slave :mark-local:Trash
 
 Channel mark-junk
-Master :mark-remote:"Junk"
+Master :mark-remote:"INBOX/Junk"
 Slave :mark-local:Junk
 
 # Channel mark-sibylle
@@ -55,11 +55,35 @@ Channel mark-junk
 Channel mark-sibylle
 Channel mark-archive
 
-# Define the root account at WebFaction
+# Define piano account at WF
+# IMAPAccount piano
+# Host mail.webfaction.com
+# SSLType IMAPS
+# User piano_sibyllekuder
+# PassCmd "+gpg -d -q $HOME/.mutt/passwords/piano.gpg"
+# Port 993
+#
+# IMAPStore piano-remote
+# Account piano
+#
+# MailDirStore piano-local
+# Path ~/.mail/piano
+# Inbox ~/.mail/piano/INBOX
+#
+# Channel piano-backup
+# Master :piano-remote:
+# Slave :piano-local:
+#
+# Create   Slave
+# Expunge  Slave
+# Sync     Pull New Flags
+# Patterns *
+
+# Define the root account at Pair
 IMAPAccount root
-Host mail.webfaction.com
+Host mnichols.mail.pairserver.com
 SSLType IMAPS
-User root_zanshin
+User root@zanshin.net
 PassCmd "+gpg -d -q $HOME/.mutt/passwords/root.gpg"
 Port 993
 
@@ -75,19 +99,19 @@ Master :root-remote:"INBOX"
 Slave :root-local:INBOX
 
 Channel root-drafts
-Master :root-remote:"Drafts"
+Master :root-remote:"INBOX/Drafts"
 Slave :root-local:Drafts
 
 Channel root-sent
-Master :root-remote:"Sent"
+Master :root-remote:"INBOX/Sent"
 Slave :root-local:Sent
 
 Channel root-trash
-Master :root-remote:"Trash"
+Master :root-remote:"INBOX/Trash"
 Slave :root-local:Trash
 
 Channel root-junk
-Master :root-remote:"Junk"
+Master :root-remote:"INBOX/Junk"
 Slave :root-local:Junk
 
 Channel root-archive
