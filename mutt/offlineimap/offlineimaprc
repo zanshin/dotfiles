@@ -6,9 +6,28 @@
 # ui = blinkenlights
 ui = basic
 # accounts = mark,root,codeprole,marknichols
-accounts = mark
+# accounts = mark
+accounts = piano
 pythonfile = ~/.mutt/offlineimap.py
 
+[Account piano]
+localrepository = piano-Local
+remoterepository = piano-Remote
+
+[Repository piano-Local]
+type = Maildir
+localfolders = ~/.mail/piano
+
+[Repository piano-Remote]
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 3
+type = IMAP
+remoteuser = piano_sibyllekuder
+remotehost = mail.webfaction.com
+remoteport = 993
+ssl = yes
+remotepasseval= "buenger633"
+realdelete = no
 
 [Account mark]
 localrepository = mark-Local
