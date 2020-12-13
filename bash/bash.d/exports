@@ -16,7 +16,7 @@ export PAGER=less
 export LESS="-M -n -q -i -r"
 
 # Setup for Go
-export GOPATH=$HOME/code/go
+export GOPATH=$HOME/code/golib:$HOME/code/go
 
 # mutt GPG tty setting
 export GPG_TTY=$(tty)
