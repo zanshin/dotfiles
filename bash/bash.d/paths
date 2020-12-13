@@ -36,10 +36,8 @@ if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
 
 # add Go path
 if [ -e /usr/local/go ] ; then
-  PATH="${PATH}:/usr/bin/go"
-  export GOPATH=${HOME}/code/golib
-  PATH="${PATH}:$GOPATH/bin"
-  export GOPATH="$GOPATH:${HOME}/code/go"
+  PATH="${PATH}:/usr/local/go"
+  PATH="${PATH}:${HOME}/code/golib/bin"
 fi
 
 # Enable path to pip
