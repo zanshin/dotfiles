@@ -63,7 +63,7 @@
  # }}}
 # Remove bad key from known_hosts file {{{
 function badkey() {
-  vim ~/.ssh/known_hosts +"$*d|x"
+  nvim ~/.ssh/known_hosts +"$*d|x"
 }
 
 # }}}
