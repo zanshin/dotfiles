@@ -601,6 +601,8 @@ function mycerts () {
   echo | openssl s_client -servername "hannelorebohlig.com" -connect "hannelorebohlig.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
   printf "aiydk           "
   echo | openssl s_client -servername "andifyoudidknow.com" -connect "andifyoudidknow.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
+  printf "markhnichols    "
+  echo | openssl s_client -servername "markhnichols.com" -connect "markhnichols.com":443 2>/dev/null | openssl x509 -noout -dates | paste - -
 }
 # }}}
 # while loop for init 6 {{{

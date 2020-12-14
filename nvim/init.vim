@@ -33,6 +33,7 @@ Plug 'hzchirs/vim-material'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jsit/toast.vim'
 
 " Syntax
 Plug 'Yggdroot/indentline'
@@ -85,7 +86,8 @@ if has('syntax')
 endif
 
 set background=dark
-colorscheme nightfly
+" colorscheme nightfly
+colorscheme toast
 
 " silent! colorscheme landscape
 
@@ -110,7 +112,7 @@ set timeout timeoutlen=1000 ttimeoutlen=500
 " Encoding
 set termencoding=utf-8                           " we like UTF-8
 set encoding=utf-8
-set fileencoding=utf=8
+set fileencoding=utf-8
 set fileencodings=utf-8
 
 set showtabline=2                                " always show tabline
@@ -605,14 +607,14 @@ let g:go_fmt_command                 = "goimports"
 let g:go_autodetect_gopath           = 1
 let g:go_term_enabled                = 1
 " let g:go_snippet_engine             = "neosnippet"
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types       = 1
-let g:go_highlight_fields            = 1
-let g:go_highlight_functions         = 1
-let g:go_highlight_methods           = 1
-let g:go_highlight_operators         = 1
-let g:go_highlight_structs           = 1
-let g:go_highlight_types             = 1
+let g:go_highlight_build_constraints = 0
+let g:go_highlight_extra_types       = 0
+let g:go_highlight_fields            = 0
+let g:go_highlight_functions         = 0
+let g:go_highlight_methods           = 0
+let g:go_highlight_operators         = 0
+let g:go_highlight_structs           = 0
+let g:go_highlight_types             = 0
 let g:go_highlight_space_tab_error   = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0

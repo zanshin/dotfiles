@@ -23,8 +23,8 @@ tmux new-window -n omedev
 # window 1 - vpn & daily notes live here
 #
 tmux split-window -h p 50 -t fugazi:1
-tmux send-keys -t fugazi:1.1 'cd ~/Dropbox/daily/2019' C-m
-tmux send-keys -t fugazi:1.2 'vpnon' C-m
+tmux send-keys -t fugazi:1.1 'cd ~/Sync/daily/2020' C-m
+tmux send-keys -t fugazi:1.2 'gpvpn-split.sh' C-m
 
 # window 2 - ome: window for `zome` Chef organization
 #
