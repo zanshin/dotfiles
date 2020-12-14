@@ -61,6 +61,7 @@ IDMGrouper
 IDMP
 IMAP
 IP
+IPTABLES
 ISP
 Japsh
 JavaScript
@@ -82,6 +83,7 @@ MacBook
 MailMate
 Maildir
 MasterCard
+Matomao
 Matomo
 Mozilla
 Muchly
@@ -113,8 +115,10 @@ Q325
 RACI
 RDS
 RHEL
+RSS
 Rakefile
 Refactor
+Refactored
 RocketChat
 Rollout
 Romberg
@@ -132,6 +136,7 @@ Schlaf
 SoftwareAG
 SpamSieve
 Starbucks
+Sur
 SysAdmin
 Sysadmin
 TTT
@@ -166,6 +171,7 @@ WordPress
 X11
 Yay
 YouTube
+ZStack
 Zabel
 Zanshin
 admin
@@ -182,6 +188,7 @@ borked
 cd
 chmod
 config
+cron
 cyber
 cybersecurity
 dbConfiguration
@@ -200,6 +207,7 @@ https
 i3
 i5
 i7
+iCloud
 iFixIt
 iMac
 iMacs
@@ -210,6 +218,8 @@ iPads
 iPhone
 iPhones
 iPod
+imapsync
+isync
 jonathankuder
 ketamine
 macOS
@@ -244,6 +254,7 @@ sed
 shortcodes
 sibyllekuder
 solfege
+struct
 subdomain
 subdomains
 supercedes
@@ -257,6 +268,7 @@ texted
 tmux
 tomcat8
 trackpad
+tsoHost
 txt
 uAchieve
 undeploy
@@ -271,15 +283,3 @@ weechat
 www
 yay
 zanshin
-iCloud
-tsoHost
-Matomao
-cron
-RSS
-imapsync
-isync
-ZStack
-struct
-Refactored
-imapsync
-imapsync
