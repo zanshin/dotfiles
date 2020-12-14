@@ -34,9 +34,15 @@ if [ -d ${HOME}/bin/perl ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
 # set PATH so it includes /usr/local/sbin if it exists
 if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
 
-# add Go path
+# add Go path for Darwin
 if [ -e /usr/local/go ] ; then
   PATH="${PATH}:/usr/local/go"
+  PATH="${PATH}:${HOME}/code/golib/bin"
+fi
+
+# dd Go path for Linux
+if [ -e /usr/bin/go ] ; then
+  PATH="${PATH}:/usr/bin/go"
   PATH="${PATH}:${HOME}/code/golib/bin"
 fi
 
