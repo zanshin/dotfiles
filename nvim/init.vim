@@ -54,8 +54,14 @@ Plug 'tomtom/tcomment_vim'
 " Go Language
 Plug 'fatih/vim-go'
 
+" Rust Language
+Plug 'cespare/vim-toml'
+
 " Neovim stuff
 Plug 'kassio/neoterm'
+
+" Ansible
+Plug 'pearofducks/ansible-vim'
 
 " End of plugins
 call plug#end()

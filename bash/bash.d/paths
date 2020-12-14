@@ -40,6 +40,11 @@ if [ -e /usr/bin/go ] ; then
   export GOPATH=${HOME}/code/go
 fi
 
+# add Rust path
+if [ -e $HOME/.cargo/bin/bin ]; then
+  PATH="${PATH}:${HOME}/.cargo/bin/bin"
+fi
+
 # Enable path to pip
 # if [ -d ~/.local/bin ] ; then
 #   PATH="~/.local/bin:${PATH}"
