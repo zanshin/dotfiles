@@ -53,7 +53,7 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 
 " Go Language
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Completion / LSP
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -90,14 +90,14 @@ endif
 
 set background=dark
 " colorscheme nightfly
-" colorscheme toast
+colorscheme toast
 
 " silent! colorscheme landscape
 
 " let ayucolor="light"
 " let ayucolor="mirage"
-let ayucolor="dark"
-silent! colorscheme ayu
+" let ayucolor="dark"
+" silent! colorscheme ayu
 
 " }}}
 " ----- Basic options {{{
