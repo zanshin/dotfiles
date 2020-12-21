@@ -7,8 +7,6 @@ BigMemoryMax
 Bitwarden
 Bitwarden's
 Bupkiss
-Bupkiss
-CAS
 CAS
 CCoE
 CGI
@@ -42,7 +40,6 @@ ExpanSIS
 F5
 FIPS
 FIS
-FSx
 FSx
 Facebook
 Firefox
@@ -82,8 +79,8 @@ MWS
 MacBook
 MailMate
 Maildir
+MandoLessons
 MasterCard
-Matomao
 Matomo
 Mozilla
 Muchly
@@ -160,6 +157,7 @@ VPC
 VPN
 VPNs
 WFH
+WIldfly
 WSEs
 WTF
 WebFaction
@@ -197,6 +195,7 @@ dev
 diatonically
 dotfiles
 eProfile
+elasticsearch
 fsck
 fugazi
 gizmo
@@ -283,5 +282,3 @@ weechat
 www
 yay
 zanshin
-WIldfly
-MandoLessons
