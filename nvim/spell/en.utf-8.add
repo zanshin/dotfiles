@@ -7,8 +7,6 @@ BigMemoryMax
 Bitwarden
 Bitwarden's
 Bupkiss
-Bupkiss
-CAS
 CAS
 CCoE
 CGI
@@ -35,6 +33,7 @@ DNS
 DRAC
 DevOps
 Digi
+Dressman
 Dropbox
 EC2
 EIS
@@ -42,7 +41,6 @@ ExpanSIS
 F5
 FIPS
 FIS
-FSx
 FSx
 Facebook
 Firefox
@@ -56,6 +54,7 @@ GnuPG
 GoDaddy
 Grafana
 HTTPS
+Homebrew
 IDM
 IDMGrouper
 IDMP
@@ -74,16 +73,18 @@ Kuder
 LTS
 LVM
 LZ
+Linode
 M2
 MRP
 MTAs
 MUAs
 MWS
 MacBook
+MacBook
 MailMate
 Maildir
+MandoLessons
 MasterCard
-Matomao
 Matomo
 Mozilla
 Muchly
@@ -95,6 +96,7 @@ NameCheap
 Neomutt
 Neovim
 Netflix
+Nextcloud
 O365
 OMEP
 OneIT
@@ -167,6 +169,7 @@ WebFaction's
 Wellbutrin
 WiFi
 Wiki
+Wildfly
 WordPress
 X11
 Yay
@@ -191,12 +194,13 @@ config
 cron
 cyber
 cybersecurity
-dbConfiguration
+dbConfigurator
 deployment
 dev
 diatonically
 dotfiles
 eProfile
+elasticsearch
 fsck
 fugazi
 gizmo
@@ -283,9 +287,3 @@ weechat
 www
 yay
 zanshin
-WIldfly
-elasticsearch
-Nextcloud
-Linode
-Homebrew
-Dressman

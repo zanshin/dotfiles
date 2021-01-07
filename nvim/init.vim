@@ -53,7 +53,10 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 
 " Go Language
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Completion / LSP
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Rust Language
 Plug 'cespare/vim-toml'
@@ -610,7 +613,7 @@ let g:go_term_enabled                = 1
 let g:go_highlight_build_constraints = 0
 let g:go_highlight_extra_types       = 0
 let g:go_highlight_fields            = 0
-let g:go_highlight_functions         = 0
+let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 0
 let g:go_highlight_operators         = 0
 let g:go_highlight_structs           = 0
@@ -619,7 +622,7 @@ let g:go_highlight_space_tab_error   = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 
 au Filetype go nmap <leader>s <Plug>(go-def-split)
 au Filetype go nmap <leader>v <Plug>(go-def-vertical)
@@ -634,6 +637,8 @@ au Filetype go nmap <leader>dt <Plug>(go-test-compile)
 au Filetype go nmap <leader>d <Plug>(go-doc)
 
 au Filetype go nmap <leader>e <Plug>(go-rename)
+
+au Filetype go nmap <leader>h :GoSameIdsToggle<CR>
 
 " neovim specific
 if has('nvim')

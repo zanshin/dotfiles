@@ -20,6 +20,7 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Setup for Go
 export GOPATH=$HOME/code/golib:$HOME/code/go
+export GOPRIVATE="github.com/zanshin"
 
 # mutt GPG tty setting
 export GPG_TTY=$(tty)
