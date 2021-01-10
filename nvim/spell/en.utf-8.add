@@ -7,8 +7,6 @@ BigMemoryMax
 Bitwarden
 Bitwarden's
 Bupkiss
-Bupkiss
-CAS
 CAS
 CCoE
 CGI
@@ -32,9 +30,11 @@ D'oh
 DARS
 DBAs
 DNS
+DPI
 DRAC
 DevOps
 Digi
+Dressman
 Dropbox
 EC2
 EIS
@@ -42,7 +42,6 @@ ExpanSIS
 F5
 FIPS
 FIS
-FSx
 FSx
 Facebook
 Firefox
@@ -56,6 +55,7 @@ GnuPG
 GoDaddy
 Grafana
 HTTPS
+Homebrew
 IDM
 IDMGrouper
 IDMP
@@ -74,16 +74,19 @@ Kuder
 LTS
 LVM
 LZ
+Linode
+M1
 M2
 MRP
 MTAs
 MUAs
 MWS
 MacBook
+MacBook
 MailMate
 Maildir
+MandoLessons
 MasterCard
-Matomao
 Matomo
 Mozilla
 Muchly
@@ -95,6 +98,7 @@ NameCheap
 Neomutt
 Neovim
 Netflix
+Nextcloud
 O365
 OMEP
 OneIT
@@ -167,8 +171,10 @@ WebFaction's
 Wellbutrin
 WiFi
 Wiki
+Wildfly
 WordPress
 X11
+XDR
 Yay
 YouTube
 ZStack
@@ -191,12 +197,14 @@ config
 cron
 cyber
 cybersecurity
-dbConfiguration
+dbConfigurator
 deployment
 dev
 diatonically
 dotfiles
 eProfile
+elasticsearch
+elasticsearch
 fsck
 fugazi
 gizmo
@@ -204,6 +212,7 @@ hannelorebohlig
 htaccess
 http
 https
+i.e.
 i3
 i5
 i7
@@ -222,6 +231,7 @@ imapsync
 isync
 jonathankuder
 ketamine
+lexer
 macOS
 mailcap
 maix
@@ -233,6 +243,7 @@ mediasite
 metadata
 msmtp
 nagios
+nano
 nerdliness
 nginx
 notmuch
@@ -244,6 +255,7 @@ org
 pannus
 pci
 plugins
+programmatically
 rc
 readme
 refactorings
@@ -283,12 +295,3 @@ weechat
 www
 yay
 zanshin
-WIldfly
-elasticsearch
-lexer
-programmatically
-M1
-XDR
-i.e.
-nano
-DPI
