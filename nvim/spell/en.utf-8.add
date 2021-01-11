@@ -30,6 +30,7 @@ D'oh
 DARS
 DBAs
 DNS
+DPI
 DRAC
 DevOps
 Digi
@@ -74,6 +75,7 @@ LTS
 LVM
 LZ
 Linode
+M1
 M2
 MRP
 MTAs
@@ -172,6 +174,7 @@ Wiki
 Wildfly
 WordPress
 X11
+XDR
 Yay
 YouTube
 ZStack
@@ -201,6 +204,7 @@ diatonically
 dotfiles
 eProfile
 elasticsearch
+elasticsearch
 fsck
 fugazi
 gizmo
@@ -208,6 +212,7 @@ hannelorebohlig
 htaccess
 http
 https
+i.e.
 i3
 i5
 i7
@@ -226,6 +231,7 @@ imapsync
 isync
 jonathankuder
 ketamine
+lexer
 macOS
 mailcap
 maix
@@ -237,6 +243,7 @@ mediasite
 metadata
 msmtp
 nagios
+nano
 nerdliness
 nginx
 notmuch
@@ -248,6 +255,7 @@ org
 pannus
 pci
 plugins
+programmatically
 rc
 readme
 refactorings
