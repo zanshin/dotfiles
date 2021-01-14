@@ -87,10 +87,10 @@ Host ksuunix
     HostName unix.ksu.edu
     User mhn
 
-# WebFaction hosting
-Host wf
-    HostName markn.webfactional.com
-    User markn
+# Linode
+Host linode
+    HostName nc.zanshin.net
+    User mark
 
 # Pair hosting
 Host pair
