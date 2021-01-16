@@ -1,6 +1,7 @@
 ASUS
 AWS
 Airpods
+AppArmor
 AppStream
 BMM
 BigMemoryMax
@@ -51,6 +52,7 @@ Gartner
 GitHub
 GlobalProtect
 Gmail
+Gmail's
 GnuPG
 GoDaddy
 Grafana
@@ -62,7 +64,9 @@ IDMP
 IMAP
 IP
 IPTABLES
+IRC
 ISP
+Inbox
 Japsh
 JavaScript
 Jira
@@ -74,6 +78,7 @@ Kuder
 LTS
 LVM
 LZ
+LastPass
 Linode
 M1
 M2
@@ -81,7 +86,6 @@ MRP
 MTAs
 MUAs
 MWS
-MacBook
 MacBook
 MailMate
 Maildir
@@ -102,6 +106,7 @@ Nextcloud
 O365
 OMEP
 OneIT
+OpenJDK
 OpenPGP
 PDB
 PDFs
@@ -183,6 +188,7 @@ Zanshin
 admin
 andifyoudidknow
 app
+apparmor
 apps
 audiobook
 audiobooks
@@ -203,7 +209,6 @@ dev
 diatonically
 dotfiles
 eProfile
-elasticsearch
 elasticsearch
 fsck
 fugazi
@@ -228,6 +233,8 @@ iPhone
 iPhones
 iPod
 imapsync
+inbox
+inboxes
 isync
 jonathankuder
 ketamine
@@ -250,6 +257,7 @@ notmuch
 nvim
 offlineimap
 ome
+online
 openconnect
 org
 pannus
@@ -286,6 +294,7 @@ uAchieve
 undeploy
 urlview
 vRNI
+w3m
 webMethods
 webapps
 webfaction
@@ -295,12 +304,3 @@ weechat
 www
 yay
 zanshin
-Gmail's
-inboxes
-Inbox
-inbox
-online
-w3m
-apparmor
-AppArmor
-IRC

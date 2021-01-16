@@ -1,4 +1,4 @@
-# Define the mark account at WebFaction
+# Define the mark account at Pair Networks
 IMAPAccount mark
 Host mnichols.mail.pairserver.com
 SSLType IMAPS
@@ -54,30 +54,6 @@ Channel mark-trash
 Channel mark-junk
 Channel mark-sibylle
 Channel mark-archive
-
-# Define piano account at WF
-# IMAPAccount piano
-# Host mail.webfaction.com
-# SSLType IMAPS
-# User piano_sibyllekuder
-# PassCmd "+gpg -d -q $HOME/.mutt/passwords/piano.gpg"
-# Port 993
-#
-# IMAPStore piano-remote
-# Account piano
-#
-# MailDirStore piano-local
-# Path ~/.mail/piano
-# Inbox ~/.mail/piano/INBOX
-#
-# Channel piano-backup
-# Master :piano-remote:
-# Slave :piano-local:
-#
-# Create   Slave
-# Expunge  Slave
-# Sync     Pull New Flags
-# Patterns *
 
 # Define the root account at Pair
 IMAPAccount root
