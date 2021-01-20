@@ -11,8 +11,8 @@ source ~/.mutt/themes/mhn.muttrc
 set folder           = ~/.mail                   # mailbox location
 set alias_file       = ~/.mutt/aliases           # where to store aliases
 source ~/.mutt/aliases                           # source them too
-set header_cache     = ~/.mutt/cache/headers     # where to store headers
-set message_cachedir = ~/.mutt/cache/bodies      # where to store bodies
+set header_cache     = ~/.mutt/cache             # where to store headers
+set message_cachedir = ~/.mutt/cache             # where to store bodies
 set certificate_file = ~/.mutt/certificates      # where to store certs
 set mailcap_path     = ~/.mutt/mailcap           # entries for filetypes
 set tmpdir           = ~/.mutt/temp              # where to keep temp files
@@ -304,7 +304,8 @@ set wait_key=no
 
 # Quick view for HTML formatted email
 bind index,pager V  noop                         # Unbinds V from version
-macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
+# macro index,pager V "<view-attachments><search>html<enter><view-mailcap><exit>"
+macro index,pager V "<pipe-entry>iconv -c --to-code=UTF8 > ~/.mutt/cache/mail.html<enter><shell-escape>$BROWSER ~/.mutt/cache/mail.html<enter>"
 
 # }}}
 # Status Bar {{{
