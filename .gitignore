@@ -21,11 +21,10 @@ nvim/autoload
 nvim/plugged
 nvim/tmp
 
-# Ignore stuff in mutt temp folder
+# Ignore stuff in mutt temp & cache folders
 mutt/temp
+mutt/cache
 
 # Ignore bash_history
 bash/bash_history
 
-# Ignore mutt caches
-mutt/cache/headers
