@@ -1,8 +1,11 @@
+APA
 ASUS
 AWS
 Airpods
+AppArmor
 AppStream
 BMM
+Biden
 BigMemoryMax
 Bitwarden
 Bitwarden's
@@ -34,6 +37,7 @@ DPI
 DRAC
 DevOps
 Digi
+Dillons
 Dressman
 Dropbox
 EC2
@@ -51,6 +55,7 @@ Gartner
 GitHub
 GlobalProtect
 Gmail
+Gmail's
 GnuPG
 GoDaddy
 Grafana
@@ -62,18 +67,22 @@ IDMP
 IMAP
 IP
 IPTABLES
+IRC
 ISP
+Inbox
 Japsh
 JavaScript
 Jira
 KSIS
 KSU
+Kamala
 Kindlein
 Konza
 Kuder
 LTS
 LVM
 LZ
+LastPass
 Linode
 M1
 M2
@@ -81,7 +90,6 @@ MRP
 MTAs
 MUAs
 MWS
-MacBook
 MacBook
 MailMate
 Maildir
@@ -102,6 +110,7 @@ Nextcloud
 O365
 OMEP
 OneIT
+OpenJDK
 OpenPGP
 PDB
 PDFs
@@ -110,6 +119,7 @@ PHP
 PSEngine
 PaaS
 PagerDuty
+Panera
 Passthroughs
 Polymorphism
 PostgreSQL
@@ -151,6 +161,7 @@ Terraform
 Teval
 Thunderbird
 Tindall
+Twitterrific
 TxHub
 URLs
 USB
@@ -183,6 +194,7 @@ Zanshin
 admin
 andifyoudidknow
 app
+apparmor
 apps
 audiobook
 audiobooks
@@ -192,6 +204,7 @@ blackperl
 blog
 borked
 cd
+cheatsheet
 chmod
 config
 cron
@@ -203,7 +216,6 @@ dev
 diatonically
 dotfiles
 eProfile
-elasticsearch
 elasticsearch
 fsck
 fugazi
@@ -228,6 +240,8 @@ iPhone
 iPhones
 iPod
 imapsync
+inbox
+inboxes
 isync
 jonathankuder
 ketamine
@@ -250,6 +264,7 @@ notmuch
 nvim
 offlineimap
 ome
+online
 openconnect
 org
 pannus
@@ -286,6 +301,7 @@ uAchieve
 undeploy
 urlview
 vRNI
+w3m
 webMethods
 webapps
 webfaction
@@ -295,12 +311,3 @@ weechat
 www
 yay
 zanshin
-LastPass
-OpenJDK
-Biden
-APA
-Dillons
-Panera
-Twitterrific
-cheatsheet
-Kamala
