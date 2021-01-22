@@ -51,6 +51,7 @@ Plug 'sjl/gundo.vim'
 Plug 'scrooloose/nerdtree', { 'om': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
+Plug 'jiangmiao/auto-pairs'
 
 " Go Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
