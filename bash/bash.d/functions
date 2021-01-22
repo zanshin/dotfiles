@@ -607,7 +607,7 @@ function mycerts () {
 # }}}
 # while loop for init 6 {{{
 function pounce() {
-  while true; do nc -vvv -w 1  "$1" 22; done
+  while true; do nc -vvv -w 1  "$1" 22; sleep 30; done
 }
 # }}}
 # explain.sh {{{
