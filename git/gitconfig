@@ -5,6 +5,9 @@
 [github]
   user = zanshin
 
+[init]
+	defaultBranch = main
+
 # [commit]
 #   gpgsign = true
 
@@ -77,3 +80,5 @@
 
 [http]
   cookiefile = ~/.gitcookies
+[init]
+	defaultBranch = main
