@@ -454,7 +454,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us
 
   " Go Language
-  autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab
+  autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab fdm=syntax
 
 endif
 
@@ -652,6 +652,10 @@ let g:go_highlight_types                     = 0
 let g:go_highlight_space_tab_error           = 0
 let g:go_highlight_array_whitespace_error    = 0
 let g:go_highlight_trailing_whitespace_error = 0
+
+" Folding
+" let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
+let g:go_fold_enable = ['block']
 
 let g:go_auto_sameids = 0
 
