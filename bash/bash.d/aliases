@@ -44,6 +44,8 @@ alias l.="ls -ld .?*"
 
 alias sym="ls -la | grep '\->'"
 
+alias latr="ls -latr"
+
 # }}}
 # Directory shortcuts {{{
 alias omedev="cd ~/code/chef/omedev"
