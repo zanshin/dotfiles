@@ -62,6 +62,8 @@ alias zomedev="cd ~/code/chef/zomedev"
 
 alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 alias roll2="cd ~/code/chef/zome/cookbooks/ome_wildfly_cluster/scripts/reboot"
+
+alias godev="cd ~/code/go/src/github.com/zanshin"
 # }}}
 # Miscellaneous {{{
 alias 'bk=cd $OLDPWD'
