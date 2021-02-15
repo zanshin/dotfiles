@@ -34,6 +34,7 @@ Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jsit/toast.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " Syntax
 Plug 'Yggdroot/indentline'
@@ -91,14 +92,15 @@ endif
 
 set background=dark
 " colorscheme nightfly
-colorscheme toast
+" colorscheme toast
+" colorscheme nord
 
 " silent! colorscheme landscape
 
 " let ayucolor="light"
 " let ayucolor="mirage"
-" let ayucolor="dark"
-" silent! colorscheme ayu
+let ayucolor="dark"
+silent! colorscheme ayu
 
 " }}}
 " ----- Basic options {{{
@@ -661,6 +663,11 @@ let g:go_auto_sameids = 0
 
 " Automatically show type info in status line
 let g:go_auto_type_info = 0
+
+" Linting
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
 
 au Filetype go nmap <leader>s <Plug>(go-def-split)
 au Filetype go nmap <leader>v <Plug>(go-def-vertical)
