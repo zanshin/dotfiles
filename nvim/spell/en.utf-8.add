@@ -13,6 +13,7 @@ Bupkiss
 CAS
 CCoE
 CGI
+CIDR
 CIO
 CISO
 CLI
@@ -59,6 +60,7 @@ Gmail's
 GnuPG
 GoDaddy
 Grafana
+Grimwood
 HTTPS
 Homebrew
 IDM
@@ -110,6 +112,7 @@ Nextcloud
 O365
 OMEP
 OneIT
+OpenJDK
 OpenJDK
 OpenPGP
 PDB
@@ -214,6 +217,7 @@ dbConfigurator
 deployment
 dev
 diatonically
+dojo
 dotfiles
 eProfile
 elasticsearch
@@ -258,7 +262,10 @@ metadata
 msmtp
 nagios
 nano
+neomutt
+neovim
 nerdliness
+neuepunkte
 nginx
 notmuch
 nvim
@@ -267,8 +274,10 @@ ome
 online
 openconnect
 org
+p12
 pannus
 pci
+perl
 plugins
 programmatically
 rc
@@ -311,3 +320,5 @@ weechat
 www
 yay
 zanshin
+ACloud
+IAM

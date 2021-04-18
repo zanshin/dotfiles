@@ -1,6 +1,7 @@
 # Images
-# image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
-# image/jpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/jpg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
+image/JPG; ~/.mutt/scripts/view_attachment.sh %s jpg
 # image/pjpeg; ~/.mutt/scripts/view_attachment.sh %s jpg
 # image/png; ~/.mutt/scripts/view_attachment.sh %s png
 # image/gif; ~/.mutt/scripts/view_attachment.sh %s gif
