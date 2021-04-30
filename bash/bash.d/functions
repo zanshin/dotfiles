@@ -529,12 +529,14 @@ build() {
 # }}}
 # mtr function {{{
 netwtf() {
-  if [[ "$myos" == "Darwin" ]]; then
-    local mtrpath="/usr/local/Cellar/mtr/**/sbin"
-  else
-    local mtrpath="/usr/bin"
-  fi
-  sudo $mtrpath/mtr -b -o "LSD NBAW JX" 8.8.8.8
+  # if [[ "$myos" == "Darwin" ]]; then
+  #   local mtrpath="/usr/local/Cellar/mtr/**/sbin"
+  # else
+    # local mtrpath="/usr/bin"
+    local mtrpath=$(which mtr)
+#  fi
+  # sudo $mtrpath/mtr -b -o "LSD NBAW JX" 8.8.8.8
+  sudo $mtrpath -b -o "LSD NBAW JX" 8.8.8.8
 }
 
 # }}}
