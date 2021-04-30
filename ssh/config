@@ -38,7 +38,17 @@ Host fugazi
     HostName fugazi.est.ksu.edu
     User mhn
 
-# Jump box
+# AWS Linux Admin Workstation
+# ssh -i ~/.ssh/admin-mhn-linux-key.pem mhn@10.251.129.148
+Host admin
+    HostName mhn-linux-admin.aws.ksu.edu
+    User mhn
+    IdentityFile ~/.ssh/admin-mhn-linux-key.pem
+    PubKeyAuthentication yes
+    # ChallengeResponseAuthentication yes
+    PasswordAuthentication yes
+
+# EST Jump box
 Host jump
 #    HostName est-jump-p-mhn-01.campus.ksu.edu
     HostName est-jump-p-linux-01.campus.ksu.edu
@@ -63,12 +73,6 @@ Host minuet
     HostName 24.255.217.102
     Port 11106
     user mark
-
-# Arch Linux on ASUS
-# Host dvorak
-#     HostName 68.102.23.189
-#     Port 11111
-#     user mark
 
 # macOS Mojave on MacBook Pro
 Host rosindust
