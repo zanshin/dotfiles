@@ -51,10 +51,10 @@ if [ -e $HOME/.cargo/bin/bin ]; then
   PATH="${PATH}:${HOME}/.cargo/bin/bin"
 fi
 
-# Enable path to pip
-# if [ -d ~/.local/bin ] ; then
-#   PATH="~/.local/bin:${PATH}"
-# fi
+# Enable path to pip - AWS CLI needs this
+if [ -d ~/.local/bin ] ; then
+  PATH="~/.local/bin:${PATH}"
+fi
 
 # Add path to Python3 scripts (needed for AWS CLI)
 # if [ -d ${HOME}/Library/Python/3.7/bin ] ; then

@@ -56,9 +56,10 @@ Plug 'jiangmiao/auto-pairs'
 
 " Go Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'sebdah/vim-delve'
 
-" Completion / LSP
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Language Server Protocol (LSP)
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 " Rust Language
 Plug 'cespare/vim-toml'
@@ -456,7 +457,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us
 
   " Go Language
-  autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab fdm=syntax
+  autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab
 
 endif
 
@@ -624,6 +625,11 @@ au Filetype go nmap <leader>r <Plug>(go-run)
 au Filetype go nmap <leader>t <Plug>(go-test)
 au Filetype go nmap <leader>dt <Plug>(go-test-compile)
 
+" GoAlternate mappings
+au Filetype go nmap <leader>ga <Plug>(go-alternate-edit)
+au Filetype go nmap <leader>gah <Plug>(go-alternate-split)
+au Filetype go nmap <leader>gav <Plug>(go-alternate-vertical)
+
 " Force all lists to be quickfix, don't use location for go lang
 let g:go_list_type                   = "quickfix"
 
@@ -657,7 +663,7 @@ let g:go_highlight_trailing_whitespace_error = 0
 
 " Folding
 " let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
-let g:go_fold_enable = ['block']
+" let g:go_fold_enable = ['block']
 
 let g:go_auto_sameids = 0
 
@@ -665,9 +671,9 @@ let g:go_auto_sameids = 0
 let g:go_auto_type_info = 0
 
 " Linting
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_deadline = "5s"
+" let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+" let g:go_metalinter_autosave = 1
+" let g:go_metalinter_deadline = "5s"
 
 au Filetype go nmap <leader>s <Plug>(go-def-split)
 au Filetype go nmap <leader>v <Plug>(go-def-vertical)
@@ -697,6 +703,27 @@ augroup go
   autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
+
+" }}}
+" ----- Vim-Delve {{{
+let g:delve_backend = "native"
+
+" }}}
+" ----- LanguageClient-neovim {{{
+" let g:LanguageClient_serverCommands = {
+"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"     \ 'go': ['gopls' ],
+"     \ 'python': ['/usr/local/bin/pyls'],
+"     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+"     \ }
+
+let g:LanguageClient_serverCommands = {
+      \ 'go': ['gopls']
+      \ }
+
+" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " }}}
 
