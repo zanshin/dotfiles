@@ -75,7 +75,7 @@ call plug#end()
 
 " }}}
 " ----- Color scheme {{{
-" Enable true color support
+"Enable true color support
 if(has("termguicolors"))
   set termguicolors
 endif
