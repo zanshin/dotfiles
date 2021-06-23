@@ -31,6 +31,12 @@ if [ -d ${HOME}/bin/ruby ] ; then PATH="${PATH}:${HOME}/bin/ruby" ; fi
 if [ -d ${HOME}/bin/python ] ; then PATH="${PATH}:${HOME}/bin/python" ; fi
 if [ -d ${HOME}/bin/perl ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
 
+# Set PATH so it includes /opt/homebrew/bin if it exists
+if [ -d /opt/homebrew/bin ] ; then PATH="/opt/homebrew/bin:${PATH}" ; fi
+
+# Set PATH so it includes /opt/homebrew/sbin if it exists
+if [ -d /opt/homebrew/sbin  ] ; then PATH="/opt/homebrew/sbin:${PATH}" ; fi
+
 # set PATH so it includes /usr/local/sbin if it exists
 if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
 
