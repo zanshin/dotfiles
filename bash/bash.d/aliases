@@ -78,6 +78,9 @@ alias 'galias=alias | grep '
 # Appender helpers
 alias 'ai=$HOME/bin/bash/appender.sh'
 
+# Modified df -h command to strip out noise
+alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.time'"
+
 # }}}
 # Mercurial (hg) {{{
 alias 'h=hg status'
