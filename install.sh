@@ -39,6 +39,7 @@ ask() {
 }
 
 dotfiles_dir=~/.dotfiles
+xdg_config_home=~/.confg
 
 # Update dotfiles to master branch
 echo "Updating $dotfiles_dir to master"
@@ -50,7 +51,7 @@ echo ""
 
 # Build key,value pairs of the tool and whether or not to install it
 # each tuple lists a directory and its install flag
-tuples="gem,Y git,Y tmux,Y hg,N"
+tuples="gem,Y git,Y hg,N"
 
 # For these directories, create symlinks for each file present
 # By passing the ask function `Y` we default to creating these
@@ -67,6 +68,14 @@ for pair in $tuples; do
   fi
   echo ""
 done
+
+# Setup tmux
+# Since version 3.1, tmux has supprted $XDG_CONFIG_HOME/tmux/tmux.conf
+if ask "Setup tmux" Y; then
+  echo "Setting up tmux config file"
+  ln -sf "$dofiles_dir"/tmux/tmux.conf "$xdg_config_home"/tmux/tmux.conf;
+fi
+echo ""
 
 # Setup Bash
 if ask "Setup Bash" Y; then
