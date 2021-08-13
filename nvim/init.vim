@@ -25,16 +25,16 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " ----- Plugins {{{
 "
 " Appearance
-Plug 'itchyny/landscape.vim'
+" Plug 'itchyny/landscape.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'mengelbrecht/lightline-bufferline'
 Plug 'ayu-theme/ayu-vim'
-Plug 'hzchirs/vim-material'
-Plug 'bluz71/vim-nightfly-guicolors'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'jsit/toast.vim'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'hzchirs/vim-material'
+" Plug 'bluz71/vim-nightfly-guicolors'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'jsit/toast.vim'
+" Plug 'arcticicestudio/nord-vim'
 
 " Syntax
 Plug 'Yggdroot/indentline'
@@ -57,6 +57,9 @@ Plug 'jiangmiao/auto-pairs'
 " Go Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'sebdah/vim-delve'
+
+" EditConfig
+Plug 'editorconfig/editorconfig-vim'
 
 " Language Server Protocol (LSP)
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
@@ -473,15 +476,28 @@ let g:metrw_winsize=25
 " ----- Plugin Settings {{{
 
 " ----- Lightline {{{
-let g:lightline = {
-  \ 'colorscheme': 'material',
+" let g:lightline.colorscheme = 'default'
+let g:lightline= {
+  \ 'colorscheme': 'ayu_mirage',
   \ 'active': {
   \    'left': [ [ 'mode', 'paste'],
-  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-  \  },
-  \ 'component_function': {
-  \    'gitbranch': 'FugitiveHead'
-  \  }
+  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \    'right': [ [ 'lineinfo' ],
+  \               [ 'percent' ],
+  \               [ 'fileformat', 'fileencoding', 'filetype' ] ]
+  \ },
+  \ 'component_function': { 'gitbranch': 'FugitiveHead'  },
+  \ }
+
+let g:lightline.inactive = {
+  \ 'left': [ [ 'filename'  ] ],
+  \ 'right': [ [ 'lineinfo' ],
+  \            [ 'percent' ] ]
+  \ }
+
+let g:lightline.tabline = {
+  \ 'left': [ [ 'tabs' ] ],
+  \ 'right': [ [ 'close' ] ]
   \ }
 
 let g:lightline#bufferline#show_number       = 0
@@ -489,9 +505,9 @@ let g:lightline#bufferline#shorten_path      = 0
 let g:lightline#bufferline#unnamed           = '[No Name]'
 let g:lightline#bufferline#filename_modifier = ':t'
 
-let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
+" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+" let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " Mappings to use <leader>+# to move to buffer
 " nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -514,16 +530,16 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 " let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 " let g:airline#extensions#branch#enabled                 = 1
 " let g:airline#extensions#branch#empty_message           = ''
-
-" Enable the list of buffers
+"
+" " Enable the list of buffers
 " let g:airline#extensions#tabline#enabled = 1
-
-" Hide function display (don't use it)
+"
+" " Hide function display (don't use it)
 " let g:airline#extensions#tagbar#enabled = 0
-
-" Show just the file name
+"
+" " Show just the file name
 " let g:airline#extensions#tabline#fnamemod = ':t'
-
+"
 " let g:airline_theme='dark'
 
 " }}}
@@ -550,8 +566,6 @@ nnoremap <leader>U :GundoToggle<CR>
 " ----- NERDTree {{{
 nnoremap <c-n> :NERDTreeToggle<CR>
 
-" Some custom indicators for file state
-" let g:NERDTreeIndicatorMapCustom = {
 let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -564,9 +578,16 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" Start NERDTree when editor is started, put cursor in other window
+autocmd VimEnter * NERDTree | wincmd p
+
 " Close nerdtree and vim on close file
 " from https://github.com/jessfraz/.vim/blob/master/vimrc#L491
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 
 " }}}
 " ----- Indentline {{{
