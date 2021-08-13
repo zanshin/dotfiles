@@ -70,3 +70,12 @@ export LS_COLORS='no=00:fi=00:di=01;34:ow=01;31:ln=01;36:pi=40;33:so=01;35:do=01
 # export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 # export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 
+# -----------------
+# Sourcegraph
+# -----------------
+# export PGPORT=5432
+# export PGHOST=localhost
+# export PGUSER=sourcegraph
+# export PGPASSWORD=sourcegraph
+# export PGDATABASE=sourcegraph
+# export PGSSLMODE=disable
