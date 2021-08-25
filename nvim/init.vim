@@ -25,16 +25,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " ----- Plugins {{{
 "
 " Appearance
-" Plug 'itchyny/landscape.vim'
-Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
 Plug 'ayu-theme/ayu-vim'
-" Plug 'hzchirs/vim-material'
-" Plug 'bluz71/vim-nightfly-guicolors'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'jsit/toast.vim'
-" Plug 'arcticicestudio/nord-vim'
 
 " Syntax
 Plug 'Yggdroot/indentline'
@@ -72,6 +63,9 @@ Plug 'kassio/neoterm'
 
 " Ansible
 Plug 'pearofducks/ansible-vim'
+
+" Lualine
+Plug 'hoob3rt/lualine.nvim'
 
 " End of plugins
 call plug#end()
@@ -475,74 +469,6 @@ let g:metrw_winsize=25
 " }}}
 " ----- Plugin Settings {{{
 
-" ----- Lightline {{{
-" let g:lightline.colorscheme = 'default'
-let g:lightline= {
-  \ 'colorscheme': 'ayu_mirage',
-  \ 'active': {
-  \    'left': [ [ 'mode', 'paste'],
-  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-  \    'right': [ [ 'lineinfo' ],
-  \               [ 'percent' ],
-  \               [ 'fileformat', 'fileencoding', 'filetype' ] ]
-  \ },
-  \ 'component_function': { 'gitbranch': 'FugitiveHead'  },
-  \ }
-
-let g:lightline.inactive = {
-  \ 'left': [ [ 'filename'  ] ],
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'percent' ] ]
-  \ }
-
-let g:lightline.tabline = {
-  \ 'left': [ [ 'tabs' ] ],
-  \ 'right': [ [ 'close' ] ]
-  \ }
-
-let g:lightline#bufferline#show_number       = 0
-let g:lightline#bufferline#shorten_path      = 0
-let g:lightline#bufferline#unnamed           = '[No Name]'
-let g:lightline#bufferline#filename_modifier = ':t'
-
-" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-" let g:lightline.component_type   = {'buffers': 'tabsel'}
-
-" Mappings to use <leader>+# to move to buffer
-" nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-" nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-" nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-" nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-" nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-" nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-" nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-" nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-" nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-" nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-
-" }}}
-" ----- Airline {{{
-" let g:airline_theme                                     = 'landscape'
-" let g:airline_left_sep                                  = ''
-" let g:airline_right_sep                                 = ''
-" let g:airline#extensions#whitespace#trailing_format     = 'trailing[%s]'
-" let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-" let g:airline#extensions#branch#enabled                 = 1
-" let g:airline#extensions#branch#empty_message           = ''
-"
-" " Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
-"
-" " Hide function display (don't use it)
-" let g:airline#extensions#tagbar#enabled = 0
-"
-" " Show just the file name
-" let g:airline#extensions#tabline#fnamemod = ':t'
-"
-" let g:airline_theme='dark'
-
-" }}}
 " ----- Vim-fugitive {{{
 " need some settings here
 
@@ -745,6 +671,45 @@ let g:LanguageClient_serverCommands = {
 " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" }}}
+" ----- Lualine {{{
+lua << EOF
+require'lualine'.setup {
+  options = {
+    icons_enabled = false,
+    theme = 'material',
+    component_separators = {' ', ' '},
+    section_separators = {' ', ' '},
+    disabled_filetypes = {}
+    },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+    },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+    },
+  tabline = {
+    lualine_a = {},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+    },
+  extensions = {}
+  }
+EOF
 
 " }}}
 
