@@ -79,6 +79,12 @@ fi
 # Add path to ~/.local/bin for aws cli on linux
 if [ -d ${HOME}/.local/bin ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
 
+
+# Sourcegraph
+if [ -d /usr/local/opt/postgresql/bin ] ; then
+  PATH="/usr/local/opt/postgresql/bin:$PATH"
+fi
+
 export PATH
 
 # Be incredible anal and remove duplicates from PATH, even though the
