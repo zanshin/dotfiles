@@ -73,6 +73,14 @@ Plug 'kassio/neoterm'
 " Ansible
 Plug 'pearofducks/ansible-vim'
 
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" Completion
+Plug 'hrsh7th/nvim-compe'
+
 " End of plugins
 call plug#end()
 
@@ -395,13 +403,13 @@ nnoremap <leader>y "+y"
 " ----- Command line completion {{{
 " Search down into subfolders
 " Provides tab-completion for all filer-related tasks
-set path+=**
-
-set wildmenu                                     " navigate <left> and <right> through completion list
-set wildignore+=.git                             " ignore Git repository
-set wildignore+=*.jpg,*.png,*.gif,*,jpeg,*.bmp   " ignore image files
-set wildignore+=*.sw?                            " ignore swap files
-set wildignore+=*.DS_Store                       " ignore macOS clutter
+" set path+=**
+"
+" set wildmenu                                     " navigate <left> and <right> through completion list
+" set wildignore+=.git                             " ignore Git repository
+" set wildignore+=*.jpg,*.png,*.gif,*,jpeg,*.bmp   " ignore image files
+" set wildignore+=*.sw?                            " ignore swap files
+" set wildignore+=*.DS_Store                       " ignore macOS clutter
 
 " }}}
 " ----- Filetype settings {{{
@@ -466,61 +474,61 @@ endif
 
 " }}}
 " ----- NetRW {{{
-let g:netrw_liststyle=3                " tree view style
-let g:netrw_banner=0                   " disable annoying banner
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:metrw_winsize=25
+" let g:netrw_liststyle=3                " tree view style
+" let g:netrw_banner=0                   " disable annoying banner
+" let g:netrw_browse_split=4
+" let g:netrw_altv=1
+" let g:metrw_winsize=25
 
 " }}}
 " ----- Plugin Settings {{{
 
 " ----- Lightline {{{
 " let g:lightline.colorscheme = 'default'
-let g:lightline= {
-  \ 'colorscheme': 'ayu_mirage',
-  \ 'active': {
-  \    'left': [ [ 'mode', 'paste'],
-  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-  \    'right': [ [ 'lineinfo' ],
-  \               [ 'percent' ],
-  \               [ 'fileformat', 'fileencoding', 'filetype' ] ]
-  \ },
-  \ 'component_function': { 'gitbranch': 'FugitiveHead'  },
-  \ }
-
-let g:lightline.inactive = {
-  \ 'left': [ [ 'filename'  ] ],
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'percent' ] ]
-  \ }
-
-let g:lightline.tabline = {
-  \ 'left': [ [ 'tabs' ] ],
-  \ 'right': [ [ 'close' ] ]
-  \ }
-
-let g:lightline#bufferline#show_number       = 0
-let g:lightline#bufferline#shorten_path      = 0
-let g:lightline#bufferline#unnamed           = '[No Name]'
-let g:lightline#bufferline#filename_modifier = ':t'
-
-" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-" let g:lightline.component_type   = {'buffers': 'tabsel'}
-
-" Mappings to use <leader>+# to move to buffer
-" nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-" nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-" nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-" nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-" nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-" nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-" nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-" nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-" nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-" nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-
+" let g:lightline= {
+"   \ 'colorscheme': 'ayu_mirage',
+"   \ 'active': {
+"   \    'left': [ [ 'mode', 'paste'],
+"   \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+"   \    'right': [ [ 'lineinfo' ],
+"   \               [ 'percent' ],
+"   \               [ 'fileformat', 'fileencoding', 'filetype' ] ]
+"   \ },
+"   \ 'component_function': { 'gitbranch': 'FugitiveHead'  },
+"   \ }
+"
+" let g:lightline.inactive = {
+"   \ 'left': [ [ 'filename'  ] ],
+"   \ 'right': [ [ 'lineinfo' ],
+"   \            [ 'percent' ] ]
+"   \ }
+"
+" let g:lightline.tabline = {
+"   \ 'left': [ [ 'tabs' ] ],
+"   \ 'right': [ [ 'close' ] ]
+"   \ }
+"
+" let g:lightline#bufferline#show_number       = 0
+" let g:lightline#bufferline#shorten_path      = 0
+" let g:lightline#bufferline#unnamed           = '[No Name]'
+" let g:lightline#bufferline#filename_modifier = ':t'
+"
+" " let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+" " let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+" " let g:lightline.component_type   = {'buffers': 'tabsel'}
+"
+" " Mappings to use <leader>+# to move to buffer
+" " nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+" " nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+" " nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+" " nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+" " nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+" " nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+" " nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+" " nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+" " nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+" " nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+"
 " }}}
 " ----- Airline {{{
 " let g:airline_theme                                     = 'landscape'
@@ -745,6 +753,69 @@ let g:LanguageClient_serverCommands = {
 " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" }}}
+" ----- Telescope {{{
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" Map q to close the damn popup window
+lua << EOF
+local actions = require('telescope.actions')
+
+require('telescope').setup {
+defaults = {
+  mappings = {
+    i = {
+      ["<esc>"] = actions.close,
+      ["<C-[>"] = actions.close,
+      ["<C-q>"] = actions.send_to_qflist,
+      },
+    },
+  },
+}
+EOF
+
+" Find files using Telescope command-line sugar.
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
+" }}}
+" ----- Completion {{{
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.ultisnips = v:true
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " }}}
 
