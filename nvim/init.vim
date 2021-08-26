@@ -85,23 +85,7 @@ if(has("termguicolors"))
   set termguicolors
 endif
 
-" Enable cursor shape change on inset mode
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-" Highlight comments in light blue color (may get overridden by colorscheme)
-if has('syntax')
-  if !exists('g:syntax_on')
-    syntax enable
-  endif
-  hi Comment ctermfg=LightBlue
-endif
-
 set background=dark
-" colorscheme nightfly
-" colorscheme toast
-" colorscheme nord
-
-" silent! colorscheme landscape
 
 " let ayucolor="light"
 " let ayucolor="mirage"
