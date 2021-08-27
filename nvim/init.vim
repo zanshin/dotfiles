@@ -69,6 +69,10 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/playground'
+
 " Completion
 Plug 'hrsh7th/nvim-compe'
 
@@ -694,6 +698,35 @@ EOF
 " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 " nnoremap <leader>fb <cmd>Telescope buffers<cr>
 " nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" }}}
+" ----- Treesitter {{{
+lua << EOF
+local ts = require 'nvim-treesitter.configs'
+ts.setup {
+  ensure_installed = 'maintained',
+  highligh = {
+    enable = true,
+    },
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25,           -- debounced time for highlighted nodes in playground from source code
+    persist_queries = false,   -- whether the query persists across vim sessions
+    keybindings = {
+      toggle_query_editor = 'o',
+      toggle_hl_groups = 'i',
+      toggle_injected_languages = 't',
+      toggle_anonymous_nodes = 'a',
+      toggle_lanugage_display = 'I',
+      focus_language = 'f',
+      unfocus_language = 'F',
+      update = 'R',
+      goto_node = '<cr>',
+      show_help = '?'.
+      },
+    }
+  }
 
 " }}}
 " ----- Completion {{{
