@@ -40,28 +40,6 @@ For ssh configuration, create the following symlink:
 
     ln -s ~/.dotfiles/ssh/config ~/.ssh/config
 
-## Vim
-For Vim configuration and use, create the following symlinks:
-
-    ln -s ~/.dotfiles/vim ~/.vim
-    ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
-    ln -s ~/.dotfiles/vim/vimrc.bundles ~/.vimrc.bundles
-    ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
-
-On remote servers where the Vim version maybe older or not under my control, eliminate the
-`.vimrc.bundles` symlink. All bundles and their settings are encapsulated in this file. The `.vimrc`
-file will default the color scheme and spelling dictionary settings if `.vimrc.bundles` is not
-found.
-
-To install vim-plug managed plugins run the following command from within Vim:
-
-    :PlugInstall
-
-To install vim-plug run the following command:
-
-    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 ## Neovim (nvim)
 For Neovim configuration, create the following symlink:
 
@@ -70,7 +48,8 @@ For Neovim configuration, create the following symlink:
 The `n` flag on the `ln` command treats directories as files when making the link. This prevents the
 link command from nesting the destination under an already existing directory.
 
-Neovim also uses Vim-Plug. See the Vim-Plug notes in the Vim section above.
+Neovim also uses Vim-Plug. The Neovim configuration, stored in `init.vim`, automatically installs
+Vim-Plug, if it isn't already installed.
 
 ## Git
 For Git configuration and global ignore files, create these symlinks:
@@ -108,6 +87,31 @@ These are some tmux setup scripts that I use. Highly personalized.
 
 
 ## No longer in use
+
+### Vim
+My use of Vim has virtually stopped. I've switched to using Neovim exclusively on all my devices. My
+Vim configuration is out of date and no longer actively maintained.
+
+For Vim configuration and use, create the following symlinks:
+
+    ln -s ~/.dotfiles/vim ~/.vim
+    ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
+    ln -s ~/.dotfiles/vim/vimrc.bundles ~/.vimrc.bundles
+    ln -s ~/.dotfiles/vim/gvimrc ~/.gvimrc
+
+On remote servers where the Vim version maybe older or not under my control, eliminate the
+`.vimrc.bundles` symlink. All bundles and their settings are encapsulated in this file. The `.vimrc`
+file will default the color scheme and spelling dictionary settings if `.vimrc.bundles` is not
+found.
+
+To install vim-plug managed plugins run the following command from within Vim:
+
+    :PlugInstall
+
+To install vim-plug run the following command:
+
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ### Mercurial (hg)
 For Mercurial configuration and global ignore files, create these symlinks:
