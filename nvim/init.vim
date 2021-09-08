@@ -25,16 +25,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 " ----- Plugins {{{
 "
 " Appearance
-" Plug 'itchyny/landscape.vim'
-Plug 'itchyny/lightline.vim'
-" Plug 'mengelbrecht/lightline-bufferline'
 Plug 'ayu-theme/ayu-vim'
-" Plug 'hzchirs/vim-material'
-" Plug 'bluz71/vim-nightfly-guicolors'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'jsit/toast.vim'
-" Plug 'arcticicestudio/nord-vim'
 
 " Syntax
 Plug 'Yggdroot/indentline'
@@ -73,6 +64,21 @@ Plug 'kassio/neoterm'
 " Ansible
 Plug 'pearofducks/ansible-vim'
 
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/playground'
+
+" Completion
+Plug 'hrsh7th/nvim-compe'
+
+" Lualine
+Plug 'hoob3rt/lualine.nvim'
+
 " End of plugins
 call plug#end()
 
@@ -83,23 +89,7 @@ if(has("termguicolors"))
   set termguicolors
 endif
 
-" Enable cursor shape change on inset mode
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
-" Highlight comments in light blue color (may get overridden by colorscheme)
-if has('syntax')
-  if !exists('g:syntax_on')
-    syntax enable
-  endif
-  hi Comment ctermfg=LightBlue
-endif
-
 set background=dark
-" colorscheme nightfly
-" colorscheme toast
-" colorscheme nord
-
-" silent! colorscheme landscape
 
 " let ayucolor="light"
 " let ayucolor="mirage"
@@ -395,13 +385,13 @@ nnoremap <leader>y "+y"
 " ----- Command line completion {{{
 " Search down into subfolders
 " Provides tab-completion for all filer-related tasks
-set path+=**
-
-set wildmenu                                     " navigate <left> and <right> through completion list
-set wildignore+=.git                             " ignore Git repository
-set wildignore+=*.jpg,*.png,*.gif,*,jpeg,*.bmp   " ignore image files
-set wildignore+=*.sw?                            " ignore swap files
-set wildignore+=*.DS_Store                       " ignore macOS clutter
+" set path+=**
+"
+" set wildmenu                                     " navigate <left> and <right> through completion list
+" set wildignore+=.git                             " ignore Git repository
+" set wildignore+=*.jpg,*.png,*.gif,*,jpeg,*.bmp   " ignore image files
+" set wildignore+=*.sw?                            " ignore swap files
+" set wildignore+=*.DS_Store                       " ignore macOS clutter
 
 " }}}
 " ----- Filetype settings {{{
@@ -466,83 +456,15 @@ endif
 
 " }}}
 " ----- NetRW {{{
-let g:netrw_liststyle=3                " tree view style
-let g:netrw_banner=0                   " disable annoying banner
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:metrw_winsize=25
+" let g:netrw_liststyle=3                " tree view style
+" let g:netrw_banner=0                   " disable annoying banner
+" let g:netrw_browse_split=4
+" let g:netrw_altv=1
+" let g:metrw_winsize=25
 
 " }}}
 " ----- Plugin Settings {{{
 
-" ----- Lightline {{{
-" let g:lightline.colorscheme = 'default'
-let g:lightline= {
-  \ 'colorscheme': 'ayu_mirage',
-  \ 'active': {
-  \    'left': [ [ 'mode', 'paste'],
-  \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-  \    'right': [ [ 'lineinfo' ],
-  \               [ 'percent' ],
-  \               [ 'fileformat', 'fileencoding', 'filetype' ] ]
-  \ },
-  \ 'component_function': { 'gitbranch': 'FugitiveHead'  },
-  \ }
-
-let g:lightline.inactive = {
-  \ 'left': [ [ 'filename'  ] ],
-  \ 'right': [ [ 'lineinfo' ],
-  \            [ 'percent' ] ]
-  \ }
-
-let g:lightline.tabline = {
-  \ 'left': [ [ 'tabs' ] ],
-  \ 'right': [ [ 'close' ] ]
-  \ }
-
-let g:lightline#bufferline#show_number       = 0
-let g:lightline#bufferline#shorten_path      = 0
-let g:lightline#bufferline#unnamed           = '[No Name]'
-let g:lightline#bufferline#filename_modifier = ':t'
-
-" let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-" let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-" let g:lightline.component_type   = {'buffers': 'tabsel'}
-
-" Mappings to use <leader>+# to move to buffer
-" nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-" nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-" nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-" nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-" nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-" nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-" nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-" nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-" nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-" nmap <Leader>0 <Plug>lightline#bufferline#go(10)
-
-" }}}
-" ----- Airline {{{
-" let g:airline_theme                                     = 'landscape'
-" let g:airline_left_sep                                  = ''
-" let g:airline_right_sep                                 = ''
-" let g:airline#extensions#whitespace#trailing_format     = 'trailing[%s]'
-" let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-" let g:airline#extensions#branch#enabled                 = 1
-" let g:airline#extensions#branch#empty_message           = ''
-"
-" " Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
-"
-" " Hide function display (don't use it)
-" let g:airline#extensions#tagbar#enabled = 0
-"
-" " Show just the file name
-" let g:airline#extensions#tabline#fnamemod = ':t'
-"
-" let g:airline_theme='dark'
-
-" }}}
 " ----- Vim-fugitive {{{
 " need some settings here
 
@@ -745,6 +667,136 @@ let g:LanguageClient_serverCommands = {
 " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 " nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 " nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" }}}
+" ----- Telescope {{{
+" nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" Map q to close the damn popup window
+lua << EOF
+local actions = require('telescope.actions')
+
+require('telescope').setup {
+defaults = {
+  mappings = {
+    i = {
+      ["<esc>"] = actions.close,
+      ["<C-[>"] = actions.close,
+      ["<C-q>"] = actions.send_to_qflist,
+      },
+    },
+  },
+}
+EOF
+
+" Find files using Telescope command-line sugar.
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" }}}
+" ----- Treesitter {{{
+lua << EOF
+local ts = require 'nvim-treesitter.configs'
+ts.setup {
+  ensure_installed = 'maintained',
+  highligh = {
+    enable = true,
+    },
+  playground = {
+    enable = true,
+    disable = {},
+    updatetime = 25,           -- debounced time for highlighted nodes in playground from source code
+    persist_queries = false,   -- whether the query persists across vim sessions
+    keybindings = {
+      toggle_query_editor = 'o',
+      toggle_hl_groups = 'i',
+      toggle_injected_languages = 't',
+      toggle_anonymous_nodes = 'a',
+      toggle_lanugage_display = 'I',
+      focus_language = 'f',
+      unfocus_language = 'F',
+      update = 'R',
+      goto_node = '<cr>',
+      show_help = '?'.
+      },
+    }
+  }
+
+" }}}
+" ----- Completion {{{
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.ultisnips = v:true
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
+" }}}
+" ----- Lualine {{{
+lua << EOF
+require'lualine'.setup {
+  options = {
+    icons_enabled = false,
+    theme = 'material',
+    component_separators = {' ', ' '},
+    section_separators = {' ', ' '},
+    disabled_filetypes = {}
+    },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+    },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+    },
+  tabline = {
+    lualine_a = {},
+    lualine_b = {'branch'},
+    lualine_c = {'filename'},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+    },
+  extensions = {}
+  }
+EOF
 
 " }}}
 

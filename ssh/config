@@ -48,6 +48,11 @@ Host admin
     # ChallengeResponseAuthentication yes
     PasswordAuthentication yes
 
+# Ubuntu VM PAW
+Host paw
+    HostName 192.168.5.50
+    User mhn
+
 # EST Jump box
 Host jump
 #    HostName est-jump-p-mhn-01.campus.ksu.edu
