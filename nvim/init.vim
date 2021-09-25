@@ -328,7 +328,10 @@ if has("autocmd")
 endif
 
 " Map escape to jj -- faster to type
+" Also, jk and kj. The more the merrier
 inoremap jj <ESC>
+inoremap jk <ESC>
+inoremap kj <ESC>
 
 " Python
 let g:python_host_prog = '/usr/bin/python'
