@@ -30,17 +30,17 @@ Plug 'ayu-theme/ayu-vim'
 " Syntax
 Plug 'Yggdroot/indentline'
 Plug 'stephpy/vim-yaml'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'hashivim/vim-terraform'
 
 " Git helpers
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Utilities
 Plug 'sjl/gundo.vim'
-Plug 'scrooloose/nerdtree', { 'om': 'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'om': 'NERDTreeToggle' }
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'jiangmiao/auto-pairs'
@@ -80,6 +80,11 @@ Plug 'hrsh7th/nvim-compe'
 
 " Lualine
 Plug 'hoob3rt/lualine.nvim'
+
+" nvim-tree
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+
 
 " End of plugins
 call plug#end()
@@ -503,31 +508,31 @@ nnoremap <leader>U :GundoToggle<CR>
 
 " }}}
 " ----- NERDTree {{{
-nnoremap <c-n> :NERDTreeToggle<CR>
-
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
-
-" Start NERDTree when editor is started, put cursor in other window
-autocmd VimEnter * NERDTree | wincmd p
-
-" Close nerdtree and vim on close file
-" from https://github.com/jessfraz/.vim/blob/master/vimrc#L491
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-
+" nnoremap <c-n> :NERDTreeToggle<CR>
+"
+" let g:NERDTreeGitStatusIndicatorMapCustom = {
+"     \ "Modified"  : "✹",
+"     \ "Staged"    : "✚",
+"     \ "Untracked" : "✭",
+"     \ "Renamed"   : "➜",
+"     \ "Unmerged"  : "═",
+"     \ "Deleted"   : "✖",
+"     \ "Dirty"     : "✗",
+"     \ "Clean"     : "✔︎",
+"     \ "Unknown"   : "?"
+"     \ }
+"
+" " Start NERDTree when editor is started, put cursor in other window
+" autocmd VimEnter * NERDTree | wincmd p
+"
+" " Close nerdtree and vim on close file
+" " from https://github.com/jessfraz/.vim/blob/master/vimrc#L491
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"
+" " Exit Vim if NERDTree is the only window remaining in the only tab.
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"
+"
 " }}}
 " ----- Indentline {{{
 let g:indentLine_color_term = 239
@@ -740,10 +745,11 @@ ts.setup {
       unfocus_language = 'F',
       update = 'R',
       goto_node = '<cr>',
-      show_help = '?'.
+      show_help = '?',
       },
     }
   }
+EOF
 
 " }}}
 " ----- Completion {{{
@@ -779,7 +785,7 @@ inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 " }}}
 " ----- Lualine {{{
 lua << EOF
-require'lualine'.setup {
+ require'lualine'.setup {
   options = {
     icons_enabled = false,
     theme = 'material',
@@ -811,8 +817,9 @@ require'lualine'.setup {
     lualine_y = {},
     lualine_z = {}
     },
-  extensions = {}
-  }
+ extensions = {},
+ }
+--  require('lualine').setup()
 EOF
 
 " }}}
