@@ -8,4 +8,4 @@ For patched fonts use:
     brew tap homebrew/cask-fonts
     brew install --cask font-hack-nerd-font
 
-I like the JetBrains Mono Patched Font
+I like the JetBrains Mono Patched Font, which can be found here: https://github.com/Homebrew/homebrew-cask-fonts
