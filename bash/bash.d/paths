@@ -48,7 +48,7 @@ if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
 
 # add Go path for Darwin
 if [ -e /usr/local/go ] ; then
-  PATH="${PATH}:/usr/local/go"
+  PATH="${PATH}:/usr/local/go/bin"
   PATH="${PATH}:${HOME}/code/golib/bin"
 fi
 
