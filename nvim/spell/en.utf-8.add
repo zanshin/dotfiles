@@ -1,9 +1,11 @@
+ACloud
 APA
 ASUS
 AWS
 Airpods
 AppArmor
 AppStream
+Avi
 BMM
 Biden
 BigMemoryMax
@@ -61,8 +63,11 @@ GnuPG
 GoDaddy
 Grafana
 Grimwood
+GuardDuty
+Guardicore
 HTTPS
 Homebrew
+IAM
 IDM
 IDMGrouper
 IDMP
@@ -80,6 +85,7 @@ KSU
 Kamala
 Kindlein
 Konza
+Kubernetes
 Kuder
 LTS
 LVM
@@ -221,6 +227,8 @@ dojo
 dotfiles
 eProfile
 elasticsearch
+failover
+forScore
 fsck
 fugazi
 gizmo
@@ -239,6 +247,7 @@ iMacs
 iOS
 iPaaS
 iPad
+iPadPro
 iPads
 iPhone
 iPhones
@@ -250,6 +259,7 @@ isync
 jonathankuder
 ketamine
 lexer
+lua
 macOS
 mailcap
 maix
@@ -317,18 +327,8 @@ webfaction
 weblog
 webmethods
 weechat
+wiki
+wireshark
 www
 yay
 zanshin
-ACloud
-IAM
-iPadPro
-forScore
-failover
-wiki
-GuardDuty
-Kubernetes
-Guardicore
-lua
-Avi
-wireshark

@@ -134,7 +134,7 @@ LP_ENABLE_VIRTUALENV=1
 LP_ENABLE_SCLS=1
 
 # Show average system temperature
-LP_ENABLE_TEMP=1
+LP_ENABLE_TEMP=0
 
 # When showing the time, use an analog clock instead of numeric values.
 # The analog clock is "accurate" to the nearest half hour.
