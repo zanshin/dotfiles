@@ -47,7 +47,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " Go Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'sebdah/vim-delve'
+" Plug 'sebdah/vim-delve'
 
 " EditConfig
 Plug 'editorconfig/editorconfig-vim'
