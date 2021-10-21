@@ -55,7 +55,7 @@ fi
 # dd Go path for Linux
 if [ -e /usr/bin/go ] ; then
   PATH="${PATH}:/usr/bin/go"
-  PATH="${PATH}:${HOME}/code/golib/bin"
+  PATH="${HOME}/code/golib/bin:${PATH}"
 fi
 
 # add protobuf path, if it exists
