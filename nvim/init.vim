@@ -76,9 +76,13 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground'
 
 " Completion
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+Plug 'onsails/lspkind-nvim'
 
 " Lualine
 Plug 'hoob3rt/lualine.nvim'
@@ -757,60 +761,55 @@ EOF
 " ----- Completion {{{
 set completeopt=menu,menuone,noselect
 
-" lua <<EOF
-"   -- Setup nvim-cmp.
-"   local cmp = require'cmp'
-"
-"   cmp.setup({
-"     snippet = {},
-"     mapping = {
-"       ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-"       ['<C-f>'] = cmp.mapping.scroll_docs(4),
-"       ['<C-Space>'] = cmp.mapping.complete(),
-"       ['<C-e>'] = cmp.mapping.close(),
-"       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-"     },
-"     sources = {
-"       { name = 'nvim_lsp' },
-"       { name = 'buffer' },
-"     }
-"   })
-"
-"   -- Setup lspconfig.
-"   require('lspconfig')[%YOUR_LSP_SERVER%].setup {
-"     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-"   }
-" EOF
+lua <<EOF
+-- setup lspkind
+local lspkind = require "lspkind"
+lspkind.init()
 
+-- Setup nvim-cmp.
+local cmp = require "cmp"
 
-" let g:compe = {}
-" let g:compe.enabled = v:true
-" let g:compe.autocomplete = v:true
-" let g:compe.debug = v:false
-" let g:compe.min_length = 1
-" let g:compe.preselect = 'enable'
-" let g:compe.throttle_time = 80
-" let g:compe.source_timeout = 200
-" let g:compe.incomplete_delay = 400
-" let g:compe.max_abbr_width = 100
-" let g:compe.max_kind_width = 100
-" let g:compe.max_menu_width = 100
-" let g:compe.documentation = v:true
-"
-" let g:compe.source = {}
-" let g:compe.source.path = v:true
-" let g:compe.source.buffer = v:true
-" let g:compe.source.calc = v:true
-" let g:compe.source.nvim_lsp = v:true
-" let g:compe.source.nvim_lua = v:true
-" let g:compe.source.vsnip = v:true
-" let g:compe.source.ultisnips = v:true
-"
-" inoremap <silent><expr> <C-Space> compe#complete()
-" inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+cmp.setup {
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<C-y>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    },
+
+    ['<C-Space>'] = cmp.mapping.complete(),
+  },
+
+  sources = {
+    -- Order ranks these
+    -- These are global
+    { name = "nvim_lsp" },
+    { name = "path"  },
+    { name = "nvm_lua"  },
+    { name = "buffer", keyword_length = 5 },
+  },
+
+  formatting = {
+    format = lspkind.cmp_format({with_text = true}),
+    menu = {
+      buffer = "[buf]",
+      nvim_lsp = "[LSP]",
+      nvim_lua = "[api]",
+      path = "[path]",
+    },
+  },
+
+  experimental = {
+    -- New menu, better than the old menu
+    native_menu = false,
+
+    -- "ghost" completion
+    ghost_text = true,
+  },
+}
+EOF
 
 " }}}
 " ----- Lualine {{{
@@ -911,7 +910,7 @@ end
 EOF
 
 " }}}
-" nvim-tree {{{
+" ----- nvim-tree {{{
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 let g:nvim_tree_gitignore = 1 "0 by default
 let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
