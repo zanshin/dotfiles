@@ -85,7 +85,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'onsails/lspkind-nvim'
 
 " Lualine
-Plug 'hoob3rt/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+" Plug 'hoob3rt/lualine.nvim'
 
 " nvim-tree
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
