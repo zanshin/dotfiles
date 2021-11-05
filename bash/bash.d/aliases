@@ -304,3 +304,4 @@ alias sse="sudo systemctl enable"
 # Aliases from new-alias function
 alias lst='ls -alt'
 alias packages='echo $(pacman -Qn | wc -l) "Arch packages, and " $(pacman -Qm | wc -l) "AUR packages"'
+alias brave='open -a /Applications/"Brave Browser.app" --args --proxy-server="socks5://localhost:54321"'
