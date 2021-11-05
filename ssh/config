@@ -86,6 +86,12 @@ Host rosindust
     Port 11110
     user mark
 
+# Minion (while on home network)
+Host minion
+    HostName 192.168.5.67
+    User mark
+
+
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
