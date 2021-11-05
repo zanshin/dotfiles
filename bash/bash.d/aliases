@@ -159,6 +159,7 @@ alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
+alias ts='tsession.sh'
 
 # tmux scripts
 alias tb='~/.dotfiles/scripts/blog'
