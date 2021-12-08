@@ -72,6 +72,7 @@ alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
 #alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
 alias 'previous=history | grep '
+alias 'h=history | grep '
 
 alias 'xup=xrdb ~/.Xresources'
 
@@ -85,11 +86,11 @@ alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.tim
 
 # }}}
 # Mercurial (hg) {{{
-alias 'h=hg status'
-alias 'hc=hg commit'
-alias 'push=hg push'
-alias 'pull=hg pull'
-alias 'clone=hg clone'
+# alias 'h=hg status'
+# alias 'hc=hg commit'
+# alias 'push=hg push'
+# alias 'pull=hg pull'
+# alias 'clone=hg clone'
 
 # }}}
 # Git {{{
