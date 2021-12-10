@@ -59,6 +59,8 @@ alias estwindev="cd ~/code/chef/estwindev"
 alias omeaws="cd ~/code/chef/omeaws"
 alias zome="cd ~/code/chef/zome"
 alias zomedev="cd ~/code/chef/zomedev"
+alias iso="cd ~/code/chef/iso"
+alias isodev="cd ~/code/chef/isodev"
 
 alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 alias roll2="cd ~/code/chef/zome/cookbooks/ome_wildfly_cluster/scripts/reboot"
@@ -70,6 +72,7 @@ alias 'bk=cd $OLDPWD'
 alias 'rm=rm -i'
 #alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
 alias 'previous=history | grep '
+alias 'h=history | grep '
 
 alias 'xup=xrdb ~/.Xresources'
 
@@ -83,11 +86,11 @@ alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.tim
 
 # }}}
 # Mercurial (hg) {{{
-alias 'h=hg status'
-alias 'hc=hg commit'
-alias 'push=hg push'
-alias 'pull=hg pull'
-alias 'clone=hg clone'
+# alias 'h=hg status'
+# alias 'hc=hg commit'
+# alias 'push=hg push'
+# alias 'pull=hg pull'
+# alias 'clone=hg clone'
 
 # }}}
 # Git {{{
@@ -228,8 +231,8 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 # alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu &'
 alias gpv="~/bin/bash/gpvpn-split.sh"
 
-# alias gpon="tmux new -s vpn 'sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu'"
-alias gpon="tmux new -s vpn '~/bin/bash/gpvpn-split.sh'"
+alias gpon="sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu"
+# alias gpon="tmux new -s vpn '~/bin/bash/gpvpn-split.sh'"
 alias gpoff='sudo pkill -SIGINT openconnect'
 
 alias ksunix='ssh mhn@unix.ksuedu'
