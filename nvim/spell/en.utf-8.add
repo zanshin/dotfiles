@@ -19,6 +19,7 @@ CIDR
 CIO
 CISO
 CLI
+CNAME
 COVID
 CUI
 CentOS
@@ -77,6 +78,8 @@ IPTABLES
 IRC
 ISP
 Inbox
+JSON
+JSON
 Japsh
 JavaScript
 Jira
@@ -177,6 +180,7 @@ USB
 Ubuntu
 Udemy
 Undeployed
+Unger
 UniversalMessaging
 Unsyncing
 VM
@@ -309,6 +313,7 @@ symlinks
 systemd
 t2
 telecom
+telegraf
 terabyte
 texted
 tmux
@@ -332,7 +337,3 @@ wireshark
 www
 yay
 zanshin
-JSON
-telegraf
-Unger
-CNAME
