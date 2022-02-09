@@ -4,191 +4,16 @@
 " source: https://github.com/zanshin/dotfiles/nvim/init.vim
 "
 
-" ----- Preamble {{{
-if has('autocmd')
-  filetype plugin indent on
-endif
-
-" }}}
-" ----- Vim-Plug core {{{
-" Automatically install Vim-Plug if not already present
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Enable plugin manager
-call plug#begin(expand('~/.config/nvim/plugged'))
-
-" }}}
-" ----- Plugins {{{
-"
-" Appearance
-Plug 'ayu-theme/ayu-vim'
-
-" Syntax
-Plug 'Yggdroot/indentline'
-Plug 'stephpy/vim-yaml'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'hashivim/vim-terraform'
-
-" Git helpers
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Utilities
-Plug 'sjl/gundo.vim'
-" Plug 'scrooloose/nerdtree', { 'om': 'NERDTreeToggle' }
-Plug 'tpope/vim-surround'
-Plug 'tomtom/tcomment_vim'
-Plug 'jiangmiao/auto-pairs'
-
-" Go Language
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'sebdah/vim-delve'
-
-" EditConfig
-Plug 'editorconfig/editorconfig-vim'
-
-" Language Server Protocol (LSP)
-Plug 'neovim/nvim-lspconfig'
-
-" Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-
-" Rust Language
-Plug 'cespare/vim-toml'
-
-" Neovim stuff
-Plug 'kassio/neoterm'
-
-" Ansible
-Plug 'pearofducks/ansible-vim'
-
-" Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/playground'
-
-" Completion
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'hrsh7th/cmp-nvim-lsp'
-
-Plug 'onsails/lspkind-nvim'
-
-" Lualine
-Plug 'nvim-lualine/lualine.nvim'
-" Plug 'hoob3rt/lualine.nvim'
-
-" nvim-tree
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
-
-
-" End of plugins
-call plug#end()
-
-" }}}
-" ----- Color scheme {{{
-"Enable true color support
-if(has("termguicolors"))
-  set termguicolors
-endif
-
-set background=dark
-
-" override some colors
-function! MyHighlights() abort
-    highlight Comment ctermfg=blue   ctermbg=242
-    highlight Folded  ctermfg=red    ctermbg=242
-endfunction
-
-augroup myAyu
-  autocmd!
-  autocmd ColorScheme * call MyHighlights()
-augroup END
-
-
-" let ayucolor="light"
-" let ayucolor="mirage"
-let ayucolor="dark"
-silent! colorscheme ayu
-
-" }}}
 " ----- Basic options {{{
 
-" Change map <leader> from \ to " " (space)
-:let mapleader = " "
-
-" Map ; to : to omit needing the shift key
-nnoremap ; :
-nnoremap ;; ;
-
-" Adjust mapping time out to 1 second (1000) and key codes to 1/2 second (500)
-set timeout timeoutlen=1000 ttimeoutlen=500
-
-" Encoding
-set termencoding=utf-8                           " we like UTF-8
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-
-set showtabline=2                                " always show tabline
-set laststatus=2                                 " always show the status line
-set cmdheight=2                                  " make status two-lines tall
-set showcmd                                      " show the command
-set noshowmode                                   " don't show the mode - lightline will do that
-
-set autoindent                                   " yes, please
-set smartindent                                  " does the right thing, usually
-
-set linespace=3                                  " prefer a slightly higher line height
-set linebreak                                    " wrap intelligently - no hard line breaks
-set wrap                                         " use line wrapping ...
-set textwidth=79                                 " ... at column 79
-
-set ruler                                        " show current cursor position
-set cursorline                                   " highlight line where cursor is
-
-set nolist                                       " hide invisible characters
-set listchars=tab:▸\ ,eol:¬,trail:⋅,nbsp:␣,extends:❯,precedes:❮
-
-set showmatch                                    " show matching brackets [{()}]
-set matchpairs+=<:>                              " match beyond default [ { (
-
-if exists("&relativenumber")
-  set relativenumber                             " use relative line numbers ...
-endif
-set number                                       " ... use absolute line number on current line
-
-set backspace=indent,eol,start                   " make backspace behave in a sane manner
 
 set mousehide                                    " hide the mouse when typing
-
-set foldenable                                   " enable code folding
-
 set history=1000
-
 set ffs=unix,mac,dos                             " default file types, in order
 
 if exists("&cryptmethod")
   set cryptmethod=blowfish                       " string encryption is good
 endif
-
-" Relative number / absolute number toggle
-nnoremap <F10> :set relativenumber! number! number?<CR>
-
-" Code folding settings
-set foldcolumn=3                                 " room for fold markers
-set foldmethod=marker                            " use standard 3 curly braces as markers
 
 " Map Shift-Tab to za (open/close) fold
 nnoremap <s-tab> za
@@ -197,21 +22,8 @@ nnoremap <s-tab> za
 " https://www.reddit.com/r/vim/comments/3b7324/insert_dollar_sign_at_end_of_change_command/
 set cpoptions+=$
 
-" Setup automatic text formatting/wrapping
-set formatoptions=
-set formatoptions-=t                             " don't autowrap text
-set formatoptions+=c                             " do autowrap comments
-" set formatoptions+=r                             " automatically continue comments
-" set formatoptions+=o                             " automatically continue comments with o/O
-set formatoptions+=q                             " allow formatting of comments with `gq`
-set formatoptions+=n                             " recognize number lists
-set formatoptions+=l                             " don't break long lines that were already there
 
-" File focus settings
-set autowrite                                    " write out old file when switching between files
-set autoread                                     " reload files changed on disk
 au FocusLost * :wa!                              " save file when Neovim loses focus
-set hidden                                       " switch between buffers without saving
 
 " Backups
 set backup                                       " enable backups
@@ -234,68 +46,7 @@ if !isdirectory(expand(&directory))
   call mkdir(expand(&directory), "p")
 endif
 
-" Tab stops
-set tabstop=2                                    " 2 spaces for tab - used when opening files
-set shiftwidth=2                                 " 2 spaces for autoindenting
-set softtabstop=2                                " 2 spaces inserted for <tab> / also removed by backspace
-set expandtab                                    " expand tabs to spaces, filetype can overload
 
-" Scrolling
-set scrolloff=5                                  " show content above/below cursor line
-set sidescrolloff=10                             " number of cols from horizontal edge to start scrolling
-set sidescroll=1                                 " number of cols to scroll at a time
-
-" Searching
-set gdefault                                     " apply substitutions globally - use 'g' for old style
-set incsearch                                    " use incremental search
-set hlsearch                                     " highlight search results
-set ignorecase                                   " ignore case when searching
-set smartcase                                    " ignore if search term is all lowercase, otherwise case-sensitive
-
-" Remove search highlighting with <leader>/
-nnoremap <silent> <leader>/ :nohlsearch<CR>
-
-" }}}
-" ----- Navigation and movement {{{
-" Diable arrow keys and make semi-snarky comment instead
-nnoremap <Left>  :echo "Use h"<CR>
-nnoremap <Right> :echo "Use l"<CR>
-nnoremap <Up>    :echo "Use k"<CR>
-nnoremap <Down>  :echo "Use j"<CR>
-
-" Use Control-hjkl to swtich between splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Move line(s) up or down via Control-j and Control-k respectively
-" Normal mode
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-
-" Insert mode
-nnoremap <C-j> :m <ESC>:m .+1<CR>==gi
-nnoremap <C-k> :m <ESC>:m .-2<CR>==gi
-
-" Visual mode
-nnoremap <C-j> :m '>+1<CR>gv=gv
-nnoremap <C-k> :m '>-2<CR>gv=gv
-
-" Move to first non-blank or last non-blank character in current line
-nnoremap H ^
-nnoremap L g_
-
-" }}}
-" ----- Buffers and Tabs {{{
-nnoremap <leader>be :enew<CR>                    " create a new empty buffer
-nnoremap <leader>bn :bnext<CR>                   " move to the next buffer
-nnoremap <leader>bp :bprevious<CR>               " move to the previous buffer
-nnoremap <leader>bc :bp <BAR> bd #<CR>           " move to previous buffer and close current one
-
-" Use TAB to move between buffers
-nnoremap <TAB> :bnext<CR>                        " move to next buffer
-nnoremap <S-TAB> :bprevious<CR>                  " move to previous buffer
 
 " }}}
 " ----- Help {{{
@@ -314,16 +65,7 @@ function! HelpInNewTab()
 endfunction
 
 " }}}
-" ----- Miscellaneous {{{
-" Sudo to write protected file
-cnoremap w!! w !sudo tee % >/dev/null
 
-" Toggle listchars on/off
-nnoremap <leader>l :set list!<CR>
-
-" Fix regex handling to be "normal"
-nnoremap / /\v
-vnoremap / /\v
 
 " Use paste mode to prevent autoindenting of pasted lines
 set pastetoggle=<F2>
@@ -338,12 +80,6 @@ if has("autocmd")
   autocmd WinLeave * set nocursorline
   autocmd WinEnter * set cursorline
 endif
-
-" Map escape to jj -- faster to type
-" Also, jk and kj. The more the merrier
-inoremap jj <ESC>
-inoremap jk <ESC>
-inoremap kj <ESC>
 
 " Python
 let g:python_host_prog = '/usr/bin/python'
@@ -396,21 +132,6 @@ nnoremap <silent> <leader>s :call ToggleSyntax()<CR>
 " }}}
 
 " }}}
-" ----- Mappings {{{
-" Splits
-nnoremap <leader>v <C-w>w<C-w>l                  " open a vertical split and switch to it
-nnoremap <leader>h <C-w>s<C-w>j                  " open a horizontal split and swtich to it
-
-" Open (Neo)vim configuration tile in new tab for editing
-nnoremap <leader>ev :e $MYVIMRC<CR>
-
-" Reload (Neo)vim configuration
-nnoremap <silent> <leader>sv :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'init.vim reloaded'"<CR>
-
-" System clipboard
-nnoremap <leader>y "+y"
-
-" }}}
 " ----- Command line completion {{{
 " Search down into subfolders
 " Provides tab-completion for all filer-related tasks
@@ -421,67 +142,6 @@ nnoremap <leader>y "+y"
 " set wildignore+=*.jpg,*.png,*.gif,*,jpeg,*.bmp   " ignore image files
 " set wildignore+=*.sw?                            " ignore swap files
 " set wildignore+=*.DS_Store                       " ignore macOS clutter
-
-" }}}
-" ----- Filetype settings {{{
-" Control preferences based on file type
-if has("autocmd")
-  " Enable filetype detection
-  filetype on
-
-  " Prevent Neovim from auto-indenting comment on subsequent lines
-  autocmd FileType * setlocal formatoptions-=r formatoptions-=o
-
-  " make files
-  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-
-  " YAML files
-  autocmd BufNewFile,BufReadPost *.{yaml,yml} setfiletype=yaml foldmethod=indent
-  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>
-
-  " Setup for mutt mail
-  autocmd FileType mail setlocal formatoptions+=aw
-  autocmd FileType mail setlocal spell spelllang=en_us
-  autocmd FileType mail setlocal noautoindent nolist
-  autocmd FileType mail setlocal nobackup noswapfile nowritebackup
-
-  " Treat RSS files as XML
-  autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
-
-  " Git: spell check commit messages, start commit messages in insert mode
-  autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
-  autocmd BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
-
-  " Markdown files
-  autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
-  autocmd FileType markdown set spell spelllang=en_us
-  autocmd FileType markdown setlocal tw=100
-
-  " Vim-Surround for Markdown
-  autocmd FileType markdown let b:surround_{char2nr('i')} = "*\r*"
-  autocmd FileType markdown let b:surround_{char2nr('b')} = "**\r**"
-
-  " Ruby related files
-  autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
-  autocmd BufNewFile,BufRead Thorfile,config.ru,Vagrantfile setfiletype ruby
-  autocmd BufNewFile,BufRead Berksfile,Berksfile.lock setfiletype ruby
-  autocmd BufNewFile,BufRead Rakefile,*.rake setfiletype rake
-  autocmd BufNewFile,BufRead Rakefile,*.rake set syntax=ruby
-
-  " Python
-  let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
-  autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
-
-  " Enable syntax coloration for diffs
-  autocmd FileType diff syntax enable
-
-  " Add spell check to text files
-  autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us
-
-  " Go Language
-  autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab
-
-endif
 
 " }}}
 " ----- NetRW {{{
@@ -810,46 +470,6 @@ cmp.setup {
     ghost_text = true,
   },
 }
-EOF
-
-" }}}
-" ----- Lualine {{{
-lua << EOF
- require'lualine'.setup {
-  options = {
-    icons_enabled = false,
-    theme = 'material',
-    component_separators = {' ', ' '},
-    section_separators = {' ', ' '},
-    disabled_filetypes = {}
-    },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-    },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-    },
-  tabline = {
-    lualine_a = {},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {}
-    },
- extensions = {},
- }
---  require('lualine').setup()
 EOF
 
 " }}}
