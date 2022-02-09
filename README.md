@@ -3,7 +3,9 @@
 This repository holds my configuration files so that I can clone them to other machines
 easily.
 
-My primary OS is macOS and some of these configurations are tuned to work on that platform. From about July 2011 until January 2016 `zsh` was my shell of choice. Recently I've switched back to `bash` since my working self maintains servers using `bash`. As I am more and more working on Linux computers, I am slowly updating configurations to be, if not OS agnostic, at least flexible.
+My primary OS is macOS and some of these configurations are tuned to work on that platform.
+Configurations I no longer actively use, or that have been replaced, can be found in the
+`deprecated` directory. Linux specific configurations are located in the `neuepunkte` repository. 
 
 
 ## Installation
