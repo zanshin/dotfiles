@@ -1,9 +1,12 @@
+ACloud
+ACloud
 APA
 ASUS
 AWS
 Airpods
 AppArmor
 AppStream
+Avi
 BMM
 Biden
 BigMemoryMax
@@ -17,6 +20,7 @@ CIDR
 CIO
 CISO
 CLI
+CNAME
 COVID
 CUI
 CentOS
@@ -43,6 +47,7 @@ Dressman
 Dropbox
 EC2
 EIS
+Euros
 ExpanSIS
 F5
 FIPS
@@ -61,8 +66,13 @@ GnuPG
 GoDaddy
 Grafana
 Grimwood
+GuardDuty
+Guardicore
 HTTPS
+Haide
 Homebrew
+IAM
+IAM
 IDM
 IDMGrouper
 IDMP
@@ -72,6 +82,8 @@ IPTABLES
 IRC
 ISP
 Inbox
+JSON
+JSON
 Japsh
 JavaScript
 Jira
@@ -80,6 +92,7 @@ KSU
 Kamala
 Kindlein
 Konza
+Kubernetes
 Kuder
 LTS
 LVM
@@ -139,6 +152,7 @@ Refactored
 RocketChat
 Rollout
 Romberg
+Ruggieri
 Runbooks
 SATA
 SFTP
@@ -152,6 +166,7 @@ Scantron
 Schlaf
 SoftwareAG
 SpamSieve
+Spirocores
 Starbucks
 Sur
 SysAdmin
@@ -171,6 +186,7 @@ USB
 Ubuntu
 Udemy
 Undeployed
+Unger
 UniversalMessaging
 Unsyncing
 VM
@@ -221,6 +237,9 @@ dojo
 dotfiles
 eProfile
 elasticsearch
+failover
+forScore
+forScore
 fsck
 fugazi
 gizmo
@@ -239,6 +258,8 @@ iMacs
 iOS
 iPaaS
 iPad
+iPadPro
+iPadPro
 iPads
 iPhone
 iPhones
@@ -249,7 +270,11 @@ inboxes
 isync
 jonathankuder
 ketamine
+l'ancienne
 lexer
+lua
+luthier
+luthiers
 macOS
 mailcap
 maix
@@ -299,6 +324,7 @@ symlinks
 systemd
 t2
 telecom
+telegraf
 terabyte
 texted
 tmux
@@ -317,17 +343,8 @@ webfaction
 weblog
 webmethods
 weechat
+wiki
+wireshark
 www
 yay
 zanshin
-ACloud
-IAM
-iPadPro
-forScore
-luthiers
-luthier
-Haide
-Spirocores
-Ruggieri
-Euros
-l'ancienne

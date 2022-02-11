@@ -145,7 +145,7 @@ set -g status-left-length 85
 # set -g status-left "#[fg=green]: #h : #[fg=yellow]#(ifconfig en0 | grep 'inet ' | awk '{print \"en0 \" $2}') #(ifconfig en1 | grep 'inet ' | awk '{print \"en1 \" $2}') #(ifconfig en3 | grep 'inet ' | awk '{print \"en3 \" $2}') #[fg=red]#(ifconfig tun0 | grep 'inet ' | awk '{print \"vpn \" $2}') #[fg=green]#(/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk -F': ' '/ SSID/{print $2}') "
 
 # Show hostname, load averages, and an prefix key indicator
-set -g status-left "#[fg=green]: #h : #[fg=yellow]#(uptime | rev | cut -d ' ' -f 1-3 | rev) #{?client_prefix,#[fg=colour2]^A,} "
+set -g status-left "#[fg=green]: #h : #[fg=yellow]#(uptime | rev | cut -d ' ' -f 1-3 | rev) #{?client_prefix,#[fg=colour2]^A,} #[fg=red]#(vcgencmd measure_temp | cut -c6-)"
 
 
 # show session name, window & pane number, date and time on right side of

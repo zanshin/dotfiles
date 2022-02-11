@@ -37,20 +37,29 @@ if [ -d /opt/homebrew/bin ] ; then PATH="/opt/homebrew/bin:${PATH}" ; fi
 # Set PATH so it includes /opt/homebrew/sbin if it exists
 if [ -d /opt/homebrew/sbin  ] ; then PATH="/opt/homebrew/sbin:${PATH}" ; fi
 
+# Set path to include GNU binaries that were installed via Homebrew
+# GNUBINS="$(find /opt/homebrew/Cellar -type d -follow -name gnubin -print)"
+# for bindir in ${GNUBINS[@]}; do
+#   export PATH=$bindir:$PATH;
+# done;
+
 # set PATH so it includes /usr/local/sbin if it exists
 if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
 
 # add Go path for Darwin
 if [ -e /usr/local/go ] ; then
-  PATH="${PATH}:/usr/local/go"
-  PATH="${PATH}:${HOME}/code/golib/bin"
+  PATH="${PATH}:/usr/local/go/bin"
+  PATH="${HOME}/code/golib/bin:${PATH}"
 fi
 
 # dd Go path for Linux
 if [ -e /usr/bin/go ] ; then
   PATH="${PATH}:/usr/bin/go"
-  PATH="${PATH}:${HOME}/code/golib/bin"
+  PATH="${HOME}/code/golib/bin:${PATH}"
 fi
+
+# add protobuf path, if it exists
+if [ -d /usr/local/protobuf/bin ] ; then PATH="${PATH}:/usr/local/protobuf/bin" ; fi
 
 # add Rust path
 if [ -e $HOME/.cargo/bin/bin ]; then
@@ -69,6 +78,12 @@ fi
 
 # Add path to ~/.local/bin for aws cli on linux
 if [ -d ${HOME}/.local/bin ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
+
+
+# Sourcegraph
+if [ -d /usr/local/opt/postgresql/bin ] ; then
+  PATH="/usr/local/opt/postgresql/bin:$PATH"
+fi
 
 export PATH
 

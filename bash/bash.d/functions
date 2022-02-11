@@ -583,10 +583,6 @@ function mycerts () {
   echo | openssl s_client -servername "music.zanshin.net" -connect "music.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
   printf "matomo          "
   echo | openssl s_client -servername "matomo.zanshin.net" -connect "matomo.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
-  printf "mandolin        "
-  echo | openssl s_client -servername "mandolin.zanshin.net" -connect "mandolin.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
-  printf "practice        "
-  echo | openssl s_client -servername "practice.zanshin.net" -connect "practice.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
   printf "mint            "
   echo | openssl s_client -servername "mint.zanshin.net" -connect "mint.zanshin.net":443 2>/dev/null | openssl x509 -noout -dates | paste - -
   printf "sibyllekuder    "

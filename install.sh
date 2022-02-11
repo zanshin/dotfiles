@@ -39,6 +39,7 @@ ask() {
 }
 
 dotfiles_dir=~/.dotfiles
+xdg_config_home=~/.config
 
 # Update dotfiles to master branch
 echo "Updating $dotfiles_dir to master"
@@ -50,7 +51,7 @@ echo ""
 
 # Build key,value pairs of the tool and whether or not to install it
 # each tuple lists a directory and its install flag
-tuples="gem,Y git,Y tmux,Y hg,N"
+tuples="gem,Y hg,N"
 
 # For these directories, create symlinks for each file present
 # By passing the ask function `Y` we default to creating these
@@ -68,6 +69,35 @@ for pair in $tuples; do
   echo ""
 done
 
+xdg_tuples="git,Y tmux,Y nvim,Y"
+for pair in $xdg_tuples; do
+  dir=${pair%,*};
+  flag=${pair#*,};
+  if ask "Setup $dir" "$flag"; then
+    echo "Linking $dir into $HOME/.config"
+    mkdir -p "$xdg_config_home";
+    ln -sf "$dotfiles_dir"/"$dir" "$xdg_config_home"/"$dir"
+  fi
+  echo ""
+done
+
+# # Setup git in $XDG_CONFIG_HOME
+# if ask "Setup git" Y; then
+#   echo "Setting up git config files"
+#   ln -sf "$dotfiles_dir"/git/config "$xdg_config_home"/git/config;
+#   ln -sf "$dotfiles_fir"/git/ignore "$xdg_config_home"/git/ignore;
+# fi
+# echo ""
+
+# Setup tmux
+# Since version 3.1, tmux has supprted $XDG_CONFIG_HOME/tmux/tmux.conf
+# if ask "Setup tmux" Y; then
+#   echo "Setting up tmux config file"
+#   mkdir -p "$xdg_config_home"
+#   ln -sf "$dotfiles_dir"/tmux/ "$xdg_config_home"/tmux;
+# fi
+# echo ""
+
 # Setup Bash
 if ask "Setup Bash" Y; then
   echo "Setting up bash startup files"
@@ -80,13 +110,13 @@ echo ""
 
 # Setup Neovim (nvim)
 # need 'n' flag on ln statement, since we're linking a directory
-if ask "Setup Neovim (nvim)" Y; then
-  echo "Linking Neovim (nvim) files"
-  cd "$dotfiles_dir"/nvim;
-  mkdir -p "${HOME}"/.config
-  ln -sfn "$dotfiles_dir"/nvim "${HOME}"/.config/nvim;
-fi
-echo ""
+# if ask "Setup Neovim (nvim)" Y; then
+#   echo "Linking Neovim (nvim) files"
+#   cd "$dotfiles_dir"/nvim;
+#   mkdir -p "${HOME}"/.config
+#   ln -sfn "$dotfiles_dir"/nvim "${HOME}"/.config/nvim;
+# fi
+# echo ""
 
 # Setup Vim
 if ask "Setup Vim" Y; then

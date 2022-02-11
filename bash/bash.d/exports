@@ -6,6 +6,14 @@
 # This file defines all the exports
 # --------------------------------------------------------------------
 
+# XDG_CONFIG_HOME, XDG_DATA_HOME, and XDG_CACHE_HOME are not usually set for
+# macOS
+if [[ `uname -a | grep -i darwin` ]]; then
+    export XDG_CONFIG_HOME="$HOME/.config"
+    export XDG_CACHE_HOME="$HOME/.cache"
+    export XDG_DATA_HOME="$HOME/.local/share"
+fi
+
 # Silence macOS warning about zsh
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -21,6 +29,14 @@ export MOZ_ENABLE_WAYLAND=1
 # Setup for Go
 export GOPATH=$HOME/code/golib:$HOME/code/go
 export GOPRIVATE="github.com/zanshin"
+
+# Set CC for Raspberry Pi & Go
+if [[ -e /proc ]]; then
+  if [[ $(egrep Raspberry /proc/cpuinfo) ]]; then
+    export CC=/usr/bin/arm-linux-gnueabi-gcc
+  fi
+fi
+
 
 # mutt GPG tty setting
 export GPG_TTY=$(tty)
@@ -41,6 +57,10 @@ export RUSTUP_HOME="${HOME}/.rustup"
 
 # OpenJDK
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-15.0.1.jdk/Contents/Home"
+
+# Export DOCKER_CONFIG to move .docker to ~/.config/docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 
 # Configure how history works
 HISTCONTROL=ignoredups:ignorespace                # ignore dups and commands beginning with a space
@@ -70,3 +90,12 @@ export LS_COLORS='no=00:fi=00:di=01;34:ow=01;31:ln=01;36:pi=40;33:so=01;35:do=01
 # export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 # export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
 
+# -----------------
+# Sourcegraph
+# -----------------
+# export PGPORT=5432
+# export PGHOST=localhost
+# export PGUSER=sourcegraph
+# export PGPASSWORD=sourcegraph
+# export PGDATABASE=sourcegraph
+# export PGSSLMODE=disable
