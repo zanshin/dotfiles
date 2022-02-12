@@ -31,8 +31,10 @@ export GOPATH=$HOME/code/golib:$HOME/code/go
 export GOPRIVATE="github.com/zanshin"
 
 # Set CC for Raspberry Pi & Go
-if [[ $(egrep Raspberry /proc/cpuinfo) ]]; then
-  export CC=/usr/bin/arm-linux-gnueabi-gcc
+if [[ -e /proc ]]; then
+  if [[ $(egrep Raspberry /proc/cpuinfo) ]]; then
+    export CC=/usr/bin/arm-linux-gnueabi-gcc
+  fi
 fi
 
 

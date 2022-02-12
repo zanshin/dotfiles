@@ -105,4 +105,4 @@ complete -C /usr/local/bin/terraform terraform
 
 # asdf
 [[ -e $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
-[[ -e $HOME/.asdf/completons/asdf.bash ]]
+[[ -e $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
