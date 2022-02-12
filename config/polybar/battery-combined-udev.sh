@@ -1,1 +1,0 @@
-battery-combined-udev/battery-combined-udev.sh
