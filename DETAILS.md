@@ -29,7 +29,6 @@ symlinks/files will need to be removed manually.
 
 To manually install this bash configuration, create the following symlinks.
 
-
     $ ln -s ~/.dotfiles/bash/bash_profile ~/.bash_profile
     $ ln -s ~/.dotfiles/bash/bashrc ~/.bashrc
     $ ln -s ~/.dotfiles/bash/bash.d ~/.config/bash.d
@@ -48,8 +47,10 @@ For Neovim configuration, create the following symlink:
 The `n` flag on the `ln` command treats directories as files when making the link. This prevents the
 link command from nesting the destination under an already existing directory.
 
-Neovim also uses Vim-Plug. The Neovim configuration, stored in `init.vim`, automatically installs
-Vim-Plug, if it isn't already installed.
+As of February 2022, my Neovim configuration has been converted to the new Lua language format. The
+vimscript-based configuration has been deprecated. The new configuration uses Packer to manage
+plugins. Packer should install automatically the first time Neovim is used after this configuration
+is put into place.
 
 ## Git
 For Git configuration and global ignore files, create these symlinks:

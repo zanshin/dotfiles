@@ -1,2 +1,2 @@
-# Ignore directory where plugins are
-plugged
+# Ignore generated plugin information
+plugin
