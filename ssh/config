@@ -29,11 +29,7 @@ Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.
    IdentityFile ~/.ssh/baseline-shared.pem
 
 
-# Work iMacs
-Host sarabande
-    HostName sarabande.est.ksu.edu
-    User mhn
-
+# Work iMac
 Host fugazi
     HostName fugazi.est.ksu.edu
     User mhn
@@ -43,14 +39,15 @@ Host fugazi
 Host admin
     HostName mhn-linux-admin.aws.ksu.edu
     User mhn
-    IdentityFile ~/.ssh/admin-mhn-linux-key.pem
+    IdentityFile ~/.ssh/mhn-admin-linux.pem
     PubKeyAuthentication yes
     # ChallengeResponseAuthentication yes
-    PasswordAuthentication yes
+    # PasswordAuthentication yes
 
 # Ubuntu VM PAW
 Host paw
-    HostName 192.168.5.50
+  # HostName 192.168.5.50
+    HostName 10.211.55.11
     User mhn
 
 # EST Jump box
