@@ -54,3 +54,20 @@ cmd [[autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us]]
 -- Go Language
 cmd [[autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab]]
 
+-- ----- Trailing white space removal {{{
+-- Do not trim white space from file type 'mail' - the trailing spaces are
+-- how paragraphs are formed, along with formatoption "w"
+vim.api.nvim_exec([[
+  function! TrimWhitespace()
+    if &ft != 'mail'
+      %s/\s\+$//e
+    endif
+  endfunction
+  ]], false)
+
+-- nnoremap <silent> <leader>tws :call TrimWhitespace()<CR>
+
+cmd [[autocmd FileWritePre   * :call TrimWhitespace()]]
+cmd [[autocmd FileAppendPre  * :call TrimWhitespace()]]
+cmd [[autocmd FilterWritePre * :call TrimWhitespace()]]
+cmd [[autocmd BufWritePre    * :call TrimWhitespace()]]
