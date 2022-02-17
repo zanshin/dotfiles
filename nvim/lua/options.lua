@@ -1,7 +1,7 @@
 -- Options
 
+-- syntax on
 cmd([[
-    syntax on
     filetype on
     filetype plugin indent on
 ]])
@@ -58,9 +58,9 @@ opt.splitright = true                  -- Put new windows right of current
 opt.joinspaces = false                 -- No double spaces with join
 
 opt.backspace = {                     -- Make backspace behave in a sane manner
-  'indent', 
-  'eol', 
-  'start' 
+  'indent',
+  'eol',
+  'start'
 }
 
 opt.foldcolumn = "3"                   -- Room for fold markers
