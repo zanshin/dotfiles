@@ -103,13 +103,15 @@ bind-key C command-prompt -p "machine(s)/group: " "run-shell 'tmux-multistart %1
 # set some pretty colors
 # ----------------------
 # set pane colors - hilight the active pane
-set-option -g pane-border-fg colour235 #base02
-set-option -g pane-active-border-fg colour33 #blue
+# set-option -g pane-border-fg colour235 #base02
+set-option -g pane-border-style fg=colour235 #base02
+# set-option -g pane-active-border-fg colour33 #blue
+set-option -g pane-active-border-style fg=colour33 #blue
 #set-option -g pane-active-border-fg colour240 #base01
 
 # colorize messages in the command line
-set-option -g message-bg black #base02
-set-option -g message-fg brightred #orange
+set-option -g message-style bg=black #base02
+set-option -g message-style fg=brightred #orange
 
 # ----------------------
 # Status Bar
@@ -125,18 +127,18 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 # set color for status bar
-set-option -g status-bg colour235 #base02
-set-option -g status-fg yellow #yellow
-set-option -g status-attr dim
+set-option -g status-style bg=colour235,dim #base02
+set-option -g status-style fg=yellow,dim #yellow
+# set-option -g status-attr dim
 
 # set window list colors - red for active and cyan for inactive
-set-window-option -g window-status-fg brightblue #base0
-set-window-option -g window-status-bg colour236
-set-window-option -g window-status-attr dim
+set-window-option -g window-status-style fg=brightblue,bg=colour236,dim #base0
+# set-window-option -g window-status-style bg=colour236 dim
+# set-window-option -g window-status-attr dim
 
-set-window-option -g window-status-current-fg brightred #orange
-set-window-option -g window-status-current-bg colour236
-set-window-option -g window-status-current-attr bright
+set-window-option -g window-status-current-style fg=brightred,bg=colour236,bright #orange
+# set-window-option -g window-status-current-style bg=colour236 bright
+# set-window-option -g window-status-current-attr bright
 
 # show host name and IP address on left side of status bar
 set -g status-left-length 85

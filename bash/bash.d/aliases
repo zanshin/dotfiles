@@ -174,7 +174,8 @@ alias td='~/.dotfiles/scripts/deploy'
 
 # force tmux to use 256 colors
 # alias tmux='TERM=screen-256colors tmux'
-alias tmux='tmux -2'
+# alias tmux='tmux -2'
+alias tmux='/usr/local/bin/tmux'
 
 # Disable Mouse reporting
 # https://superuser.com/questions/802698/disable-mouse-reporting-in-a-terminal-session-after-tmux-exits-unexpectedly
