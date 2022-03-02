@@ -58,9 +58,9 @@ opt.splitright = true                  -- Put new windows right of current
 opt.joinspaces = false                 -- No double spaces with join
 
 opt.backspace = {                     -- Make backspace behave in a sane manner
-  'indent', 
-  'eol', 
-  'start' 
+  'indent',
+  'eol',
+  'start'
 }
 
 opt.foldcolumn = "3"                   -- Room for fold markers
@@ -101,6 +101,8 @@ opt.cmdheight = 2                      -- make status two-lines tall
 opt.autowrite = true                   -- write out old file when switching between files
 opt.autoread = true                    -- reload files changed on disk
 
+-- Spelling
+opt.spellfile = "~/.config/nvim/spell/en.uft-8.add"
 
 -- Encoding - we like UTF-8
 -- opt.termencoding = "utf-8"
