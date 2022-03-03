@@ -1,7 +1,7 @@
 -- Options
 
+--    syntax on
 cmd([[
-    syntax on
     filetype on
     filetype plugin indent on
 ]])
