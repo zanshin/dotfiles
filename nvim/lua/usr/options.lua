@@ -1,10 +1,11 @@
 -- Options
 
---    syntax on
-cmd([[
-    filetype on
-    filetype plugin indent on
-]])
+-- Not sure I need this ??
+-- cmd([[
+--     syntax on
+--    filetype on
+--    filetype plugin indent on
+--]])
 
 -- Indentation
 opt.autoindent = true                  -- Yes, please
