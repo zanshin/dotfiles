@@ -29,8 +29,24 @@ vim.cmd [[
   augroup end
 ]]
 
-return require('packer').startup({ function(use)
--- packer.startup({ function()
+-- Use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  vim.notify("Packer require failed.")
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
+return packer.startup(function(use)
+  --
   --  Use Packer to manage itself
   use {
     'wbthomason/packer.nvim' --, opt = true
@@ -146,17 +162,7 @@ return require('packer').startup({ function(use)
   -- -- use { 'kyazdani42/nvim-web-devicons' }
   -- use { 'kyazdani42/nvim-tree.lua' }
 
-  if packer_bootstrap then
+  if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
-end,
-
-config = {
-  display = {
-    open_fn = function()
-      return require('packer.util').float({border = 'single' })
-    end
-  }
-}
-})
-
+end)
