@@ -176,11 +176,24 @@ cmp.setup {
       --   ...
       --   return vim_item
       -- end
-    })
+    }),
+
+    menu = {
+      buffer = "[BUFFER]",
+      nvm_lsp = "[LSP]",
+      nvim_lua = "[API]",
+      luasnip = "[LUASNIP]",
+      path = "[PATH]",
+    },
   },
 
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
+
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
   },
 
   experimental = {
