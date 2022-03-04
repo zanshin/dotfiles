@@ -8,7 +8,9 @@
 --   term_mode = "t"
 --   command_mode = "c"
 
+map("", "<Space>", "<Nop>")                   -- map Space to a no-op
 g.mapleader = ' '                             -- space for leader
+g.maplocalleader = ' '                        -- space for local leader too
 map('n', ';', ':')                            -- use ; for : in normal mode
 map('n', ';;', ';')                           -- use ;; for ; in normal mode
 
