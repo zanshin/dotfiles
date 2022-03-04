@@ -150,11 +150,16 @@ return packer.startup(function(use)
   -- use { 'nvim-treesitter/playground' }
 
   -- Completion
-  use { 'hrsh7th/nvim-cmp' }
-  use { 'hrsh7th/cmp-buffer' }
-  use { 'hrsh7th/cmp-path' }
-  use { 'hrsh7th/cmp-nvim-lua' }
-  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/nvim-cmp' }       -- the completion plugin
+  use { 'hrsh7th/cmp-buffer' }     -- buffer completions
+  use { 'hrsh7th/cmp-path' }       -- path completions
+  use { 'hrsh7th/cmp-cmdline' }    -- command line completions
+  use { 'hrsh7th/cmp-nvim-lua' }   -- lua completions
+  use { 'hrsh7th/cmp-nvim-lsp' }   -- lsp completions
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   use { 'onsails/lspkind-nvim' }
 
