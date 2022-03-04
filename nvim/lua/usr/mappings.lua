@@ -62,8 +62,8 @@ map('n', '<leader>bn', ':bnext<CR>')          -- move to next buffer
 map('n', '<leader>bp', ':bprevious<CR>')      -- move to previous buffer
 map('n', '<leader>bc', ':bp <BAR> bd $<CR>')  -- move to previous buffer, and close current
 
-map('n', '<TAB>', ':bnext<CR>')               -- move to next buffer
-map('n', '<S-TAB>', ':bprevious<CR>')         -- move to previous buffer
+map('n', '<S-n>', ':bnext<CR>')               -- move to next buffer
+map('n', '<S-p>', ':bprevious<CR>')           -- move to previous buffer
 
 -- Open Neovim configuration file in new tab for editing
 map('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>')
