@@ -70,7 +70,7 @@ return packer.startup(function(use)
     config = get_config('lualine'),
     -- event = 'VimEnter',
     -- requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    requires = {'kyazdani42/nvim-web-devicons' },
+    -- requires = {'kyazdani42/nvim-web-devicons' },
   }
 
   -- Tabline
@@ -162,9 +162,9 @@ return packer.startup(function(use)
   use { 'rafamadriz/friendly-snippets' } -- a bunch of snippets to use
 
   -- VS Code Icons
-  use { 'mortepau/codicons.nvim' }
+  -- use { 'mortepau/codicons.nvim' }
 
-  use { 'onsails/lspkind-nvim' }
+  -- use { 'onsails/lspkind-nvim' }
 
   -- -- Nvim-tree
   -- -- use { 'kyazdani42/nvim-web-devicons' }
