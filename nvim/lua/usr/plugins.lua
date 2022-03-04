@@ -9,24 +9,41 @@ end
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  PACKER_BOOTSTRAP = fn.system {
+    'git',
+    'clone',
+    '--depth',
+    '1',
+    'https://github.com/wbthomason/packer.nvim',
+    install_path,
+  }
+  print "Installing Packer, close and reopen Neovim."
+  vim.cmd [[packadd packer.nvim]]
 end
+
+-- Autocommand to reload neovim when the plugins.lua file is saved
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
 
 return require('packer').startup({ function(use)
 -- packer.startup({ function()
   --  Use Packer to manage itself
-  use { 
-    'wbthomason/packer.nvim' --, opt = true 
+  use {
+    'wbthomason/packer.nvim' --, opt = true
   }
 
   -- Colorscheme
-  use { 
+  use {
     'pacokwon/onedarkhc.vim',
     -- event = 'VimEnter'
   }
 
   -- Snazzy glyphs
-  use { 
+  use {
     'kyazdani42/nvim-web-devicons',
     -- event = 'VimEnter',
   }
@@ -41,7 +58,7 @@ return require('packer').startup({ function(use)
   }
 
   -- Tabline
-  use { 
+  use {
     'kdheepak/tabline.nvim',
     config = get_config('tabline')
   }
@@ -58,7 +75,7 @@ return require('packer').startup({ function(use)
   --   requires = { 'nvim-lua/plenary.nvim' }
   -- }
 
-  use { 
+  use {
     'tpope/vim-fugitive',
     config = get_config('fugitive')
   }
@@ -66,7 +83,7 @@ return require('packer').startup({ function(use)
   use { 'airblade/vim-gitgutter' }
 
   -- -- Utilities
-  use { 
+  use {
     'sjl/gundo.vim',
     config = get_config("gundo")
   }
@@ -84,7 +101,7 @@ return require('packer').startup({ function(use)
 
   --
   -- Language Server Protocol (LSP)
-  use { 
+  use {
     'neovim/nvim-lspconfig',
     config = get_config('lspconfig')
   }
@@ -104,9 +121,9 @@ return require('packer').startup({ function(use)
 
   -- Ansible
   use { 'pearofducks/ansible-vim' }
- 
+
   -- Telescope
-  use { 
+  use {
     'nvim-telescope/telescope.nvim',
     requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
     config = get_config("telescope")
