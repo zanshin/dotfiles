@@ -91,31 +91,28 @@ return packer.startup(function(use)
   --   requires = { 'nvim-lua/plenary.nvim' }
   -- }
 
+  -- use {
+  --   'tpope/vim-fugitive',
+  --   config = get_config('fugitive')
+  -- }
+  --
+  -- use { 'airblade/vim-gitgutter' }
+
+  -- Utilities
   use {
-    'tpope/vim-fugitive',
-    config = get_config('fugitive')
+    'terrortylor/nvim-comment',
+    config = get_config("nvim-comment")
   }
 
-  use { 'airblade/vim-gitgutter' }
-
-  -- -- Utilities
   use {
     'sjl/gundo.vim',
     config = get_config("gundo")
   }
 
   use { 'tpope/vim-surround' }
-  use { 'tomtom/tcomment_vim' }
   use { 'jiangmiao/auto-pairs' }
-  use { 'tweekmonster/startuptime.vim' }
+  -- use { 'tweekmonster/startuptime.vim' }
 
-  -- Go Language
---  use { 'fatih/vim-go', run = ':GoUpdateBinaries' }
-
-  -- EditConfig
-  use { 'editorconfig/editorconfig-vim' }
-
-  --
   -- Language Server Protocol (LSP)
   use {
     'neovim/nvim-lspconfig',
@@ -123,21 +120,8 @@ return packer.startup(function(use)
   }
   use { 'williamboman/nvim-lsp-installer' }   -- simple to use language server installer
 
-  use { 'b0o/schemastore.nvim' }
-  use {
-    'RRethy/vim-illuminate',
-    config = get_config("illuminate")
-  }
-
-  -- -- Rust Language
-  use { 'cespare/vim-toml' }
-
-  --
   -- -- Neovim stuff
-  use { 'kassio/neoterm' }
-
-  -- Ansible
-  use { 'pearofducks/ansible-vim' }
+  -- use { 'kassio/neoterm' }
 
   -- Telescope
   use {
@@ -161,15 +145,6 @@ return packer.startup(function(use)
   -- snippets
   use { 'L3MON4D3/LuaSnip' }       --snippet engine
   use { 'rafamadriz/friendly-snippets' } -- a bunch of snippets to use
-
-  -- VS Code Icons
-  -- use { 'mortepau/codicons.nvim' }
-
-  -- use { 'onsails/lspkind-nvim' }
-
-  -- -- Nvim-tree
-  -- -- use { 'kyazdani42/nvim-web-devicons' }
-  -- use { 'kyazdani42/nvim-tree.lua' }
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
