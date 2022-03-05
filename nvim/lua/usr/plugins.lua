@@ -112,7 +112,10 @@ return packer.startup(function(use)
   use { 'tpope/vim-surround' }
   use { 'jiangmiao/auto-pairs' }
   -- use { 'tweekmonster/startuptime.vim' }
-  use { 'folke/which-key.nvim' }
+  use {
+    'folke/which-key.nvim',
+    config = get_config("which-key")
+  }
 
   -- Language Server Protocol (LSP)
   use {
@@ -127,7 +130,7 @@ return packer.startup(function(use)
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = {{"nvim-lua/popup.nvim"}, {"nvim-lua/plenary.nvim"}},
+    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
     config = get_config("telescope")
   }
 
@@ -136,7 +139,11 @@ return packer.startup(function(use)
   -- use { 'nvim-treesitter/playground' }
 
   -- Completion
-  use { 'hrsh7th/nvim-cmp' }       -- the completion plugin
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    config = get_config("cmp")
+  }
   use { 'hrsh7th/cmp-buffer' }     -- buffer completions
   use { 'hrsh7th/cmp-path' }       -- path completions
   use { 'hrsh7th/cmp-cmdline' }    -- command line completions
