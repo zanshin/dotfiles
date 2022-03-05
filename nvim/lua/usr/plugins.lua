@@ -112,6 +112,7 @@ return packer.startup(function(use)
   use { 'tpope/vim-surround' }
   use { 'jiangmiao/auto-pairs' }
   -- use { 'tweekmonster/startuptime.vim' }
+  use { 'folke/which-key.nvim' }
 
   -- Language Server Protocol (LSP)
   use {
