@@ -29,12 +29,15 @@ opt.hlsearch = true                    -- highlight search results
 -- UI
 opt.number = true                      -- Show line numbers
 opt.relativenumber = true              -- Relative line numbers
+opt.numberwidth = 4                    -- set number column width to 4. default is 2
+opt.signcolumn = "yes"                 -- always show to prevent text shifting
 opt.ruler = true                       -- show current cursor position
 opt.linebreak = true                   -- wrap intelligently - no hard line breaks
 opt.linespace = 3                      -- prefer a slightly higher line height
 opt.wrap = true                        -- Disable line wrap
 opt.showmode = false                   -- Disable native mode indicator
 --opt.showtabline = 2                    -- always show tabline
+opt.pumheight = 10                     -- pop up menu height
 
 opt.list = true                        -- Show some invisible characters
 opt.listchars = {                      -- Strings to use when 'list' option set.
@@ -83,7 +86,7 @@ opt.ttimeoutlen = 500                  -- Key code time out to 1/2 second
 -- Messages
 opt.shortmess:append {
   I = true,                            -- No splash screen
-  W = true,                            -- Don't print "written" when editing
+--  W = true,                            -- Don't print "written" when editing
   a = true,                            -- Use abbreviations in messages ([RO] intead of [readonly])
   c = true,                            -- Do not show ins-completion-menu messages (match 1 of 2)
 }
@@ -106,7 +109,8 @@ opt.autoread = true                    -- reload files changed on disk
 opt.spellfile = "~/.config/nvim/spell/en.uft-8.add"
 
 -- Encoding - we like UTF-8
+opt.fileencoding = "utf-8"
+--
 -- opt.termencoding = "utf-8"
 -- opt.encoding=utf-8
--- opt.fileencoding=utf-8
 -- opt.noshowmode                   -- don't show the mode - lightline will do that

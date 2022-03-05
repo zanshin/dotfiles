@@ -22,6 +22,7 @@ local check_backspace = function()
 end
 
 -- set completeopt=menu,menuone,noselect
+opt.completeopt = { "menu", "menuone", "noselect" }
 
 cmp.setup {
   snippet = {
