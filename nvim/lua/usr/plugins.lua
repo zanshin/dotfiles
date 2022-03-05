@@ -1,7 +1,7 @@
 -- Parker plugin manager
 
 -- helper function for plugin configurations
-function get_config(name)
+local function get_config(name)
   return string.format("require(\"config/%s\")", name)
 end
 
