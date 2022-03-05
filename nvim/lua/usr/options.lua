@@ -110,4 +110,3 @@ opt.spellfile = "~/.config/nvim/spell/en.uft-8.add"
 -- opt.encoding=utf-8
 -- opt.fileencoding=utf-8
 -- opt.noshowmode                   -- don't show the mode - lightline will do that
--- opt.matchpairs+=<:>              -- match beyond default [ { (
