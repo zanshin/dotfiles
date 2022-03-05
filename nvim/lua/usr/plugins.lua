@@ -134,9 +134,12 @@ return packer.startup(function(use)
     config = get_config("telescope")
   }
 
-  -- -- Treesitter
-  -- use { 'nvim-treesitter/nvim-treesitter' }
-  -- use { 'nvim-treesitter/playground' }
+  -- Treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+  use { 'nvim-treesitter/playground' }
 
   -- Completion
   use {
