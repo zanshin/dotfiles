@@ -5,5 +5,8 @@ end
 
 tabline.setup {
   enable = true,
-  options = { tabline_show_devicons = false },
+  options = {
+    show_devicons = false,
+    show_bufnr = true,
+  },
 }
