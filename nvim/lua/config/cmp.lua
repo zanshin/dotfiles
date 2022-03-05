@@ -89,9 +89,11 @@ cmp.setup {
 
     format = function(entry, vim_item)
       vim_item.menu = ({
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
+        nvim_lsp = "[lsp]",
+        nvim_lua = "[nvimlLua]",
+        luasnip = "[snippet]",
+        buffer = "[buffer]",
+        path = "[path]",
       })[entry.source.name]
       return vim_item
     end,

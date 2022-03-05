@@ -119,8 +119,9 @@ return packer.startup(function(use)
   -- Language Server Protocol (LSP)
   use {
     'neovim/nvim-lspconfig',
-    config = get_config('lspconfig')
+    -- config = get_config('lspconfig')
   }
+  use { 'williamboman/nvim-lsp-installer' }   -- simple to use language server installer
 
   use { 'b0o/schemastore.nvim' }
   use {
