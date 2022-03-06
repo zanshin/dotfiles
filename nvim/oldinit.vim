@@ -132,26 +132,6 @@ nnoremap <silent> <leader>s :call ToggleSyntax()<CR>
 " }}}
 
 " }}}
-" ----- Command line completion {{{
-" Search down into subfolders
-" Provides tab-completion for all filer-related tasks
-" set path+=**
-"
-" set wildmenu                                     " navigate <left> and <right> through completion list
-" set wildignore+=.git                             " ignore Git repository
-" set wildignore+=*.jpg,*.png,*.gif,*,jpeg,*.bmp   " ignore image files
-" set wildignore+=*.sw?                            " ignore swap files
-" set wildignore+=*.DS_Store                       " ignore macOS clutter
-
-" }}}
-" ----- NetRW {{{
-" let g:netrw_liststyle=3                " tree view style
-" let g:netrw_banner=0                   " disable annoying banner
-" let g:netrw_browse_split=4
-" let g:netrw_altv=1
-" let g:metrw_winsize=25
-
-" }}}
 " ----- Plugin Settings {{{
 
 " ----- Vim-fugitive {{{
