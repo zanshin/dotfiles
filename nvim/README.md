@@ -47,9 +47,9 @@ separate directory for the language server configuration files, `lua/config/lsp`
 ## Plug Ins
 The list of plugins is constantly changing, but the core plugins that I have installed are:
 
-* cmp - Completion
-* gitsigns -
-* gundo -
+* cmp - code completion
+* gitsigns - visual indicators for various Git things
+* gundo - undo on speed
 * lualine - status bar
 * nvim-comment - toggle comments on or off
 * nvim-tree - file explorer
