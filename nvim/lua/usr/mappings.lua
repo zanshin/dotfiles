@@ -92,3 +92,6 @@ map('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype det
 
 -- System clipboard
 map('n', '<leader>y', '+y')
+
+-- nvim-tree
+map('n', '<leader>n', ':NvimTreeToggle<cr>')

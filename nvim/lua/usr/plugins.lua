@@ -150,6 +150,13 @@ return packer.startup(function(use)
   use { 'L3MON4D3/LuaSnip' }       --snippet engine
   use { 'rafamadriz/friendly-snippets' } -- a bunch of snippets to use
 
+  -- nvim-tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { "kyazdani42/nvim-web-devicons" },
+    config = get_config("nvim-tree")
+  }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
