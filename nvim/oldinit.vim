@@ -1,23 +1,7 @@
-" Neovim Configuration
-"
-" author: Mark Nichols <mark@zanshin.net>
-" source: https://github.com/zanshin/dotfiles/nvim/init.vim
-"
-
-" ----- Basic options {{{
-
 
 set mousehide                                    " hide the mouse when typing
 set history=1000
 set ffs=unix,mac,dos                             " default file types, in order
-
-
-" Change option: set $ at end of change range
-" https://www.reddit.com/r/vim/comments/3b7324/insert_dollar_sign_at_end_of_change_command/
-set cpoptions+=$
-
-
-au FocusLost * :wa!                              " save file when Neovim loses focus
 
 " Backups
 set backup                                       " enable backups
@@ -39,10 +23,7 @@ set directory=~/.config/nvim/tmp/swap//          " swap files go here
 if !isdirectory(expand(&directory))
   call mkdir(expand(&directory), "p")
 endif
-
-
-
-" }}}
+"
 " ----- Help {{{
 " Show help in tabs
 augroup HelpInTabs
