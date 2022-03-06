@@ -84,19 +84,12 @@ return packer.startup(function(use)
   use { 'stephpy/vim-yaml' }
   use { 'hashivim/vim-terraform' }
 
-  -- Git helpers
+  -- Git
   use {
     'lewis6991/gitsigns.nvim',
     config = get_config('gitsigns'),
     requires = { 'nvim-lua/plenary.nvim' }
   }
-
-  -- use {
-  --   'tpope/vim-fugitive',
-  --   config = get_config('fugitive')
-  -- }
-  --
-  -- use { 'airblade/vim-gitgutter' }
 
   -- Utilities
   use {
