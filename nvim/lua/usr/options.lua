@@ -78,6 +78,10 @@ opt.formatoptions = table.concat {
 --  '-t',                                -- don't autowrap text
 }
 
+opt.cpoptions = table.concat {
+  '$',                                 -- set $ at end of change range
+}
+
 opt.showmatch = true                   -- show matching brackets [{()}]
 opt.matchpairs = '<:>'                 -- also match < and >
 opt.timeoutlen = 500                   -- Time in milliseconds to wait for a mapped sequence to complete
