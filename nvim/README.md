@@ -60,3 +60,9 @@ The list of plugins is constantly changing, but the core plugins that I have ins
 * treesitter - abstract symbol tree tool used for code syntax operations
 * which-key - popup command Completion
 
+## appendix
+These are some of the sources I used while converting from a vimscript based configuration to a Lua
+based configuration.
+
+* [https://oroques.dev/notes/neovim-init/](https://oroques.dev/notes/neovim-init/)
+*
