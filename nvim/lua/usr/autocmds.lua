@@ -1,73 +1,103 @@
 -- ----- Filetype settings
 
 -- Control preferences based on file type
+cmd [[
 
--- Prevent Neovim from auto-indenting comment on subsequent lines
-cmd [[autocmd FileType * setlocal formatoptions-=r formatoptions-=o]]
+  augroup _general
+    autocmd FileType * setlocal formatoptions-=ro   " Prevent Neovim from auto-indenting comment on subsequent lines
+    autocmd FocusLost * :wa                         " Save all buffers when Neovim loses focus
+  augroup end
 
--- make files
-cmd [[autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab]]
+  " make files
+  augroup _makefile
+    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  augroup end
 
--- YAML files
-cmd [[autocmd BufNewFile,BufReadPost *.{yaml,yml} setfiletype=yaml foldmethod=indent]]
-cmd [[autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>]]
+  " YAML files
+  augroup _yaml
+    autocmd BufNewFile,BufReadPost *.{yaml,yml} setfiletype=yaml foldmethod=indent
+    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>
+  augroup end
 
--- Setup for mutt mail
-cmd [[autocmd FileType mail setlocal formatoptions+=aw]]
-cmd [[autocmd FileType mail setlocal spell spelllang=en_us]]
-cmd [[autocmd FileType mail setlocal noautoindent nolist]]
-cmd [[autocmd FileType mail setlocal nobackup noswapfile nowritebackup]]
+  " Setup for mutt mail
+  augroup _mutt
+    autocmd FileType mail setlocal formatoptions+=aw
+    autocmd FileType mail setlocal spell spelllang=en_us
+    autocmd FileType mail setlocal noautoindent nolist
+    autocmd FileType mail setlocal nobackup noswapfile nowritebackup
+  augroup end
 
--- Treat RSS files as XML
-cmd [[autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml]]
+  " Treat RSS files as XML
+  augroup _rss
+    autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
+  augroup end
 
--- Git: spell check commit messages, start commit messages in insert mode
-cmd [[autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us]]
-cmd [[autocmd BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')]]
+  " Git: spell check commit messages, start commit messages in insert mode
+  augroup _git
+    autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+    autocmd BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
+  augroup end
 
--- Markdown files
-cmd [[autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown]]
-cmd [[autocmd FileType markdown set spell spelllang=en_us]]
-cmd [[autocmd FileType markdown setlocal tw=100]]
+  " Markdown files
+  augroup _markdown
+    autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
+    autocmd FileType markdown set spell spelllang=en_us
+    autocmd FileType markdown setlocal tw=100
+  augroup end
 
--- Vim-Surround for Markdown
-cmd [[autocmd FileType markdown let b:surround_{char2nr('i')} = "*\r*"]]
-cmd [[autocmd FileType markdown let b:surround_{char2nr('b')} = "**\r**"]]
+  " Ruby related files
+  augroup _ruby
+    autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
+    autocmd BufNewFile,BufRead Thorfile,config.ru,Vagrantfile setfiletype ruby
+    autocmd BufNewFile,BufRead Berksfile,Berksfile.lock setfiletype ruby
+    autocmd BufNewFile,BufRead Rakefile,*.rake setfiletype rake
+    autocmd BufNewFile,BufRead Rakefile,*.rake set syntax=ruby
+  augroup end
 
--- Ruby related files
-cmd [[autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby]]
-cmd [[autocmd BufNewFile,BufRead Thorfile,config.ru,Vagrantfile setfiletype ruby]]
-cmd [[autocmd BufNewFile,BufRead Berksfile,Berksfile.lock setfiletype ruby]]
-cmd [[autocmd BufNewFile,BufRead Rakefile,*.rake setfiletype rake]]
-cmd [[autocmd BufNewFile,BufRead Rakefile,*.rake set syntax=ruby]]
+  " Python
+  augroup _python
+    autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
+  augroup end
 
--- Python
--- let NERDTreeIgnore = ['\.pyc$', '\~$', '\.rbc$']
-cmd [[autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab]]
+  " Enable syntax coloration for diffs
+  augroup _diff
+    autocmd FileType diff syntax enable
+  augroup end
 
--- Enable syntax coloration for diffs
-cmd [[autocmd FileType diff syntax enable]]
+  " Add spell check to text files
+  augroup _spelling
+    autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us
+  augroup end
 
--- Add spell check to text files
-cmd [[autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us]]
+  " Go Language
+  augroup _golang
+    autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab
+  augroup end
 
--- Go Language
-cmd [[autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab]]
+  " Help in vertical split
+  augroup _vertical_help
+    autocmd!
+    autocmd FileType help wincmd L
+  augroup end
 
--- ----- Trailing white space removal
--- Do not trim white space from file type 'mail' - the trailing spaces are
--- how paragraphs are formed, along with formatoption "w"
-vim.api.nvim_exec([[
-  function! TrimWhitespace()
-    if &ft != 'mail'
-      %s/\s\+$//e
-    endif
-  endfunction
+  " Whitespace removal
+  augroup _whitespace
+    autocmd FileWritePre   * :call TrimWhitespace()
+    autocmd FileAppendPre  * :call TrimWhitespace()
+    autocmd FilterWritePre * :call TrimWhitespace()
+    autocmd BufWritePre    * :call TrimWhitespace()
+  augroup end
+
+]]
+
+  --Trailing white space removal
+  -- Do not trim white space from file type 'mail' - the trailing spaces are
+  -- how paragraphs are formed, along with formatoption "w"
+  vim.api.nvim_exec([[
+    function! TrimWhitespace()
+      if &ft != 'mail'
+        %s/\s\+$//e
+      endif
+    endfunction
   ]], false)
 
--- nnoremap <silent> <leader>tws :call TrimWhitespace()<CR>
-
-cmd [[autocmd FileWritePre   * :call TrimWhitespace()]]
-cmd [[autocmd FileAppendPre  * :call TrimWhitespace()]]
-cmd [[autocmd FilterWritePre * :call TrimWhitespace()]]
-cmd [[autocmd BufWritePre    * :call TrimWhitespace()]]
