@@ -14,6 +14,13 @@ number of resources helped me in that endeavor, they are listed in the appendix 
 
 * Neovim 0.6.*x or later
 * Node - Several of the language servers I have setup require Node
+* A "hacked" font
+
+### JetBrains Mono Nerd font
+For MacOS:
+
+* brew tap homebrew/cask-fonts
+* brew install --cask font-jetbrains-mono-nerd-font
 
 ## Organization
 The configuration is organized into separate files. My previous Neovim configuration was monolithic
