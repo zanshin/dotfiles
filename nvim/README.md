@@ -60,9 +60,19 @@ The list of plugins is constantly changing, but the core plugins that I have ins
 * treesitter - abstract symbol tree tool used for code syntax operations
 * which-key - popup command Completion
 
-## appendix
+## Appendix
 These are some of the sources I used while converting from a vimscript based configuration to a Lua
 based configuration.
 
 * [https://oroques.dev/notes/neovim-init/](https://oroques.dev/notes/neovim-init/)
-*
+* [https://github.com/rockerBOO/awesome-neovim#snippet](https://github.com/rockerBOO/awesome-neovim#snippet)
+* [https://microsoft.github.io/language-server-protocol/implementors/servers/](https://microsoft.github.io/language-server-protocol/implementors/servers/)
+* [https://blog.inkdrop.app/how-to-set-up-neovim-0-5-modern-plugins-lsp-treesitter-etc-542c3d9c9887](https://blog.inkdrop.app/how-to-set-up-neovim-0-5-modern-plugins-lsp-treesitter-etc-542c3d9c9887)
+* [https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts](https://github.com/ryanoasis/nerd-fonts#option-4-homebrew-fonts)
+* [https://teukka.tech/luanvim.html](https://teukka.tech/luanvim.html)
+* [https://crispgm.com/page/neovim-is-overpowering.html](https://crispgm.com/page/neovim-is-overpowering.html)
+* [https://www.reddit.com/r/neovim/comments/kfxqcr/how_to_migrate_from_initvim_to_initlua/](https://www.reddit.com/r/neovim/comments/kfxqcr/how_to_migrate_from_initvim_to_initlua/)
+* [https://github.com/nanotee/nvim-lua-guide/](https://github.com/nanotee/nvim-lua-guide/)
+* [https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/](https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/)
+* [https://icyphox.sh/blog/nvim-lua/](https://icyphox.sh/blog/nvim-lua/)
+* [https://www.youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ](https://www.youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ)
