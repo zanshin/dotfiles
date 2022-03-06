@@ -1,10 +1,10 @@
 # Neovim Configuration
 
 ## Background
-I've been using some form of vi/vim/neovim since 1997. Around 2008, when I started using Octopress
-for my website, I started customizing vim setup. The oldest commit in my dotfiles repository that
-mentions vim is from November 14, 2011. The initial neovim commit is from December 17, 2015. For a
-while I maintained both a vim and a neovim configuration, but over time the vim configuration
+I've been using some form of Vi/Vim/Neovim since 1997. Around 2008, when I started using Octopress
+for my website, I started customizing my Vim setup. The oldest commit in my dotfiles repository that
+mentions Vim is from November 14, 2011. The initial Neovim commit is from December 17, 2015. For a
+while I maintained both a Vim and a Neovim configuration, but over time the Vim configuration
 became stale as it was no longer being maintained.
 
 Over the past few weeks I have been working on converting my Neovim configuration to use Lua. A
@@ -24,13 +24,14 @@ For MacOS:
 
 ## Organization
 The configuration is organized into separate files. My previous Neovim configuration was monolithic
-and was roughly 1000 lines of code. The Lua-base configuration has nearly 40 files, spread across 8
-directories. Modular rather than monolithic. Currently the configuration totals about 1450 lines of
+and had roughly 1000 lines of code. The Lua-based configuration has nearly 40 files, spread across 8
+directories—modular rather than monolithic. Currently the configuration totals about 1450 lines of
 Lua code, excluding comments and white space.
 
 ### Directory Structure
 At the root of my Neovim directory is the `init.lua` file. This file has a list of requires that
-source the pieces of my configuration. These pieces are:
+source the pieces of my configuration. These files are all named spaced under the `lua/usr`
+directory to prevent potential collisions with plugins.
 
     autocmds
     colors
@@ -39,11 +40,9 @@ source the pieces of my configuration. These pieces are:
     options
     plugins
 
-These files are all named spaced under the `lua/usr` directory to prevent potential collisions with
-plugins.
 
 The configuration files for the plugins are all under the `lua/config` directory. There is also a
-separate directory for the language server configuration files.
+separate directory for the language server configuration files, `lua/config/lsp`.
 
 ## Plug Ins
 The list of plugins is constantly changing, but the core plugins that I have installed are:
