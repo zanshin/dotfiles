@@ -85,11 +85,11 @@ return packer.startup(function(use)
   use { 'hashivim/vim-terraform' }
 
   -- Git helpers
-  -- use {
-  --   'lewis6991/gitsigns.nvim',
-  -- --  config = get_config('gitsigns'),
-  --   requires = { 'nvim-lua/plenary.nvim' }
-  -- }
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = get_config('gitsigns'),
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
 
   -- use {
   --   'tpope/vim-fugitive',
