@@ -143,44 +143,6 @@ nnoremap <silent> <leader>s :call ToggleSyntax()<CR>
 " let g:bim_markdown_frontmatter = 1
 
 " }}}
-" ----- Git Gutter {{{
-" hi clear SignColumn                            " required after changing
-" colorscheme
-" In Airline, only display "hunks" if the diff is non-zero
-" let g:airline#extensions#hunks#non_zero_only = 1
-
-" }}}
-" ----- Gundo {{{
-nnoremap <leader>U :GundoToggle<CR>
-
-" }}}
-" ----- NERDTree {{{
-" nnoremap <c-n> :NERDTreeToggle<CR>
-"
-" let g:NERDTreeGitStatusIndicatorMapCustom = {
-"     \ "Modified"  : "✹",
-"     \ "Staged"    : "✚",
-"     \ "Untracked" : "✭",
-"     \ "Renamed"   : "➜",
-"     \ "Unmerged"  : "═",
-"     \ "Deleted"   : "✖",
-"     \ "Dirty"     : "✗",
-"     \ "Clean"     : "✔︎",
-"     \ "Unknown"   : "?"
-"     \ }
-"
-" " Start NERDTree when editor is started, put cursor in other window
-" autocmd VimEnter * NERDTree | wincmd p
-"
-" " Close nerdtree and vim on close file
-" " from https://github.com/jessfraz/.vim/blob/master/vimrc#L491
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"
-" " Exit Vim if NERDTree is the only window remaining in the only tab.
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-"
-"
-" }}}
 " ----- Indentline {{{
 let g:indentLine_color_term = 239
 let g:indentLine_char       = "|"
@@ -321,23 +283,6 @@ augroup END
 let g:delve_backend = "native"
 
 " }}}
-" ----- LanguageClient-neovim {{{
-" let g:LanguageClient_serverCommands = {
-"     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"     \ 'go': ['gopls' ],
-"     \ 'python': ['/usr/local/bin/pyls'],
-"     \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
-"     \ }
-
-" let g:LanguageClient_serverCommands = {
-"       \ 'go': ['gopls']
-"       \ }
-
-" nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-" nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" }}}
 " ----- Telescope {{{
 " nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({hidden = true})<cr>
@@ -399,7 +344,7 @@ ts.setup {
 EOF
 
 " }}}
-" ----- Completion {{{
+"z ----- Completion {{{
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
