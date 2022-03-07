@@ -45,19 +45,22 @@ The configuration files for the plugins are all under the `lua/config` directory
 separate directory for the language server configuration files, `lua/config/lsp`.
 
 ## Plug Ins
-The list of plugins is constantly changing, but the core plugins that I have installed are:
+These are the core plugins that I have installed.
 
-* cmp - code completion
-* gitsigns - visual indicators for various Git things
-* gundo - undo on speed
-* lualine - status bar
-* nvim-comment - toggle comments on or off
-* nvim-tree - file explorer
-* tabline - tab and buffer status line that integrates with lualine
-* telescope - fuzzy finder
-* toggleterm - wrapper around terminal display within neovim
-* treesitter - abstract symbol tree tool used for code syntax operations
-* which-key - popup command Completion
+* [packer](https://github.com/wbthomason/packer.nvim "packer") - Plugin management
+* [nvim-cmp](https://github.com/hrsh7th/nvim-cmp "nvim-cmp") - Code completion
+* [gitsigns](https://github.com/lewis6991/gitsigns.nvim "gitsigns") - Visual Git activity markers
+* [gundo](https://github.com/sjl/gundo.vim "gundo") - Wrapper around basic undo
+* [lualine](https://github.com/nvim-lualine/lualine.nvim "lualine") - Status bar
+* [nvim-comment](https://github.com/terrortylor/nvim-comment "nvim-comment") - Toggle comments on or off
+* [nvim-tree](https://github.com/kyazdani42/nvim-tree.lua "nvim-tree") - File explorer
+* [tabline](https://github.com/kdheepak/tabline.nvim "tabline") - Tab and buffer status line that integrates with lualine
+* [telescope](https://github.com/nvim-telescope/telescope.nvim "telescope") - Fuzzy finder
+* [toggleterm](https://github.com/akinsho/toggleterm.nvim "toggleterm") - Wrapper around terminal display within neovim
+* [treesitter](https://github.com/nvim-treesitter/nvim-treesitter "treesitter") - Abstract symbol tree tool used for code syntax operations
+* [which-key](https://github.com/folke/which-key.nvim "which-key") -key - Popup command Completion
+
+There are dependencies and some ancillary plugins not listed here.
 
 ## Appendix
 These are some of the sources I used while converting from a vimscript based configuration to a Lua
