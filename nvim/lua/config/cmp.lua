@@ -12,6 +12,12 @@ if not snip_status_ok then
   return
 end
 
+-- Protected require of lspkind plugin
+local lspkind_status_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_status_ok then
+  return
+end
+
 -- Lasy load some vscode stuff
 require("luasnip/loaders/from_vscode").lazy_load()
 
@@ -86,19 +92,29 @@ cmp.setup {
   },
 
   formatting = {
-    fields = { "menu", "abbr" },
-
-    format = function(entry, vim_item)
-      vim_item.menu = ({
-        nvim_lsp = "[lsp]",
-        nvim_lua = "[nvimlLua]",
-        luasnip = "[snippet]",
-        buffer = "[buffer]",
-        path = "[path]",
-      })[entry.source.name]
-      return vim_item
-    end,
+    format = lspkind.cmp_format({with_text = true}),
+    menu = {
+      buffer = "[buf]",
+      nvim_lsp = "[LSP]",
+      nvim_lua = "[api]",
+      path = "[path]",
+    },
   },
+
+--   formatting = {
+--     fields = { "menu", "abbr" },
+--
+--     format = function(entry, vim_item)
+--       vim_item.menu = ({
+--         nvim_lsp = "[lsp]",
+--         nvim_lua = "[nvimlLua]",
+--         luasnip = "[snippet]",
+--         buffer = "[buffer]",
+--         path = "[path]",
+--       })[entry.source.name]
+--       return vim_item
+--     end,
+--   },
 
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
