@@ -7,6 +7,6 @@ tabline.setup {
   enable = true,
   options = {
     show_devicons = false,
-    show_bufnr = true,
+    show_bufnr = false,
   },
 }
