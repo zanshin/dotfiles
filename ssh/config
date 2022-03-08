@@ -44,10 +44,9 @@ Host admin
     # ChallengeResponseAuthentication yes
     # PasswordAuthentication yes
 
-# Ubuntu VM PAW
+# Local Ubuntu VM PAW jumpbox
 Host paw
-  # HostName 192.168.5.50
-    HostName 10.211.55.11
+    HostName 192.168.5.161
     User mhn
 
 # EST Jump box
