@@ -235,8 +235,10 @@ alias gpon="sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu"
 # alias gpon="tmux new -s vpn '~/bin/bash/gpvpn-split.sh'"
 alias gpoff='sudo pkill -SIGINT openconnect'
 
-alias ksunix='ssh mhn@unix.ksuedu'
-alias wf='ssh markn@markn.webfactional.com'
+# rdp - connects to admin via pawjump opening port 3389 for Remote Desktop
+# admin - connects to admin via pawjump
+alias rdp='ssh -t -L 3389:mhn-linux-admin.aws.ksu.edu:3389 paw \ ssh -t admin'
+alias admin='ssh -t paw \ ssh -t admin'
 
 # }}}
 # Python virtualenv {{{
