@@ -1,10 +1,19 @@
 -- Treesitter
-local ts = require 'nvim-treesitter.configs'
+local status_ok, ts = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+  return
+end
+
 ts.setup {
  ensure_installed = 'maintained',
+ sync_install = false,
+ ignore_instsall = { "" },    -- list of parses to ignore installing
  highlight = {
-   enable = true,
+   enable = true,             -- false will disable entire extension
+   disable = { "" },          -- list of languages that will be disabled
+   additional_vim_reqex_highlighting = true,
  },
+
  playground = {
    enable = true,
    disable = {},
@@ -22,6 +31,7 @@ ts.setup {
      goto_node = '<cr>',
      show_help = '?',
    },
+
+  indent = { enable = true, disable = { "yaml"  } },
  }
 }
-
