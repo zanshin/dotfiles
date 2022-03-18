@@ -84,6 +84,9 @@ alias 'ai=$HOME/bin/bash/appender.sh'
 # Modified df -h command to strip out noise
 alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.time'"
 
+# todo.sh
+alias 'td=todo.sh'
+
 # }}}
 # Mercurial (hg) {{{
 # alias 'h=hg status'
@@ -170,7 +173,7 @@ alias tw='~/.dotfiles/scripts/chef'
 alias tf='~/.dotfiles/scripts/fugazi'
 alias tc='~/.dotfiles/scripts/console'
 alias tt='~/.dotfiles/scripts/tools'
-alias td='~/.dotfiles/scripts/deploy'
+# alias td='~/.dotfiles/scripts/deploy'
 
 # force tmux to use 256 colors
 # alias tmux='TERM=screen-256colors tmux'
