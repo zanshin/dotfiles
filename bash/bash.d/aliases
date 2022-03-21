@@ -85,7 +85,7 @@ alias 'ai=$HOME/bin/bash/appender.sh'
 alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.time'"
 
 # todo.sh
-alias 'td=todo.sh'
+alias 't=todo.sh'
 
 # }}}
 # Mercurial (hg) {{{
