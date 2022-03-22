@@ -1,4 +1,0 @@
--- hi clearn SignColumn   -- required after changing
--- colorscheme
--- In Airline, only disable "hunks" if the diff is non-zero
--- let g:airline#extendsions#hunks#non_zero_only=1

@@ -1,6 +1,16 @@
 -- Mappings
+--
+-- Modes
+--   normal_mode = "n"
+--   insert_mode = "i"
+--   visual_mode = "v"
+--   visual_block_mode = "x"
+--   term_mode = "t"
+--   command_mode = "c"
 
+map("", "<Space>", "<Nop>")                   -- map Space to a no-op
 g.mapleader = ' '                             -- space for leader
+g.maplocalleader = ' '                        -- space for local leader too
 map('n', ';', ':')                            -- use ; for : in normal mode
 map('n', ';;', ';')                           -- use ;; for ; in normal mode
 
@@ -39,12 +49,12 @@ map('n', '<F10>', ':set relativenumber! number! number?<CR>')
 
 -- Move line(s) up or down via Control-j and Control-k respectively
 -- not sure why all of these aren't working
-map('n', '<C-j>', ':m .+1<CR>==')
-map('n', '<C-k>', ':m .-2<CR>==')
-map('i', '<C-j>', ':m <ESC>:m .+1<CR>==gi')
-map('i', '<C-k>', ':m <ESC>:m .-2<CR>==gi')
-map('v', '<C-j>', ':m \'>+1<CR>gv=gv')
-map('v', '<C-k>', ':m \'>-2<CR>gv=gv')
+map('n', '<M-j>', ':m .+1<CR>==')
+map('n', '<M-k>', ':m .-2<CR>==')
+map('i', '<M-j>', ':m <ESC>:m .+1<CR>==gi')
+map('i', '<M-k>', ':m <ESC>:m .-2<CR>==gi')
+map('v', '<M-j>', ':m \'>+1<CR>gv=gv')
+map('v', '<M-k>', ':m \'>-2<CR>gv=gv')
 
 -- Buffers and tabs
 map('n', '<leader>be', ':enew<CR>')           -- create new empty buffer
@@ -52,18 +62,29 @@ map('n', '<leader>bn', ':bnext<CR>')          -- move to next buffer
 map('n', '<leader>bp', ':bprevious<CR>')      -- move to previous buffer
 map('n', '<leader>bc', ':bp <BAR> bd $<CR>')  -- move to previous buffer, and close current
 
-map('n', '<TAB>', ':bnext<CR>')               -- move to next buffer
-map('n', '<S-TAB>', ':bprevious<CR>')         -- move to previous buffer
+map('n', '<S-n>', ':bnext<CR>')               -- move to next buffer
+map('n', '<S-p>', ':bprevious<CR>')           -- move to previous buffer
 
--- Open Neovim configuration file in new tab for editing
-map('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>')
-
--- Source Neovim configuration file
-map('n', '<leader>sv', ':luafile %<CR>')
+-- Neovim configuration file
+map('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>') -- open configuration file for editing
+-- map('n', '<leader>sv', ':luafile %<CR>')      -- source nvim configuration
+map('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>')
 
 -- Treesitter mappings
 map('n', '<leader>tsp', ':TSPlaygroundToggle<CR>')
 map('n', '<leader>tsh', ':TSHighlightCapturesUnderCursor<CR>')
+
+-- Telescope mappings
+map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
+map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+map('n', '<Leader>fb', ':Telescope buffers<CR>')
+map('n', '<Leader>fo', ':Telescope commands<CR>')
+map('n', '<Leader>fq', ':Telescope quick_fix<CR>')
+map('n', '<Leader>fgs', ':Telescope git_status<CR>')
+map('n', '<Leader>fgf', ':Telescope git_files<CR>')
+map('n', '<Leader>fgc', ':Telescope git_commits<CR>')
+map('n', '<Leader>fgb', ':Telescope git_branches<CR>')
+map('n', '<Leader>fgt', ':Telescope git_stash<CR>')
 
 -- Sudo to write protected file
 map('c', 'w!!', '!sudo tee % >/dev/null')
@@ -75,10 +96,10 @@ map('n', '<leader>l', ':set list!<cr>')
 map('n', '<leader>v', '<C-w>v<C-w>l')         -- open a vertical split and switch to it
 map('n', '<leader>h', '<C-w>s<C-w>j')         -- open a horizontal split and switch to it
 
--- Edit or source init.lua file
-map('n', '<leader>ev', ':e $MYVIMRC<CR>')
---map('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>:exe ":echo 'init.lua reloaded!'"<CR>')
-map('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>')
-
 -- System clipboard
 map('n', '<leader>y', '+y')
+
+-- nvim-tree
+map('n', '<C-n>', ':NvimTreeToggle<cr>')
+map('n', '<leader>r', ':NvimTreeRefresh')
+
