@@ -1,94 +1,136 @@
+-- Create some helpers
+local autogrp= vim.api.nvim_create_augroup
+local aucmd= vim.api.nvim_create_autocmd
+
 -- ----- Filetype settings
-
 -- Control preferences based on file type
-cmd [[
 
-  augroup _general
-    autocmd FileType * setlocal formatoptions-=ro   " Prevent Neovim from auto-indenting comment on subsequent lines
-    autocmd FocusLost * :wa                         " Save all buffers when Neovim loses focus
-  augroup end
+-- General autocmds
+local _general = autogrp("_general", { clear = true })
+aucmd({ "FocusLost" },
+      { pattern = "*",
+        command = ":wa",
+        group = _general })
 
-  " make files
-  augroup _makefile
-    autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  augroup end
+aucmd({ "FileType" },
+      { pattern = "*",
+        command = "setlocal formatoptions-=ro",
+        group = _general })
 
-  " YAML files
-  augroup _yaml
-    autocmd BufNewFile,BufReadPost *.{yaml,yml} setfiletype=yaml foldmethod=indent
-    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>
-  augroup end
+-- makefile autocmds
+local _makefile = autogrp("_makefile", { clear = true  })
+aucmd({ "FileType" },
+      { pattern = "make",
+        command = "setlocal ts=8 sts=8 sw=8 noexpandtab",
+        group = _makefile })
 
-  " Setup for mutt mail
-  augroup _mutt
-    autocmd FileType mail setlocal formatoptions+=aw
-    autocmd FileType mail setlocal spell spelllang=en_us
-    autocmd FileType mail setlocal noautoindent nolist
-    autocmd FileType mail setlocal nobackup noswapfile nowritebackup
-  augroup end
+-- YAML autocmds
+local _yaml = autogrp("_yaml", { clear = true  })
+aucmd({ "BufNewFile", "BufReadPost" },
+      { pattern = "*.{yaml.yml}",
+        command = "setfiletype=yaml foldmethod=indent",
+        group = _yaml  })
 
-  " Treat RSS files as XML
-  augroup _rss
-    autocmd BufNewFile,BufRead *.rss,*.atom setfiletype xml
-  augroup end
+aucmd({ "FileType"  },
+      { pattern = "yaml",
+        command = "setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>",
+        group = _yaml })
 
-  " Git: spell check commit messages, start commit messages in insert mode
-  augroup _git
-    autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
-    autocmd BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
-  augroup end
+-- mail (mutt) autocmds
+local _mutt = autogrp("_mutt", { clear = true })
+aucmd({ "FileType"  },
+      { pattern = "mail",
+        command = "formatoptions+=aw spell spelllang=en_us noautoindent nolist nobackup noswapfile nowritebackup",
+        group = _mutt  })
 
-  " Markdown files
-  augroup _markdown
-    autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown setfiletype markdown
-    autocmd FileType markdown set spell spelllang=en_us
-    autocmd FileType markdown setlocal tw=100
-  augroup end
+local _rss = autogrp("_rss", { clear = true  })
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "*.rss,*.atom",
+        command = "setfiletype = xml",
+        group = _rss })
 
-  " Ruby related files
-  augroup _ruby
-    autocmd BufNewFile,BufRead Gemfile,Gemfile.lock,Guardfile setfiletype ruby
-    autocmd BufNewFile,BufRead Thorfile,config.ru,Vagrantfile setfiletype ruby
-    autocmd BufNewFile,BufRead Berksfile,Berksfile.lock setfiletype ruby
-    autocmd BufNewFile,BufRead Rakefile,*.rake setfiletype rake
-    autocmd BufNewFile,BufRead Rakefile,*.rake set syntax=ruby
-  augroup end
+local _git = autogrp("_git", { clear = true  })
+aucmd({ "BufRead"},
+      { pattern = "COMMIT_EDITMSG",
+        command = "setlocal spell spelllang=en_us",
+        group = _git })
 
-  " Python
-  augroup _python
-    autocmd BufNewFile,BufRead *.py set ts=2 sts=2 sw=2 expandtab
-  augroup end
+aucmd({ "BufNewFile", "BufRead"  },
+      { pattern = "COMMIT_EDITMSG",
+        command = "call feedkeys('ggi', 't')",
+        group = _git })
 
-  " Enable syntax coloration for diffs
-  augroup _diff
-    autocmd FileType diff syntax enable
-  augroup end
+-- markdown autocmds
+local _markdown = autogrp("_markdown", { clear = true  })
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "*.md,*mkd,*.markdown",
+        command = "set filetype markdown",
+        group = _markdown })
 
-  " Add spell check to text files
-  augroup _spelling
-    autocmd BufNewFile,BufRead *.txt set spell spelllang=en_us
-  augroup end
+aucmd({ "FileType"  },
+      { pattern = "markdown",
+        command = "set spell spelllang=en_us tw=100",
+        group = _markdown })
 
-  " Go Language
-  augroup _golang
-    autocmd BufNewFile,BufRead *.go setlocal ts=4 sts=4 sw=4 noexpandtab
-  augroup end
+-- Ruby autocmds
+local _ruby = autogrp("_ruby", { clear = true  })
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "Gemfile,Gemfile.lock,Guardifile,Thorfile,config.ru,Vagrantfile,Berksfile,Berksfile.lock",
+        command = "setfiletype ruby",
+        group = _ruby })
 
-  " Help in vertical split
-  augroup _vertical_help
-    autocmd!
-    autocmd FileType help wincmd L
-  augroup end
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "Rakefile,*.rake",
+        command = "setfiletype rake",
+        group = _ruby })
 
-  " Whitespace removal
-  augroup _whitespace
-    autocmd FileWritePre   * :call TrimWhitespace()
-    autocmd FileAppendPre  * :call TrimWhitespace()
-    autocmd FilterWritePre * :call TrimWhitespace()
-    autocmd BufWritePre    * :call TrimWhitespace()
-  augroup end
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "Rakefile,*.rake",
+        command = "set syntax=ruby",
+        group = _ruby })
 
-]]
+-- Python autocmds
+local _python = autogrp("_python", { clear = true  })
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "*.py",
+        command = "set ts=2 sts=2 sw=2 expandtab",
+        group = _python })
+
+-- diff autocmds
+local _diff = autogrp("_diff", { clear = true  })
+aucmd({ "FileType" },
+      { pattern = "diff",
+        command = "syntax enable",
+        group = _diff })
+
+-- text file autocmds
+local _spell = autogrp("_spell", { clear = true })
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "*.txt",
+        command = "set spell spelllang=en_us",
+        group = _spell})
+
+-- Go autocmds
+local _go = autogrp("_go", { clear = true  })
+aucmd({ "BufNewFile", "BufRead" },
+      { pattern = "*.go",
+        command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
+        group = _go })
+
+-- Help in vertical split autocmds
+local _help = autogrp("_help", { clear = true })
+aucmd({ "FileType" },
+      { pattern = "help",
+        command = "wincmd L",
+        group = _help })
+
+-- Whitespace removal autocmds
+local _whitespace = autogrp("_whitespace", { clear = true })
+aucmd({ "FileWritePre", "FileAppendPre", "FilterWritePre", "BufWritePre" },
+      { pattern = "*",
+        command = ":call TrimWhitespace()",
+        group = _whitespace })
+
 
   --Trailing white space removal
   -- Do not trim white space from file type 'mail' - the trailing spaces are
