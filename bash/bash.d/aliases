@@ -74,6 +74,8 @@ alias 'rm=rm -i'
 alias 'previous=history | grep '
 alias 'h=history | grep '
 
+alias 'a=alias | grep "$@"'
+
 alias 'xup=xrdb ~/.Xresources'
 
 alias 'galias=alias | grep '
