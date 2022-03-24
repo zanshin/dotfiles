@@ -1,4 +1,4 @@
--- Parker plugin manager
+-- Packer plugin manager
 
 -- helper function for plugin configurations
 local function get_config(name)
