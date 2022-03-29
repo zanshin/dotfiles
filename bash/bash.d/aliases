@@ -87,6 +87,9 @@ alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.tim
 # todo.sh
 alias 't=todo.sh'
 
+# has: grep files looking for search string
+alias 'has=egrep -riH -m1 "$@" | cut -d: -f1'
+
 # }}}
 # Mercurial (hg) {{{
 # alias 'h=hg status'
