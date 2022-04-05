@@ -165,6 +165,13 @@ return packer.startup(function(use)
     config = get_config("toggleterm")
   }
 
+  -- Neorg (Org mode like thing)
+  use {
+    'nvim-neorg/neorg',
+    tag = '*',
+    requires = { "nvim-lua/plenary.nvim" }
+  }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
