@@ -85,7 +85,7 @@ opt.cpoptions = table.concat {
 opt.showmatch = true                   -- show matching brackets [{()}]
 opt.matchpairs = '<:>'                 -- also match < and >
 opt.timeoutlen = 500                   -- Time in milliseconds to wait for a mapped sequence to complete
-opt.ttimeoutlen = 250                  -- Key code time out to 1/2 second
+opt.ttimeoutlen = 50                   -- Key code time out
 
 -- Messages
 opt.shortmess:append {
