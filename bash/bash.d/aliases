@@ -303,6 +303,11 @@ alias awson='aws login ; LP_PS1_PREFIX="\033[0;34maws \033[0m"'
 # AWS logout
 alias awsoff='aws logout ; LP_PS1_PREFIX=""'
 
+# Kubernetes
+alias kdev="aws eks --region us-east-1 update-kubeconfig --name EKS-Dev"
+alias kshared="aws eks --region us-east-1 update-kubeconfig --name EKS-Shared"
+alias kprod="aws eks --region us-east-1 update-kubeconfig --name EKS-Prod"
+
 # }}}
 # systemctl {{{
 alias ss="sudo systemctl"
