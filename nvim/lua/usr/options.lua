@@ -85,7 +85,7 @@ opt.cpoptions = table.concat {
 opt.showmatch = true                   -- show matching brackets [{()}]
 opt.matchpairs = '<:>'                 -- also match < and >
 opt.timeoutlen = 500                   -- Time in milliseconds to wait for a mapped sequence to complete
-opt.ttimeoutlen = 500                  -- Key code time out to 1/2 second
+opt.ttimeoutlen = 50                   -- Key code time out
 
 -- Messages
 opt.shortmess:append {
@@ -110,7 +110,9 @@ opt.autowrite = true                   -- write out old file when switching betw
 opt.autoread = true                    -- reload files changed on disk
 
 -- Spelling
-opt.spellfile = "~/.config/nvim/spell/en.uft-8.add"
+-- opt.spellfile = "~/.config/nvim/spell/en.uft-8.add"
+opt.encoding = "utf-8"
+opt.spelllang = "en"
 
 -- Encoding - we like UTF-8
 opt.fileencoding = "utf-8"
