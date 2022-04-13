@@ -117,6 +117,18 @@ acmd({ "BufNewFile", "BufRead" },
         command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
         group = _go })
 
+acmd({ "BufWritePre" },
+     { pattern = "*.go",
+       command = "lua vim.lsp.buf.formatting_sync()",
+       group = _go})
+
+-- Text files
+local _text = agrp("_text", { clear = true  })
+acmd({ "BufNewFile", "BufRead"  },
+      { pattern = "*.txt",
+        command = "lua require('cmp').setup.buffer{ enable = false }",
+        group = _text})
+
 -- Help in vertical split autocmds
 local _help = agrp("_help", { clear = true })
 acmd({ "FileType" },
