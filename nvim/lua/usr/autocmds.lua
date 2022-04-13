@@ -122,6 +122,11 @@ acmd({ "BufWritePre" },
        command = "lua vim.lsp.buf.formatting_sync()",
        group = _go})
 
+-- acmd({ "BufWritePre" },
+--      { pattern = "*.go",
+--        command = "!goimports:",
+--        group = _go})
+
 -- Text files
 local _text = agrp("_text", { clear = true  })
 acmd({ "BufNewFile", "BufRead"  },
