@@ -38,10 +38,10 @@ cmp.setup {
   },
 
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    -- ["<UP>"] = cmp.mapping.select_prev_item(),
+		-- ["<DOWN>"] = cmp.mapping.select_next_item(),
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping {
@@ -86,7 +86,7 @@ cmp.setup {
     -- Order ranks these
     -- These are global
     { name = "nvim_lsp" },
-    { name = "nvm_lua"  },
+    { name = "nvim_lua"  },
     { name = "luasnip" },
     -- { name = "buffer", keyword_length = 5 },
     { name = "buffer" },
@@ -96,28 +96,14 @@ cmp.setup {
   formatting = {
     format = lspkind.cmp_format({with_text = true}),
     menu = {
-      buffer = "[buf]",
-      nvim_lsp = "[LSP]",
+      buffer = "[buffer]",
+      nvim_lsp = "[lsp]",
       nvim_lua = "[api]",
       path = "[path]",
-      luasnip = '[snip]',
+      luasnip = '[snippet]',
     },
   },
 
---   formatting = {
---     fields = { "menu", "abbr" },
---
---     format = function(entry, vim_item)
---       vim_item.menu = ({
---         nvim_lsp = "[lsp]",
---         nvim_lua = "[nvimlLua]",
---         luasnip = "[snippet]",
---         buffer = "[buffer]",
---         path = "[path]",
---       })[entry.source.name]
---       return vim_item
---     end,
---   },
   window = {
     documentation = {
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -138,3 +124,21 @@ cmp.setup {
   },
 }
 
+-- Use buffer source for `/`.
+cmp.setup.cmdline('/', {
+    completion = { autocomplete = false },
+    sources = {
+        -- { name = 'buffer' }
+        { name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } }
+    }
+})
+
+-- Use cmdline & path source for ':'.
+cmp.setup.cmdline(':', {
+    completion = { autocomplete = true},
+    sources = cmp.config.sources({
+        { name = 'path' }
+        }, {
+        { name = 'cmdline' }
+    })
+})
