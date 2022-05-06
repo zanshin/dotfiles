@@ -33,5 +33,20 @@ ts.setup {
    },
 
   indent = { enable = true, disable = { "yaml"  } },
- }
+ },
+
+ textobjects = {
+   select = {
+     enable = true,
+
+     -- automatically jump forward to textobj
+     lookahead = true,
+
+     keymaps = {
+       -- you can use capture groups defined in textobjects.cm
+       ["af"] = "@function.outer",
+       ["if"] = "@function.inner",
+     },
+   },
+ },
 }
