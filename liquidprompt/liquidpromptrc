@@ -55,7 +55,7 @@ LP_ENABLE_FQDN=0
 # Defaults to 1 (always display the user name)
 # set to 0 if you want to hide the logged user (it will always display different
 # users)
-LP_USER_ALWAYS=1
+LP_USER_ALWAYS=0
 
 # Display the percentages of load/batteries along with their
 # corresponding marks. Set to 0 to only print the colored marks.
