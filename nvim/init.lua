@@ -8,5 +8,5 @@ require 'usr.mappings'       -- All the mappings
 require 'usr.autocmds'       -- Auto commands
 require 'usr.colors'         -- Theme
 
-require 'config.lsp'            -- Language Server Protocol
+-- require 'config.lsp'            -- Language Server Protocol
 
