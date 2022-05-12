@@ -294,6 +294,12 @@ function psg() {
   ps -ef | grep -i "$@" | grep -v grep
 }
 
+function psgrep() {
+  f=${1:0:1}
+  e=${1:1}
+  ps auxww | grep "[$f]$e"
+}
+
 # }}}
 # turn hidden files on/off in Finder {{{
 function hiddenOn() {
