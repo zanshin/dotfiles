@@ -7,12 +7,12 @@ mentions Vim is from November 14, 2011. The initial Neovim commit is from Decemb
 while I maintained both a Vim and a Neovim configuration, but over time the Vim configuration
 became stale as it was no longer being maintained.
 
-Over the past few weeks I have been working on converting my Neovim configuration to use Lua. A
+Beginning in late 2021 I began converting my Neovim configuration to use Lua. A
 number of resources helped me in that endeavor, they are listed in the appendix below.
 
 ## Prerequisites
 
-* Neovim 0.6.*x or later
+* Neovim 0.8.*x or later
 * Node - Several of the language servers I have setup require Node
 * A "hacked" font
 
@@ -41,8 +41,7 @@ directory to prevent potential collisions with plugins.
     plugins
 
 
-The configuration files for the plugins are all under the `lua/config` directory. There is also a
-separate directory for the language server configuration files, `lua/config/lsp`.
+The configuration files for the plugins are all under the `lua/config` directory.
 
 ## Plug Ins
 These are the core plugins that I have installed.
