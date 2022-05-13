@@ -119,7 +119,7 @@ echo ""
 # echo ""
 
 # Setup Vim
-if ask "Setup Vim" Y; then
+if ask "Setup Vim" N; then
   echo "Linking Vim files"
   cd "$dotfiles_dir"/vim;
   ln -sf "$dotfiles_dir"/vim "${HOME}"/.vim;
