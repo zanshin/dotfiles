@@ -1,5 +1,4 @@
 
-set mousehide                                    " hide the mouse when typing
 set history=1000
 set ffs=unix,mac,dos                             " default file types, in order
 
@@ -24,26 +23,6 @@ if !isdirectory(expand(&directory))
   call mkdir(expand(&directory), "p")
 endif
 "
-" ----- Help {{{
-" Show help in tabs
-augroup HelpInTabs
-  autocmd!
-  autocmd BufEnter *.txt call HelpInNewTab()
-augroup END
-
-" only apply to help files
-function! HelpInNewTab()
-  if &buftype == 'help'
-    " convert window to tab
-    execute "normal \<C-W>T"
-  endif
-endfunction
-
-" }}}
-
-
-" Use paste mode to prevent autoindenting of pasted lines
-set pastetoggle=<F2>
 
 " Better pasting from clipboard
 " http://tilvim.com/2014/03/18/a-better-paste.html

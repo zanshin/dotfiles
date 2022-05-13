@@ -138,7 +138,7 @@ acmd({ "BufNewFile", "BufRead"  },
 local _help = agrp("_help", { clear = true })
 acmd({ "FileType" },
       { pattern = "help",
-        command = "wincmd L",
+        command = "wincmd j",
         group = _help })
 
 -- Whitespace removal autocmds
