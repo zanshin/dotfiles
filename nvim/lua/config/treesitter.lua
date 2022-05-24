@@ -7,7 +7,7 @@ end
 ts.setup {
  ensure_installed = 'maintained',
  sync_install = false,
- ignore_instsall = { "" },    -- list of parses to ignore installing
+ ignore_install = { "" },    -- list of parses to ignore installing
  highlight = {
    enable = true,             -- false will disable entire extension
    disable = { "" },          -- list of languages that will be disabled
