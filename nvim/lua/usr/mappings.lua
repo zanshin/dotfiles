@@ -75,8 +75,8 @@ map('n', '<leader>tsp', ':TSPlaygroundToggle<CR>')
 map('n', '<leader>tsh', ':TSHighlightCapturesUnderCursor<CR>')
 
 -- Telescope mappings
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>ff', ':Telescope find_files<CR>')
+map('n', '<leader>fgg', ':Telescope live_grep<CR>')
 map('n', '<Leader>fb', ':Telescope buffers<CR>')
 map('n', '<Leader>fo', ':Telescope commands<CR>')
 map('n', '<Leader>fq', ':Telescope quick_fix<CR>')
