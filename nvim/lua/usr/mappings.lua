@@ -86,6 +86,9 @@ map('n', '<Leader>fgc', ':Telescope git_commits<CR>')
 map('n', '<Leader>fgb', ':Telescope git_branches<CR>')
 map('n', '<Leader>fgt', ':Telescope git_stash<CR>')
 
+-- map('n', '<Leader>s', 'require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))')
+
+
 -- Sudo to write protected file
 map('c', 'w!!', '!sudo tee % >/dev/null')
 
