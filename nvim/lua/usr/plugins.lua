@@ -177,19 +177,23 @@ return packer.startup(function(use)
   }
 
   -- debugging
-  use { 
+  use {
     'mfussenegger/nvim-dap',
     config = get_config("nvim-dap")
   }
-  use { 
+  use {
     'leoluz/nvim-dap-go',
     config = get_config("nvim-dap-go")
   }
-  use { 
+  use {
     'rcarriga/nvim-dap-ui',
+    requires = { "mfussenegger/nvim-dap" },
     config = get_config("nvim-dap-ui")
   }
-  use { 'theHamsta/nvim-dap-virtual-text' }
+  use {
+    'theHamsta/nvim-dap-virtual-text',
+    config = get_config("nvim-dap-virtual-text.lua")
+  }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
   if PACKER_BOOTSTRAP then
