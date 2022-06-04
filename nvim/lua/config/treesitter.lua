@@ -5,7 +5,8 @@ if not status_ok then
 end
 
 ts.setup {
- ensure_installed = 'maintained',
+ -- ensure_installed = "maintained",
+ ensure_installed = { "go", "bash", "json", "html", "lua", "rust" },
  sync_install = false,
  ignore_install = { "" },    -- list of parses to ignore installing
  highlight = {
@@ -13,6 +14,23 @@ ts.setup {
    disable = { "" },          -- list of languages that will be disabled
    additional_vim_reqex_highlighting = true,
  },
+
+ autopairs = {
+   enable = true,
+ },
+
+ rainbow = {
+		enable = true,
+		colors = {
+			"Gold",
+			"Orchid",
+			"DodgerBlue",
+			"Cornsilk",
+			"Salmon",
+			"LawnGreen",
+		},
+		disable = { "html" },
+	},
 
  playground = {
    enable = true,
