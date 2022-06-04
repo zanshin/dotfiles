@@ -176,6 +176,22 @@ return packer.startup(function(use)
     config = get_config("toggleterm")
   }
 
+  -- debugging
+  use { 
+    'mfussenegger/nvim-dap',
+    config = get_config("nvim-dap")
+  }
+  use { 
+    'leoluz/nvim-dap-go',
+    config = get_config("nvim-dap-go")
+  }
+  use { 
+    'rcarriga/nvim-dap-ui',
+    config = get_config("nvim-dap-ui")
+  }
+  use { 'theHamsta/nvim-dap-virtual-text' }
+  use { 'nvim-telescope/telescope-dap.nvim' }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
