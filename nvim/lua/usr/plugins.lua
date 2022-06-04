@@ -192,7 +192,7 @@ return packer.startup(function(use)
   }
   use {
     'theHamsta/nvim-dap-virtual-text',
-    config = get_config("nvim-dap-virtual-text.lua")
+    config = get_config("nvim-dap-virtual-text")
   }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
