@@ -9,4 +9,4 @@ require 'usr.autocmds'       -- Auto commands
 require 'usr.colors'         -- Theme
 
 -- require 'config.lsp'            -- Language Server Protocol
-
+require 'config.adapters'    -- DAP configurations

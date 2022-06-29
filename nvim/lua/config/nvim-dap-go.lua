@@ -5,4 +5,4 @@ if not status_ok then
 end
 
 dapgo.setup()
-map("n", "<leader>dt", ":lua require('dap-go').debug_test()<CR>")
+-- map("n", "<leader>dt", ":lua require('dap-go').debug_test()<CR>")

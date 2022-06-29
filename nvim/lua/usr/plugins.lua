@@ -179,21 +179,24 @@ return packer.startup(function(use)
   -- debugging
   use {
     'mfussenegger/nvim-dap',
-    config = get_config("nvim-dap")
+    requires = { "rcarriga/nvim-dap-ui" },
+    -- config = get_config("nvim-dap")
   }
-  use {
-    'leoluz/nvim-dap-go',
-    config = get_config("nvim-dap-go")
-  }
+
+  -- use {
+  --   'leoluz/nvim-dap-go',
+  --   config = get_config("nvim-dap-go")
+  -- }
+
   use {
     'rcarriga/nvim-dap-ui',
-    requires = { "mfussenegger/nvim-dap" },
+    -- requires = { "mfussenegger/nvim-dap" },
     config = get_config("nvim-dap-ui")
   }
-  use {
-    'theHamsta/nvim-dap-virtual-text',
-    config = get_config("nvim-dap-virtual-text")
-  }
+  -- use {
+  --   'theHamsta/nvim-dap-virtual-text',
+  --   config = get_config("nvim-dap-virtual-text")
+  -- }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
   if PACKER_BOOTSTRAP then
