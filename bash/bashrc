@@ -106,4 +106,5 @@ complete -C /usr/local/bin/terraform terraform
 # asdf
 [[ -e $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
 [[ -e $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
-# [[ -e $HOME/.cargo/bin/bin/env ]] && . "$HOME/.cargo/bin/bin/env"
+[[ -e $HOME/.cargo/bin/bin/env ]] && . "$HOME/.cargo/bin/bin/env"
+# . "/Users/mark/.cargo/bin/bin/env"
