@@ -75,8 +75,8 @@ map('n', '<leader>tsp', ':TSPlaygroundToggle<CR>')
 map('n', '<leader>tsh', ':TSHighlightCapturesUnderCursor<CR>')
 
 -- Telescope mappings
-map('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-map('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+map('n', '<leader>ff', ':Telescope find_files<CR>')
+map('n', '<leader>fgg', ':Telescope live_grep<CR>')
 map('n', '<Leader>fb', ':Telescope buffers<CR>')
 map('n', '<Leader>fo', ':Telescope commands<CR>')
 map('n', '<Leader>fq', ':Telescope quick_fix<CR>')
@@ -85,6 +85,9 @@ map('n', '<Leader>fgf', ':Telescope git_files<CR>')
 map('n', '<Leader>fgc', ':Telescope git_commits<CR>')
 map('n', '<Leader>fgb', ':Telescope git_branches<CR>')
 map('n', '<Leader>fgt', ':Telescope git_stash<CR>')
+
+-- map('n', '<Leader>s', 'require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))')
+
 
 -- Sudo to write protected file
 map('c', 'w!!', '!sudo tee % >/dev/null')
@@ -103,3 +106,10 @@ map('n', '<leader>y', '+y')
 map('n', '<C-n>', ':NvimTreeToggle<cr>')
 map('n', '<leader>r', ':NvimTreeRefresh')
 
+-- DAP mappings
+map("n", "<leader>dc", ":lua require'dap'.continue()<cr>")
+map("n", "<leader>dsi", ":lua require'dap'.step_into()<cr>")
+map("n", "<leader>dso", ":lua require'dap'.step_over()<cr>")
+map("n", "<leader>dsu", ":lua require'dap'.step_out()<cr>")
+map("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<cr>")
+map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
