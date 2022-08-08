@@ -5,7 +5,10 @@ Host *
 #    User mhn
 #    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
 
-Host 10.251.* 10.252.*
+Host 10.251.*
+  User ubuntu
+
+Host 10.252.*
   User ec2-user
 
 #AWS sandbox account
