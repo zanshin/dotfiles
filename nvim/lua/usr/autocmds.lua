@@ -117,6 +117,13 @@ acmd({ "BufNewFile", "BufRead" },
         command = "set spell spelllang=en_us",
         group = _spell})
 
+-- Text files
+local _text = agrp("_text", { clear = true  })
+acmd({ "BufNewFile", "BufRead"  },
+      { pattern = "*.txt",
+        command = "lua require('cmp').setup { completion = { autocomplete = false }}",
+        group = _text})
+
 -- Go autocmds
 local _go = agrp("_go", { clear = true  })
 acmd({ "BufNewFile", "BufRead" },
@@ -133,13 +140,6 @@ acmd({ "BufWritePre" },
      { pattern = "*.go",
        command = "lua OrgImports(1000)",
        group = _go})
-
--- Text files
-local _text = agrp("_text", { clear = true  })
-acmd({ "BufNewFile", "BufRead"  },
-      { pattern = "*.txt",
-        command = "lua require('cmp').setup.buffer{ enable = false }",
-        group = _text})
 
 -- Help in vertical split autocmds
 local _help = agrp("_help", { clear = true })
