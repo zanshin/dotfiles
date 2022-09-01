@@ -5,7 +5,10 @@ Host *
 #    User mhn
 #    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
 
-Host 10.251.* 10.252.*
+Host 10.251.*
+  User ubuntu
+
+Host 10.252.*
   User ec2-user
 
 #AWS sandbox account
@@ -43,11 +46,6 @@ Host admin
     PubKeyAuthentication yes
     # ChallengeResponseAuthentication yes
     # PasswordAuthentication yes
-
-# Local Ubuntu VM PAW jumpbox
-Host paw
-    HostName 192.168.5.161
-    User mhn
 
 # EST Jump box
 Host jump

@@ -36,6 +36,13 @@ acmd({ "FileType"  },
         command = "setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>",
         group = _yaml })
 
+-- Rust
+local _rust = agrp("_rust", { clear = true  })
+acmd({ "FileType" },
+      { pattern = "rs",
+        command = "setlocal ts=4, sts=4, sw=4 expandtab",
+        group = _rust })
+
 -- mail (mutt) autocmds
 local _mutt = agrp("_mutt", { clear = true })
 acmd({ "FileType"  },
