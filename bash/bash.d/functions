@@ -71,6 +71,11 @@
    knife ssh -P -m $1 "sudo chef-client"
  }
 
+ # function to run cammand agains matching nodes
+function chefcmd() {
+  knife status | grep $1 | awk '{print $4}' | sort | tr "," " " | tr "\n" " " | xargs -I '{}' knife ssh -m "{}" "$2"
+}
+
  # }}}
 # Remove bad key from known_hosts file {{{
 function badkey() {
