@@ -14,7 +14,7 @@ acmd({ "FocusLost" },
 
 acmd({ "FileType" },
       { pattern = "*",
-        command = "setlocal formatoptions-=ro",
+        command = "setlocal formatoptions-=ro noswapfile",
         group = _general })
 
 -- makefile autocmds
