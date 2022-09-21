@@ -11,6 +11,12 @@
 # BEHAVIOUR #
 #############
 
+# Display the current value of AWS_PROFILE, AWS_DEFAULT_PROFILE,
+# or AWS_VAULT. AWS_PROFILE and AWS_DEFAULT_PROFILE are used to
+# switch between configuration profiles by the AWS CLI. AWS_VAULT
+# is used by aws-vault to specify the AWS profile in use.
+LP_ENABLE_AWS_PROFILE=1
+
 # Display the battery level when the level is below this threshold.
 # Recommended value is 75
 LP_BATTERY_THRESHOLD=75
@@ -81,7 +87,7 @@ LP_ENABLE_LOAD=1
 
 # Enable the battery feature.
 # Recommended value is 1
-LP_ENABLE_BATT=1
+LP_ENABLE_BATT=0
 
 # Enable the 'sudo credentials' feature.
 # Be warned that this may pollute the syslog if you don't have sudo
