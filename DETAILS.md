@@ -68,19 +68,9 @@ For tmux configuration create this symlink:
 
     $ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-My tmux configuration doesn't always work on Linux - depending the Linux distribution being used. The
-`tmux.linux` file is an alternate tmux configuration that can be linked on Linux.
-
-
-## config
-The $XDG_CONFIG_HOME location (as far as I know) is `$HOME/.config`. On Linux, and increasingly on
-macOS, tools are placing their configurations under `~/.config`. At present have font, polybar, and
-i3 configurations for Arch and Antergos stored in this directory. The Neovim configuration lives in
-$XDG_CONFIG_HOME/nvim, but I keep it separately in this repository.
 
 ## mutt
-I have threatened to use mutt for email more than once. These two directories contain the
-configurations that resulted from these experiments. Do not blindly copy these and use them.
+The mutt directory contains the configuration for my mutt setup. Do not blindly copy these and use them.
 Really.
 
 ## scripts
@@ -150,7 +140,7 @@ For TextMate 2 settings create the following symlink:
 
     $ ln -s ~/.dotflles/textmate/tm_properties ~/.tm_properties
 
-### zsh - No longer maintained
+### zsh
     For zsh configuration create the following symlinks:
 
     ln -s ~/.dotfiles/zsh ~/.zsh

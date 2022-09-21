@@ -31,6 +31,17 @@
    tmux set-window-option -t :$ synchronize
  }
 
+ function kncloud() {
+   tmux new-window -n $1
+   for node in `knifeaws "$1"`; do
+     tmux split-window -t :$ "ssh $node"
+     tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+   done
+   tmux kill-pane -t $.1
+   tmux select-layout -t :$ even-vertical >/dev/null 2>&1
+   tmux set-window-option -t :$ synchronize
+ }
+
  function kick() {
    knife ssh -P -m "$1" "sudo chef-client"
  }
@@ -59,6 +70,11 @@
  function converge() {
    knife ssh -P -m $1 "sudo chef-client"
  }
+
+ # function to run cammand agains matching nodes
+function chefcmd() {
+  knife status | grep $1 | awk '{print $4}' | sort | tr "," " " | tr "\n" " " | xargs -I '{}' knife ssh -m "{}" "$2"
+}
 
  # }}}
 # Remove bad key from known_hosts file {{{
