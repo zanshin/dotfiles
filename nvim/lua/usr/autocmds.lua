@@ -133,7 +133,9 @@ acmd({ "BufNewFile", "BufRead" },
 
 acmd({ "BufWritePre" },
      { pattern = "*.go",
-       command = "lua vim.lsp.buf.formatting_sync()",
+       callback = function()
+         vim.lsp.buf.format()
+       end,
        group = _go})
 
 acmd({ "BufWritePre" },

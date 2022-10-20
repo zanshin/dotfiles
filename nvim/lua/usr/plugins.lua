@@ -128,6 +128,8 @@ return packer.startup(function(use)
 
   -- -- Neovim stuff
   -- use { 'kassio/neoterm' }
+  -- use { 'ray-x/go.nvim' }
+  -- use { 'ray-x/guihua.lua' } -- recommanded if need floating window support
 
   -- Telescope
   use {
