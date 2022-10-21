@@ -17,6 +17,15 @@ acmd({ "FileType" },
         command = "setlocal formatoptions-=ro noswapfile",
         group = _general })
 
+-- Colorscheme overridese
+-- call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
+acmd({ "ColorScheme" },
+      { pattern = "*",
+        callback = function()
+          vim.api.nvim_set_hl(0, "Comment", { fg = "Grey63" })
+        end,
+        group = _gerneral })
+
 -- makefile autocmds
 local _makefile = agrp("_makefile", { clear = true  })
 acmd({ "FileType" },
