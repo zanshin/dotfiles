@@ -55,12 +55,13 @@ end
 -- Use a loop to call 'setup' on multiple servers and
 -- map buffer local keybindings when the LSP attaches
 local servers = {
-  'gopls',
-  'yamlls',
-  'jsonls',
   'bashls',
   'dockerls',
+  'gopls',
+  'jsonls',
+  'rust_analyzer',
   'sumneko_lua',
+  'yamlls',
 }
 
 -- Setup for each LSP specified here (for now) — messy but centralized
