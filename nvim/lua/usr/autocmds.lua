@@ -79,7 +79,7 @@ acmd({ "BufNewFile", "BufRead"  },
 -- markdown autocmds
 local _markdown = agrp("_markdown", { clear = true  })
 acmd({ "BufNewFile", "BufRead" },
-      { pattern = "*.md,*mkd,*.markdown",
+      { pattern = "*.md,*.mkd,*.markdown",
         command = "setfiletype = markdown",
         group = _markdown })
 
