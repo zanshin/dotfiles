@@ -89,6 +89,19 @@ function gg() {
 }
 
 # }}}
+# Hugo {{{
+function hp() {
+  hugo new posts/$(echo "$*" | sed 's/ /-/g').md
+}
+
+function hl() {
+  hugo new link/$(echo "$*" | sed 's/ /-/g').md
+}
+
+function hv() {
+  hugo new video/$(echo "$*" | sed 's/ /-/g').md
+}
+# }}}
 # Dash functions {{{
 # Open argument in Dash
 function dash() {
