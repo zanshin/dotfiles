@@ -1,0 +1,33 @@
+# vim: set filetype=bash:
+#
+# Tmux Name:   hugo
+# Description: creates 3 named windows for using Hugo
+#
+# check if session exists
+tmux has-session -t hugo
+if [ $? != 0 ]
+then
+
+# if session does not exist create it
+tmux -2 new-session -s hugo -n home -d
+
+# set default directory
+tmux send-keys -t hugo:1 'cd ~/' C-m
+
+# create additional named windows
+tmux new-window -n hugo
+tmux new-window -n server
+
+# window 1 - default window for normal use. lets make sure this starts in our home directory.
+tmux send-keys -t hugo:1 'cd ~/' C-m
+
+# window 2 - hugo
+tmux send-keys -t hugo:2 'cd ~/code/hugo/blog' C-m
+
+# window 3 - server
+tmux send-keys -t hugo:3 'cd ~/code/hugo/blog' C-m
+tmux send-keys -t hugo:3.1 'hugo server -D --noHTTPCache' C-m
+
+ # end if statement and attach mytmux if it existed
+fi
+tmux attach -t hugo
