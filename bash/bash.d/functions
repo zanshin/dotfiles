@@ -90,6 +90,20 @@ function gg() {
 
 # }}}
 # Hugo {{{
+function drafts() {
+    grep -ril content/posts -e "^draft"
+    grep -ril content/links -e "^draft"
+    grep -ril content/videos -e "^draft"
+}
+
+function build() {
+    hugo --cleanDestinationDir
+}
+
+function deploy() {
+    rsync -azr --delete public/* pair:~/public_html/zanshin
+}
+
 function hugonp() {
     str="$*"
     # from https://onebite.dev/create-new-hugo-post-faster-with-bash/
