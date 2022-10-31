@@ -175,6 +175,7 @@ alias ts='tsession.sh'
 
 # tmux scripts
 alias tb='~/.dotfiles/scripts/blog'
+alias th='~/.dotfiles/scripts/hugo'
 alias tw='~/.dotfiles/scripts/chef'
 alias tf='~/.dotfiles/scripts/fugazi'
 alias tc='~/.dotfiles/scripts/console'
