@@ -90,16 +90,33 @@ function gg() {
 
 # }}}
 # Hugo {{{
+function hugonp() {
+    str="$*"
+    # from https://onebite.dev/create-new-hugo-post-faster-with-bash/
+    # replace alphanumeric words with a dash, compress repeated dashes to a single
+    # dash, replace capital letters with lower case
+    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+    hugo new posts/$post
+    nvim content/posts/$post
+}
+
 function hp() {
-  hugo new posts/$(echo "$*" | sed 's/ /-/g').md
+    str="$*"
+    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+    hugo new posts/$post
+    nvim content/posts/$post
 }
 
 function hl() {
-  hugo new link/$(echo "$*" | sed 's/ /-/g').md
+    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+    hugo new links/$post
+    nvim content/links/$post
 }
 
 function hv() {
-  hugo new video/$(echo "$*" | sed 's/ /-/g').md
+    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+    hugo new videos/$post
+    nvim content/videos/$post
 }
 # }}}
 # Dash functions {{{
