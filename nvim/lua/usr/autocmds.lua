@@ -9,12 +9,17 @@ local acmd = vim.api.nvim_create_autocmd
 local _general = agrp("_general", { clear = true })
 acmd({ "FocusLost" },
       { pattern = "*",
-        command = ":wa",
+        command = ":wa set mouse=",
+        group = _general })
+
+acmd({ "FocusGained" },
+      { pattern = "*",
+        command = ":wa set mouse=",
         group = _general })
 
 acmd({ "FileType" },
       { pattern = "*",
-        command = "setlocal formatoptions-=ro noswapfile",
+        command = "set mouse+=a",
         group = _general })
 
 -- Colorscheme overridese
