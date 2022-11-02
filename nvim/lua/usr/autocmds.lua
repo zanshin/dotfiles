@@ -24,7 +24,7 @@ acmd({ "ColorScheme" },
         callback = function()
           vim.api.nvim_set_hl(0, "Comment", { fg = "Grey63" })
         end,
-        group = _gerneral })
+        group = _general })
 
 -- makefile autocmds
 local _makefile = agrp("_makefile", { clear = true  })
