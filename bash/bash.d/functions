@@ -90,18 +90,18 @@ function gg() {
 
 # }}}
 # Hugo {{{
-function drafts() {
+function hd() {
     grep -ril content/posts -e "^draft"
     grep -ril content/links -e "^draft"
     grep -ril content/videos -e "^draft"
 }
 
-function build() {
+function hb() {
     hugo --cleanDestinationDir
 }
 
-function deploy() {
-    rsync -azr --delete public/* pair:~/public_html/zanshin
+function hd() {
+    rsync -azrP --delete public/* pair:~/public_html/zanshin
 }
 
 function hugonp() {
