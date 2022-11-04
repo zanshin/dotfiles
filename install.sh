@@ -69,7 +69,7 @@ for pair in $tuples; do
   echo ""
 done
 
-xdg_tuples="git,Y tmux,Y nvim,Y"
+xdg_tuples="git,Y tmux,Y nvim,Y alacritty,Y"
 for pair in $xdg_tuples; do
   dir=${pair%,*};
   flag=${pair#*,};
