@@ -90,17 +90,20 @@ function gg() {
 
 # }}}
 # Hugo {{{
+# d is for draft
 function hd() {
     grep -ril content/posts -e "^draft"
     grep -ril content/links -e "^draft"
     grep -ril content/videos -e "^draft"
 }
 
+# b is for build
 function hb() {
     hugo --cleanDestinationDir
 }
 
-function hd() {
+# r is for rsync
+function hr() {
     rsync -azrP --delete public/* pair:~/public_html/zanshin
 }
 
@@ -114,6 +117,7 @@ function hugonp() {
     nvim content/posts/$post
 }
 
+# p is for post
 function hp() {
     str="$*"
     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
@@ -121,12 +125,14 @@ function hp() {
     nvim content/posts/$post
 }
 
+# l is for link
 function hl() {
     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
     hugo new links/$post
     nvim content/links/$post
 }
 
+# v is for video
 function hv() {
     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
     hugo new videos/$post
