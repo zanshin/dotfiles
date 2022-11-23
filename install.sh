@@ -98,6 +98,13 @@ done
 # fi
 # echo ""
 
+# Setup Starship prompt
+if ask "Setup Starship" Y; then
+  echo "Setting up Starship prompt"
+  ln -sf "$dotfiles_dir"/starship/starship.toml "$xdg_config_home/starship.toml"
+fi
+echo ""
+
 # Setup Bash
 if ask "Setup Bash" Y; then
   echo "Setting up bash startup files"
