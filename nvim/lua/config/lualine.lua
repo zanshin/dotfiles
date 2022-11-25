@@ -7,7 +7,8 @@ end
 lualine.setup {
   options = {
     icons_enabled = false,
-    theme = 'material',
+    -- theme = 'material',
+    theme = 'ayu',
   },
   sections = {
     lualine_a = {'mode'},
