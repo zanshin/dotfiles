@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 lsp_installer.setup({
-  ensure_installed = {"gopls", "bashls", "dockerls", "jsonls", "yamlls"},
+  ensure_installed = {"gopls", "bashls", "dockerls", "jsonls", "yamlls", "sumneko_lua"},
   automatic_installation = true,
   ui = {
     icons = {
