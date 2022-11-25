@@ -55,6 +55,7 @@ return packer.startup(function(use)
   -- Colorscheme
   use {
     'pacokwon/onedarkhc.vim',
+    'Shatur/neovim-ayu',
     -- event = 'VimEnter'
   }
 
