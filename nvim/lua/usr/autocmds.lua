@@ -69,12 +69,14 @@ acmd({ "FileType"  },
         command = "formatoptions+=aw spell spelllang=en_us noautoindent nolist nobackup noswapfile nowritebackup",
         group = _mutt  })
 
+-- RSS
 local _rss = agrp("_rss", { clear = true  })
 acmd({ "BufNewFile", "BufRead" },
       { pattern = "*.rss,*.atom",
         command = "setfiletype = xml",
         group = _rss })
 
+-- Git
 local _git = agrp("_git", { clear = true  })
 acmd({ "BufRead"},
       { pattern = "COMMIT_EDITMSG",
@@ -87,11 +89,11 @@ acmd({ "BufNewFile", "BufRead"  },
         group = _git })
 
 -- markdown autocmds
-local _markdown = agrp("_markdown", { clear = true  })
-acmd({ "BufNewFile", "BufRead" },
-      { pattern = "*.md,*.mkd,*.markdown",
-        command = "setfiletype = markdown",
-        group = _markdown })
+-- local _markdown = agrp("_markdown", { clear = true  })
+-- acmd({ "BufNewFile", "BufRead" },
+--       { pattern = "*.md,*.mkd,*.markdown",
+--         command = "setfiletype = markdown",
+--         group = _markdown })
 
 acmd({ "FileType"  },
       { pattern = "markdown",
