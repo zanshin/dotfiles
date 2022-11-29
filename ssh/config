@@ -37,6 +37,10 @@ Host fugazi
     HostName fugazi.est.ksu.edu
     User mhn
 
+Host fazi.local
+    HostName 192.168.5.140
+    User mhn
+
 # AWS Linux Admin Workstation
 # ssh -i ~/.ssh/admin-mhn-linux-key.pem mhn@10.251.129.148
 Host admin
