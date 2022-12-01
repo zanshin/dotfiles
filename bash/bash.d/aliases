@@ -66,6 +66,7 @@ alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 alias roll2="cd ~/code/chef/zome/cookbooks/ome_wildfly_cluster/scripts/reboot"
 
 alias godev="cd ~/code/go/src/github.com/zanshin"
+alias rsdev="cd ~/code/rust"
 alias dots="cd ~/.dotfiles"
 # }}}
 # Miscellaneous {{{
