@@ -8,17 +8,17 @@
 --   term_mode = "t"
 --   command_mode = "c"
 
-map("", "<Space>", "<Nop>")                   -- map Space to a no-op
-g.mapleader = ' '                             -- space for leader
-g.maplocalleader = ' '                        -- space for local leader too
-map('n', ';', ':')                            -- use ; for : in normal mode
-map('n', ';;', ';')                           -- use ;; for ; in normal mode
+map("", "<Space>", "<Nop>") -- map Space to a no-op
+g.mapleader = ' ' -- space for leader
+g.maplocalleader = ' ' -- space for local leader too
+map('n', ';', ':') -- use ; for : in normal mode
+map('n', ';;', ';') -- use ;; for ; in normal mode
 
 -- Disable arrow keys and make semi-snarky comment instead
-map('n', '<Left>',  ':echo "Use h"<CR>')
+map('n', '<Left>', ':echo "Use h"<CR>')
 map('n', '<Right>', ':echo "Use l"<CR>')
-map('n', '<Up>',    ':echo "Use k"<CR>')
-map('n', '<Down>',  ':echo "Use j"<CR>')
+map('n', '<Up>', ':echo "Use k"<CR>')
+map('n', '<Down>', ':echo "Use j"<CR>')
 
 -- Use Control-hjkl to switch between splits
 map('n', '<C-h>', '<C-w>h')
@@ -57,13 +57,13 @@ map('n', '<F10>', ':set relativenumber! number! number?<CR>')
 -- map('v', '<M-k>', ':m \'>-2<CR>gv=gv')
 
 -- Buffers and tabs
-map('n', '<leader>be', ':enew<CR>')           -- create new empty buffer
-map('n', '<leader>bn', ':bnext<CR>')          -- move to next buffer
-map('n', '<leader>bp', ':bprevious<CR>')      -- move to previous buffer
-map('n', '<leader>bc', ':bp <BAR> bd $<CR>')  -- move to previous buffer, and close current
+map('n', '<leader>be', ':enew<CR>') -- create new empty buffer
+map('n', '<leader>bn', ':bnext<CR>') -- move to next buffer
+map('n', '<leader>bp', ':bprevious<CR>') -- move to previous buffer
+map('n', '<leader>bc', ':bp <BAR> bd $<CR>') -- move to previous buffer, and close current
 
-map('n', '<S-n>', ':bnext<CR>')               -- move to next buffer
-map('n', '<S-p>', ':bprevious<CR>')           -- move to previous buffer
+map('n', '<S-n>', ':bnext<CR>') -- move to next buffer
+map('n', '<S-p>', ':bprevious<CR>') -- move to previous buffer
 
 -- Neovim configuration file
 map('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>') -- open configuration file for editing
@@ -96,14 +96,15 @@ map('c', 'w!!', '!sudo tee % >/dev/null')
 map('n', '<leader>l', ':set list!<cr>')
 
 -- Splits
-map('n', '<leader>v', '<C-w>v<C-w>l')         -- open a vertical split and switch to it
-map('n', '<leader>h', '<C-w>s<C-w>j')         -- open a horizontal split and switch to it
+map('n', '<leader>v', '<C-w>v<C-w>l') -- open a vertical split and switch to it
+map('n', '<leader>h', '<C-w>s<C-w>j') -- open a horizontal split and switch to it
 
 -- System clipboard
 map('n', '<leader>y', '+y')
 
 -- nvim-tree
-map('n', '<C-n>', ':NvimTreeToggle<cr>')
+-- map('n', '<C-n>', ':NvimTreeToggle<cr>')
+map('n', '<C-n>', ':NvimTreeFindFileToggle<cr>')
 map('n', '<leader>r', ':NvimTreeRefresh')
 
 -- DAP mappings
