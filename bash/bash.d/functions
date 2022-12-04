@@ -127,6 +127,7 @@ function hp() {
 
 # l is for link
 function hl() {
+    str="$*"
     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
     hugo new links/$post
     nvim content/links/$post
@@ -134,6 +135,7 @@ function hl() {
 
 # v is for video
 function hv() {
+    str="$*"
     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
     hugo new videos/$post
     nvim content/videos/$post
