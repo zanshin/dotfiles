@@ -29,19 +29,22 @@ directories—modular rather than monolithic. Currently the configuration totals
 Lua code, excluding comments and white space.
 
 ### Directory Structure
-At the root of my Neovim directory is the `init.lua` file. This file has a list of requires that
-source the pieces of my configuration. These files are all named spaced under the `lua/usr`
-directory to prevent potential collisions with plugins.
+At the root of my Neovim directory is the `init.lua` file. This file has a single require, for the
+`zanshin` directory. This directory in turn has its own `init.lua`. This inner `init.lua` requires
+all the other files necessary to build my Neovim configuration.
+
+The files in the `zanshin` directory breakdown my configuration into logically grouped collections.
+They included:
 
     autocmds
     colors
     helpers
     mappings
     options
-    plugins
+    packer
 
 
-The configuration files for the plugins are all under the `lua/config` directory.
+The configuration files for the plugins are all under the `after/plugin` directory.
 
 ## Plug Ins
 These are the core plugins that I have installed.
