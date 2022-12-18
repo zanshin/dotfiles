@@ -96,7 +96,7 @@ acmd({ "BufNewFile", "BufRead" },
     group = _git })
 
 -- markdown autocmds
--- local _markdown = agrp("_markdown", { clear = true  })
+local _markdown = agrp("_markdown", { clear = true })
 -- acmd({ "BufNewFile", "BufRead" },
 --       { pattern = "*.md,*.mkd,*.markdown",
 --         command = "setfiletype = markdown",
@@ -168,7 +168,7 @@ acmd({ "BufWritePre" },
 local _help = agrp("_help", { clear = true })
 acmd({ "FileType" },
   { pattern = "help",
-    command = "wincmd j",
+    command = "wincmd L",
     group = _help })
 
 -- Whitespace removal autocmds
