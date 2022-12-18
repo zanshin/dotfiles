@@ -47,14 +47,17 @@ map('n', '<leader>/', ':nohlsearch<CR>')
 -- -- Relative number / absolue numbr toggle
 map('n', '<F10>', ':set relativenumber! number! number?<CR>')
 
--- Move line(s) up or down via Control-j and Control-k respectively
--- not sure why all of these aren't working
--- map('n', '<M-j>', ':m .+1<CR>==')
--- map('n', '<M-k>', ':m .-2<CR>==')
--- map('i', '<M-j>', ':m <ESC>:m .+1<CR>==gi')
--- map('i', '<M-k>', ':m <ESC>:m .-2<CR>==gi')
--- map('v', '<M-j>', ':m \'>+1<CR>gv=gv')
--- map('v', '<M-k>', ':m \'>-2<CR>gv=gv')
+-- Move line(s) up or down via J and K respectively
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- Scroll 1/2 a page and center
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
+-- Override n/N to show next/previous search result, but centered
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 -- Buffers and tabs
 map('n', '<leader>be', ':enew<CR>') -- create new empty buffer
