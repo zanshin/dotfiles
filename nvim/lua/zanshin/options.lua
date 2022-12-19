@@ -37,6 +37,10 @@ opt.wrap = true -- Disable line wrap
 opt.showmode = false -- Disable native mode indicator
 --opt.showtabline = 2                    -- always show tabline
 opt.pumheight = 10 -- pop up menu height
+-- Cool floating window popup menu for completion on command line
+opt.pumblend = 17
+opt.wildmode = "longest:full"
+opt.wildoptions = "pum"
 
 opt.list = true -- Show some invisible characters
 opt.listchars = { -- Strings to use when 'list' option set.
@@ -70,13 +74,23 @@ opt.backspace = { -- Make backspace behave in a sane manner
 opt.foldcolumn = "3" -- Room for fold markers
 opt.foldenable = true -- Enable folding
 opt.foldmethod = "marker" -- Standard 3 curly braces as markers
-opt.formatoptions = table.concat {
-  'c', -- Auto-wrap comments
-  'q', -- allow formatting of comments with `gq
-  'n', -- recognize number lists
-  'l', -- don't break long lines that were already there
-  --  '-t',                                -- don't autowrap text
-}
+-- opt.formatoptions = table.concat {
+--   'c', -- Auto-wrap comments
+--   'q', -- allow formatting of comments with `gq
+--   'n', -- recognize number lists
+--   'l', -- don't break long lines that were already there
+--   --  '-t',                                -- don't autowrap text
+-- }
+opt.formatoptions = opt.formatoptions
+    - "a" -- Auto formatting is BAD.
+    - "t" -- Don't auto format my code. I got linters for that.
+    + "c" -- In general, I like it when comments respect textwidth
+    + "q" -- Allow formatting comments w/ gq
+    - "o" -- O and o, don't continue comments
+    + "r" -- But do continue when pressing enter.
+    + "n" -- Indent past the formatlistpat, not underneath it.
+    + "j" -- Auto-remove comments if possible.
+    - "2" -- I'm not in gradeschool anymore
 
 opt.cpoptions = table.concat {
   '$', -- set $ at end of change range
