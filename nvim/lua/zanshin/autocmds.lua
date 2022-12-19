@@ -40,6 +40,7 @@ acmd({ "ColorScheme" },
   { pattern = "*",
     callback = function()
       vim.api.nvim_set_hl(0, "Comment", { fg = "Grey63" })
+      vim.api.nvim_set_hl(0, "LineNr", { fg = "White" })
     end,
     group = _general })
 
