@@ -34,15 +34,6 @@ acmd({ "BufWritePre" },
     end,
     group = _general })
 
--- Colorscheme overridese
--- call s:h("Comment", { "fg": s:comment_grey, "gui": "italic", "cterm": "italic" }) " any comment
-acmd({ "ColorScheme" },
-  { pattern = "*",
-    callback = function()
-      vim.api.nvim_set_hl(0, "Comment", { fg = "Grey63" })
-    end,
-    group = _general })
-
 -- makefile autocmds
 local _makefile = agrp("_makefile", { clear = true })
 acmd({ "FileType" },
@@ -96,11 +87,11 @@ acmd({ "BufNewFile", "BufRead" },
     group = _git })
 
 -- markdown autocmds
--- local _markdown = agrp("_markdown", { clear = true  })
+local _markdown = agrp("_markdown", { clear = true })
 -- acmd({ "BufNewFile", "BufRead" },
---       { pattern = "*.md,*.mkd,*.markdown",
---         command = "setfiletype = markdown",
---         group = _markdown })
+--   { pattern = "*.md,*.mkd,*.markdown",
+--     command = "setfiletype = markdown",
+--     group = _markdown })
 
 acmd({ "FileType" },
   { pattern = "markdown",
@@ -168,7 +159,7 @@ acmd({ "BufWritePre" },
 local _help = agrp("_help", { clear = true })
 acmd({ "FileType" },
   { pattern = "help",
-    command = "wincmd j",
+    command = "wincmd L",
     group = _help })
 
 -- Whitespace removal autocmds
