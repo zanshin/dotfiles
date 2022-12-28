@@ -53,7 +53,7 @@
  function ktag() {
    export esc=$(printf '\033')
    export ret=$(printf '\013')
-   knife search "tags:*${@}*" | egrep 'Node|Tag'  | sed -e s/,//g | sed -e "s/Node Name:/${ret}${esc}[31mName${esc}[0m:/" -e "s/Tags/${esc}[31mTags${esc}[0m/"
+   knife search "tags:*${@}*" | grep -e 'Node|Tag'  | sed -e s/,//g | sed -e "s/Node Name:/${ret}${esc}[31mName${esc}[0m:/" -e "s/Tags/${esc}[31mTags${esc}[0m/"
  }
 
  function kshow() {
@@ -304,9 +304,9 @@ function nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2="";1') 
 function myip() {
   curl -s https://api.ipify.org | awk '{print "public ip: " $1}'
   if [[ `uname -a | grep -i darwin` ]]; then
-    netstat -i -n | egrep "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v lo | awk '{print $1 "      : " $4}'
+    netstat -i -n | grep -e "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v lo | awk '{print $1 "      : " $4}'
   else
-      for i in `netstat -i | egrep -v "^(Iface|lo|Ker)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print "   : " $2}' ; done
+      for i in `netstat -i | grep -ev "^(Iface|lo|Ker)" | awk '{print $1}'` ; do echo -ne $i ; ip -4 addr show $i | grep inet | awk '{print "   : " $2}' ; done
   fi
 }
 

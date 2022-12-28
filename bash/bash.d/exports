@@ -32,7 +32,7 @@ export GOPRIVATE="github.com/zanshin"
 
 # Set CC for Raspberry Pi & Go
 if [[ -e /proc ]]; then
-  if [[ $(egrep Raspberry /proc/cpuinfo) ]]; then
+  if [[ $(grep -e Raspberry /proc/cpuinfo) ]]; then
     export CC=/usr/bin/arm-linux-gnueabi-gcc
   fi
 fi

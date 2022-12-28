@@ -38,7 +38,7 @@ alias "resetdns=sudo killall -HUP mDNSResponder"
 alias l="ls -lahF ${colorflag}"
 alias ll="ls -lhF ${colorflag}"
 alias lsd='ls -ld */'
-alias lh='ls -a | egrep "^\."'
+alias lh='ls -a | grep -e "^\."'
 alias ls="ls ${colorflag}"
 alias l.="ls -ld .?*"
 
@@ -92,7 +92,7 @@ alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.tim
 alias 't=todo.sh'
 
 # has: grep files looking for search string
-alias 'has=egrep -riH -m1 "$@" | cut -d: -f1'
+alias 'has=grep -eriH -m1 "$@" | cut -d: -f1'
 
 # }}}
 # Mercurial (hg) {{{
