@@ -59,7 +59,9 @@ local servers = {
   'dockerls',
   'gopls',
   'jsonls',
+  'pyright',
   'rust_analyzer',
+  'solargraph',
   'sumneko_lua',
   'yamlls',
 }
@@ -99,7 +101,7 @@ for _, lsp in pairs(servers) do
   }
 end
 
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true
   },

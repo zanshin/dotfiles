@@ -1,10 +1,20 @@
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
-	return
+  return
 end
 
 lsp_installer.setup({
-  ensure_installed = {"gopls", "bashls", "dockerls", "jsonls", "yamlls", "sumneko_lua"},
+  ensure_installed = {
+    "bashls",
+    "dockerls",
+    "gopls",
+    "jsonls",
+    "pyright",
+    "rust-analyzer",
+    "solargraph",
+    "sumneko_lua",
+    "yamlls",
+  },
   automatic_installation = true,
   ui = {
     icons = {
@@ -90,4 +100,3 @@ end
 -- 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- 	server:setup(opts)
 -- end)
-
