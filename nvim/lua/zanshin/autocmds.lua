@@ -34,6 +34,13 @@ acmd({ "BufWritePre" },
     end,
     group = _general })
 
+-- gopass security
+local _gopass = agrp("_gopass", { clear = true })
+acmd({ "BufNewFile", "BufRead" },
+  { pattern = "/private/**/gopass**",
+    command = 'setlocal noswapfile nobackup noundofile shada=""',
+    group = _gopass })
+
 -- makefile autocmds
 local _makefile = agrp("_makefile", { clear = true })
 acmd({ "FileType" },
