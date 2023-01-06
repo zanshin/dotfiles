@@ -50,6 +50,22 @@ local on_attach = function()
   -- elseif client.resolved_capabilities.document_range_formatting then
   --   buf_set_keymap("n", "<sapce>f", "<cmd>lua vim.lsp.buf.formatting(0<CR>", opts)
   -- end
+
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = 0,
+    callback = function()
+      local lopts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, lopts)
+    end
+  })
+
 end
 
 -- Use a loop to call 'setup' on multiple servers and
