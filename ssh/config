@@ -37,7 +37,7 @@ Host fugazi
     HostName fugazi.est.ksu.edu
     User mhn
 
-Host fazi.local
+Host fagazi.local
     HostName 192.168.5.140
     User mhn
 
