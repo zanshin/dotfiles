@@ -101,6 +101,9 @@ opt.showmatch = true -- show matching brackets [{()}]
 opt.timeoutlen = 500 -- Time in milliseconds to wait for a mapped sequence to complete
 opt.ttimeoutlen = 50 -- Key code time out
 
+-- Diagnostics - reduce updatetime for CursorHold
+opt.updatetime = 250
+
 -- Messages
 opt.shortmess:append {
   I = true, -- No splash screen

@@ -34,6 +34,16 @@ acmd({ "BufWritePre" },
     end,
     group = _general })
 
+-- For diagnostics for specific cursor position
+-- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
+acmd({ "CursorHold,CursorHoldI" },
+  { pattern = "*",
+    callback = function()
+      -- vim.diagnostic.open_float(nil, {focus=false})
+      vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+    end,
+    group = _general })
+
 -- gopass security
 local _gopass = agrp("_gopass", { clear = true })
 acmd({ "BufNewFile", "BufRead" },
