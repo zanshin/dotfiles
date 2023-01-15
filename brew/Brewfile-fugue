@@ -1,0 +1,42 @@
+###
+# Fugue brewfile
+# ###
+
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+
+# Formulae
+brew "bash"
+brew "fd"
+brew "fzf"
+brew "gcc"
+brew "git"
+brew "glances"
+brew "gnutls"
+brew "ipcalc"
+brew "iproute2mac"
+brew "jq"
+brew "mosh"
+brew "mtr"
+brew "neovim", args: ["HEAD"]
+brew "nmap"
+brew "node"
+brew "openconnect"
+brew "ripgrep"
+brew "rust-analyzer"
+brew "shellcheck"
+brew "speedtest-cli"
+brew "starship"
+brew "tcptraceroute"
+brew "tmux"
+brew "tree"
+brew "watch"
+brew "wget"
+
+# Casks
+brew "wireshark"
+cask "aerial"
+cask "font-jetbrains-mono-nerd-font"
