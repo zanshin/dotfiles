@@ -12,8 +12,8 @@
 # [commit]
 # 	gpgsign = true
 
-[gpg]
-	format = ssh
+# [gpg]
+# 	format = ssh
 
 [color]
   ui = auto
