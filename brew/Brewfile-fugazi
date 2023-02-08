@@ -1,8 +1,4 @@
-###
-# Fugazi brewfile
-# ###
-
-# Default taps
+# Tap some casks
 tap "filosottile/musl-cross"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -12,7 +8,7 @@ tap "homebrew/services"
 tap "jeffreywildman/virt-manager"
 tap "neovim/neovim"
 
-# Formulae installed
+# Brews
 brew "gdbm"
 brew "gettext"
 brew "pkg-config"
@@ -25,15 +21,24 @@ brew "automake"
 brew "awslogs"
 brew "bash"
 brew "gmp"
+brew "cask"
 brew "comby"
 brew "doxygen"
+brew "folly"
+brew "edencommon"
+brew "fizz"
+brew "wangle"
+brew "fbthrift"
+brew "fb303"
 brew "fd"
+brew "ffmpeg"
 brew "fzf"
 brew "git"
 brew "glances"
 brew "gnu-sed"
 brew "golang-migrate"
-brew "handbrake"
+# brew "handbrake"
+brew "httpie"
 brew "ipcalc"
 brew "iproute2mac"
 brew "jemalloc"
@@ -43,19 +48,22 @@ brew "libtermkey"
 brew "libvirt"
 brew "libvterm"
 brew "libxml2"
+brew "llvm"
 brew "luajit"
+brew "mas"
 brew "mosh"
 brew "msgpack"
 brew "mtr"
 brew "neovim", args: ["HEAD"]
 brew "nmap"
-brew "openconnect"
+brew "node", link: false
+# brew "openconnect"
 brew "perl"
 brew "pipenv"
 brew "postgresql@14"
 brew "qemu"
 brew "reattach-to-user-namespace"
-brew "redis", restart_service: true
+# brew "redis", restart_service: true
 brew "ripgrep"
 brew "ruby"
 brew "shellcheck"
@@ -66,21 +74,45 @@ brew "tmux"
 brew "todo-txt"
 brew "tree"
 brew "vala"
-brew "vim"
+# brew "vim"
 brew "vte3"
 brew "watch"
 brew "watchman"
 brew "wget"
 brew "yarn"
 brew "youtube-dl"
-brew "zsh"
+# brew "zsh"
 brew "filosottile/musl-cross/musl-cross"
 
-# Casks for Mac applications
-cask "abyssoft-teleport"
+# Casks
+# cask "abyssoft-teleport"
 cask "aerial"
+cask "chromium"
 cask "docker"
 cask "font-jetbrains-mono-nerd-font"
 cask "raycast"
-cask "syncthing"
+# cask "syncthing"
 cask "wireshark"
+
+# Mac App Store
+mas "Bear", id: 1091189122
+# mas "Canary Mail", id: 1236045954
+mas "GarageBand", id: 682658836
+mas "Ghostery Lite", id: 1436953057
+mas "Hush", id: 1544743900
+mas "iMovie", id: 408981434
+mas "iPulse", id: 1028916583
+# mas "iStat Mini", id: 927292435
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+# mas "LifeSpan Active +", id: 804738629
+mas "Marked", id: 448925439
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+# mas "Spark", id: 1176895641
+# mas "Textual IRC Client", id: 896450579
+# mas "Tot", id: 1491071483
+# mas "Twitterrific", id: 1289378661
+mas "Xcode", id: 497799835
