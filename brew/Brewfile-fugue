@@ -1,14 +1,10 @@
-###
-# Fugue brewfile
-# ###
-
-# Taps
+# Tap some casks
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 
-# Formulae
+# Formula
 brew "bash"
 brew "fd"
 brew "fzf"
@@ -19,6 +15,7 @@ brew "gnutls"
 brew "ipcalc"
 brew "iproute2mac"
 brew "jq"
+brew "mas"
 brew "mosh"
 brew "mtr"
 brew "neovim", args: ["HEAD"]
@@ -35,8 +32,8 @@ brew "tmux"
 brew "tree"
 brew "watch"
 brew "wget"
-
-# Casks
 brew "wireshark"
+
+# Cask installs
 cask "aerial"
 cask "font-jetbrains-mono-nerd-font"
