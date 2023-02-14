@@ -78,7 +78,8 @@ local servers = {
   'pyright',
   'rust_analyzer',
   'solargraph',
-  'sumneko_lua',
+  -- 'sumneko_lua',
+  'lua_ls',
   'yamlls',
 }
 
