@@ -773,6 +773,16 @@ newscript() {
 # }}}
 # AWS helpers {{{
 
+# awss: switch profile, login, and change EKS context
+awss() {
+  awsp "$1"
+  aws login
+  CONTEXT=$(echo $1 | sed -e "s/\b\(.\)/\u\1/g")
+  aws eks --region us-east-1 update-kubeconfig --name "EKS-$CONTEXT" 2>/dev/null
+  echo ""
+  awswho
+}
+
 # awscli profile function
 awsp() {
   export AWS_PROFILE="$@"
