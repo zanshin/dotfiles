@@ -112,6 +112,10 @@ Host ts-minion
     HostName 100.69.115.17
     user mark
 
+Host ts-wasabi
+    HostName 100.79.198.88
+    user mhn
+
 # Access GitHub even when port 22 isn't available
 Host github.com
     HostName ssh.github.com
