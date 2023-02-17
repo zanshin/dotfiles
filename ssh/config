@@ -32,13 +32,13 @@ Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.
    IdentityFile ~/.ssh/baseline-shared.pem
 
 
-# Work iMac
-Host fugazi
-    HostName fugazi.est.ksu.edu
-    User mhn
+# Work MacBook Pro
+# Host wasabi
+#     HostName fugazi.est.ksu.edu
+#     User mhn
 
-Host fagazi.local
-    HostName 192.168.5.140
+Host wasabi.local
+    HostName 192.168.6.16
     User mhn
 
 # AWS Linux Admin Workstation
@@ -57,6 +57,7 @@ Host jump
     HostName est-jump-p-linux-01.campus.ksu.edu
     user mhn
 
+# Personal
 # Ubuntu on NUC
 Host fermata
 #    HostName 68.102.23.189
@@ -94,6 +95,22 @@ Host minion
     HostName 192.168.5.67
     User mark
 
+# Tailscale
+Host ts-danube
+    HostName 100.118.61.43
+    user mark
+
+Host ts-fermata
+    HostName 100.65.218.87
+    user mark
+
+Host ts-argon
+    HostName 100.90.130.85
+    user mark
+
+Host ts-minion
+    HostName 100.69.115.17
+    user mark
 
 # Access GitHub even when port 22 isn't available
 Host github.com
