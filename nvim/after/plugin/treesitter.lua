@@ -17,6 +17,7 @@ ts.setup {
     "lua",
     "markdown",
     "rust",
+    "toml",
     "typescript"
   },
   sync_install = false,
