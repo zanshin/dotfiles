@@ -24,8 +24,8 @@ rt.setup({
   -- local opts = {
   tools = {
     inlay_hints = {
-      highlight = "Comment"
-      -- highlight = "Todo"
+      -- highlight = "Comment"
+      highlight = "Todo"
     },
   },
   -- },
