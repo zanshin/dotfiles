@@ -25,7 +25,8 @@ rt.setup({
   tools = {
     inlay_hints = {
       -- highlight = "Comment"
-      highlight = "Todo"
+      -- highlight = "Todo"
+      highlight = "TabLine"
     },
   },
   -- },
