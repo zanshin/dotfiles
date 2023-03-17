@@ -42,6 +42,11 @@ return packer.startup(function(use)
   --  Use Packer to manage itself
   use { 'wbthomason/packer.nvim' }
 
+  -- Mason
+  -- use { 'williamboman/mason.nvim' }
+  -- use { 'williamboman/mason-lspconfig.nvim' }
+
+
   -- Colorscheme
   use { 'Shatur/neovim-ayu' }
 
@@ -94,16 +99,16 @@ return packer.startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } }
   }
-  use { 'hrsh7th/cmp-buffer' } -- buffer completions
-  use { 'hrsh7th/cmp-path' } -- path completions
-  use { 'hrsh7th/cmp-cmdline' } -- command line completions
+  use { 'hrsh7th/cmp-buffer' }   -- buffer completions
+  use { 'hrsh7th/cmp-path' }     -- path completions
+  use { 'hrsh7th/cmp-cmdline' }  -- command line completions
   use { 'hrsh7th/cmp-nvim-lua' } -- lua completions
   use { 'hrsh7th/cmp-nvim-lsp' } -- lsp completions
 
   use { 'onsails/lspkind-nvim' } -- vscode-like pictograms
 
   -- snippets
-  use { 'L3MON4D3/LuaSnip' } --snippet engine
+  use { 'L3MON4D3/LuaSnip' }             --snippet engine
   use { 'saadparwaiz1/cmp_luasnip' }
   use { 'rafamadriz/friendly-snippets' } -- a bunch of snippets to use
 
