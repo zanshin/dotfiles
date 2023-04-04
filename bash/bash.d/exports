@@ -56,7 +56,8 @@ export CARGO_HOME="${HOME}/.cargo/bin/bin"
 export RUSTUP_HOME="${HOME}/.rustup"
 
 # OpenJDK
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-15.0.1.jdk/Contents/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-15.0.1.jdk/Contents/Home"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/19.0.2"
 
 # Export DOCKER_CONFIG to move .docker to ~/.config/docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
