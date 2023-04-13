@@ -129,6 +129,9 @@ return packer.startup(function(use)
   use { 'theHamsta/nvim-dap-virtual-text' }
   use { 'nvim-telescope/telescope-dap.nvim' }
 
+  -- Symbols
+  use { 'simrat39/symbols-outline.nvim' }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
