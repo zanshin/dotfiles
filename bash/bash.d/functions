@@ -679,8 +679,25 @@ function mycerts () {
 # }}}
 # while loop for init 6 {{{
 function pounce() {
-  while true; do nc -vvv -w 1  "$1" 22; sleep 30; done
+  while true; do nc -vvv -w 1  "$1" 22 2> /dev/null; sleep 30; done
 }
+
+function ssh_to_host {
+  HOSTNAME=$1
+  SSH_READY=false
+
+  while [ "$SSH_READY" == false ]; do
+    nc -vz "$HOSTNAME" 22 > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+      SSH_READY=true
+      ssh "$HOSTNAME"
+    else
+      echo "SSH not yet ready on $HOSTNAME. Trying again in 5 seconds..."
+      sleep 5
+    fi
+  done
+}
+
 # }}}
 # explain.sh {{{
 explain () {
