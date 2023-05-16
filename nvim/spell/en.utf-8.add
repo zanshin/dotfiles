@@ -37,6 +37,7 @@ Dillons
 Dressman
 EC2
 EIS
+EKS
 ExpanSIS
 F5
 FIPS
@@ -50,6 +51,7 @@ Grafana
 Grimwood
 GuardDuty
 Guardicore
+HCO
 Homebrew
 IAM
 IDM
@@ -60,6 +62,7 @@ IPTABLES
 JSON
 Japsh
 Jira
+KEAS
 KSIS
 KSU
 Kamala
@@ -74,6 +77,7 @@ LastPass
 Linode
 M1
 M2
+MBP
 MRP
 MTAs
 MUAs
@@ -91,9 +95,11 @@ Nagios
 NameCheap
 Neomutt
 Neovim
+Netdisco
 Nextcloud
 O365
 OMEP
+Octopress
 OneIT
 OpenJDK
 OpenLDAP
@@ -121,6 +127,7 @@ SSO
 SaaS
 Scantron
 Schlaf
+Sibylle
 Sibylle's
 SoftwareAG
 SpamSieve
@@ -152,6 +159,7 @@ Wildfly
 X11
 XDR
 ZStack
+Zabbix
 Zabel
 Zanshin
 andifyoudidknow
@@ -165,10 +173,14 @@ cheatsheet
 chmod
 config
 dbConfigurator
+dev
+dev
 diatonically
+dipshits
 dotfiles
 eProfile
 elasticsearch
+flowlogs
 forScore
 fsck
 fugazi
@@ -177,6 +189,7 @@ hostname
 htaccess
 iCloud
 iFixIt
+iMac
 iMacs
 iPaaS
 iPadPro
@@ -209,6 +222,7 @@ p12
 pannus
 pci
 perl
+prodvmc
 rc
 refactorings
 sarabande
@@ -230,7 +244,9 @@ txt
 uAchieve
 undeploy
 urlview
+vBlock
 vRNI
+vSphere
 w3m
 webMethods
 webapps
@@ -241,19 +257,3 @@ wildfly
 wireshark
 www
 zanshin
-Octopress
-dipshits
-KEAS
-EKS
-flowlogs
-Netdisco
-HCO
-dev
-dev
-Zabbix
-MBP
-iMac
-prodvnc
-prodvmc
-vBlock
-vSphere
