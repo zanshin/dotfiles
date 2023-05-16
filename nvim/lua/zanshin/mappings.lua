@@ -34,7 +34,7 @@ map('n', 'L', 'g_')
 -- map('n', '/', '/\v')
 -- map('v', '/', '/\v')
 
--- Map escape to jj -- faster to typ
+-- Map escape to jj -- faster to type
 --Also, jk and kj. The more the merrier
 map('i', 'jj', '<ESC>')
 map('i', 'jk', '<ESC>')
@@ -127,7 +127,9 @@ map('n', '<leader>v', '<C-w>v<C-w>l') -- open a vertical split and switch to it
 map('n', '<leader>h', '<C-w>s<C-w>j') -- open a horizontal split and switch to it
 
 -- System clipboard
-map('n', '<leader>y', '+y')
+map('n', '<leader>y', '"+y')
+map('n', '<leader>p', '"+p')
+map('n', '<leader>d', '"+d')
 
 -- nvim-tree
 -- map('n', '<C-n>', ':NvimTreeToggle<cr>')
