@@ -9,10 +9,10 @@
 --   command_mode = "c"
 
 map("", "<Space>", "<Nop>") -- map Space to a no-op
-g.mapleader = ' ' -- space for leader
-g.maplocalleader = ' ' -- space for local leader too
-map('n', ';', ':') -- use ; for : in normal mode
-map('n', ';;', ';') -- use ;; for ; in normal mode
+g.mapleader = ' '           -- space for leader
+g.maplocalleader = ' '      -- space for local leader too
+map('n', ';', ':')          -- use ; for : in normal mode
+map('n', ';;', ';')         -- use ;; for ; in normal mode
 
 -- Disable arrow keys and make semi-snarky comment instead
 map('n', '<Left>', ':echo "Use h"<CR>')
@@ -46,6 +46,8 @@ map('n', '<leader>/', ':nohlsearch<CR>')
 --
 -- -- Relative number / absolue numbr toggle
 map('n', '<F10>', ':set relativenumber! number! number?<CR>')
+map('n', 'nn', ':set norelativenumber<cr>')
+map('n', 'rr', ':set relativenumber<cr>')
 
 -- Move line(s) up or down via J and K respectively
 map('v', 'J', ":m '>+1<CR>gv=gv")
@@ -60,13 +62,13 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 -- Buffers and tabs
-map('n', '<leader>be', ':enew<CR>') -- create new empty buffer
-map('n', '<leader>bn', ':bnext<CR>') -- move to next buffer
-map('n', '<leader>bp', ':bprevious<CR>') -- move to previous buffer
+map('n', '<leader>be', ':enew<CR>')          -- create new empty buffer
+map('n', '<leader>bn', ':bnext<CR>')         -- move to next buffer
+map('n', '<leader>bp', ':bprevious<CR>')     -- move to previous buffer
 map('n', '<leader>bc', ':bp <BAR> bd $<CR>') -- move to previous buffer, and close current
 
-map('n', '<S-n>', ':bnext<CR>') -- move to next buffer
-map('n', '<S-p>', ':bprevious<CR>') -- move to previous buffer
+map('n', '<S-n>', ':bnext<CR>')              -- move to next buffer
+map('n', '<S-p>', ':bprevious<CR>')          -- move to previous buffer
 
 -- Neovim configuration file
 map('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>') -- open configuration file for editing
