@@ -133,6 +133,9 @@ map('n', '<leader>y', '"+y')
 map('n', '<leader>p', '"+p')
 map('n', '<leader>d', '"+d')
 
+-- Use jq to format JSON
+map('n', 'jq', ':%!jq .<cr>')
+
 -- nvim-tree
 -- map('n', '<C-n>', ':NvimTreeToggle<cr>')
 map('n', '<C-n>', ':NvimTreeFindFileToggle<cr>')
