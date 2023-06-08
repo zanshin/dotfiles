@@ -10,7 +10,7 @@ ts.setup {
     "bash",
     "css",
     "go",
-    "help",
+    -- "help",
     "html",
     "javascript",
     "json",
