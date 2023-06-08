@@ -5,7 +5,7 @@ end
 
 -- Fold in completion capabilities
 -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Options for keymaps. buffer = 0 means current buffer only
 local opts = { buffer = 0, noremap = true, silent = true }
