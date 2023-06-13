@@ -257,3 +257,6 @@ wildfly
 wireshark
 www
 zanshin
+buildspec
+Thingsboard
+statefulset
