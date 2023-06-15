@@ -1,0 +1,110 @@
+# Brewfile from Danube 6/12/2023
+# Taps
+tap "hashicorp/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "michaeleisel/zld"
+tap "sidneys/homebrew"
+tap "wez/wezterm"
+brew "act"
+
+# Brews
+brew "gettext"
+brew "aria2"
+brew "autoconf"
+brew "automake"
+brew "bash"
+brew "bash-completion"
+brew "cabextract"
+brew "glib"
+brew "libffi"
+brew "pkg-config"
+brew "pixman"
+brew "cdrtools"
+brew "cloc"
+brew "fd"
+brew "unbound"
+brew "harfbuzz"
+brew "ffmpeg"
+brew "fprobe"
+brew "fzf"
+brew "gh"
+brew "git"
+brew "glances"
+brew "glow"
+brew "pinentry"
+brew "gocloc"
+brew "gopass"
+brew "httpie"
+brew "hugo"
+brew "imagemagick"
+brew "openjdk"
+brew "jdtls"
+brew "jq"
+brew "libpq", link: true
+brew "lua-language-server"
+brew "luajit"
+brew "mas"
+brew "mosh", args: ["HEAD"]
+brew "mtr"
+brew "mysql", restart_service: true
+brew "ncdu"
+brew "neovim", args: ["HEAD"]
+brew "nghttp2"
+brew "ninja"
+brew "node"
+brew "tree"
+brew "pass"
+brew "pidof"
+brew "postgresql@15"
+brew "qemu"
+brew "ripgrep"
+brew "rust-analyzer"
+brew "shellcheck"
+brew "speedtest-cli"
+brew "starship"
+brew "tcptraceroute"
+brew "telnet"
+brew "tmux"
+brew "todo-txt"
+brew "watch"
+brew "wget"
+brew "wimlib"
+brew "wtfutil"
+brew "youtube-dl"
+brew "zellij"
+brew "michaeleisel/zld/zld"
+brew "sidneys/homebrew/chntpw"
+
+# Apps from casks
+cask "abyssoft-teleport"
+cask "font-hack-nerd-font"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+cask "keybase"
+cask "vagrant"
+# cask "vscodium"
+# cask "wezterm"
+# cask "zettlr"
+
+# Apps from Mac App Store (mas)
+mas "1Password for Safari", id: 1569813296
+mas "Bear", id: 1091189122
+mas "Bitwarden", id: 1352778147
+mas "Canary Mail", id: 1236045954
+mas "DuckDuckGo Privacy for Safari", id: 1482920575
+mas "GarageBand", id: 682658836
+mas "Hush", id: 1544743900
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "Mastonaut", id: 1450757574
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+mas "Tailscale", id: 1475387142
+mas "TestFlight", id: 899247664
+mas "Whalebird", id: 1378283354
