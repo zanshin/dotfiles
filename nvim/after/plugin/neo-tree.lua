@@ -221,7 +221,20 @@ neotree.setup({
     }
   },
   sources = {
-    "filesystem",         -- Neotree filesystem source
+    "filesystem",
+    "buffers",
+    "git_status",
+    -- "document_symbols",
     "netman.ui.neo-tree", -- Use Netman for remote file access
-  }
+  },
+  source_selector = {
+    winbar = true,
+    statusline = false,
+    sources = {
+      { source = "filesystem" },
+      -- { source = "buffers" },
+      -- { source = "git_status" },
+      { source = "remote" },
+    },
+  },
 })
