@@ -136,10 +136,15 @@ map('n', '<leader>d', '"+d')
 -- Use jq to format JSON
 map('n', 'jq', ':%!jq .<cr>')
 
+-- File System access
 -- nvim-tree
 -- map('n', '<C-n>', ':NvimTreeToggle<cr>')
-map('n', '<C-n>', ':NvimTreeFindFileToggle<cr>')
-map('n', '<leader>r', ':NvimTreeRefresh')
+-- map('n', '<C-n>', ':NvimTreeFindFileToggle<cr>')
+-- map('n', '<leader>r', ':NvimTreeRefresh')
+
+-- neo-tree
+-- map('n', '\\', ':Neotree reveal<cr>')
+map('n', '<C-n>', ':Neotree toggle<cr>')
 
 -- DAP mappings -- moved to plugin configs
 -- map("n", "<leader>dt", ":lua require'dapui'.DapUiToggle<cr>")
