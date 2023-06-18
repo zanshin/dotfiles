@@ -219,5 +219,9 @@ neotree.setup({
         ["gg"] = "git_commit_and_push",
       }
     }
+  },
+  sources = {
+    "filesystem",         -- Neotree filesystem source
+    "netman.ui.neo-tree", -- Use Netman for remote file access
   }
 })

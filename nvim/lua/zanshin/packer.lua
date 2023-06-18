@@ -128,11 +128,15 @@ return packer.startup(function(use)
     branch = "v2.x",
     requires = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",   -- not strictly required, but recommended
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
   }
 
+  -- netman.nvim - remote file system access
+  use { 'miversen33/netman.nvim' }
+
+  -- terminal
   use { 'akinsho/toggleterm.nvim' }
 
   -- debugging
