@@ -96,10 +96,6 @@ Host minion
     User mark
 
 # Tailscale
-Host ts-danube
-    HostName 100.118.61.43
-    user mark
-
 Host ts-fermata
     HostName 100.65.218.87
     user mark
