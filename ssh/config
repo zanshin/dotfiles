@@ -113,7 +113,7 @@ Host ts-wasabi
     user mhn
 
 Host ts-gnomon
-    HostName 100.106.117.95
+    HostName 100.101.18.109
     user mark
 
 # Access GitHub even when port 22 isn't available
