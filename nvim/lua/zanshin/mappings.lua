@@ -155,3 +155,9 @@ map('n', '<C-n>', ':Neotree toggle<cr>')
 -- map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>")
 -- -- map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
 -- map("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>")
+
+-- Floating Terminal
+map('n', "<leader>ft", ":FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 bash <CR> ")
+map('n', "t", ":FloatermToggle myfloat<CR>")
+-- map('t', "<Esc>", "<C-\\><C-n>:q<CR>")
+map('t', "<Esc>", "exit<CR><C-c>")

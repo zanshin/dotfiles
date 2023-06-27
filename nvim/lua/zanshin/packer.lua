@@ -42,10 +42,6 @@ return packer.startup(function(use)
   --  Use Packer to manage itself
   use { 'wbthomason/packer.nvim' }
 
-  -- Mason
-  -- use { 'williamboman/mason.nvim' }
-  -- use { 'williamboman/mason-lspconfig.nvim' }
-
 
   -- Colorscheme
   use { 'Shatur/neovim-ayu' }
@@ -76,8 +72,12 @@ return packer.startup(function(use)
   use { 'folke/which-key.nvim' }
 
   -- Language Server Protocol (LSP)
-  use { 'williamboman/nvim-lsp-installer' }
+  -- use { 'williamboman/nvim-lsp-installer' }
   use { 'neovim/nvim-lspconfig' }
+
+  -- Mason
+  use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
 
   use { 'simrat39/rust-tools.nvim' }
 
@@ -142,6 +142,7 @@ return packer.startup(function(use)
 
   -- terminal
   use { 'akinsho/toggleterm.nvim' }
+  use { 'voldikss/vim-floaterm' }
 
   -- debugging
   use { 'mfussenegger/nvim-dap' }
