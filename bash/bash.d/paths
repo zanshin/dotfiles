@@ -13,10 +13,11 @@
 # Reset Path Helper
 # test kernel to prevent reset on Linux
 # -------------------------------------------------------------------
-if [[ "myos" == "Darwin" ]]; then
+# if [[ "$myos" == "Darwin" ]]; then
+if [[ $(uname -s) == "Darwin" ]]; then
   PATH=""
   if [ -x /usr/libexec/path_helper ]; then
-    eval `/usr/libexec/path_helper -s`
+    eval "$(/usr/libexec/path_helper -s)"
   fi
 fi
 
@@ -25,11 +26,11 @@ fi
 # -------------------------------------------------------------------
 
 # set PATH so it includes user's private bin directories, if they exist
-if [ -d ${HOME}/bin ] ; then PATH="${PATH}:${HOME}/bin" ; fi
-if [ -d ${HOME}/bin/bash ] ; then PATH="${PATH}:${HOME}/bin/bash" ; fi
-if [ -d ${HOME}/bin/ruby ] ; then PATH="${PATH}:${HOME}/bin/ruby" ; fi
-if [ -d ${HOME}/bin/python ] ; then PATH="${PATH}:${HOME}/bin/python" ; fi
-if [ -d ${HOME}/bin/perl ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
+if [ -d "${HOME}/bin" ] ; then PATH="${PATH}:${HOME}/bin" ; fi
+if [ -d "${HOME}/bin/bash" ] ; then PATH="${PATH}:${HOME}/bin/bash" ; fi
+if [ -d "${HOME}/bin/ruby" ] ; then PATH="${PATH}:${HOME}/bin/ruby" ; fi
+if [ -d "${HOME}/bin/python" ] ; then PATH="${PATH}:${HOME}/bin/python" ; fi
+if [ -d "${HOME}/bin/perl" ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
 
 # Set PATH so it includes /opt/homebrew/bin if it exists
 if [ -d /opt/homebrew/bin ] ; then PATH="/opt/homebrew/bin:${PATH}" ; fi
@@ -62,7 +63,7 @@ fi
 if [ -d /usr/local/protobuf/bin ] ; then PATH="${PATH}:/usr/local/protobuf/bin" ; fi
 
 # add Rust path
-if [ -e $HOME/.cargo/bin/bin ]; then
+if [ -e "$HOME/.cargo/bin/bin" ]; then
   PATH="${PATH}:${HOME}/.cargo/bin/bin"
 fi
 
@@ -78,7 +79,6 @@ fi
 
 # Add path to ~/.local/bin for aws cli on linux
 if [ -d ${HOME}/.local/bin ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
-
 
 # Sourcegraph
 if [ -d /usr/local/opt/postgresql/bin ] ; then
