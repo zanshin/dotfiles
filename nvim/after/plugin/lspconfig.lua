@@ -21,7 +21,6 @@ vim.keymap.set("n", "<leader>q", "<cmd>lua vim.diagnostics.set_loclist()<cr>", o
 -- after the language server attaches to the current buffer
 -- local on_attach = function(client, bufnr)
 local on_attach = function()
-
   -- Use built in keymap function for Mappings
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
@@ -65,13 +64,13 @@ local on_attach = function()
       vim.diagnostic.open_float(nil, lopts)
     end
   })
-
 end
 
 -- Use a loop to call 'setup' on multiple servers and
 -- map buffer local keybindings when the LSP attaches
 local servers = {
   'bashls',
+  'codelldb',
   'dockerls',
   'gopls',
   'jsonls',
@@ -87,7 +86,7 @@ local servers = {
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
-    capabilities = capabilities,
+    -- capabilities = capabilities,
     settings = {
       -- Lua
       Lua = { diagnostics = { globals = { 'vim' } } },
