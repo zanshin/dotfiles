@@ -63,13 +63,13 @@ fi
 if [ -d /usr/local/protobuf/bin ] ; then PATH="${PATH}:/usr/local/protobuf/bin" ; fi
 
 # add Rust path
-if [ -e "$HOME/.cargo/bin/bin" ]; then
-  PATH="${PATH}:${HOME}/.cargo/bin/bin"
+if [ -e "$HOME/.cargo/bin" ]; then
+  PATH="${PATH}:${HOME}/.cargo/bin"
 fi
 
 # Enable path to pip - AWS CLI needs this
 if [ -d ~/.local/bin ] ; then
-  PATH="~/.local/bin:${PATH}"
+  PATH="$HOME/.local/bin:${PATH}"
 fi
 
 # Add path to Python3 scripts (needed for AWS CLI)
@@ -78,7 +78,7 @@ fi
 # fi
 
 # Add path to ~/.local/bin for aws cli on linux
-if [ -d ${HOME}/.local/bin ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
+if [ -d "${HOME}/.local/bin" ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
 
 # Sourcegraph
 if [ -d /usr/local/opt/postgresql/bin ] ; then
@@ -90,6 +90,6 @@ export PATH
 # Be incredible anal and remove duplicates from PATH, even though the
 # shell will only use the first occurrance.
 # https://www.linuxjournal.com/content/removing-duplicate-path-entries
-PATH=$(echo $PATH | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
+PATH=$(echo "$PATH" | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
 
 export PATH
