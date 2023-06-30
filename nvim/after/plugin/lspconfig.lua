@@ -70,7 +70,6 @@ end
 -- map buffer local keybindings when the LSP attaches
 local servers = {
   'bashls',
-  'codelldb',
   'dockerls',
   'gopls',
   'jsonls',
