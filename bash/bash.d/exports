@@ -52,7 +52,7 @@ export CHEFPROD="/Users/mhn/code/chef/zome"
 export CHEF_BASEDIR="/Users/mhn/code/chef"
 
 # Export CARGO_HOME and RUSTUP_HOME for Rust
-export CARGO_HOME="${HOME}/.cargo/bin/bin"
+export CARGO_HOME="${HOME}/.cargo/bin"
 export RUSTUP_HOME="${HOME}/.rustup"
 
 # OpenJDK
