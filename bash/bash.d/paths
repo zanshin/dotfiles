@@ -63,8 +63,8 @@ fi
 if [ -d /usr/local/protobuf/bin ] ; then PATH="${PATH}:/usr/local/protobuf/bin" ; fi
 
 # add Rust path
-if [ -e "$HOME/.cargo/bin/bin" ]; then
-  PATH="${PATH}:${HOME}/.cargo/bin/bin"
+if [ -e "$HOME/.cargo/bin" ]; then
+  PATH="${PATH}:${HOME}/.cargo/bin"
 fi
 
 # Enable path to pip - AWS CLI needs this
