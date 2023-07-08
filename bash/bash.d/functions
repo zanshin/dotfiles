@@ -104,7 +104,9 @@ function hb() {
 
 # r is for rsync
 function hr() {
-    rsync -azrP --delete public/* pair:~/public_html/zanshin
+    # rsync -azrP --delete public/* pair:~/public_html/zanshin
+    echo "rsync -azrP --delete public/* pair:~/public_html/$1"
+    rsync -azrP --delete public/* pair:~/public_html/$1
 }
 
 function hugonp() {
