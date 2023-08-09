@@ -1,8 +1,8 @@
 
 window:
   dimensions:
-    columns: 161
-    lines: 56
+    columns: 190
+    lines: 49
 
   opacity: 0.97
 
@@ -26,7 +26,7 @@ font:
     family: JetBrainsMono Nerd Font
     style: Italic
 
-  size: 16.0
+  size: 15.0
 
 # Colors (ayu)
 colors:
