@@ -4,7 +4,7 @@ window:
     columns: 190
     lines: 49
 
-  opacity: 0.97
+  opacity: 1.00
 
   decorations: full
   startup_mode: Windowed
