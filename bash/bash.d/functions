@@ -189,7 +189,7 @@ ex() {
 # $ find-exec .coffee cat | wc -l
 # # => 9762
 # from https://github.com/paulmillr/dotfiles
-function find-exec() {
+function findexec() {
   find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
 }
 
@@ -434,7 +434,7 @@ repo() {
 }
 
 # Function to create aliases
-new-alias() {
+newalias() {
   local last_command=$(echo `history |tail -n2 |head -n1` | sed 's/[0-9]* //')
   echo alias $1="'""$last_command""'" >> ~/.bash_aliases
   . ~/.bash_profile
