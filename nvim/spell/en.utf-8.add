@@ -1,9 +1,10 @@
 ACloud
 APA
 AWS
-Airpods
+AirPods
 AppArmor
 AppStream
+Appassionato
 Avi
 BMM
 BigMemoryMax
@@ -42,6 +43,7 @@ ExpanSIS
 F5
 FIPS
 FSx
+G4
 GPG
 Gartner
 GlobalProtect
@@ -111,6 +113,7 @@ Panera
 Passthrough
 Passthroughs
 PostgreSQL
+PowerBook
 Priyatham
 Priyatham's
 Q325
@@ -123,6 +126,7 @@ Romberg
 Runbooks
 SFTP
 SIOC
+SSL
 SSO
 SaaS
 Scantron
@@ -138,6 +142,7 @@ TTT
 Talisma
 Taz
 Teval
+Thingsboard
 Tindall
 Twitterrific
 TxHub
@@ -149,9 +154,11 @@ Unsyncing
 VCM
 VMC
 VPC
+Vanhal
 WFH
 WSEs
 WTF
+WWDC
 WebFaction
 WebFaction's
 Wellbutrin
@@ -168,12 +175,12 @@ aws
 b0rking
 blackperl
 borked
+buildspec
 cd
 cheatsheet
 chmod
 config
 dbConfigurator
-dev
 dev
 diatonically
 dipshits
@@ -232,6 +239,7 @@ shortcode
 shortcodes
 sibyllekuder
 solfege
+statefulset
 struct
 supercedes
 systemd
@@ -257,13 +265,3 @@ wildfly
 wireshark
 www
 zanshin
-buildspec
-Thingsboard
-statefulset
-M2
-WWDC
-AirPods
-PowerBook
-G4
-Vanhal
-Appassionato
