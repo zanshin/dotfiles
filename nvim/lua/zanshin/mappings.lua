@@ -134,7 +134,7 @@ map('n', '<leader>p', '"+p')
 map('n', '<leader>d', '"+d')
 
 -- Use jq to format JSON
-map('n', 'jq', ':%!jq .<cr>')
+map('n', '<leader>jq', ':%!jq .<cr>')
 
 -- File System access
 -- nvim-tree
