@@ -45,7 +45,8 @@
   filemode = true
 
 [diff]
-  tool = vimdiff
+  # tool = vimdiff
+  tool = nvimdiff
 
 [merge]
   # Include summaries of merged commits in newly created merge commit
