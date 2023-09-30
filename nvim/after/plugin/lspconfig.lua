@@ -77,6 +77,7 @@ local servers = {
   'rust_analyzer',
   'solargraph',
   -- 'sumneko_lua',
+  'tsserver',
   'lua_ls',
   'yamlls',
 }
@@ -89,6 +90,9 @@ for _, lsp in pairs(servers) do
     settings = {
       -- Lua
       Lua = { diagnostics = { globals = { 'vim' } } },
+
+      -- Typescript
+      -- typescript = { disableSuggestions = true },
 
       -- YAML
       yaml = {
