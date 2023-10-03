@@ -60,7 +60,7 @@ opt.termguicolors = true -- True color support
 opt.textwidth = 79       -- ... at column 79
 
 -- UX
-opt.pastetoggle = "<F2>" -- toggle paste mode on/off
+-- opt.pastetoggle = "<F2>" -- toggle paste mode on/off
 opt.splitbelow = true    -- Put new windows below current
 opt.splitright = true    -- Put new windows right of current
 opt.joinspaces = false   -- No double spaces with join
