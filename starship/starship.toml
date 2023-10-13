@@ -1,4 +1,20 @@
+# My tweaks
+
+add_newline = true
+format = '$all'
+# right_format = """$all"""
+
 command_timeout = 750
+[hostname]
+ssh_only = true
+ssh_symbol = ""
+format = "on [$hostname](red) "
+disabled = false
+
+[directory]
+truncation_length = 5
+truncation_symbol = '.../'
+truncate_to_repo = false
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -82,14 +98,12 @@ format = '\[[$symbol$workspace]($style)\]'
 format = '\[[$time]($style)\]'
 
 [username]
+style_user = 'blue'
+style_root = 'red bold'
 format = '[$user]($style) '
-
-# My tweaks
-[hostname]
-ssh_only = true
-ssh_symbol = ""
-format = "on [$hostname](bold red) "
 disabled = false
+show_always = false
+
 # [bun]
 # format = '\[[$symbol($version)]($style)\]'
 
