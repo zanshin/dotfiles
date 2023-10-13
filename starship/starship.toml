@@ -1,173 +1,35 @@
+# My tweaks
+
+add_newline = true
+format = '$all'
+# right_format = """$all"""
 command_timeout = 750
 
-[aws]
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-
-[c]
-format = '\[[$symbol($version(-$name))]($style)\]'
-
-[cmake]
-format = '\[[$symbol($version)]($style)\]'
-
-[cmd_duration]
-format = '\[[$duration]($style)\]'
-
-[cobol]
-format = '\[[$symbol($version)]($style)\]'
-
-[docker_context]
-format = '\[[$symbol$context]($style)\]'
-
-[gcloud]
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
-
-[git_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
-
-[golang]
-format = '\[[$symbol($version)]($style)\]'
-
-[helm]
-format = '\[[$symbol($version)]($style)\]'
-
-[java]
-format = '\[[$symbol($version)]($style)\]'
-
-[kubernetes]
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
-
-[lua]
-format = '\[[$symbol($version)]($style)\]'
-
-[memory_usage]
-format = '\[$symbol[$ram( | $swap)]($style)\]'
-
-[nix_shell]
-format = '\[[$symbol$state( \($name\))]($style)\]'
-
-[nodejs]
-format = '\[[$symbol($version)]($style)\]'
-
-[package]
-format = '\[[$symbol$version]($style)\]'
-
-[perl]
-format = '\[[$symbol($version)]($style)\]'
-
-[php]
-format = '\[[$symbol($version)]($style)\]'
-
-[python]
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-
-[ruby]
-format = '\[[$symbol($version)]($style)\]'
-
-[rust]
-format = '\[[$symbol($version)]($style)\]'
-
-[sudo]
-format = '\[[as $symbol]\]'
-
-[swift]
-format = '\[[$symbol($version)]($style)\]'
-
-[terraform]
-format = '\[[$symbol$workspace]($style)\]'
-
-[time]
-format = '\[[$time]($style)\]'
-
-[username]
-format = '[$user]($style) '
-
-# My tweaks
 [hostname]
 ssh_only = true
 ssh_symbol = ""
-format = "on [$hostname](bold red) "
+format = "on [$hostname](red) "
 disabled = false
-# [bun]
-# format = '\[[$symbol($version)]($style)\]'
 
-# [conda]
-# format = '\[[$symbol$environment]($style)\]'
+[directory]
+truncation_length = 5
+truncation_symbol = '.../'
+truncate_to_repo = false
+style = "blue"
 
-# [crystal]
-# format = '\[[$symbol($version)]($style)\]'
+[username]
+style_user = 'blue'
+style_root = 'red bold'
+format = '[$user]($style) '
+# format = '\[[$user]($style)\]'
+disabled = false
+show_always = false
 
-# [daml]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [dart]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [deno]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [dotnet]
-# format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-# [elixir]
-# format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-
-# [elm]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [erlang]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [haskell]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [hg_branch]
-# format = '\[[$symbol$branch]($style)\]'
-
-# [julia]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [kotlin]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [meson]
-# format = '\[[$symbol$project]($style)\]'
-
-# [nim]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [ocaml]
-# format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
-
-# [openstack]
-# format = '\[[$symbol$cloud(\($project\))]($style)\]'
-
-# [pulumi]
-# format = '\[[$symbol$stack]($style)\]'
-
-# [purescript]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [raku]
-# format = '\[[$symbol($version-$vm_version)]($style)\]'
-
-# [red]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [scala]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [spack]
-# format = '\[[$symbol$environment]($style)\]'
-
-# [vagrant]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [vlang]
-# format = '\[[$symbol($version)]($style)\]'
-
-# [zig]
-# format = '\[[$symbol($version)]($style)\]'
-
+# Display warning when in PROD Kubernetes context
+# [custom.k8_prod_warning]
+# description = 'Shows an indicator when the name of the current kubectl context contains `prod`'
+# when = 'kubectl config current-content | grep -qi prod'
+# command = 'echo " on PROD"'
+# symbol = '⚠️ '
+# style = 'bold red'
+# format = '[$symbol($output )]($style)'

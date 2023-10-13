@@ -19,6 +19,7 @@ CISO
 CNAME
 COVID
 CUI
+CarPlay
 CentOS
 CheckMK
 Chipotle
@@ -72,6 +73,7 @@ Kindlein
 Konza
 Kubernetes
 Kuder
+LDAP
 LTS
 LVM
 LZ
@@ -133,9 +135,9 @@ Scantron
 Schlaf
 Sibylle
 Sibylle's
+Siri
 SoftwareAG
 SpamSieve
-Sur
 SysAdmin
 TDX
 TTT
@@ -171,6 +173,8 @@ Zabel
 Zanshin
 andifyoudidknow
 apparmor
+apprelay
+appspam
 aws
 b0rking
 blackperl
@@ -186,6 +190,7 @@ diatonically
 dipshits
 dotfiles
 eProfile
+edu
 elasticsearch
 flowlogs
 forScore
@@ -204,7 +209,9 @@ imapsync
 isync
 jonathankuder
 ketamine
+ksu
 lua
+lwc
 macOS
 mailcap
 maix
@@ -225,8 +232,10 @@ nvim
 offlineimap
 ome
 openconnect
+openldap
 p12
 pannus
+passthrough
 pci
 perl
 prodvmc
@@ -238,6 +247,7 @@ sed
 shortcode
 shortcodes
 sibyllekuder
+smtp
 solfege
 statefulset
 struct
@@ -265,5 +275,3 @@ wildfly
 wireshark
 www
 zanshin
-CarPlay
-Siri
