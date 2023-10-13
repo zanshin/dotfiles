@@ -26,10 +26,10 @@ disabled = false
 show_always = false
 
 # Display warning when in PROD Kubernetes context
-[custom.k8_prod_warning]
-description = 'Shows an indicator when the name of the current kubectl context contains `prod`'
-when = 'kubectl config current-content | grep -q prod'
-command = 'echo " on PROD"'
-symbol = '⚠️ '
-style = 'bold red'
-format = '[$symbol($output )]($style)'
+# [custom.k8_prod_warning]
+# description = 'Shows an indicator when the name of the current kubectl context contains `prod`'
+# when = 'kubectl config current-content | grep -qi prod'
+# command = 'echo " on PROD"'
+# symbol = '⚠️ '
+# style = 'bold red'
+# format = '[$symbol($output )]($style)'
