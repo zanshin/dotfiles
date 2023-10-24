@@ -28,7 +28,8 @@ opt.hlsearch = true   -- highlight search results
 -- UI
 opt.number = true         -- Show line numbers
 opt.relativenumber = true -- Relative line numbers
-opt.numberwidth = 4       -- set number column width to 4. default is 2
+-- opt.statuscolumn = '%=%{v:lnum} | %{v:relnum} '
+opt.numberwidth = 6       -- set number column width to 4. default is 2
 opt.signcolumn = "yes"    -- always show to prevent text shifting
 opt.ruler = true          -- show current cursor position
 opt.linebreak = true      -- wrap intelligently - no hard line breaks
