@@ -91,6 +91,11 @@ for _, lsp in pairs(servers) do
       -- Lua
       Lua = { diagnostics = { globals = { 'vim' } } },
 
+      -- rust-analyzer
+      -- features = ssr, for LSP support in leptos SSR functions } },
+      -- https://gist.github.com/GeordieP/07ad21a714f98deda71a9ea4330caef1?permalink_comment_id=4666712#gistcomment-4666712
+      ["rust-analyzer"] = { cargo = { allFeatures = "ssr" } },
+
       -- Typescript
       -- typescript = { disableSuggestions = true },
 
