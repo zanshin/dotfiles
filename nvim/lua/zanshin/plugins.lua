@@ -49,6 +49,7 @@ return {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
       'debugloop/telescope-undo.nvim',
+      'nvim-tree/nvim-web-devicons',
     },
   },
 
@@ -66,12 +67,12 @@ return {
       'nvim-lua/plenary.nvim',
     },
   },
-  'hrsh7th/cmp-nvim-lsp',               -- lsp completions
-  'hrsh7th/cmp-nvim-lua',               -- lua completions
+  'hrsh7th/cmp-nvim-lsp',                -- lsp completions
+  'hrsh7th/cmp-nvim-lua',                -- lua completions
   'hrsh7th/cmp-nvim-lsp-signature-help', -- lsp signature completions
-  'hrsh7th/cmp-vsnip',                  -- VSCode(LSP)'s snippet feature in vim/nvim
-  'hrsh7th/cmp-path',                   -- path completions
-  'hrsh7th/cmp-buffer',                 -- buffer completions
+  'hrsh7th/cmp-vsnip',                   -- VSCode(LSP)'s snippet feature in vim/nvim
+  'hrsh7th/cmp-path',                    -- path completions
+  'hrsh7th/cmp-buffer',                  -- buffer completions
   -- 'hrsh7th/cmp-cmdline',  -- command line completions
 
   'onsails/lspkind-nvim', -- vscode-like pictograms
