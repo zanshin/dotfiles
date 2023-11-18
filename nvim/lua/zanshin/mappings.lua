@@ -78,6 +78,7 @@ map('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype det
 -- Treesitter mappings
 map('n', '<leader>tsp', ':TSPlaygroundToggle<CR>')
 map('n', '<leader>tsh', ':TSHighlightCapturesUnderCursor<CR>')
+map('n', '<leader>U', ':Telescope undo<cr>')
 
 -- Telescope mappings
 -- map('n', '<leader>ff', ':Telescope find_files<CR>')
