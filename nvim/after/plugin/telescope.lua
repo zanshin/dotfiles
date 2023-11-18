@@ -6,13 +6,23 @@ end
 
 local actions = require("telescope.actions")
 telescope.setup {
- defaults = {
---    file_sorter = require('telescope.sorters').get_fzy_sorter,
+  extensions = {
+    undo = {
+      -- telescope-undo configurations
+      side_by_side = true,
+      layout_strategy = "vertical",
+      layout_config = {
+        preview_height = 0.8,
+      },
+    },
+  },
+  defaults = {
+    --    file_sorter = require('telescope.sorters').get_fzy_sorter,
 
-   file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
-   grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
-   qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
-   mappings = {
+    file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
+    grep_previewer   = require('telescope.previewers').vim_buffer_vimgrep.new,
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    mappings         = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
@@ -76,6 +86,5 @@ telescope.setup {
         ["?"] = actions.which_key,
       },
     },
- },
+  },
 }
-
