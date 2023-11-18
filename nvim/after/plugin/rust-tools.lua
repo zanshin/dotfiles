@@ -14,6 +14,9 @@ end
 
 rt.setup({
   server = {
+    settings = {
+      ["rust-analyzer"] = { cargo = { allFeatures = true } },
+    },
     on_attach = function(_, bufnr)
       -- Hover actions
       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
