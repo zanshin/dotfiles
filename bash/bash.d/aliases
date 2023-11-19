@@ -82,6 +82,8 @@ alias 'xup=xrdb ~/.Xresources'
 
 alias 'galias=alias | grep '
 
+alias 'define=curl dict://dict.org/define:"$@"'
+
 # Appender helpers
 alias 'ai=$HOME/bin/bash/appender.sh'
 
