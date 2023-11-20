@@ -11,7 +11,12 @@ return {
   'kdheepak/tabline.nvim',
 
   -- Syntax
-  'Yggdroot/indentline',
+  -- 'Yggdroot/indentline',
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {},
+  },
   'stephpy/vim-yaml',
   'hashivim/vim-terraform',
 
