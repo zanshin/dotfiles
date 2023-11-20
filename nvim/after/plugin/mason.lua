@@ -5,7 +5,7 @@ if not status_ok then
 end
 
 -- Mason Setup
-require("mason").setup({
+mason.setup({
     ui = {
         icons = {
             package_installed = "",
@@ -14,4 +14,5 @@ require("mason").setup({
         },
     }
 })
+
 require("mason-lspconfig").setup()
