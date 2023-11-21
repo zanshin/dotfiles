@@ -58,8 +58,8 @@ neotree.setup({
     git_status = {
       symbols = {
         -- Change type
-        added     = "",  -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified  = "",  -- or "", but this is redundant info if you use git_status_colors on the name
+        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
         deleted   = "✖", -- this can only be used in the git_status source
         renamed   = "", -- this can only be used in the git_status source
         -- Status type
@@ -225,7 +225,7 @@ neotree.setup({
     "buffers",
     "git_status",
     -- "document_symbols",
-    "netman.ui.neo-tree", -- Use Netman for remote file access
+    -- "netman.ui.neo-tree", -- Use Netman for remote file access
   },
   source_selector = {
     winbar = true,
@@ -234,7 +234,7 @@ neotree.setup({
       { source = "filesystem" },
       -- { source = "buffers" },
       -- { source = "git_status" },
-      { source = "remote" },
+      -- { source = "remote" },
     },
   },
 })
