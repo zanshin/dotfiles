@@ -2,6 +2,7 @@ return {
 
   -- Colorscheme
   'Shatur/neovim-ayu',
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
   -- Snazzy glyphs
   'kyazdani42/nvim-web-devicons',
