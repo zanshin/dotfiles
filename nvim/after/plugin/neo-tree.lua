@@ -58,8 +58,8 @@ neotree.setup({
     git_status = {
       symbols = {
         -- Change type
-        added     = "",  -- or "✚", but this is redundant info if you use git_status_colors on the name
-        modified  = "",  -- or "", but this is redundant info if you use git_status_colors on the name
+        added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
         deleted   = "✖", -- this can only be used in the git_status source
         renamed   = "", -- this can only be used in the git_status source
         -- Status type
@@ -159,7 +159,9 @@ neotree.setup({
         --".null-ls_*",
       },
     },
-    follow_current_file = false,            -- This will find and focus the file in the active buffer every
+    follow_current_file = {
+      enabled = false
+    },                                      -- This will find and focus the file in the active buffer every
     -- time the current file is changed while the tree is open.
     group_empty_dirs = false,               -- when true, empty folders will be grouped together
     hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
@@ -194,9 +196,11 @@ neotree.setup({
     commands = {} -- Add a custom command or override a global one using the same function name
   },
   buffers = {
-    follow_current_file = true, -- This will find and focus the file in the active buffer every
+    follow_current_file = {
+      enabled = true
+    },                       -- This will find and focus the file in the active buffer every
     -- time the current file is changed while the tree is open.
-    group_empty_dirs = true,    -- when true, empty folders will be grouped together
+    group_empty_dirs = true, -- when true, empty folders will be grouped together
     show_unloaded = true,
     window = {
       mappings = {
@@ -225,7 +229,7 @@ neotree.setup({
     "buffers",
     "git_status",
     -- "document_symbols",
-    "netman.ui.neo-tree", -- Use Netman for remote file access
+    -- "netman.ui.neo-tree", -- Use Netman for remote file access
   },
   source_selector = {
     winbar = true,
@@ -234,7 +238,7 @@ neotree.setup({
       { source = "filesystem" },
       -- { source = "buffers" },
       -- { source = "git_status" },
-      { source = "remote" },
+      -- { source = "remote" },
     },
   },
 })
