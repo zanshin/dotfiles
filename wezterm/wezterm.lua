@@ -17,7 +17,7 @@ config.color_scheme = 'ayu'
 config.scrollback_lines = 10000
 
 -- fonts
-config.font = wezterm.font 'JetBrains Mono NL'
+config.font = wezterm.font 'JetBrainsMonoNL Nerd Font'
 config.font_size = 15
 config.line_height = 1.1
 
