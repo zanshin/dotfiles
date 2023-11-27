@@ -1,11 +1,18 @@
+env:
+  # TERM: alacritty
+  TERM: xterm-256color
 
 window:
   dimensions:
     columns: 190
     lines: 49
 
-  opacity: 1.00
+  padding:
+    x: 6
+    y: 6
 
+  opacity: 1.00
+  dynamic_title: true
   decorations: full
   startup_mode: Windowed
 
@@ -15,18 +22,31 @@ scrolling:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: 'JetBrains Mono Nl'
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: 'JetBrains Mono Nl'
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: 'JetBrains Mono Nl'
     style: Italic
 
-  size: 16.0
+  size: 15.0
+
+  AppleFontSmoothing: true
+
+  # Offset is the extra space around each character. `offset.y` can be thought
+  # of as modifying the line spacing, and `offset.x` as modifying the letter
+  # spacing
+  offset:
+    x: 0
+    y: 5
+
+  glyph_offset:
+    x: 0
+    y: 2
 
 # Colors (ayu)
 colors:
