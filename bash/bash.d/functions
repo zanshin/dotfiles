@@ -818,3 +818,13 @@ awsp() {
 # }
 
 # }}}
+# Bash toys {{{
+
+# View CSV file in better format
+# https://muhammadraza.me/2023/shell-functions/
+  function prettycsv() {
+    if [ -z "$1"  ]; then echo "Usage: prettycsv <file.csv>"
+    else cat "$1" | column -s, -t | less -F -S -X -K
+    fi
+  }
+# }}}
