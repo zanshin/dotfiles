@@ -55,7 +55,8 @@ return {
       'nvim-lua/popup.nvim',
       'nvim-lua/plenary.nvim',
       'debugloop/telescope-undo.nvim',
-      'nvim-tree/nvim-web-devicons',
+      'kyazdani42/nvim-web-devicons',
+      -- 'nvim-tree/nvim-web-devicons',
     },
   },
 
@@ -103,7 +104,8 @@ return {
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      'kyazdani42/nvim-web-devicons',
+      -- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
