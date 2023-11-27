@@ -7,6 +7,10 @@ window:
     columns: 190
     lines: 49
 
+  padding:
+    x: 6
+    y: 6
+
   opacity: 1.00
   dynamic_title: true
   decorations: full
@@ -18,18 +22,18 @@ scrolling:
 
 font:
   normal:
-    family: JetBrainsMono Nerd Font
+    family: 'JetBrains Mono Nl'
     style: Regular
 
   bold:
-    family: JetBrainsMono Nerd Font
+    family: 'JetBrains Mono Nl'
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font
+    family: 'JetBrains Mono Nl'
     style: Italic
 
-  size: 16.0
+  size: 15.0
 
   AppleFontSmoothing: true
 
