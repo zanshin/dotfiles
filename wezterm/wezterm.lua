@@ -22,7 +22,7 @@ config.font_size = 15
 config.line_height = 1.1
 
 -- tabs
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.window_frame = {
   font = wezterm.font { family = 'Fira Code', weight = 'Bold' },
   font_size = 12.0,
