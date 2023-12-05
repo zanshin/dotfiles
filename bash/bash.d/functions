@@ -9,7 +9,7 @@
 
  function knifeome() {
 #   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a hostname | sort | knhost
-   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a fqdn | sort | knhost
+   knife search node "tags:${@} OR name:${@} OR roles:${@}" -a fqdn | sort | knhost | awk NF
  }
 
  function knaws() {
