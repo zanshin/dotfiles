@@ -110,4 +110,6 @@ complete -C /usr/local/bin/terraform terraform
 [[ -e $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
 [[ -e $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
 # [[ -e $HOME/.cargo/bin/env ]] && . "$HOME/.cargo/bin/env"
-#
+
+# kubectl bash completion
+[[ -e $HOME/.kubectl_completion_bash ]] && source $HOME/.kubectl_completion_bash
