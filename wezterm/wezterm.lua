@@ -18,7 +18,7 @@ config.scrollback_lines = 10000
 
 -- fonts
 config.font = wezterm.font 'JetBrainsMonoNL Nerd Font'
-config.font_size = 15
+config.font_size = 16
 config.line_height = 1.1
 
 -- tabs
