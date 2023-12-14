@@ -1,4 +1,5 @@
 -- Options
+local opt = vim.opt -- to set options
 
 -- Indentation
 opt.autoindent = true  -- Yes, please
@@ -43,14 +44,14 @@ opt.pumblend = 17
 opt.wildmode = "longest:full"
 opt.wildoptions = "pum"
 
-opt.list = true   -- Show some invisible characters
+opt.list = true -- Show some invisible characters
 opt.listchars = { -- Strings to use when 'list' option set.
-  tab = '│ ',   -- Characters to be used to show a tab.
-  nbsp = '␣',   -- Character to show for a non-breakable space character.
+  tab = '│ ', -- Characters to be used to show a tab.
+  nbsp = '␣', -- Character to show for a non-breakable space character.
   extends = '❯', -- Character to show in last column, when 'wrap' is off
   precedes = '❮', -- Character to show in first visible column
-  eol = '¬',     -- Character to show at end of line
-  trail = '⋅',  -- Character to show trailing spaces
+  eol = '¬', -- Character to show at end of line
+  trail = '⋅', -- Character to show trailing spaces
 }
 
 opt.ruler = true         -- show current cursor position
@@ -62,11 +63,11 @@ opt.textwidth = 79       -- ... at column 79
 
 -- UX
 -- opt.pastetoggle = "<F2>" -- toggle paste mode on/off
-opt.splitbelow = true    -- Put new windows below current
-opt.splitright = true    -- Put new windows right of current
-opt.joinspaces = false   -- No double spaces with join
+opt.splitbelow = true  -- Put new windows below current
+opt.splitright = true  -- Put new windows right of current
+opt.joinspaces = false -- No double spaces with join
 
-opt.backspace = {        -- Make backspace behave in a sane manner
+opt.backspace = {      -- Make backspace behave in a sane manner
   'indent',
   'eol',
   'start'
