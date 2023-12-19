@@ -1,7 +1,7 @@
 -- Treesitter
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = 'VeryLazy',
+  lazy = false,
   dependencies = {
     'nvim-treesitter/playground',
     'nvim-treesitter/nvim-treesitter-textobjects',
