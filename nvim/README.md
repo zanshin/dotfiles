@@ -44,6 +44,11 @@ These are the core plugins that I have installed.
 
 There are dependencies and some ancillary plugins not listed here.
 
+## Troubleshooting
+If plugins stop loading properly, or develop odd problems, it may help to clean up these directories, which will trigger Lazy to reload all the plugins.
+
+    rm -rf ~/.local/share/nvim ~/.cache/nvim ~/.local/site/nvim
+
 ## Appendix
 These are some of the sources I used while converting from a vimscript based configuration to a Lua
 based configuration.
