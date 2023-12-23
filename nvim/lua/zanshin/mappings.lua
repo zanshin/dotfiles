@@ -1,5 +1,13 @@
 -- Mappings
---
+-- Create mappings with noremap option set to true
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then options = vim.tbl_extend('force', options, opts) end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+local g = vim.g -- a table to access global variables
+
 -- Modes
 --   normal_mode = "n"
 --   insert_mode = "i"
@@ -70,56 +78,6 @@ map('n', '<leader>bc', ':bp <BAR> bd $<CR>') -- move to previous buffer, and clo
 map('n', '<S-n>', ':bnext<CR>')              -- move to next buffer
 map('n', '<S-p>', ':bprevious<CR>')          -- move to previous buffer
 
--- Neovim configuration file
-map('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>') -- open configuration file for editing
--- map('n', '<leader>sv', ':luafile %<CR>')      -- source nvim configuration
-map('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>')
-
--- Treesitter mappings
-map('n', '<leader>tsp', ':TSPlaygroundToggle<CR>')
-map('n', '<leader>tsh', ':TSHighlightCapturesUnderCursor<CR>')
-map('n', '<leader>U', ':Telescope undo<cr>')
-
--- Telescope mappings
-map('n', '<leader>sf', ':Telescope find_files<CR>')
-map('n', '<leader>sh', ':Telescope help_tags<CR>')
-map('n', '<leader>sw', ':Telescope live_grep<CR>')
-map('n', '<Leader>sb', ':Telescope buffers<CR>')
-map('n', '<Leader>so', ':Telescope commands<CR>')
-map('n', '<Leader>sgs', ':Telescope git_status<CR>')
-map('n', '<Leader>sgf', ':Telescope git_files<CR>')
-map('n', '<Leader>sgc', ':Telescope git_commits<CR>')
-map('n', '<Leader>sgb', ':Telescope git_branches<CR>')
-map('n', '<Leader>sgt', ':Telescope git_stash<CR>')
-
--- From kickstart.nvim
--- See `:help telescope.builtin`
--- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
--- vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
--- -- vim.keymap.set('n', '<leader>+', function()
---   -- You can pass additional configuration to telescope to change theme, layout, etc.
---   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
---     winblend = 10,
---     previewer = false,
---   })
--- end, { desc = '[+] Fuzzily search in current buffer]' })
-
--- vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
--- vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
--- vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
--- vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
--- vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
---
--- vim.keymap.set('n', '<leader>sgs', require('telescope.builtin').git_status, { desc = '[S]earch [G]it [S]tatus' })
--- vim.keymap.set('n', '<leader>sgf', require('telescope.builtin').git_files, { desc = '[S]earch [G]it [F]iles' })
--- vim.keymap.set('n', '<leader>sgc', require('telescope.builtin').git_commits, { desc = '[S]earch [G]it [C]ommits' })
--- vim.keymap.set('n', '<leader>sgb', require('telescope.builtin').git_branches, { desc = '[S]earch [G]it [B]ranches' })
--- vim.keymap.set('n', '<leader>sgt', require('telescope.builtin').git_stash, { desc = '[S]earch [G]it s[T]ash' })
---
--- vim.keymap.set('n', '<leader>so', require('telescope.builtin').commands, { desc = '[S]earch c[O]mmands' })
--- map('n', '<Leader>s', 'require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor({}))')
-
-
 -- Sudo to write protected file
 map('c', 'w!!', '!sudo tee % >/dev/null')
 
@@ -138,28 +96,52 @@ map('n', '<leader>d', '"+d')
 -- Use jq to format JSON
 map('n', '<leader>jq', ':%!jq .<cr>')
 
--- File System access
--- nvim-tree
--- map('n', '<C-n>', ':NvimTreeToggle<cr>')
--- map('n', '<C-n>', ':NvimTreeFindFileToggle<cr>')
--- map('n', '<leader>r', ':NvimTreeRefresh')
+-- Neovim configuration file
+map('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>') -- open configuration file for editing
+-- map('n', '<leader>sv', ':luafile %<CR>')      -- source nvim configuration
+map('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>')
+
+-- Quickfix
+map('n', '<leader>qn', ':cnext<cr>') -- jump to next quickfix list item
+map('n', '<leader>qp', ':cprev<cr>') -- jump to prev quickfix list item
+
+-- Plugin mappings
+-- Treesitter mappings
+map('n', '<leader>tsp', ':TSPlaygroundToggle<CR>')
+map('n', '<leader>tsh', ':TSHighlightCapturesUnderCursor<CR>')
+map('n', '<leader>U', ':Telescope undo<cr>')
+
+-- Telescope mappings
+map('n', '<leader>sf', ':Telescope find_files<CR>')
+map('n', '<leader>sh', ':Telescope help_tags<CR>')
+map('n', '<leader>sw', ':Telescope live_grep<CR>')
+map('n', '<Leader>sb', ':Telescope buffers<CR>')
+map('n', '<Leader>so', ':Telescope commands<CR>')
+map('n', '<Leader>sgs', ':Telescope git_status<CR>')
+map('n', '<Leader>sgf', ':Telescope git_files<CR>')
+map('n', '<Leader>sgc', ':Telescope git_commits<CR>')
+map('n', '<Leader>sgb', ':Telescope git_branches<CR>')
+map('n', '<Leader>sgt', ':Telescope git_stash<CR>')
 
 -- neo-tree
 -- map('n', '\\', ':Neotree reveal<cr>')
 map('n', '<C-n>', ':Neotree toggle<cr>')
 
 -- DAP mappings -- moved to plugin configs
--- map("n", "<leader>dt", ":lua require'dapui'.DapUiToggle<cr>")
--- map("n", "<leader>dc", ":lua require'dap'.continue()<cr>")
--- map("n", "<leader>dsi", ":lua require'dap'.step_into()<cr>")
--- map("n", "<leader>dso", ":lua require'dap'.step_over()<cr>")
--- map("n", "<leader>dsu", ":lua require'dap'.step_out()<cr>")
--- map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>")
--- -- map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
--- map("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>")
+map("n", "<leader>dt", ":lua require'dapui'.DapUiToggle<cr>")
+map("n", "<leader>dc", ":lua require'dap'.continue()<cr>")
+map("n", "<leader>dsi", ":lua require'dap'.step_into()<cr>")
+map("n", "<leader>dso", ":lua require'dap'.step_over()<cr>")
+map("n", "<leader>dsu", ":lua require'dap'.step_out()<cr>")
+map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>")
+-- map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
+map("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>")
 
 -- Floating Terminal
 map('n', "<leader>ft", ":FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 bash <CR> ")
 map('n', "t", ":FloatermToggle myfloat<CR>")
 -- map('t', "<Esc>", "<C-\\><C-n>:q<CR>")
 map('t', "<Esc>", "exit<CR><C-c>")
+
+-- Git Blame
+map("n", "<leader>gb", ":GitBlameToggle<cr>")

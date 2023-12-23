@@ -1,9 +1,6 @@
-local status_ok, symbols_outline = pcall(require, "symbols-outline")
-if not status_ok then
-  return
-end
-
-symbols_outline.setup {
+-- Symbol outline
+return {
+  'simrat39/symbols-outline.nvim',
   opts = {
     highlight_hovered_item = true,
     show_guides = true,
@@ -67,5 +64,5 @@ symbols_outline.setup {
       Component = { icon = "", hl = "@function" },
       Fragment = { icon = "", hl = "@constant" },
     },
-  }
+  },
 }

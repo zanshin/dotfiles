@@ -1,8 +1,8 @@
 -- Helpers
 cmd = vim.cmd -- to execute Vim commands. E.g., cmd('pwd')
-fn = vim.fn -- to call Vim functions. E.g., fn.bunnr()
-g = vim.g -- a table to access global variables
-opt = vim.opt -- to set options
+fn = vim.fn   -- to call Vim functions. E.g., fn.bunnr()
+g = vim.g     -- a table to access global variables
+-- opt = vim.opt -- to set options
 api = vim.api -- for api calls
 
 -- Execute = vim.api.nvim_command
