@@ -91,8 +91,13 @@ Host rosindust
     user mark
 
 # Minion (while on home network)
-Host minion
+Host Minion
     HostName 192.168.5.67
+    User mark
+
+# minion (while connected via USB)
+Host minion
+    HostName 10.0.9.1
     User mark
 
 # Tailscale
