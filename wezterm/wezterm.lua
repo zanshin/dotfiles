@@ -11,8 +11,9 @@ if wezterm.config_builder then
 end
 
 -- My configuration follows
-config.color_scheme = 'ayu'
--- config.color_scheme = 'Chalk'
+-- config.color_scheme = 'nightfox'
+-- config.color_scheme = 'ayu'
+config.color_scheme = 'Chalk (base16)'
 
 config.scrollback_lines = 10000
 
