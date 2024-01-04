@@ -23,18 +23,18 @@ return {
     require('mason-lspconfig').setup({
       -- These are the language servers I want installed
       -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
-      -- ensure_installed = {
-      --   "bashls",
-      --   "dockerls",
-      --   "gopls",
-      --   "jsonls",
-      --   "lua_ls",
-      --   "pyright",
-      --   "rust_analyzer",
-      --   "solargraph",
-      --   "tsserver",
-      --   "yamlls",
-      -- },
+      ensure_installed = {
+        "bashls",
+        "dockerls",
+        "gopls",
+        "jsonls",
+        "lua_ls",
+        "pyright",
+        "rust_analyzer",
+        "solargraph",
+        "tsserver",
+        "yamlls",
+      },
     })
 
     local lspconfig = require('lspconfig')
@@ -68,11 +68,14 @@ return {
         Lua = {
           diagnostics = {
             -- Get the language server to recognize the 'vim' global
-            globasl = { 'vim' },
+            globals = { 'vim' },
           },
         },
       },
     }
+
+    -- Border around LspInfo
+    require('lspconfig.ui.windows').default_options.border = 'double'
   end
 }
 -- opts = {
