@@ -100,6 +100,11 @@ Host minion
     HostName 10.0.9.1
     User mark
 
+# Raspberry Pi 3
+Host ts-hydrogen
+    HostName 192.168.4.108
+    User mark
+
 # Tailscale
 Host ts-fermata
     HostName 100.65.218.87
@@ -119,6 +124,10 @@ Host ts-wasabi
 
 Host ts-gnomon
     HostName 100.101.18.109
+    user mark
+
+Host ts-hydrogen
+    HostName 100.109.181.28
     user mark
 
 # Access GitHub even when port 22 isn't available
