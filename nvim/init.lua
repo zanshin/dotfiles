@@ -25,6 +25,9 @@ require("lazy").setup("plugins", {
   },
 })
 
+-- use nvim-notify as the default notify function
+vim.notify = require("notify")
+
 -- These are my personal settings
 require("zanshin.options")  -- anything that gets set
 require("zanshin.mappings") -- mappings
