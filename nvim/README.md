@@ -27,6 +27,7 @@ manager, and it loads my autocmds, options, and key mappings.
 
 The `lua/plugins` directory holds the configuration for each plugin.
 The `lua/zanshin` directory is a namespace to hold my mappings, autocmds, and options. They are namespaced to prevent collisions with settings elsewhere in the configuration.
+
 ## Plug Ins
 These are the core plugins that I have installed.
 
