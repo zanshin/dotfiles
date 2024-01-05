@@ -1,0 +1,67 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "One Light",
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_line_height": "comfortable",
+  "buffer_font_size": 15,
+  "cursor_blink": false,
+  "enable_language_server": true,
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "git": {
+    "git_gutter": "tracked_files"
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": ,
+    "show_other_hints":
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "useParameterNames": true,
+            "enable": "skip_trivial"
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        },
+        "checkOnSave": {
+          "command": "clippy" // rust-analyzer.checkOnSave.command
+        }
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "hints": {
+          "assignVariableTypes": true,
+          "compositeLiteralFields": true,
+          "compositeLiteralTypes": true,
+          "constantValues": true,
+          "functionTypeParameters": true,
+          "parameterNames": true,
+          "rangeVariableTypes": true
+        }
+      }
+    }
+  },
+  "tabs": {
+    "git_status": true,
+  },
+  "terminal": {
+    "font_family": "JetBrains Mono",
+    "blinking": "off"
+  },
+  "vim-mode": true
+}
