@@ -79,7 +79,7 @@ umask 002
 [[ -e $HOME/.awstoken ]] && source $HOME/.awstoken
 
 # Enable rbenv
-[[ -e /usr/local/bin/rbenv ]] && eval "$(rbenv init -)"
+[[ -e $(which rbenv) ]] && eval "$(rbenv init - bash)"
 
 # --------------------------------------------------------------------
 # liquidprompt setup
