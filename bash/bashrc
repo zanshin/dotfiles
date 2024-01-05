@@ -79,7 +79,7 @@ umask 002
 [[ -e $HOME/.awstoken ]] && source $HOME/.awstoken
 
 # Enable rbenv
-[[ -e $(which rbenv) ]] && eval "$(rbenv init - bash)"
+[[ -e $(which rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
 
 # --------------------------------------------------------------------
 # liquidprompt setup
@@ -109,7 +109,6 @@ complete -C /usr/local/bin/terraform terraform
 # asdf
 [[ -e $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
 [[ -e $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
-# [[ -e $HOME/.cargo/bin/env ]] && . "$HOME/.cargo/bin/env"
 
 # kubectl bash completion
 [[ -e $HOME/.kubectl_completion_bash ]] && source $HOME/.kubectl_completion_bash
