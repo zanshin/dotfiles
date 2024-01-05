@@ -44,6 +44,13 @@ acmd({ "BufWritePre" },
     group = _general
   })
 
+acmd({ "BufWinEnter" },
+  {
+    pattern = "*",
+    command = "set modifiable",
+    group = _general
+  })
+
 -- For diagnostics for specific cursor position
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization#show-line-diagnostics-automatically-in-hover-window
 -- acmd({ "CursorHold,CursorHoldI" },

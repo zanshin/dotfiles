@@ -163,7 +163,7 @@ opt.encoding = "utf-8"
 opt.spelllang = "en"
 
 -- Encoding - we like UTF-8
-opt.fileencoding = "utf-8"
+-- opt.fileencoding = "utf-8"
 --
 -- opt.termencoding = "utf-8"
 -- opt.encoding=utf-8

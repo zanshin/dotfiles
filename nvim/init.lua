@@ -23,6 +23,9 @@ require("lazy").setup("plugins", {
     enabled = true,
     nofity = false,
   },
+  ui = {
+    border = "rounded",
+  },
 })
 
 -- use nvim-notify as the default notify function

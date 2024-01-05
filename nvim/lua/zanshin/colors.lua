@@ -23,7 +23,9 @@ require('ayu').setup({
   mirage = false,
   overrides = {
     Comment = { fg = "#b0c4de" },
-    LineNr = { fg = "#778899" }
+    LineNr = { fg = "#778899" },
+    Folded = { fg = "#6495ed" },
+    FoldColumn = { fg = "#6495ed" },
   },
 })
 

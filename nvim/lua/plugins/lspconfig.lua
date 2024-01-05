@@ -18,6 +18,13 @@ return {
     -- https://github.com/folke/neodev.nvim
     { 'folke/neodev.nvim' },
   },
+  opts = {
+    ui = {
+      windows = {
+        border = 'rounded'
+      },
+    },
+  },
   config = function()
     require('mason').setup()
     require('mason-lspconfig').setup({
@@ -73,14 +80,8 @@ return {
         },
       },
     }
-
-    -- Border around LspInfo
-    require('lspconfig.ui.windows').default_options.border = 'double'
   end
 }
--- opts = {
---
--- }
 --
 -- -- Fold in completion capabilities
 -- -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
