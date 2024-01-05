@@ -19,6 +19,7 @@ return {
     { 'folke/neodev.nvim' },
   },
   opts = {
+    inlay_hints = { enabled = true },
     ui = {
       windows = {
         border = 'rounded'
@@ -47,6 +48,8 @@ return {
     local lspconfig = require('lspconfig')
     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
     local lsp_attach = function(client, bufnr)
+      -- vim.lsp.inlay_hint.enable(bufnr, true)
+
       -- Create key bindings here
       local opts = { buffer = 0, noremap = true, silent = true }
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
