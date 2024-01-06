@@ -17,7 +17,6 @@
   "mason.nvim": { "branch": "main", "commit": "a09da6ac634926a299dd439da08bdb547a8ca011" },
   "neo-tree.nvim": { "branch": "v3.x", "commit": "77d9f484b88fd380386b46ed9206e5374d69d9d8" },
   "neodev.nvim": { "branch": "main", "commit": "2a8630847dbb93455936156c0689678e4eaee319" },
-  "neovim-ayu": { "branch": "master", "commit": "76dbf939b38e03ac5f9bd711ab3e434999f715c8" },
   "nui.nvim": { "branch": "main", "commit": "35da9ca1de0fc4dda96c2e214d93d363c145f418" },
   "nvim-cmp": { "branch": "main", "commit": "538e37ba87284942c1d76ed38dd497e54e65b891" },
   "nvim-dap": { "branch": "master", "commit": "f0dca670fa059eb89dda8869a6310c804241345c" },
@@ -37,6 +36,7 @@
   "telescope-undo.nvim": { "branch": "main", "commit": "d3afc1c105535a90caec092ce27a113f77ba7b84" },
   "telescope.nvim": { "branch": "master", "commit": "c621f71012459ccbe63e625169bfe36889692522" },
   "toggleterm.nvim": { "branch": "main", "commit": "e3805fed94d487b81e9c21548535cc820f62f840" },
+  "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" },
   "vim-commentary": { "branch": "master", "commit": "e87cd90dc09c2a203e13af9704bd0ef79303d755" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
