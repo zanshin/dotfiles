@@ -101,7 +101,7 @@ Host minion
     User mark
 
 # Raspberry Pi 3
-Host ts-hydrogen
+Host hydrogen
     HostName 192.168.4.108
     User mark
 
