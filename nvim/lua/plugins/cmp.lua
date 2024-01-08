@@ -46,6 +46,7 @@ return {
         { name = 'buffer',                 keyword_length = 2 },
         { name = 'vsnip',                  keyword_length = 2 },
         { name = 'calc' },
+        { name = 'crates' },
       },
       window = {
         completion = cmp.config.window.bordered(),
