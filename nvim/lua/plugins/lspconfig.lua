@@ -20,11 +20,11 @@ return {
   },
   opts = {
     inlay_hints = { enabled = true },
-    ui = {
-      windows = {
-        border = 'rounded'
-      },
-    },
+    -- ui = {
+    --   windows = {
+    --     border = 'rounded'
+    --   },
+    -- },
   },
   config = function()
     require('mason').setup()
@@ -83,6 +83,7 @@ return {
         },
       },
     }
+    require('lspconfig.ui.windows').default_options.border = 'rounded'
   end
 }
 --
