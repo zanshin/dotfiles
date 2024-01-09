@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+# Color Codes
+RED='\033[1;31m'
+YELLOW='\033[1;33m'
+BLUE="\\033[38;5;27m"
+SEA="\\033[38;5;49m"
+GREEN='\033[1;32m'
+CYAN='\033[1;36m'
+NC='\033[0m'
+
+set -e
+
+# Paths
+CONFIG_DIR="$HOME/.config/dotfiles"
+VAULT_SECRET="$HOME/.ansible-vault/vault.secret"
+DOTFILES_DIR="$HOME/.dotfiles"
+SSH_DIR="$HOME/.ssh"
+IS_FIRST_RUN="$HOME/.dotfiles_run"
+
+# Install Ansible
+if ! $(which ansible 2>/dev/null); then
+  echo -e "${CYAN}Installing Ansible...${NC}"
+  echo -e "    ${CYAN}Updating brew${NC}"
+  brew update 2>&1 > /dev/null
+  echo -e "    ${CYAN}Installing Ansible${NC}"
+  brew install ansible 2>&1 > /dev/null
+  echo -e "${GREEN}Ansible installed.${NC}"
+fi
+
+# Check if python3 and pip are installed.
+if ! $(which python3 2>/dev/null); then
+  echo -e "    ${CYAN}Installing Python 3${NC}"
+  brew install python3 2>&1 > /dev/null
+  echo -e "${GREEN}Python 3 installed.${NC}"
+fi
+
+if ! $(which pip3 2>/dev/null); then
+  echo -e "    ${CYAN}Installing Pip 3${NC}"
+  brew install pip3 2>&1 > /dev/null
+  echo -e "${GREEN}Pip 3 installed.${NC}"
+fi
+
+# Generate SSH keys
+if ! [[ -f "$SSH_DIR/authorized_keys"  ]]; then
+  echo -e "${CYAN}Generating SSH keys...${NC}"
+  mkdir -p "$SSH_DIR"
+
+  chmod 700 "$SSH_DIR"
+
+  ssh-keygen -t ed25519 -f "$SSH_DIR/id_ed25519" -N "" -C "$USER@$HOSTNAME" 2>&1 > /dev/null
+
+  cat "$SSH_DIR/id_ed25519.pub" >> "$SSH_DIR/authorized_keys"
+fi
+
+
+
