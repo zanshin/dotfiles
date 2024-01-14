@@ -83,6 +83,20 @@ return {
         },
       },
     }
+
+    -- Go LSP lspconfig.gopls.setup {
+    lspconfig.gopls.setup {
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
+      },
+    }
+
     require('lspconfig.ui.windows').default_options.border = 'rounded'
   end
 }
