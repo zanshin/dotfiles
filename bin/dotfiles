@@ -3,11 +3,22 @@
 # Color Codes
 RED='\033[1;31m'
 YELLOW='\033[1;33m'
-BLUE="\\033[38;5;27m"
-SEA="\\033[38;5;49m"
+# BLUE="\\033[38;5;27m"
+# SEA="\\033[38;5;49m"
 GREEN='\033[1;32m'
 CYAN='\033[1;36m'
 NC='\033[0m'
+
+#emoji codes
+CHECK_MARK="${GREEN}\xE2\x9C\x94${NC}"
+X_MARK="${RED}\xE2\x9C\x96${NC}"
+PIN="${RED}\xF0\x9F\x93\x8C${NC}"
+CLOCK="${GREEN}\xE2\x8C\x9B${NC}"
+ARROW="${SEA}\xE2\x96\xB6${NC}"
+BOOK="${RED}\xF0\x9F\x93\x8B${NC}"
+HOT="${ORANGE}\xF0\x9F\x94\xA5${NC}"
+WARNING="${RED}\xF0\x9F\x9A\xA8${NC}"
+RIGHT_ANGLE="${GREEN}\xE2\x88\x9F${NC}"
 
 set -e
 
@@ -16,42 +27,89 @@ CONFIG_DIR="$HOME/.config/dotfiles"
 VAULT_SECRET="$HOME/.ansible-vault/vault.secret"
 DOTFILES_DIR="$HOME/.dotfiles"
 SSH_DIR="$HOME/.ssh"
+SSH_KEY="id_ansible"
 IS_FIRST_RUN="$HOME/.dotfiles_run"
 
 # Install Ansible
-if ! $(which ansible 2>/dev/null); then
-  echo -e "${CYAN}Installing Ansible...${NC}"
-  echo -e "    ${CYAN}Updating brew${NC}"
-  brew update 2>&1 > /dev/null
-  echo -e "    ${CYAN}Installing Ansible${NC}"
-  brew install ansible 2>&1 > /dev/null
+if ! eval "$(which ansible > /dev/null 2>&1)"; then
+  echo -e "${ARROW} ${CYAN}Installing Ansible...${NC}"
+  echo -e "    ${RIGHT_ANGLE} ${CYAN}Updating brew${NC}"
+  brew update > /dev/null 2>&1
+  echo -e "    ${RIGHT_ANGLE} ${CYAN}Installing Ansible${NC}"
+  brew install ansible > /dev/null 2>&1
   echo -e "${GREEN}Ansible installed.${NC}"
 fi
 
 # Check if python3 and pip are installed.
-if ! $(which python3 2>/dev/null); then
-  echo -e "    ${CYAN}Installing Python 3${NC}"
-  brew install python3 2>&1 > /dev/null
+if ! eval "$(which python3 > /dev/null 2>&1)"; then
+  echo -e "    ${RIGHT_ANGLE} ${CYAN}Installing Python 3${NC}"
+  brew install python3 > /dev/null 2>&1
   echo -e "${GREEN}Python 3 installed.${NC}"
 fi
 
-if ! $(which pip3 2>/dev/null); then
-  echo -e "    ${CYAN}Installing Pip 3${NC}"
-  brew install pip3 2>&1 > /dev/null
+if ! eval "$(which pip3 > /dev/null 2>&1)"; then
+  echo -e "    ${RIGHT_ANGLE} ${CYAN}Installing Pip 3${NC}"
+  brew install pip3 > /dev/null 2>&1
   echo -e "${GREEN}Pip 3 installed.${NC}"
 fi
 
 # Generate SSH keys
+# Ansible needs to ssh to the host, in this case localhost
 if ! [[ -f "$SSH_DIR/authorized_keys"  ]]; then
-  echo -e "${CYAN}Generating SSH keys...${NC}"
+  echo -e "${ARROW} ${CYAN}Generating SSH keys...${NC}"
   mkdir -p "$SSH_DIR"
-
   chmod 700 "$SSH_DIR"
 
-  ssh-keygen -t ed25519 -f "$SSH_DIR/id_ed25519" -N "" -C "$USER@$HOSTNAME" 2>&1 > /dev/null
+  ssh-keygen -t ed25519 -f "$SSH_DIR/$SSH_KEY" -N "" -C "$USER@$HOSTNAME" > /dev/null 2>&1
 
-  cat "$SSH_DIR/id_ed25519.pub" >> "$SSH_DIR/authorized_keys"
+  cat "$SSH_DIR/$SSH_KEY.pub" >> "$SSH_DIR/authorized_keys"
 fi
 
+# Put the GitHub private key in place
+echo -e "${ARROW} ${CYAN}Putting GitHub public key in place...${NC}"
+cd "$HOME/.ssh"
+wget -O github https://raw.githubusercontent.com/zanshin/github-key/main/github > /dev/null 2>&1
+ansible-vault decrypt --vault-password-file "$CONFIG_DIR/vault.secret" github > /dev/null 2>&1
 
+
+# Clone Repository
+if ! [[ -d "$DOTFILES_DIR" ]]; then
+  echo -e "${ARROW} ${CYAN}Cloning repository: ${YELLOW}github.com/zanshin/dotfiles${NC}"
+  # git clone --quiet "git@github.com:zanshin/dotfiles.git" "$DOTFILES_DIR" > /dev/null 2>&1
+  echo -e "git clone --quiet "git@github.com:zanshin/dotfiles.git" "$DOTFILES_DIR" > /dev/null 2>&1"
+else
+  echo -e "${ARROW} ${CYAN}Updating repository: ${YELLOW}github.com/zanshin/dotfiles${NC}"
+  # git -C "$DOTFILES" pull --quiet > /dev/null 2>&1
+  echo -e "git -C "$DOTFILES" pull --quiet > /dev/null 2>&1"
+fi
+
+# Create Paths
+pushd "$DOTFILES_DIR" > /dev/null 2>&1
+
+# Update Galaxy
+echo -e "${ARROW} ${CYAN}Updating Galaxy...${NC}"
+# ansible-galaxy install -r requirements.yml > /dev/null 2>&1
+echo -e "ansible-galaxy install -r requirements.yml > /dev/null 2>&1"
+
+# Run Playbook
+echo -e "${ARROW} ${CYAN}Running Playbook...${NC}"
+if [[ -f $VAULT_SECRET ]]; then
+  echo -e "${CYAN}Using Vault config file...${MC}"
+  # ansible-playbook --vault-password-file "$VAULT_SECRET" "$DOTFILES_DIR/main.yml" "$@"
+  echo -e "ansible-playbook --vault-password-file \"$VAULT_SECRET\" \"$DOTFILES_DIR/main.yml\" \"$@\""
+else
+  echo -e "${RED}Vault config file not found${NC}"
+  # ansible-playbook "$DOTFILES_DIR/main.yml" "@$"
+  echo -e "ansible-playbook "$DOTFILES_DIR/main.yml" "@$""
+fi
+
+popd > /dev/null 2>&1
+
+if ! [[ -f "$IS_FIRST_RUN" ]]; then
+  echo -e "${CHECK_MARK} ${GREEN}First run complete.${NC}"
+  echo -e "${ARROW} ${CYAN}Please reboot the computer to complete the setup.${NC}"
+  touch "$IS_FIRST_RUN"
+fi
+
+# vi:ft=sh:
 
