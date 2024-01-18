@@ -115,7 +115,7 @@ Host ts-argon
     user mark
 
 Host ts-minion
-    HostName 100.69.115.17
+    HostName 100.79.24.3
     user mark
 
 Host ts-wasabi
