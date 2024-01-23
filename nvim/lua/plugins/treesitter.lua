@@ -8,6 +8,7 @@ return {
   },
   build = ':TSUpdate',
   opts = {
+    auto_install = true,
     -- ensure_installed = "maintained",
     ensure_installed = {
       "bash",

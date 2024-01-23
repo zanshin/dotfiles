@@ -166,6 +166,9 @@ alias vplug="vim +PlugUpgrade +PlugUpdate +qall"
 alias nplug="nvim +PlugUpgrade +PlugUpdate +qall"
 alias 'vim=vim -U none'
 
+# asdf alais to remove previous nightly and update to current nightly
+alias update-nvim='asdf uninstall neovim nightly && asdf install neovim nightly'
+
 # }}}
 # Tmux {{{
 alias takeove='tmux detach -a'

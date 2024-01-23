@@ -64,9 +64,9 @@ unset file
 
 # add brew provided bash, tmux, and git completions
 if [[ "myos" == "Darwin" ]]; then
-  [[ -e $(brew --prefix)/etc/bash_completion ]] && source $(brew --prefix)/etc/bash_completion
-  [[ -e $(brew --prefix)/etc/bash_completions.d/tmux ]] && source $(brew --prefix)/etc/bash_completion.d/tmux
-  [[ -e $(brew --prefix)/etc/bash_completions.d/git-completions.bash ]] && source $(brew --prefix)/etc/bash_completions.d/git-completions.bash
+  [[ -e /opt/homebrew/etc/bash_completion ]] && source /opt/homebrew/etc/bash_completion
+  [[ -e /opt/homebrew/etc/bash_completions.d/tmux ]] && source /opt/homebrew/etc/bash_completion.d/tmux
+  [[ -e /opt/homebrew/etc/bash_completions.d/git-completions.bash ]] && source /opt/homebrew/etc/bash_completions.d/git-completions.bash
 fi
 
 # allow redirection to overwrite file
@@ -79,7 +79,8 @@ umask 002
 [[ -e $HOME/.awstoken ]] && source $HOME/.awstoken
 
 # Enable rbenv
-[[ -e $(which rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
+# [[ -e $(which rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
+[[ -e $(type rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
 
 # --------------------------------------------------------------------
 # liquidprompt setup
