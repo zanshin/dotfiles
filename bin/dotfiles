@@ -9,7 +9,7 @@ GREEN='\033[1;32m'
 CYAN='\033[1;36m'
 NC='\033[0m'
 
-#emoji codes
+# emoji codes
 CHECK_MARK="${GREEN}\xE2\x9C\x94${NC}"
 X_MARK="${RED}\xE2\x9C\x96${NC}"
 PIN="${RED}\xF0\x9F\x93\x8C${NC}"
@@ -34,7 +34,7 @@ IS_FIRST_RUN="$HOME/.dotfiles_run"
 if ! eval "$(which brew > /dev/null 2>&1)"; then
   echo -e "${ARROW} ${CYAN}Installing Homebrew...${NC}"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo -e "${GREEN}Homebrew installed.${NC}"
+  echo -e "${CHECK_MARK} ${GREEN}Homebrew installed.${NC}"
 else
   echo -e "${CHECK_MARK} ${GREEN}Homebrew already installed.${NC}"
 fi
@@ -55,7 +55,7 @@ fi
 if ! eval "$(which python3 > /dev/null 2>&1)"; then
   echo -e "    ${RIGHT_ANGLE} ${CYAN}Installing Python 3${NC}"
   brew install python3 > /dev/null 2>&1
-  echo -e "${GREEN}Python 3 installed.${NC}"
+  echo -e "${CHECK_MARK} ${GREEN}Python 3 installed.${NC}"
 else
   echo -e "${CHECK_MARK} ${GREEN}Python 3 already installed.${NC}"
 fi
@@ -63,7 +63,7 @@ fi
 if ! eval "$(which pip3 > /dev/null 2>&1)"; then
   echo -e "    ${RIGHT_ANGLE} ${CYAN}Installing Pip 3${NC}"
   brew install pip3 > /dev/null 2>&1
-  echo -e "${GREEN}Pip 3 installed.${NC}"
+  echo -e "${CHECK_MARK} ${GREEN}Pip 3 installed.${NC}"
 else
   echo -e "${CHECK_MARK} ${GREEN}Pip 3 already installed.${NC}"
 fi
@@ -81,6 +81,8 @@ if ! [[ -f "$SSH_DIR/authorized_keys"  ]]; then
 fi
 
 # Put the GitHub private key in place
+# `github-key` repository holds Ansible Vault encrypted
+# private key for public key already registeres on GitHub
 echo -e "${ARROW} ${CYAN}Putting GitHub public key in place...${NC}"
 cd "$HOME/.ssh"
 wget -O github https://raw.githubusercontent.com/zanshin/github-key/main/github > /dev/null 2>&1
@@ -127,4 +129,3 @@ if ! [[ -f "$IS_FIRST_RUN" ]]; then
 fi
 
 # vi:ft=sh:
-
