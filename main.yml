@@ -1,0 +1,33 @@
+---
+- name: Dotfiles Configuration
+  hosts: localhost
+  connection: localhost
+
+  pre-tasks:
+    - name: Detect Host User
+      ansible.builtin.import_tasks: pre_tasks/whoami.yml
+
+  tasks:
+    - name: Set Roles
+      ansible.builtin.set_fact:
+        run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or default_roles | difference(exclude_roles | default ([])) }}"
+      tags:
+        - always
+
+    - name: Display Roles
+      ansible.builtin.debug:
+        var: run_roles
+      tags:
+        - always
+
+    - name: Run Roles
+      ansible.builtin.include_role:
+        apply:
+          tags:
+            - "{{ roles_item }}"
+        name: "{{ roles_item }}"
+        loop_control:
+          loop_var: roles_item
+        with_items: "{{ run_roles }}"
+        tags:
+          -always
