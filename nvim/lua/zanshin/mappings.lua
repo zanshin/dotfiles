@@ -139,6 +139,10 @@ map('n', '<Leader>fgt', ':Telescope git_stash<CR>')
 map('n', '\\', ':Neotree reveal<cr>')
 map('n', '<C-n>', ':Neotree toggle<cr>')
 
+-- nvim-tree
+-- map('n', '<C-n>', ':NvimTreeToggle<cr>')
+-- map('n', '<leader>r', ':NvimTreeRefresh')
+
 -- DAP mappings -- moved to plugin configs
 map("n", "<leader>dt", ":lua require'dapui'.DapUiToggle<cr>")
 map("n", "<leader>dc", ":lua require'dap'.continue()<cr>")
