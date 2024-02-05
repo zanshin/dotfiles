@@ -1,0 +1,8 @@
+---
+- name: "zed | Configure zed"
+  ansible.builtin.copy:
+    src: zed
+    dest: "{{ ansible_user_dir }}/.config/"
+    mode: 0644
+    directory_mode: 0755
+    force: true
