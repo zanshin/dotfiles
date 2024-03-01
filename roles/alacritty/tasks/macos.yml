@@ -1,0 +1,13 @@
+---
+- name: "Alacritty | Create $XDG_CONFIG_HOME/alacritty, if not present"
+  ansible.builtin.file:
+    path: $HOME/.config/alacritty
+    state: directory
+
+- name: "Alacritty | Copy configuration to $XDG_CONFIG_HOME"
+  copy:
+    src: files/
+    dest: $HOME/.config/alacritty/
+    directory_mode:
+  tags:
+    - dircontent

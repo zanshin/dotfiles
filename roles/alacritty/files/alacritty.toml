@@ -1,0 +1,103 @@
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+color = "#ffffff"
+duration = 0
+
+[colors.bright]
+black = "#323232"
+blue = "#68d5ff"
+cyan = "#c7fffd"
+green = "#eafe84"
+magenta = "#ffa3aa"
+red = "#ff6565"
+white = "#ffffff"
+yellow = "#fff779"
+
+[colors.cursor]
+cursor = "#f29718"
+text = "#e6e1cf"
+
+[colors.normal]
+black = "#000000"
+blue = "#36a3d9"
+cyan = "#95e6cb"
+green = "#b8cc52"
+magenta = "#f07178"
+red = "#ff3333"
+white = "#ffffff"
+yellow = "#e7c547"
+
+[colors.primary]
+background = "#0f1419"
+foreground = "#e6e1cf"
+
+[colors.selection]
+background = "#253340"
+text = "#e6e1cf"
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+AppleFontSmoothing = true
+size = 15.0
+
+[font.bold]
+family = "JetBrains Mono Nl"
+style = "Bold"
+
+[font.glyph_offset]
+x = 0
+y = 2
+
+[font.italic]
+family = "JetBrains Mono Nl"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono Nl"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 5
+
+[mouse]
+hide_when_typing = true
+
+[mouse.double_click]
+threshold = 300
+
+[mouse.triple_click]
+threshold = 300
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 1.0
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 190
+lines = 49
+
+[window.padding]
+x = 6
+y = 6

@@ -1,13 +1,14 @@
 default_roles:
-  - system
-  - bash
-  - git
-  - neovim
-  - npm
-  - python
-  - ruby
-  - ssh
-  - tmux
+  - alacritty
+  # - system
+  # - bash
+  # - git
+  # - neovim
+  # - npm
+  # - python
+  # - ruby
+  # - ssh
+  # - tmux
 
   git_user_name: "zanshin"
   git_user_email: !vault |
