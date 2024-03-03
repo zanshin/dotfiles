@@ -23,19 +23,34 @@ return {
         end,
       },
       mapping = {
+        -- Select the [n]ext item
         ['<C-p>'] = cmp.mapping.select_prev_item(),
+        -- Select the [p]revious item
         ['<C-n>'] = cmp.mapping.select_next_item(),
-        -- Add tab support
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
+
+        -- Accept ([y]es) the completion.
+        -- This will auto-import if your LSP supports it.
+        -- This will expand snippets if the LSP sent a snippet.
+        ['<C-y'] = cmp.mapping.confirm { select = true },
+
+        -- Manually trigger a completion fron nvim-cmp.
+        --  Generally you don't need this, because nvim-cmp will display
+        --  completions whenever it has completion options available.
+        ['<C-Space>'] = cmp.mapping.complete {},
+
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Insert,
-          select = true,
-        })
+
+        -- Old confirm behaviour - not useful
+        -- ['<CR>'] = cmp.mapping.confirm({
+        --   behavior = cmp.ConfirmBehavior.Insert,
+        --   select = true,
+        -- })
+        -- Scroll 4 lines
+        -- ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
+        -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        -- Add tab support
+        -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        -- ['<Tab>'] = cmp.mapping.select_next_item(),
       },
       -- Installed sources:
       sources = {
