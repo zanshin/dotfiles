@@ -9,6 +9,58 @@
 [init]
 	defaultBranch = main
 
+[alias]
+  ch = checkout
+  ci = commit
+  df = diff
+  l = log
+  ph = push
+  pl = pull
+  sh = show
+  st = status
+
+  rb = rebase
+  rbi = rebase -i --keep-base
+
+  f = fetch
+  fa = fetch --all
+
+  r = reset
+  rh = reset --hard
+
+  dfst = diff --stat
+
+  # Show verbose output about tags, branches, or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+
+  # From https://thoughtbot.com/blog/dumpster-diving-through-dotfiles-better-git-logging
+  sl = "log --oneline --decorate -20"
+  sla = "log --oneline --decorate --graph --all -20"
+  slap = "log --oneline --decorate --graph --all"
+
+# git log alternatives
+  hist = "log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
+  ahead = "log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
+  today = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
+
+  yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
+  # up = pull --rebase --autostash origin master
+  # Fetch all upstream branches and clean out old origin/* branches that no longer exist upstream
+  # https://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful/15316602#15316602
+  up = "!git remote update -p; git merge --ff-only @{u}"
+
+# ************
+# Rebase workflow
+# https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
+  mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
+  synced = "!git pull origin $(git mainbranch) --rebase"
+  update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
+  squash = "!git rebase -v- i $(git mainbranch)"
+  publish = push origin HEAD --force-with-lease
+  pub = publish
+
 # [commit]
 # 	gpgsign = true
 
@@ -65,33 +117,6 @@
   # default = simple
   default = matching
 
-[alias]
-  yolo = 'git commit -am "DEAL WITH IT" && git push -f origin master'
-  hist = "log --graph --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
-  ahead = "log @{u}...HEAD --graph --decorate --left-right --boundary --pretty=format:'%Cred%h%Creset %d %s %Cgreen(%cr)%Creset %Cblue[%an]%Creset' --abbrev-commit --date=relative"
-  today = "log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative"
-  # Show verbose output about tags, branches, or remotes
-  tags = tag -l
-  branches = branch -a
-  remotes = remote -v
-  # up = pull --rebase --autostash origin master
-  # Fetch all upstream branches and clean out old origin/* branches that no longer exist upstream
-  # https://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful/15316602#15316602
-  up = "!git remote update -p; git merge --ff-only @{u}"
-# From https://thoughtbot.com/blog/dumpster-diving-through-dotfiles-better-git-logging
-  sl = "log --oneline --decorate -20"
-  sla = "log --oneline --decorate --graph --all -20"
-  slap = "log --oneline --decorate --graph --all"
-
-# ************
-# Rebase workflow
-# https://softwaredoug.com/blog/2022/11/09/idiot-proof-git-aliases.html
-  mainbranch = "!git remote show origin | sed -n '/HEAD branch/s/.*: //p'"
-  synced = "!git pull origin $(git mainbranch) --rebase"
-  update = "!git pull origin $(git rev-parse --abbrev-ref HEAD) --rebase"
-  squash = "!git rebase -v- i $(git mainbranch)"
-  publish = push origin HEAD --force-with-lease
-  pub = publish
 
 [http]
   cookiefile = ~/.gitcookies
