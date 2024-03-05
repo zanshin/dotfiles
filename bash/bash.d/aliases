@@ -268,7 +268,7 @@ alias python="python3"
 # }}}
 # Oddball stuff {{{
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
-alias inet='ifconfig | grep inet | grep -v inet6'
+# alias inet='ifconfig | grep inet | grep -v inet6'
 alias sloc='/usr/local/sloccount/bin/sloccount'
 alias adventure='emacs -batch -l dunnet'
 alias ttop='top -ocpu -R -F -s 2 -n30'

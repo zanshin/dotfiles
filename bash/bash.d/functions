@@ -315,6 +315,11 @@ function myip() {
 function tmuxip() {
   echo `ifconfig | grep "inet 10.130" | grep -v broadcast | awk '{print $2}'`
 }
+
+function inet() {
+  ip -4 addr show | awk '/inet/ {print $NF, $2}'
+}
+
 # function tmuxip() {
 #   PUBIP=`curl -s https://api.ipify.org | awk '{print $1}'`
 #   if [[ `uname -a | grep -i darwin` ]]; then
