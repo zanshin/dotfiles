@@ -317,7 +317,7 @@ function tmuxip() {
 }
 
 function inet() {
-  ip -4 addr show | awk '/inet/ {print $NF, $2}'
+  ip -4 addr show | awk '/inet/ {print $NF, $2}' | column -t
 }
 
 # function tmuxip() {
