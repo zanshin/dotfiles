@@ -1,4 +1,0 @@
----
-- name: "Alacritty | debug"
-  - debug:
-    msg: "Alacritty yml file"
