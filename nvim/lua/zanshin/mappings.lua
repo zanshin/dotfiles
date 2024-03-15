@@ -135,7 +135,7 @@ vim.keymap.set('n', '<Leader>fgb', ':Telescope git_branches<CR>', { desc = 'Tele
 
 -- Neo-tree
 vim.keymap.set('n', '\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotree window' })
-vim.keymap.set('n', '<C-n>', ':Neotree toggle<cr>', { desc = 'Toggle [N]eotree window' })
+-- vim.keymap.set('n', '<C-n>', ':Neotree toggle<cr>', { desc = 'Toggle [N]eotree window' })
 
 -- nvim-tree
 -- map('n', '<C-n>', ':NvimTreeToggle<cr>')
