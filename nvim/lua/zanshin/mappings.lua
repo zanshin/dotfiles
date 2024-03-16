@@ -152,4 +152,11 @@ vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>", {
 vim.keymap.set("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>", { desc = 'DAP [R]eset UI' })
 
 -- Git Blame
-vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
+vim.keymap.set("n", "<leader>gB", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
+
+-- Neogit
+vim.keymap.set("n", "<leader>gs", ":Neogit<cr>", { desc = '[g]it [s]tatus' })
+vim.keymap.set("n", "<leader>gc", ":Neogit commit<cr>", { desc = '[g]it [c]ommit' })
+vim.keymap.set("n", "<leader>gp", ":Neogit pull<cr>", { desc = '[g]it [p]ull' })
+vim.keymap.set("n", "<leader>gP", ":Neogit pull<cr>", { desc = '[g]it [P]ush' })
+vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<cr>", { desc = '[g]it [b]ranches' })
