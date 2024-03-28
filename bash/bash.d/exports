@@ -21,7 +21,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PAGER=less
-export LESS="-M -n -q -i -r"
+# export LESS="-M -n -q -i -r"
+export LESS="-FRq"
 
 # Force Firefox to use Wayland protocol and not XWayland
 export MOZ_ENABLE_WAYLAND=1
