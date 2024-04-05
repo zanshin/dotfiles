@@ -2,7 +2,7 @@
 return {
   -- https://github.com/neovim/nvim-lspconfig
   'neovim/nvim-lspconfig',
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
   dependencies = {
     -- LSP Plugin Management
     -- https://github.com/williamboman/mason.nvim
@@ -100,6 +100,9 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+
+    local util = require "lspconfig/util"
+
     -- Enable these language servers
     --
     -- Add any additional override configuration in the following tables.
@@ -115,31 +118,38 @@ return {
       gopls = {
         cmd = { "gopls" },
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        settings = {
-          gopls = {
-            -- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-            gofumpt = true,
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            },
-            analyses = {
-              fieldalignment = true,
-              unusedwrite = true,
-              useany = true,
-            },
-            completeUnimported = true,
-            staticcheck = true,
-            directoryFilters = { "-.git", "-.jj", "-.vscode", "-.idea", "-.vscode-test", "-node_modules", "-.nvim" },
-            semanticTokens = true,
-          },
-        },
+        root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+
       },
+      -- gopls = {
+      --   cmd = { "gopls" },
+      --   capabilitied = capabilities,
+      --   filetypes = { "go", "gomod", "gowork", "gotmpl" },
+      --   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+      --   settings = {
+      --     gopls = {
+      --       gofumpt = true,
+      --       hints = {
+      --         assignVariableTypes = true,
+      --         compositeLiteralFields = true,
+      --         compositeLiteralTypes = true,
+      --         constantValues = true,
+      --         functionTypeParameters = true,
+      --         parameterNames = true,
+      --         rangeVariableTypes = true,
+      --       },
+      --       analyses = {
+      --         fieldalignment = true,
+      --         unusedwrite = true,
+      --         useany = true,
+      --       },
+      --       completeUnimported = true,
+      --       staticcheck = true,
+      --       directoryFilters = { "-.git", "-.jj", "-.vscode", "-.idea", "-.vscode-test", "-node_modules", "-.nvim" },
+      --       semanticTokens = true,
+      --     },
+      --   },
+      -- },
       jsonls = {},
       lua_ls = {
         -- Get the language server to recognize the 'vim' global
