@@ -35,7 +35,7 @@ return {
   -- 'sjl/gundo.vim',
   'tpope/vim-surround',
   'jiangmiao/auto-pairs',
-  -- 'folke/which-key.nvim',
+  'folke/which-key.nvim',
 
   -- Language Server Protocol (LSP)
   -- use { 'williamboman/nvim-lsp-installer' }
