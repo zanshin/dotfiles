@@ -79,15 +79,39 @@ return {
         -- the second autocommand.
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.documentHighlightProvider then
+          local highlight_augroup = vim.api.nvim_create_augroup('zanshin-lsp-highlight', { clear = false })
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,
+            group = highlight_augroup,
             callback = vim.lsp.buf.document_highlight,
           })
 
           vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
             buffer = event.buf,
+            group = highlight_augroup,
             callback = vim.lsp.buf.clear_references,
           })
+        end
+
+        -- The following autocommand is used to enable inlay hints in your
+        -- code, if the language server you are using supports them
+        --
+        -- This may be unwanted, since they displace some of your code
+        if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+          map('<leader>th', function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+          end, '[T]oggle Inlay [H]ints')
+        end
+      end,
+    })
+
+    vim.api.nvim_create_autocmd('LspDetach', {
+      group = vim.api.nvim_create_augroup('zanshin-lsp-detach', { clear = true }),
+      callback = function(event)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client.server_capabilities.documentHighlightProvider then
+          vim.lsp.buf.clear_references()
+          vim.api.nvim_clear_autocmds { group = 'zanshin-lsp-highlight', buffer = event.buf }
         end
       end,
     })
@@ -119,6 +143,15 @@ return {
         cmd = { "gopls" },
         filetypes = { "go", "gomod", "gowork", "gotmpl" },
         root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            gofumpt = true,
+            completeUnimported = true,
+            staticcheck = true,
+            directoryFilters = { "-.git", "-.jj", "-.vscode", "-node_modules", "-.nvim" },
+            semanticTokens = true,
+          }
+        }
 
       },
       -- gopls = {
@@ -161,25 +194,46 @@ return {
       tsserver = {},
 
       yamlls = {
+        cmd = { "yamls" },
+        filetypes = { "yaml", "yml" },
         settings = {
-          customTags = {
-            "!Base63",
-            "!Cidr",
-            "!FindInMap sequence",
-            "!GetAtt",
-            "!GetAZ",
-            "!ImportValue",
-            "!Join sequence",
-            "!Ref",
-            "!Select sequence",
-            "!Split sequence",
-            "!Sub",
-            "!And sequence",
-            "!Condition",
-            "!Equals sequence",
-            "!If sequence",
-            "!Not sequence",
-            "!Or sequence",
+          yaml = {
+            schemaStore = { enable = true },
+            format = { enable = true },
+            hover = true,
+            completion = true,
+
+            customTags = {
+              "!And",
+              "!And sequence",
+              "!Base64",
+              "!Cidr",
+              "!Cidr sequence",
+              "!Condition",
+              "!Equals",
+              "!Equals sequence",
+              "!FindInMap",
+              "!FindInMap sequence",
+              "!GetAtt",
+              "!GetAZ",
+              "!If",
+              "!If sequence",
+              "!ImportValue",
+              "!ImportValue sequence",
+              "!Join",
+              "!Join sequence",
+              "!Not",
+              "!Not sequence",
+              "!Or",
+              "!Or sequence",
+              "!Ref",
+              "!Select",
+              "!Select sequence",
+              "!Split",
+              "!Split sequence",
+              "!Sub",
+              "!Sub sequence",
+            },
           },
         },
       },
