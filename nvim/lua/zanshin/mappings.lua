@@ -52,7 +52,7 @@ vim.keymap.set('n', '<leader>/', ':nohlsearch<CR>', { desc = 'Remove search high
 vim.keymap.set('n', '<F10>', ':set relativenumber! number! number?<CR>',
   { desc = 'Toggle between number and relative number' })
 vim.keymap.set('n', 'nn', ':set norelativenumber<cr>', { desc = 'Turn relative line numbering off' })
-vim.keymap.set('n', 'rr', ':set relativenumber<cr>', { desc = 'Turn relative line numbering on' })
+vim.keymap.set('n', 'nr', ':set relativenumber<cr>', { desc = 'Turn relative line numbering on' })
 
 -- Move line(s) up or down via J and K respectively
 -- map('v', '<C-j>', ":m '>+1<CR>gv=gv")
