@@ -121,17 +121,19 @@ vim.keymap.set('n', '<leader>tsp', ':TSPlaygroundToggle<CR>', { desc = '[T]oggle
 vim.keymap.set('n', '<leader>tsh', ':TSHighlightCapturesUnderCursor<CR>', { desc = '[T]ree[S]itter [H]ighlight' })
 
 -- Telescope mappings
-vim.keymap.set('n', '<leader>U', ':Telescope undo<cr>', { desc = '[U]ndo using Telescope' })
-vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { desc = 'Telescope [F]ind [F]iles' })
-vim.keymap.set('n', '<leader>fh', ':Telescope help_tags<CR>', { desc = 'Telescop open help' })
-vim.keymap.set('n', '<leader>fw', ':Telescope live_grep<CR>', { desc = 'Telescop live grep' })
-vim.keymap.set('n', '<Leader>fb', ':Telescope buffers<CR>', { desc = 'Telescope list buffers' })
-vim.keymap.set('n', '<Leader>fo', ':Telescope commands<CR>', { desc = 'Telescope list commands' })
-vim.keymap.set('n', '<Leader>fgs', ':Telescope git_status<CR>', { desc = 'Telescope Git status' })
-vim.keymap.set('n', '<Leader>fgf', ':Telescope git_files<CR>', { desc = 'Telescope Git files' })
-vim.keymap.set('n', '<Leader>fgc', ':Telescope git_commits<CR>', { desc = 'Telescope Display Git Commit History' })
-vim.keymap.set('n', '<Leader>fgb', ':Telescope git_branches<CR>', { desc = 'Telescope Display Git branches' })
--- vim.keymap.set('n', '<Leader>fgt', ':Telescope git_stash<CR>', { desc = 'Telescope Git Stash' })
+local builtin = require 'telescope.builtin'
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope [F]ind [F]iles' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescop open help' })
+vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Telescop live grep' })
+vim.keymap.set('n', '<Leader>fb', builtin.buffers, { desc = 'Telescope list buffers' })
+vim.keymap.set('n', '<Leader>fo', builtin.commands, { desc = 'Telescope list commands' })
+
+-- Git things
+vim.keymap.set('n', '<Leader>fgs', builtin.git_status, { desc = 'Telescope Git status' })
+vim.keymap.set('n', '<Leader>fgf', builtin.git_files, { desc = 'Telescope Git files' })
+vim.keymap.set('n', '<Leader>fgc', builtin.git_commits, { desc = 'Telescope Display Git Commit History' })
+vim.keymap.set('n', '<Leader>fgb', builtin.git_branches, { desc = 'Telescope Display Git branches' })
+-- vim.keymap.set('n', '<Leader>fgt', builtin.git_stash, { desc = 'Telescope Git Stash' })
 
 -- Neo-tree
 vim.keymap.set('n', '\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotree window' })
@@ -152,4 +154,11 @@ vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>", {
 vim.keymap.set("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>", { desc = 'DAP [R]eset UI' })
 
 -- Git Blame
-vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
+vim.keymap.set("n", "<leader>gB", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
+
+-- Neogit
+vim.keymap.set("n", "<leader>gs", ":Neogit<cr>", { desc = '[g]it [s]tatus' })
+vim.keymap.set("n", "<leader>gc", ":Neogit commit<cr>", { desc = '[g]it [c]ommit' })
+vim.keymap.set("n", "<leader>gp", ":Neogit pull<cr>", { desc = '[g]it [p]ull' })
+vim.keymap.set("n", "<leader>gP", ":Neogit pull<cr>", { desc = '[g]it [P]ush' })
+vim.keymap.set("n", "<leader>gb", "builtin.git_branches<cr>", { desc = '[g]it [b]ranches' })

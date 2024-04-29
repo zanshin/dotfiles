@@ -232,12 +232,12 @@ acmd({ "BufNewFile", "BufRead" },
     group = _go
   })
 
-acmd({ "BufWritePre" },
-  {
-    pattern = "*.go",
-    command = "lua OrgImports(1000)",
-    group = _go
-  })
+-- acmd({ "BufWritePre" },
+--   {
+--     pattern = "*.go",
+--     command = "lua OrgImports(1000)",
+--     group = _go
+--   })
 
 -- Help in vertical split autocmds
 local _help = agrp("_help", { clear = true })

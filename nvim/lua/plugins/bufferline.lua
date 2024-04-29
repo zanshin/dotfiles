@@ -3,7 +3,7 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons"
   },
-  options = {
+  opts = {
     offsets = {
       {
         filetype = "neo-tree",
