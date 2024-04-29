@@ -56,6 +56,10 @@ export CHEF_BASEDIR="/Users/mhn/code/chef"
 export CARGO_HOME="${HOME}/.cargo"
 export RUSTUP_HOME="${HOME}/.rustup"
 
+# Export for nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}"  ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"
+
 # OpenJDK
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-15.0.1.jdk/Contents/Home"
 export JAVA_HOME="/opt/homebrew/Cellar/openjdk/19.0.2"
