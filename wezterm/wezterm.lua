@@ -12,8 +12,8 @@ end
 
 -- My configuration follows
 -- config.color_scheme = 'nightfox'
--- config.color_scheme = 'ayu'
-config.color_scheme = 'Chalk (base16)'
+config.color_scheme = 'ayu'
+-- config.color_scheme = 'Chalk (base16)'
 
 config.scrollback_lines = 10000
 
@@ -22,11 +22,14 @@ config.font = wezterm.font 'JetBrainsMonoNL Nerd Font'
 config.font_size = 16
 config.line_height = 1.1
 
+-- hyperlinks
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
 -- tabs
 config.use_fancy_tab_bar = false
 config.window_frame = {
   font = wezterm.font { family = 'Fira Code', weight = 'Bold' },
-  font_size = 12.0,
+  font_size = 15.0,
   active_titlebar_bg = '#333333',
   inactive_titlebar_bg = '#666666',
 }
