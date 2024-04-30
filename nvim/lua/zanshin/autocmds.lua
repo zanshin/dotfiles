@@ -151,18 +151,18 @@ acmd({ "BufNewFile", "BufRead" },
   })
 
 -- markdown autocmds
-local _markdown = agrp("_markdown", { clear = true })
+-- local _markdown = agrp("_markdown", { clear = true })
 -- acmd({ "BufNewFile", "BufRead" },
 --   { pattern = "*.md,*.mkd,*.markdown",
 --     command = "setfiletype = markdown",
 --     group = _markdown })
 
-acmd({ "FileType" },
-  {
-    pattern = "markdown",
-    command = "set spell spelllang=en_us tw=100",
-    group = _markdown
-  })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "markdown",
+--     command = "set spell spelllang=en_us tw=100",
+--     group = _markdown
+--   })
 
 -- Ruby autocmds
 local _ruby = agrp("_ruby", { clear = true })

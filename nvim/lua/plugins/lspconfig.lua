@@ -139,21 +139,8 @@ return {
     local servers = {
       bashls = {},
       dockerls = {},
-      gopls = {
-        cmd = { "gopls" },
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-        settings = {
-          gopls = {
-            gofumpt = true,
-            completeUnimported = true,
-            staticcheck = true,
-            directoryFilters = { "-.git", "-.jj", "-.vscode", "-node_modules", "-.nvim" },
-            semanticTokens = true,
-          }
-        }
+      gopls = {},
 
-      },
       -- gopls = {
       --   cmd = { "gopls" },
       --   capabilitied = capabilities,
@@ -183,13 +170,25 @@ return {
       --     },
       --   },
       -- },
+
       jsonls = {},
       lua_ls = {
         -- Get the language server to recognize the 'vim' global
         settings = { Lua = { diagnostics = { globals = { 'vim' } } } }
       },
       pyright = {},
-      rust_analyzer = {},
+      rust_analyzer = {
+        -- settings = {
+        --   ["rust-analyzer"] = {
+        --     procMacro = { enable = true },
+        --     cargo = { allFeatures = true },
+        --     checkOnSave = {
+        --       command = "clippy",
+        --       extraArgs = { "--no-deps" },
+        --     },
+        --   },
+        -- },
+      },
       solargraph = {},
       tsserver = {},
 
