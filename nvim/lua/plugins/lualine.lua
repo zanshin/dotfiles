@@ -4,7 +4,6 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'linrongbin16/lsp-progress.nvim', -- LSP loading progress
-    -- 'kdheepal/tabline.nvim',
   },
   opts = {
     options = {
@@ -32,13 +31,6 @@ return {
       lualine_y = {},
       lualine_z = {},
     },
-    tabline = {}
-    -- lualine_a = {},
-    -- lualine_b = {},
-    -- lualine_c = { 'buffers' },
-    -- lualine_x = { 'tabs' },
-    -- lualine_y = {},
-    -- lualine_z = {}
-    -- }
+    tabline = {},
   }
 }
