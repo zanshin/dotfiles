@@ -1,10 +1,8 @@
-vim.opt_local.formatoptions
-    + "a"
-    + "w"
-vim.opt_global.spell
-vim.opt_local.spelllang = "en_us"
-vim.opt_local.noautoindent
-vim.opt_local.nolist
-vim.opt_local.nobackup
-vim.opt_local.noswapfile
-vim.opt_local.nowritebackup
+-- Mail (mutt) specific settings
+vim.opt.formatoptions = vim.opt.formatoptions + "a" + "w"
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+vim.opt.autoindent = false
+vim.opt.list = false
+vim.opt.swapfile = false
+vim.opt.backup = false
