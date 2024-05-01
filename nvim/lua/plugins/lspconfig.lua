@@ -193,11 +193,13 @@ return {
       tsserver = {},
 
       yamlls = {
-        cmd = { "yamls" },
+        -- cmd = { "yamls" },
+        cmd = { 'yaml-language-server', '--stdio' },
         filetypes = { "yaml", "yml" },
+        root_dir = util.find_git_ancestor,
         settings = {
           yaml = {
-            schemaStore = { enable = true },
+            -- schemaStore = { enable = true },
             format = { enable = true },
             hover = true,
             completion = true,
