@@ -9,7 +9,7 @@ return {
 
   -- Lualine
   'nvim-lualine/lualine.nvim',
-  'kdheepak/tabline.nvim',
+  'akinsho/bufferline.nvim',
 
   -- Syntax
   -- 'Yggdroot/indentline',

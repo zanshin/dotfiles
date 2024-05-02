@@ -1,6 +1,10 @@
 -- Neovim Configuration
 -- December 10, 2023
 
+-- Must set this ahead of initializing Lazy
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Bootstrap Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -15,10 +19,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Must set this ahead of initializing Lazy
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
+-- Initialize Lazy
 require("lazy").setup("plugins", {
   change_detection = {
     enabled = true,

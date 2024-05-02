@@ -28,12 +28,12 @@ acmd({ "FocusGained" },
     group = _general
   })
 
-acmd({ "FileType" },
-  {
-    pattern = "*",
-    command = "set formatoptions-=ro noswapfile",
-    group = _general
-  })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "*",
+--     command = "set formatoptions-=ro noswapfile",
+--     group = _general
+--   })
 
 acmd({ "BufWritePre" },
   {
@@ -83,13 +83,13 @@ acmd({ "BufNewFile", "BufRead" },
   })
 
 -- makefile autocmds
-local _makefile = agrp("_makefile", { clear = true })
-acmd({ "FileType" },
-  {
-    pattern = "make",
-    command = "setlocal ts=8 sts=8 sw=8 noexpandtab",
-    group = _makefile
-  })
+-- local _makefile = agrp("_makefile", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "make",
+--     command = "setlocal ts=8 sts=8 sw=8 noexpandtab",
+--     group = _makefile
+--   })
 
 -- YAML autocmds
 local _yaml = agrp("_yaml", { clear = true })
@@ -100,30 +100,30 @@ acmd({ "BufNewFile", "BufReadPost" },
     group = _yaml
   })
 
-acmd({ "FileType" },
-  {
-    pattern = "yaml",
-    command = "setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>",
-    group = _yaml
-  })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "yaml",
+--     command = "setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>",
+--     group = _yaml
+--   })
 
 -- Rust
-local _rust = agrp("_rust", { clear = true })
-acmd({ "FileType" },
-  {
-    pattern = "rs",
-    command = "setlocal ts=4, sts=4, sw=4 expandtab",
-    group = _rust
-  })
+-- local _rust = agrp("_rust", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "rs",
+--     command = "setlocal ts=4, sts=4, sw=4 expandtab",
+--     group = _rust
+--   })
 
 -- mail (mutt) autocmds
-local _mutt = agrp("_mutt", { clear = true })
-acmd({ "FileType" },
-  {
-    pattern = "mail",
-    command = "formatoptions+=aw spell spelllang=en_us noautoindent nolist nobackup noswapfile nowritebackup",
-    group = _mutt
-  })
+-- local _mutt = agrp("_mutt", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "mail",
+--     command = "formatoptions+=aw spell spelllang=en_us noautoindent nolist nobackup noswapfile nowritebackup",
+--     group = _mutt
+--   })
 
 -- RSS
 local _rss = agrp("_rss", { clear = true })
@@ -151,18 +151,18 @@ acmd({ "BufNewFile", "BufRead" },
   })
 
 -- markdown autocmds
-local _markdown = agrp("_markdown", { clear = true })
+-- local _markdown = agrp("_markdown", { clear = true })
 -- acmd({ "BufNewFile", "BufRead" },
 --   { pattern = "*.md,*.mkd,*.markdown",
 --     command = "setfiletype = markdown",
 --     group = _markdown })
 
-acmd({ "FileType" },
-  {
-    pattern = "markdown",
-    command = "set spell spelllang=en_us tw=100",
-    group = _markdown
-  })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "markdown",
+--     command = "set spell spelllang=en_us tw=100",
+--     group = _markdown
+--   })
 
 -- Ruby autocmds
 local _ruby = agrp("_ruby", { clear = true })
@@ -188,13 +188,13 @@ acmd({ "BufNewFile", "BufRead" },
   })
 
 -- Python autocmds
-local _python = agrp("_python", { clear = true })
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "*.py",
-    command = "set ts=2 sts=2 sw=2 expandtab",
-    group = _python
-  })
+-- local _python = agrp("_python", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "*.py",
+--     command = "set ts=2 sts=2 sw=2 expandtab",
+--     group = _python
+--   })
 
 -- diff autocmds
 local _diff = agrp("_diff", { clear = true })
@@ -224,13 +224,13 @@ acmd({ "BufNewFile", "BufRead" },
   })
 
 -- Go autocmds
-local _go = agrp("_go", { clear = true })
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "*.go",
-    command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
-    group = _go
-  })
+-- local _go = agrp("_go", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "*.go",
+--     command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
+--     group = _go
+--   })
 
 -- acmd({ "BufWritePre" },
 --   {
