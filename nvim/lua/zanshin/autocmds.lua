@@ -73,58 +73,6 @@ acmd({ "CursorHoldI" },
     group = _general
   })
 
--- gopass security
-local _gopass = agrp("_gopass", { clear = true })
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "/private/**/gopass**",
-    command = 'setlocal noswapfile nobackup noundofile shada=""',
-    group = _gopass
-  })
-
--- makefile autocmds
--- local _makefile = agrp("_makefile", { clear = true })
--- acmd({ "FileType" },
---   {
---     pattern = "make",
---     command = "setlocal ts=8 sts=8 sw=8 noexpandtab",
---     group = _makefile
---   })
-
--- YAML autocmds
-local _yaml = agrp("_yaml", { clear = true })
-acmd({ "BufNewFile", "BufReadPost" },
-  {
-    pattern = "*.{yaml.yml}",
-    command = "setfiletype=yaml foldmethod=indent",
-    group = _yaml
-  })
-
--- acmd({ "FileType" },
---   {
---     pattern = "yaml",
---     command = "setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>",
---     group = _yaml
---   })
-
--- Rust
--- local _rust = agrp("_rust", { clear = true })
--- acmd({ "FileType" },
---   {
---     pattern = "rs",
---     command = "setlocal ts=4, sts=4, sw=4 expandtab",
---     group = _rust
---   })
-
--- mail (mutt) autocmds
--- local _mutt = agrp("_mutt", { clear = true })
--- acmd({ "FileType" },
---   {
---     pattern = "mail",
---     command = "formatoptions+=aw spell spelllang=en_us noautoindent nolist nobackup noswapfile nowritebackup",
---     group = _mutt
---   })
-
 -- RSS
 local _rss = agrp("_rss", { clear = true })
 acmd({ "BufNewFile", "BufRead" },
@@ -150,94 +98,6 @@ acmd({ "BufNewFile", "BufRead" },
     group = _git
   })
 
--- markdown autocmds
--- local _markdown = agrp("_markdown", { clear = true })
--- acmd({ "BufNewFile", "BufRead" },
---   { pattern = "*.md,*.mkd,*.markdown",
---     command = "setfiletype = markdown",
---     group = _markdown })
-
--- acmd({ "FileType" },
---   {
---     pattern = "markdown",
---     command = "set spell spelllang=en_us tw=100",
---     group = _markdown
---   })
-
--- Ruby autocmds
-local _ruby = agrp("_ruby", { clear = true })
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "Gemfile,Gemfile.lock,Guardifile,Thorfile,config.ru,Vagrantfile,Berksfile,Berksfile.lock",
-    command = "setfiletype ruby",
-    group = _ruby
-  })
-
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "Rakefile,*.rake",
-    command = "setfiletype rake",
-    group = _ruby
-  })
-
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "Rakefile,*.rake",
-    command = "set syntax=ruby",
-    group = _ruby
-  })
-
--- Python autocmds
--- local _python = agrp("_python", { clear = true })
--- acmd({ "BufNewFile", "BufRead" },
---   {
---     pattern = "*.py",
---     command = "set ts=2 sts=2 sw=2 expandtab",
---     group = _python
---   })
-
--- diff autocmds
-local _diff = agrp("_diff", { clear = true })
-acmd({ "FileType" },
-  {
-    pattern = "diff",
-    command = "syntax enable",
-    group = _diff
-  })
-
--- text file autocmds
-local _spell = agrp("_spell", { clear = true })
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "*.txt",
-    command = "set spell spelllang=en_us",
-    group = _spell
-  })
-
--- Text files
-local _text = agrp("_text", { clear = true })
-acmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = "*.txt",
-    command = "lua require('cmp').setup { completion = { autocomplete = false }}",
-    group = _text
-  })
-
--- Go autocmds
--- local _go = agrp("_go", { clear = true })
--- acmd({ "BufNewFile", "BufRead" },
---   {
---     pattern = "*.go",
---     command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
---     group = _go
---   })
-
--- acmd({ "BufWritePre" },
---   {
---     pattern = "*.go",
---     command = "lua OrgImports(1000)",
---     group = _go
---   })
 
 -- Help in vertical split autocmds
 local _help = agrp("_help", { clear = true })
@@ -271,20 +131,20 @@ vim.api.nvim_exec([[
 
 -- Organize Go imports
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports
-function OrgImports(wait_ms)
-  local params = vim.lsp.util.make_range_params()
-  params.context = { only = { "source.organizeImports" } }
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-  for _, res in pairs(result or {}) do
-    for _, r in pairs(res.result or {}) do
-      if r.edit then
-        vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
-      else
-        vim.lsp.buf.execute_command(r.command)
-      end
-    end
-  end
-end
+-- function OrgImports(wait_ms)
+--   local params = vim.lsp.util.make_range_params()
+--   params.context = { only = { "source.organizeImports" } }
+--   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+--   for _, res in pairs(result or {}) do
+--     for _, r in pairs(res.result or {}) do
+--       if r.edit then
+--         vim.lsp.util.apply_workspace_edit(r.edit, "UTF-8")
+--       else
+--         vim.lsp.buf.execute_command(r.command)
+--       end
+--     end
+--   end
+-- end
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
@@ -296,3 +156,144 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+--
+-- gopass security
+-- local _gopass = agrp("_gopass", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "/private/**/gopass**",
+--     command = 'setlocal noswapfile nobackup noundofile shada=""',
+--     group = _gopass
+--   })
+
+-- makefile autocmds
+-- local _makefile = agrp("_makefile", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "make",
+--     command = "setlocal ts=8 sts=8 sw=8 noexpandtab",
+--     group = _makefile
+--   })
+
+-- YAML autocmds
+-- local _yaml = agrp("_yaml", { clear = true })
+-- acmd({ "BufNewFile", "BufReadPost" },
+--   {
+--     pattern = "*.{yaml.yml}",
+--     command = "setfiletype=yaml foldmethod=indent",
+--     group = _yaml
+--   })
+
+-- acmd({ "FileType" },
+--   {
+--     pattern = "yaml",
+--     command = "setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=<:>",
+--     group = _yaml
+--   })
+
+-- Rust
+-- local _rust = agrp("_rust", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "rs",
+--     command = "setlocal ts=4, sts=4, sw=4 expandtab",
+--     group = _rust
+--   })
+
+-- mail (mutt) autocmds
+-- local _mutt = agrp("_mutt", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "mail",
+--     command = "formatoptions+=aw spell spelllang=en_us noautoindent nolist nobackup noswapfile nowritebackup",
+--     group = _mutt
+--   })
+
+-- markdown autocmds
+-- local _markdown = agrp("_markdown", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   { pattern = "*.md,*.mkd,*.markdown",
+--     command = "setfiletype = markdown",
+--     group = _markdown })
+
+-- acmd({ "FileType" },
+--   {
+--     pattern = "markdown",
+--     command = "set spell spelllang=en_us tw=100",
+--     group = _markdown
+--   })
+
+-- Ruby autocmds
+-- local _ruby = agrp("_ruby", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "Gemfile,Gemfile.lock,Guardifile,Thorfile,config.ru,Vagrantfile,Berksfile,Berksfile.lock",
+--     command = "setfiletype ruby",
+--     group = _ruby
+--   })
+
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "Rakefile,*.rake",
+--     command = "setfiletype rake",
+--     group = _ruby
+--   })
+
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "Rakefile,*.rake",
+--     command = "set syntax=ruby",
+--     group = _ruby
+--   })
+
+-- Python autocmds
+-- local _python = agrp("_python", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "*.py",
+--     command = "set ts=2 sts=2 sw=2 expandtab",
+--     group = _python
+--   })
+
+-- diff autocmds
+-- local _diff = agrp("_diff", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "diff",
+--     command = "syntax enable",
+--     group = _diff
+--   })
+
+-- text file autocmds
+-- local _spell = agrp("_spell", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "*.txt",
+--     command = "set spell spelllang=en_us",
+--     group = _spell
+--   })
+
+-- -- Text files
+-- local _text = agrp("_text", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "*.txt",
+--     command = "lua require('cmp').setup { completion = { autocomplete = false }}",
+--     group = _text
+--   })
+
+-- Go autocmds
+-- local _go = agrp("_go", { clear = true })
+-- acmd({ "BufNewFile", "BufRead" },
+--   {
+--     pattern = "*.go",
+--     command = "setlocal ts=4 sts=4 sw=4 noexpandtab",
+--     group = _go
+--   })
+
+-- acmd({ "BufWritePre" },
+--   {
+--     pattern = "*.go",
+--     command = "lua OrgImports(1000)",
+--     group = _go
+--   })
