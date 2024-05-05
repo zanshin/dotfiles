@@ -178,16 +178,16 @@ return {
       },
       pyright = {},
       rust_analyzer = {
-        -- settings = {
-        --   ["rust-analyzer"] = {
-        --     procMacro = { enable = true },
-        --     cargo = { allFeatures = true },
-        --     checkOnSave = {
-        --       command = "clippy",
-        --       extraArgs = { "--no-deps" },
-        --     },
-        --   },
-        -- },
+        settings = {
+          ["rust-analyzer"] = {
+            procMacro = { enable = true },
+            cargo = { allFeatures = true },
+            checkOnSave = {
+              command = "clippy",
+              extraArgs = { "--no-deps" },
+            },
+          },
+        },
       },
       solargraph = {},
       tsserver = {},
