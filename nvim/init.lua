@@ -36,7 +36,7 @@ vim.notify = require("notify")
 -- These are my personal settings
 require("zanshin.options")  -- anything that gets set
 require("zanshin.mappings") -- mappings
-require("zanshin.autocmds") -- autocommands
+-- require("zanshin.autocmds") -- autocommands
 -- require("zanshin.helpers")  -- functions to wrap commands
 -- require("zanshin.keymaps")  -- Plugin mappings
 -- require("zanshin.lazy")     -- manage plugins
