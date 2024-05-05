@@ -3,8 +3,8 @@
 ## Background
 I've been using some form of Vi/Vim/Neovim since 1997. Around 2008, when I started using Octopress for my website, I started customizing my Vim setup. The oldest commit in my dotfiles repository that mentions Vim is from November 14, 2011. The initial Neovim commit is from December 17, 2015. For a while I maintained both a Vim and a Neovim configuration, but over time the Vim configuration became stale as it was no longer being maintained.
 
-Beginning in late 2021 I began converting my Neovim configuration to use Lua. A
-number of resources helped me in that endeavor, they are listed in the appendix below.
+Beginning in late 2021 I began converting my Neovim configuration to use Lua. A number of resources helped me in that endeavor, they are
+listed in the appendix below.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ For MacOS:
 * brew install --cask font-jetbrains-mono-nerd-font
 
 ## Organization
-The configuration is organized into separate files. My previous Neovim configuration was monolithic and had roughly 1000 lines of code. The Lua-based configuration has nearly 40 files, spread across 8 directories—modular rather than monolithic. Currently the configuration totals about 1450 lines of Lua code, excluding comments and white space.
+The configuration is organized into separate files. My previous Neovim configuration was monolithic and had roughly 1000 lines of code. The Lua-based configuration has approximately 40 files, spread across several directories—modular rather than monolithic. Currently the configuration totals about 1450 lines of Lua code, excluding comments and white space.
 
 ### Directory Structure
 The root of my Neovim configuration is the `init.lua`. This file sets up the lazy.nvim package
@@ -27,9 +27,10 @@ manager, and it loads my autocmds, options, and key mappings.
 
 The `lua/plugins` directory holds the configuration for each plugin.
 The `lua/zanshin` directory is a namespace to hold my mappings, autocmds, and options. They are namespaced to prevent collisions with settings elsewhere in the configuration.
+The `after/ftplugin` directory holds file type specific settings.
 
 ## Plug Ins
-These are the core plugins that I have installed.
+A partial list of the plugins I have installed.
 
 * [lazy.nvim](https://github.com/folke/lazy.nvim "lazy.nvim") - Lazy plugin manager
 * [nvim-cmp](https://github.com/hrsh7th/nvim-cmp "nvim-cmp") - Code completion
