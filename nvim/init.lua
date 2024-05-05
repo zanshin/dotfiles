@@ -41,4 +41,4 @@ require("zanshin.mappings") -- mappings
 -- require("zanshin.keymaps")  -- Plugin mappings
 -- require("zanshin.lazy")     -- manage plugins
 -- require("zanshin.colors")   -- color theme
--- require("zanshin.diagnostics") -- LSP diagnostic settings
+require("zanshin.diagnostics") -- LSP diagnostic settings
