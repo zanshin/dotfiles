@@ -1,13 +1,16 @@
 return {
   "akinsho/bufferline.nvim",
-  version = 'v3.*',
+  -- version = 'v3.*',
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     require('bufferline').setup({
       options = {
         mode = 'buffers',
         numbers = 'none',
-        indicator_icon = "▎",
+        indicator = {
+          icon = '▎',
+          style = 'icon'
+        },
         modified_icon = "●",
         buffer_close_icon = "",
         close_icon = "",
