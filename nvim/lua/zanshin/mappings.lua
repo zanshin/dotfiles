@@ -136,7 +136,9 @@ vim.keymap.set('n', '<Leader>fgb', builtin.git_branches, { desc = 'Telescope Dis
 -- vim.keymap.set('n', '<Leader>fgt', builtin.git_stash, { desc = 'Telescope Git Stash' })
 
 -- Neo-tree
-vim.keymap.set('n', '\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotree window' })
+-- (need to escape \ with another \)
+vim.keymap.set('n', '<leader>\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotree window' })
+vim.keymap.set('n', '<leader>\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotree window' })
 -- vim.keymap.set('n', '<C-n>', ':Neotree toggle<cr>', { desc = 'Toggle [N]eotree window' })
 
 -- nvim-tree
