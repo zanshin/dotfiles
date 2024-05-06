@@ -13,6 +13,8 @@ return {
     ensure_installed = {
       "bash",
       "css",
+      "dockerfile",
+      "gitignore",
       "go",
       "html",
       "javascript",
@@ -20,11 +22,14 @@ return {
       "lua",
       "markdown",
       "python",
+      "ruby",
       "rust",
+      "sql",
       "toml",
       "typescript",
       "vim",
-      "vimdoc"
+      "vimdoc",
+      "yaml"
     },
     sync_install = false,
     ignore_install = { "" }, -- list of parses to ignore installing
