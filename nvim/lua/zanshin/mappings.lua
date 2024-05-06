@@ -164,3 +164,11 @@ vim.keymap.set("n", "<leader>gc", ":Neogit commit<cr>", { desc = '[g]it [c]ommit
 vim.keymap.set("n", "<leader>gp", ":Neogit pull<cr>", { desc = '[g]it [p]ull' })
 vim.keymap.set("n", "<leader>gP", ":Neogit pull<cr>", { desc = '[g]it [P]ush' })
 vim.keymap.set("n", "<leader>gb", "builtin.git_branches<cr>", { desc = '[g]it [b]ranches' })
+
+-- Trouble
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true, desc = 'Toggle Trouble' })
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true, noremap = true, desc = 'Workspace Diagnostics' })
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true, noremap = true, desc = 'Document Diagnostics' })
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true, noremap = true, desc = 'Local List' })
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true, desc = 'Quickfix Diagnostics' })
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true, desc = 'LSP References' })
