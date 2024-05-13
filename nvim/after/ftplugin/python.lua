@@ -1,5 +1,5 @@
 -- Python specific settings
-vim.opt.settabstop = 2
-vim.opt.set.softtabstop = 2
-vim.opt.set.shiftwidth = 2
-vim.opt.set.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
