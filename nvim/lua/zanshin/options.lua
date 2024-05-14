@@ -58,6 +58,8 @@ vim.opt.lazyredraw = true    -- Redraw only when necessary
 vim.opt.termguicolors = true -- True color support
 vim.opt.textwidth = 79       -- ... at column 79
 
+vim.opt.inccommand = "split" -- incrementally show results of s/../../
+
 -- UX
 -- vim.opt.pastetoggle = "<F2>" -- toggle paste mode on/off
 vim.opt.splitbelow = true  -- Put new windows below current
@@ -90,6 +92,7 @@ vim.opt.formatoptions = vim.opt.formatoptions
     + "n" -- Indent past the formatlistpat, not underneath it.
     + "j" -- Auto-remove comments if possible.
     - "2" -- I'm not in gradeschool anymore
+
 
 vim.opt.cpoptions = table.concat {
   '$', -- set $ at end of change range
