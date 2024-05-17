@@ -68,7 +68,7 @@ return {
 
         -- Opens a popup that displays documentation about the word under your
         -- cursor.
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
+        -- map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
         -- WARN: This is not GotoDefinition, the is Goto Declaration.
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
