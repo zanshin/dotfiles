@@ -100,13 +100,13 @@ acmd({ "BufNewFile", "BufRead" },
 
 
 -- Help in vertical split autocmds
-local _help = agrp("_help", { clear = true })
-acmd({ "FileType" },
-  {
-    pattern = "help",
-    command = "wincmd L",
-    group = _help
-  })
+-- local _help = agrp("_help", { clear = true })
+-- acmd({ "FileType" },
+--   {
+--     pattern = "help",
+--     command = "wincmd L",
+--     group = _help
+--   })
 
 -- Whitespace removal autocmds
 local _whitespace = agrp("_whitespace", { clear = true })
