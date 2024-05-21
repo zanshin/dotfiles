@@ -112,6 +112,9 @@ vim.keymap.set('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>', { desc = 'Open NVIM con
 vim.keymap.set('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>',
   { desc = 'Source NVIM configuration file' })
 
+vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute the current file" })
+
 -- Quickfix navigation
 vim.keymap.set('n', '<leader>qn', ':cnext<cr>', { desc = 'Move to the [N]ext Quickfix list item' })
 vim.keymap.set('n', '<leader>qp', ':cprev<cr>', { desc = 'Move to the [P]revious Quickfix list item' })
