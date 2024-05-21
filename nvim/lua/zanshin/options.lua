@@ -112,7 +112,7 @@ vim.opt.ttimeoutlen = 50 -- Key code time out
 -- shortness: avoid showing extra messages when using completion
 -- updatetime: set updatetime for CursorHold
 vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert' }
--- vim.vim.opt.shortmess = vim.vim.opt.shortmess + { c = true}
+vim.opt.shortmess:append"c"
 vim.api.nvim_set_option('updatetime', 300)
 
 -- Fixed column for diagnostics to appear
