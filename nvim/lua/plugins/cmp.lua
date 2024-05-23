@@ -24,11 +24,11 @@ return {
     cmp.setup({
       -- Installed sources:
       sources = {
-        { name = 'path' },
         { name = 'nvim_lsp',               keyword_length = 3 },
         { name = 'nvim_lsp_signature_help' },
-        { name = 'nvim_lua',               keyword_length = 3 },
+        { name = 'path' },
         { name = 'buffer',                 keyword_length = 3 },
+        { name = 'nvim_lua',               keyword_length = 3 },
         { name = 'vsnip',                  keyword_length = 3 },
         { name = 'calc' },
         { name = 'crates' },
@@ -69,7 +69,7 @@ return {
       formatting = {
         format = lspkind.cmp_format({
           mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
-          maxwidth = 50, 
+          maxwidth = 50,
           ellipsis_char = '...', -- show ellipses_char when popup menu exceeds maxwidth
           show_labelDetails = true, -- show labelDetails in menu. Disabled by default
         })
