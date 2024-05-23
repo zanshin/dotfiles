@@ -141,9 +141,9 @@ vim.opt.sidescrolloff = 10 -- Columns of context
 vim.opt.sidescroll = 1     -- number of columns to scroll at a time
 
 -- Status
-vim.opt.laststatus = 2 -- always show the status line
-vim.opt.showcmd = true -- show the command
-vim.opt.cmdheight = 2  -- make status two-lines tall
+vim.opt.laststatus = 2    -- always show the status line
+vim.opt.showcmd = true    -- show the command
+vim.opt.cmdheight = 2     -- make status two-lines tall
 
 -- File focus
 vim.opt.autowrite = true -- write out old file when switching between files
@@ -151,12 +151,10 @@ vim.opt.autoread = true  -- reload files changed on disk
 
 -- Spelling
 -- vim.opt.spellfile = "~/.config/nvim/spell/en.uft-8.add"
-vim.opt.encoding = "utf-8"
 vim.opt.spelllang = "en"
 
 -- Encoding - we like UTF-8
--- vim.opt.fileencoding = "utf-8"
---
--- vim.opt.termencoding = "utf-8"
--- vim.opt.encoding=utf-8
--- vim.opt.noshowmode                   -- don't show the mode - lightline will do that
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.scriptencoding = "utf-8"
+
