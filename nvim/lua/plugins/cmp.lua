@@ -9,13 +9,18 @@ return {
     'hrsh7th/cmp-nvim-lsp',                -- lsp completions
     'hrsh7th/cmp-nvim-lua',                -- lua completions
     'hrsh7th/cmp-nvim-lsp-signature-help', -- lsp signature completions
-    'hrsh7th/cmp-vsnip',                   -- VSCode(LSP)'s snippet feature in vim/nvim
     'hrsh7th/cmp-path',                    -- path completions
     'hrsh7th/cmp-buffer',                  -- buffer completions
 
     'onsails/lspkind.nvim',                -- VSCode like pictograms 
+
+    { 'L3MON4D3/LuaSnip', build = 'make install_jsregexp' },
+    'saadparwaiz1/cmp_luasnip',
   },
+
   config = function()
+    require("zanshin.snippets")
+
     local lspkind = require "lspkind"
     lspkind.init {}
 
@@ -33,6 +38,7 @@ return {
         { name = 'calc' },
         { name = 'crates' },
       },
+
       mapping = {
         -- Select the [p]revious item or [n] item
         ['<C-p>'] = cmp.mapping.select_prev_item{ behavior = cmp.SelectBehavior.Insert },
@@ -57,15 +63,12 @@ return {
 
         ['<C-e>'] = cmp.mapping.close(),
       },
-      snippet = {
-        expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body)
-        end,
-      },
+
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
+
       formatting = {
         format = lspkind.cmp_format({
           mode = 'symbol', -- 'text', 'text_symbol', 'symbol_text', 'symbol'
@@ -74,19 +77,13 @@ return {
           show_labelDetails = true, -- show labelDetails in menu. Disabled by default
         })
       },
-      -- formatting = {
-      --   fields = { 'menu', 'abbr', 'kind' },
-      --   format = function(entry, item)
-      --     local menu_icon = {
-      --       nvim_lsp = 'λ',
-      --       vsnip = '⋗',
-      --       buffer = 'Ω',
-      --       path = '🖫',
-      --     }
-      --     item.menu = menu_icon[entry.source.name]
-      --     return item
-      --   end,
-      -- },
+
+      -- Enable Luasnip to handle snippet expansion for nvim-cmp
+      snippet = {
+        expand = function(args)
+          vim.snippet.expand(args.body)
+        end,
+      },
 
     })
   end,

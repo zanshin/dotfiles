@@ -34,11 +34,13 @@ require("lazy").setup("plugins", {
 vim.notify = require("notify")
 
 -- These are my personal settings
-require("zanshin.options")  -- anything that gets set
-require("zanshin.mappings") -- mappings
+require("zanshin.options")     -- anything that gets set
+require("zanshin.mappings")    -- mappings
+require("zanshin.diagnostics") -- LSP diagnostic settings
+require("zanshin.snippets")    -- Snippet settings
+
 -- require("zanshin.autocmds") -- autocommands
 -- require("zanshin.helpers")  -- functions to wrap commands
 -- require("zanshin.keymaps")  -- Plugin mappings
 -- require("zanshin.lazy")     -- manage plugins
 -- require("zanshin.colors")   -- color theme
-require("zanshin.diagnostics") -- LSP diagnostic settings
