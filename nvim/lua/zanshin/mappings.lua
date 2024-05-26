@@ -152,14 +152,14 @@ vim.keymap.set('n', '<leader>\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotre
 -- map('n', '<leader>r', ':NvimTreeRefresh')
 
 -- DAP mappings -- moved to plugin configs
-vim.keymap.set("n", "<leader>dt", ":lua require'dapui'.DapUiToggle<cr>", { desc = 'DAP [T]oggle UI' })
-vim.keymap.set("n", "<leader>dc", ":lua require'dap'.continue()<cr>", { desc = 'DAP [C]ontinue' })
-vim.keymap.set("n", "<leader>dsi", ":lua require'dap'.step_into()<cr>", { desc = 'DAP [S]tep [I]nto' })
-vim.keymap.set("n", "<leader>dso", ":lua require'dap'.step_over()<cr>", { desc = 'DAP [S]tep [O]ver' })
-vim.keymap.set("n", "<leader>dsu", ":lua require'dap'.step_out()<cr>", { desc = 'DAP [S]tep o[U]t' })
-vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>", { desc = 'DAP toggle [B]reakpoint' })
--- map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
-vim.keymap.set("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>", { desc = 'DAP [R]eset UI' })
+-- vim.keymap.set("n", "<leader>dt", ":lua require'dapui'.DapUiToggle<cr>", { desc = 'DAP [T]oggle UI' })
+-- vim.keymap.set("n", "<leader>dc", ":lua require'dap'.continue()<cr>", { desc = 'DAP [C]ontinue' })
+-- vim.keymap.set("n", "<leader>dsi", ":lua require'dap'.step_into()<cr>", { desc = 'DAP [S]tep [I]nto' })
+-- vim.keymap.set("n", "<leader>dso", ":lua require'dap'.step_over()<cr>", { desc = 'DAP [S]tep [O]ver' })
+-- vim.keymap.set("n", "<leader>dsu", ":lua require'dap'.step_out()<cr>", { desc = 'DAP [S]tep o[U]t' })
+-- vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>", { desc = 'DAP toggle [B]reakpoint' })
+-- -- map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
+-- vim.keymap.set("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>", { desc = 'DAP [R]eset UI' })
 
 -- Git Blame
 vim.keymap.set("n", "<leader>gB", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
