@@ -100,6 +100,10 @@ vim.keymap.set('n', '<leader>v', '<C-w>v<C-w>l', { desc = 'Open a [V]ertical spl
 vim.keymap.set('n', '<leader>h', '<C-w>s<C-w>j', { desc = 'Open a [H]orizontal split and move focus there' }) -- open a horizontal split and switch to it
 
 -- System clipboard
+vim.keymap.set('v', 'Y', '"+y', { desc = '[Y]ank to system clipboard in visual mode' })
+vim.keymap.set('n', '<leader>y', '\"+y', { desc = '[y]ank to system clipboard in normal node' })
+vim.keymap.set('n', '<leader>p', '\"+p', { desc = '[p]aste from system clipboard in normal node' })
+vim.keymap.set('n', '<leader>d', '\"+d', { desc = '[d]elete to system clipboard in normal node' })
 -- map('n', '<leader>y', '"+y')
 -- map('n', '<leader>p', '"+p')
 -- map('n', '<leader>d', '"+d')
