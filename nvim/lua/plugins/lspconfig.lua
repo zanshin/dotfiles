@@ -180,6 +180,11 @@ return {
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
+            assist = {
+              importGranularity =  "module",
+              importPrefix = "bu_self",
+                group = "crate",
+              },
             procMacro = { enable = true },
             cargo = { allFeatures = true },
             checkOnSave = {
