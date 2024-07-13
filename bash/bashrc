@@ -108,8 +108,8 @@ complete -C /usr/local/bin/terraform terraform
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # asdf
-[[ -e $HOME/.asdf/asdf.sh ]] && . $HOME/.asdf/asdf.sh
-[[ -e $HOME/.asdf/completions/asdf.bash ]] && . $HOME/.asdf/completions/asdf.bash
+# [[ -e "$HOME/.asdf/asdf.sh" ]] && . "$HOME/.asdf/asdf.sh" 
+# [[ -e "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash" 
 
 # kubectl bash completion
 [[ -e $HOME/.kubectl_completion_bash ]] && source $HOME/.kubectl_completion_bash
