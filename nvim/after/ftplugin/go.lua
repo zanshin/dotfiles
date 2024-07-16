@@ -4,6 +4,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 
+vim.opt_local.formatoptions = "cqrnj"
+
 
 -- Organize Go imports
 -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md#neovim-imports

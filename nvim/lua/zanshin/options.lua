@@ -82,16 +82,25 @@ vim.opt.foldenable = true     -- Enable folding
 vim.opt.foldmethod = "marker" -- Standard 3 curly braces as markers
 
 -- Format vim.opt.ons
-vim.opt.formatoptions = vim.opt.formatoptions
-    - "a" -- Auto formatting is BAD.
-    - "t" -- Don't auto format my code. I got linters for that.
-    + "c" -- In general, I like it when comments respect textwidth
-    + "q" -- Allow formatting comments w/ gq
-    - "o" -- O and o, don't continue comments
-    -- + "r" -- But do continue when pressing enter.
-    + "n" -- Indent past the formatlistpat, not underneath it.
-    + "j" -- Auto-remove comments if possible.
-    - "2" -- I'm not in gradeschool anymore
+-- vim.opt.formatoptions:append "c" -- make comments respect textwidth
+-- vim.opt.formatoptions:append "q" -- allow comment formatting with gq
+-- vim.opt.formatoptions:append "n" -- recognize numbered lists when formatting
+-- vim.opt.formatoptions:append "j" -- auto-remove comments if possible
+-- vim.opt.formatoptions:remove "a" -- auto formatting is bad
+-- vim.opt.formatoptions:remove "t" -- don't auto format code
+-- vim.opt.formatoptions:remove "o" -- don't continue comments with O and o
+-- vim.opt.formatoptions:remove "2" -- don't indent line 2 differently than line 1
+
+-- vim.opt.formatoptions = vim.opt.formatoptions
+--     - "a" -- Auto formatting is BAD.
+--     - "t" -- Don't auto format my code. I got linters for that.
+--     + "c" -- In general, I like it when comments respect textwidth
+--     + "q" -- Allow formatting comments w/ gq
+--     - "o" -- O and o, don't continue comments
+--     -- + "r" -- But do continue when pressing enter.
+--     + "n" -- Indent past the formatlistpat, not underneath it.
+--     + "j" -- Auto-remove comments if possible.
+--     - "2" -- I'm not in gradeschool anymore
 
 
 vim.opt.cpoptions = table.concat {
