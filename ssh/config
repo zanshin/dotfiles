@@ -59,21 +59,20 @@ Host jump
 
 # Personal
 # Ubuntu on NUC
-Host fermata
+# Host fermata
 #    HostName 68.102.23.189
-    HostName 24.255.217.102
-    Port 11105
-    user mark
+    # HostName 24.255.217.102
+    # Port 11105
+    # user mark
 
-Host fermata.local
-    HostName 192.168.4.38
-    Port 11105
-    user mark
+# Host fermata.local
+#     HostName 192.168.4.38
+#     Port 11105
+#     user mark
 
-Host irc
+Host muon 
 #    HostName 68.102.23.189
-    HostName 24.255.217.102
-    Port 11116
+    HostName 192.168.6.67
     user mark
 
 # Raspbian on Raspberry Pi
