@@ -267,6 +267,7 @@ alias python="python3"
 
 # }}}
 # Oddball stuff {{{
+alias rstree='tree -I target/'
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
 # alias inet='ifconfig | grep inet | grep -v inet6'
 alias sloc='/usr/local/sloccount/bin/sloccount'
