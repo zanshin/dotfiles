@@ -96,12 +96,13 @@ vim.opt.foldmethod = "marker" -- Standard 3 curly braces as markers
 --     - "t" -- Don't auto format my code. I got linters for that.
 --     + "c" -- In general, I like it when comments respect textwidth
 --     + "q" -- Allow formatting comments w/ gq
---     - "o" -- O and o, don't continue comments
---     -- + "r" -- But do continue when pressing enter.
+--     - "o" -- O and o don't continue comments
+--     - "r" -- But do continue when pressing enter.
 --     + "n" -- Indent past the formatlistpat, not underneath it.
 --     + "j" -- Auto-remove comments if possible.
 --     - "2" -- I'm not in gradeschool anymore
-
+--
+-- vim.opt_local.formatoptions:remove({ 'r', 'o' })
 
 vim.opt.cpoptions = table.concat {
   '$', -- set $ at end of change range
