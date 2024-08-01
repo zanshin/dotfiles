@@ -38,6 +38,7 @@ require("zanshin.options")     -- anything that gets set
 require("zanshin.mappings")    -- mappings
 require("zanshin.diagnostics") -- LSP diagnostic settings
 require("zanshin.snippets")    -- Snippet settings
+require("zanshin.lint")        -- Add Linters
 
 -- require("zanshin.autocmds") -- autocommands
 -- require("zanshin.helpers")  -- functions to wrap commands

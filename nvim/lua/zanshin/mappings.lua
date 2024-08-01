@@ -122,6 +122,8 @@ vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Execute 
 -- Quickfix navigation
 vim.keymap.set('n', '<leader>qn', ':cnext<cr>', { desc = 'Move to the [N]ext Quickfix list item' })
 vim.keymap.set('n', '<leader>qp', ':cprev<cr>', { desc = 'Move to the [P]revious Quickfix list item' })
+vim.keymap.set('n', '<leader>qo', ':copen<cr>', { desc = '[Q]uicklist [o]pen' })
+vim.keymap.set('n', '<leader>qc', ':cclose<cr>', { desc = '[Q]uicklist [c]lose' })
 
 -- -----------------------------------------------------------------------
 -- Plugin mappings
