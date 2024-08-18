@@ -9,6 +9,7 @@ return {
     options = {
       icons_enabled = true,
       theme = 'ayu',
+      -- theme = 'tokyonight',
     },
     extensions = {
       'toggleterm',
