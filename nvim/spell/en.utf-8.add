@@ -284,3 +284,8 @@ SCOR
 crontab
 DAIR
 ServiceCatalog
+ECR
+Dockerfile
+apache
+conf
+StreamLit
