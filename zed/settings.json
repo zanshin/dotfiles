@@ -33,11 +33,12 @@
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
-      "enabled": false,
+      "enabled": true,
       "delay_ms": 500
     }
   },
   "git_diff": true,
+  "git_status": true,
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": true,
@@ -79,7 +80,7 @@
     },
     "JSON": {
       "tab_size": 2
-    },
+    }
   },
   "lsp": {
     "rust-analyzer": {
@@ -92,7 +93,7 @@
           },
           "closureReturnTypeHints": {
             "enable": "always"
-          },
+          }
         },
         "assist": {
           "importGranularity": "module",
@@ -141,7 +142,7 @@
   "relative_line_numbers": true,
   "remove_trailing_whitespace_on_save": true,
   "tabs": {
-    "git_status": true,
+    "git_status": true
   },
   "telemetry": {
     "diagnostics": true,
