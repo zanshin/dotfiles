@@ -1,0 +1,45 @@
+[
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "ctrl-w z": "workspace::ToggleZoom",
+      "ctrl-w t": "terminal_panel::ToggleFocus",
+      "g ]": "editor::GoToDiagnostic",
+      "g [": "editor::GoToPrevDiagnostic",
+      "g shift-r": "editor::FindAllReferences",
+      "shift-k": "editor::Hover",
+      "g a": "editor::ToggleCodeActions",
+      "g r": "editor::Rename",
+      "g c c": "editor::ToggleComments"
+    }
+  },
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      "ctrl-w h": [
+        "workspace::ActivatePaneInDirection",
+        "Left"
+      ],
+      "ctrl-w l": [
+        "workspace::ActivatePaneInDirection",
+        "Right"
+      ],
+      "ctrl-w k": [
+        "workspace::ActivatePaneInDirection",
+        "Up"
+      ],
+      "ctrl-w j": [
+        "workspace::ActivatePaneInDirection",
+        "Down"
+      ]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-w z": "workspace::ToggleZoom",
+      "ctrl-w t": "terminal_panel::ToggleFocus",
+      "ctrl-u": "terminal::Clear"
+    }
+  }
+]
