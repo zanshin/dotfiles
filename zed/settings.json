@@ -1,14 +1,12 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
 {
+  // "assistant": {
+  //   "default_model": {
+  //     "provider": "openai",
+  //     "model": "gpt-3.5-turbo"
+  //   },
+  //   "version": "2"
+  // },
   "autosave": "on_focus_change",
-  // "buffer_font_family": "JetBrainsMonoNL",
   "buffer_font_family": "Intel One Mono",
   "buffer_font_size": 16,
   "buffer_line_height": "comfortable",
@@ -117,20 +115,53 @@
           "rangeVariableTypes": true
         }
       }
-    }
-  },
-  "typescript-language-server": {
-    "initialization_options": {
-      "preferences": {
-        "includeInlayParameterNameHints": "all",
-        "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
-        "includeInlayFunctionParameterTypeHints": true,
-        "includeInlayVariableTypeHints": true,
-        "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
-        "includeInlayPropertyDeclarationTypeHints": true,
-        "includeInlayFunctionLikeReturnTypeHints": true,
-        "includeInlayEnumMemberValueHints": true
+    },
+    "typescript-language-server": {
+      "initialization_options": {
+        "preferences": {
+          "includeInlayParameterNameHints": "all",
+          "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+          "includeInlayFunctionParameterTypeHints": true,
+          "includeInlayVariableTypeHints": true,
+          "includeInlayVariableTypeHintsWhenTypeMatchesName": false,
+          "includeInlayPropertyDeclarationTypeHints": true,
+          "includeInlayFunctionLikeReturnTypeHints": true,
+          "includeInlayEnumMemberValueHints": true
+        }
       }
+    },
+    "yaml": {
+      "customTags": [
+        "!And",
+        "!And sequence",
+        "!Base64",
+        "!Cidr",
+        "!Cidr sequence",
+        "!Condition",
+        "!Equals",
+        "!Equals sequence",
+        "!FindInMap",
+        "!FindInMap sequence",
+        "!GetAtt",
+        "!GetAZ",
+        "!If",
+        "!If sequence",
+        "!ImportValue",
+        "!ImportValue sequence",
+        "!Join",
+        "!Join sequence",
+        "!Not",
+        "!Not sequence",
+        "!Or",
+        "!Or sequence",
+        "!Ref",
+        "!Select",
+        "!Select sequence",
+        "!Split",
+        "!Split sequence",
+        "!Sub",
+        "!Sub sequence"
+      ]
     }
   },
   "multi_cursor_modifier": "cmd_or_ctrl",
@@ -156,19 +187,16 @@
     "git_status": true
   },
   "telemetry": {
-    "diagnostics": true,
+    "diagnostics": false,
     "metrics": false
   },
   "terminal": {
     "copy_on_select": true,
     "dock": "bottom",
-    // width when docked to the 'left' or 'right'
     "default_width": 640,
-    // height when docked to the 'bottom'
     "default_height": 320,
-    // "font_family": "JetBrainsMonoNL",
     "font_family": "Hack Nerd Font Mono",
-    "font_size": 13,
+    "font_size": 15,
     "line_height": "comfortable"
   },
   "toolbar": {
