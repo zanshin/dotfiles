@@ -59,10 +59,11 @@ regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:
 
 [font]
 # AppleFontSmoothing = true
-size = 15
+size = 16
 
 [font.bold]
-family = "JetBrainsMonoNL Nerd Font"
+# family = "JetBrainsMonoNL Nerd Font"
+family = "Intel One Mono"
 style = "Bold"
 
 [font.glyph_offset]
