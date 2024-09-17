@@ -33,3 +33,6 @@ show_always = false
 # symbol = '⚠️ '
 # style = 'bold red'
 # format = '[$symbol($output )]($style)'
+
+[aws]
+disabled = true
