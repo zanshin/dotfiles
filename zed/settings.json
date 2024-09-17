@@ -6,6 +6,7 @@
   //   },
   //   "version": "2"
   // },
+  "base_keymap": "VSCode",
   "autosave": "on_focus_change",
   "buffer_font_family": "Intel One Mono",
   "buffer_font_size": 16,
