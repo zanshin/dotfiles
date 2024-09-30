@@ -72,7 +72,8 @@ Host jump
 
 Host muon 
 #    HostName 68.102.23.189
-    HostName 192.168.6.67
+    # HostName 192.168.6.67
+    HostName 100.123.193.73
     user mark
 
 # Raspbian on Raspberry Pi
