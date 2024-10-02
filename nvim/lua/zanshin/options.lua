@@ -165,6 +165,6 @@ vim.opt.spelllang = "en"
 
 -- Encoding - we like UTF-8
 vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
+-- vim.opt.fileencoding = "utf-8"
 vim.scriptencoding = "utf-8"
 
