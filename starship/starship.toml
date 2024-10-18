@@ -13,8 +13,12 @@ $cmd_duration\
 $line_break\
 $character"""
 
+[username]
+format = '[$user]($style) '
+
 [hostname]
 ssh_symbol = ""
+format = "on [$hostname](red) "
 
 [directory]
 style = "blue"
