@@ -13,6 +13,9 @@ $cmd_duration\
 $line_break\
 $character"""
 
+[hostname]
+ssh_symbol = ""
+
 [directory]
 style = "blue"
 
