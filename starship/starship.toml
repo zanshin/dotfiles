@@ -1,7 +1,3 @@
-# prompt wide configuration settings
-add_newline = true
-command_timeout = 750
-
 format = """
 $username\
 $hostname\
@@ -13,6 +9,11 @@ $cmd_duration\
 $line_break\
 $character"""
 
+# prompt wide configuration settings
+add_newline = true
+scan_timeout = 10
+# command_timeout = 750
+
 [username]
 format = '[$user]($style) '
 
@@ -22,6 +23,9 @@ format = "on [$hostname](red) "
 
 [directory]
 style = "blue"
+truncation_length = 5
+truncation_symbol = '.../'
+truncate_to_repo = false
 
 [character]
 success_symbol = '[➜](bold green) '
