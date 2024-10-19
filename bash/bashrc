@@ -115,4 +115,5 @@ complete -C /usr/local/bin/terraform terraform
 [[ -e $HOME/.kubectl_completion_bash ]] && source $HOME/.kubectl_completion_bash
 
 # atuin
-eval "$(atuin init bash)"
+# source "$HOME/.local/share/blesh/ble.sh" 
+# eval "$(atuin init bash --disable-up-arrow)"
