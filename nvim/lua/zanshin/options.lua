@@ -13,7 +13,7 @@ vim.opt.hidden = true -- buffer switch without saving
 -- Swap,backup, undo
 vim.opt.swapfile = false -- no swap file
 vim.opt.backup = false   -- no backup file either
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
 vim.opt.undofile = true  -- let's have an undo file, at the location above
 
 -- Search
