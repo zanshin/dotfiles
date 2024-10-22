@@ -1,0 +1,794 @@
+
+
+.gitignore
+ƒ¿ƒÔ1†
+.gitmodules
+Á¾®ä‹1‚
+
+DETAILS.md
+Á¾®ä‹1ø,
+MUTT.md
+Á¾®ä‹1Ô
+	README.md
+Á¾®ä‹1¥&
+alacritty/alacritty.toml
+—–â¨ 2Ä
+ansible.tgz‰ÿÛâ1³‹#
+ayu/ayu-blink-dark.js
+Á¾®ä‹1¥!
+bash/bash.d/aliases
+°úëæ›2–L"
+bash/bash.d/bindkeys
+š´éÆ¨2… 
+bash/bash.d/colors
+Á¾®ä‹1›$
+bash/bash.d/dockerfunc
+Á¾®ä‹1£!
+bash/bash.d/exports
+ÂÏ”‚‰2“ $
+bash/bash.d/functionsÌ„¡¸ó1é¶
+bash/bash.d/paths
+øû¯½1½
+bash/bash_profile
+›´éÆ¨2Ü
+bash/bashrc
+à†ã³ª2ò*
+bash/deprecated/bash_aliases
+Â¾®ä‹1ĞA+
+bash/deprecated/bash_bindkeys
+Â¾®ä‹1…)
+bash/deprecated/bash_colors
+Â¾®ä‹1›3
+%bash/deprecated/bash_docker_functions
+Â¾®ä‹1Ğ-
+bash/deprecated/bash_functionsÂ¾®ä‹1Í›)
+bash/deprecated/bashrc-orig
+Â¾®ä‹1Â5*
+bash/deprecated/bashrc.local
+Â¾®ä‹1ï)
+bash/deprecated/original-rc
+Â¾®ä‹1Â5
+brew/Brewfile
+Ã¾®ä‹1Â
+brew/Brewfile+
+Ã¾®ä‹1ÿ
+"
+brew/Brewfile-danube
+¹íšü‹1¹"
+brew/Brewfile-fugazi
+Ã¾®ä‹1Á!
+brew/Brewfile-fugue
+Ã¾®ä‹1Ô
+deprecated/.base16	Ã¾®ä‹1#
+deprecated/.i3/config
+Ã¾®ä‹1ÉO*
+deprecated/.i3/i3blocks.conf
+Ã¾®ä‹1½(
+deprecated/.i3/status.conf
+Ã¾®ä‹1²#
+deprecated/.nvim_theme	Ã¾®ä‹1a 
+deprecated/.version	Ã¾®ä‹1(
+deprecated/BASE16.markdown
+Ã¾®ä‹1/
+!deprecated/Xresources/.Xresources
+Ã¾®ä‹1ù5
+'deprecated/Xresources/.Xresources-other
+Ã¾®ä‹1˜C
+4deprecated/antergos/.local/share/fonts/Hack-Bold.ttfÅ¾®ä‹1ˆÄI
+:deprecated/antergos/.local/share/fonts/Hack-BoldItalic.ttfÆ¾®ä‹1¨ŠE
+6deprecated/antergos/.local/share/fonts/Hack-Italic.ttfÈ¾®ä‹1„äF
+7deprecated/antergos/.local/share/fonts/Hack-Regular.ttfÉ¾®ä‹1ì²[
+Ldeprecated/antergos/.local/share/fonts/System San Francisco Display Bold.ttfÊ¾®ä‹1Ğà^
+Odeprecated/antergos/.local/share/fonts/System San Francisco Display Regular.ttfÌ¾®ä‹1Ø˜[
+Ldeprecated/antergos/.local/share/fonts/System San Francisco Display Thin.ttfÍ¾®ä‹1Èûa
+Rdeprecated/antergos/.local/share/fonts/System San Francisco Display Ultralight.ttfÎ¾®ä‹1˜±!M
+>deprecated/antergos/.local/share/fonts/fontawesome-webfont.ttfÏ¾®ä‹1¬
+6
+'deprecated/antergos/fonts/Hack-Bold.ttfÑ¾®ä‹1ˆÄ<
+-deprecated/antergos/fonts/Hack-BoldItalic.ttfÒ¾®ä‹1¨Š8
+)deprecated/antergos/fonts/Hack-Italic.ttfÓ¾®ä‹1„ä9
+*deprecated/antergos/fonts/Hack-Regular.ttfÕ¾®ä‹1ì²+
+deprecated/antergos/i3/config
+Õ¾®ä‹1¶M0
+"deprecated/antergos/i3/config.orig
+Õ¾®ä‹1å(4
+$deprecated/antergos/i3/i3blocks.confÕ¾®ä‹1î0
+"deprecated/antergos/i3/status.conf
+Õ¾®ä‹1ñ0
+"deprecated/antergos/polybar/config
+Õ¾®ä‹1©H5
+'deprecated/antergos/polybar/config.orig
+Õ¾®ä‹1†25
+%deprecated/antergos/polybar/launch.shÕ¾®ä‹1ıC
+4deprecated/arch/.local/share/fonts/Anonymous Pro.ttfÖ¾®ä‹1€Ó	D
+5deprecated/arch/.local/share/fonts/DroidSans-Bold.ttf×¾®ä‹1”š	?
+0deprecated/arch/.local/share/fonts/DroidSans.ttf×¾®ä‹1ÔŒ	H
+8deprecated/arch/.local/share/fonts/DroidSansFallback.ttfá¾®ä‹1¨¾¸C
+4deprecated/arch/.local/share/fonts/DroidSansMono.ttfâ¾®ä‹1ØãE
+6deprecated/arch/.local/share/fonts/DroidSerif-Bold.ttfâ¾®ä‹1ì¿
+K
+<deprecated/arch/.local/share/fonts/DroidSerif-BoldItalic.ttfã¾®ä‹1ü¯G
+8deprecated/arch/.local/share/fonts/DroidSerif-Italic.ttfä¾®ä‹1Ô¼	H
+9deprecated/arch/.local/share/fonts/DroidSerif-Regular.ttfä¾®ä‹1°ø	?
+0deprecated/arch/.local/share/fonts/Hack-Bold.ttfæ¾®ä‹1ˆÄE
+6deprecated/arch/.local/share/fonts/Hack-BoldItalic.ttfç¾®ä‹1¨ŠA
+2deprecated/arch/.local/share/fonts/Hack-Italic.ttfé¾®ä‹1„äB
+3deprecated/arch/.local/share/fonts/Hack-Regular.ttfê¾®ä‹1ì²A
+2deprecated/arch/.local/share/fonts/Inconsolata.otfê¾®ä‹1àÈW
+Hdeprecated/arch/.local/share/fonts/System San Francisco Display Bold.ttfì¾®ä‹1ĞàZ
+Kdeprecated/arch/.local/share/fonts/System San Francisco Display Regular.ttfí¾®ä‹1Ø˜W
+Hdeprecated/arch/.local/share/fonts/System San Francisco Display Thin.ttfî¾®ä‹1Èû]
+Ndeprecated/arch/.local/share/fonts/System San Francisco Display Ultralight.ttfğ¾®ä‹1˜±!I
+:deprecated/arch/.local/share/fonts/fontawesome-webfont.ttfğ¾®ä‹1¬
+2
+#deprecated/arch/fonts/Hack-Bold.ttfñ¾®ä‹1ˆÄ8
+)deprecated/arch/fonts/Hack-BoldItalic.ttfó¾®ä‹1¨Š4
+%deprecated/arch/fonts/Hack-Italic.ttfô¾®ä‹1„ä5
+&deprecated/arch/fonts/Hack-Regular.ttfö¾®ä‹1ì²<
+-deprecated/arch/fonts/fontawesome-webfont.ttfö¾®ä‹1¬
+'
+deprecated/arch/i3/config
+ö¾®ä‹1’D0
+ deprecated/arch/i3/i3blocks.confö¾®ä‹1î)
+deprecated/arch/i3/i3exitö¾®ä‹1…,
+deprecated/arch/i3/orig/config
+ö¾®ä‹1¶M1
+#deprecated/arch/i3/orig/config.orig
+ö¾®ä‹1å(5
+%deprecated/arch/i3/orig/i3blocks.confö¾®ä‹1î1
+#deprecated/arch/i3/orig/status.conf
+ö¾®ä‹1ñ,
+deprecated/arch/i3/status.conf
+÷¾®ä‹1ñ,
+deprecated/arch/polybar/config
+÷¾®ä‹1â\1
+#deprecated/arch/polybar/config.orig
+÷¾®ä‹1†21
+!deprecated/arch/polybar/launch.sh÷¾®ä‹1ı)
+deprecated/config/i3/config
+÷¾®ä‹1¢D2
+"deprecated/config/i3/i3blocks.confø¾®ä‹1î+
+deprecated/config/i3/i3exitø¾®ä‹1….
+ deprecated/config/i3/orig/config
+ø¾®ä‹1å(.
+ deprecated/config/i3/status.conf
+ø¾®ä‹1ñ1
+#deprecated/config/i3-fermata/config
+÷¾®ä‹1¢D:
+*deprecated/config/i3-fermata/i3blocks.conf÷¾®ä‹1î3
+#deprecated/config/i3-fermata/i3exit÷¾®ä‹1…6
+(deprecated/config/i3-fermata/orig/config
+÷¾®ä‹1å(6
+(deprecated/config/i3-fermata/status.conf
+÷¾®ä‹1ñ1
+#deprecated/config/i3-vivaldi/config
+÷¾®ä‹1¢D:
+*deprecated/config/i3-vivaldi/i3blocks.conf÷¾®ä‹1î3
+#deprecated/config/i3-vivaldi/i3exit÷¾®ä‹1…6
+(deprecated/config/i3-vivaldi/orig/config
+÷¾®ä‹1å(6
+(deprecated/config/i3-vivaldi/status.conf
+÷¾®ä‹1ñ.
+ deprecated/config/polybar/config
+ø¾®ä‹1â\6
+(deprecated/config/polybar/config.fermata
+ø¾®ä‹1ä\3
+%deprecated/config/polybar/config.orig
+ø¾®ä‹1†23
+%deprecated/config/polybar/config.prev
+ù¾®ä‹1ËC6
+(deprecated/config/polybar/config.vivaldi
+ù¾®ä‹1â\3
+#deprecated/config/polybar/launch.shù¾®ä‹1ı6
+(deprecated/config/polybar-fermata/config
+ø¾®ä‹1Û\;
+-deprecated/config/polybar-fermata/config.orig
+ø¾®ä‹1†2;
+-deprecated/config/polybar-fermata/config.prev
+ø¾®ä‹1ËC;
++deprecated/config/polybar-fermata/launch.shø¾®ä‹1ı6
+(deprecated/config/polybar-vivaldi/config
+ø¾®ä‹1â\;
+-deprecated/config/polybar-vivaldi/config.orig
+ø¾®ä‹1†2;
+-deprecated/config/polybar-vivaldi/config.prev
+ø¾®ä‹1ËC;
++deprecated/config/polybar-vivaldi/launch.shø¾®ä‹1ı*
+deprecated/hg/hgignore_global	ù¾®ä‹1 
+deprecated/hg/hgrc
+ù¾®ä‹1˜*
+deprecated/i3/config.desktop
+ù¾®ä‹1ÉO)
+deprecated/i3/config.laptop
+ù¾®ä‹1ÉO1
+#deprecated/i3/i3blocks.desktop.conf
+ù¾®ä‹1½0
+"deprecated/i3/i3blocks.laptop.conf
+ù¾®ä‹1½/
+!deprecated/i3/status.desktop.conf
+ù¾®ä‹1².
+ deprecated/i3/status.laptop.conf
+ù¾®ä‹1²4
+&deprecated/liquidprompt/liquidpromptrc
+Ä¿®ä‹1º'&
+deprecated/machines/alpha	ù¾®ä‹19#
+deprecated/machines/as	ù¾®ä‹1!%
+deprecated/machines/beta	ù¾®ä‹1$
+deprecated/machines/dev	ù¾®ä‹1*
+deprecated/machines/dev-txhub	ù¾®ä‹1.#
+deprecated/machines/id	ù¾®ä‹1!)
+deprecated/machines/id-alpha	ù¾®ä‹19(
+deprecated/machines/medblog	ù¾®ä‹1!'
+deprecated/machines/prodù¾®ä‹1+
+deprecated/machines/test-txhub	ú¾®ä‹1!(
+deprecated/machines/toolmon	ú¾®ä‹1 &
+deprecated/machines/txhub	ú¾®ä‹1$
+deprecated/machines/web	ú¾®ä‹1)"
+deprecated/make.shÄ¿®ä‹16
+(deprecated/muttmail/mutt/README.markdown
+û¾®ä‹1·#.
+ deprecated/muttmail/mutt/msmtprc
+û¾®ä‹1ôB
+4deprecated/muttmail/mutt/mutt/Equifax_Secure_CA.cert
+û¾®ä‹1ô;
+-deprecated/muttmail/mutt/mutt/README.markdown
+û¾®ä‹1ÿ9
++deprecated/muttmail/mutt/mutt/accounts/chef
+û¾®ä‹1Ñ>
+0deprecated/muttmail/mutt/mutt/accounts/codeprole
+ü¾®ä‹1ä9
++deprecated/muttmail/mutt/mutt/accounts/mark
+ü¾®ä‹1Ñ@
+2deprecated/muttmail/mutt/mutt/accounts/marknichols
+ü¾®ä‹1ğ8
+*deprecated/muttmail/mutt/mutt/accounts/mhn
+ü¾®ä‹1Ä9
++deprecated/muttmail/mutt/mutt/accounts/root
+ü¾®ä‹1¸3
+%deprecated/muttmail/mutt/mutt/mailcap
+ü¾®ä‹1Ë2
+$deprecated/muttmail/mutt/mutt/muttrc
+ü¾®ä‹1ÿK:
+,deprecated/muttmail/mutt/mutt/offlineimap.py
+ü¾®ä‹1Æ;
+-deprecated/muttmail/mutt/mutt/offlineimap.pyc
+ü¾®ä‹1Ë@
+2deprecated/muttmail/mutt/mutt/themes/colors.muttrc
+ü¾®ä‹1™
+=
+/deprecated/muttmail/mutt/mutt/themes/mhn.muttrc
+ü¾®ä‹1£W
+Ideprecated/muttmail/mutt/mutt/themes/mutt-colors-solarized-dark-16.muttrc
+ü¾®ä‹1ÿ[X
+Jdeprecated/muttmail/mutt/mutt/themes/mutt-colors-solarized-dark-256.muttrc
+ü¾®ä‹1ÿ[X
+Jdeprecated/muttmail/mutt/mutt/themes/mutt-colors-solarized-light-16.muttrc
+ü¾®ä‹1ÿ[Y
+Kdeprecated/muttmail/mutt/mutt/themes/mutt-colors-solarized-light-256.muttrc
+ü¾®ä‹1ÿ[X
+Jdeprecated/muttmail/mutt/mutt/themes/mutt-colors-solarized-template.muttrc
+ü¾®ä‹1ÿ[=
+/deprecated/muttmail/mutt/mutt/themes/sjl.muttrc
+ı¾®ä‹1©
+H
+:deprecated/muttmail/mutt/mutt/themes/tomorrow-night.muttrc
+ı¾®ä‹1ÔLD
+6deprecated/muttmail/mutt/mutt/themes/vombatidae.muttrc
+ı¾®ä‹1@
+0deprecated/muttmail/mutt/mutt/view_attachment.shı¾®ä‹1÷5
+'deprecated/muttmail/mutt/notmuch-config
+ı¾®ä‹1¯4
+&deprecated/muttmail/mutt/offlineimaprc
+ı¾®ä‹1Ù#-
+ deprecated/muttmail/mutt/urlview	ı¾®ä‹1:
+,deprecated/muttmail/mutt-deprecated/.msmtprc
+ú¾®ä‹1şN
+@deprecated/muttmail/mutt-deprecated/.mutt/Equifax_Secure_CA.cert
+ú¾®ä‹1ôE
+7deprecated/muttmail/mutt-deprecated/.mutt/accounts/chef
+ú¾®ä‹1èJ
+<deprecated/muttmail/mutt-deprecated/.mutt/accounts/codeprole
+ú¾®ä‹1óD
+6deprecated/muttmail/mutt-deprecated/.mutt/accounts/mhn
+ú¾®ä‹1Ì?
+1deprecated/muttmail/mutt-deprecated/.mutt/mailcap
+ú¾®ä‹1—>
+0deprecated/muttmail/mutt-deprecated/.mutt/muttrc
+ú¾®ä‹1îEH
+8deprecated/muttmail/mutt-deprecated/.mutt/offlineimap.pyú¾®ä‹1»G
+9deprecated/muttmail/mutt-deprecated/.mutt/offlineimap.pyc
+ú¾®ä‹1¿c
+Udeprecated/muttmail/mutt-deprecated/.mutt/themes/mutt-colors-solarized-dark-16.muttrc
+ú¾®ä‹1ÿ[d
+Vdeprecated/muttmail/mutt-deprecated/.mutt/themes/mutt-colors-solarized-dark-256.muttrc
+û¾®ä‹1ÿ[d
+Vdeprecated/muttmail/mutt-deprecated/.mutt/themes/mutt-colors-solarized-light-16.muttrc
+û¾®ä‹1ÿ[e
+Wdeprecated/muttmail/mutt-deprecated/.mutt/themes/mutt-colors-solarized-light-256.muttrc
+û¾®ä‹1ÿ[d
+Vdeprecated/muttmail/mutt-deprecated/.mutt/themes/mutt-colors-solarized-template.muttrc
+û¾®ä‹1ÿ[T
+Fdeprecated/muttmail/mutt-deprecated/.mutt/themes/tomorrow-night.muttrc
+û¾®ä‹1ÔLL
+<deprecated/muttmail/mutt-deprecated/.mutt/view_attachment.shû¾®ä‹1÷A
+3deprecated/muttmail/mutt-deprecated/.notmuch-config
+û¾®ä‹1‚@
+2deprecated/muttmail/mutt-deprecated/.offlineimaprc
+û¾®ä‹1×9
+,deprecated/muttmail/mutt-deprecated/.urlview	û¾®ä‹1'
+deprecated/nvim/.gitignore	ı¾®ä‹1-4
+&deprecated/nvim/after/plugin/color.vim
+ı¾®ä‹1«0
+!deprecated/nvim/autoload/plug.vimı¾®ä‹1à†'
+deprecated/nvim/init.vimş¾®ä‹1éı0
+"deprecated/nvim/spell/en.utf-8.add
+ş¾®ä‹1é1
+"deprecated/nvim/spell/en.utf-8.spl€¿®ä‹1¹˜%1
+"deprecated/nvim/spell/en.utf-8.sugƒ¿®ä‹1á·$2
+"deprecated/ohmyzsh/cello.zsh-themeƒ¿®ä‹1‰4
+$deprecated/ohmyzsh/zanshin.zsh-themeƒ¿®ä‹1ş(*
+deprecated/openconnect/asavpn	ƒ¿®ä‹1&)
+deprecated/openconnect/dbvpn	ƒ¿®ä‹1%*
+deprecated/openconnect/estvpn	ƒ¿®ä‹1).
+!deprecated/openconnect/estvpn-old	ƒ¿®ä‹1)*
+deprecated/openconnect/omevpn	ƒ¿®ä‹1#1
+"deprecated/openconnect/openconnectƒ¿®ä‹1,0
+"deprecated/scripts/README.markdown
+Ê¿®ä‹1³3
+#deprecated/scripts/archived/consoleÊ¿®ä‹1¬4
+$deprecated/scripts/archived/dementiaÊ¿®ä‹1î
+2
+"deprecated/scripts/archived/deployÊ¿®ä‹10
+ deprecated/scripts/archived/logsÊ¿®ä‹1Ò1
+!deprecated/scripts/archived/toolsÊ¿®ä‹1û'
+deprecated/scripts/blogÊ¿®ä‹1Ğ'
+deprecated/scripts/chefÊ¿®ä‹1ÿ)
+deprecated/scripts/fugaziÊ¿®ä‹1„'
+deprecated/scripts/hugoÊ¿®ä‹1¬-
+deprecated/scripts/webmethodsÊ¿®ä‹1´	$
+deprecated/slate/slate
+ƒ¿®ä‹1İG
+:deprecated/sublimetext/User/Default (Linux).sublime-keymap	ƒ¿®ä‹1F
+8deprecated/sublimetext/User/Default (OSX).sublime-keymap
+„¿®ä‹1¡I
+<deprecated/sublimetext/User/Default (Windows).sublime-keymap	„¿®ä‹1?
+1deprecated/sublimetext/User/Gist.sublime-settings
+„¿®ä‹1·C
+5deprecated/sublimetext/User/Markdown.sublime-settings
+„¿®ä‹1—a
+Rdeprecated/sublimetext/User/Package Control.cache/ad7758d143e99a76034aad71ae2a1f3b‰¿®ä‹1‹pd
+Wdeprecated/sublimetext/User/Package Control.cache/ad7758d143e99a76034aad71ae2a1f3b.info	‰¿®ä‹1KA
+4deprecated/sublimetext/User/Package Control.last-run	‰¿®ä‹1
+F
+9deprecated/sublimetext/User/Package Control.last-run.orig	‰¿®ä‹1\J
+<deprecated/sublimetext/User/Package Control.sublime-settings
+‰¿®ä‹1üK
+<deprecated/sublimetext/User/Package Control.system-ca-bundleŠ¿®ä‹1ÖÈD
+7deprecated/sublimetext/User/Plain text.sublime-settings	Š¿®ä‹1!F
+8deprecated/sublimetext/User/Preferences.sublime-settings
+Š¿®ä‹1M
+?deprecated/sublimetext/User/Shell-Unix-Generic.sublime-settings
+Š¿®ä‹1ÃB
+5deprecated/sublimetext/User/Side Bar.sublime-settings	Š¿®ä‹1$:
+,deprecated/sublimetext/User/prettify_json.py
+Š¿®ä‹1æ
+;
+-deprecated/sublimetext/User/prettify_json.pyc
+Š¿®ä‹1ß	5
+'deprecated/sublimetext/User/tidy_xml.py
+Š¿®ä‹1ö6
+(deprecated/sublimetext/User/tidy_xml.pyc
+‹¿®ä‹1Ê	:
+,deprecated/sublimetext/User/tidy_xml_lint.py
+‹¿®ä‹1Ç;
+-deprecated/sublimetext/User/tidy_xml_lint.pyc
+‹¿®ä‹1¾
+3
+%deprecated/terminator/Argonaut.config
+‹¿®ä‹1™*
+deprecated/terminator/config
+‹¿®ä‹1¤/
+!deprecated/textmate/tm_properties
+‹¿®ä‹1ù-
+deprecated/tmux/tmux-macos.conf
+‹¿®ä‹1Š'
+deprecated/tmux/tmux.conf
+‹¿®ä‹1À)(
+deprecated/tmux/tmux.linux
+‹¿®ä‹1Ì3E
+6deprecated/ubuntu/.local/share/fonts/Anonymous Pro.ttfŒ¿®ä‹1€Ó	F
+7deprecated/ubuntu/.local/share/fonts/DroidSans-Bold.ttfŒ¿®ä‹1”š	A
+2deprecated/ubuntu/.local/share/fonts/DroidSans.ttf¿®ä‹1ÔŒ	J
+:deprecated/ubuntu/.local/share/fonts/DroidSansFallback.ttf—¿®ä‹1¨¾¸E
+6deprecated/ubuntu/.local/share/fonts/DroidSansMono.ttf—¿®ä‹1ØãG
+8deprecated/ubuntu/.local/share/fonts/DroidSerif-Bold.ttf˜¿®ä‹1ì¿
+M
+>deprecated/ubuntu/.local/share/fonts/DroidSerif-BoldItalic.ttf™¿®ä‹1ü¯I
+:deprecated/ubuntu/.local/share/fonts/DroidSerif-Italic.ttf™¿®ä‹1Ô¼	J
+;deprecated/ubuntu/.local/share/fonts/DroidSerif-Regular.ttfš¿®ä‹1°ø	A
+2deprecated/ubuntu/.local/share/fonts/Hack-Bold.ttfœ¿®ä‹1ˆÄG
+8deprecated/ubuntu/.local/share/fonts/Hack-BoldItalic.ttf¿®ä‹1¨ŠC
+4deprecated/ubuntu/.local/share/fonts/Hack-Italic.ttf¿®ä‹1„äD
+5deprecated/ubuntu/.local/share/fonts/Hack-Regular.ttf ¿®ä‹1ì²C
+4deprecated/ubuntu/.local/share/fonts/Inconsolata.otf ¿®ä‹1àÈY
+Jdeprecated/ubuntu/.local/share/fonts/System San Francisco Display Bold.ttf¡¿®ä‹1Ğà\
+Mdeprecated/ubuntu/.local/share/fonts/System San Francisco Display Regular.ttf¢¿®ä‹1Ø˜Y
+Jdeprecated/ubuntu/.local/share/fonts/System San Francisco Display Thin.ttf¤¿®ä‹1Èû_
+Pdeprecated/ubuntu/.local/share/fonts/System San Francisco Display Ultralight.ttf¥¿®ä‹1˜±!K
+<deprecated/ubuntu/.local/share/fonts/fontawesome-webfont.ttf¦¿®ä‹1¬
+4
+%deprecated/ubuntu/fonts/Hack-Bold.ttf§¿®ä‹1ˆÄ:
++deprecated/ubuntu/fonts/Hack-BoldItalic.ttf¨¿®ä‹1¨Š6
+'deprecated/ubuntu/fonts/Hack-Italic.ttfª¿®ä‹1„ä7
+(deprecated/ubuntu/fonts/Hack-Regular.ttf«¿®ä‹1ì²>
+/deprecated/ubuntu/fonts/fontawesome-webfont.ttf«¿®ä‹1¬
+)
+deprecated/ubuntu/i3/config
+«¿®ä‹1€\1
+#deprecated/ubuntu/i3/config-polybar
+¬¿®ä‹1¡U.
+ deprecated/ubuntu/i3/config.orig
+¬¿®ä‹1å(2
+"deprecated/ubuntu/i3/i3blocks.conf¬¿®ä‹1î+
+deprecated/ubuntu/i3/i3exit¬¿®ä‹1….
+ deprecated/ubuntu/i3/status.conf
+¬¿®ä‹1ñ.
+ deprecated/ubuntu/polybar/config
+¬¿®ä‹1ùO3
+%deprecated/ubuntu/polybar/config.orig
+¬¿®ä‹1†23
+#deprecated/ubuntu/polybar/launch.sh¬¿®ä‹1ı&
+deprecated/vim/.gitignore	¬¿®ä‹1#;
+-deprecated/vim/colors/Tomorrow-Night-Blue.vim
+¬¿®ä‹1ÖD=
+/deprecated/vim/colors/Tomorrow-Night-Bright.vim
+¬¿®ä‹1ÚD?
+1deprecated/vim/colors/Tomorrow-Night-Eighties.vim
+¬¿®ä‹1ŞD6
+(deprecated/vim/colors/Tomorrow-Night.vim
+¬¿®ä‹1¹H0
+"deprecated/vim/colors/Tomorrow.vim
+¬¿®ä‹1€E2
+$deprecated/vim/colors/jellybeans.vim
+­¿®ä‹1î^/
+!deprecated/vim/colors/molokai.vim
+­¿®ä‹1Æ;.
+ deprecated/vim/colors/wombat.vim
+­¿®ä‹1³.
+deprecated/vim/doc/learnvim.txt­¿®ä‹1êØ%
+deprecated/vim/doc/tags
+­¿®ä‹1ä"
+deprecated/vim/gvimrc	­¿®ä‹1;
+-deprecated/vim/snippets/chef/cookbook_file.rb
+­¿®ä‹1‰4
+'deprecated/vim/snippets/chef/package.rb	­¿®ä‹1D6
+(deprecated/vim/snippets/chef/template.rb
+­¿®ä‹1­7
+)deprecated/vim/snippets/password/pass.txt
+­¿®ä‹1Ã.
+!deprecated/vim/spell/en.utf-8.add	­¿®ä‹1(2
+%deprecated/vim/spell/en.utf-8.add.spl	®¿®ä‹1f!
+deprecated/vim/vim®¿®ä‹1"
+deprecated/vim/vimrc
+®¿®ä‹1‹n*
+deprecated/vim/vimrc.bundles
+®¿®ä‹1¿"%
+deprecated/zsh/_kitchen
+®¿®ä‹1»(
+deprecated/zsh/aliases.zsh
+®¿®ä‹1ŠM)
+deprecated/zsh/bindkeys.zsh
+®¿®ä‹1æ'
+deprecated/zsh/checks.zsh
+®¿®ä‹1Û'
+deprecated/zsh/colors.zsh
+®¿®ä‹1‰+
+deprecated/zsh/completion.zsh
+®¿®ä‹1´(
+deprecated/zsh/exports.zsh
+®¿®ä‹1¦
+*
+deprecated/zsh/functions.zsh
+®¿®ä‹1™L(
+deprecated/zsh/history.zsh
+®¿®ä‹1&
+deprecated/zsh/hitch.zsh
+®¿®ä‹1'
+deprecated/zsh/prompt.zsh
+®¿®ä‹1€&'
+deprecated/zsh/setopt.zsh
+¯¿®ä‹1­$
+deprecated/zsh/zprofile	¯¿®ä‹1x(
+deprecated/zsh/zprofile.rvm	¯¿®ä‹1v*
+deprecated/zsh/zsh_hooks.zsh
+¯¿®ä‹1û#
+deprecated/zsh/zshenv
+¯¿®ä‹1é$
+deprecated/zsh/zshrc¯¿®ä‹1û-
+fonts/.fonts/Anonymous Pro.ttf¯¿®ä‹1€Ó	.
+fonts/.fonts/DroidSans-Bold.ttf°¿®ä‹1”š	)
+fonts/.fonts/DroidSans.ttf±¿®ä‹1ÔŒ	4
+"fonts/.fonts/DroidSansFallback.ttf»¿®ä‹1¨¾¸-
+fonts/.fonts/DroidSansMono.ttf»¿®ä‹1Øã/
+ fonts/.fonts/DroidSerif-Bold.ttf¼¿®ä‹1ì¿
+5
+&fonts/.fonts/DroidSerif-BoldItalic.ttf¼¿®ä‹1ü¯1
+"fonts/.fonts/DroidSerif-Italic.ttf½¿®ä‹1Ô¼	2
+#fonts/.fonts/DroidSerif-Regular.ttf¾¿®ä‹1°ø	A
+2fonts/.fonts/System San Francisco Display Bold.ttf¿¿®ä‹1ĞàD
+5fonts/.fonts/System San Francisco Display Regular.ttfÀ¿®ä‹1Ø˜A
+2fonts/.fonts/System San Francisco Display Thin.ttfÂ¿®ä‹1ÈûG
+8fonts/.fonts/System San Francisco Display Ultralight.ttfÃ¿®ä‹1˜±!3
+$fonts/.fonts/fontawesome-webfont.ttfÃ¿®ä‹1øÕ
+	gem/gemrc	Ã¿®ä‹1- 
+git/allowed_signers	Ã¿®ä‹1d
+git/attributes
+Ã¿®ä‹1ª
+
+git/config
+š®¿ ˆ2«&
+git/deprecated/gitconfig
+Ã¿®ä‹1«-
+git/deprecated/gitignore_global
+ø²™âß1ö
+
+git/ignore
+çôÕ ˆ2Ù
+gnupg/gpg.conf
+Ä¿®ä‹1„
+
+install.shÄ¿®ä‹1Ó
+kitty/kitty.confàõ‚Üü1åÂ)
+mutt/Equifax_Secure_CA.cert
+Ä¿®ä‹1õ,
+mutt/accounts/codeprole.muttrc
+Ä¿®ä‹1,
+mutt/accounts/gpgcommon.muttrc
+Ä¿®ä‹1Ì'
+mutt/accounts/mark.muttrc
+Ä¿®ä‹1•.
+ mutt/accounts/marknichols.muttrc
+Ä¿®ä‹1¡)
+mutt/accounts/old/codeprole
+Ä¿®ä‹1Ú,
+mutt/accounts/old/codeprole-sig	Ä¿®ä‹1"0
+"mutt/accounts/old/codeprole.config
+Ä¿®ä‹1ñ.
+ mutt/accounts/old/codeprole.orig
+Ä¿®ä‹1$
+mutt/accounts/old/mark
+Ä¿®ä‹1·+
+mutt/accounts/old/marknichols
+Ä¿®ä‹1ğ$
+mutt/accounts/old/root
+Ä¿®ä‹1·'
+mutt/accounts/old/root-sig	Å¿®ä‹15)
+mutt/accounts/old/root.orig
+Å¿®ä‹1ï'
+mutt/accounts/root.muttrc
+Å¿®ä‹1ò
+mutt/aliases
+Å¿®ä‹1§
+mutt/gpg.rc
+Å¿®ä‹1ï
+mutt/headers
+Å¿®ä‹1ß
+mutt/mailcap
+Å¿®ä‹1Ü	
+mutt/mbsyncrc
+Å¿®ä‹1Ì&
+mutt/msmtprc
+Å¿®ä‹1
+mutt/muttrcÅ¿®ä‹1“/
+mutt/offlineimap/offlineimap.pyÅ¿®ä‹1‹.
+ mutt/offlineimap/offlineimap.pyc
+Å¿®ä‹1ˆ,
+mutt/offlineimap/offlineimaprc
+Å¿®ä‹1í"
+mutt/offlineimap.pyÅ¿®ä‹1"
+mutt/offlineimap.pyc
+Å¿®ä‹1ˆ*
+mutt/passwords/codeprole.gpg
+Å¿®ä‹1æ%
+mutt/passwords/mark.gpg
+Å¿®ä‹1ñ,
+mutt/passwords/marknichols.gpg
+Æ¿®ä‹1è&
+mutt/passwords/piano.gpg
+Æ¿®ä‹1ä%
+mutt/passwords/root.gpg
+Æ¿®ä‹1ğ)
+mutt/scripts/checkmail.shÆ¿®ä‹1Ï)
+mutt/scripts/mailboxes.rbÆ¿®ä‹1í	*
+mutt/scripts/safesource.shÆ¿®ä‹1ı/
+!mutt/scripts/view_attachment.orig
+Æ¿®ä‹1÷/
+mutt/scripts/view_attachment.shÆ¿®ä‹1ª!
+mutt/sig
+Æ¿®ä‹1ŒD
+6mutt/temp/mutt-fermata-1000-14845-10906691460702772908
+Æ¿®ä‹1ŸC
+5mutt/temp/mutt-fermata-1000-23525-7105284592535505657
+Æ¿®ä‹1°B
+4mutt/temp/mutt-fermata-1000-2467-1592216826107253390
+Æ¿®ä‹1óA
+6mutt/temp/mutt-fermata-1000-28834-17647080652628463596Æ¿®ä‹1?
+4mutt/temp/mutt-fermata-1000-31807-733802843303364697Æ¿®ä‹1@
+5mutt/temp/mutt-fermata-1000-6029-10793145765575867643Æ¿®ä‹1@
+5mutt/temp/mutt-fermata-1000-6029-18237358915738295117Æ¿®ä‹1>
+3mutt/temp/mutt-fermata-1000-6029-285203458868955937Æ¿®ä‹1?
+4mutt/temp/mutt-fermata-1000-6029-2918972719096192360Æ¿®ä‹1>
+3mutt/temp/mutt-fermata-1000-6029-504838643938467017Æ¿®ä‹1?
+4mutt/temp/mutt-fermata-1000-6029-7455863273686567179Æ¿®ä‹1'
+mutt/themes/base16.muttrc
+Ç¿®ä‹1²3'
+mutt/themes/colors.muttrc
+Ç¿®ä‹1™
+(
+mutt/themes/fanatic.muttrc
+Ç¿®ä‹1½$
+mutt/themes/mhn.muttrc
+Ç¿®ä‹1Æ
+>
+0mutt/themes/mutt-colors-solarized-dark-16.muttrc
+Ç¿®ä‹1ÿ[?
+1mutt/themes/mutt-colors-solarized-dark-256.muttrc
+Ç¿®ä‹1ÿ[?
+1mutt/themes/mutt-colors-solarized-light-16.muttrc
+Ç¿®ä‹1ÿ[@
+2mutt/themes/mutt-colors-solarized-light-256.muttrc
+Ç¿®ä‹1ÿ[?
+1mutt/themes/mutt-colors-solarized-template.muttrc
+Ç¿®ä‹1ÿ[$
+mutt/themes/sjl.muttrc
+Ç¿®ä‹1©
+.
+ mutt/themes/solarized-mod.muttrc
+Ç¿®ä‹1í\/
+!mutt/themes/tomorrow-night.muttrc
+Ç¿®ä‹1ÔL+
+mutt/themes/vombatidae.muttrc
+Ç¿®ä‹1,
+mutt/unitfiles/README.markdown
+Ç¿®ä‹1ã.
+ mutt/unitfiles/checkmail.service
+Ç¿®ä‹1›,
+mutt/unitfiles/checkmail.timer
+Ç¿®ä‹1Ï
+nvim/.gitignore	È¿®ä‹1:
+nvim/README.md
+½ÏÓ°ô1œ&(
+nvim/after/ftplugin/go.lua
+ş®éÄ2°	)
+nvim/after/ftplugin/help.lua	Œ†‰¤ø11*
+nvim/after/ftplugin/mail.lua
+’¸²¸ó1ì)
+nvim/after/ftplugin/make.lua	’¸²¸ó1w.
+ nvim/after/ftplugin/markdown.lua
+¶ğî©2»,
+nvim/after/ftplugin/python.lua
+œÈëÄ2*
+nvim/after/ftplugin/rust.lua
+ºöçÄ2¥*
+nvim/after/ftplugin/yaml.lua
+Û½êÄ2¸'
+nvim/deprecated/after.tgz
+”¸²¸ó1›v)
+nvim/deprecated/helpers.lua
+­ùÜÅÉ1&
+nvim/deprecated/init.lua
+ÓüğÁú1ì&
+nvim/deprecated/lazy.lua
+´³Ç¾1’'
+nvim/deprecated/noice.lua
+íİ¿âó1å,
+nvim/deprecated/nvim-dap-go.lua	ªùÜÅÉ1C,
+nvim/deprecated/nvim-dap-ui.lua	ëñ°ˆû1z/
+!nvim/deprecated/nvim-tree.lua.zip
+æš‡ºó1á)
+nvim/deprecated/old_lsp.tgz
+”¸²¸ó1Ø-
+nvim/deprecated/oldinit.vim.zip
+áÏ‡ºó1(
+nvim/deprecated/parked.tgz
+”¸²¸ó1‚J)
+nvim/deprecated/plugins.lua
+¼£¨·ô1ø-
+ nvim/deprecated/rustaceanvim.lua	³¼Ÿ·ô1[1
+#nvim/deprecated/sourcegraph.lua.zip
+ıï‡ºó1ó1
+#nvim/deprecated/symbols-outline.lua
+«ùÜÅÉ1Ô/
+"nvim/deprecated/vim-commentary.lua	­ùÜÅÉ1X
+nvim/init.lua
+Î©ôÜ2ï	!
+nvim/lazy-lock.json
+·ğî©2¡&,
+nvim/lua/plugins/auto-pairs.lua	§ùÜÅÉ1#-
+nvim/lua/plugins/bufferline.lua
+¢Çüáó1­&
+nvim/lua/plugins/cmp.lua
+ÖÒ™şú1½.
+ nvim/lua/plugins/colorscheme.lua
+²î¼™–2è)
+nvim/lua/plugins/crates.lua
+¯¬Í¨Š21
+#nvim/lua/plugins/git-blame-nvim.lua
+©ùÜÅÉ1â+
+nvim/lua/plugins/gitsigns.lua
+Ş‡áò‡2¿+
+nvim/lua/plugins/hardtime.lua
+©Ãô¶–2™3
+%nvim/lua/plugins/indent-blankline.lua
+©ùÜÅÉ1·-
+nvim/lua/plugins/lspconfig.luaÈÙÜ¨ 2«*
+nvim/lua/plugins/lualine.lua
+ƒ×¶™–2•0
+"nvim/lua/plugins/markdown-nvim.lua
+ÕéÔõ¤2˜(
+nvim/lua/plugins/mason.lua
+Åé—±Í1™+
+nvim/lua/plugins/neo-tree.lua
+ˆÜ£ä1íG)
+nvim/lua/plugins/neogit.lua
+ää¥ğù1Ä)
+nvim/lua/plugins/notify.lua
+àÇ§Ú1‡+
+nvim/lua/plugins/nvim-dap.lua
+”Ç–û1 0
+"nvim/lua/plugins/obsidian-nvim.lua
+·ğî©2Ï/
+!nvim/lua/plugins/outline-nvim.lua
+‰Ùãô‚2©2
+$nvim/lua/plugins/render-markdown.lua
+ÕéÔõ¤2Â1
+#nvim/lua/plugins/telescope-undo.lua
+ˆÑ°äÍ1À,
+nvim/lua/plugins/telescope.lua
+Ó‰ª¸ó1Ò-
+nvim/lua/plugins/toggleterm.lua
+¬ùÜÅÉ1Õ	-
+nvim/lua/plugins/treesitter.lua
+Ú±œÜô1‘*
+nvim/lua/plugins/trouble.lua
+ŠŸÛô1ç.
+!nvim/lua/plugins/vim-surround.lua	­ùÜÅÉ1",
+nvim/lua/plugins/which-key.lua
+Ã½‰Æï1+
+nvim/lua/zanshin/autocmds.lua
+îİóÄ2ê.
+ nvim/lua/zanshin/diagnostics.lua
+˜–â¨ 2ü'
+nvim/lua/zanshin/lint.lua
+Éıà2î+
+nvim/lua/zanshin/mappings.lua
+‹Ş²à2øQ*
+nvim/lua/zanshin/options.lua
+ÕéÔõ¤2Ï50
+"nvim/lua/zanshin/snippets/bash.lua
+…Ëåìú1×/
+!nvim/lua/zanshin/snippets/lua.lua
+Öö‡û1ï+
+nvim/lua/zanshin/snippets.lua
+¶è©Âú1Á	%
+nvim/spell/en.utf-8.add
+·ğî©2¥,
+nvim-cheatsheet/doc/myhelp.txt
+È¿®ä‹1ª&
+nvim-cheatsheet/doc/tags
+È¿®ä‹1æ
+package-lock.json	Ş‡áò‡2X
+
+ssh/config
+ÖéÔõ¤2î$
+starship/starship.toml
+¬Şµª2Å
+tmux/tmux.conf
+äÀ§€ª2²-!
+wezterm/wezterm.lua
+ñŠù™–2¤
+zed/keymap.json
+ªúëæ›2Â
+zed/settings.json
+ÚŒøë©2í&
+ *‚»5¡x;5…IU pZa#ƒ0
