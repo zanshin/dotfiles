@@ -31,3 +31,5 @@ mutt/cache
 # Ignore bash_history
 bash/bash_history
 
+# Jujutsu
+.jj
