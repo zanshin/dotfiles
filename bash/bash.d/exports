@@ -27,6 +27,9 @@ export LESS="-FRq"
 # Force Firefox to use Wayland protocol and not XWayland
 export MOZ_ENABLE_WAYLAND=1
 
+# Setup fo Jujutsu
+export JJ_CONFIG=$XDG_CONFIG_HOME/jj
+
 # Setup for Go
 export GOPATH=$HOME/code/golib:$HOME/code/go
 export GOPRIVATE="github.com/zanshin"

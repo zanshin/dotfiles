@@ -1,0 +1,27 @@
+[user]
+name = "Mark Nichols"
+email = "mark@zanshin.net"
+
+[ui]
+color = "auto"
+default-command = "status"
+editor = "nvim"
+diff.format = "git"
+# diff.tool = ["diff", "$left", "$right"]
+# diff.tool = ["difft", "--color=always", "$left", "$right"]
+diff-editor = "nvimdiff"
+# merge-editor = "nvimdiff"
+
+[colors]
+commit_id = "blue"
+change_id = "red"
+prefix = { bold = true }
+rest = "#566573"
+# "working_copy commit_id" = { underline = true }
+
+[template-aliases]
+'format_short_signature(signature)' = "signature"
+'format_timestamp(timestamp)' = 'timestamp.ago()'
+'format_short_id(id)' = 'id.shortest(12)'
+# 'format_short_id(id)' = 'id.shortest(12).prefix() ++ "[" ++ id.shortest(12).rest() ++ "]"'
+

@@ -81,23 +81,6 @@ for pair in $xdg_tuples; do
   echo ""
 done
 
-# # Setup git in $XDG_CONFIG_HOME
-# if ask "Setup git" Y; then
-#   echo "Setting up git config files"
-#   ln -sf "$dotfiles_dir"/git/config "$xdg_config_home"/git/config;
-#   ln -sf "$dotfiles_fir"/git/ignore "$xdg_config_home"/git/ignore;
-# fi
-# echo ""
-
-# Setup tmux
-# Since version 3.1, tmux has supprted $XDG_CONFIG_HOME/tmux/tmux.conf
-# if ask "Setup tmux" Y; then
-#   echo "Setting up tmux config file"
-#   mkdir -p "$xdg_config_home"
-#   ln -sf "$dotfiles_dir"/tmux/ "$xdg_config_home"/tmux;
-# fi
-# echo ""
-
 # Setup Starship prompt
 if ask "Setup Starship" Y; then
   echo "Setting up Starship prompt"
@@ -115,23 +98,10 @@ if ask "Setup Bash" Y; then
 fi
 echo ""
 
-# Setup Neovim (nvim)
-# need 'n' flag on ln statement, since we're linking a directory
-# if ask "Setup Neovim (nvim)" Y; then
-#   echo "Linking Neovim (nvim) files"
-#   cd "$dotfiles_dir"/nvim;
-#   mkdir -p "${HOME}"/.config
-#   ln -sfn "$dotfiles_dir"/nvim "${HOME}"/.config/nvim;
-# fi
-# echo ""
-
-# Setup Vim
-if ask "Setup Vim" N; then
-  echo "Linking Vim files"
-  cd "$dotfiles_dir"/vim;
-  ln -sf "$dotfiles_dir"/vim "${HOME}"/.vim;
-  ln -sf "$dotfiles_dir"/vim/vimrc "${HOME}"/.vimrc;
-  ln -sf "$dotfiles_dir"/vim/vimrc.bundles "${HOME}"/.vimrc.bundles;
+# Setup Jujutsu
+if ask "Setup Jujutsu" Y; then
+  echo "Setting up jj config file"
+  ln -sf "$dotfiles_dir"/jj "$xdg_config_home/jj"
 fi
 echo ""
 
