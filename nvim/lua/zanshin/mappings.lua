@@ -35,8 +35,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the upper window' })
 
 -- Move to first non-blank or last non-blank character in current line
-vim.keymap.set('n', 'F', '^', { desc = 'Move to first non-blank character in the line' })
-vim.keymap.set('n', 'L', 'g_', { desc = 'Move to last non-blank character in the line' })
+-- vim.keymap.set('n', 'F', '^', { desc = 'Move to first non-blank character in the line' })
+-- vim.keymap.set('n', 'L', 'g_', { desc = 'Move to last non-blank character in the line' })
 
 -- Fix regex handling to be "normal"
 -- map('n', '/', '/\v')
@@ -52,7 +52,7 @@ vim.keymap.set('i', 'kj', '<ESC>', { desc = 'Use kj as an ESC key substitute' })
 vim.keymap.set('n', '<leader>/', ':nohlsearch<CR>', { desc = 'Remove search highlighting' })
 
 -- Relative number / absolue numbr toggle
-vim.keymap.set('n', '<F10>', ':set relativenumber! number! number?<CR>',
+vim.keymap.set('n', '<F10>', ':set relativenumber!<CR>',
   { desc = 'Toggle between number and relative number' })
 vim.keymap.set('n', 'nn', ':set norelativenumber<cr>', { desc = 'Turn relative line numbering off' })
 vim.keymap.set('n', 'nr', ':set relativenumber<cr>', { desc = 'Turn relative line numbering on' })
@@ -96,17 +96,14 @@ vim.keymap.set('c', 'w!!', '!sudo tee % >/dev/null', { desc = 'Use sudo to write
 vim.keymap.set('n', '<leader>l', ':set list!<cr>', { desc = 'Toggle [L]istchars on or off' })
 
 -- Splits
-vim.keymap.set('n', '<leader>v', '<C-w>v<C-w>l', { desc = 'Open a [V]ertical split and move focus there' })   -- open a vertical split and switch to it
-vim.keymap.set('n', '<leader>h', '<C-w>s<C-w>j', { desc = 'Open a [H]orizontal split and move focus there' }) -- open a horizontal split and switch to it
+vim.keymap.set('n', '<leader>v', '<C-w>v<C-w>l', { desc = 'Open a [V]ertical split and move focus there' })
+vim.keymap.set('n', '<leader>h', '<C-w>s<C-w>j', { desc = 'Open a [H]orizontal split and move focus there' })
 
 -- System clipboard
 vim.keymap.set('v', 'Y', '"+y', { desc = '[Y]ank to system clipboard in visual mode' })
 vim.keymap.set('n', '<leader>y', '\"+y', { desc = '[y]ank to system clipboard in normal node' })
 vim.keymap.set('n', '<leader>p', '\"+p', { desc = '[p]aste from system clipboard in normal node' })
 vim.keymap.set('n', '<leader>d', '\"+d', { desc = '[d]elete to system clipboard in normal node' })
--- map('n', '<leader>y', '"+y')
--- map('n', '<leader>p', '"+p')
--- map('n', '<leader>d', '"+d')
 
 -- Use jq to format JSON
 vim.keymap.set('n', '<leader>jq', ':%!jq .<cr>', { desc = 'Format current buffer using JQ' })
@@ -150,22 +147,8 @@ vim.keymap.set('n', '<Leader>fgb', builtin.git_branches, { desc = 'Telescope Dis
 -- Neo-tree
 -- (need to escape \ with another \)
 vim.keymap.set('n', '<leader>\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotree window' })
-vim.keymap.set('n', '<leader>\\', ':Neotree reveal<cr>', { desc = 'Reveal Neotree window' })
 -- vim.keymap.set('n', '<C-n>', ':Neotree toggle<cr>', { desc = 'Toggle [N]eotree window' })
 
--- nvim-tree
--- map('n', '<C-n>', ':NvimTreeToggle<cr>')
--- map('n', '<leader>r', ':NvimTreeRefresh')
-
--- DAP mappings -- moved to plugin configs
--- vim.keymap.set("n", "<leader>dt", ":lua require'dapui'.DapUiToggle<cr>", { desc = 'DAP [T]oggle UI' })
--- vim.keymap.set("n", "<leader>dc", ":lua require'dap'.continue()<cr>", { desc = 'DAP [C]ontinue' })
--- vim.keymap.set("n", "<leader>dsi", ":lua require'dap'.step_into()<cr>", { desc = 'DAP [S]tep [I]nto' })
--- vim.keymap.set("n", "<leader>dso", ":lua require'dap'.step_over()<cr>", { desc = 'DAP [S]tep [O]ver' })
--- vim.keymap.set("n", "<leader>dsu", ":lua require'dap'.step_out()<cr>", { desc = 'DAP [S]tep o[U]t' })
--- vim.keymap.set("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<cr>", { desc = 'DAP toggle [B]reakpoint' })
--- -- map("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>")
--- vim.keymap.set("n", "<leader>dr", ":lua require'dapui'.open({reset = true})<cr>", { desc = 'DAP [R]eset UI' })
 
 -- Git Blame
 vim.keymap.set("n", "<leader>gB", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
