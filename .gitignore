@@ -14,15 +14,11 @@ Session.vim
 # Neovim
 en.utf-8.add.spl
 
-# Ignore vim/bundles, vim/tmp, and vim/autoload
-vim/bundle
-vim/tmp
-vim/autoload
-
 # Ignore Neovim plugins & tmp files
 nvim/autoload
 nvim/plugged
 nvim/tmp
+nvim/lazy-lock.json
 
 # Ignore stuff in mutt temp & cache folders
 mutt/temp
