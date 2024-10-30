@@ -52,8 +52,8 @@ vim.keymap.set('i', 'kj', '<ESC>', { desc = 'Use kj as an ESC key substitute' })
 vim.keymap.set('n', '<leader>/', ':nohlsearch<CR>', { desc = 'Remove search highlighting' })
 
 -- Relative number / absolue numbr toggle
-vim.keymap.set('n', '<F10>', ':set relativenumber!<CR>',
-  { desc = 'Toggle between number and relative number' })
+-- vim.keymap.set('n', '<F10>', ':set relativenumber! number! number?<CR>',
+vim.keymap.set('n', '<F10>', ':set relativenumber!<CR>', { desc = 'Toggle between number and relative number' })
 vim.keymap.set('n', 'nn', ':set norelativenumber<cr>', { desc = 'Turn relative line numbering off' })
 vim.keymap.set('n', 'nr', ':set relativenumber<cr>', { desc = 'Turn relative line numbering on' })
 
@@ -110,7 +110,7 @@ vim.keymap.set('n', '<leader>jq', ':%!jq .<cr>', { desc = 'Format current buffer
 
 -- Neovim configuration file
 vim.keymap.set('n', '<leader>ev', '<cmd>e $MYVIMRC<CR>', { desc = 'Open NVIM configuration file for editing' })
-vim.keymap.set('n', '<silent><leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>',
+vim.keymap.set('n', '<leader>sv', ':source ~/.config/nvim/init.lua<CR>:filetype detect<CR>',
   { desc = 'Source NVIM configuration file' })
 
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { desc = "Execute the current line" })
