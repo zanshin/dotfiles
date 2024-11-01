@@ -6,6 +6,18 @@
   //   },
   //   "version": "2"
   // },
+  "ssh_connections": [
+    {
+      "host": "ts-wasabi",
+      "projects": [
+        {
+          "paths": [
+            "~/code"
+          ]
+        }
+      ]
+    }
+  ],
   "base_keymap": "VSCode",
   "autosave": "on_focus_change",
   "buffer_font_family": "Intel One Mono",
