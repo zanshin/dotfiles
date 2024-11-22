@@ -33,16 +33,11 @@ Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.
 
 
 # Work MacBook Pro
-# Host wasabi
-#     HostName fugazi.est.ksu.edu
-#     User mhn
-
 Host wasabi.local
     HostName 192.168.6.16
     User mhn
 
 # AWS Linux Admin Workstation
-# ssh -i ~/.ssh/admin-mhn-linux-key.pem mhn@10.251.129.148
 Host admin
     HostName mhn-linux-admin.aws.ksu.edu
     User mhn
@@ -58,17 +53,9 @@ Host jump
     user mhn
 
 # Personal
-# Ubuntu on NUC
-# Host fermata
-#    HostName 68.102.23.189
-    # HostName 24.255.217.102
-    # Port 11105
-    # user mark
-
-# Host fermata.local
-#     HostName 192.168.4.38
-#     Port 11105
-#     user mark
+Host tau
+    HostName 192.168.4.105
+    user mark
 
 Host muon 
 #    HostName 68.102.23.189
@@ -106,10 +93,6 @@ Host hydrogen
     User mark
 
 # Tailscale
-Host ts-fermata
-    HostName 100.65.218.87
-    user mark
-
 Host ts-argon
     HostName 100.90.130.85
     user mark
