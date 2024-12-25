@@ -6,6 +6,13 @@
   //   },
   //   "version": "2"
   // },
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
   "ssh_connections": [
     {
       "host": "ts-wasabi",
@@ -192,11 +199,12 @@
   "project_panel": {
     "dock": "left",
     "git_status": true,
-    "default_width": 420
+    "default_width": 500
   },
   "relative_line_numbers": true,
   "remove_trailing_whitespace_on_save": true,
   "tabs": {
+    "file_icons": true,
     "git_status": true
   },
   "telemetry": {
@@ -215,9 +223,10 @@
   "toolbar": {
     "title": true
   },
+  "ui_font_family": "Hack Nerd Font Mono",
   "blinking": "off",
   "working_directory": "current_project_directory",
-  "theme": "Github Dark",
+  "theme": "Ayu Dark",
   "vertical_scroll_margin": 5,
   "vim": {
     "use_system_clipboard": "always",
