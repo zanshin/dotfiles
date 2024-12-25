@@ -1,4 +1,3 @@
-live_config_reload = true
 
 [bell]
 animation = "EaseOutExpo"
@@ -79,8 +78,8 @@ family = "JetBrainsMonoNL Nerd Font"
 style = "Regular"
 
 [font.offset]
-x = 0
-y = 5
+x = 1
+y = 1
 
 [keyboard]
 bindings = [
@@ -119,4 +118,7 @@ lines = 49
 [window.padding]
 x = 6
 y = 6
+
+[general]
+live_config_reload = true
 
