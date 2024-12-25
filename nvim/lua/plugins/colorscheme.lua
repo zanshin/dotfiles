@@ -10,6 +10,7 @@ return {
       LineNr = { fg = "#778899" },
       Folded = { fg = "#6495ed" },
       FoldColumn = { fg = "#6495ed" },
+      LspInlayHint = { fg = "#778899" },
     },
   },
   config = function(_, opts)
