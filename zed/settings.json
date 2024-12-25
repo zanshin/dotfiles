@@ -217,7 +217,7 @@
   },
   "blinking": "off",
   "working_directory": "current_project_directory",
-  "theme": "Github Dark",
+  "theme": "Ayu Dark",
   "vertical_scroll_margin": 5,
   "vim": {
     "use_system_clipboard": "always",
