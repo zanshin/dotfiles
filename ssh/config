@@ -53,21 +53,29 @@ Host jump
     user mhn
 
 # Personal
+# Intel NUC 1st Generation
 Host tau
-    HostName 192.168.4.105
+    HostName 192.168.4.38
+    IdentityFile ~/.ssh/id_ed25519.pub
     user mark
 
+# Intel NUC 7th Generation
+Host gluon
+    HostName 192.168.6.178
+    IdentityFIle ~/.ssh/id_ed25519.pub
+    user mark
+
+# Raspberry Pi 4
 Host muon 
 #    HostName 68.102.23.189
     # HostName 192.168.6.67
     HostName 100.123.193.73
     user mark
 
-# Raspbian on Raspberry Pi
-Host minuet
+# Raspbian on Raspberry Pi 3b
+Host boson
 #    HostName 68.102.23.189
-    HostName 24.255.217.102
-    Port 11106
+    HostName 192.168.4.108
     user mark
 
 # macOS Mojave on MacBook Pro
@@ -78,15 +86,15 @@ Host rosindust
     user mark
 
 # Minion (while on home network)
-Host Minion
-    HostName 192.168.5.67
-    User mark
-
+# Host Minion
+#     HostName 192.168.5.67
+#     User mark
+#
 # minion (while connected via USB)
-Host minion
-    HostName 10.0.9.1
-    User mark
-
+# Host minion
+#     HostName 10.0.9.1
+#     User mark
+#
 # Raspberry Pi 3
 Host hydrogen
     HostName 192.168.4.108
