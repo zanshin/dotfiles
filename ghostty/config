@@ -1,0 +1,9 @@
+font-family = ""
+font-family = "Intel One Mono"
+
+font-size = 16
+
+theme = Ayu
+background = #000000
+
+cursor-style-blink = false
