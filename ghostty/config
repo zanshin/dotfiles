@@ -7,7 +7,7 @@ background = #000000
 cursor-style-blink = false
 
 quick-terminal-position = center
-keybind = global:cmd+grave_accent=toggle_quick_terminal
+keybind = global:cmd+opt+ctrl+backslash=toggle_quick_terminal
 
 window-padding-x = 5
 window-padding-y = 5
