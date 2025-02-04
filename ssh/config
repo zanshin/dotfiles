@@ -7,7 +7,7 @@ Host *
 
 # terminfo hack until ncurses updates bring Ghostty terminfo
 Host 10.*
-  SetEnv TERM=xterm-256colo
+  SetEnv TERM=xterm-256color
 
 # AWS EC2 instances
 Host 10.251.*
