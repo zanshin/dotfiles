@@ -9,7 +9,7 @@ cursor-style-blink = false
 quick-terminal-position = center
 keybind = global:cmd+opt+ctrl+backslash=toggle_quick_terminal
 
-title = " "
+# title = " "
 macos-titlebar-style = tabs
 
 window-padding-x = 5
