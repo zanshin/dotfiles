@@ -8,6 +8,10 @@
 alias ri='ri -Tf ansi'     # Search Ruby documentaton
 
 # }}}
+# Rust {{{
+alias rust='rustc --version && cargo --version'
+
+# }}}
 # Movement {{{
 alias ..="cd .."
 alias ...="cd ../.."
