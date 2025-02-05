@@ -226,7 +226,7 @@
   "ui_font_family": "Hack Nerd Font Mono",
   "blinking": "off",
   "working_directory": "current_project_directory",
-  "theme": "Ayu Dark",
+  "theme": "Ayu Mirage",
   "vertical_scroll_margin": 5,
   "vim": {
     "use_system_clipboard": "always",
