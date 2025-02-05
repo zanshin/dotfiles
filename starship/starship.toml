@@ -57,32 +57,32 @@ style = "yellow"
 # From Discord JJ group
 # https://discord.com/channels/968932220549103686/1325152469449445477
 [custom.jj]
-command = '''
-jj log --ignore-working-copy --no-graph --color always --revisions @ --template '
-  surround(
-    "(",
-    ")",
-    separate(
-      " ",
-      change_id.shortest(8),
-      commit_id.shortest(8),
-      if(empty, label("empty", "(empty)")),
-      if(description,
-        concat("\"", description.first_line(), "\""),
-        label(if(empty, "empty"), description_placeholder),
-      ),
-      bookmarks.join(", "),
-      branches.join(", "),
-      if(conflict, "💥"),
-      if(divergent, "🚧"),
-      if(hidden, "👻"),
-      if(immutable, "🔒"),
-    )
-  )
-'
-'''
-when = "jj root --ignore-working-copy"
-symbol = "🍐"
+# command = '''
+# jj log --ignore-working-copy --no-graph --color always --revisions @ --template '
+#   surround(
+#     "(",
+#     ")",
+#     separate(
+#       " ",
+#       change_id.shortest(8),
+#       commit_id.shortest(8),
+#       if(empty, label("empty", "(empty)")),
+#       if(description,
+#         concat("\"", description.first_line(), "\""),
+#         label(if(empty, "empty"), description_placeholder),
+#       ),
+#       bookmarks.join(", "),
+#       branches.join(", "),
+#       if(conflict, "💥"),
+#       if(divergent, "🚧"),
+#       if(hidden, "👻"),
+#       if(immutable, "🔒"),
+#     )
+#   )
+# '
+# '''
+# when = "jj root --ignore-working-copy"
+# symbol = "🍐"
 
 # [python]
 # format = "[$virtualenv]($style) "
