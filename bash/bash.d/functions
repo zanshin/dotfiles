@@ -158,6 +158,16 @@ function dchef() {
 }
 
 # }}}
+# Ghostty terminfo sync {{{
+# Copies terminfo from local machine to remote host
+function infocmp_sync() {
+  if [ -z "$1" ]; then
+    echo "Usage: infocmp_sync <remote_host>"
+    return 1
+  fi
+  infocmp -x | ssh "$1" -- tic -x -o \$HOME/.terminfo -
+}
+# }}}
 # compressed file expander {{{
 # (from https://github.com/myfreeweb/zshuery/blob/master/zshuery.sh)
 ex() {
