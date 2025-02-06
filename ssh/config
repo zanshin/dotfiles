@@ -5,9 +5,6 @@ Host *
 #    User mhn
 #    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
 
-# terminfo hack until ncurses updates bring Ghostty terminfo
-Host 10.*
-  SetEnv TERM=xterm-256color
 
 # AWS EC2 instances
 Host 10.251.*
