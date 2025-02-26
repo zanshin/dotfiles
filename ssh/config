@@ -1,6 +1,7 @@
 Host *
 #    UseRoaming no
     ServerAliveInterval 60
+    HostKeyAlgorithms=rsa-sha2-512,rsa-sha2-256,ssh-rsa
 #    ForwardX11 yes
 #    User mhn
 #    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
