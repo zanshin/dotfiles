@@ -36,8 +36,15 @@ Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.
 
 
 # Work MacBook Pro
-Host wasabi.local
-    HostName 192.168.6.16
+# it-rm-mhn-laptop
+Host it-rm-mhn-laptop
+    HostName 10.150.51.144
+    User mhn
+
+# Work Mac Mini desktop
+# it-rm-mhn-desktop
+Host it-rm-mhn-desktop
+    HostName 10.150.2.202
     User mhn
 
 # AWS Linux Admin Workstation
