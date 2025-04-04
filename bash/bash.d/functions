@@ -160,7 +160,7 @@ function dchef() {
 # }}}
 # Ghostty terminfo sync {{{
 # Copies terminfo from local machine to remote host
-function infocmp_sync() {
+function ghostsync() {
   if [ -z "$1" ]; then
     echo "Usage: infocmp_sync <remote_host>"
     return 1
