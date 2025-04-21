@@ -34,6 +34,10 @@ Host "10.252.19?.*", "!10.252.190.*", "!10.252.191.*"
 Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.*", "10.251.7?.*"
    IdentityFile ~/.ssh/baseline-shared.pem
 
+# Work Mac Mini
+Host it-rm-mhn-desktop
+    HostName 10.150.99.10
+    User mhn
 
 # Work MacBook Pro
 # it-rm-mhn-laptop
