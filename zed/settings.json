@@ -28,7 +28,7 @@
   "base_keymap": "VSCode",
   "autosave": "on_focus_change",
   "buffer_font_family": "Intel One Mono",
-  "buffer_font_size": 16,
+  "buffer_font_size": 15,
   "buffer_line_height": "comfortable",
   "cursor_blink": false,
   "enable_language_server": true,
@@ -115,12 +115,14 @@
         },
         "assist": {
           "importGranularity": "module",
-          "importPrefix": "bu_self",
+          "importPrefix": "by_self",
           "group": "crate"
         },
-        "checkOnSave": {
-          "command": "clippy" // rust-analyzer.checkOnSave.command
-        }
+        "checkOnSave": true
+        // "checkOnSave": {
+        //   "enable": true
+        //   //   "command": "clippy" // rust-analyzer.checkOnSave.command
+        // }
       }
     },
     "gopls": {
