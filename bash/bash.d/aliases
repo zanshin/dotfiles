@@ -22,7 +22,7 @@ alias code='~/code'
 
 # }}}
 # Sorted size {{{
-alias 'dus=du -sckx * | sort -nr'
+alias 'dus=du -schx * | sort -nr'
 
 # Processes {{{
 alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
