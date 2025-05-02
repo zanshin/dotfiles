@@ -194,7 +194,7 @@ return {
           },
         },
       },
-      solargraph = {},
+      -- solargraph = {},
       -- tsserver = {},
 
       yamlls = {
