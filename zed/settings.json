@@ -23,6 +23,21 @@
           ]
         }
       ]
+    },
+    {
+      "host": "mhn-linux-admin.aws.ksu.edu",
+      "args": [
+        "-i",
+        "~/.ssh/mhn-admin-linux.pem"
+      ],
+      "projects": [
+        {
+          "paths": [
+            "~/code"
+          ]
+        }
+      ],
+      "nickname": "admin"
     }
   ],
   "base_keymap": "VSCode",
