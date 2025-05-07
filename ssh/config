@@ -16,23 +16,28 @@ Host 10.252.*
 
 #AWS sandbox account 10.251.80.0/20
 Host 10.251.80.* 10.251.81.* 10.251.82.* 10.251.83.* 10.251.84.* 10.251.85.* 10.251.86.* 10.251.87.* 10.251.88.* 10.251.89.* 10.251.90.* 10.251.91.* 10.251.92* 10.251.93.* 10.251.94.* 10.251.95.*
-  IdentityFile ~/.ssh/baseline-sandbox.pem
+   IdentityFile ~/.ssh/baseline-sandbox.pem
+   PubKeyAcceptedKeyTypes +ssh-rsa
 
 #AWS dev account 10.251.48.0/20
 Host 10.251.48.* 10.251.49.* 10.251.50.* 10.251.51.* 10.251.52.* 10.251.53.* 10.251.54.* 10.251.55.* 10.251.56.* 10.251.57.* 10.251.58.* 10.251.59.* 10.251.60.* 10.251.61.* 10.151.62.* 10.251.63.*
-  IdentityFile ~/.ssh/baseline-dev.pem
+   IdentityFile ~/.ssh/baseline-dev.pem
+   PubKeyAcceptedKeyTypes +ssh-rsa
 
 #AWS prod account 10.251.32.0/20
 Host 10.251.32.* 10.251.33.* 10.251.34.* 10.251.35.* 10.251.36.* 10.251.37.* 10.251.38.* 10.251.39.* 10.251.40.* 10.251.41.* 10.251.42.* 10.251.43.* 10.251.44.* 10.251.45.* 10.251.46.* 10.251.47.*
-  IdentityFile ~/.ssh/baseline-prod.pem
+   IdentityFile ~/.ssh/baseline-prod.pem
+   PubKeyAcceptedKeyTypes +ssh-rsa
 
 #AWS dev west
 Host "10.252.19?.*", "!10.252.190.*", "!10.252.191.*"
    IdentityFile ~/.ssh/baseline-dev-west.pem
+   PubKeyAcceptedKeyTypes +ssh-rsa
 
 #AWS shared 10.251.64.0/20
 Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.*", "10.251.7?.*"
    IdentityFile ~/.ssh/baseline-shared.pem
+   PubKeyAcceptedKeyTypes +ssh-rsa
 
 # Work Mac Mini
 Host it-rm-mhn-desktop
