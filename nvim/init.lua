@@ -31,7 +31,7 @@ require("lazy").setup("plugins", {
 })
 
 -- use nvim-notify as the default notify function
--- vim.notify = require("notify")
+vim.notify = require("notify")
 
 -- These are my personal settings
 require("zanshin.options")     -- anything that gets set
@@ -39,6 +39,7 @@ require("zanshin.mappings")    -- mappings
 require("zanshin.diagnostics") -- LSP diagnostic settings
 require("zanshin.snippets")    -- Snippet settings
 require("zanshin.lint")        -- Add Linters
+
 
 -- require("zanshin.autocmds") -- autocommands
 -- require("zanshin.helpers")  -- functions to wrap commands
