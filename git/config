@@ -1,10 +1,5 @@
-[user]
-  name = Mark Nichols
-  email = mark@zanshin.net
-	signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIATcz7hTgqZHjGVNDIM/7OWckmIDtU9lV7WGf44WsdUJ mark@zanshin.net"
-
-[github]
-  user = zanshin
+[include]
+  path = ~/.local/config/git.config
 
 [init]
 	defaultBranch = main
