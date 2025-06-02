@@ -6,6 +6,7 @@ email = "mark@zanshin.net"
 color = "auto"
 default-command = "status"
 editor = "nvim"
+merge-editor = "nvim"
 diff.format = "git"
 # diff.tool = ["diff", "$left", "$right"]
 # diff.tool = ["difft", "--color=always", "$left", "$right"]
@@ -18,6 +19,13 @@ change_id = "red"
 prefix = { bold = true }
 rest = "#566573"
 # "working_copy commit_id" = { underline = true }
+
+[aliases]
+# Find the closest ancestor with a bookmark pointing at it, and move it to the
+# parent of the working copy.
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+long = ["log", "-T", "builtin_log_detailed"]
+short = ["log", "-T", "builtin_log_oneline"]
 
 [template-aliases]
 'format_short_signature(signature)' = "signature"
