@@ -6,7 +6,7 @@
   //   },
   //   "version": "2"
   // },
-  "assistant": {
+  "agent": {
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-5-sonnet-latest"
