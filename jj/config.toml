@@ -7,7 +7,7 @@ color = "auto"
 default-command = "status"
 editor = "nvim"
 merge-editor = "nvim"
-diff.format = "git"
+diff-formatter = ":git"
 # diff.tool = ["diff", "$left", "$right"]
 # diff.tool = ["difft", "--color=always", "$left", "$right"]
 diff-editor = "nvimdiff"
