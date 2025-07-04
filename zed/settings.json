@@ -220,6 +220,19 @@
   },
   "relative_line_numbers": true,
   "remove_trailing_whitespace_on_save": true,
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": true,
+    "search_results": true,
+    "selected_text": true,
+    "selected_symbol": true,
+    "diagnostics": "all",
+    "axes": {
+      "horizontal": true,
+      "vertical": true,
+    },
+  },
   "tabs": {
     "file_icons": true,
     "git_status": true
