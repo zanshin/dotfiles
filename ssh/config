@@ -1,7 +1,7 @@
 Host *
 #    UseRoaming no
     ServerAliveInterval 60
-    HostKeyAlgorithms=rsa-sha2-512,rsa-sha2-256,ssh-rsa
+    HostKeyAlgorithms rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519
 #    ForwardX11 yes
 #    User mhn
 #    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
@@ -57,11 +57,23 @@ Host it-rm-mhn-desktop
     User mhn
 
 # AWS Linux Admin Workstation
-Host admin
-    HostName mhn-linux-admin.aws.ksu.edu
+Host oldadmin
+    # HostName mhn-linux-admin.aws.ksu.edu
+    HostName 10.251.146.13
     User mhn
     IdentityFile ~/.ssh/mhn-admin-linux.pem
     PubKeyAuthentication yes
+    # ChallengeResponseAuthentication yes
+    # PasswordAuthentication yes
+
+Host admin
+    # HostName mhn-linux-admin.aws.ksu.edu
+    HostName 10.251.144.78
+    User mhn
+    IdentityFile ~/.ssh/mhn-admin-linux-al23.pem
+    PubKeyAuthentication yes
+    # HostKeyAlgorithms ecdsa-sha2-nistp256,ssh-ed25519
+    # PubKeyAcceptedKeyTypes ecdsa-sha2-nistp256,ssh-ed25519
     # ChallengeResponseAuthentication yes
     # PasswordAuthentication yes
 
@@ -141,11 +153,12 @@ Host ts-hydrogen
     user mark
 
 # Access GitHub even when port 22 isn't available
-# Host github.com
+Host github.com
 # Match user !mhn host "github.com"
-#       HostName ssh.github.com
-#       Port 443
-#       user git
+      HostName github.com
+      # Port 443
+      User git
+      IdentityFile ~/.ssh/id_ed25519_github
 
 # Pair hosting
 Host pair
