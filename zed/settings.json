@@ -1,17 +1,10 @@
 {
-  // "assistant": {
-  //   "default_model": {
-  //     "provider": "openai",
-  //     "model": "gpt-3.5-turbo"
-  //   },
-  //   "version": "2"
-  // },
   "agent": {
+    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
-    },
-    "version": "2"
+      "model": "claude-sonnet-4"
+    }
   },
   "ssh_connections": [
     {
@@ -70,8 +63,6 @@
       "delay_ms": 500
     }
   },
-  "git_diff": true,
-  "git_status": true,
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": true,
@@ -134,10 +125,6 @@
           "group": "crate"
         },
         "checkOnSave": true
-        // "checkOnSave": {
-        //   "enable": true
-        //   //   "command": "clippy" // rust-analyzer.checkOnSave.command
-        // }
       }
     },
     "gopls": {
@@ -167,38 +154,42 @@
         }
       }
     },
-    "yaml": {
-      "customTags": [
-        "!And",
-        "!And sequence",
-        "!Base64",
-        "!Cidr",
-        "!Cidr sequence",
-        "!Condition",
-        "!Equals",
-        "!Equals sequence",
-        "!FindInMap",
-        "!FindInMap sequence",
-        "!GetAtt",
-        "!GetAZ",
-        "!If",
-        "!If sequence",
-        "!ImportValue",
-        "!ImportValue sequence",
-        "!Join",
-        "!Join sequence",
-        "!Not",
-        "!Not sequence",
-        "!Or",
-        "!Or sequence",
-        "!Ref",
-        "!Select",
-        "!Select sequence",
-        "!Split",
-        "!Split sequence",
-        "!Sub",
-        "!Sub sequence"
-      ]
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "customTags": [
+            "!And",
+            "!And sequence",
+            "!Base64",
+            "!Cidr",
+            "!Cidr sequence",
+            "!Condition",
+            "!Equals",
+            "!Equals sequence",
+            "!FindInMap",
+            "!FindInMap sequence",
+            "!GetAtt",
+            "!GetAZ",
+            "!If",
+            "!If sequence",
+            "!ImportValue",
+            "!ImportValue sequence",
+            "!Join",
+            "!Join sequence",
+            "!Not",
+            "!Not sequence",
+            "!Or",
+            "!Or sequence",
+            "!Ref",
+            "!Select",
+            "!Select sequence",
+            "!Split",
+            "!Split sequence",
+            "!Sub",
+            "!Sub sequence"
+          ]
+        }
+      }
     }
   },
   "multi_cursor_modifier": "cmd_or_ctrl",
@@ -230,8 +221,8 @@
     "diagnostics": "all",
     "axes": {
       "horizontal": true,
-      "vertical": true,
-    },
+      "vertical": true
+    }
   },
   "tabs": {
     "file_icons": true,
@@ -242,6 +233,7 @@
     "metrics": false
   },
   "terminal": {
+    "blinking": "off",
     "copy_on_select": true,
     "dock": "bottom",
     "default_width": 640,
@@ -250,17 +242,11 @@
     "font_size": 15,
     "line_height": "comfortable"
   },
-  "toolbar": {
-    "title": true
-  },
   "ui_font_family": "Hack Nerd Font Mono",
-  "blinking": "off",
-  "working_directory": "current_project_directory",
-  "theme": "Ayu Mirage",
+  "theme": "Ayu Dark",
   "vertical_scroll_margin": 5,
   "vim": {
     "use_system_clipboard": "always",
-    "use_multiline_find": false,
     "use_smartcase_find": true
   },
   "vim_mode": true
