@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-* Neovim 0.20.* or later
+* Neovim 0.12.* or later
 * Node - Several language servers require Node
 * A "hacked" font
 
