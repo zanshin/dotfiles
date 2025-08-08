@@ -37,3 +37,7 @@ vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<cr>', { desc = 'Execute 
 
 -- Sudo to write protected file
 vim.keymap.set('c', 'w!!', '!sudo tee % > /dev/null', { desc = 'Use sudo to write protected file' })
+
+-- Git Blame
+vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
+
