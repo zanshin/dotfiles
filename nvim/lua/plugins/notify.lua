@@ -1,3 +1,7 @@
+-- Notify
+-- August 5, 2025
+--
+
 return {
   "rcarriga/nvim-notify",
   event = "VeryLazy",

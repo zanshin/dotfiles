@@ -1,3 +1,7 @@
+-- Crates
+-- August 6, 2025
+--
+
 return {
   'saecki/crates.nvim',
   event = { "BufRead Cargo.toml" },

@@ -1,23 +1,26 @@
--- Neovim Configuration
--- December 10, 2023
+-- Bare Bones Neovim Configuration
+-- August 4, 2025
 
--- Must set this ahead of initializing Lazy
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Set leader and local leader to <space>
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
--- Bootstrap Lazy
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+-- Flag to indicate nerd font is installed
+vim.g.have_nerd_font = true
+
+-- Use Lazy for plugin management
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
 end
-vim.opt.rtp:prepend(lazypath)
+
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
 
 -- Initialize Lazy
 require("lazy").setup("plugins", {
@@ -30,19 +33,10 @@ require("lazy").setup("plugins", {
   },
 })
 
--- use nvim-notify as the default notify function
+-- Use nvim-notify as the default notify function
 vim.notify = require("notify")
 
--- These are my personal settings
-require("zanshin.options")     -- anything that gets set
-require("zanshin.mappings")    -- mappings
-require("zanshin.diagnostics") -- LSP diagnostic settings
-require("zanshin.snippets")    -- Snippet settings
-require("zanshin.lint")        -- Add Linters
-
-
--- require("zanshin.autocmds") -- autocommands
--- require("zanshin.helpers")  -- functions to wrap commands
--- require("zanshin.keymaps")  -- Plugin mappings
--- require("zanshin.lazy")     -- manage plugins
--- require("zanshin.colors")   -- color theme
+-- Fold in my preferences
+require('my.options')
+require('my.mappings')
+require('my.autocmds')
