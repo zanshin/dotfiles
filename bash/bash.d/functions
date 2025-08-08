@@ -810,7 +810,7 @@ newscript() {
 # awss: switch profile, login, and change EKS context
 awss() {
   awsp "$1"
-  aws login
+  # aws login --profile "$AWS_PROFILE"
   CONTEXT=$(echo $1 | sed -e "s/\b\(.\)/\u\1/g")
   # aws eks --region us-east-1 update-kubeconfig --name "EKS-$CONTEXT" 2>/dev/null
   aws eks --region us-east-1 update-kubeconfig --name "EKS-$CONTEXT-blueprint" 2>/dev/null
