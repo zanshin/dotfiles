@@ -4,7 +4,8 @@
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
-    }
+    },
+    "version": "2"
   },
   "ssh_connections": [
     {
@@ -244,6 +245,8 @@
   },
   "ui_font_family": "Hack Nerd Font Mono",
   "theme": "Ayu Dark",
+  "blinking": "off",
+  "working_directory": "current_project_directory",
   "vertical_scroll_margin": 5,
   "vim": {
     "use_system_clipboard": "always",
