@@ -62,3 +62,7 @@ vim.o.swapfile = false
 vim.o.backup = false
 vim.o.undodir = os.getenv('HOME') .. '/.local/share/nvim/undodir'
 vim.o.undofile = true
+
+-- Line width 
+vim.o.textwidth = 79
+vim.o.linebreak = true
