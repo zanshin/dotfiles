@@ -51,6 +51,7 @@ vim.o.showcmd = false
 -- Encoding and Language
 vim.o.encoding = 'utf-8'
 vim.o.spelllang = 'en'
+vim.o.spellfile = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add")
 
 -- Folding
 vim.o.foldcolumn = '3'
