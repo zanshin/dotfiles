@@ -18,12 +18,22 @@ return {
     { 'nvim-telescope/telescope-ui-select.nvim' },
   },
   config = function()
-    require('telescope').setup {
+    local telescope = require('telescope')
+    local actions = require('telescope.actions')
+    -- require('telescope').setup {
+    telescope.setup {
       -- defaults = {
         -- mappings = {
         -- },
       -- },
-      -- pickers = {}
+      pickers = {
+        find_files = {
+          mappings = {
+            i = { ["<CR>"] = actions.select_tab },
+            n = { ["<CR>"] = actions.select_tab },
+          },
+        },
+      },
       extensions = {
         undo = {
           side_by_side = true,
