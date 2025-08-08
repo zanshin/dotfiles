@@ -170,6 +170,10 @@ alias vplug="vim +PlugUpgrade +PlugUpdate +qall"
 alias nplug="nvim +PlugUpgrade +PlugUpdate +qall"
 alias 'vim=vim -U none'
 
+alias nvimks='NVIM_APPNAME="nvim-kickstart" nvim'
+alias nvimmin='NVIM_APPNAME="nvim-minimum" nvim'
+alias nvimbb='NVIM_APPNAME="nvim-barebones" nvim'
+
 # asdf alais to remove previous nightly and update to current nightly
 alias update-nvim='asdf uninstall neovim nightly && asdf install neovim nightly'
 
