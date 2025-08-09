@@ -156,6 +156,15 @@ return {
             })
           end
 
+          -- Format on save using file type LSP
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            desc = 'Format buffer using LSP on save',
+            group = vim.api.nvim_create_augroup('my-format-on-save', { clear = true}),
+            callback = function()
+              vim.lsp.buf.format()
+            end,
+          })
+
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
           --
@@ -226,7 +235,7 @@ return {
             ["rust-analyzer"] = {
               assist = {
                 importGranularity =  "module",
-                importPrefix = "bu_self",
+                importPrefix = "self",
                 group = "crate",
               },
               procMacro = { enable = true },
@@ -235,6 +244,7 @@ return {
                 command = "clippy",
                 extraArgs = { "--no-deps" },
               },
+              formatOnSave = true,
             },
           },
         },
