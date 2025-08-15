@@ -147,6 +147,10 @@ Host ts-hydrogen
 #       Port 443
 #       user git
 
+Host codeberg.org
+    user git
+    IdentityFile ~/.ssh/id_ed25519_codeberg
+
 # Pair hosting
 Host pair
     HostName mnichols.pairserver.com
