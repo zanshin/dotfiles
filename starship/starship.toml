@@ -9,37 +9,50 @@ $cmd_duration\
 $line_break\
 $character"""
 
+# prompt wide configuration settings
+add_newline = true
+scan_timeout = 10
+# command_timeout = 750
+
+[username]
+format = '[$user]($style) '
+
+[hostname]
+ssh_symbol = ""
+format = "on [$hostname](red) "
+
 [directory]
 style = "blue"
+truncation_length = 5
+truncation_symbol = '.../'
+truncate_to_repo = false
 
 [character]
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
+success_symbol = '[➜](bold green) '
+error_symbol = '[✗](bold red) '
 
 [git_branch]
-format = "[$branch]($style)"
-style = "bright-black"
+format = "[$branch ]($style)"
+style = "#ffb454"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
+conflicted = "="
+untracked = "⇡"
+modified = "⇣"
+staged = "+"
+renamed = "»"
+deleted = "✘"
 stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "#d2a6ff"
 
 [cmd_duration]
 format = "[$duration]($style) "
 style = "yellow"
 
-[python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
+[package]
+disable = true
