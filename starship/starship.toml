@@ -9,123 +9,37 @@ $cmd_duration\
 $line_break\
 $character"""
 
-# prompt wide configuration settings
-add_newline = true
-scan_timeout = 10
-# command_timeout = 750
-
-[username]
-format = '[$user]($style) '
-
-[hostname]
-ssh_symbol = ""
-format = "on [$hostname](red) "
-
 [directory]
 style = "blue"
-truncation_length = 5
-truncation_symbol = '.../'
-truncate_to_repo = false
 
 [character]
-success_symbol = '[➜](bold green) '
-error_symbol = '[✗](bold red) '
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-format = "[$branch ]($style)"
-style = "#ffb454"
+format = "[$branch]($style)"
+style = "bright-black"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = "="
-untracked = "⇡"
-modified = "⇣"
-staged = "+"
-renamed = "»"
-deleted = "✘"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
 stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "#d2a6ff"
+style = "bright-black"
 
 [cmd_duration]
 format = "[$duration]($style) "
 style = "yellow"
 
-# From Discord JJ group
-# https://discord.com/channels/968932220549103686/1325152469449445477
-[custom.jj]
-# command = '''
-# jj log --ignore-working-copy --no-graph --color always --revisions @ --template '
-#   surround(
-#     "(",
-#     ")",
-#     separate(
-#       " ",
-#       change_id.shortest(8),
-#       commit_id.shortest(8),
-#       if(empty, label("empty", "(empty)")),
-#       if(description,
-#         concat("\"", description.first_line(), "\""),
-#         label(if(empty, "empty"), description_placeholder),
-#       ),
-#       bookmarks.join(", "),
-#       branches.join(", "),
-#       if(conflict, "💥"),
-#       if(divergent, "🚧"),
-#       if(hidden, "👻"),
-#       if(immutable, "🔒"),
-#     )
-#   )
-# '
-# '''
-# when = "jj root --ignore-working-copy"
-# symbol = "🍐"
-
-# [python]
-# format = "[$virtualenv]($style) "
-# style = "bright-black"
-#
-
-# ---------
-# My tweaks
-# ---------
-#
-# add_newline = true
-# # format = '$all'
-# # right_format = """$all"""
-# command_timeout = 750
-#
-# [hostname]
-# ssh_only = true
-# ssh_symbol = ""
-# format = "on [$hostname](red) "
-# disabled = false
-#
-# # [directory]
-# # truncation_length = 5
-# # truncation_symbol = '.../'
-# # truncate_to_repo = false
-# # style = "blue"
-# #
-# [username]
-# style_user = 'blue'
-# style_root = 'red bold'
-# format = '[$user]($style) '
-# # format = '\[[$user]($style)\]'
-# disabled = false
-# show_always = false
-#
-# # Display warning when in PROD Kubernetes context
-# # [custom.k8_prod_warning]
-# # description = 'Shows an indicator when the name of the current kubectl context contains `prod`'
-# # when = 'kubectl config current-content | grep -qi prod'
-# # command = 'echo " on PROD"'
-# # symbol = '⚠️ '
-# # style = 'bold red'
-# # format = '[$symbol($output )]($style)'
-#
-# [aws]
-# disabled = true
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
