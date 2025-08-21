@@ -8,14 +8,13 @@ $git_status\
 $cmd_duration\
 $line_break\
 $character"""
-
 # prompt wide configuration settings
 add_newline = true
 scan_timeout = 10
 # command_timeout = 750
 
 [username]
-format = '[$user]($style) '
+format = "[$user]($style) "
 
 [hostname]
 ssh_symbol = ""
@@ -24,12 +23,12 @@ format = "on [$hostname](red) "
 [directory]
 style = "blue"
 truncation_length = 5
-truncation_symbol = '.../'
+truncation_symbol = ".../"
 truncate_to_repo = false
 
 [character]
-success_symbol = '[➜](bold green) '
-error_symbol = '[✗](bold red) '
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
 
 [git_branch]
 format = "[$branch ]($style)"
@@ -56,3 +55,11 @@ style = "yellow"
 
 [package]
 disable = true
+
+[custom.jj]
+command = "prompt"
+format = "$output"
+ignore_timeout = true
+shell = ["starship-jj", "--ignore-working-copy", "starship"]
+use_stdin = false
+when = true
