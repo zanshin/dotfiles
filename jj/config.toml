@@ -2,16 +2,17 @@
 name = "Mark Nichols"
 email = "mark@zanshin.net"
 
+[merge-tools.opendiff]
+program = "jj-opendiff"
+merge-args = ["$base", "$left", "$right", "$output"]
+
 [ui]
 color = "auto"
 default-command = "status"
 editor = "nvim"
-merge-editor = "nvim"
-diff-formatter = ":git"
-# diff.tool = ["diff", "$left", "$right"]
-# diff.tool = ["difft", "--color=always", "$left", "$right"]
-diff-editor = "nvimdiff"
-# merge-editor = "nvimdiff"
+# diff-formatter = ":git"
+diff-editor = "jj-opendiff"
+merge-editor = "jj-opendiff"
 
 [colors]
 commit_id = "blue"
