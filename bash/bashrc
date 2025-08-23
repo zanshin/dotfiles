@@ -95,7 +95,9 @@ umask 002
 # source $HOME/.config/liquidprompt/liquidprompt
 
 # Starship Prompt
+# (export is workaround for path in prompt not always updating)
 eval "$(starship init bash)"
+export PROMPT_COMMAND="starship_precmd;$PROMPT_COMMAND"
 
 # finis
 
