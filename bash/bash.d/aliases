@@ -167,7 +167,7 @@ alias jn='jj new'
 alias jp='jj git push'
 alias js='jj st'
 alias jl='jj log'
-alias jh="jj log -r all'()'"
+alias jh="jj short -r all'()'"
 
 ## pull up the nearest bookmarks to the working-copy parent
 alias jbm="jj bookmark move --from 'heads(::@- & bookmarks())' --to @-"
