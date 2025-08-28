@@ -2,17 +2,17 @@
 name = "Mark Nichols"
 email = "mark@zanshin.net"
 
-[merge-tools.opendiff]
-program = "jj-opendiff"
-merge-args = ["$base", "$left", "$right", "$output"]
+# [merge-tools.opendiff]
+# program = "jj-opendiff"
+# merge-args = ["$base", "$left", "$right", "$output"]
 
 [ui]
 color = "auto"
 default-command = "status"
 editor = "nvim"
 # diff-formatter = ":git"
-diff-editor = "jj-opendiff"
-merge-editor = "jj-opendiff"
+diff-editor = ":builtin"
+# merge-editor = "jj-opendiff"
 
 [colors]
 commit_id = "blue"
@@ -30,7 +30,7 @@ short = ["log", "-T", "builtin_log_oneline"]
 
 [template-aliases]
 'format_short_signature(signature)' = "signature"
-'format_timestamp(timestamp)' = 'timestamp.ago()'
-'format_short_id(id)' = 'id.shortest(12)'
+'format_timestamp(timestamp)' = "timestamp.ago()"
+'format_short_id(id)' = "id.shortest(12)"
 # 'format_short_id(id)' = 'id.shortest(12).prefix() ++ "[" ++ id.shortest(12).rest() ++ "]"'
 
