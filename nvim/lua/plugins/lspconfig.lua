@@ -230,25 +230,25 @@ return {
           settings = { Lua = { dianostics = { globals = { 'vim' } } } },
         },
         pyright = {},
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              assist = {
-                importGranularity = "module",
-                importPrefix = "self",
-                group = "crate",
-              },
-              completion = { autoimport = { enable = true } },
-              procMacro = { enable = true },
-              cargo = { allFeatures = true },
-              checkOnSave = {
-                command = "clippy",
-                extraArgs = { "--no-deps" },
-              },
-              formatOnSave = true,
-            },
-          },
-        },
+        -- rust_analyzer = {
+        --   settings = {
+        --     ["rust-analyzer"] = {
+        --       assist = {
+        --         importGranularity = "module",
+        --         importPrefix = "self",
+        --         group = "crate",
+        --       },
+        --       completion = { autoimport = { enable = true } },
+        --       procMacro = { enable = true },
+        --       cargo = { allFeatures = true },
+        --       checkOnSave = {
+        --         command = "clippy",
+        --         extraArgs = { "--no-deps" },
+        --       },
+        --       formatOnSave = true,
+        --     },
+        --   },
+        -- },
         yamlls = {
           -- cmd = { "yamls" },
           cmd = { 'yaml-language-server', '--stdio' },
