@@ -1,7 +1,7 @@
 Host *
 #    UseRoaming no
     ServerAliveInterval 60
-    HostKeyAlgorithms=rsa-sha2-512,rsa-sha2-256,ssh-rsa
+    HostKeyAlgorithms=rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519
 #    ForwardX11 yes
 #    User mhn
 #    PKCS11Provider /usr/local/lib/opensc-pkcs11.so
@@ -58,9 +58,9 @@ Host it-rm-mhn-desktop
 
 # AWS Linux Admin Workstation
 Host admin
-    HostName mhn-linux-admin.aws.ksu.edu
+    HostName mhn-admin-linux.aws.ksu.edu
     User mhn
-    IdentityFile ~/.ssh/mhn-admin-linux.pem
+    IdentityFile ~/.ssh/mhn-admin-linux-al23.pem
     PubKeyAuthentication yes
     # ChallengeResponseAuthentication yes
     # PasswordAuthentication yes
