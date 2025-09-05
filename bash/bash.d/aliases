@@ -173,6 +173,13 @@ alias jh="jj short -r all'()'"
 alias jbm="jj bookmark move --from 'heads(::@- & bookmarks())' --to @-"
 
 # }}}
+# Cargo / Rust {{{
+alias cr='cargo run'
+alias ct='cargo test'
+alias crt='RUST_LOG=trace cargo run'
+alias ctt='RUST_LOG=trace cargo test -- --nocapture'
+
+# }}}
 # Neovim and Vim {{{
 # alias 'vi=vim'
 alias 'vi=nvim'
@@ -197,7 +204,7 @@ alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 alias ts='tsession.sh'
-alias tf='tmux-sessionizer.sh'
+alias tf='tmux-sessionizer'
 
 # tmux scripts
 # alias tb='~/.dotfiles/scripts/blog'
