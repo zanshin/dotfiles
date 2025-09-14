@@ -193,6 +193,8 @@ return {
         } or {},
         virtual_text = {
           source = 'if_many',
+          wrap = true,
+          -- width = 80,
           spacing = 2,
           format = function(diagnostic)
             local diagnostic_message = {
