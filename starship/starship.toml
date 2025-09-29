@@ -56,10 +56,19 @@ style = "yellow"
 [package]
 disable = true
 
+
+# custom jujutsu module showing commits since main bookmark
 [custom.jj]
-command = "prompt"
-format = "$output"
-ignore_timeout = true
-shell = ["starship-jj", "--ignore-working-copy", "starship"]
-use_stdin = false
-when = true
+command = '''
+if jj root &>/dev/null; then
+  count=$(jj log --no-graph --no-pager -r "main..@ & ~empty()" -T "x"
+2>/dev/null | wc -c | tr -d ' ')
+  if [ "$count" -gt 0 ]; then
+    echo "↑$count"
+  fi
+fi
+'''
+when = ''' test -d .jj || { dir="$PWD"; while [ "$dir" != "/" ]; do [ -d "$dir/.jj" ] && exit 0; dir=$(dirname "$dir"); done; exit 1; } '''
+format = "[$output]($style) "
+style = "bold cyan"
+description = "Commits ahead of main bookmark in Jujutsu"
