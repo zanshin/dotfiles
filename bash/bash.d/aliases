@@ -226,6 +226,7 @@ alias resetmouse="printf '\e[?1000l'"
 # }}}
 # Mutt {{{
 alias mutt='cd ~/Desktop && mutt && cd -'
+alias nmutt='cd ~/Desktop/ && neomutt && cd -'
 # alias mutt='mutt -e "set crypt_use_gpgme=no"'
 
 # }}}

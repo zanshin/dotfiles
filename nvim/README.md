@@ -63,6 +63,11 @@ They are namespaced to prevent collisions with settings elsewhere in the configu
 
 The `after/ftplugin` directory holds file type specific settings.
 
+## Weasel Words
+Using the list of words from [3 shell scripts to improve your
+writing](https://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/)
+and with Claude.ai help, I added weasel word highlighting to my configuration.
+
 ## Troubleshooting
 If plugins stop loading properly, or develop odd problems, it may help to clean up these directories, which will trigger Lazy to reload all the plugins.
 
