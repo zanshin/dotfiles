@@ -6,7 +6,8 @@ return {
 	"David-Kunz/gen.nvim",
 	config = function()
 		require("gen").setup({
-			model = "mistral:latest",
+			-- model = "mistral:latest",
+			model = "qwen2.5-coder:7b",
 			host = "localhost",
 			port = "11434",
 			display_mode = "split",
