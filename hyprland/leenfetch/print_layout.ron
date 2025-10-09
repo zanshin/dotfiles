@@ -1,0 +1,79 @@
+
+// ===============================
+// print_layout.ron - Output order and labels
+//
+// This file controls the order and labels of each block in the leenfetch output.
+// You can rearrange, remove, or relabel any section to customize your output.
+//
+// - The 'label' is what is shown before the value (e.g., "CPU:").
+// - The 'field' determines which information is shown in that row.
+//
+// For a full explanation of each entry, see the comments above each line.
+// ===============================
+[
+    // The user@host title block (e.g., "snape@archbox").
+    // You can change the label or move this entry to change its position in the output.
+    (label: "Titles", field: "titles"),
+
+    // The distribution (distro) information (e.g., "Arch Linux").
+    // The label is what will be shown before the value.
+    (label: "Distro", field: "distro"),
+
+    // The hardware model (e.g., laptop/desktop model).
+    (label: "Model", field: "model"),
+
+    // The kernel version (e.g., "6.14.6-arch1-1").
+    (label: "Kernel", field: "kernel"),
+
+    // The system uptime (how long the system has been running).
+    (label: "Uptime", field: "uptime"),
+
+    // The package count and/or package manager info.
+    (label: "Packages", field: "packages"),
+
+    // The shell name and version.
+    (label: "Shell", field: "shell"),
+
+    // The window manager (WM) name.
+    (label: "WM", field: "wm"),
+
+    // The desktop environment (DE) name and version.
+    (label: "DE", field: "de"),
+
+    // The window manager theme.
+    (label: "WM theme", field: "wm_theme"),
+
+    // CPU information (brand, cores, speed, etc.).
+    (label: "CPU", field: "cpu"),
+
+    // GPU information.
+    (label: "GPU", field: "gpu"),
+
+    // Memory usage.
+    (label: "Memory", field: "memory"),
+
+    // Disk usage information.
+    (label: "Disk", field: "disk"),
+
+    // Display resolution.
+    (label: "Resolution", field: "resolution"),
+
+    // The current GTK/Qt theme.
+    (label: "Theme", field: "theme"),
+
+    // Battery status and level.
+    (label: "Battery", field: "battery"),
+
+    // Currently playing song/media info (if available).
+    // The label is left empty to avoid clutter, but you can set a custom label if you wish.
+    (label: "", field: "song"),
+
+    // Terminal color palette preview (color blocks at the bottom).
+    // The label is left empty to avoid clutter, but you can set a custom label if you wish.
+    (label: "", field: "colors"),
+
+
+    
+    // You can add more custom entries as needed.
+    // (label: "- Custom Field", field: "custom text"),
+]

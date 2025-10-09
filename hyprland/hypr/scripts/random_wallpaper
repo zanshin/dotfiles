@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+# Random wallpaper setter for Hyprland + hyprpaper
+
+# --- Safety defaults ---
+set -euo pipefail
+
+# --- Environment setup ---
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$UID}"
+
+# If not already set, auto-detect the active Hyprland instance
+if [[ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
+    HYPRLAND_INSTANCE_SIGNATURE=$(ls /run/user/$UID/hypr/ | head -n 1)
+    export HYPRLAND_INSTANCE_SIGNATURE
+fi
+
+# --- Verify hyprpaper is running ---
+if ! pgrep -x hyprpaper >/dev/null; then
+    notify-send "Hyprpaper not running" "Starting hyprpaper..."
+    hyprpaper &
+    sleep 2
+fi
+
+# --- Select random wallpaper ---
+DIR="$HOME/Pictures/wallpapers"
+if [[ ! -d "$DIR" ]]; then
+    notify-send "Wallpaper directory not found" "$DIR"
+    exit 1
+fi
+
+WP=$(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) | shuf -n 1)
+if [[ -z "$WP" ]]; then
+    notify-send "No images found" "in $DIR"
+    exit 1
+fi
+
+# --- Apply wallpaper ---
+hyprctl -i hyprpaper preload "$WP"
+hyprctl -i hyprpaper wallpaper ",$WP"
+sleep 1
+hyprctl -i hyprpaper unload unused
+
+# --- Optional notification ---
+notify-send "Wallpaper changed!" "$(basename "$WP")"
+

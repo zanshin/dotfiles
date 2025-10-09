@@ -1,0 +1,139 @@
+
+// ===============================
+// flags.ron - Display and formatting options
+//
+// This file controls how each block of information is shown in the leenfetch output.
+// You can customize the look, detail, and formatting of every section.
+// Change the values below to adjust what is displayed and how it appears.
+//
+// - String values select display modes or formatting.
+// - true/false values enable or disable features.
+//
+// For a full explanation of each option, see the comments above each line.
+// ===============================
+(
+    // Select which distribution's ASCII art to display at the top.
+    // Options:
+    //   "auto"   - Automatically detect and use your current distribution's ASCII art.
+    //   <name>    - Use a specific distro's art (e.g., "arch", "ubuntu", "debian").
+    ascii_distro: "auto",
+
+    // Choose the color palette for the ASCII art and color blocks.
+    // Options:
+    //   "distro" - Use your distribution's default color palette.
+    //   <list>    - Comma-separated list of color numbers (e.g., "1,2,3,4,5,6,7,8").
+    ascii_colors: "distro",
+
+    // Path to a custom ASCII art file to display instead of the default.
+    // Options:
+    //   ""        - Use the built-in ASCII art.
+    //   <path>    - Path to a custom ASCII art file (e.g., "/home/user/myart.txt").
+    custom_ascii_path: "",
+
+    // How to display battery information.
+    // Options:
+    //   "off"     - Do not show battery information.
+    //   "bar"     - Show only a visual bar for battery level.
+    //   "infobar" - Show battery percentage and a bar.
+    //   "barinfo" - Show a bar, percentage, and charging status (default).
+    battery_display: "barinfo",
+
+    // The string used to draw color blocks in the palette preview.
+    // You can change this to any string, such as "▓▓▓" or "\#\#\#".
+    color_blocks: "███",
+
+    // Show the brand name of your CPU.
+    // Options: true (show), false (hide)
+    cpu_brand: true,
+
+    // Show the number of CPU cores.
+    // Options: true (show), false (hide)
+    cpu_cores: true,
+
+    // Show the CPU frequency.
+    // Options: true (show), false (hide)
+    cpu_frequency: true,
+
+    // Show the current CPU speed.
+    // Options: true (show), false (hide)
+    cpu_speed: true,
+
+    // Which temperature unit to use for CPU temperature.
+    // Options:
+    //   'C' - Celsius
+    //   'F' - Fahrenheit
+    cpu_temp: 'C',
+
+    // Show the CPU temperature.
+    // Options: true (show), false (hide)
+    cpu_show_temp: true,
+
+    // Show the version of your desktop environment.
+    // Options: true (show), false (hide)
+    de_version: true,
+
+    // How much detail to show about your operating system.
+    // Options:
+    //   "name"                - Only the OS name (e.g., "Arch Linux").
+    //   "name_version"        - Name and version (e.g., "Arch Linux 2024.06").
+    //   "name_arch"           - Name and architecture (e.g., "Arch Linux x86_64").
+    //   "name_model"          - Name and model (e.g., "Arch Linux LTS").
+    //   "name_model_version"  - Name, model, and version.
+    //   "name_model_arch"     - Name, model, and architecture (default).
+    //   "name_model_version_arch" - Name, model, version, and architecture.
+    distro_display: "name_model_arch",
+
+    // How to display disk usage information.
+    // Options:
+    //   "info"      - Show used/total (e.g., "40G / 100G").
+    //   "percentage"- Show percent used and a bar (e.g., "40% [███]").
+    //   "infobar"   - Show used/total and a bar (e.g., "40G / 100G [███]").
+    //   "barinfo"   - Show bar first, then used/total (default).
+    //   "bar"       - Show only the bar.
+    disk_display: "barinfo",
+
+    // What label to show for each disk.
+    // Options:
+    //   "name"  - Show the device name (e.g., /dev/sda1).
+    //   "dir"   - Show the last directory in the mount path (e.g., "home" for /home) (default).
+    //   "none"  - No subtitle.
+    //   "mount" - Show the full mount point (e.g., /home).
+    disk_subtitle: "dir",
+
+    // Show memory usage as a percentage.
+    // Options: true (show percent), false (show only amount used)
+    memory_percent: true,
+
+    // Which unit to use for memory display.
+    // Options:
+    //   "mib" - Mebibytes (default)
+    //   "gib" - Gibibytes
+    //   "kib" - Kibibytes
+    memory_unit: "mib",
+
+    // How to display package manager information.
+    // Options:
+    //   "off"  - Only show the total package count.
+    //   "on"   - Show a list of package managers and their counts.
+    //   "tiny" - Show only the count and a compact list of manager names.
+    package_managers: "tiny",
+
+    // Show the display's refresh rate.
+    // Options: true (show), false (hide)
+    refresh_rate: true,
+
+    // Show the full path to your shell.
+    // Options: true (show full path), false (show only shell name)
+    shell_path: true,
+
+    // Show the version of your shell.
+    // Options: true (show), false (hide)
+    shell_version: true,
+
+    // How to display system uptime.
+    // Options:
+    //   "full"    - Verbose (e.g., "1 day, 2 hours, 55 minutes").
+    //   "tiny"    - Compact (e.g., "1d 2h 55m").
+    //   "seconds" - Only seconds (e.g., "123456s").
+    uptime_shorthand: "full",
+)

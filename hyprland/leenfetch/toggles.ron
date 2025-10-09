@@ -1,0 +1,112 @@
+
+// ===============================
+// toggles.ron - Show/hide information blocks
+//
+// This file controls which blocks of information are shown in the leenfetch output.
+// Set each option to true to show that block, or false to hide it.
+//
+// For example, you can hide the battery or song info if you don't want them displayed.
+//
+// For a full explanation of each option, see the comments above each line.
+// ===============================
+(
+    // Show the user@host title at the top of the output.
+    // true  - Display the title block (e.g., "snape@archbox").
+    // false - Hide the title block.
+    show_titles: true,
+
+    // Show the base operating system name (e.g., "Linux").
+    // true  - Display the OS name.
+    // false - Hide the OS name.
+    show_os: true,
+
+    // Show the distribution (distro) information.
+    // true  - Display the distro string (e.g., "Arch Linux").
+    // false - Hide the distro info.
+    show_distro: true,
+
+    // Show the hardware model (e.g., laptop/desktop model).
+    // true  - Display the model info.
+    // false - Hide the model info.
+    show_model: true,
+
+    // Show the system uptime.
+    // true  - Display how long the system has been running.
+    // false - Hide uptime info.
+    show_uptime: true,
+
+    // Show the package count and/or package manager info.
+    // true  - Display package information.
+    // false - Hide package info.
+    show_packages: true,
+
+    // Show the shell name and version.
+    // true  - Display shell info.
+    // false - Hide shell info.
+    show_shell: true,
+
+    // Show the window manager (WM) name.
+    // true  - Display WM info.
+    // false - Hide WM info.
+    show_wm: true,
+
+    // Show the desktop environment (DE) name and version.
+    // true  - Display DE info.
+    // false - Hide DE info.
+    show_de: true,
+
+    // Show the window manager theme.
+    // true  - Display WM theme info.
+    // false - Hide WM theme info.
+    show_wm_theme: true,
+
+    // Show the kernel version.
+    // true  - Display kernel info.
+    // false - Hide kernel info.
+    show_kernel: true,
+
+    // Show CPU information (brand, cores, speed, etc.).
+    // true  - Display CPU info.
+    // false - Hide CPU info.
+    show_cpu: true,
+
+    // Show GPU information.
+    // true  - Display GPU info.
+    // false - Hide GPU info.
+    show_gpu: true,
+
+    // Show memory usage.
+    // true  - Display memory info.
+    // false - Hide memory info.
+    show_memory: true,
+
+    // Show currently playing song/media info.
+    // true  - Display song info if available.
+    // false - Hide song info.
+    show_song: true,
+
+    // Show display resolution.
+    // true  - Display resolution info.
+    // false - Hide resolution info.
+    show_resolution: true,
+
+    // Show the current GTK/Qt theme.
+    // true  - Display theme info.
+    // false - Hide theme info.
+    show_theme: true,
+
+    // Show disk usage information.
+    // true  - Display disk info.
+    // false - Hide disk info.
+    show_disks: true,
+
+    // Show battery status and level.
+    // true  - Display battery info.
+    // false - Hide battery info.
+    show_battery: true,
+
+    // Show the terminal color palette preview.
+    // true  - Display color blocks at the bottom.
+    // false - Hide color blocks.
+    show_terminal_colors: true,
+)

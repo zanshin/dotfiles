@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+
+official=$(checkupdates 2>/dev/null | wc -l)
+aur=$(yay -Qua 2>/dev/null | wc -l)
+total=$((official + aur))
+
+if [[ $total -eq 0 ]]; then
+  echo "0  "
+else
+  echo "$total  "
+fi
