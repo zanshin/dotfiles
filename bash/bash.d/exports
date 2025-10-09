@@ -28,7 +28,7 @@ export LESS="-FRq"
 export MOZ_ENABLE_WAYLAND=1
 
 # Setup fo Jujutsu
-export JJ_CONFIG=$XDG_CONFIG_HOME/jj
+export JJ_CONFIG="$HOME/.config/jj"
 
 # Setup for Go
 export GOPATH=$HOME/code/golib:$HOME/code/go
