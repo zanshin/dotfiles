@@ -128,7 +128,8 @@ function hugonp() {
 # p is for post
 function hp() {
     str="$*"
-    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+    # post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+    post=$(echo "$str" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr '[:upper:]' '[:lower:]').md
     hugo new posts/$post
     nvim content/posts/$post
 }
