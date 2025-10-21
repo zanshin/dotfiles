@@ -51,7 +51,8 @@ vim.o.showcmd = false
 -- Encoding and Language
 vim.o.encoding = 'utf-8'
 vim.o.spelllang = 'en'
-vim.o.spellfile = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add")
+-- vim.o.spellfile = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add")
+vim.o.spellfile = vim.fs.joinpath(vim.fn.stdpath("config"), "spell/en.utf-8.add")
 
 -- Folding
 vim.o.foldcolumn = '3'
@@ -61,9 +62,10 @@ vim.o.foldmethod = 'marker'
 -- Swap, backup, and undo
 vim.o.swapfile = false
 vim.o.backup = false
-vim.o.undodir = os.getenv('HOME') .. '/.local/share/nvim/undodir'
+-- vim.o.undodir = os.getenv('HOME') .. '/.local/share/nvim/undodir'
+vim.o.undodir = vim.fs.joinpath(vim.fn.stdpath("data"), 'undodir')
 vim.o.undofile = true
 
--- Line width 
+-- Line width
 vim.o.textwidth = 79
 vim.o.linebreak = true

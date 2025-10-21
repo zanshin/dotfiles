@@ -18,7 +18,7 @@ return {
             completion = { autoimport = { enable = true } },
             procMacro = { enable = true },
             cargo = { allFeatures = true },
-            checkOnSave = {
+            check = {
               command = "clippy",
               extraArgs = { "--no-deps" },
             },

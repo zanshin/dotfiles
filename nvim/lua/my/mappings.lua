@@ -13,7 +13,12 @@ vim.keymap.set('n', '<leader>rn', function()
 end, { desc = 'Toggle [R]elative line [N]umbers' })
 
 -- Remove search highlighting
-vim.keymap.set('n', '<Esc><Esc>', '<cmd>nohlsearch<cr>', { desc = 'Remove search highlighting' })
+vim.keymap.set({ "n", "v", "i" }, "<Esc>", function()
+  if vim.v.hlsearch == 1 then
+    vim.cmd "nohlsearch | redraw!"
+  end
+  return "<Esc>"
+end, { desc = 'Remove search highlighting', expr = true, silent = true })
 
 -- Exit terminal mode with <ECC><ESC> instead of <c-\><c-n>
 vim.keymap.set("t", '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -39,5 +44,7 @@ vim.keymap.set('n', '<leader><leader>x', '<cmd>source %<cr>', { desc = 'Execute 
 vim.keymap.set('c', 'w!!', '!sudo tee % > /dev/null', { desc = 'Use sudo to write protected file' })
 
 -- Git Blame
-vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
+-- vim.keymap.set("n", "<leader>gb", ":GitBlameToggle<cr>", { desc = 'Toggle Git [B]lame on / off' })
 
+-- Git Signs
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>", { desc = 'Toggle [G]it [B]lame' })
