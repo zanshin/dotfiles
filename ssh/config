@@ -41,7 +41,7 @@ Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.
 
 # Work Mac Mini
 Host it-rm-mhn-desktop
-    HostName 10.150.99.10
+    HostName 10.135.2.202
     User mhn
 
 # Work MacBook Pro
