@@ -59,11 +59,3 @@ For tmux configuration create this symlink:
 
     $ ln -s ~/.dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-## mutt
-The mutt directory contains the configuration for my mutt setup. Do not blindly copy these and use them.
-Really.
-
-## scripts
-These are some tmux setup scripts that I use. Highly personalized.
-
-

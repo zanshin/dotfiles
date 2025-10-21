@@ -16,6 +16,3 @@ defaulting to yes for those I typically use, and no for those I no longer use, o
     cd ~/.dotfiles
     ./install.sh
 
-For manual setup, and more details about the dotfiles, please read the [Details](DETAILS.markdown)
-file.
-
