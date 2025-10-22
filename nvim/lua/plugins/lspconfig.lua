@@ -1,6 +1,7 @@
 -- LSP Configuration
 -- August 6, 2025
 --
+print("DEBUG: lspconfig.lua is being loaded!")
 
 return {
 
@@ -29,10 +30,13 @@ return {
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',    opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
+
+      -- schema store for yamlls and jsonls
+      'b0o/schemastore.nvim',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -159,11 +163,28 @@ return {
           -- Format on save using file type LSP
           vim.api.nvim_create_autocmd('BufWritePre', {
             desc = 'Format buffer using LSP on save',
-            group = vim.api.nvim_create_augroup('my-format-on-save', { clear = true}),
+            group = vim.api.nvim_create_augroup('my-format-on-save', { clear = true }),
             callback = function()
               vim.lsp.buf.format()
             end,
           })
+
+          -- Filter out yamlls "unresolved" error for CloufFormation custom
+          -- tags
+          if client and client.name == 'yamlls' then
+            vim.diagnostic.config({
+              virtual_text = {
+                format = function(diagnostic)
+                  -- hide unresolved tag warnings
+                  if diagnostic.message:match("Unresolved tag") then
+                    return ""
+                  end
+                  return diagnostic.message
+                end,
+              },
+            }, event.buf)
+          end
+
 
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
@@ -227,14 +248,14 @@ return {
         gopls = {},
         jsonls = {},
         lua_ls = {
-          settings = { Lua = { dianostics = { globals = { 'vim' } } } },
+          settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
         },
         pyright = {},
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
               assist = {
-                importGranularity =  "module",
+                importGranularity = "module",
                 importPrefix = "self",
                 group = "crate",
               },
@@ -249,99 +270,102 @@ return {
           },
         },
         yamlls = {
-          -- cmd = { "yamls" },
           cmd = { 'yaml-language-server', '--stdio' },
           filetypes = { "yaml", "yml" },
-          -- root_dir = util.find_git_ancestor,
           settings = {
+            redhat = {
+              telemetry = {
+                enabled = false
+              }
+            },
             yaml = {
-              -- schemaStore = { enable = true },
+              schemaStore = {
+                -- You must disable built-in schemaStore support if you want to use
+                -- this plugin and its advanced options like `ignore`.
+                enable = false,
+                -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                url = "",
+              },
+              schemas = require('schemastore').yaml.schemas(),
               format = { enable = true },
               hover = true,
               completion = true,
-
               customTags = {
+                "!fn",
                 "!And",
-                "!And sequence",
-                "!Base64",
-                "!Cidr",
-                "!Cidr sequence",
-                "!Condition",
-                "!Equals",
-                "!Equals sequence",
-                "!FindInMap",
-                "!FindInMap sequence",
-                "!GetAtt",
-                "!GetAZ",
                 "!If",
-                "!If sequence",
-                "!ImportValue",
-                "!ImportValue sequence",
-                "!Join",
-                "!Join sequence",
                 "!Not",
                 "!Not sequence",
+                "!Equals",
+                "!Equals sequence",
                 "!Or",
-                "!Or sequence",
+                "!FindInMap sequence",
+                "!Base64",
+                "!Cidr",
                 "!Ref",
-                "!Select",
-                "!Select sequence",
-                "!Split",
-                "!Split sequence",
                 "!Sub",
                 "!Sub sequence",
-              }, -- custom tags
-            },   -- yaml
-          },     -- settings
-        },       -- yamlls
+                "!GetAtt",
+                "!GetAZs",
+                "!ImportValue",
+                "!Select",
+                "!Split",
+                "!Join sequence",
+                "!GetAtt",
+                "!GetAtt sequence",
+              },
+            }
+          },
+        },
+
       }
 
-        -- Ensure the servers and tools above are installed
-        --
-        -- To check the current status of installed tools and/or manually install
-        -- other tools, you can run
-        --    :Mason
-        --
-        -- You can press `g?` for help in this menu.
-        --
-        -- `mason` had to be setup earlier: to configure its options see the
-        -- `dependencies` table for `nvim-lspconfig` above.
-        --
-        -- You can add other tools here that you want Mason to install
-        -- for you, so that they are available from within Neovim.
-        local ensure_installed = vim.tbl_keys(servers or {})
-        vim.list_extend(ensure_installed, {
-          'stylua', -- Used to format Lua code
-        })
+      -- Ensure the servers and tools above are installed
+      --
+      -- To check the current status of installed tools and/or manually install
+      -- other tools, you can run
+      --    :Mason
+      --
+      -- You can press `g?` for help in this menu.
+      --
+      -- `mason` had to be setup earlier: to configure its options see the
+      -- `dependencies` table for `nvim-lspconfig` above.
+      --
+      -- You can add other tools here that you want Mason to install
+      -- for you, so that they are available from within Neovim.
+      local ensure_installed = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed, {
+        'stylua', -- Used to format Lua code
+      })
 
-        -- Configure Mason with rounded UI borders
-        require("mason").setup {
-          ui = {
-            border = "rounded",
-            icons = {
-              package_installed = "✓",
-              package_pending = "➜",
-              package_uninstalled = "✗"
-            }
+      -- Configure Mason with rounded UI borders
+      require("mason").setup {
+        ui = {
+          border = "rounded",
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
           }
         }
+      }
 
-        require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-        require('mason-lspconfig').setup {
-          ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-          automatic_installation = false,
-          handlers = {
-            function(server_name)
-              local server = servers[server_name] or {}
-              -- This handles overriding only values explicitly passed
-              -- by the server configuration above. Useful when disabling
-              -- certain features of an LSP (for example, turning off formatting for ts_ls)
-              server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-              require('lspconfig')[server_name].setup(server)
-            end,
-          },
-        }
-      end,
-    }
+      require('mason-lspconfig').setup {
+        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        automatic_installation = false,
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            -- This handles overriding only values explicitly passed
+            -- by the server configuration above. Useful when disabling
+            -- certain features of an LSP (for example, turning off formatting for ts_ls)
+            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            require('lspconfig')[server_name].setup(server)
+          end,
+        },
+      }
+    end,
   }
+}
