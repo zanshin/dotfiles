@@ -63,7 +63,7 @@ unset file
 # [[ -e $HOME/.bash_colors ]] && source $HOME/.bash_colors
 
 # add brew provided bash, tmux, and git completions
-if [[ "myos" == "Darwin" ]]; then
+if [[ "$myos" == "Darwin" ]]; then
   [[ -e /opt/homebrew/etc/bash_completion ]] && source /opt/homebrew/etc/bash_completion
   [[ -e /opt/homebrew/etc/bash_completions.d/tmux ]] && source /opt/homebrew/etc/bash_completion.d/tmux
   [[ -e /opt/homebrew/etc/bash_completions.d/git-completions.bash ]] && source /opt/homebrew/etc/bash_completions.d/git-completions.bash
@@ -95,7 +95,9 @@ umask 002
 # source $HOME/.config/liquidprompt/liquidprompt
 
 # Starship Prompt
+# (export is workaround for path in prompt not always updating)
 eval "$(starship init bash)"
+export PROMPT_COMMAND="starship_precmd;$PROMPT_COMMAND"
 
 # finis
 

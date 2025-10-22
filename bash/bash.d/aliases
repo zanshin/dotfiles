@@ -162,6 +162,24 @@ alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs 
 alias cssh="chmod 600 ~/.dotfiles/ssh/config >/dev/null 2>&1 && chmod 600 ~/.dotfiles/ssh/authorized_keys >/dev/null 2>&1"
 
 # }}}
+# Jujutsu (jj) {{{
+alias jn='jj new'
+alias jp='jj git push'
+alias js='jj st'
+alias jl='jj log'
+alias jh="jj short -r all'()'"
+
+## pull up the nearest bookmarks to the working-copy parent
+alias jbm="jj bookmark move --from 'heads(::@- & bookmarks())' --to @-"
+
+# }}}
+# Cargo / Rust {{{
+alias cr='cargo run'
+alias ct='cargo test'
+alias crt='RUST_LOG=trace cargo run'
+alias ctt='RUST_LOG=trace cargo test -- --nocapture'
+
+# }}}
 # Neovim and Vim {{{
 # alias 'vi=vim'
 alias 'vi=nvim'
@@ -186,7 +204,7 @@ alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 alias ts='tsession.sh'
-alias tf='tmux-sessionizer.sh'
+alias tf='tmux-sessionizer'
 
 # tmux scripts
 # alias tb='~/.dotfiles/scripts/blog'

@@ -26,7 +26,7 @@ rtp:prepend(lazypath)
 require("lazy").setup("plugins", {
   change_detection = {
     enabled = true,
-    nofity = false,
+    notify = false,
   },
   ui = {
     border = "rounded",

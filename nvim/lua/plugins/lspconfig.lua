@@ -214,6 +214,8 @@ return {
         } or {},
         virtual_text = {
           source = 'if_many',
+          wrap = true,
+          -- width = 80,
           spacing = 2,
           format = function(diagnostic)
             local diagnostic_message = {
@@ -251,24 +253,25 @@ return {
           settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
         },
         pyright = {},
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              assist = {
-                importGranularity = "module",
-                importPrefix = "self",
-                group = "crate",
-              },
-              procMacro = { enable = true },
-              cargo = { allFeatures = true },
-              checkOnSave = {
-                command = "clippy",
-                extraArgs = { "--no-deps" },
-              },
-              formatOnSave = true,
-            },
-          },
-        },
+        -- rust_analyzer = {
+        --   settings = {
+        --     ["rust-analyzer"] = {
+        --       assist = {
+        --         importGranularity = "module",
+        --         importPrefix = "self",
+        --         group = "crate",
+        --       },
+        --       completion = { autoimport = { enable = true } },
+        --       procMacro = { enable = true },
+        --       cargo = { allFeatures = true },
+        --       checkOnSave = {
+        --         command = "clippy",
+        --         extraArgs = { "--no-deps" },
+        --       },
+        --       formatOnSave = true,
+        --     },
+        --   },
+        -- },
         yamlls = {
           cmd = { 'yaml-language-server', '--stdio' },
           filetypes = { "yaml", "yml" },

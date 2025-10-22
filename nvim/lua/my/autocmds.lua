@@ -4,7 +4,7 @@
 
 -- Remove `r` and `o` from format options to prevent continuing comment leaders automatically
 -- Default formatoptions were: `jcroql`
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd('BufEnter', {
   desc = 'Set format options',
   group = vim.api.nvim_create_augroup('my-formatoptions', { clear = true }),
   pattern = '*',
@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('BufRead', {
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking text',
-  group = vim.api.nvim_create_augroup('my-highlight-yank', { clear = true}),
+  group = vim.api.nvim_create_augroup('my-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
