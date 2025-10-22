@@ -1,4 +1,0 @@
-[submodule "tmux-powerline"]
-	path = tmux/tmux-powerline
-    url = https://github.com/erikw/tmux-powerline.git
-    ignore = dirty
