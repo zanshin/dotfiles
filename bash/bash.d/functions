@@ -806,32 +806,58 @@ newscript() {
 
 # }}}
 # AWS helpers {{{
-
-# awss: switch profile, login, and change EKS context
-awss() {
-  awsp "$1"
-  # aws login --profile "$AWS_PROFILE"
-  CONTEXT=$(echo $1 | sed -e "s/\b\(.\)/\u\1/g")
-  # aws eks --region us-east-1 update-kubeconfig --name "EKS-$CONTEXT" 2>/dev/null
-  aws eks --region us-east-1 update-kubeconfig --name "EKS-$CONTEXT-blueprint" 2>/dev/null
-  echo ""
-  awswho
-}
-
 # awscli profile function
 awsp() {
   export AWS_PROFILE="$@"
 }
 
-# ps1set: set the liquidprompt prefix
-# ps1set() {
-#   LP_PS1_PREFIX="\033[0;34m`aws sts get-caller-identity 2>/dev/null | grep Arn | awk -F'/' '{print $2" "}'`\033[0m"
-# }
+# Check if credentials for a profile are still valid
+aws_creds_valid() {
+  if ! aws sts get-caller-identity >/dev/null 2>&1; then
+    return 1
+  fi
+  return 0
+}
 
-# ps1reset: reset the liquidprompt prefix
-# ps1reset() {
-#   LP_PS1_PREFIX=""
-# }
+# awss: switch profile, refresh creds only if expired, and update EKS context
+awss() {
+  if [ -z "$1" ]; then
+    echo "Usage: awss <profile>"
+    return 1
+  fi
+
+  local profile="$1"
+
+  # Unset previous environment credentials
+  unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_SECURITY_TOKEN
+
+  # Set AWS_PROFILE for AWS CLI
+  awsp "$profile"
+
+  # Login only if credentials are missing or expired
+  if ! aws_creds_valid; then
+    echo "Credentials expired or missing for profile $profile, logging in..."
+    saml2aws login -p "$profile" --idp-account "$profile" 
+  else
+    echo "Credentials for profile $profile are still valid."
+  fi
+
+  # Capitalize first letter for EKS context naming
+  local CONTEXT
+  CONTEXT=$(echo "$profile" | sed -e 's/\b\(.\)/\u\1/g')
+
+  # Update kubeconfig
+  aws eks --region us-east-1 update-kubeconfig --name "EKS-$CONTEXT-blueprint" 2>/dev/null
+
+  echo ""
+  # Display current account/role info
+  if type awswho >/dev/null 2>&1; then
+    awswho
+  else
+    aws sts get-caller-identity --profile "$profile"
+  fi
+}
+
 
 # }}}
 # Bash toys {{{
@@ -844,3 +870,5 @@ awsp() {
     fi
   }
 # }}}
+
+# vim: set filetype=bash :
