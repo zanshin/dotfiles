@@ -1,1 +1,0 @@
-offlineimap/offlineimap.py

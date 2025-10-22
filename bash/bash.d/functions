@@ -83,12 +83,18 @@ function badkey() {
 }
 
 # }}}
-# Git function {{{
+# Git commit functions {{{
 function gg() {
   git commit -m "$*"
 }
 
 # }}}
+# Jujutsu commit function {{{
+function jc() {
+  jj commit -m "$*"
+}
+
+#}}}
 # Hugo {{{
 # d is for draft
 function hd() {

@@ -1,6 +1,7 @@
 -- LSP Configuration
 -- August 6, 2025
 --
+print("DEBUG: lspconfig.lua is being loaded!")
 
 return {
 
@@ -33,6 +34,9 @@ return {
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
+
+      -- schema store for yamlls and jsonls
+      'b0o/schemastore.nvim',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -165,6 +169,23 @@ return {
             end,
           })
 
+          -- Filter out yamlls "unresolved" error for CloufFormation custom
+          -- tags
+          if client and client.name == 'yamlls' then
+            vim.diagnostic.config({
+              virtual_text = {
+                format = function(diagnostic)
+                  -- hide unresolved tag warnings
+                  if diagnostic.message:match("Unresolved tag") then
+                    return ""
+                  end
+                  return diagnostic.message
+                end,
+              },
+            }, event.buf)
+          end
+
+
           -- The following code creates a keymap to toggle inlay hints in your
           -- code, if the language server you are using supports them
           --
@@ -193,6 +214,8 @@ return {
         } or {},
         virtual_text = {
           source = 'if_many',
+          wrap = true,
+          -- width = 80,
           spacing = 2,
           format = function(diagnostic)
             local diagnostic_message = {
@@ -227,73 +250,53 @@ return {
         gopls = {},
         jsonls = {},
         lua_ls = {
-          settings = { Lua = { dianostics = { globals = { 'vim' } } } },
+          settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
         },
         pyright = {},
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              assist = {
-                importGranularity = "module",
-                importPrefix = "self",
-                group = "crate",
-              },
-              procMacro = { enable = true },
-              cargo = { allFeatures = true },
-              checkOnSave = {
-                command = "clippy",
-                extraArgs = { "--no-deps" },
-              },
-              formatOnSave = true,
-            },
-          },
-        },
+        -- rust_analyzer = {
+        --   settings = {
+        --     ["rust-analyzer"] = {
+        --       assist = {
+        --         importGranularity = "module",
+        --         importPrefix = "self",
+        --         group = "crate",
+        --       },
+        --       completion = { autoimport = { enable = true } },
+        --       procMacro = { enable = true },
+        --       cargo = { allFeatures = true },
+        --       checkOnSave = {
+        --         command = "clippy",
+        --         extraArgs = { "--no-deps" },
+        --       },
+        --       formatOnSave = true,
+        --     },
+        --   },
+        -- },
         yamlls = {
-          -- cmd = { "yamls" },
           cmd = { 'yaml-language-server', '--stdio' },
           filetypes = { "yaml", "yml" },
-          -- root_dir = util.find_git_ancestor,
           settings = {
+            redhat = {
+              telemetry = {
+                enabled = false
+              }
+            },
             yaml = {
-              -- schemaStore = { enable = true },
+              schemaStore = {
+                -- You must disable built-in schemaStore support if you want to use
+                -- this plugin and its advanced options like `ignore`.
+                enable = false,
+                -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                url = "",
+              },
+              schemas = require('schemastore').yaml.schemas(),
               format = { enable = true },
               hover = true,
               completion = true,
+            }
+          },
+        },
 
-              customTags = {
-                "!And scalar",
-                "!And sequence",
-                "!Base64 scalar",
-                "!Cidr scalar",
-                "!Cidr sequence",
-                "!Condition scalar",
-                "!Equals scalar",
-                "!Equals sequence",
-                "!FindInMap scalar",
-                "!FindInMap sequence",
-                "!GetAtt scalar",
-                "!GetAZ scalar",
-                "!If scalar",
-                "!If sequence",
-                "!ImportValue scalar",
-                "!ImportValue sequence",
-                "!Join scalar",
-                "!Join sequence",
-                "!Not scalar",
-                "!Not sequence",
-                "!Or scalar",
-                "!Or sequence",
-                "!Ref scalar",
-                "!Select scalar",
-                "!Select sequence",
-                "!Split scalar",
-                "!Split sequence",
-                "!Sub scalar",
-                "!Sub sequence",
-              }, -- custom tags
-            },   -- yaml
-          },     -- settings
-        },       -- yamlls
       }
 
       -- Ensure the servers and tools above are installed
@@ -311,7 +314,7 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua',   -- Used to format Lua code
+        'stylua', -- Used to format Lua code
       })
 
       -- Configure Mason with rounded UI borders
@@ -329,7 +332,7 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
-        ensure_installed = {},   -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
         automatic_installation = false,
         handlers = {
           function(server_name)

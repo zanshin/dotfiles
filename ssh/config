@@ -41,7 +41,7 @@ Host "10.251.6?.*", "!10.251.60.*", "!10.251.61.*", "!10.251.62.*", "!10.251.63.
 
 # Work Mac Mini
 Host it-rm-mhn-desktop
-    HostName 10.150.99.10
+    HostName 10.135.2.202
     User mhn
 
 # Work MacBook Pro
@@ -57,14 +57,6 @@ Host it-rm-mhn-desktop
     User mhn
 
 # AWS Linux Admin Workstation
-Host oldadmin
-    HostName 10.251.146.13
-    User mhn
-    IdentityFile ~/.ssh/mhn-admin-linux.pem
-    PubKeyAuthentication yes
-    # ChallengeResponseAuthentication yes
-    # PasswordAuthentication yes
-
 Host admin
     HostName mhn-linux-admin.aws.ksu.edu
     User mhn
@@ -81,85 +73,11 @@ Host jump
     HostName est-jump-p-linux-01.campus.ksu.edu
     user mhn
 
-# Personal
-# Intel NUC 1st Generation
-Host tau
-    HostName 192.168.4.38
-    IdentityFile ~/.ssh/id_ed25519.pub
-    user mark
-
-# Intel NUC 7th Generation
-Host gluon
-    HostName 192.168.6.178
-    IdentityFIle ~/.ssh/id_ed25519.pub
-    user mark
-
-# Raspberry Pi 4
-Host muon 
-#    HostName 68.102.23.189
-    # HostName 192.168.6.67
-    HostName 100.123.193.73
-    user mark
-
-# Raspbian on Raspberry Pi 3b
-Host boson
-#    HostName 68.102.23.189
-    HostName 192.168.4.108
-    user mark
-
-# macOS Mojave on MacBook Pro
-Host rosindust
-#    HostName 68.102.23.189
-    HostName 24.255.217.102
-    Port 11110
-    user mark
-
-# Minion (while on home network)
-# Host Minion
-#     HostName 192.168.5.67
-#     User mark
-#
-# minion (while connected via USB)
-# Host minion
-#     HostName 10.0.9.1
-#     User mark
-#
-# Raspberry Pi 3
-Host hydrogen
-    HostName 192.168.4.108
-    User mark
-
-# Tailscale
-Host ts-argon
-    HostName 100.90.130.85
-    user mark
-
-Host ts-minion
-    HostName 100.79.24.3
-    user mark
-
-Host ts-wasabi
-    HostName 100.79.198.88
-    user mhn
-
-Host ts-gnomon
-    HostName 100.101.18.109
-    user mark
-
-Host ts-hydrogen
-    HostName 100.109.181.28
-    user mark
-
 # Access GitHub even when port 22 isn't available
 Host github.com
 # Match user !mhn host "github.com"
-      # HostName ssh.github.com
       HostName github.com
       IdentityFile ~/.ssh/id_ed25519_github
       # Port 443
       User git
 
-# Pair hosting
-Host pair
-    HostName mnichols.pairserver.com
-    User mnichols
