@@ -29,3 +29,6 @@ bash/bash_history
 
 # Jujutsu
 .jj
+
+# tmux plugins
+tmux/plugins
