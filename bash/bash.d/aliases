@@ -204,7 +204,7 @@ alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 alias ts='tsession.sh'
-alias tf='tmux-sessionizer'
+alias tf='tmux-sessionizer.sh'
 
 # tmux scripts
 # alias tb='~/.dotfiles/scripts/blog'
