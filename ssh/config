@@ -58,7 +58,8 @@ Host it-rm-mhn-desktop
 
 # AWS Linux Admin Workstation
 Host admin
-    HostName mhn-linux-admin.aws.ksu.edu
+    # HostName mhn-linux-admin.aws.ksu.edu
+    HostName 10.251.144.78
     User mhn
     IdentityFile ~/.ssh/mhn-admin-linux-al23.pem
     PubKeyAuthentication yes
