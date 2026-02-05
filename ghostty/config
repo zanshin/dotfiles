@@ -1,13 +1,19 @@
 font-family = Intel One Mono
-font-size = 14
+font-size = 15
 
 theme = Ayu
 background = #000000
+background-opacity = 0.95
 
 cursor-style-blink = false
 
 quick-terminal-position = center
 keybind = global:cmd+opt+ctrl+backslash=toggle_quick_terminal
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
 
 # title = " "
 macos-titlebar-style = tabs
@@ -15,5 +21,8 @@ macos-titlebar-style = tabs
 window-padding-x = 5
 window-padding-y = 5
 window-padding-balance = true
+
+window-inherit-working-directory = false
+working-directory = home
 
 window-colorspace = display-p3
