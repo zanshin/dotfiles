@@ -1,6 +1,8 @@
 {
   "agent": {
-    "always_allow_tool_actions": true,
+    "tool_permissions": {
+      "default": "allow"
+    },
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
@@ -209,7 +211,7 @@
     "git_status": true,
     "default_width": 500
   },
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "remove_trailing_whitespace_on_save": true,
   "scrollbar": {
     "show": "auto",
