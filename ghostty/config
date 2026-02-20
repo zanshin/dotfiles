@@ -6,8 +6,14 @@ background = #000000
 
 cursor-style-blink = false
 
+link-url = true
+
 quick-terminal-position = center
 keybind = global:cmd+opt+ctrl+backslash=toggle_quick_terminal
+
+# work-around for cmd-k intercepting ctrl-k
+keybind = super+k=unbind
+keybind = super+l=clear_screen
 
 # title = " "
 macos-titlebar-style = tabs
