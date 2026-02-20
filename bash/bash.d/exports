@@ -94,6 +94,11 @@ export LS_COLORS='st=91:tw=91:no=00:fi=00:di=01;34:ow=01;31:ln=01;36:pi=40;33:so
 # Use Neovim for man pages
 export MANPAGER='nvim +Man!'
 
+# Anthropic Environment with Ollama
+export ANTHROPIC_AUTH_TOKEN=ollama
+export ANTHROPIC_API_KEY=""
+export ANTHROPIC_BASE_URL="http://localhost:11434"
+
 # --------------------------------------------------------------------
 # Color man pages:
 # --------------------------------------------------------------------
