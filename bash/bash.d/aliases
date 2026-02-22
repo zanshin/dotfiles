@@ -18,7 +18,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias code='~/code'
+alias code='cd ~/code'
 
 # }}}
 # Sorted size {{{
@@ -299,9 +299,6 @@ alias rstree='tree -I target/'
 alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
 # alias inet='ifconfig | grep inet | grep -v inet6'
 alias sloc='/usr/local/sloccount/bin/sloccount'
-alias adventure='emacs -batch -l dunnet'
-alias ttop='top -ocpu -R -F -s 2 -n30'
-alias rm='rm -i'
 
 alias acat='source ~/.bash_aliases'
 alias facat='source ~/.bash_functions'

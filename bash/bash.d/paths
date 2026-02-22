@@ -53,7 +53,7 @@ if [ -e /usr/local/go ] ; then
   PATH="${HOME}/code/golib/bin:${PATH}"
 fi
 
-# dd Go path for Linux
+# add Go path for Linux
 if [ -e /usr/bin/go ] ; then
   PATH="${PATH}:/usr/bin/go"
   PATH="${HOME}/code/golib/bin:${PATH}"
@@ -65,11 +65,6 @@ if [ -d /usr/local/protobuf/bin ] ; then PATH="${PATH}:/usr/local/protobuf/bin" 
 # add Rust path
 if [ -e "$HOME/.cargo/bin" ]; then
   PATH="${HOME}/.cargo/bin:${PATH}"
-fi
-
-# Enable path to pip - AWS CLI needs this
-if [ -d ~/.local/bin ] ; then
-  PATH="$HOME/.local/bin:${PATH}"
 fi
 
 # Add path to Python3 scripts (needed for AWS CLI)

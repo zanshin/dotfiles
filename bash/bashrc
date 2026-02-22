@@ -17,7 +17,7 @@ case "$myos" in
     colorflag="-G"
     ;;
   *)
-    colorflaag=""
+    colorflag=""
     ;;
 esac
 
@@ -42,13 +42,9 @@ done
 # ignoring wildcards - https://github.com/jessfraz/dotfiles
 [[ -e "$HOME/.ssh/config" ]] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
 
-# source global definitions
-# [[ -e /etc/bashrc ]] && source /etc/bashrc
-# [[ -e /etc/bash.bashrc ]] && source /etc/bash.bashrc
-
 # source my aliases, bindkeys, exports, functions, docker functions, and color
 # for file in ${HOME}/.config/bash.d/{aliases,bindkeys,colors,dockerfunc,exports,functions,paths} ; do
-for file in ${HOME}/.config/bash.d/{paths,aliases,bindkeys,colors,dockerfunc,exports,functions} ; do
+for file in ${HOME}/.config/bash.d/{paths,aliases,dockerfunc,exports,functions} ; do
   if [[ -r "$file" ]] && [[ -f "$file" ]] ; then
     # source "${HOME}/.config/bash.d/${file}"
     source "${file}"
@@ -56,17 +52,11 @@ for file in ${HOME}/.config/bash.d/{paths,aliases,bindkeys,colors,dockerfunc,exp
 done
 unset file
 
-# [[ -e $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
-# [[ -e $HOME/.bash_functions ]] && source $HOME/.bash_functions
-# [[ -e $HOME/.bash_docker_functions ]] && source $HOME/.bash_docker_functions
-# [[ -e $HOME/.bash_bindkeys ]] && source $HOME/.bash_bindkeys
-# [[ -e $HOME/.bash_colors ]] && source $HOME/.bash_colors
-
 # add brew provided bash, tmux, and git completions
 if [[ "$myos" == "Darwin" ]]; then
   [[ -e /opt/homebrew/etc/bash_completion ]] && source /opt/homebrew/etc/bash_completion
-  [[ -e /opt/homebrew/etc/bash_completions.d/tmux ]] && source /opt/homebrew/etc/bash_completion.d/tmux
-  [[ -e /opt/homebrew/etc/bash_completions.d/git-completions.bash ]] && source /opt/homebrew/etc/bash_completions.d/git-completions.bash
+  [[ -e /opt/homebrew/etc/bash_completion.d/tmux ]] && source /opt/homebrew/etc/bash_completion.d/tmux
+  [[ -e /opt/homebrew/etc/bash_completion.d/git-completions.bash ]] && source /opt/homebrew/etc/bash_completion.d/git-completions.bash
 fi
 
 # allow redirection to overwrite file
@@ -80,19 +70,13 @@ umask 002
 
 # Enable rbenv
 # [[ -e $(which rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
-[[ -e $(type rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
+[[ -e $(command -v rbenv &>/dev/null) ]] && eval "$(rbenv init - bash)"
 
 # --------------------------------------------------------------------
 # liquidprompt setup
 # --------------------------------------------------------------------
 # The following lines are only for interactive shells
 [[ $- = *i* ]] || return
-
-# Use Liquid Prompt
-# LP_PS1_PREFIX="\033[0;34m`aws sts get-caller-identity 2>/dev/null | grep Arn | awk -F'/' '{print $2" "}'`\033[0m\n"
-# LP_PS1_PREFIX="\n (${Red}$AWS_PROFILE${Color_Off}) "
-# LP_PS1_PREFIX="\n"
-# source $HOME/.config/liquidprompt/liquidprompt
 
 # Starship Prompt
 # (export is workaround for path in prompt not always updating)
@@ -105,14 +89,18 @@ complete -C /usr/local/bin/vault vault
 
 complete -C /usr/local/bin/terraform terraform
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# asdf
-# [[ -e "$HOME/.asdf/asdf.sh" ]] && . "$HOME/.asdf/asdf.sh" 
-# [[ -e "$HOME/.asdf/completions/asdf.bash" ]] && . "$HOME/.asdf/completions/asdf.bash" 
-
 # kubectl bash completion
 [[ -e $HOME/.kubectl_completion_bash ]] && source $HOME/.kubectl_completion_bash
 
+# Bindkeys
+## bind '"\e[A":up-line-or-search' ## up arrow for back-history-search
+## bind '"\e[B":down-line-or-search' ## down arrow for fwd-history-search
+
+# Don't want these unless we're in an interactive shell
+if [ ! -z "$PS1" ]; then
+  bind '"\e[A":history-search-backward'
+  bind '"\e[B":history-search-forward'
+
+  bind '"\eOB":history-search-forward'
+  bind '"\eOA":history-search-backward'
+fi
