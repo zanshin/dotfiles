@@ -1,3 +1,5 @@
+# vim: ft=bash
+
 # Chef functions {{{
  function knhost() {
    sed -e 's/.*://' -e 's/.*items found//'
@@ -96,59 +98,85 @@ function jc() {
 
 #}}}
 # Hugo {{{
-# d is for draft
-function hd() {
-    grep -ril content/posts -e "^draft"
-    grep -ril content/links -e "^draft"
-    grep -ril content/videos -e "^draft"
+function deploy() {
+  local dry_run_args=("--dry-run")
+  if [[ "$1" == "--go" ]]; then
+    dry_run_args=()
+  fi
+  rsync -azr --delete --include='.*' --info=name,stats2 "${dry_run_args[@]}" public/ pair:~/public_html/zanshin
 }
 
-# b is for build
-function hb() {
+function drafts() {
+  grep -ril content/ -e "^draft:"
+}
+
+function build() {
     hugo --cleanDestinationDir
 }
 
+function create() {
+# create [post|link|video|note] <title>
+  local type="$1"
+  local title="$2"
+
+  case "$type" in
+    post)  local archetype="posts" ;;
+    link)  local archetype="links" ;;
+    video) local archetype="videos" ;;
+    note)  local archetype="notes" ;;
+    *)     echo "Unknown type: $type"; return 1 ;;
+  esac
+
+  # from https://onebite.dev/create-new-hugo-post-faster-with-bash/
+  # replace alphanumeric words with a dash, compress repeated dashes to a single
+  # dash, replace capital letters with lower case
+  post=$(echo "$title" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr '[:upper:]' '[:lower:]').md
+  hugo new "$archetype"/"$post"
+  nvim content/"$archetype"/"$post"
+}
+
 # r is for rsync
-function hr() {
-    # rsync -azrP --delete public/* pair:~/public_html/zanshin
-    echo "rsync -azrP --delete public/ pair:~/public_html/$1"
-    rsync -azrP --delete public/ pair:~/public_html/$1
-}
-
-function hugonp() {
-    str="$*"
-    # from https://onebite.dev/create-new-hugo-post-faster-with-bash/
-    # replace alphanumeric words with a dash, compress repeated dashes to a single
-    # dash, replace capital letters with lower case
-    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
-    hugo new posts/$post
-    nvim content/posts/$post
-}
-
+# function hr() {
+#     # rsync -azrP --delete public/* pair:~/public_html/zanshin
+#     echo "rsync -azrP --delete public/ pair:~/public_html/$1"
+#     rsync -azrP --delete public/ pair:~/public_html/$1
+# }
+#
+# function hugonp() {
+#     str="$*"
+#     # from https://onebite.dev/create-new-hugo-post-faster-with-bash/
+#     # replace alphanumeric words with a dash, compress repeated dashes to a single
+#     # dash, replace capital letters with lower case
+#     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+#     hugo new posts/$post
+#     nvim content/posts/$post
+# }
+#
 # p is for post
-function hp() {
-    str="$*"
-    # post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
-    post=$(echo "$str" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr '[:upper:]' '[:lower:]').md
-    hugo new posts/$post
-    nvim content/posts/$post
-}
+# function hp() {
+#     str="$*"
+#     # post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+#     post=$(echo "$str" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr '[:upper:]' '[:lower:]').md
+#     hugo new posts/$post
+#     nvim content/posts/$post
+# }
+#
+# # l is for link
+# function hl() {
+#     str="$*"
+#     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+#     hugo new links/$post
+#     nvim content/links/$post
+# }
+#
+# # v is for video
+# function hv() {
+#     str="$*"
+#     post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
+#     hugo new videos/$post
+#     nvim content/videos/$post
+# }
 
-# l is for link
-function hl() {
-    str="$*"
-    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
-    hugo new links/$post
-    nvim content/links/$post
-}
-
-# v is for video
-function hv() {
-    str="$*"
-    post=$(echo $str | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z.md).md
-    hugo new videos/$post
-    nvim content/videos/$post
-}
 # }}}
 # Dash functions {{{
 # Open argument in Dash
@@ -610,21 +638,6 @@ color() {
 }
 
 # }}}
-# Jekyll helpers {{{
-draft() {
-  rake draft["$1"]
-}
-publish() {
-  rake publish
-}
-deploy() {
-  rake deploy
-}
-build() {
-  rake build
-}
-
-# }}}
 # mtr function {{{
 netwtf() {
   # if [[ "$myos" == "Darwin" ]]; then
@@ -935,4 +948,4 @@ cows() {
 #          zanshin/htop
 # }
 
-}}}
+# }}}
