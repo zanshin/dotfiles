@@ -34,3 +34,6 @@ short = ["log", "-T", "builtin_log_oneline"]
 'format_short_id(id)' = "id.shortest(12)"
 # 'format_short_id(id)' = 'id.shortest(12).prefix() ++ "[" ++ id.shortest(12).rest() ++ "]"'
 
+[remotes.origin]
+auto-track-bookmarks = "*"
+
