@@ -48,3 +48,23 @@ vim.keymap.set("c", "w!!", "!sudo tee % > /dev/null", { desc = "Use sudo to writ
 
 -- Git Signs
 vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>", { desc = "Toggle [G]it [B]lame" })
+
+-- Yank relative file path + line number for Claude Code contexts
+-- e.g., pastes: "lia/plugins/lspconfig.lua:42"
+vim.keymap.set("n", "<leader>yr", function()
+	local path = vim.fn.expand("%:.")
+	local line = vim.fn.line(".")
+	local ref = path .. ":" .. line
+	vim.fn.setreg("+", ref)
+	vim.notify("Copied: " .. ref, vim.log.levels.INFO)
+end, { desc = "[Y]ank [R]elative path with line number" })
+
+-- Yank relative path + selected lines (visual mode)
+vim.keymap.set("v", "<leader>yr", function()
+	local path = vim.fn.expand("%:.")
+	local start_line = vim.fn.kine("v")
+	local end_line = vim.fn.line(".")
+	local ref = path .. ":" .. start_line .. "-" .. end_line
+	vim.fn.setreg("+", ref)
+	vim.notify("Copied: " .. ref, vim.log.levels.INFO)
+end, { desc = "[Y]ank [R]elative path with line range" })
