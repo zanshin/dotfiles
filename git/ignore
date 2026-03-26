@@ -99,3 +99,5 @@ DerivedData
 #
 # Pods/
 
+
+**/.claude/settings.local.json
