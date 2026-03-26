@@ -1,7 +1,3 @@
--- My Mappings
--- August 4, 2025
---
-
 -- Use semi-colon (;) for colon (:)
 -- Use two semi-colons (;;) for semi-colon (;)
 vim.keymap.set("n", ";", ":", { desc = "Map ; to be :" })
@@ -9,7 +5,7 @@ vim.keymap.set("n", ";;", ";", { desc = "Map ;; to be ;" })
 
 -- Toggle relative numbering on or off
 vim.keymap.set("n", "<leader>rn", function()
-	vim.o.relativenumber = not vim.opt.relativenumber:get()
+	vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { desc = "Toggle [R]elative line [N]umbers" })
 
 -- Remove search highlighting
@@ -62,7 +58,7 @@ end, { desc = "[Y]ank [R]elative path with line number" })
 -- Yank relative path + selected lines (visual mode)
 vim.keymap.set("v", "<leader>yr", function()
 	local path = vim.fn.expand("%:.")
-	local start_line = vim.fn.kine("v")
+	local start_line = vim.fn.line("v")
 	local end_line = vim.fn.line(".")
 	local ref = path .. ":" .. start_line .. "-" .. end_line
 	vim.fn.setreg("+", ref)

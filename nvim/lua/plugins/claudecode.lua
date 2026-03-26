@@ -19,7 +19,7 @@ return {
 
 	keys = {
 		-- Toggle Claude Code terminal open/close
-		{ "<leader>cc", "<cmd>ClaudeCode>cr>", desc = "[C]laude [C]ode toggle" },
+		{ "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "[C]laude [C]ode toggle" },
 
 		-- Send the current visual selection as context to Claude
 		{
@@ -40,7 +40,7 @@ return {
 		{
 			"<leader>cr",
 			"<cmd>ClaudeCodeDiffReview<cr>",
-			desc = "[C]laude [R]ewview diff",
+			desc = "[C]laude [R]eview diff",
 		},
 	},
 }

@@ -22,14 +22,3 @@ return {
 		vim.cmd("colorscheme ayu-dark")
 	end,
 }
-
--- return {
--- 	{
--- 		"zanshin/nvim-fourcolor-theme",
--- 		lazy = false,
--- 		priority = 1000,
--- 		config = function()
--- 			vim.cmd.colorscheme("fourcolor")
--- 		end,
--- 	},
--- }

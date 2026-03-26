@@ -1,7 +1,3 @@
--- Gen - Ollama plugin
--- October 3, 2025
---
-
 return {
 	"David-Kunz/gen.nvim",
 	config = function()
@@ -14,8 +10,7 @@ return {
 			show_prompt = false,
 			show_model = false,
 			no_auto_close = false,
+			vim.keymap.set({ "n", "v" }, "<leader>]", ":Gen<CR>"),
 		})
 	end,
-
-	vim.keymap.set({ "n", "v" }, "<leader>]", ":Gen<CR>"),
 }

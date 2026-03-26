@@ -1,13 +1,7 @@
--- LSP Configuration
--- August 6, 2025
---
-
 return {
 
 	-- LSP Plugins
 	{
-		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-		-- used for completion, annotations and signatures of Neovim apis
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {
@@ -35,43 +29,9 @@ return {
 			"saghen/blink.cmp",
 		},
 		config = function()
-			-- Brief aside: **What is LSP?**
-			--
-			-- LSP is an initialism you've probably heard, but might not understand what it is.
-			--
-			-- LSP stands for Language Server Protocol. It's a protocol that helps editors
-			-- and language tooling communicate in a standardized fashion.
-			--
-			-- In general, you have a "server" which is some tool built to understand a particular
-			-- language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
-			-- (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
-			-- processes that communicate with some "client" - in this case, Neovim!
-			--
-			-- LSP provides Neovim with features like:
-			--  - Go to definition
-			--  - Find references
-			--  - Autocompletion
-			--  - Symbol Search
-			--  - and more!
-			--
-			-- Thus, Language Servers are external tools that must be installed separately from
-			-- Neovim. This is where `mason` and related plugins come into play.
-			--
-			-- If you're wondering about lsp vs treesitter, you can check out the wonderfully
-			-- and elegantly composed help section, `:help lsp-vs-treesitter`
-
-			--  This function gets run when an LSP attaches to a particular buffer.
-			--    That is to say, every time a new file is opened that is associated with
-			--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-			--    function will be executed to configure the current buffer
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
-					-- NOTE: Remember that Lua is a real programming language, and as such it is possible
-					-- to define small helper and utility functions so you don't have to repeat yourself.
-					--
-					-- In this case, we create a function that lets us more easily define mappings specific
-					-- for LSP related items. It sets the mode, buffer and description for us each time.
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
@@ -114,7 +74,7 @@ return {
 					--  the definition of its *type*, not where it was *defined*.
 					map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
 
-					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
+					-- This function resolves a difference between neovim nightly and stable
 					---@param client vim.lsp.Client
 					---@param method vim.lsp.protocol.Method
 					---@param bufnr? integer some lsp support methods only in specific files
@@ -164,15 +124,6 @@ return {
 						})
 					end
 
-					-- Format on save using file type LSP
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						desc = "Format buffer using LSP on save",
-						group = vim.api.nvim_create_augroup("my-format-on-save", { clear = true }),
-						callback = function()
-							vim.lsp.buf.format()
-						end,
-					})
-
 					-- The following code creates a keymap to toggle inlay hints in your
 					-- code, if the language server you are using supports them
 					--
@@ -185,6 +136,15 @@ return {
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "[T]oggle Inlay [H]ints")
 					end
+				end,
+			})
+
+			-- Format on save using file type LSP
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				desc = "Format buffer using LSP on save",
+				group = vim.api.nvim_create_augroup("my-format-on-save", { clear = true }),
+				callback = function()
+					vim.lsp.buf.format()
 				end,
 			})
 
@@ -219,10 +179,6 @@ return {
 				},
 			})
 
-			-- LSP servers and clients are able to communicate to each other what features they support.
-			--  By default, Neovim doesn't support everything that is in the LSP specification.
-			--  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
-			--  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			-- Enable the following language servers
@@ -243,33 +199,11 @@ return {
 					settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 				},
 				pyright = {},
-				-- rust_analyzer = {
-				--   settings = {
-				--     ["rust-analyzer"] = {
-				--       assist = {
-				--         importGranularity = "module",
-				--         importPrefix = "self",
-				--         group = "crate",
-				--       },
-				--       completion = { autoimport = { enable = true } },
-				--       procMacro = { enable = true },
-				--       cargo = { allFeatures = true },
-				--       checkOnSave = {
-				--         command = "clippy",
-				--         extraArgs = { "--no-deps" },
-				--       },
-				--       formatOnSave = true,
-				--     },
-				--   },
-				-- },
 				yamlls = {
-					-- cmd = { "yamls" },
 					cmd = { "yaml-language-server", "--stdio" },
 					filetypes = { "yaml", "yml" },
-					-- root_dir = util.find_git_ancestor,
 					settings = {
 						yaml = {
-							-- schemaStore = { enable = true },
 							format = { enable = true },
 							hover = true,
 							completion = true,
@@ -312,17 +246,6 @@ return {
 
 			-- Ensure the servers and tools above are installed
 			--
-			-- To check the current status of installed tools and/or manually install
-			-- other tools, you can run
-			--    :Mason
-			--
-			-- You can press `g?` for help in this menu.
-			--
-			-- `mason` had to be setup earlier: to configure its options see the
-			-- `dependencies` table for `nvim-lspconfig` above.
-			--
-			-- You can add other tools here that you want Mason to install
-			-- for you, so that they are available from within Neovim.
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code

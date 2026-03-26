@@ -1,45 +1,72 @@
--- Define weasel words pattern
 local weasel_pattern =
-[[\v<(many|various|very|fairly|several|extremely|exceedingly|quite|remarkably|few|surprisingly|mostly|largely|huge|tiny|excellent|interestingly|significantly|substantially|clearly|vast|relatively|completely)>|<(are|is)\s+a\s+number>]]
+	[[\v<(many|various|very|fairly|several|extremely|exceedingly|quite|remarkably|few|surprisingly|mostly|largely|huge|tiny|excellent|interestingly|significantly|substantially|clearly|vast|relatively|completely)>|<(are|is)\s+a\s+number>]]
 
--- Create highlight group for weasel words
-vim.api.nvim_set_hl(0, 'WeaselWords', {
-  fg = '#ff0000',
-  bold = true,
-  underline = true
+local weasel_ns = vim.api.nvim_create_namespace("weasel_words")
+
+vim.api.nvim_set_hl(0, "WeaselWords", {
+	fg = "#ff0000",
+	bold = true,
+	underline = true,
 })
 
--- Function to toggle weasel word highlighting
-local function toggle_weasel_highlighting()
-  -- Check if highlighting is already active
-  local matches = vim.fn.getmatches()
-  local weasel_match_exists = false
+-- Track which buffers have weasel highlighting enabled
+local enabled_bufs = {}
 
-  for _, match in ipairs(matches) do
-    if match.group == 'WeaselWords' then
-      vim.fn.matchdelete(match.id)
-      weasel_match_exists = true
-      print("Weasel word highlighting disabled")
-      break
-    end
-  end
-
-  if not weasel_match_exists then
-    vim.fn.matchadd('WeaselWords', weasel_pattern)
-    print("Weasel word highlighting enabled")
-  end
+local function enable_weasel(bufnr)
+	enabled_bufs[bufnr] = true
+	vim.fn.matchadd("WeaselWords", weasel_pattern)
 end
 
--- Create user command to toggle highlighting
-vim.api.nvim_create_user_command('ToggleWeaselWords', toggle_weasel_highlighting, {})
+local function disable_weasel(bufnr)
+	enabled_bufs[bufnr] = nil
+	for _, match in ipairs(vim.fn.getmatches()) do
+		if match.group == "WeaselWords" then
+			vim.fn.matchdelete(match.id)
+		end
+	end
+end
 
--- Optional: Auto-enable for specific filetypes (markdown, text, etc.)
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'markdown', 'text', 'rst', 'asciidoc' },
-  callback = function()
-    vim.fn.matchadd('WeaselWords', weasel_pattern)
-  end,
+local function toggle_weasel()
+	local bufnr = vim.api.nvim_get_current_buf()
+	if enabled_bufs[bufnr] then
+		disable_weasel(bufnr)
+		vim.notify("Weasel words off", vim.log.levels.INFO)
+	else
+		enable_weasel(bufnr)
+		vim.notify("Weasel words on", vim.log.levels.INFO)
+	end
+end
+
+-- Re-apply in each new window that opens the buffer
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	group = vim.api.nvim_create_augroup("weasel-words", { clear = true }),
+	callback = function(args)
+		if enabled_bufs[args.buf] then
+			local already = false
+			for _, match in ipairs(vim.fn.getmatches()) do
+				if match.group == "WeaselWords" then
+					already = true
+					break
+				end
+			end
+			if not already then
+				vim.fn.matchadd("WeaselWords", weasel_pattern)
+			end
+		end
+	end,
 })
 
--- Optional: Create a keybinding for quick toggle
-vim.keymap.set('n', '<leader>tw', toggle_weasel_highlighting, { desc = 'Toggle weasel word highlighting' })
+-- Auto-enable for prose filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("weasel-words-ft", { clear = true }),
+	pattern = { "markdown", "text", "rst", "asciidoc" },
+	callback = function(args)
+		vim.schedule(function()
+			enabled_bufs[args.buf] = true
+			vim.fn.matchadd("WeaselWords", weasel_pattern)
+		end)
+	end,
+})
+
+vim.api.nvim_create_user_command("ToggleWeaselWords", toggle_weasel, {})
+vim.keymap.set("n", "<leader>tw", toggle_weasel, { desc = "Toggle weasel word highlighting" })
