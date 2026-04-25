@@ -4,30 +4,39 @@
 
 -- Remove `r` and `o` from format options to prevent continuing comment leaders automatically
 -- Default formatoptions were: `jcroql`
-vim.api.nvim_create_autocmd('BufEnter', {
-  desc = 'Set format options',
-  group = vim.api.nvim_create_augroup('my-formatoptions', { clear = true }),
-  pattern = '*',
-  command = "setlocal formatoptions-=ro"
+vim.api.nvim_create_autocmd("BufEnter", {
+	desc = "Set format options",
+	group = vim.api.nvim_create_augroup("my-formatoptions", { clear = true }),
+	pattern = "*",
+	command = "setlocal formatoptions-=ro",
 })
 
 -- Enable spelling for Git commit messages
-vim.api.nvim_create_autocmd('BufRead', {
-  desc = 'Enable spell check for Git commit messages',
-  group = vim.api.nvim_create_augroup('my-git-spelling', { clear = true }),
-  pattern = "COMMIT_EDITMSG",
-  callback = function()
-    vim.opt_local.spell = true
-    vim.opt_local.spelllang = "en_us"
-    vim.api.nvim_feedkeys("ggi", "t", true)
-  end,
+vim.api.nvim_create_autocmd("BufRead", {
+	desc = "Enable spell check for Git commit messages",
+	group = vim.api.nvim_create_augroup("my-git-spelling", { clear = true }),
+	pattern = "COMMIT_EDITMSG",
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en_us"
+		vim.api.nvim_feedkeys("ggi", "t", true)
+	end,
 })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking text',
-  group = vim.api.nvim_create_augroup('my-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking text",
+	group = vim.api.nvim_create_augroup("my-highlight-yank", { clear = true }),
+	callback = function()
+		vim.hl.on_yank()
+	end,
+})
+
+-- Show diagnostic float on cursor hold
+vim.api.nvim_create_autocmd("CursorHold", {
+	desc = "Show diagnostics on cursor hold",
+	group = vim.api.nvim_create_augroup("my-diagnostic-float", { clear = true }),
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
 })
