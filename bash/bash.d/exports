@@ -78,7 +78,7 @@ HISTIGNORE=ls:ll:la:l:cd:pwd:exit:mc:su:df:clear:history  # do not put these in 
 HISTTIMEFORMAT="%y/%m/%d %T "
 
 # Force history to update each time command prompt is displayed
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND='history -a; history -c; history -r;'
 
 # export settings
 export HISTCONTROL HISTFILESIZE HISTSIZE HISTIGNORE HISTTIMEFORMAT
