@@ -38,3 +38,5 @@ require("my.options")
 require("my.mappings")
 require("my.autocmds")
 require("my.weasel")
+
+require("vim._core.ui2").enable()

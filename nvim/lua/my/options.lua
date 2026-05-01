@@ -1,7 +1,3 @@
--- My Options
--- August 4, 2024
---
-
 -- Add line numbers and relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -45,7 +41,8 @@ vim.opt.gdefault = true
 vim.opt.inccommand = "split"
 
 -- Statusline
-vim.opt.cmdheight = 2
+-- vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.showcmd = false
 
 -- Encoding and Language
