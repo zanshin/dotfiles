@@ -20,9 +20,3 @@ defaulting to yes for those I typically use, and no for those I no longer use, o
     cd ~/.dotfiles
     ./install.sh
 
-This script supersedes the older `make.sh` script which accomplished the same thing, albeit less
-gracefully.
-
-For manual setup, and more details about the dotfiles, please read the [Details](DETAILS.markdown)
-file.
-
