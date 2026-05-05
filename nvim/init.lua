@@ -31,6 +31,9 @@ require("lazy").setup("plugins", {
 	ui = {
 		border = "rounded",
 	},
+	rocks = {
+		enabled = false,
+	},
 })
 
 -- Fold in my preferences
