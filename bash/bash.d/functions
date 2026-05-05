@@ -146,7 +146,14 @@ function deploy() {
   if [[ "$1" == "--go" ]]; then
     dry_run_args=()
   fi
-  rsync -azr --delete --include='.*' --info=name,stats2 "${dry_run_args[@]}" public/ pair:~/public_html/zanshin
+  # rsync -azr --delete --include='.*' --info=name,stats2 "${dry_run_args[@]}" public/ pair:~/public_html/zanshin
+  rsync -azr --delete --include='.*' \
+  --stats --quiet \
+  --itemize-changes \
+  --log-file=rsync.log \
+  --log-file-format='%i %n%L'
+  "${dry_run_args[@]}" \
+  public/ pair:~/public_html/zanshin
 }
 
 function drafts() {
