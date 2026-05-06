@@ -52,7 +52,7 @@ vim.opt.spelllang = "en"
 vim.opt.spellfile = vim.fs.joinpath(vim.fn.stdpath("config"), "spell/en.utf-8.add")
 
 -- Folding
-vim.opt.foldcolumn = "3"
+vim.opt.foldcolumn = "5"
 vim.opt.foldenable = true
 vim.opt.foldmethod = "marker"
 

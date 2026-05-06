@@ -65,3 +65,8 @@ vim.keymap.set("v", "<leader>yr", function()
 	vim.fn.setreg("+", ref)
 	vim.notify("Copied: " .. ref, vim.log.levels.INFO)
 end, { desc = "[Y]ank [R]elative path with line range" })
+
+-- Toggle foldcolumn on/off
+vim.keymap.set("n", "<leader>tf", function()
+  vim.opt.foldcolumn = vim.o.foldcolumn == "0" and "5" or "0"
+end, { desc = "[T]oggle [F]old Column" })
