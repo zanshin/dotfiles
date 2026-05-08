@@ -7,5 +7,6 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = { render_modes = true },
+    setup = { latex = { enabled = false }},
 	},
 }
