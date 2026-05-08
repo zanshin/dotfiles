@@ -1,5 +1,3 @@
--- Toggle Term
--- August 6, 2025
 
 return {
   'akinsho/toggleterm.nvim',

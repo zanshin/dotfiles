@@ -1,5 +1,3 @@
--- Markdown specific settings
--- August 5, 2025
 
 vim.opt.spell = true
 vim.opt.spelllang = "en_us"

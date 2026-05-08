@@ -1,5 +1,3 @@
--- Colorscheme
--- August 4.2025
 
 return {
 	"Shatur/neovim-ayu",

@@ -1,6 +1,3 @@
--- Statusline
--- August 6, 2025
---
 
 return {
   'beauwilliams/statusline.lua',

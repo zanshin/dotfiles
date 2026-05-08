@@ -1,6 +1,3 @@
--- gitsigns
--- August 4, 2025
---
 
 return {
   'lewis6991/gitsigns.nvim',

@@ -1,6 +1,3 @@
--- Blink
--- August 6, 2025
---
 
 return {
   'saghen/blink.cmp',

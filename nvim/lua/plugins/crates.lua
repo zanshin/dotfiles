@@ -1,6 +1,3 @@
--- Crates
--- August 6, 2025
---
 
 return {
   'saecki/crates.nvim',
