@@ -151,7 +151,7 @@ function deploy() {
   --stats --quiet \
   --itemize-changes \
   --log-file=rsync.log \
-  --log-file-format='%i %n%L'
+  --log-file-format='%i %n%L' \
   "${dry_run_args[@]}" \
   public/ pair:~/public_html/zanshin
 }
