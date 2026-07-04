@@ -10,7 +10,56 @@
       "shift-k": "editor::Hover",
       "g a": "editor::ToggleCodeActions",
       "g r": "editor::Rename",
-      "g c c": "editor::ToggleComments"
+      "g c c": "editor::ToggleComments",
+      "space r n": "editor::ToggleRelativeLineNumbers",
+      "space t h": "editor::ToggleInlayHints",
+      "space g b": "editor::ToggleGitBlameInline",
+      "space y r": "editor::CopyPermalinkToLine",
+      "space c c": "agent::ToggleFocus",
+      "space c a": [
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread"
+        ]
+      ],
+      "space ]": [
+        "action::Sequence",
+        [
+          "agent::ToggleFocus",
+          "agent::AddSelectionToThread"
+        ]
+      ],
+      "space s f": "file_finder::Toggle",
+      "space s s": "command_palette::Toggle",
+      "space s d": "diagnostics::Deploy",
+      "space s k": "zed::OpenKeymap",
+      "space s n": "zed::OpenSettingsFile",
+      "space space": "tab_switcher::Toggle",
+      "space s g": [
+        "workspace::SendKeystrokes",
+        "ctrl-shift-f"
+      ],
+      "space j q": "editor::Format",
+      "f5": "debugger::Start",
+      "f1": "debugger::StepInto",
+      "f2": "debugger::StepOver",
+      "f3": "debugger::StepOut",
+      "f7": "debug_panel::ToggleFocus",
+      "space b": "editor::ToggleBreakpoint"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !menu",
+    "bindings": {
+      ";": [
+        "workspace::SendKeystrokes",
+        ":"
+      ],
+      ";;": [
+        "workspace::SendKeystrokes",
+        ";"
+      ]
     }
   },
   {
@@ -20,6 +69,12 @@
       "ctrl-w l": "workspace::ActivatePaneRight",
       "ctrl-w k": "workspace::ActivatePaneUp",
       "ctrl-w j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-\\": "terminal_panel::ToggleFocus"
     }
   },
   {
