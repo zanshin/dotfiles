@@ -3,104 +3,82 @@
     "dock": "left"
   },
   "theme": "Ayu Dark",
-
   "preview_tabs": {
     "enabled": false
   },
-
   "session": {
     "trust_all_worktrees": true
   },
-
   "vim_mode": true,
-
   "vim": {
     "use_system_clipboard": "always",
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true,
     "gdefault": true
   },
-
   "relative_line_numbers": "enabled",
-
   "current_line_highlight": "all",
+  "cursor_blink": false,
   "vertical_scroll_margin": 10,
   "preferred_line_length": 79,
-
   "tab_size": 2,
   "hard_tabs": false,
-
   "diagnostics": {
     "inline": {
       "enabled": false
     }
   },
-
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
     "show_other_hints": true
   },
-
   "format_on_save": "on",
   "formatter": "auto",
-
   "buffer_font_family": "Intel One Mono",
-
   "ui_font_family": "Hack Nerd Font Mono",
   "ui_font_size": 15,
-
   "terminal": {
     "dock": "right",
     "copy_on_select": true,
     "font_family": "Hack Nerd Font Mono",
     "font_size": 15
   },
-
   "project_panel": {
     "dock": "left",
     "default_width": 230,
     "git_status": true
   },
-
   "outline_panel": {
     "dock": "right",
     "button": true,
     "default_width": 300
   },
-
   "git_panel": {
     "dock": "left"
   },
-
   "git": {
     "inline_blame": {
       "enabled": true,
       "delay_ms": 1000
     }
   },
-
   "agent": {
     "dock": "right",
-
     "default_model": {
       "provider": "ollama",
       "model": "gemma4:12b-mlx"
     },
-
     "tool_permissions": {
       "default": "allow"
     }
   },
-
   "agent_buffer_font_size": 15,
-
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-
   "languages": {
     "Go": {
       "tab_size": 4,
@@ -109,52 +87,45 @@
         "source.organizeImports": true
       }
     },
-
     "Make": {
       "tab_size": 8,
       "hard_tabs": true
     },
-
     "Markdown": {
       "tab_size": 2,
       "soft_wrap": "prefer_line"
     },
-
     "Python": {
       "tab_size": 2,
       "hard_tabs": false
     },
-
     "Rust": {
       "tab_size": 4,
       "hard_tabs": false,
       "formatter": "language_server"
     },
-
     "JavaScript": {
       "tab_size": 2
     },
-
     "TypeScript": {
       "tab_size": 2
     },
-
     "YAML": {
       "tab_size": 2
     },
-
     "JSON": {
       "tab_size": 2,
       "format_on_save": "on",
       "formatter": {
         "external": {
           "command": "jq",
-          "arguments": ["."]
+          "arguments": [
+            "."
+          ]
         }
       }
     }
   },
-
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
@@ -168,24 +139,31 @@
             "enable": "always"
           }
         },
-
         "assist": {
           "importGranularity": "module",
           "importPrefix": "by_self",
           "group": "crate"
         },
-
         "checkOnSave": true,
-        "cargo": { "allFeatures": true },
+        "cargo": {
+          "allFeatures": true
+        },
         "check": {
           "command": "clippy",
-          "extraArgs": ["--no-deps"]
+          "extraArgs": [
+            "--no-deps"
+          ]
         },
-        "completion": { "autoimport": { "enable": true } },
-        "procMacro": { "enable": true }
+        "completion": {
+          "autoimport": {
+            "enable": true
+          }
+        },
+        "procMacro": {
+          "enable": true
+        }
       }
     },
-
     "gopls": {
       "initialization_options": {
         "hints": {
@@ -199,7 +177,6 @@
         }
       }
     },
-
     "yaml-language-server": {
       "settings": {
         "yaml": {
