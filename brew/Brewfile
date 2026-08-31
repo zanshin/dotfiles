@@ -1,162 +1,333 @@
-###
-# Rosindust brewfile
-###
-
-# Default taps
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
-tap "homebrew/services"
-tap "mas-cli/tap"
-
-# Casks brew bundle dump found
-# tap "michaeldfallen/formula"
-# tap "neovim/neovim"
-# tap "railwaycat/emacsmacport"
-# tap "sgeb/mutt"
-# tap "youtux/livecheck"
-
-# Formulae I deliberately want
-brew "ansible"
-brew "archey"
-brew "bash"
-brew "bash-completion"
-brew "cowsay"
-brew "ffmpeg"
-brew "figlet"
-brew "fortune"
-brew "glances"
-brew "gpgme"
-brew "hugo"
-brew "imagemagick"
-brew "ipcalc"
-brew "jq"
-brew "kubernetes-cli"
-brew "mas"
-brew "mtr"
-brew "mutt"
-brew "neovim"
-brew "openconnect"
-brew "pidof"
-brew "rbenv"
-brew "ruby"
-brew "ruby-build"
-brew "speedtest-cli"
-brew "sysdig"
-brew "tcptraceroute"
-brew "tmux"
-brew "tree"
-brew "weechat"
-brew "wget"
-brew "youtube-dl"
-
-# Formulae that brew bundle dump found
-brew "ack"
-brew "autoconf"
-brew "awscli"
-brew "c-ares"
+tap "cirruslabs/cli", trusted: true
+tap "davep/homebrew", trusted: true
+tap "michaeleisel/zld", trusted: true
+tap "nikitabobko/tap", trusted: true
+tap "wezterm/wezterm", "https://github.com/wezterm/homebrew-wezterm.git", trusted: { casks: ["wezterm-nightly"] }
+# Run your GitHub Actions locally
+brew "act"
+# GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
-brew "openssl"
-brew "libtool"
-brew "cfssl"
-# brew "gmp@4"
-# brew "ppl@0.11"
-# brew "cloog@0.15"
-brew "contacts"
+# Core application library for C
+brew "glib"
+# Low-level library for pixel manipulation
+brew "pixman"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c@78"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Download with resuming and segmented downloading
+brew "aria2"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Terminal bandwidth utilization tool
+brew "bandwhich"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Extract files from Microsoft cabinet files
+brew "cabextract"
+# CD/DVD/Blu-ray premastering and recording software
+brew "cdrtools"
+# Validate CloudFormation templates against the CloudFormation spec
+brew "cfn-lint"
+# Statistics utility to count lines of code
+brew "cloc"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
 brew "coreutils"
-brew "dbus"
-brew "doxygen"
-brew "gmp"
-brew "libunistring"
-brew "nettle"
-brew "lame"
-brew "xvid"
-brew "geoip"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Convert text between DOS, UNIX, and Mac formats
+brew "dos2unix"
+# Command-line tool to interact with exercism.io
+brew "exercism"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg@6"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
+# Generate pixel-perfect macOS folder icons in the native style
+brew "folderify"
+# Manage Procfile-based applications
+brew "foreman"
+# Libpcap-based NetFlow probe
+brew "fprobe"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
 brew "git"
-brew "libksba"
-brew "qt"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Alternative to top/htop
+brew "glances"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# Render markdown on the CLI
+brew "glow"
+# Passphrase entry dialog utilizing the Assuan protocol
+brew "pinentry"
+# COBOL85-202x compiler supporting lots of dialect specific extensions
+brew "gnucobol"
+# Log analyzer and interactive viewer for the Apache Webserver
+brew "goaccess"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Little fast LoC counter
+brew "gocloc"
+# Slightly more awesome Standard Unix Password Manager for Teams
+brew "gopass"
+# Post-modern modal text editor
+brew "helix"
+# Improved top (interactive process viewer)
+brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
-brew "oniguruma"
-brew "jsoncpp"
-brew "libdvdcss"
-# brew "libmpc@0.8"
-brew "libnet"
-brew "libssh"
-brew "lua"
-brew "lua@5.1"
+# Configurable static site generator
+brew "hugo"
+# Command-line benchmarking tool
+brew "hyperfine"
+# Full-rich client for the Registry Data Access Protocol (RDAP) sponsored by ICANN
+brew "icann-rdap"
+# Calculate various network masks, etc. from a given IP address
+brew "ipcalc"
+# CLI wrapper for basic network utilities on macOS - ip command
+brew "iproute2mac"
+# Synchronize a maildir with an IMAP server
+brew "isync"
+# Development kit for the Java programming language
+brew "openjdk"
+# Java language specific implementation of the Language Server Protocol
+brew "jdtls"
+# Git-compatible distributed version control system
+brew "jj"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Neural Network Go engine with no human-provided knowledge
+brew "katago"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Postgres C API library
+brew "libpq", link: true
+# C virtualization API
+brew "libvirt", restart_service: :changed
+# C99 library which implements a VT220 or xterm terminal emulator
+brew "libvterm"
+# Scalable, high-performance WebRTC server
+brew "livekit"
+# Next-gen compiler infrastructure
+brew "llvm"
+# LLVM Project Linker
+brew "lld"
+# Language Server for the Lua language
+brew "lua-language-server"
+# Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit"
+# Package manager for the Lua programming language
 brew "luarocks"
+# Apple Silicon Monitor Top written in Go Lang
+brew "mactop"
+# Mac App Store command-line interface
+brew "mas"
+# Scalable distributed version control system
 brew "mercurial"
-brew "msgpack"
-brew "tokyo-cabinet"
-brew "nethack"
-brew "nnn"
-brew "packer"
-brew "reattach-to-user-namespace"
-brew "s-lang"
-brew "smartmontools"
+# Remote terminal application
+brew "mosh", args: ["HEAD"]
+# SMTP client that can be used as an SMTP plugin for Mutt
+brew "msmtp"
+# 'traceroute' and 'ping' in a single tool
+brew "mtr"
+# Open source relational database management system
+brew "mysql", restart_service: :changed
+# NCurses Disk Usage
+brew "ncdu"
+# E-mail reader with support for Notmuch, NNTP and much more
+brew "neomutt"
+# HTTP/2 C Library
+brew "nghttp2"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Port scanning utility for large networks
+brew "nmap"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
+# Password manager
+brew "pass"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# Tool for managing OCI containers and pods
+brew "podman"
+# Object-relational database system
+brew "postgresql@15", restart_service: :changed
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Generic machine emulator and virtualizer
+brew "qemu"
+# Install various Ruby versions and implementations
+brew "ruby-build"
+# Ruby version manager
+brew "rbenv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Utility that provides fast incremental file transfer
+brew "rsync"
+# Experimental Rust compiler front-end for IDEs
+brew "rust-analyzer"
+# Modern Day Portscanner
+brew "rustscan"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Feature-rich console based todo list manager
+brew "task"
+# Traceroute implementation using TCP packets
+brew "tcptraceroute"
+# User interface to the TELNET protocol
 brew "telnet"
-brew "utf8proc"
-brew "vim"
-
-# Mac Apple Store
-mas "Battery Health 2", id: 1120214373
-mas "Disk Speed Test", id: 425264550
+# Official tldr client written in Rust
+brew "tlrc"
+# Terminal multiplexer
+brew "tmux"
+# Minimal, todo.txt-focused editor
+brew "todo-txt"
+# Program that allows you to count code, quickly
+brew "tokei"
+# Incremental parsing library
+brew "tree-sitter"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Network diagnostic tool, inspired by mtr
+brew "trippy"
+# App for managing virtual machines
+brew "virt-manager"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
+# Extensible IRC client
+brew "weechat"
+# Internet file retriever
+brew "wget"
+# Library to create, extract, and modify Windows Imaging files
+brew "wimlib"
+# Personal information dashboard for your terminal
+brew "wtfutil"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
+# Tool for managing your YubiKey configuration
+brew "ykman"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Fast static site generator in a single binary with everything built-in
+brew "zola"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
+# A tool for converting Twitter exports to an Obsidian vault
+brew "davep/homebrew/bird2glass"
+# A faster version of ld, Apple's linker
+brew "michaeleisel/zld/zld"
+# Virtual KVM
+cask "abyssoft-teleport"
+cask "font-hack-nerd-font"
+cask "font-intel-one-mono"
+cask "font-jetbrains-mono-nerd-font"
+# Tools to protect your files
+cask "gpg-suite-no-mail"
+# IRC client
+cask "halloy"
+# End-to-end encryption software
+cask "keybase"
+# Visual diff and merge tool
+cask "meld"
+# GUI including a set of tools to create, alter and inspect Matroska files (MKV)
+cask "mkvtoolnix-app"
+# CSV editor
+cask "modern-csv"
+# Administration and development platform for PostgreSQL
+cask "pgadmin4"
+# Browse, manage, inspect containers and images
+cask "podman-desktop"
+# Control your tools with a few keystrokes
+cask "raycast"
+# Go board and SGF editor
+cask "sabaki"
+# Markdown knowledgebase manager
+cask "tolaria"
+# Development environment
+cask "vagrant"
+# Binary releases of VS Code without MS branding/telemetry/licensing
+cask "vscodium"
+mas "Bear", id: 1091189122
+mas "Cheetah", id: 1612199418
+mas "Current", id: 6758530974
+mas "DuckDuckGo", id: 663592361
+mas "DuckDuckGo Privacy for Safari", id: 1482920575
+mas "Enchanted", id: 6474268307
+mas "forScore", id: 363738376
 mas "GarageBand", id: 682658836
-mas "GhosteryLite", id: 1436953057
+mas "Hush", id: 1544743900
+mas "Hyperspace", id: 6739505345
+mas "IceCubesApp", id: 6444915884
 mas "iMovie", id: 408981434
-mas "iPhoto", id: 408981381
 mas "iPulse", id: 1028916583
-mas "iStat Mini", id: 927292435
+mas "Ivory", id: 6444602274
 mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
+mas "Keys", id: 526394170
+mas "Kindle", id: 302584613
+mas "Kindle Classic", id: 405399194
+mas "Magic Lasso", id: 1198047227
 mas "Marked", id: 448925439
-mas "Microsoft Remote Desktop", id: 715768417
-mas "NetSpot", id: 514951692
+mas "Mastonaut", id: 1450757574
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Notchmeister", id: 1599169747
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Prime Video", id: 545519333
 mas "Quiver", id: 866773894
-mas "ReadKit", id: 588726889
+mas "ReadKit", id: 1615798039
 mas "Slack", id: 803453959
-mas "Twitterrific", id: 1289378661
-mas "Xcode", id: 497799835
-
-# Casks
-cask "alfred"
-cask "authy"
-cask "bitwarden"
-cask "dash"
-# cask "docker"
-# cask "fetch"
-cask "firefox"
-cask "handbrake"
-cask "iterm2"
-cask "keybase"
-# 32-bit - won't work on Catalina
-# cask "lilypond"
-cask "mailmate"
-cask "master-password"
-cask "monodraw"
-cask "netnewswire"
-cask "numi"
-cask "opera"
-cask "rocket-chat"
-cask "sketchup"
-cask "spamsieve"
-cask "spectacle"
-cask "steam"
-# cask "superduper"
-cask "syncthing"
-cask "tor-browser"
-# Vagrant will ask for password
-cask "vagrant"
-# cask "vanilla"
-# cask "virtualbox"
-cask "visual-studio-code"
-cask "vivaldi"
-cask "vlc"
-# Wireshark will ask for password
-cask "wireshark"
-cask "zoom"
-
+mas "SmartGo", id: 1465746992
+mas "Spark", id: 1176895641
+mas "Tailscale", id: 1475387142
+mas "Take Five", id: 424437399
+mas "Tapestry", id: 6448078074
+mas "TestFlight", id: 899247664
+mas "Textual 7", id: 1262957439
+mas "Unread", id: 1363637349
+mas "Unwatched", id: 6477287463
+mas "Whalebird", id: 1378283354
+mas "WhatsApp", id: 310633997
+cargo "bacon"
+cargo "cargo-leptos"
+cargo "cargo-modules"
+cargo "mdbook"
+cargo "rustlings"
+cargo "starship-jj"
+cargo "trunk"
+cargo "workshop-runner"
+npm "neovim"
+npm "typescript-language-server"
+npm "typescript"

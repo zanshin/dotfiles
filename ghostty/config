@@ -10,6 +10,7 @@ link-url = true
 
 quick-terminal-position = center
 keybind = global:cmd+opt+ctrl+backslash=toggle_quick_terminal
+macos-option-as-alt = false
 
 # work-around for cmd-k intercepting ctrl-k
 keybind = super+k=unbind
