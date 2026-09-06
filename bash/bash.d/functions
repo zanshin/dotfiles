@@ -98,7 +98,7 @@ function jc() {
 
 function jtug () {
   jj bookmark move --bookmark "$1" --to @-
-} 
+}
 
 jj-short() {
   jj short -r all'()' "$@" | awk '
@@ -182,7 +182,7 @@ function create() {
   # dash, replace capital letters with lower case
   post=$(echo "$title" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr '[:upper:]' '[:lower:]').md
   hugo new "$archetype"/"$post"
-  nvim content/"$archetype"/"$post"
+  zed content/"$archetype"/"$post"
 }
 
 # r is for rsync

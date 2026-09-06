@@ -1,38 +1,41 @@
 {
+  "cli_default_open_behavior": "new_window",
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
-  "theme": "Ayu Dark",
+  "theme": "Alabaster",
   "preview_tabs": {
-    "enabled": false
+    "enabled": false,
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "vim_mode": true,
   "vim": {
     "use_system_clipboard": "always",
     "use_smartcase_find": true,
     "toggle_relative_line_numbers": true,
-    "gdefault": true
+    "gdefault": true,
   },
   "relative_line_numbers": "enabled",
   "current_line_highlight": "all",
   "cursor_blink": false,
   "vertical_scroll_margin": 10,
   "preferred_line_length": 79,
+  "colorize_brackets": true,
   "tab_size": 2,
   "hard_tabs": false,
   "diagnostics": {
     "inline": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "inlay_hints": {
     "enabled": true,
     "show_type_hints": true,
     "show_parameter_hints": true,
-    "show_other_hints": true
+    "show_other_hints": true,
   },
   "format_on_save": "on",
   "formatter": "auto",
@@ -40,78 +43,87 @@
   "ui_font_family": "Hack Nerd Font Mono",
   "ui_font_size": 15,
   "terminal": {
-    "dock": "right",
+    "dock": "bottom",
     "copy_on_select": true,
     "font_family": "Hack Nerd Font Mono",
-    "font_size": 15
+    "font_size": 15,
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
   },
   "project_panel": {
-    "dock": "left",
+    "dock": "right",
     "default_width": 230,
-    "git_status": true
+    "git_status": true,
   },
   "outline_panel": {
     "dock": "right",
     "button": true,
-    "default_width": 300
+    "default_width": 300,
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "git": {
+    "git_gutter": "tracked_files",
     "inline_blame": {
       "enabled": true,
-      "delay_ms": 1000
-    }
+      "delay_ms": 1000,
+    },
   },
   "agent": {
     "dock": "right",
     "default_model": {
       "provider": "ollama",
-      "model": "gemma4:12b-mlx"
+      "model": "gemma4:12b-mlx",
     },
     "tool_permissions": {
-      "default": "allow"
-    }
+      "default": "allow",
+    },
   },
   "agent_buffer_font_size": 15,
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "languages": {
     "Go": {
       "tab_size": 4,
       "hard_tabs": true,
       "code_actions_on_format": {
-        "source.organizeImports": true
-      }
+        "source.organizeImports": true,
+      },
     },
     "Make": {
       "tab_size": 8,
-      "hard_tabs": true
+      "hard_tabs": true,
     },
     "Markdown": {
       "tab_size": 2,
-      "soft_wrap": "prefer_line"
+      "preferred_line_length": 79,
+      "allow_rewrap": "anywhere",
     },
     "Python": {
       "tab_size": 2,
-      "hard_tabs": false
+      "hard_tabs": false,
     },
     "Rust": {
       "tab_size": 4,
       "hard_tabs": false,
-      "formatter": "language_server"
+      "formatter": "language_server",
     },
     "JavaScript": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "TypeScript": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "YAML": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "JSON": {
       "tab_size": 2,
@@ -119,12 +131,10 @@
       "formatter": {
         "external": {
           "command": "jq",
-          "arguments": [
-            "."
-          ]
-        }
-      }
-    }
+          "arguments": ["."],
+        },
+      },
+    },
   },
   "lsp": {
     "rust-analyzer": {
@@ -133,36 +143,34 @@
           "maxLength": null,
           "lifetimeElisionHints": {
             "enable": "skip_trivial",
-            "useParameterNames": true
+            "useParameterNames": true,
           },
           "closureReturnTypeHints": {
-            "enable": "always"
-          }
+            "enable": "always",
+          },
         },
         "assist": {
           "importGranularity": "module",
           "importPrefix": "by_self",
-          "group": "crate"
+          "group": "crate",
         },
         "checkOnSave": true,
         "cargo": {
-          "allFeatures": true
+          "allFeatures": true,
         },
         "check": {
           "command": "clippy",
-          "extraArgs": [
-            "--no-deps"
-          ]
+          "extraArgs": ["--no-deps"],
         },
         "completion": {
           "autoimport": {
-            "enable": true
-          }
+            "enable": true,
+          },
         },
         "procMacro": {
-          "enable": true
-        }
-      }
+          "enable": true,
+        },
+      },
     },
     "gopls": {
       "initialization_options": {
@@ -173,9 +181,9 @@
           "constantValues": true,
           "functionTypeParameters": true,
           "parameterNames": true,
-          "rangeVariableTypes": true
-        }
-      }
+          "rangeVariableTypes": true,
+        },
+      },
     },
     "yaml-language-server": {
       "settings": {
@@ -209,10 +217,10 @@
             "!Split",
             "!Split sequence",
             "!Sub",
-            "!Sub sequence"
-          ]
-        }
-      }
-    }
-  }
+            "!Sub sequence",
+          ],
+        },
+      },
+    },
+  },
 }
