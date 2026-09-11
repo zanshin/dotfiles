@@ -58,7 +58,7 @@
   "ui_font_family": "Hack Nerd Font Mono",
   "ui_font_size": 15,
   "terminal": {
-    "dock": "right",
+    "dock": "bottom",
     "copy_on_select": true,
     "font_family": "Hack Nerd Font Mono",
     "font_size": 15,
@@ -76,7 +76,7 @@
     "git_status": true,
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "left",
     "button": true,
     "default_width": 300,
   },
