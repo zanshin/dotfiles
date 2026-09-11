@@ -1,12 +1,27 @@
 {
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+  },
   "cli_default_open_behavior": "new_window",
   "icon_theme": "Colored Zed Icons Theme Dark",
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "theme": "Alabaster",
   "preview_tabs": {
     "enabled": false,
+  },
+  "theme_overrides": {
+    "Alabaster": {
+      "syntax": {
+        "hint": {
+          "color": "#a0a0a0",
+          "background_color": "#8a8a8a10",
+        },
+      },
+    },
   },
   "session": {
     "trust_all_worktrees": true,
@@ -29,7 +44,7 @@
   "diagnostics": {
     "inline": {
       "enabled": false,
-    }
+    },
   },
   "inlay_hints": {
     "enabled": true,
@@ -43,7 +58,7 @@
   "ui_font_family": "Hack Nerd Font Mono",
   "ui_font_size": 15,
   "terminal": {
-    "dock": "bottom",
+    "dock": "right",
     "copy_on_select": true,
     "font_family": "Hack Nerd Font Mono",
     "font_size": 15,
@@ -56,7 +71,7 @@
     "coloring": "indent_aware",
   },
   "project_panel": {
-    "dock": "right",
+    "dock": "left",
     "default_width": 230,
     "git_status": true,
   },
@@ -73,7 +88,7 @@
     "inline_blame": {
       "enabled": true,
       "delay_ms": 1000,
-    }
+    },
   },
   "agent": {
     "dock": "right",
@@ -92,7 +107,7 @@
   },
   "edit_predictions": {
     "provider": "zed",
-    "mode": "subtle"
+    "mode": "subtle",
   },
   "languages": {
     "Go": {
@@ -100,7 +115,7 @@
       "hard_tabs": true,
       "code_actions_on_format": {
         "source.organizeImports": true,
-      }
+      },
     },
     "Make": {
       "tab_size": 8,
@@ -136,9 +151,9 @@
         "external": {
           "command": "jq",
           "arguments": ["."],
-        }
-      }
-    }
+        },
+      },
+    },
   },
   "lsp": {
     "rust-analyzer": {
@@ -151,7 +166,7 @@
           },
           "closureReturnTypeHints": {
             "enable": "always",
-          }
+          },
         },
         "assist": {
           "importGranularity": "module",
@@ -173,8 +188,8 @@
         },
         "procMacro": {
           "enable": true,
-        }
-      }
+        },
+      },
     },
     "gopls": {
       "initialization_options": {
@@ -186,8 +201,8 @@
           "functionTypeParameters": true,
           "parameterNames": true,
           "rangeVariableTypes": true,
-        }
-      }
+        },
+      },
     },
     "yaml-language-server": {
       "settings": {
@@ -222,9 +237,9 @@
             "!Split sequence",
             "!Sub",
             "!Sub sequence",
-          ]
-        }
-      }
-    }
-  }
+          ],
+        },
+      },
+    },
+  },
 }
