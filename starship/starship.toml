@@ -2,9 +2,8 @@ format = """
 $username\
 $hostname\
 $directory\
-$git_branch\
+${custom.jj}\
 $git_state\
-$git_status\
 $cmd_duration\
 $line_break\
 $character"""
@@ -32,23 +31,20 @@ success_symbol = "[➜](bold green) "
 error_symbol = "[✗](bold red) "
 
 [git_branch]
-format = "[$branch ]($style)"
-style = "#ffb454"
+disabled = true
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
-style = "cyan"
-conflicted = "="
-untracked = "⇡"
-modified = "⇣"
-staged = "+"
-renamed = "»"
-deleted = "✘"
-stashed = "≡"
+disabled = true
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "#d2a6ff"
+
+[custom.jj]
+when = "jj-starship detect"
+shell = ["jj-starship"]
+format = "[$output]($style) "
+style = "#ffb454"
 
 [cmd_duration]
 format = "[$duration]($style) "
@@ -56,18 +52,3 @@ style = "yellow"
 
 [package]
 disable = true
-
-# Custom Jujutsu module showing commits since main bookmark
-# [custom.jj]
-# command = '''
-# if jj root &>/dev/null; then
-#   count=$(jj log --no-graph --no-pager -r "main..@ & ~empty()" -T "x" 2>/dev/null | wc -c | tr -d ' ')
-#   if [ "$count" -gt 0 ]; then
-#     echo "↑$count"
-#   fi
-# fi
-# '''
-# when = ''' test -d .jj || { dir="$PWD"; while [ "$dir" != "/" ]; do [ -d "$dir/.jj" ] && exit 0; dir=$(dirname "$dir"); done; exit 1; } '''
-# format = "[$output]($style) "
-# style = "bold cyan"
-# description = "Commits ahead of main bookmark in Jujutsu"
