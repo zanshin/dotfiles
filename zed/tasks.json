@@ -1,0 +1,16 @@
+[
+  {
+    "label": "HTTPie: run current line",
+    "command": "eval http --pretty=all $(sed -n \"${ZED_ROW}p\" \"$ZED_FILE\")",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+  },
+  {
+    "label": "HTTPie: run selection",
+    "command": "eval http --pretty=all \"$ZED_SELECTED_TEXT\"",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+  },
+]
