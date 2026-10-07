@@ -1,0 +1,152 @@
+# vim: ft=bash
+
+# ALIASES
+# Knife
+alias k='knife'
+alias ks='knife status'
+alias ksg='knife status | grep'
+alias kso='knife status "hostname:ome*"'
+alias kn='knife node'
+alias kns='knife node show'
+alias kc='knife client'
+alias bake='knife cookbook upload'
+alias tagged='knife search node "name:ome-vm*" -a tags'
+alias notags='knife search node "NOT tags:* AND name:ome*" -a tags'
+
+# VPN and remote machines
+alias gpv='~/bin/bash/gpvpn-split.sh'
+alias gpon='sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu'
+alias gpoff='sudo pkill -SIGINT openconnect'
+alias admin='ssh -t paw ssh -t admin'                                              # admin via pawjump
+alias rdp='ssh -t -L 3389:mhn-linux-admin.aws.ksu.edu:3389 paw ssh -t admin'      # same, plus RDP tunnel
+
+# AWS and Kubernetes
+alias awson='aws login && LP_PS1_PREFIX="\033[0;34maws \033[0m"'
+alias awsoff='aws logout; LP_PS1_PREFIX=""'
+alias kdev='aws eks --region us-east-1 update-kubeconfig --name EKS-Dev'
+alias kshared='aws eks --region us-east-1 update-kubeconfig --name EKS-Shared'
+alias kprod='aws eks --region us-east-1 update-kubeconfig --name EKS-Prod'
+
+# Directory shortcuts
+alias omedev="cd ~/code/chef/omedev"
+alias ome="cd ~/code/chef/ome"
+alias omepci="cd ~/code/chef/omepci"
+alias omepcidev="cd ~/code/chef/omepcidev"
+alias est="cd ~/code/chef/est"
+alias estdev="cd ~/code/chef/estdev"
+alias estwin="cd ~/code/chef/estwin"
+alias estwindev="cd ~/code/chef/estwindev"
+alias omeaws="cd ~/code/chef/omeaws"
+alias zome="cd ~/code/chef/zome"
+alias zomedev="cd ~/code/chef/zomedev"
+alias iso="cd ~/code/chef/iso"
+alias isodev="cd ~/code/chef/isodev"
+
+alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
+alias roll2="cd ~/code/chef/zome/cookbooks/ome_wildfly_cluster/scripts/reboot"
+
+
+
+
+# FUNCTIONS
+# Chef / knife
+# knhost: reduce knife search output to bare host names
+function knhost { sed -e 's/.*://' -e 's/.*items found//' | awk NF; }
+
+# knifeaws / knifeome TERM: hosts whose tag, name, or role matches TERM
+function knifeaws { knife search node "tags:$* OR name:$* OR roles:$*" -a cloud.public_hostname | knhost; }
+function knifeome { knife search node "tags:$* OR name:$* OR roles:$*" -a fqdn | sort | knhost; }
+
+# knaws TERM...: ssh to each matching AWS host in turn
+function knaws {
+  local term host
+  for term in "$@"; do
+    for host in $(knifeaws "$term"); do ssh "$host"; done
+  done
+}
+
+# knome / kncloud TERM: new tmux window with one synchronized ssh pane per matching host
+function _kntmux {
+  local search=$1 name=$2 host
+  tmux new-window -n "$name"
+  for host in $("$search" "$name"); do
+    tmux split-window -t ':$' "ssh $host"
+    tmux select-layout -t ':$' even-vertical >/dev/null 2>&1
+  done
+  tmux kill-pane -t '$.1'
+  tmux select-layout -t ':$' even-vertical >/dev/null 2>&1
+  tmux set-window-option -t ':$' synchronize
+}
+function knome { _kntmux knifeome "$1"; }
+function kncloud { _kntmux knifeaws "$1"; }
+
+# kick / converge NODES: run chef-client on matching nodes
+function kick { knife ssh -P -m "$1" "sudo chef-client"; }
+function converge { kick "$@"; }
+
+# ktags / ktag TERM: nodes with tags matching TERM (ktag: compact, highlighted)
+function ktags { knife search "tags:*${*}*" -a name -a tags; }
+function ktag {
+  local esc=$'\033' vt=$'\013'
+  knife search "tags:*${*}*" | grep -E 'Node|Tag' | sed -e 's/,//g' -e "s/Node Name:/${vt}${esc}[31mName${esc}[0m:/" -e "s/Tags/${esc}[31mTags${esc}[0m/"
+}
+
+# kshow HOST: knife node show, trying each campus domain
+function kshow {
+  local domain
+  for domain in campus.ksu.edu ads.campus users.campus; do
+    host "$1.$domain" >/dev/null 2>&1 && knife node show "$1.$domain"
+  done
+}
+
+# chefcmd PATTERN CMD: run CMD on every node whose knife status line matches PATTERN
+function chefcmd { knife ssh -m "$(knife status | grep -- "$1" | awk '{print $4}' | tr ',\n' '  ')" "$2"; }
+
+# SSH
+# badkey LINE: delete line LINE from ~/.ssh/known_hosts
+function badkey { nvim ~/.ssh/known_hosts +"$1d|x"; }
+
+# ghostsync HOST: copy Ghostty's terminfo to HOST
+function ghostsync {
+  [[ -n "$1" ]] || { echo "Usage: ghostsync HOST" >&2; return 1; }
+  infocmp -x | ssh "$1" -- tic -x -o \$HOME/.terminfo -
+}
+
+# pounce HOST: poll HOST's ssh port every 30 seconds (watch a reboot)
+function pounce { while true; do nc -vvv -w 1 "$1" 22 2>/dev/null; sleep 30; done; }
+
+# ssh_to_host HOST: wait until HOST accepts ssh connections, then connect
+function ssh_to_host {
+  until nc -z "$1" 22 >/dev/null 2>&1; do
+    echo "SSH not yet ready on $1. Trying again in 5 seconds..."
+    sleep 5
+  done
+  ssh "$1"
+}
+
+# Tmux
+# clobber SESSION: kill tmux session SESSION and the terminal process holding it
+function clobber {
+  local pid ppid
+  pid=$(pgrep -f "tmux.*$1" | head -1)
+  [[ -n "$pid" ]] || { echo "No tmux process found for '$1'" >&2; return 1; }
+  ppid=$(ps -o ppid= -p "$pid" | tr -d ' ')
+  echo "Killing tmux session '$1' (pid $pid) and its terminal process (pid $ppid)"
+  tmux kill-session -t "$1"
+  (( ppid > 1 )) && kill -9 "$ppid"
+}
+
+# AWS
+# awsp PROFILE: set the AWS CLI profile
+function awsp { export AWS_PROFILE="$1"; }
+
+# awss PROFILE: switch profile, log in, point kubectl at that profile's EKS cluster
+# (dev -> EKS-Dev-blueprint, shared-prod -> EKS-Shared-Prod-blueprint)
+function awss {
+  local ctx
+  awsp "$1" && aws login || return
+  ctx=$(awk 'BEGIN {FS = OFS = "-"} {for (i = 1; i <= NF; i++) $i = toupper(substr($i, 1, 1)) substr($i, 2)} 1' <<< "$1")
+  aws eks --region us-east-1 update-kubeconfig --name "EKS-$ctx-blueprint" 2>/dev/null
+  echo
+  aws sts get-caller-identity
+}
