@@ -3,88 +3,137 @@
 # -------------------------------------------------------------------
 # paths
 #
-# This file sets up the PATH environment variable. For Darwin-based
-# systems, i.e., macOS, it resets PATH and then uses path_helper to
-# re-establish it, before adding user specific paths.
+# Sets up the PATH environment variable. On macOS, PATH is reset and
+# rebuilt with path_helper (/etc/paths + /etc/paths.d) before user
+# directories are added.
 #
+# Path is assembled in three groups: front + system + back
+# Directories that don't exist are skipped, duplicates are dropped
+# (first occurrence wins), and anything matching _path_skip is left out.
 # -------------------------------------------------------------------
 
-# -------------------------------------------------------------------
-# Reset Path Helper
-# test kernel to prevent reset on Linux
-# -------------------------------------------------------------------
-# if [[ "$myos" == "Darwin" ]]; then
-if [[ $(uname -s) == "Darwin" ]]; then
+# Rebuild the system base on macOS ($OSTYPE avoids a uname subprocess)
+if [[ "$OSTYPE" == "darwin*" ]]; then
   PATH=""
-  if [ -x /usr/libexec/path_helper ]; then
-    eval "$(/usr/libexec/path_helper -s)"
-  fi
+  [[ -x /usr/libexec/path_helper ]] && eval "$(/usr/libexec/path_helper -s)"
 fi
 
-# -------------------------------------------------------------------
-# Add user specific paths to PATH environment variable
-# -------------------------------------------------------------------
+# Entries to drop even if they exist (globs allowed)
+_path_skip=(
+  "/pkg/env/global/bin"                        # empty, origin unknown
+  "/var/run/com.apple.security.cryptexd/*"     # empty cryptex bootstrap mounts
+)
 
-# set PATH so it includes user's private bin directories, if they exist
-if [ -d "${HOME}/bin" ] ; then PATH="${PATH}:${HOME}/bin" ; fi
-if [ -d "${HOME}/bin/bash" ] ; then PATH="${PATH}:${HOME}/bin/bash" ; fi
-if [ -d "${HOME}/bin/ruby" ] ; then PATH="${PATH}:${HOME}/bin/ruby" ; fi
-if [ -d "${HOME}/bin/python" ] ; then PATH="${PATH}:${HOME}/bin/python" ; fi
-if [ -d "${HOME}/bin/perl" ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
+# Ahead of the system directories (these win name collisions)
+_path_front=(
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/code/golib/bin"
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+)
 
-# Set PATH so it includes /opt/homebrew/bin if it exists
-if [ -d /opt/homebrew/bin ] ; then PATH="/opt/homebrew/bin:${PATH}" ; fi
+# After the system directories
+_path_back=(
+  /usr/local/sbin
+  /usr/local/bin
+  /usr/local/go/bin
+  /usr/local/protobuf/bin
+  "$HOME/bin"
+  "$HOME/bin/bash"
+  "$HOME/bin/ruby"
+  "$HOME/bin/python"
+  "$HOME/bin/perl"
+  "${REX_BIN_DIR:-}"
+)
 
-# Set PATH so it includes /opt/homebrew/sbin if it exists
-if [ -d /opt/homebrew/sbin  ] ; then PATH="/opt/homebrew/sbin:${PATH}" ; fi
+# Assemble
+IFS=: read -ra _path_sys <<< "$PATH"
 
-# Set path to include GNU binaries that were installed via Homebrew
-# GNUBINS="$(find /opt/homebrew/Cellar -type d -follow -name gnubin -print)"
-# for bindir in ${GNUBINS[@]}; do
-#   export PATH=$bindir:$PATH;
-# done;
+_path_new=""
+for _dir in "${_path_front[@]}" "${_path_sys[@]}" "${_path_back[@]}"; do
+  [[ -n "$_dir" && -d "$_dir" ]] || continue
+  for _skip in "${_path_skip[@]}"; do
+    [[ "$_dir" == $_skip ]] && continue 2   # unquoted RHS = glob match
+  done
+  [[ ":$_path_new:" == *":$_dir:"* ]] && continue
+  _path_new="${_path_new:+$_path_new:}$_dir"
+done
 
-# set PATH so it includes /usr/local/sbin if it exists
-if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
+PATH="$_path_new"
+export PATH
 
-# add Go path for Darwin
-if [ -e /usr/local/go ] ; then
-  PATH="${PATH}:/usr/local/go/bin"
-  PATH="${HOME}/code/golib/bin:${PATH}"
-fi
-
-# add Go path for Linux
-if [ -e /usr/bin/go ] ; then
-  PATH="${PATH}:/usr/bin/go"
-  PATH="${HOME}/code/golib/bin:${PATH}"
-fi
-
-# add protobuf path, if it exists
-if [ -d /usr/local/protobuf/bin ] ; then PATH="${PATH}:/usr/local/protobuf/bin" ; fi
-
-# add Rust path
-if [ -e "$HOME/.cargo/bin" ]; then
-  PATH="${HOME}/.cargo/bin:${PATH}"
-fi
-
-# Add path to Python3 scripts (needed for AWS CLI)
-# if [ -d ${HOME}/Library/Python/3.7/bin ] ; then
-#   PATH="${PATH}:${HOME}/Library/Python/3.7/bin"
+unset _path_skip _path_front _path_back _path_sys _path_new _dir _skip
+#
+# # -------------------------------------------------------------------
+# # Add user specific paths to PATH environment variable
+# # -------------------------------------------------------------------
+#
+# # set PATH so it includes user's private bin directories, if they exist
+# if [ -d "${HOME}/bin" ] ; then PATH="${PATH}:${HOME}/bin" ; fi
+# if [ -d "${HOME}/bin/bash" ] ; then PATH="${PATH}:${HOME}/bin/bash" ; fi
+# if [ -d "${HOME}/bin/ruby" ] ; then PATH="${PATH}:${HOME}/bin/ruby" ; fi
+# if [ -d "${HOME}/bin/python" ] ; then PATH="${PATH}:${HOME}/bin/python" ; fi
+# if [ -d "${HOME}/bin/perl" ] ; then PATH="${PATH}:${HOME}/bin/perl" ; fi
+#
+# # Set PATH so it includes /opt/homebrew/bin if it exists
+# if [ -d /opt/homebrew/bin ] ; then PATH="/opt/homebrew/bin:${PATH}" ; fi
+#
+# # Set PATH so it includes /opt/homebrew/sbin if it exists
+# if [ -d /opt/homebrew/sbin  ] ; then PATH="/opt/homebrew/sbin:${PATH}" ; fi
+#
+# # Set path to include GNU binaries that were installed via Homebrew
+# # GNUBINS="$(find /opt/homebrew/Cellar -type d -follow -name gnubin -print)"
+# # for bindir in ${GNUBINS[@]}; do
+# #   export PATH=$bindir:$PATH;
+# # done;
+#
+# # set PATH so it includes /usr/local/sbin if it exists
+# if [ -d /usr/local/sbin ] ; then PATH="${PATH}:/usr/local/sbin" ; fi
+#
+# # add Go path for Darwin
+# if [ -e /usr/local/go ] ; then
+#   PATH="${PATH}:/usr/local/go/bin"
+#   PATH="${HOME}/code/golib/bin:${PATH}"
 # fi
-
-# Add path to ~/.local/bin for aws cli on linux
-if [ -d "${HOME}/.local/bin" ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
-
-# Sourcegraph
-if [ -d /usr/local/opt/postgresql/bin ] ; then
-  PATH="/usr/local/opt/postgresql/bin:$PATH"
-fi
-
-export PATH
-
-# Be incredible anal and remove duplicates from PATH, even though the
-# shell will only use the first occurrance.
-# https://www.linuxjournal.com/content/removing-duplicate-path-entries
-PATH=$(echo "$PATH" | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
-
-export PATH
+#
+# # add Go path for Linux
+# if [ -e /usr/bin/go ] ; then
+#   PATH="${PATH}:/usr/bin/go"
+#   PATH="${HOME}/code/golib/bin:${PATH}"
+# fi
+#
+# # add protobuf path, if it exists
+# if [ -d /usr/local/protobuf/bin ] ; then PATH="${PATH}:/usr/local/protobuf/bin" ; fi
+#
+# # add Rust path
+# if [ -e "$HOME/.cargo/bin" ]; then
+#   PATH="${HOME}/.cargo/bin:${PATH}"
+# fi
+#
+# # Add path to Python3 scripts (needed for AWS CLI)
+# # if [ -d ${HOME}/Library/Python/3.7/bin ] ; then
+# #   PATH="${PATH}:${HOME}/Library/Python/3.7/bin"
+# # fi
+#
+# # Add path to ~/.local/bin for aws cli on linux
+# if [ -d "${HOME}/.local/bin" ] ; then PATH="${HOME}/.local/bin:${PATH}" ; fi
+#
+# # Sourcegraph
+# if [ -d /usr/local/opt/postgresql/bin ] ; then
+#   PATH="/usr/local/opt/postgresql/bin:$PATH"
+# fi
+#
+# # Rex
+# if [ -n "${REX_BIN_DIR:-}" ]; then
+#     export PATH="$REX_BIN_DIR:$PATH"
+# fi
+#
+# export PATH
+#
+# # Be incredible anal and remove duplicates from PATH, even though the
+# # shell will only use the first occurrance.
+# # https://www.linuxjournal.com/content/removing-duplicate-path-entries
+# PATH=$(echo "$PATH" | awk -v RS=: '!($0 in a) {a[$0]; printf("%s%s", length(a) > 1 ? ":" : "", $0)}')
+#
+# export PATH

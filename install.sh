@@ -41,17 +41,23 @@ ask() {
 dotfiles_dir=~/.dotfiles
 xdg_config_home=~/.config
 
-# Update dotfiles to master branch
-echo "Updating $dotfiles_dir to master"
+# Update dotfiles to master branch. Skip this when no branch is checked
+# out: in a Jujutsu-managed (colocated) repo HEAD is detached, and
+# pulling would fail or merge into the detached HEAD.
 cd "$dotfiles_dir";
-git pull origin master;
+if git symbolic-ref -q HEAD >/dev/null; then
+  echo "Updating $dotfiles_dir to master"
+  git pull origin master;
+else
+  echo "Skipping update: no branch checked out (use jj git fetch)"
+fi
 cd;
 
 echo ""
 
 # Build key,value pairs of the tool and whether or not to install it
 # each tuple lists a directory and its install flag
-tuples="gem,Y hg,N"
+tuples="gem,Y"
 
 # For these directories, create symlinks for each file present
 # By passing the ask function `Y` we default to creating these
@@ -76,7 +82,7 @@ for pair in $xdg_tuples; do
   if ask "Setup $dir" "$flag"; then
     echo "Linking $dir into $HOME/.config"
     mkdir -p "$xdg_config_home";
-    ln -sf "$dotfiles_dir"/"$dir" "$xdg_config_home"/"$dir"
+    ln -sfn "$dotfiles_dir"/"$dir" "$xdg_config_home"/"$dir"
   fi
   echo ""
 done
@@ -84,6 +90,7 @@ done
 # Setup Starship prompt
 if ask "Setup Starship" Y; then
   echo "Setting up Starship prompt"
+  mkdir -p "$xdg_config_home"
   ln -sf "$dotfiles_dir"/starship/starship.toml "$xdg_config_home/starship.toml"
 fi
 echo ""
@@ -91,7 +98,7 @@ echo ""
 # Setup Bash
 if ask "Setup Bash" Y; then
   echo "Setting up bash startup files"
-#  cd "$dotfiles_dir"/bash;
+  mkdir -p "$xdg_config_home"
   ln -sfn "$dotfiles_dir"/bash/bash.d "${HOME}"/.config/bash.d;
   ln -sf "$dotfiles_dir"/bash/bashrc "${HOME}"/.bashrc;
   ln -sf "$dotfiles_dir"/bash/bash_profile "${HOME}"/.bash_profile;
@@ -101,20 +108,16 @@ echo ""
 # Setup Jujutsu
 if ask "Setup Jujutsu" Y; then
   echo "Setting up jj config file"
-  ln -sf "$dotfiles_dir"/jj "$xdg_config_home/jj"
+  ln -sfn "$dotfiles_dir"/jj "$xdg_config_home/jj"
 fi
 echo ""
 
 # Setup ssh
-if ask "Setp ssh config" Y; then
+if ask "Setup ssh config" Y; then
   echo "Linking ssh config"
+  mkdir -p "${HOME}"/.ssh && chmod 700 "${HOME}"/.ssh
   ln -sf "$dotfiles_dir"/ssh/config "${HOME}"/.ssh/config
 fi
-
-echo ""
-echo "Caveats:"
-echo "Vim: if remote server, rm .vimrc.bundles"
-# echo "Bash: if local machine, rm .bashrc.local"
 
 echo ""
 echo "Finished."

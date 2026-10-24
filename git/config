@@ -86,7 +86,6 @@
   editor = nvim
   autocrlf = input
   safecrlf = warn
-  excludesfile = ~/.gitignore_global
   quotepath = false
 	pager = less -R
   filemode = true

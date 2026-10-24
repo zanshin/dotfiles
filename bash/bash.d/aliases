@@ -1,237 +1,128 @@
 # -------------------------------------------------------------------
 # .bash_aliases
 #
-# Various aliases that I like and use.
+# Aliases I like and use. Aliases can only add arguments at the end of
+# a command, so anything that needs them elsewhere is a function at
+# the bottom of this file.
 # -------------------------------------------------------------------
 
-# Ruby stuff {{{
-alias ri='ri -Tf ansi'     # Search Ruby documentaton
+# ls color flag: GNU ls uses --color=auto, macOS ls uses -G
+if [[ -z "${colorflag:-}" ]]; then
+  if ls --color=auto -d . >/dev/null 2>&1; then colorflag="--color=auto"; else colorflag="-G"; fi
+fi
 
-# }}}
-# Rust {{{
-alias rust='rustc --version && cargo --version'
-
-# }}}
-# Movement {{{
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+# Movement
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias bk='cd "$OLDPWD"'
 
 alias code='cd ~/code'
+alias dots='cd ~/.dotfiles'
+alias godev='cd ~/code/go/src/github.com/zanshin'
+alias rsdev='cd ~/code/rust'
 
-# }}}
-# Sorted size {{{
-alias 'dus=du -schx * | sort -nr'
-
-# Processes {{{
-alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
-
-# }}}
-# }}}
-# Mac OS X specific stuff {{{
-#alias 'today=calendar -A 0 -f /usr/share/calendar/calendar.mark | sort'
-alias 'adventure=emacs -batch -l dunnet'
-alias 'mailsize=du -hs ~/Library/mail'
-alias 'ttop=top -ocpu -R -F -s 2 -n30'
-alias "dismount=osascript -e 'tell application "Finder" to eject (every disk whose ejectable is true)'"
-alias "resetdns=sudo killall -HUP mDNSResponder"
-
-# }}}
-# ls variants {{{
-alias l="ls -lahF ${colorflag}"
-alias ll="ls -lhF ${colorflag}"
+# ls variants
+alias ls="ls $colorflag"
+alias l="ls -lahF"
+alias ll="ls -lhF"
 alias lsd='ls -ld */'
 alias lh='ls -a | grep -e "^\."'
-alias ls="ls ${colorflag}"
-alias l.="ls -ld .?*"
-
+alias l.='ls -ld .?*'
+alias lst='ls -alt'
+alias latr='ls -latr'
 alias sym="ls -la | grep '\->'"
 
-alias latr="ls -latr"
+# Searching, history, sizes
+alias a='alias | grep'
+alias galias='alias | grep'
+alias h='history | grep'
+alias previous='history | grep'
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e'
+alias dus='du -schx * | sort -hr'
+alias dh="df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.time'"
 
-# }}}
-# Directory shortcuts {{{
-alias omedev="cd ~/code/chef/omedev"
-alias ome="cd ~/code/chef/ome"
-alias omepci="cd ~/code/chef/omepci"
-alias omepcidev="cd ~/code/chef/omepcidev"
-alias est="cd ~/code/chef/est"
-alias estdev="cd ~/code/chef/estdev"
-alias estwin="cd ~/code/chef/estwin"
-alias estwindev="cd ~/code/chef/estwindev"
-alias omeaws="cd ~/code/chef/omeaws"
-alias zome="cd ~/code/chef/zome"
-alias zomedev="cd ~/code/chef/zomedev"
-alias iso="cd ~/code/chef/iso"
-alias isodev="cd ~/code/chef/isodev"
+# Safety and sudo
+alias rm='rm -i'
+alias sudo='sudo '              # trailing space lets aliases work after sudo
+alias hosts='sudo -e /etc/hosts'
 
-alias roll="cd ~/code/chef/ome/cookbooks/ome_wildfly_cluster/scripts/reboot"
-alias roll2="cd ~/code/chef/zome/cookbooks/ome_wildfly_cluster/scripts/reboot"
-
-alias godev="cd ~/code/go/src/github.com/zanshin"
-alias rsdev="cd ~/code/rust"
-alias dots="cd ~/.dotfiles"
-# }}}
-# Miscellaneous {{{
-alias 'bk=cd $OLDPWD'
-alias 'rm=rm -i'
-#alias 'netwtf=sudo /usr/local/Cellar/mtr/**/sbin/mtr -b -o "LSD NBAW  JX" 8.8.8.8'
-alias 'previous=history | grep '
-alias 'h=history | grep '
-
-alias 'a=alias | grep "$@"'
-
-alias 'xup=xrdb ~/.Xresources'
-
-alias 'galias=alias | grep '
-
-alias 'define=curl dict://dict.org/define:"$@"'
-
-# Appender helpers
-alias 'ai=$HOME/bin/bash/appender.sh'
-
-# Modified df -h command to strip out noise
-alias "dh=df -h | head -1; df -h | grep '\s\/Volumes\|Data' | grep -v 'map\|.time'"
-
-# todo.sh
-alias 't=todo.sh -d ~/.config/todo/todo.cfg'
-
-# has: grep files looking for search string
-alias 'has=grep -eriH -m1 "$@" | cut -d: -f1'
-
-# }}}
-# Mercurial (hg) {{{
-# alias 'h=hg status'
-# alias 'hc=hg commit'
-# alias 'push=hg push'
-# alias 'pull=hg pull'
-# alias 'clone=hg clone'
-
-# }}}
-# Git {{{
+# Git
 alias ga='git add'
-alias gp='git push'
-alias gl='git log'
-# alias gpl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreed(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gpl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias gs='git status'
-alias gd='git diff'
-alias gm='git commit -m'
-alias gma='git commit -am'
-alias gcm='git commit'
 alias gb='git branch'
 alias gc='git checkout'
 alias gcb='git checkout -b'
+alias gcl='git clone'
+alias gcm='git commit'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gd='git diff'
+alias gdb='git diff master..HEAD'
+alias gr='git diff master..'
+alias gf='git reflog'
+alias gl='git log'
+alias gpl="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias gp='git push'
+alias gpu='git pull'
 alias gra='git remote add'
 alias grr='git remote rm'
-alias gpu='git pull'
-alias gcl='git clone'
+alias gs='git status'
 alias gta='git tag -a -m'
-alias gf='git reflog'
+alias gu='git up'               # git-up gem, or a `git up` alias in ~/.gitconfig
+alias gh='git hist'             # ~/.gitconfig alias
+alias gt='git today'            # ~/.gitconfig alias
 alias gv="git log --pretty=format:'%s' | cut -d ' ' -f 1 | sort | uniq -c | sort -nr"
-alias gdb='git diff master..`git rev-parse --abbrev-ref HEAD`'
-alias gr='git diff master..'
+alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"     # commit count
+alias guser="git shortlog | grep -E '^[^ ]'"               # commits per developer
+alias cssh='chmod 600 ~/.dotfiles/ssh/config ~/.dotfiles/ssh/authorized_keys 2>/dev/null'
 
-# requires git-up gem to be installed
-alias gu='git up'
-
-# git up all repos in directory
-alias gua='for dir in * ; do echo -e "\nUpdating $dir ..." ; cd $dir ; gu ; cd .. ; done'
-
-# leverage an alias from the ~/.gitconfig
-alias gh='git hist'
-alias gt='git today'
-
-# curiosities
-# gsh shows the number of commits for the current repos for all developers
-alias gsh="git shortlog | grep -E '^[ ]+\w+' | wc -l"
-
-# guser shows a list of all developers and the number of commits they've made
-alias guser="git shortlog | grep -E '^[^ ]'"
-
-# ect (Edit Changed in Tabs) opens all files marked as changed by Git in tabs
-alias ect="git status --short | awk '{print $2}' | xargs -o nvim"
-
-# Use `git up` Git alias to update master branch on all repositories in parent
-# directory
-alias gmass="find . -type d -name .git | tr './' ' ' | awk '{print $1}' | xargs -I @@ bash -c 'cd @@ && echo @@ && git checkout master && git up && cd ..'"
-
-# Not really a Git thing, but situation is caused by git pull on dotfile repo
-# reset file permissions on ~/.ssh/config to 600
-alias cssh="chmod 600 ~/.dotfiles/ssh/config >/dev/null 2>&1 && chmod 600 ~/.dotfiles/ssh/authorized_keys >/dev/null 2>&1"
-
-# }}}
-# Jujutsu (jj) {{{
-# alias jn='jj new'
-# alias jp='jj git push'
-# alias js='jj st'
+# Jujutsu (jj)
 alias jl='jj log'
-# # alias jh="jj short -r all'()'"
-alias jh="jj history -r all'()'"
-#
-# ## pull up the nearest bookmarks to the working-copy parent
-# alias jbm="jj bookmark move --from 'heads(::@- & bookmarks())' --to @-"
+alias jh="jj history -r 'all()'"
 
-# }}}
-# Cargo / Rust {{{
+# Rust / Cargo
+alias rust='rustc --version && cargo --version'
 alias cr='cargo run'
 alias ct='cargo test'
 alias crt='RUST_LOG=trace cargo run'
 alias ctt='RUST_LOG=trace cargo test -- --nocapture'
+alias rstree='tree -I target/'
 
-# }}}
-# Neovim and Vim {{{
-# alias 'vi=vim'
-alias 'vi=nvim'
-alias 'nv=nvim'
-alias vplug="vim +PlugUpgrade +PlugUpdate +qall"
-alias nplug="nvim +PlugUpgrade +PlugUpdate +qall"
-alias 'vim=vim -U none'
+# Ruby / Python
+alias ri='ri -Tf ansi'
+alias python='python3'
+alias mkenv='mkvirtualenv'
+alias on='workon'
+alias off='deactivate'
 
-alias nvimks='NVIM_APPNAME="nvim-kickstart" nvim'
-alias nvimmin='NVIM_APPNAME="nvim-minimum" nvim'
-alias nvimbb='NVIM_APPNAME="nvim-barebones" nvim'
-
-# asdf alais to remove previous nightly and update to current nightly
+# Neovim and Vim
+alias vi='nvim'
+alias nv='nvim'
+alias vim='vim -U none'
+alias vplug='vim +PlugUpgrade +PlugUpdate +qall'
+alias nplug='nvim +PlugUpgrade +PlugUpdate +qall'
+alias nvimks='NVIM_APPNAME=nvim-kickstart nvim'
+alias nvimmin='NVIM_APPNAME=nvim-minimum nvim'
+alias nvimbb='NVIM_APPNAME=nvim-barebones nvim'
 alias update-nvim='asdf uninstall neovim nightly && asdf install neovim nightly'
 
-# }}}
-# Tmux {{{
-alias takeove='tmux detach -a'
+# Tmux
 alias attach='tmux attach -t base || tmux new -s base'
+alias takeover='tmux detach -a'
 alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tls='tmux ls'
 alias tk='tmux kill-session -t'
 alias ts='tsession.sh'
 alias tf='tmux-sessionizer'
+alias resetmouse="printf '\e[?1000l'"    # turn off mouse reporting after a tmux crash
 
-# tmux scripts
-# alias tb='~/.dotfiles/scripts/blog'
-# alias th='~/.dotfiles/scripts/hugo'
-# alias tw='~/.dotfiles/scripts/chef'
-# alias tf='~/.dotfiles/scripts/fugazi'
-# alias tc='~/.dotfiles/scripts/console'
-# alias tt='~/.dotfiles/scripts/tools'
-# alias td='~/.dotfiles/scripts/deploy'
+# Mail
+alias mutt='(cd ~/Desktop && mutt)'      # subshell: back in the original dir even if mutt fails
+alias nmutt='(cd ~/Desktop && neomutt)'
 
-# force tmux to use 256 colors
-# alias tmux='TERM=screen-256colors tmux'
-alias tmux='tmux -2'
-
-# Disable Mouse reporting
-# https://superuser.com/questions/802698/disable-mouse-reporting-in-a-terminal-session-after-tmux-exits-unexpectedly
-alias resetmouse="printf '\e[?1000l'"
-
-# }}}
-# Mutt {{{
-alias mutt='cd ~/Desktop && mutt && cd -'
-alias nmutt='cd ~/Desktop/ && neomutt && cd -'
-# alias mutt='mutt -e "set crypt_use_gpgme=no"'
-
-# }}}
-# Vagrant {{{
+# Vagrant
 alias vg='vagrant'
 alias vs='vagrant ssh'
 alias vu='vagrant up'
@@ -241,122 +132,81 @@ alias vr='vagrant reload'
 alias vd='vagrant destroy'
 alias vgs='vagrant global-status'
 
-# }}}
-# Knife {{{
-alias kso='knife status "hostname:ome*"'
-alias ks='knife status'
-alias kn='knife node'
-alias kns='knife node show'
-alias kc='knife client'
-alias tagged='knife search node "name:ome-vm*" -a tags'
-alias notags='knife search node "NOT tags:* AND name:ome*" -a tags'
-alias k='knife'
-alias bake='knife cookbook upload'
-alias ksg='knife status | grep '
-
-
-# }}}
-# Docker {{{
+# Docker
+alias d='docker'
+alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
 alias dm='docker-machine'
 alias dmenv='eval "$(docker-machine env local)"'
 
-alias d='docker'
-alias dclean='docker rm -v $(docker ps -aq -f status=exited)'
-
-# }}}
-# Randome shortcuts {{{
-alias bu='brew update; brew upgrade; brew upgrade --cask ; brew cleanup; brew doctor'
-alias wifi='networksetup -setairportpower en0'
-alias makepass='openssl rand -base64 12'
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-#alias cowsay='fortune | cowsay'
-alias wttr='curl wttr.in'
-
-# }}}
-# VPN & Remote machines {{{
-# alias vpn='sudo openconnect --config ~/.openconnect https://vpn.net.k-state.edu &'
-alias gpv="~/bin/bash/gpvpn-split.sh"
-
-alias gpon="sudo openconnect --user=mhn --protocol=gp gpvpn.ksu.edu"
-# alias gpon="tmux new -s vpn '~/bin/bash/gpvpn-split.sh'"
-alias gpoff='sudo pkill -SIGINT openconnect'
-
-# rdp - connects to admin via pawjump opening port 3389 for Remote Desktop
-# admin - connects to admin via pawjump
-alias rdp='ssh -t -L 3389:mhn-linux-admin.aws.ksu.edu:3389 paw \ ssh -t admin'
-alias admin='ssh -t paw \ ssh -t admin'
-
-# }}}
-# Python virtualenv {{{
-alias mkenv='mkvirtualenv'
-alias on='workon'
-alias off='deactivate'
-
-alias python="python3"
-
-# }}}
-# Oddball stuff {{{
-alias rstree='tree -I target/'
-alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
-# alias inet='ifconfig | grep inet | grep -v inet6'
-alias sloc='/usr/local/sloccount/bin/sloccount'
-
+# Miscellaneous
 alias acat='source ~/.bash_aliases'
 alias facat='source ~/.bash_functions'
 alias sb='source ~/.bashrc'
-
-# Just for fun
-alias please='sudo !!'
+alias ai='~/bin/bash/appender.sh'
+alias t='todo.sh -d ~/.config/todo/todo.cfg'
+alias adventure='emacs -batch -l dunnet'
+alias makepass='openssl rand -base64 12'
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+alias untar='tar xvf'
 alias fail='tail -f'
-alias gtail='tail -f $1 | grep --line-buffered "$2"'
+alias wttr='curl wttr.in'
+alias ipp='dig +short myip.opendns.com @resolver1.opendns.com'
+alias sloc='/usr/local/sloccount/bin/sloccount'
 
-# }}}
-# Stolen from Jessie Frazelle {{{
+# OS-specific
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias bu='brew update; brew upgrade; brew upgrade --cask; brew cleanup; brew doctor'
+  alias mailsize='du -hs ~/Library/mail'
+  alias ttop='top -ocpu -R -F -s 2 -n30'
+  alias dismount="osascript -e 'tell application \"Finder\" to eject (every disk whose ejectable is true)'"
+  alias resetdns='sudo killall -HUP mDNSResponder'
+  alias flush='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+  alias wifi='networksetup -setairportpower en0'
+  alias brave='open -a "/Applications/Brave Browser.app" --args --proxy-server="socks5://localhost:54321"'
+else
+  alias xup='xrdb ~/.Xresources'
+  alias ss='sudo systemctl'
+  alias ssu='sudo systemctl start'
+  alias ssd='sudo systemctl stop'
+  alias ssr='sudo systemctl restart'
+  alias sse='sudo systemctl enable'
+  alias packages='echo "$(pacman -Qn | wc -l) Arch packages, and $(pacman -Qm | wc -l) AUR packages"'
+fi
 
-# vhosts - edit hosts file
-alias hosts='sudo vim /etc/hosts'
+# Functions: these need their arguments somewhere other than the end
+# (unalias first, so re-sourcing a shell that still has the old aliases works)
+unalias define has gtail please ect gua gmass 2>/dev/null
 
-# Enable aliases to be sudo’ed
-alias sudo='sudo '
+# define WORD: dictionary lookup
+function define { curl -s "dict://dict.org/define:$1"; }
 
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+# has PATTERN [DIR]: list files under DIR (default .) containing PATTERN, ignoring case
+function has { grep -rli -- "$1" "${2:-.}"; }
 
-# untar
-alias untar="tar xvf"
+# gtail FILE PATTERN: follow FILE, showing only lines matching PATTERN
+function gtail { tail -f "$1" | grep --line-buffered -- "$2"; }
 
-# }}}
-# Linux clipboard {{{
-# alias pbcopy="xsel --clipboard --input"
-# alias pbpaste="xsel --clipboard --output"
+# please: rerun the previous command with sudo
+function please { eval "sudo $(history -p '!!')"; }
 
-# }}}
-# AWS {{{
+# ect: open every file Git reports as changed in nvim
+function ect { git status --short | awk '{print $2}' | xargs -o nvim; }
 
-# AWS "whoami"
-# alias awswho="aws sts get-caller-identity 2>/dev/null"
+# gua: `git up` in each repository directly under the current directory
+function gua {
+  local g
+  for g in */.git; do
+    [[ -d "$g" ]] || continue
+    printf '\nUpdating %s ...\n' "${g%/.git}"
+    (cd "${g%/.git}" && git up)
+  done
+}
 
-# AWS login
-alias awson='aws login ; LP_PS1_PREFIX="\033[0;34maws \033[0m"'
-
-# AWS logout
-alias awsoff='aws logout ; LP_PS1_PREFIX=""'
-
-# Kubernetes
-alias kdev="aws eks --region us-east-1 update-kubeconfig --name EKS-Dev"
-alias kshared="aws eks --region us-east-1 update-kubeconfig --name EKS-Shared"
-alias kprod="aws eks --region us-east-1 update-kubeconfig --name EKS-Prod"
-
-# }}}
-# systemctl {{{
-alias ss="sudo systemctl"
-alias ssu="sudo systemctl start"
-alias ssd="sudo systemctl stop"
-alias ssr="sudo systemctl restart"
-alias sse="sudo systemctl enable"
-
-# }}}
-# Aliases from new-alias function
-alias lst='ls -alt'
-alias packages='echo $(pacman -Qn | wc -l) "Arch packages, and " $(pacman -Qm | wc -l) "AUR packages"'
-alias brave='open -a /Applications/"Brave Browser.app" --args --proxy-server="socks5://localhost:54321"'
+# gmass: check out master and `git up` in every repository below the current directory
+function gmass {
+  local g
+  while IFS= read -r g; do
+    echo "${g%/.git}"
+    (cd "${g%/.git}" && git checkout master && git up)
+  done < <(find . -type d -name .git -prune)
+}
