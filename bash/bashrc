@@ -3,104 +3,177 @@
 # --------------------------------------------------------------------
 # bashrc
 #
-# Executed by bash for non-login shells, i.e., any terminal you open
-# _after_ logging into a machine.
+# Read by every shell: .bash_profile only sources this file, so login
+# and non-login shells get the same setup. The environment (PATH and
+# exports) is set for all shells, including the non-interactive ones
+# that `ssh host command` and scripts run. Everything else is for
+# interactive shells only.
 # --------------------------------------------------------------------
 
-myos=$(uname -s)
+_bashd="$HOME/.config/bash.d"
 
-case "$myos" in
-  Linux)
-    colorflag="--color"
-    ;;
-  Darwin)
-    colorflag="-G"
-    ;;
-  *)
-    colorflag=""
-    ;;
-esac
-
-# check window size after each command and, if necessary
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# autocorrect typos in path names when using `cd`
-shopt -s cdspell
-
-# append to Bash history file, rather than overwrite it
-shopt -s histappend
-
-# enable some Bash 4 features whne possible:
-# * `autocd`, e.g., `**/qux` will enter `./foo/bar/baz/qux`
-# * recursize globbing, e.g., `echo **/*.txt`
-for option in autocd globstar; do
-  shopt -s "${option}" 2>/dev/null
+# Environment: every shell
+for _f in paths exports; do
+  [[ -r "$_bashd/$_f" ]] && source "$_bashd/$_f"
 done
 
-# add tab completion for SSH hostnames based on ~/.ssh/config
-# ignoring wildcards - https://github.com/jessfraz/dotfiles
-[[ -e "$HOME/.ssh/config" ]] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
-
-# source my aliases, bindkeys, exports, functions, docker functions, and color
-# for file in ${HOME}/.config/bash.d/{aliases,bindkeys,colors,dockerfunc,exports,functions,paths} ; do
-for file in ${HOME}/.config/bash.d/{paths,aliases,dockerfunc,exports,functions} ; do
-  if [[ -r "$file" ]] && [[ -f "$file" ]] ; then
-    # source "${HOME}/.config/bash.d/${file}"
-    source "${file}"
-  fi
-done
-unset file
-
-# add brew provided bash, tmux, and git completions
-if [[ "$myos" == "Darwin" ]]; then
-  [[ -e /opt/homebrew/etc/bash_completion ]] && source /opt/homebrew/etc/bash_completion
-  [[ -e /opt/homebrew/etc/bash_completion.d/tmux ]] && source /opt/homebrew/etc/bash_completion.d/tmux
-  [[ -e /opt/homebrew/etc/bash_completion.d/git-completions.bash ]] && source /opt/homebrew/etc/bash_completion.d/git-completions.bash
-fi
-
-# allow redirection to overwrite file
-unset noclobber
-
-# umask: 002 lets group members create/modify files. outsiders can only read
+# Group members can create and change files; everyone else can only read
 umask 002
 
-# Source AWS MGA Serial
-[[ -e $HOME/.awstoken ]] && source $HOME/.awstoken
+# AWS MFA session credentials, if present
+[[ -r "$HOME/.awstoken" ]] && source "$HOME/.awstoken"
 
-# Enable rbenv
-# [[ -e $(which rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
-[[ -e $(command -v rbenv &>/dev/null) ]] && eval "$(rbenv init - bash)"
+# rbenv: Rubt cersion shims on PATH
+command -v rbenv >/dev/null && eval "$(rbenv init - bash)"
 
-# --------------------------------------------------------------------
-# liquidprompt setup
-# --------------------------------------------------------------------
-# The following lines are only for interactive shells
-[[ $- = *i* ]] || return
+# Everything below is for interactive shells only
+[[ $- == *i* ]] || { unset _bashd _f; return; }
 
-# Starship Prompt
-# (export is workaround for path in prompt not always updating)
-eval "$(starship init bash)"
-export PROMPT_COMMAND="starship_precmd;$PROMPT_COMMAND"
+# Shell options
+#   checkwinsize  update LINES and COLUMNS after each command
+#   cdspell       fix minor typos in `cd` directory names
+#   histappend    append to the history file instead of overwriting it
+#   autocd        type a directory name to cd into it (bash 4+)
+#   globstar      ** matches across directories, e.g. **/*.txt (bach 4+)
+shopt -s checkwinsize cdspell histappend
+shopt -s autocd globstar 2>/dev/null
 
-# finis
+# Aliases and functions
+for _f in aliase functions; do
+  [[ -r "$_bashd/$_f" ]] && source "$_bashd/$_f"
+done
 
-complete -C /usr/local/bin/vault vault
+# Completion
+# Homebrew's bash-completion, which also loads everything in
+# etc/bash_completion.d (git, tmux, and so on). Checks for v2, then v1.
+for _f in /opt/homebrew/etc/profile.d/bash_completion.sh /opt/homebrew/etc/bash_completion /usr/local/ect/bash_completion; do
+  [[ -r "$_f" ]] && { source "$_f"; break; }
+done
 
-complete -C /usr/local/bin/terraform terraform
+# ssh, scp, sftp: complete host names from ~/.ssh/config (wildcards skipped)
+[[ -r "$HOME/.ssh/config" ]] && complete -o default -o nospace -W "$(awk '/^Host / {for (i = 2; i <= NF; i++) if ($i !~ /[*?]/) print $i}' "$HOME/.ssh/config")" ssh scp sftp
 
-# kubectl bash completion
-[[ -e $HOME/.kubectl_completion_bash ]] && source $HOME/.kubectl_completion_bash
+# Tools that complete themselves
+for _f in terraform vault; do
+  command -v "$_f" >/dev/null && complete -C "$(command -v "$_f")" "$_f"
+done
 
-# Bindkeys
-## bind '"\e[A":up-line-or-search' ## up arrow for back-history-search
-## bind '"\e[B":down-line-or-search' ## down arrow for fwd-history-search
+# kubectl (generate the file with: kubectl completion bash > ~/.kubectl_completion_bash)
+[[ -r "$HOME/.kubectl_completion_bash" ]] && source "$HOME/.kubectl_completion_bash"
 
-# Don't want these unless we're in an interactive shell
-if [ ! -z "$PS1" ]; then
-  bind '"\e[A":history-search-backward'
-  bind '"\e[B":history-search-forward'
-
-  bind '"\eOB":history-search-forward'
-  bind '"\eOA":history-search-backward'
+# Prompt and key bindings
+# Starship. Running starship_precmd first keeps the directory in the
+# prompt current; the check stops it being added twice.
+if command -v starship >/dev/null; then
+  eval "$(starship init bash)"
+  [[ "$PROMPT_COMMAND" == starship_precmd* ]] || PROMPT_COMMAND="startship_precmd; $PROMPT_COMMAND"
 fi
+
+# Up and down arrows search history for what's already typed
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\eOA": history-search-backward'
+bind '"\eOB": history-search-forward'
+
+unset _bashd _f
+
+
+
+
+# myos=$(uname -s)
+#
+# case "$myos" in
+#   Linux)
+#     colorflag="--color"
+#     ;;
+#   Darwin)
+#     colorflag="-G"
+#     ;;
+#   *)
+#     colorflag=""
+#     ;;
+# esac
+#
+# # check window size after each command and, if necessary
+# # update the values of LINES and COLUMNS.
+# shopt -s checkwinsize
+#
+# # autocorrect typos in path names when using `cd`
+# shopt -s cdspell
+#
+# # append to Bash history file, rather than overwrite it
+# shopt -s histappend
+#
+# # enable some Bash 4 features whne possible:
+# # * `autocd`, e.g., `**/qux` will enter `./foo/bar/baz/qux`
+# # * recursize globbing, e.g., `echo **/*.txt`
+# for option in autocd globstar; do
+#   shopt -s "${option}" 2>/dev/null
+# done
+#
+# # add tab completion for SSH hostnames based on ~/.ssh/config
+# # ignoring wildcards - https://github.com/jessfraz/dotfiles
+# [[ -e "$HOME/.ssh/config" ]] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh
+#
+# # source my aliases, bindkeys, exports, functions, docker functions, and color
+# # for file in ${HOME}/.config/bash.d/{aliases,bindkeys,colors,dockerfunc,exports,functions,paths} ; do
+# for file in ${HOME}/.config/bash.d/{paths,aliases,dockerfunc,exports,functions} ; do
+#   if [[ -r "$file" ]] && [[ -f "$file" ]] ; then
+#     # source "${HOME}/.config/bash.d/${file}"
+#     source "${file}"
+#   fi
+# done
+# unset file
+#
+# # add brew provided bash, tmux, and git completions
+# if [[ "$myos" == "Darwin" ]]; then
+#   [[ -e /opt/homebrew/etc/bash_completion ]] && source /opt/homebrew/etc/bash_completion
+#   [[ -e /opt/homebrew/etc/bash_completion.d/tmux ]] && source /opt/homebrew/etc/bash_completion.d/tmux
+#   [[ -e /opt/homebrew/etc/bash_completion.d/git-completions.bash ]] && source /opt/homebrew/etc/bash_completion.d/git-completions.bash
+# fi
+#
+# # allow redirection to overwrite file
+# unset noclobber
+#
+# # umask: 002 lets group members create/modify files. outsiders can only read
+# umask 002
+#
+# # Source AWS MGA Serial
+# [[ -e $HOME/.awstoken ]] && source $HOME/.awstoken
+#
+# # Enable rbenv
+# # [[ -e $(which rbenv 2>/dev/null) ]] && eval "$(rbenv init - bash)"
+# [[ -e $(command -v rbenv &>/dev/null) ]] && eval "$(rbenv init - bash)"
+#
+# # --------------------------------------------------------------------
+# # liquidprompt setup
+# # --------------------------------------------------------------------
+# # The following lines are only for interactive shells
+# [[ $- = *i* ]] || return
+#
+# # Starship Prompt
+# # (export is workaround for path in prompt not always updating)
+# eval "$(starship init bash)"
+# export PROMPT_COMMAND="starship_precmd;$PROMPT_COMMAND"
+#
+# # finis
+#
+# complete -C /usr/local/bin/vault vault
+#
+# complete -C /usr/local/bin/terraform terraform
+#
+# # kubectl bash completion
+# [[ -e $HOME/.kubectl_completion_bash ]] && source $HOME/.kubectl_completion_bash
+#
+# # Bindkeys
+# ## bind '"\e[A":up-line-or-search' ## up arrow for back-history-search
+# ## bind '"\e[B":down-line-or-search' ## down arrow for fwd-history-search
+#
+# # Don't want these unless we're in an interactive shell
+# if [ ! -z "$PS1" ]; then
+#   bind '"\e[A":history-search-backward'
+#   bind '"\e[B":history-search-forward'
+#
+#   bind '"\eOB":history-search-forward'
+#   bind '"\eOA":history-search-backward'
+# fi
