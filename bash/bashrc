@@ -23,7 +23,7 @@ umask 002
 # AWS MFA session credentials, if present
 [[ -r "$HOME/.awstoken" ]] && source "$HOME/.awstoken"
 
-# rbenv: Rubt cersion shims on PATH
+# rbenv: Ruby version shims on PATH
 command -v rbenv >/dev/null && eval "$(rbenv init - bash)"
 
 # Everything below is for interactive shells only
