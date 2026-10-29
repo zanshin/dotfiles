@@ -33,6 +33,10 @@
     "toggle_relative_line_numbers": true,
     "gdefault": true,
   },
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 500,
+  },
   "relative_line_numbers": "enabled",
   "current_line_highlight": "all",
   "cursor_blink": false,
